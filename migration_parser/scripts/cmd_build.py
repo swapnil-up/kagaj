@@ -43,7 +43,8 @@ from . import (
     cmd_verify,
 )
 
-SHIPPED = ["panel.csv", "panel_canonical.csv.gz", "agencies.csv", "series.csv"]
+SHIPPED = ["panel.csv", "panel_canonical.csv.gz", "panel_rollup.csv.gz",
+           "agencies.csv", "series.csv", "period_windows.csv"]
 
 
 def _sha256(path: Path) -> str:
@@ -71,17 +72,21 @@ def _git() -> dict:
                                   text=True, check=True).stdout.strip()
         except (subprocess.CalledProcessError, FileNotFoundError):
             return ""
+    porcelain = run("status", "--porcelain")
+    dirty = bool(porcelain)
     return {
         "commit": run("rev-parse", "HEAD"),
         "describe": run("describe", "--tags", "--always", "--dirty"),
-        "dirty": bool(run("status", "--porcelain")),
+        "dirty": dirty,
+        "clean": not dirty,
     }
 
 
-def gunzip_panel() -> Path:
-    """Deterministically gzip panel_canonical.csv -> panel_canonical.csv.gz."""
-    src = MIGRATION_DIR / "panel_canonical.csv"
-    dst = MIGRATION_DIR / "panel_canonical.csv.gz"
+def gunzip_panel(src_name: str = "panel_canonical.csv",
+                 dst_name: str = "panel_canonical.csv.gz") -> Path:
+    """Deterministically gzip a shipped CSV (mtime=0 -> stable bytes)."""
+    src = MIGRATION_DIR / src_name
+    dst = MIGRATION_DIR / dst_name
     data = src.read_bytes()
     with dst.open("wb") as raw:
         with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as gz:
@@ -92,12 +97,14 @@ def gunzip_panel() -> Path:
 
 def _verify_columns() -> None:
     """Fail loudly if the codebook columns drift from the shipped headers."""
+    canonical_cols = cmd_process.PANEL_COLUMNS + cmd_normalize.PANEL_EXTRA + cmd_reconcile.EXTRA
     expected = {
         "panel.csv": list(cmd_process.PANEL_COLUMNS),
-        "panel_canonical.csv.gz": cmd_process.PANEL_COLUMNS + cmd_normalize.PANEL_EXTRA
-                                  + cmd_reconcile.EXTRA,
+        "panel_canonical.csv.gz": canonical_cols,
+        "panel_rollup.csv.gz": canonical_cols,
         "agencies.csv": list(cmd_agencies.AGENCY_COLUMNS),
         "series.csv": list(cmd_series.COLUMNS),
+        "period_windows.csv": PERIOD_WINDOW_COLUMNS,
     }
     for name, cols in expected.items():
         known = codebook.COLUMNS[name]
@@ -107,19 +114,67 @@ def _verify_columns() -> None:
             raise SystemExit(f"codebook drift in {name}: missing={missing} extra={extra}")
 
 
+PERIOD_WINDOW_COLUMNS = ["period_bs", "fiscal_year", "period_ad_start",
+                         "period_ad_end", "doc_id", "granularity"]
+
+
+def _open(path: Path):
+    return gzip.open if path.suffix == ".gz" else open
+
+
+def _col_values(path: Path, col: str) -> list[str]:
+    with _open(path)(path, "rt", newline="", encoding="utf-8") as f:
+        return sorted({row.get(col, "") for row in csv.DictReader(f)})
+
+
 def _vocabularies() -> dict:
+    """Controlled vocabularies read from the shipped data (never hard-coded)."""
+    canon = MIGRATION_DIR / "panel_canonical.csv.gz"
+    series = MIGRATION_DIR / "series.csv"
+    agencies = MIGRATION_DIR / "agencies.csv"
     channels = normalize.canonical_channels()
     return {
-        "section": ["country", "district"],
-        "gender": ["male", "female", "total"],
-        "row_type": ["detail", "total", "grand_total"],
-        "granularity": ["month", "year", "measure", ""],
-        "doc_type": sorted(normalize.reconciliation()["granularity"].keys()),
+        "section": _col_values(canon, "section"),
+        "gender": _col_values(canon, "gender"),
+        "row_type": _col_values(canon, "row_type"),
+        "granularity": _col_values(canon, "granularity"),
+        "doc_type": _col_values(canon, "doc_type"),
+        "channel_class": sorted({m.get("class", "unknown") for m in channels.values()}),
+        "entity_type": _col_values(canon, "entity_type"),
         "channel_canonical": {
             name: {"label": m.get("label", name), "class": m.get("class", "unknown")}
             for name, m in sorted(channels.items())
         },
+        "series": {
+            "unit": _col_values(series, "unit"),
+            "year_basis": _col_values(series, "year_basis"),
+            "metric": _col_values(series, "metric"),
+            "dimension": _col_values(series, "dimension"),
+            "gender": _col_values(series, "gender"),
+        },
+        "agencies": {"measure": _col_values(agencies, "measure")},
     }
+
+
+def _check_vocabularies(vocab: dict) -> None:
+    """Fail if the data contains a value not documented in codebook.EXPECTED_VOCAB.
+
+    Watching only columns let ``year_basis=snapshot`` slip through silently; this
+    watches values too.
+    """
+    for dataset, cols in codebook.EXPECTED_VOCAB.items():
+        for col, allowed in cols.items():
+            if dataset == "series.csv":
+                observed = set(vocab["series"].get(col, []))
+            elif dataset == "agencies.csv":
+                observed = set(vocab["agencies"].get(col, []))
+            else:
+                observed = set(vocab.get(col, []))
+            extra = observed - allowed
+            if extra:
+                raise SystemExit(
+                    f"vocabulary drift: {dataset}.{col} has undocumented values {sorted(extra)}; "
+                    f"add them to codebook.EXPECTED_VOCAB and migration/README.md")
 
 
 def write_codebook(build: dict) -> Path:
@@ -143,6 +198,30 @@ def write_codebook(build: dict) -> Path:
     return path
 
 
+def write_period_windows() -> Path:
+    """Publish the distinct reporting windows for date-based merges (tracked)."""
+    src = MIGRATION_DIR / "panel_canonical.csv"
+    groups: dict[tuple, set[str]] = {}
+    with src.open(newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            key = (r["period_bs"], r["reconciled_fiscal_year"], r["period_ad_start"],
+                   r["period_ad_end"], r["granularity"])
+            groups.setdefault(key, set()).add(r["doc_id"])
+    rows = [
+        {"period_bs": pbs, "fiscal_year": fy, "period_ad_start": start,
+         "period_ad_end": end, "doc_id": ";".join(sorted(docs)), "granularity": gran}
+        for (pbs, fy, start, end, gran), docs in groups.items()
+    ]
+    rows.sort(key=lambda r: (r["period_ad_start"], r["period_bs"], r["granularity"]))
+    path = MIGRATION_DIR / "period_windows.csv"
+    with path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=PERIOD_WINDOW_COLUMNS)
+        w.writeheader()
+        w.writerows(rows)
+    print(f"wrote {path.name} ({len(rows)} windows)")
+    return path
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="migration build")
     p.add_argument("--scrape", action="store_true", help="refresh manifest (network)")
@@ -150,6 +229,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--allow-download", action="store_true",
                    help="allow downloading missing PDFs (default: offline)")
     p.add_argument("--skip-crosscheck", action="store_true")
+    p.add_argument("--require-clean", action="store_true",
+                   help="fail if the git tree is dirty (used for the shipped fingerprint)")
     args = p.parse_args(sys.argv[1:] if argv is None else argv)
 
     online = args.allow_download
@@ -196,12 +277,26 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     gunzip_panel()
+    gunzip_panel("panel_rollup.csv", "panel_rollup.csv.gz")
+    write_period_windows()
+
+    vocab = _vocabularies()
+    try:
+        _check_vocabularies(vocab)
+    except SystemExit as e:
+        print(e, file=sys.stderr)
+        return 1
+
+    git = _git()
+    if args.require_clean and git["dirty"]:
+        print("error: --require-clean set but git tree is dirty; commit first", file=sys.stderr)
+        return 1
 
     build = {
         "schema_version": codebook.SCHEMA_VERSION,
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "duration_s": round(time.time() - t0, 1),
-        "git": _git(),
+        "git": git,
         "audits": audits,
         "files": {},
     }

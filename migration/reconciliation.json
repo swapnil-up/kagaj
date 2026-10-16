@@ -1,6 +1,15 @@
 {
   "rule": "The panel contains multiple documents describing overlapping real-world quantities. Never mix granularities when summing: (a) within a fiscal year use EITHER all monthly documents OR the annual document, never both; (b) Table IX/X (country) and XI/XII/XIII (district) are the same measure along different dimensions — pick one dimension, do not sum across them; (c) pre-approval (channel_class=measure) is a distinct stage, not a deployment channel. Each row carries `granularity` (month|year|measure) and `reconciled_fiscal_year`; deduplicate on the `dedup_key` below.",
   "dedup_key": ["granularity", "reconciled_fiscal_year", "period_ad_start", "section", "name_canonical", "gender", "channel_canonical", "row_type"],
+  "files": {
+    "panel_canonical.csv.gz": "PRIMARY, additive-only: row_type=detail AND channel_class=component. Summing it cannot double-count an aggregate against its components. Filter analysis_safe=true for the safe default.",
+    "panel_rollup.csv.gz": "Non-additive companion: channel_class=aggregate rows, printed total/grand_total rows and measure rows. Compare against the primary; never add to it."
+  },
+  "entity_uniqueness": {
+    "resolved": "name_canonical is the canonical entity name (countries.json / districts.json).",
+    "unresolved": "Unresolved entities carry entity_resolved=false. Source-clipped names (doc 332 'Republic o' x4, 'REPUBLI') are suffixed with their source serial, e.g. 'Republic o (sn 9)', so name_canonical is unique and a groupby never silently merges different countries. The four clipped Republics are unrecoverable from the PDF text layer (verified).",
+    "key_note": "dedup_key alone is sufficient for resolved rows; unresolved rows are additionally keyed by (doc_id, sn) at reconcile time as a belt-and-suspenders guard."
+  },
   "granularity": {
     "single_month": "month",
     "cumulative": "month",

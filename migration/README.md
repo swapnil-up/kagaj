@@ -5,10 +5,15 @@ Department of Foreign Employment (DoFE), `dofe.gov.np`.
 
 The **analysis dataset is `panel_canonical.csv.gz`** — `panel.csv` with canonical
 entities/channels/fiscal-years and within-document merges applied (see
-*Cross-document reconciliation*). `panel.csv` is the raw extraction; `agencies.csv`
-holds agency-level detail and `series.csv` the historical metric series. A
-machine-readable data dictionary ships as `codebook.json`; the build is
-fingerprinted in `build.json`.
+*Cross-document reconciliation*). It is **additive-only**: it contains only
+`row_type=detail` rows whose `channel_class=component`, so summing it (e.g.
+`groupby` a country or a year) can never double-count an aggregate against its
+components. Printed totals, `channel_class=aggregate` rows and distinct measures
+live in the companion `panel_rollup.csv.gz`, which you compare against but never
+add to the primary. Filter `analysis_safe=true` for the safe default set of rows.
+`panel.csv` is the raw extraction; `agencies.csv` holds agency-level detail and
+`series.csv` the historical metric series. A machine-readable data dictionary
+ships as `codebook.json`; the build is fingerprinted in `build.json`.
 
 `panel.csv` is **one row per (document × section × name × channel × gender)**.
 Almost every row is `verified=True`: the printed male/female totals, channel
@@ -326,7 +331,7 @@ record; the `normalize` stage writes the normalised companions
 **`migration/panel_normalized.csv`** and
 **`migration/agencies_normalized.csv`** by *appending* columns:
 
-- panel: `entity_type, name_canonical, iso3, province, entity_note, entity_resolved, fiscal_year`
+- panel: `entity_type, name_canonical, iso3, province, entity_note, entity_resolved, fiscal_year, channel_canonical, channel_class, granularity, reconciled_fiscal_year, period_override, analysis_safe`
 - agencies: `country_canonical, country_iso3, fiscal_year`
 
 `fiscal_year` is derived from the row's BS period — annual labels directly,
@@ -340,7 +345,10 @@ content-id map in `normalize.py`.
   (`Africa`, `West-Indies`), the ambiguous printed `MALABO`/`Kango`/`Saipan`/
   `East Africa Djibouti`, and the source-clipped `Republic o`/`REPUBLI` names
   (content 332's country column clips labels to ~22 pt, losing which "Republic
-  of…"). They are kept verbatim, never force-mapped.
+  of…"). They are kept verbatim, never force-mapped. The clipped names are
+  additionally suffixed with their source serial (`Republic o (sn 9)`,
+  `REPUBLI (sn 55)`) so they are unique in `name_canonical` and never merge under
+  a groupby — see *Cross-document reconciliation*.
 - Province values are lowercase keys and always one of the seven modern
   provinces (`koshi`, `madhesh`, `bagmati`, `gandaki`, `lumbini`, `karnali`,
   `sudurpashchim`) — never a compound. The two pre-2018 unified districts are
@@ -360,8 +368,12 @@ redbook-env/bin/python -m migration_parser.cli normalize
 
 The panel mixes documents that describe overlapping quantities, so summing them
 naively double-counts. `migration/reconciliation.json` records the rule and the
-`reconcile` stage applies + audits it, writing the gitignored
-`migration/panel_canonical.csv` (and `panel_canonical.csv.gz` after packaging).
+`reconcile` stage applies + audits it, writing two gitignored files:
+`migration/panel_canonical.csv` (**additive-only**: `row_type=detail` ×
+`channel_class=component`) and `migration/panel_rollup.csv` (aggregates, measures
+and printed totals). The split is enforced — reconcile fails if any non-component
+row reaches the primary, or if the primary is not unique on the documented dedup
+key. After packaging these become `panel_canonical.csv.gz` / `panel_rollup.csv.gz`.
 
 **Rule** (see the JSON for the full text): never mix granularities — within a
 fiscal year use *either* all monthly docs *or* the annual doc; Table IX/X
@@ -381,10 +393,22 @@ Two applied corrections documented in the JSON:
    spellings (e.g. `Combodia` + `Cambodia` in doc 332), the rows resolve to one
    entity and are summed (`merged_rows`, `raw_names` in the output).
 
-`granularity` (`month`/`year`/`measure`) and `reconciled_fiscal_year` are
-appended by the `normalize` stage. The audit asserts **no canonical key is
-produced by more than one document** (currently 0 conflicts; 1599 intra-doc
-merges) and that the annual doc reconciles to the sum of its months.
+`granularity` (`month`/`year`/`measure`), `reconciled_fiscal_year` and
+`analysis_safe` (`entity_resolved AND verified`) are appended by the `normalize`
+stage. The audit asserts **no canonical key is produced by more than one
+document** (currently 0 conflicts; 1599 intra-doc merges), that the primary is
+unique on the dedup key, and that the annual doc reconciles to the sum of its
+months.
+
+**Source-clipped entities never merge.** Content 332's country column clips
+labels to ~22 pt, turning four different countries into the literal string
+`Republic o` (S.N. 9/14/30/76) and one more into `REPUBLI` (S.N. 55). The full
+names are unrecoverable from the PDF text layer (verified). Normalisation
+therefore suffixes the source serial — `Republic o (sn 9)` … — and keeps
+`entity_resolved=false`, so a downstream `groupby(name_canonical)` can never
+silently merge them. The `dedup_key` alone is now sufficient for resolved rows;
+unresolved rows are additionally keyed by `(doc_id, sn)` as a belt-and-suspenders
+guard.
 
 ```bash
 redbook-env/bin/python -m migration_parser.cli normalize
@@ -433,14 +457,16 @@ on `(fiscal_year, entity, channel, gender)` and writes the tracked
 | `ra_by_country` | recruiting_agency / total | 544,833 × 544,855 (**0.004%**) |
 | `women_renewing` | individual_reentry / female | 50,430 × 50,430 (**0.000%**) |
 | `new_approvals_total` | total_without_reentry / total | 113,355 × 113,312 (**0.038%**) |
-| `new_individual` | individual_new / total | 7,192 × 6,776 (5.8%, **non-comparable**) |
+| `new_individual` | individual_new / total | — (**not comparable**, see below) |
 
 The three comparable checks agree to **< 0.05%** — strong independent validation
-of the country, gender and total dimensions. `new_individual` is *not*
-comparable: opendata's per-country "new individual" table diverges on several
-European destinations (Poland 1,662 vs 28) while the panel's own channels
-reconcile, so it is recorded but excluded from pass/fail. opendata covers FY
-2018/19 → 2021/22 only; its `Others`/`GCC countries` aggregate rows are skipped.
+of the country, gender and total dimensions. `new_individual` is *not
+comparable by construction*: the opendata file is a **top-N per-year ranking**,
+listing only 10–12 destinations each year (10/10/10/12 rows for 2018/19 →
+2021/22), not the full country distribution, so no aggregate comparison is
+meaningful. It is reported as `status: not_comparable` in `crosscheck.json` and
+excluded from pass/fail. opendata covers FY 2018/19 → 2021/22 only; its
+`Others`/`GCC countries` aggregate rows are skipped.
 
 ```bash
 redbook-env/bin/python -m migration_parser.cli crosscheck
@@ -453,17 +479,29 @@ canonical way to reproduce them:
 
 | Shipped file | Rows | Role |
 |--------------|------|------|
-| `panel_canonical.csv.gz` | 101,145 | **primary analysis dataset** (gzipped) |
+| `panel_canonical.csv.gz` | 70,104 | **primary analysis dataset** — additive-only (gzipped) |
+| `panel_rollup.csv.gz` | 31,041 | aggregates + measures + printed totals (gzipped; never sum with the primary) |
 | `panel.csv` | 102,744 | raw tidy-long extraction (provenance) |
 | `agencies.csv` | 26,224 | agency-level pre-approval / institutional detail |
 | `series.csv` | 9,208 | historical metric series from narrative reports |
+| `period_windows.csv` | 28 | reporting-window lookup (`period_bs` → AD start/end) for date merges |
 | `codebook.json` | — | machine-readable column dictionary + vocabularies + per-file checksums |
 | `build.json` | — | build manifest: git revision, timestamp, row counts, SHA-256, audit pass/fail |
 
-`build` gzips `panel_canonical.csv` deterministically (mtime=0) and writes
-`build.json` + `codebook.json`; it exits non-zero if any audit (reconcile,
-verify, crosscheck) fails or if the codebook columns drift from the shipped
-headers. See `DATA_AVAILABILITY.md` for citation, licence and caveats.
+`build` gzips `panel_canonical`/`panel_rollup` deterministically (mtime=0), writes
+`period_windows.csv`, and writes `build.json` + `codebook.json`; it exits non-zero
+if any audit (reconcile, verify, crosscheck) fails, if the codebook columns or
+**controlled vocabulary values** drift from the shipped data (this is what caught
+`year_basis=snapshot`), or (`--require-clean`) if the tree is dirty. The recorded
+`build.json.git.commit` is a real ancestor of `HEAD` with `dirty=false`
+(regression-tested), so provenance verifies from a clean clone. See
+`DATA_AVAILABILITY.md` for citation, licence and caveats.
+
+**Analysis helpers** (`migration_parser/analysis.py`) make the two remaining traps
+hard to fall into: `merge_periods(df, "date")` joins an external series on the
+exact `period_ad_start`/`period_ad_end` window (~4 weeks, not a calendar month),
+and `fiscal_year_panel(df, prefer="annual")` returns a single per-fiscal-year
+basis so monthly and annual rows are never summed together.
 
 The near-duplicate `panel_normalized.csv` / `agencies_normalized.csv` and the
 uncompressed `panel_canonical.csv` are **generated** and gitignored.
@@ -481,6 +519,7 @@ uncompressed `panel_canonical.csv` are **generated** and gitignored.
 | `migration_parser/agencies.py` | `extract_summary/_detail/_institutional()` — pre-approval & institutional |
 | `migration_parser/normalize.py` | canonical entity / fiscal-year / channel resolution |
 | `migration_parser/periods.py` | AD-window / BS-period / doc-type parsing |
+| `migration_parser/analysis.py` | analysis helpers: window merge, per-FY basis (`load_panel`, `merge_periods`, `fiscal_year_panel`) |
 | `migration_parser/paths.py` | shared paths & DoFE constants (no bill-tracker dependency) |
 | `migration_parser/codebook.py` | column dictionary → `codebook.json` |
 | `migration_parser/cli.py` | `python -m migration_parser.cli <stage>` dispatcher |
@@ -634,6 +673,17 @@ turned "Grand Total" into "Grand" and double-counted grand totals).
   granularity is needed.
 
 ### Archive.org backfill — yield analysis & plan
+
+> **Research-design warning (read before scoping a paper).** High-frequency
+> coverage effectively starts in 2025/26: the primary panel's monthly windows run
+> 2025-04 → 2026-09 only. That means the headline natural experiments a
+> migration economist would reach for — the Qatar 2022 World Cup, the Malaysia
+> 2018–20 policy swings, the Israel quota changes — **predate the monthly panel
+> and cannot be studied with it**. Until this backfill lands, those questions are
+> stuck on annual data, a much weaker identification strategy. Do not write
+> "event study" or "high-frequency" into a design doc against the current data.
+> The backfill is therefore the single highest-value data expansion, not merely a
+> coverage nicety.
 
 Assessed read-only via the Wayback Machine; **not yet implemented**. Goal:
 extend `panel.csv` backward from BS 2082 (2025/26) to ~BS 2065 (2008/09).

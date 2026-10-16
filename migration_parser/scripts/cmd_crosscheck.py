@@ -10,8 +10,10 @@ Checks (entity is country unless noted):
   * women_renewing         individual_reentry / female    (opendata: women renewing)
   * new_approvals_total    total_without_reentry / total  (opendata: skill-profile
                                                            "Total Migrants (N)")
-  * new_individual         individual_new / total         (flagged non-comparable:
-                            opendata's per-country "new individual" basis differs)
+  * new_individual         individual_new / total         (NOT comparable: the
+                            opendata file is a top-N per-year ranking — only 10-12
+                            destinations listed each year — not the full country
+                            distribution; reported for information only)
 
 Writes ``migration/crosscheck.json``. Exits non-zero if any *comparable* check
 misses the tolerance.
@@ -53,8 +55,10 @@ CHECKS = [
     {"id": "new_individual",
      "file": "nepal-labor-migratio__new-individual-labour-approvals-issued-by-country-of-destination.csv",
      "entity": "Destination Country", "year": "Year", "value": "Number",
-     "section": "country", "channel": "individual_new", "gender": "total",
-     "comparable": False},
+      "section": "country", "channel": "individual_new", "gender": "total",
+      "comparable": False,
+      "reason": "opendata dataset is a top-N per-year ranking (10-12 destinations/yr), "
+                "not the full country distribution; not comparable to a full-table channel."},
 ]
 
 
@@ -111,15 +115,20 @@ def run_check(chk: dict, panel: dict[tuple, int]) -> dict:
                      "diff": panel[k] - op[k]} for k in matched),
                    key=lambda d: -abs(d["diff"]))
     frac = abs(matched_panel - matched_op) / matched_op if matched_op else 0.0
+    if chk["comparable"]:
+        status = "match" if frac <= TOL else "divergent"
+    else:
+        status = "not_comparable"
     return {
         "id": chk["id"], "file": chk["file"],
         "panel": {"section": chk["section"], "channel": chk["channel"], "gender": chk["gender"]},
         "comparable": chk["comparable"],
+        "reason": chk.get("reason"),
         "matched_keys": len(matched), "opendata_keys": len(op), "skipped_rows": skipped,
         "opendata_total": op_total, "matched_opendata_total": matched_op,
         "matched_panel_total": matched_panel,
         "abs_frac_diff": round(frac, 5),
-        "status": "match" if frac <= TOL else "divergent",
+        "status": status,
         "top_diffs": [d for d in diffs if d["diff"] != 0][:10],
         "opendata_only": sorted({k[2] for k in op if k not in panel})[:10],
     }

@@ -1,4 +1,5 @@
 {
+  "provenance": "Fiscal-year boundaries are the BS Shrawan 1 (year start) / Ashadh end dates, taken from each source PDF's own header where printed (see each entry's ad_source) and checked against the authoritative Nepali (Bikram Sambat) calendar. All ad_start dates below equal the published Shrawan 1 date for that BS year (e.g. 2081/82 -> 2024-07-16, 2082/83 -> 2025-07-17); 'nominal' entries are unprinted in any source but match the same rule. Validated by tests/test_migration_parser.py::test_fiscal_year_calendar_anchors. This table is load-bearing for every time-series join: a one-day error here would misattribute a shock to the wrong window.",
   "fiscal_years": [
     {
       "bs": "2073/74",

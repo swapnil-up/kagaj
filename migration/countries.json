@@ -1011,13 +1011,13 @@
     "iso3": null,
     "resolved": false,
     "kind": "clipped",
-    "note": "A 'Republic of ...' name clipped in source (content 332); 4 distinct countries, unresolvable from text"
+    "note": "A 'Republic of ...' name clipped in source (content 332) at S.N. 9/14/30/76; 4 distinct countries, unrecoverable from the PDF text layer. name_canonical is suffixed with the source serial (e.g. 'Republic o (sn 9)') so the four never merge under a groupby."
   },
   {
     "name": "REPUBLI",
     "iso3": null,
     "resolved": false,
     "kind": "clipped",
-    "note": "'Republic of ...' name clipped in source (content 332); unresolvable from text"
+    "note": "'Republic of ...' name clipped in source (content 332) at S.N. 55; unrecoverable from the PDF text layer. name_canonical is suffixed with the source serial ('REPUBLI (sn 55)')."
   }
 ]

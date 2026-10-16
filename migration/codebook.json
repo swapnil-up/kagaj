@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-16T13:43:58+0545",
+  "generated_at": "2026-10-16T18:46:13+0545",
   "build": {
-    "commit": "d71007e6fcbd759768f2d476240e255301a2d862",
-    "describe": "d71007e-dirty"
+    "commit": "d89b11f10a2fbe96e595f9d0731788ef5ba96f06",
+    "describe": "d89b11f-dirty"
   },
   "datasets": {
     "panel.csv": {
@@ -17,7 +17,7 @@
         "period_bs": "Printed BS period as printed (year, or 'year month' for monthly reports).",
         "period_ad_start": "AD start date of the reporting window (ISO), when printed.",
         "period_ad_end": "AD end date of the reporting window (ISO), when printed.",
-        "doc_type": "Classified document type (annual | single_month | progress | annex | ...).",
+        "doc_type": "Classified document type as emitted (annual | single_month | cumulative).",
         "section": "Table section: country | district.",
         "row_type": "detail (an entity) | total (printed Total row) | grand_total.",
         "name": "Entity name exactly as printed (raw, unresolved).",
@@ -33,9 +33,9 @@
     "panel_canonical.csv.gz": {
       "primary": true,
       "role": "canonical",
-      "description": "Primary analysis dataset: panel.csv with canonical entities/channels/fiscal years and within-document typo-row merges applied. Gzipped CSV.",
-      "rows": 101145,
-      "sha256": "87b65296833f5bf4fca19ea0347a2d163423aaedd426e860029d39b72e9b6030",
+      "description": "Primary analysis dataset. Additive-only: component detail rows with canonical entities/channels/fiscal years and within-document typo-row merges applied. Aggregate rows, printed totals and distinct measures are NOT here — they live in panel_rollup.csv.gz, so summing this file can never double-count an aggregate against its components. Gzipped CSV.",
+      "rows": 70104,
+      "sha256": "f6edc8cd0655fea1e4b0bc43e0e46ee6ebe0fe81d70dc9ff971a781f28fd8590",
       "columns": {
         "doc_id": "Source document id.",
         "period_bs": "Printed BS period (raw).",
@@ -65,7 +65,47 @@
         "reconciled_fiscal_year": "Fiscal year after documented period overrides.",
         "period_override": "true when reconciled_fiscal_year differs from fiscal_year.",
         "merged_rows": "Number of raw rows collapsed into this canonical key.",
-        "raw_names": "Semicolon-joined distinct printed names merged into this row."
+        "raw_names": "Semicolon-joined distinct printed names merged into this row.",
+        "analysis_safe": "true when entity_resolved AND the source doc passed its math audit; the safe default filter before aggregating."
+      }
+    },
+    "panel_rollup.csv.gz": {
+      "primary": false,
+      "role": "rollup",
+      "description": "Non-additive companion to panel_canonical.csv.gz: channel_class=aggregate rows, printed total/grand_total rows and separate measures (pre-approval). Compare against, never sum with, the primary file.",
+      "rows": 31041,
+      "sha256": "11ed1760a214079c7db72b1a3451581c60ef36ca1e4557d9b8ce1805bf4f442d",
+      "columns": {
+        "doc_id": "Source document id.",
+        "period_bs": "Printed BS period (raw).",
+        "period_ad_start": "AD start date of the reporting window (ISO).",
+        "period_ad_end": "AD end date of the reporting window (ISO).",
+        "doc_type": "Classified document type.",
+        "section": "Table section: country | district.",
+        "row_type": "detail | total | grand_total.",
+        "name": "Entity name exactly as printed (raw).",
+        "sn": "Source serial number / row order.",
+        "channel": "Raw channel label as printed.",
+        "gender": "male | female | total.",
+        "count": "Approvals in this cell.",
+        "source_page": "Source PDF page.",
+        "verified": "Source document passed its extraction math audit.",
+        "source_url": "URL of the source PDF.",
+        "entity_type": "country | district (empty on printed total rows).",
+        "name_canonical": "Canonical entity name.",
+        "iso3": "ISO-3166 alpha-3 country code (empty for districts/totals).",
+        "province": "Nepali province name (districts only).",
+        "entity_note": "Provenance note for the canonical entity.",
+        "entity_resolved": "true when the raw name matched a canonical entity.",
+        "fiscal_year": "Canonical BS fiscal year label.",
+        "channel_canonical": "Canonical channel (channels.json).",
+        "channel_class": "component | aggregate | measure | unknown (all non-component here).",
+        "granularity": "month | year | measure.",
+        "reconciled_fiscal_year": "Fiscal year after documented period overrides.",
+        "period_override": "true when reconciled_fiscal_year differs from fiscal_year.",
+        "merged_rows": "Number of raw rows collapsed into this canonical key.",
+        "raw_names": "Semicolon-joined distinct printed names merged into this row.",
+        "analysis_safe": "true when entity_resolved AND the source doc passed its math audit."
       }
     },
     "agencies.csv": {
@@ -108,10 +148,25 @@
         "unit": "Unit of measure.",
         "name": "Entity / category name (raw).",
         "fiscal_year": "Fiscal-year label (raw, as printed).",
-        "year_basis": "fiscal | calendar.",
+        "year_basis": "fiscal | calendar | snapshot (never sum across bases).",
         "gender": "male | female | total | (blank for matrix rows).",
         "count": "Value for this cell.",
         "note": "Extraction note, when any."
+      }
+    },
+    "period_windows.csv": {
+      "primary": false,
+      "role": "lookup",
+      "description": "Lookup of DoFE reporting windows (period_bs -> AD start/end) for date-based merges.",
+      "rows": 28,
+      "sha256": "0ab799de92f9cc498218ef95be28bde97afb0f1f5dddcd07e3880bccf7b0031c",
+      "columns": {
+        "period_bs": "Printed BS period label for the reporting window.",
+        "fiscal_year": "Canonical BS fiscal year the window falls in.",
+        "period_ad_start": "AD start date of the ~4-week reporting window (ISO).",
+        "period_ad_end": "AD end date of the reporting window (ISO).",
+        "doc_id": "Source document id(s) that report this window.",
+        "granularity": "month | year (the aggregation level of the window)."
       }
     }
   },
@@ -121,26 +176,29 @@
       "district"
     ],
     "gender": [
-      "male",
       "female",
+      "male",
       "total"
     ],
     "row_type": [
-      "detail",
-      "total",
-      "grand_total"
+      "detail"
     ],
     "granularity": [
       "month",
-      "year",
-      "measure",
-      ""
+      "year"
     ],
     "doc_type": [
-      "_measure_override",
       "annual",
-      "cumulative",
       "single_month"
+    ],
+    "channel_class": [
+      "aggregate",
+      "component",
+      "measure"
+    ],
+    "entity_type": [
+      "country",
+      "district"
     ],
     "channel_canonical": {
       "g2g": {
@@ -183,6 +241,61 @@
         "label": "Total without Re-entry",
         "class": "aggregate"
       }
+    },
+    "series": {
+      "unit": [
+        "count",
+        "npr",
+        "percent",
+        "usd"
+      ],
+      "year_basis": [
+        "calendar",
+        "fiscal",
+        "snapshot"
+      ],
+      "metric": [
+        "assistance",
+        "complaints",
+        "deaths",
+        "deaths_by_cause",
+        "detention",
+        "disability_compensation",
+        "hospitalisation",
+        "labour_approval",
+        "migration_cost",
+        "migration_stock",
+        "mrrc_cases",
+        "no_objection_letters",
+        "remittance_cost",
+        "remittance_receiving",
+        "remittance_use",
+        "return_migration",
+        "unknown"
+      ],
+      "dimension": [
+        "case_type",
+        "country",
+        "district",
+        "occupation",
+        "province",
+        "remittance_use",
+        "residence_status",
+        "skill",
+        "unknown"
+      ],
+      "gender": [
+        "",
+        "female",
+        "male",
+        "total"
+      ]
+    },
+    "agencies": {
+      "measure": [
+        "institutional",
+        "preapproval"
+      ]
     }
   }
 }

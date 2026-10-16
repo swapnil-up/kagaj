@@ -1,11 +1,12 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-16T13:43:58+0545",
-  "duration_s": 100.0,
+  "generated_at": "2026-10-16T18:46:13+0545",
+  "duration_s": 110.4,
   "git": {
-    "commit": "d71007e6fcbd759768f2d476240e255301a2d862",
-    "describe": "d71007e-dirty",
-    "dirty": true
+    "commit": "d89b11f10a2fbe96e595f9d0731788ef5ba96f06",
+    "describe": "d89b11f-dirty",
+    "dirty": true,
+    "clean": false
   },
   "audits": {
     "reconcile": {
@@ -28,9 +29,14 @@
       "sha256": "19ec22e7942597160e272a0fb18ae4644ddf72b7dfdd2ee086267ddfa283f7f3"
     },
     "panel_canonical.csv.gz": {
-      "rows": 101145,
-      "bytes": 860435,
-      "sha256": "87b65296833f5bf4fca19ea0347a2d163423aaedd426e860029d39b72e9b6030"
+      "rows": 70104,
+      "bytes": 612668,
+      "sha256": "f6edc8cd0655fea1e4b0bc43e0e46ee6ebe0fe81d70dc9ff971a781f28fd8590"
+    },
+    "panel_rollup.csv.gz": {
+      "rows": 31041,
+      "bytes": 338875,
+      "sha256": "11ed1760a214079c7db72b1a3451581c60ef36ca1e4557d9b8ce1805bf4f442d"
     },
     "agencies.csv": {
       "rows": 26224,
@@ -41,6 +47,11 @@
       "rows": 9208,
       "bytes": 1670987,
       "sha256": "c8c6583d3f39376624bc7ad3cea2489602962563af67170c671f19ac78f87c11"
+    },
+    "period_windows.csv": {
+      "rows": 28,
+      "bytes": 1478,
+      "sha256": "0ab799de92f9cc498218ef95be28bde97afb0f1f5dddcd07e3880bccf7b0031c"
     }
   }
 }

@@ -6,12 +6,15 @@ Applies the documented rule in ``migration/reconciliation.json`` and:
   2. asserts no canonical key is produced by more than one document (no
      cross-document double count after the Table X year override),
   3. reconciles overlapping sources (annual vs months; country-vs-district pairs),
-  4. writes ``migration/panel_canonical.csv`` (gitignored).
+  4. writes ``migration/panel_canonical.csv`` (additive component detail only) and
+     ``migration/panel_rollup.csv`` (aggregates, measures, printed totals), both
+     gitignored.
 
 Key = (granularity, reconciled_fiscal_year, period_ad_start, section,
        name_canonical, gender, channel_canonical, row_type). Rows whose entity
 could not be resolved are keyed additionally by (doc_id, sn) so they stay
-distinct.
+distinct; source-clipped names are also suffixed at normalisation time so
+``name_canonical`` itself never collides across entities.
 
     python -m migration_parser reconcile
 """
@@ -89,18 +92,73 @@ def overlap_report(rows: list[dict]) -> int:
     return fails
 
 
+def split_primary_rollup(canonical: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Primary = additive component detail rows; rollup = everything else.
+
+    Shipping aggregates/totals/measures in the same file as their components makes
+    a naive ``groupby(channel).sum()`` double-count. The primary file therefore
+    contains only ``row_type=='detail'`` rows whose ``channel_class=='component'``
+    (which are guaranteed to sum to Total-with-Re-Entry); all aggregate, measure
+    and printed-total rows go to the rollup companion.
+    """
+    def is_primary(r: dict) -> bool:
+        return r["row_type"] == "detail" and r["channel_class"] == "component"
+
+    primary = [r for r in canonical if is_primary(r)]
+    rollup = [r for r in canonical if not is_primary(r)]
+    return primary, rollup
+
+
+def assert_sum_safe(primary: list[dict]) -> None:
+    bad_class = sorted({r["channel_class"] for r in primary} - {"component"})
+    bad_type = sorted({r["row_type"] for r in primary} - {"detail"})
+    if bad_class or bad_type:
+        raise SystemExit(f"panel_canonical not sum-safe: classes={bad_class} row_types={bad_type}")
+
+
+def assert_unique_key(rows: list[dict], cols: list[str]) -> None:
+    key_cols = normalize.dedup_key_columns()
+    missing = [c for c in key_cols if c not in cols]
+    if missing:
+        raise SystemExit(f"dedup_key columns missing from output: {missing}")
+    seen: dict[tuple, int] = defaultdict(int)
+    for r in rows:
+        seen[tuple(r[c] for c in key_cols)] += 1
+    dups = {k: n for k, n in seen.items() if n > 1}
+    if dups:
+        example = next(iter(dups))
+        raise SystemExit(f"panel_canonical not unique on dedup_key ({len(dups)} duplicate "
+                         f"groups, e.g. {example})")
+
+
 def main(argv: list[str] | None = None) -> int:
     rows, cols = _load()
     print(f"loaded {len(rows)} rows from panel_normalized.csv")
     fails = overlap_report(rows)
     canonical, cross_doc = reconcile(rows)
     fails += cross_doc
-    out = MIGRATION_DIR / "panel_canonical.csv"
-    with out.open("w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=cols + EXTRA)
-        w.writeheader()
-        w.writerows(canonical)
-    print(f"wrote {out.name} ({len(canonical)} rows)")
+
+    try:
+        assert_unique_key(canonical, cols + EXTRA)
+    except SystemExit as e:
+        print(e, file=sys.stderr)
+        return 1
+
+    primary, rollup = split_primary_rollup(canonical)
+    try:
+        assert_sum_safe(primary)
+    except SystemExit as e:
+        print(e, file=sys.stderr)
+        return 1
+
+    for path, data in ((MIGRATION_DIR / "panel_canonical.csv", primary),
+                       (MIGRATION_DIR / "panel_rollup.csv", rollup)):
+        with path.open("w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=cols + EXTRA)
+            w.writeheader()
+            w.writerows(data)
+        print(f"wrote {path.name} ({len(data)} rows)")
+
     if fails:
         print(f"AUDIT FAILED: {fails} problem(s)")
         return 1

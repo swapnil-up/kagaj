@@ -11,6 +11,7 @@
         "gender": "total"
       },
       "comparable": true,
+      "reason": null,
       "matched_keys": 42,
       "opendata_keys": 42,
       "skipped_rows": 3,
@@ -102,6 +103,7 @@
         "gender": "female"
       },
       "comparable": true,
+      "reason": null,
       "matched_keys": 50,
       "opendata_keys": 50,
       "skipped_rows": 5,
@@ -137,6 +139,7 @@
         "gender": "total"
       },
       "comparable": true,
+      "reason": null,
       "matched_keys": 42,
       "opendata_keys": 42,
       "skipped_rows": 3,
@@ -193,6 +196,7 @@
         "gender": "total"
       },
       "comparable": false,
+      "reason": "opendata dataset is a top-N per-year ranking (10-12 destinations/yr), not the full country distribution; not comparable to a full-table channel.",
       "matched_keys": 10,
       "opendata_keys": 41,
       "skipped_rows": 0,
@@ -200,7 +204,7 @@
       "matched_opendata_total": 7192,
       "matched_panel_total": 6776,
       "abs_frac_diff": 0.05784,
-      "status": "divergent",
+      "status": "not_comparable",
       "top_diffs": [
         {
           "fy": "2075/76",

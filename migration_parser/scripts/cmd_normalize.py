@@ -17,12 +17,16 @@ from ..paths import MIGRATION_DIR
 
 PANEL_EXTRA = ["entity_type", "name_canonical", "iso3", "province", "entity_note",
                "entity_resolved", "fiscal_year", "channel_canonical", "channel_class",
-               "granularity", "reconciled_fiscal_year", "period_override"]
+               "granularity", "reconciled_fiscal_year", "period_override", "analysis_safe"]
 AGENCY_EXTRA = ["country_canonical", "country_iso3", "fiscal_year"]
 
 
 def _bool(x) -> str:
     return "true" if x else "false"
+
+
+def _truthy(x) -> bool:
+    return str(x).strip().lower() in ("true", "1", "yes")
 
 
 def normalize_panel() -> int:
@@ -38,8 +42,14 @@ def normalize_panel() -> int:
             row = dict(row)
             if row.get("row_type") == "detail":
                 info = normalize.normalize_name(section, row["name"])
+                canonical = info.get("canonical", row["name"])
+                # Source-clipped names (e.g. "Republic o") collide across distinct
+                # entities; suffix the source serial so name_canonical is unique and
+                # a groupby can never silently merge different countries.
+                if info.get("kind") == "clipped":
+                    canonical = f'{canonical} (sn {row["sn"]})'
                 row["entity_type"] = section if section in ("country", "district") else ""
-                row["name_canonical"] = info.get("canonical", row["name"])
+                row["name_canonical"] = canonical
                 row["iso3"] = info.get("iso3", "")
                 row["province"] = info.get("province", "")
                 row["entity_note"] = info.get("note", "")
@@ -59,6 +69,8 @@ def normalize_panel() -> int:
             row["granularity"] = normalize.doc_granularity(row["doc_type"], ch["class"])
             row["reconciled_fiscal_year"] = normalize.reconciled_fiscal_year(row["doc_id"], row["fiscal_year"])
             row["period_override"] = _bool(row["reconciled_fiscal_year"] != row["fiscal_year"])
+            row["analysis_safe"] = _bool(_truthy(row.get("verified"))
+                                         and row["entity_resolved"] == "true")
             w.writerow(row)
             n += 1
     return n

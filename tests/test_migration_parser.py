@@ -910,3 +910,125 @@ def test_build_gunzip_is_deterministic(tmp_path, monkeypatch):
     assert gzip.decompress(first) == payload
     assert cmd_build.gunzip_panel().read_bytes() == first  # mtime=0 -> stable
 
+
+# ---- canonical safety / packaging invariants -------------------------------
+
+MIGRATION_DIR = Path(__file__).resolve().parents[1] / "migration"
+
+
+def _read_shipped(name: str) -> list[dict]:
+    import gzip
+    path = MIGRATION_DIR / name
+    opener = gzip.open if path.suffix == ".gz" else open
+    with opener(path, "rt", newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def test_canonical_is_additive_only():
+    rows = _read_shipped("panel_canonical.csv.gz")
+    assert rows
+    assert {r["channel_class"] for r in rows} == {"component"}
+    assert {r["row_type"] for r in rows} == {"detail"}
+
+
+def test_rollup_holds_all_non_additive_rows():
+    rollup = _read_shipped("panel_rollup.csv.gz")
+    assert {r["channel_class"] for r in rollup} <= {"aggregate", "measure", "component"}
+    assert any(r["channel_class"] == "aggregate" for r in rollup)
+    # component-class rows in the rollup must be printed totals, never detail
+    for r in rollup:
+        if r["channel_class"] == "component":
+            assert r["row_type"] in ("total", "grand_total")
+
+
+def test_canonical_unique_on_dedup_key():
+    rows = _read_shipped("panel_canonical.csv.gz")
+    key_cols = normalize.dedup_key_columns()
+    seen: dict[tuple, int] = {}
+    for r in rows:
+        k = tuple(r[c] for c in key_cols)
+        seen[k] = seen.get(k, 0) + 1
+    dups = [k for k, n in seen.items() if n > 1]
+    assert not dups, f"{len(dups)} duplicate dedup-key groups, e.g. {dups[0]}"
+
+
+def test_clipped_entities_are_disambiguated_and_flagged():
+    rows = _read_shipped("panel_canonical.csv.gz")
+    repub = {r["name_canonical"] for r in rows if r["name_canonical"].startswith("Republic o (")}
+    assert len(repub) == 4, sorted(repub)          # four distinct countries, no merge
+    assert {r["entity_resolved"] for r in rows
+            if r["name_canonical"].startswith(("Republic o (", "REPUBLI ("))} == {"false"}
+
+
+def test_analysis_safe_flag_definition():
+    rows = _read_shipped("panel_canonical.csv.gz")
+    for r in rows:
+        expected = (r["entity_resolved"] == "true"
+                    and str(r["verified"]).strip().lower() == "true")
+        assert (r["analysis_safe"] == "true") == expected
+
+
+def test_vocabularies_are_documented():
+    from migration_parser.scripts import cmd_build
+    cmd_build._check_vocabularies(cmd_build._vocabularies())
+
+
+def test_build_fingerprint_is_verifiable():
+    import hashlib
+    import json
+    import subprocess
+
+    build = json.loads((MIGRATION_DIR / "build.json").read_text())
+    commit = build["git"]["commit"]
+    assert commit, "build.json has no recorded commit"
+    assert build["git"]["dirty"] is False, "shipped build.json was made on a dirty tree"
+    rc = subprocess.run(["git", "merge-base", "--is-ancestor", commit, "HEAD"],
+                        cwd=MIGRATION_DIR.parent, capture_output=True)
+    assert rc.returncode == 0, f"build commit {commit} is not an ancestor of HEAD"
+
+    assert "panel_rollup.csv.gz" in build["files"]
+    assert "period_windows.csv" in build["files"]
+    for name, meta in build["files"].items():
+        path = MIGRATION_DIR / name
+        assert path.exists(), f"shipped artifact missing: {name}"
+        h = hashlib.sha256(path.read_bytes()).hexdigest()
+        assert h == meta["sha256"], f"sha256 drift for {name}"
+
+
+def test_period_merge_maps_dates_to_windows():
+    import pandas as pd
+    from migration_parser import analysis
+    df = pd.DataFrame({"d": ["1990-01-01", "2025-10-20"]})
+    out = analysis.merge_periods(df, "d").set_index("d")
+    assert not bool(out.loc["1990-01-01", "window_matched"])   # falls in no window
+    assert bool(out.loc["2025-10-20", "window_matched"])
+    assert out.loc["2025-10-20", "period_ad_start"]
+    assert out.loc["2025-10-20", "period_ad_end"]
+
+
+def test_fiscal_year_panel_avoids_month_year_double_count():
+    import pandas as pd
+    from migration_parser import analysis
+    df = pd.DataFrame({
+        "reconciled_fiscal_year": ["2082/83", "2082/83", "2081/82"],
+        "granularity": ["month", "year", "year"],
+    })
+    annual = analysis.fiscal_year_panel(df)
+    assert list(annual["granularity"]) == ["year", "year"]
+    monthly = analysis.fiscal_year_panel(df, prefer="month")
+    assert list(monthly["granularity"]) == ["month", "year"]
+
+
+def test_fiscal_year_calendar_anchors():
+    # Shrawan 1 (fiscal-year start) dates from the authoritative BS calendar.
+    fy = normalize.fiscal_years()
+    anchors = {
+        "2076/77": "2019-07-17",
+        "2078/79": "2021-07-16",
+        "2080/81": "2023-07-17",
+        "2081/82": "2024-07-16",
+        "2082/83": "2025-07-17",
+    }
+    for bs, ad_start in anchors.items():
+        assert fy[bs]["ad_start"] == ad_start, bs
+

@@ -1,0 +1,436 @@
+[
+  {
+    "name": "Achham",
+    "province": "sudurpashchim",
+    "resolved": true,
+    "aliases": [
+      "Acham"
+    ]
+  },
+  {
+    "name": "Arghakhanchi",
+    "province": "lumbini",
+    "resolved": true,
+    "aliases": [
+      "Argakhanchi"
+    ]
+  },
+  {
+    "name": "Baglung",
+    "province": "gandaki",
+    "resolved": true
+  },
+  {
+    "name": "Baitadi",
+    "province": "sudurpashchim",
+    "resolved": true
+  },
+  {
+    "name": "Bajhang",
+    "province": "sudurpashchim",
+    "resolved": true
+  },
+  {
+    "name": "Bajura",
+    "province": "sudurpashchim",
+    "resolved": true
+  },
+  {
+    "name": "Banke",
+    "province": "lumbini",
+    "resolved": true
+  },
+  {
+    "name": "Bara",
+    "province": "madhesh",
+    "resolved": true
+  },
+  {
+    "name": "Bardiya",
+    "province": "lumbini",
+    "resolved": true
+  },
+  {
+    "name": "Bhaktapur",
+    "province": "bagmati",
+    "resolved": true
+  },
+  {
+    "name": "Bhojpur",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Chitwan",
+    "province": "bagmati",
+    "resolved": true
+  },
+  {
+    "name": "Dadeldhura",
+    "province": "sudurpashchim",
+    "resolved": true,
+    "aliases": [
+      "Dadeldhuda"
+    ]
+  },
+  {
+    "name": "Dailekh",
+    "province": "karnali",
+    "resolved": true
+  },
+  {
+    "name": "Dang",
+    "province": "lumbini",
+    "resolved": true
+  },
+  {
+    "name": "Darchula",
+    "province": "sudurpashchim",
+    "resolved": true
+  },
+  {
+    "name": "Dhading",
+    "province": "bagmati",
+    "resolved": true
+  },
+  {
+    "name": "Dhankuta",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Dhanusha",
+    "province": "madhesh",
+    "resolved": true
+  },
+  {
+    "name": "Dolakha",
+    "province": "bagmati",
+    "resolved": true
+  },
+  {
+    "name": "Dolpa",
+    "province": "karnali",
+    "resolved": true
+  },
+  {
+    "name": "Doti",
+    "province": "sudurpashchim",
+    "resolved": true
+  },
+  {
+    "name": "Gorkha",
+    "province": "gandaki",
+    "resolved": true
+  },
+  {
+    "name": "Gulmi",
+    "province": "lumbini",
+    "resolved": true
+  },
+  {
+    "name": "Humla",
+    "province": "karnali",
+    "resolved": true
+  },
+  {
+    "name": "Ilam",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Jajarkot",
+    "province": "karnali",
+    "resolved": true
+  },
+  {
+    "name": "Jhapa",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Jumla",
+    "province": "karnali",
+    "resolved": true
+  },
+  {
+    "name": "Kailali",
+    "province": "sudurpashchim",
+    "resolved": true
+  },
+  {
+    "name": "Kalikot",
+    "province": "karnali",
+    "resolved": true
+  },
+  {
+    "name": "Kanchanpur",
+    "province": "sudurpashchim",
+    "resolved": true
+  },
+  {
+    "name": "Kapilvastu",
+    "province": "lumbini",
+    "resolved": true
+  },
+  {
+    "name": "Kaski",
+    "province": "gandaki",
+    "resolved": true
+  },
+  {
+    "name": "Kathmandu",
+    "province": "bagmati",
+    "resolved": true
+  },
+  {
+    "name": "Kavrepalanchok",
+    "province": "bagmati",
+    "resolved": true,
+    "aliases": [
+      "Kavrepalanchowk"
+    ]
+  },
+  {
+    "name": "Khotang",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Lalitpur",
+    "province": "bagmati",
+    "resolved": true
+  },
+  {
+    "name": "Lamjung",
+    "province": "gandaki",
+    "resolved": true
+  },
+  {
+    "name": "Mahottari",
+    "province": "madhesh",
+    "resolved": true,
+    "aliases": [
+      "Mahotat ri"
+    ]
+  },
+  {
+    "name": "Makwanpur",
+    "province": "bagmati",
+    "resolved": true,
+    "aliases": [
+      "Makawanpur"
+    ]
+  },
+  {
+    "name": "Manang",
+    "province": "gandaki",
+    "resolved": true
+  },
+  {
+    "name": "Morang",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Mugu",
+    "province": "karnali",
+    "resolved": true
+  },
+  {
+    "name": "Mustang",
+    "province": "gandaki",
+    "resolved": true
+  },
+  {
+    "name": "Myagdi",
+    "province": "gandaki",
+    "resolved": true
+  },
+  {
+    "name": "Nuwakot",
+    "province": "bagmati",
+    "resolved": true
+  },
+  {
+    "name": "Okhaldhunga",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Palpa",
+    "province": "lumbini",
+    "resolved": true
+  },
+  {
+    "name": "Panchthar",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Parbat",
+    "province": "gandaki",
+    "resolved": true
+  },
+  {
+    "name": "Parsa",
+    "province": "madhesh",
+    "resolved": true
+  },
+  {
+    "name": "Pyuthan",
+    "province": "lumbini",
+    "resolved": true
+  },
+  {
+    "name": "Ramechhap",
+    "province": "bagmati",
+    "resolved": true,
+    "aliases": [
+      "Ramechap"
+    ]
+  },
+  {
+    "name": "Rasuwa",
+    "province": "bagmati",
+    "resolved": true
+  },
+  {
+    "name": "Rautahat",
+    "province": "madhesh",
+    "resolved": true
+  },
+  {
+    "name": "Rolpa",
+    "province": "lumbini",
+    "resolved": true
+  },
+  {
+    "name": "Rupandehi",
+    "province": "lumbini",
+    "resolved": true
+  },
+  {
+    "name": "Salyan",
+    "province": "karnali",
+    "resolved": true
+  },
+  {
+    "name": "Sankhuwasabha",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Saptari",
+    "province": "madhesh",
+    "resolved": true
+  },
+  {
+    "name": "Sarlahi",
+    "province": "madhesh",
+    "resolved": true
+  },
+  {
+    "name": "Sindhuli",
+    "province": "bagmati",
+    "resolved": true
+  },
+  {
+    "name": "Sindhupalchok",
+    "province": "bagmati",
+    "resolved": true,
+    "aliases": [
+      "Sindhupalchowk"
+    ]
+  },
+  {
+    "name": "Siraha",
+    "province": "madhesh",
+    "resolved": true
+  },
+  {
+    "name": "Solukhumbu",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Sunsari",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Surkhet",
+    "province": "karnali",
+    "resolved": true
+  },
+  {
+    "name": "Syangja",
+    "province": "gandaki",
+    "resolved": true
+  },
+  {
+    "name": "Tanahun",
+    "province": "gandaki",
+    "resolved": true,
+    "aliases": [
+      "Tanahu"
+    ]
+  },
+  {
+    "name": "Taplejung",
+    "province": "koshi",
+    "resolved": true
+  },
+  {
+    "name": "Terhathum",
+    "province": "koshi",
+    "resolved": true,
+    "aliases": [
+      "Tehrathum"
+    ]
+  },
+  {
+    "name": "Udayapur",
+    "province": "koshi",
+    "resolved": true,
+    "aliases": [
+      "Udaypur"
+    ]
+  },
+  {
+    "name": "Nawalparasi",
+    "province": "gandaki",
+    "resolved": true,
+    "note": "Pre-2018 unified district; split into Nawalparasi East (Gandaki) and Nawalparasi West (Lumbini). Assigned to Gandaki (home province of the district HQ, Kawasoti, now in Nawalparasi East) for the 7-province rollup; pre-split counts are unavoidably allocated wholly to that province."
+  },
+  {
+    "name": "Nawalparasi East",
+    "province": "gandaki",
+    "resolved": true,
+    "note": "Created 2018 (a.k.a. Nawalpur)"
+  },
+  {
+    "name": "Nawalparasi West",
+    "province": "lumbini",
+    "resolved": true,
+    "note": "Created 2018 (a.k.a. Parasi)"
+  },
+  {
+    "name": "Rukum",
+    "province": "karnali",
+    "resolved": true,
+    "note": "Pre-2018 unified district; split into Rukum East (Lumbini) and Rukum West (Karnali). Assigned to Karnali (home province of the district HQ, Musikot, now in Rukum West) for the 7-province rollup; pre-split counts are unavoidably allocated wholly to that province."
+  },
+  {
+    "name": "Rukum East",
+    "province": "lumbini",
+    "resolved": true,
+    "note": "Created 2018"
+  },
+  {
+    "name": "Rukum West",
+    "province": "karnali",
+    "resolved": true,
+    "note": "Created 2018"
+  }
+]

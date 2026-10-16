@@ -1,0 +1,188 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-16T13:43:58+0545",
+  "build": {
+    "commit": "d71007e6fcbd759768f2d476240e255301a2d862",
+    "describe": "d71007e-dirty"
+  },
+  "datasets": {
+    "panel.csv": {
+      "primary": false,
+      "role": "raw",
+      "description": "Raw tidy-long panel exactly as extracted from the live DoFE wide tables and report annex tables.",
+      "rows": 102744,
+      "sha256": "19ec22e7942597160e272a0fb18ae4644ddf72b7dfdd2ee086267ddfa283f7f3",
+      "columns": {
+        "doc_id": "Source document id (DoFE content id, or report2020_annex_*, preapproval_0NN).",
+        "period_bs": "Printed BS period as printed (year, or 'year month' for monthly reports).",
+        "period_ad_start": "AD start date of the reporting window (ISO), when printed.",
+        "period_ad_end": "AD end date of the reporting window (ISO), when printed.",
+        "doc_type": "Classified document type (annual | single_month | progress | annex | ...).",
+        "section": "Table section: country | district.",
+        "row_type": "detail (an entity) | total (printed Total row) | grand_total.",
+        "name": "Entity name exactly as printed (raw, unresolved).",
+        "sn": "Source serial number / row order within the document.",
+        "channel": "Raw channel label as printed (template-specific).",
+        "gender": "male | female | total.",
+        "count": "Approved labour permits in this cell.",
+        "source_page": "Page of the source PDF the row came from.",
+        "verified": "True when the source document's extraction passed its math audit.",
+        "source_url": "URL of the source PDF."
+      }
+    },
+    "panel_canonical.csv.gz": {
+      "primary": true,
+      "role": "canonical",
+      "description": "Primary analysis dataset: panel.csv with canonical entities/channels/fiscal years and within-document typo-row merges applied. Gzipped CSV.",
+      "rows": 101145,
+      "sha256": "87b65296833f5bf4fca19ea0347a2d163423aaedd426e860029d39b72e9b6030",
+      "columns": {
+        "doc_id": "Source document id.",
+        "period_bs": "Printed BS period (raw).",
+        "period_ad_start": "AD start date of the reporting window (ISO).",
+        "period_ad_end": "AD end date of the reporting window (ISO).",
+        "doc_type": "Classified document type.",
+        "section": "Table section: country | district.",
+        "row_type": "detail | total | grand_total.",
+        "name": "Entity name exactly as printed (raw).",
+        "sn": "Source serial number / row order.",
+        "channel": "Raw channel label as printed.",
+        "gender": "male | female | total.",
+        "count": "Approved labour permits (summed across merged typo-rows).",
+        "source_page": "Source PDF page.",
+        "verified": "Source document passed its extraction math audit.",
+        "source_url": "URL of the source PDF (first contributing document).",
+        "entity_type": "country | district (empty on printed total rows).",
+        "name_canonical": "Canonical entity name (countries.json / districts.json).",
+        "iso3": "ISO-3166 alpha-3 country code (empty for districts/totals).",
+        "province": "Nepali province name (districts only).",
+        "entity_note": "Provenance note for the canonical entity (e.g. a pre-2018 unified district assigned to its HQ province); empty when none.",
+        "entity_resolved": "true when the raw name matched a canonical entity.",
+        "fiscal_year": "Canonical BS fiscal year label, e.g. '2079/80'.",
+        "channel_canonical": "Canonical channel (channels.json).",
+        "channel_class": "component | aggregate | measure | unknown.",
+        "granularity": "month | year | measure (aggregation level of the document).",
+        "reconciled_fiscal_year": "Fiscal year after documented period overrides.",
+        "period_override": "true when reconciled_fiscal_year differs from fiscal_year.",
+        "merged_rows": "Number of raw rows collapsed into this canonical key.",
+        "raw_names": "Semicolon-joined distinct printed names merged into this row."
+      }
+    },
+    "agencies.csv": {
+      "primary": false,
+      "role": "detail",
+      "description": "Recruiting-agency-level pre-approval and institutional permit detail.",
+      "rows": 26224,
+      "sha256": "7cbc151543cc31bccde54b216208ff7575e22ea61bc31491bc5ae2c4409ada47",
+      "columns": {
+        "measure": "Measure kind (preapproval | institutional).",
+        "doc_id": "Source document id.",
+        "period_bs": "Printed BS period (raw).",
+        "period_ad_start": "AD start date of the reporting window (ISO).",
+        "period_ad_end": "AD end date of the reporting window (ISO).",
+        "doc_type": "Classified document type.",
+        "sn": "Source serial number / row order.",
+        "lot_no": "Recruiting-agency licence / lot number, when printed.",
+        "country": "Destination country as printed (raw).",
+        "agency": "Recruiting agency name as printed (raw).",
+        "male": "Male permits.",
+        "female": "Female permits.",
+        "total": "Total permits (male + female).",
+        "source_page": "Source PDF page.",
+        "verified": "Source document passed its extraction math audit.",
+        "source_url": "URL of the source PDF."
+      }
+    },
+    "series.csv": {
+      "primary": false,
+      "role": "series",
+      "description": "Historical known-series matrices (approvals, deaths, complaints, ...) from narrative reports.",
+      "rows": 9208,
+      "sha256": "c8c6583d3f39376624bc7ad3cea2489602962563af67170c671f19ac78f87c11",
+      "columns": {
+        "report": "Source report key (status_2013_14, migration_2020, ...).",
+        "source_page": "Page of the source PDF.",
+        "caption": "Table caption as printed.",
+        "metric": "Metric name (labour_approvals, deaths, complaints, ...).",
+        "dimension": "Dimension the series is broken down by (country, cause, ...).",
+        "unit": "Unit of measure.",
+        "name": "Entity / category name (raw).",
+        "fiscal_year": "Fiscal-year label (raw, as printed).",
+        "year_basis": "fiscal | calendar.",
+        "gender": "male | female | total | (blank for matrix rows).",
+        "count": "Value for this cell.",
+        "note": "Extraction note, when any."
+      }
+    }
+  },
+  "vocabularies": {
+    "section": [
+      "country",
+      "district"
+    ],
+    "gender": [
+      "male",
+      "female",
+      "total"
+    ],
+    "row_type": [
+      "detail",
+      "total",
+      "grand_total"
+    ],
+    "granularity": [
+      "month",
+      "year",
+      "measure",
+      ""
+    ],
+    "doc_type": [
+      "_measure_override",
+      "annual",
+      "cumulative",
+      "single_month"
+    ],
+    "channel_canonical": {
+      "g2g": {
+        "label": "Government-to-Government",
+        "class": "component"
+      },
+      "individual": {
+        "label": "Individual (all modes)",
+        "class": "aggregate"
+      },
+      "individual_new": {
+        "label": "Individual (New)",
+        "class": "component"
+      },
+      "individual_reentry": {
+        "label": "Individual (Re-entry)",
+        "class": "component"
+      },
+      "legalization": {
+        "label": "Legalization / Regularization",
+        "class": "component"
+      },
+      "new_entry": {
+        "label": "New Entry (old template)",
+        "class": "component"
+      },
+      "preapproval": {
+        "label": "Pre-approval",
+        "class": "measure"
+      },
+      "recruiting_agency": {
+        "label": "Recruiting Agency",
+        "class": "component"
+      },
+      "total_with_reentry": {
+        "label": "Total with Re-entry",
+        "class": "aggregate"
+      },
+      "total_without_reentry": {
+        "label": "Total without Re-entry",
+        "class": "aggregate"
+      }
+    }
+  }
+}

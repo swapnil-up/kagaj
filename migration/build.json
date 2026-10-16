@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-16T13:43:58+0545",
+  "duration_s": 100.0,
+  "git": {
+    "commit": "d71007e6fcbd759768f2d476240e255301a2d862",
+    "describe": "d71007e-dirty",
+    "dirty": true
+  },
+  "audits": {
+    "reconcile": {
+      "exit": 0,
+      "ok": true
+    },
+    "verify": {
+      "exit": 0,
+      "ok": true
+    },
+    "crosscheck": {
+      "exit": 0,
+      "ok": true
+    }
+  },
+  "files": {
+    "panel.csv": {
+      "rows": 102744,
+      "bytes": 22054975,
+      "sha256": "19ec22e7942597160e272a0fb18ae4644ddf72b7dfdd2ee086267ddfa283f7f3"
+    },
+    "panel_canonical.csv.gz": {
+      "rows": 101145,
+      "bytes": 860435,
+      "sha256": "87b65296833f5bf4fca19ea0347a2d163423aaedd426e860029d39b72e9b6030"
+    },
+    "agencies.csv": {
+      "rows": 26224,
+      "bytes": 5285971,
+      "sha256": "7cbc151543cc31bccde54b216208ff7575e22ea61bc31491bc5ae2c4409ada47"
+    },
+    "series.csv": {
+      "rows": 9208,
+      "bytes": 1670987,
+      "sha256": "c8c6583d3f39376624bc7ad3cea2489602962563af67170c671f19ac78f87c11"
+    }
+  }
+}

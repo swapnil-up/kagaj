@@ -18,29 +18,12 @@ REPO_ROOT = BILLTRACKER_ROOT.parent
 NOTICES_MANIFEST = BILLTRACKER_ROOT / "notices.json"
 VERBATIMS_MANIFEST = BILLTRACKER_ROOT / "verbatims.json"
 DDA_MANIFEST = BILLTRACKER_ROOT / "dda_medicines.json"
-MIGRATION_MANIFEST = BILLTRACKER_ROOT / "migration_manifest.json"
 
 # --- Output paths ---
 TRANSLATIONS_DIR = REPO_ROOT / "translations"
 OUTPUT_DIR = REPO_ROOT / "output"
 VERBATIMS_OUTPUT_DIR = OUTPUT_DIR / "verbatims"
 DDA_OUTPUT_DIR = OUTPUT_DIR / "dda"
-MIGRATION_OUTPUT_DIR = OUTPUT_DIR / "migration"   # gitignored: raw PDFs, per-doc CSV
-MIGRATION_DATA_DIR = REPO_ROOT / "migration"       # tracked: final CSV + codebook
-
-# --- DoFE (Department of Foreign Employment) ---
-DOFE_BASE = "https://dofe.gov.np"
-# Categories that carry statistical reports (grid or table listings).
-DOFE_MIGRATION_CATEGORIES = (
-    "monthly",
-    "yearly",
-    "labour-approval",
-    "preapproval",
-    "bulletin",
-)
-# Fallback detail-page PDF resolution (inline JS on /content/ pages).
-DOFE_PDF_JS_RE = r"var\s+pdf\s*=\s*'([^']+)'"
-DOFE_PDF_BARE_RE = r"(https?://[^\s'\"]+\.pdf)"
 
 # --- DDA URLs ---
 DDA_MRP_PAGE = "https://dda.gov.np/category/mrp-of-medicines/"

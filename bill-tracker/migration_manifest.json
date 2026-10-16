@@ -11,7 +11,7 @@
     "period_bs": "",
     "period_ad_start": "2026-08-17",
     "period_ad_end": "2026-09-16",
-    "doc_type": "cumulative",
+    "doc_type": "single_month",
     "checks": "2317 checks: 2317 ok, 0 FAILED",
     "verified": true,
     "processed_at": "2026-10-16",
@@ -311,10 +311,11 @@
     "date_np": "१८ साउन, २०८३",
     "pdf_url": "https://giwmscdnone.gov.np/media/pdf_upload/Barsik%20pratibedan%202082_83_mrafljp.pdf",
     "category": "yearly",
-    "status": "no_table",
+    "status": "skipped",
     "scraped_at": "2026-10-16",
     "serial": 18,
-    "processed_at": "2026-10-16"
+    "processed_at": "2026-10-16",
+    "note": "6th-HoR-era annual report (Barsik pratibedan 2082/83) — narrative/analytical, no extractable wide table"
   },
   {
     "detail_url": "https://dofe.gov.np/content/278/annual-labor-sanction-statement--economic-year-2082-083-/",
@@ -448,10 +449,11 @@
     "date_np": "मंसिर २०, २०८२, शनिबार १५:५२",
     "pdf_url": "https://giwmscdnone.gov.np/media/pdf_upload/Document_2023082111000_jdk1pp6.pdf",
     "category": "labour-approval",
-    "status": "no_table",
+    "status": "skipped",
     "scraped_at": "2026-10-16",
     "serial": 26,
-    "processed_at": "2026-10-16"
+    "processed_at": "2026-10-16",
+    "note": "labour-approval notice — handwritten/scanned, OCR too lossy to extract reliably"
   },
   {
     "detail_url": "https://dofe.gov.np/content/91/esgswfsg/",
@@ -459,10 +461,11 @@
     "date_np": "मंसिर २०, २०८२, शनिबार १५:५१",
     "pdf_url": "https://giwmscdnone.gov.np/media/pdf_upload/Document_2021071601030_d6fqgwe.pdf",
     "category": "labour-approval",
-    "status": "no_table",
+    "status": "done",
     "scraped_at": "2026-10-16",
     "serial": 27,
-    "processed_at": "2026-10-16"
+    "processed_at": "2026-10-16",
+    "note": "institutional — extracted via process_agencies.py to agencies.csv"
   },
   {
     "detail_url": "https://dofe.gov.np/content/90/details-of-institutional-labor-approval-for-fy/",
@@ -470,10 +473,11 @@
     "date_np": "मंसिर २०, २०८२, शनिबार १५:५०",
     "pdf_url": "https://giwmscdnone.gov.np/media/pdf_upload/Document_2020061610190_ahcg0og.pdf",
     "category": "labour-approval",
-    "status": "no_table",
+    "status": "done",
     "scraped_at": "2026-10-16",
     "serial": 28,
-    "processed_at": "2026-10-16"
+    "processed_at": "2026-10-16",
+    "note": "institutional — extracted via process_agencies.py to agencies.csv"
   },
   {
     "detail_url": "https://dofe.gov.np/content/89/annual-labor-sanction-statement-2073-2074/",
@@ -499,10 +503,11 @@
     "date_np": "मंसिर २०, २०८२, शनिबार १६:५",
     "pdf_url": "https://giwmscdnone.gov.np/media/pdf_upload/Document_2018072812330_imr3dtt.pdf",
     "category": "preapproval",
-    "status": "no_table",
+    "status": "done",
     "scraped_at": "2026-10-16",
     "serial": 30,
-    "processed_at": "2026-10-16"
+    "processed_at": "2026-10-16",
+    "note": "pre-approval — extracted via process_agencies.py to agencies.csv"
   },
   {
     "detail_url": "https://dofe.gov.np/content/93/june-2075-according-to-the-previous-permission/",
@@ -510,10 +515,11 @@
     "date_np": "मंसिर २०, २०८२, शनिबार १६:२",
     "pdf_url": "https://giwmscdnone.gov.np/media/pdf_upload/Document_2018072811480_ew7sdim.pdf",
     "category": "preapproval",
-    "status": "no_table",
+    "status": "done",
     "scraped_at": "2026-10-16",
     "serial": 31,
-    "processed_at": "2026-10-16"
+    "processed_at": "2026-10-16",
+    "note": "pre-approval — extracted via process_agencies.py to agencies.csv"
   },
   {
     "detail_url": "https://dofe.gov.np/content/94/prior-permission-year-2073-74/",
@@ -521,10 +527,11 @@
     "date_np": "मंसिर २०, २०८२, शनिबार १६:१",
     "pdf_url": "https://giwmscdnone.gov.np/media/pdf_upload/Document_2018072811440_s5gcrdo.pdf",
     "category": "preapproval",
-    "status": "no_table",
+    "status": "done",
     "scraped_at": "2026-10-16",
     "serial": 32,
-    "processed_at": "2026-10-16"
+    "processed_at": "2026-10-16",
+    "note": "pre-approval — extracted via process_agencies.py to agencies.csv"
   },
   {
     "detail_url": "https://dofe.gov.np/content/11/labor-and-employment-bulletin-2079--november/",

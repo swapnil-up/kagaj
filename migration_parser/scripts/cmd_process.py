@@ -4,44 +4,45 @@ Reads bill-tracker/migration_manifest.json, downloads each pending PDF, extracts
 country/district approval rows, runs the math audit, writes per-document CSV under
 output/migration/docs/ and the combined tracked panel to migration/panel.csv.
 
-  python process_migration.py [--max-count N] [--force]
+  python -m migration_parser process [--max-count N] [--force]
 """
 
+from __future__ import annotations
+
+import argparse
 import csv
 import json
-import os
 import re
 import sys
 import time
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # repo root
-import urllib3  # noqa: E402
-import requests  # noqa: E402
+import requests
+import urllib3
 
-from config import (  # noqa: E402
-    DOFE_BASE,
-    MIGRATION_DATA_DIR,
+from .. import extract_doc, melt, verify
+from ..agencies import INSTITUTIONAL, PREAPPROVAL
+from ..model import DocMeta
+from ..paths import (
+    MIGRATION_DIR,
     MIGRATION_MANIFEST,
     MIGRATION_OUTPUT_DIR,
-    OUTPUT_DIR,
+    MIGRATION_PANEL_COLUMNS,
     load_env,
 )
-
-from migration_parser import extract_doc, melt, verify  # noqa: E402
-from migration_parser.model import DocMeta  # noqa: E402
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 PDFS_DIR = MIGRATION_OUTPUT_DIR / "pdfs"
 DOCS_DIR = MIGRATION_OUTPUT_DIR / "docs"
+MIGRATION_DATA_DIR = MIGRATION_DIR
+PANEL_COLUMNS = MIGRATION_PANEL_COLUMNS
 
-PANEL_COLUMNS = [
-    "doc_id", "period_bs", "period_ad_start", "period_ad_end", "doc_type",
-    "section", "row_type", "name", "sn", "channel", "gender", "count",
-    "source_page", "verified", "source_url",
-]
+# Documents whose tables are extracted by the annex/agencies stages (not the
+# live wide-table parser); skip them here so we never mislabel them "no_table".
+OTHER_STAGE_SERIALS = {
+    f[:3] for f in list(PREAPPROVAL) + list(INSTITUTIONAL)
+}
 
 
 def load_manifest() -> list[dict]:
@@ -119,24 +120,45 @@ def _write_csv(rows: list[dict], path: Path) -> None:
         w.writerows(rows)
 
 
-def main() -> int:
+def _load_all_docs() -> list[dict]:
+    rows: list[dict] = []
+    if not DOCS_DIR.exists():
+        return rows
+    for f in sorted(DOCS_DIR.glob("*.csv")):
+        with open(f, newline="", encoding="utf-8") as fh:
+            rows.extend(csv.DictReader(fh))
+    return rows
+
+
+def rebuild_panel() -> int:
+    """Rebuild migration/panel.csv from all per-doc CSVs (idempotent)."""
+    panel = _load_all_docs()
+    if panel:
+        _write_csv(panel, MIGRATION_DATA_DIR / "panel.csv")
+        print(f"\nWrote {len(panel)} rows to migration/panel.csv", file=sys.stderr)
+    return len(panel)
+
+
+def main(argv: list[str] | None = None) -> int:
     load_env()
-    args = sys.argv[1:]
-    max_count = None
-    force = "--force" in args
-    if "--max-count" in args:
-        max_count = int(args[args.index("--max-count") + 1])
+    p = argparse.ArgumentParser(prog="migration process")
+    p.add_argument("--max-count", type=int, default=None)
+    p.add_argument("--force", action="store_true")
+    args = p.parse_args(sys.argv[1:] if argv is None else argv)
 
     PDFS_DIR.mkdir(parents=True, exist_ok=True)
     MIGRATION_DATA_DIR.mkdir(parents=True, exist_ok=True)
     manifest = load_manifest()
 
-    all_rows: list[dict] = []
     done = 0
     for entry in manifest:
-        if entry.get("status") in ("done", "unverified", "no_table") and not force:
+        if entry.get("status") == "skipped":
             continue
-        if max_count is not None and done >= max_count:
+        if f"{entry['serial']:03d}" in OTHER_STAGE_SERIALS:
+            continue
+        if entry.get("status") in ("done", "unverified", "no_table") and not args.force:
+            continue
+        if args.max_count is not None and done >= args.max_count:
             break
         rows, status = process_entry(entry)
         entry["status"] = status
@@ -146,27 +168,11 @@ def main() -> int:
         n_d = sum(1 for r in rows if r["section"] == "district" and r["row_type"] == "detail")
         print(f"[{status:11s}] #{entry['serial']:03d} {entry.get('title','')[:45]:45s} "
               f"country={n_c} district={n_d} {entry.get('checks','')}", file=sys.stderr)
-        if rows:
-            all_rows.extend(rows)
         save_manifest(manifest)
 
-    # Rebuild the panel from ALL per-doc CSVs (idempotent full rebuild).
-    panel = _load_all_docs()
-    if panel:
-        _write_csv(panel, MIGRATION_DATA_DIR / "panel.csv")
-        print(f"\nWrote {len(panel)} rows to migration/panel.csv", file=sys.stderr)
+    rebuild_panel()
     print(f"processed {done} docs this run", file=sys.stderr)
     return 0
-
-
-def _load_all_docs() -> list[dict]:
-    rows: list[dict] = []
-    if not DOCS_DIR.exists():
-        return rows
-    for f in sorted(DOCS_DIR.glob("*.csv")):
-        with open(f, newline="", encoding="utf-8") as fh:
-            rows.extend(csv.DictReader(fh))
-    return rows
 
 
 if __name__ == "__main__":

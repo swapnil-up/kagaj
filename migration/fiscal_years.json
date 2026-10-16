@@ -1,0 +1,177 @@
+{
+  "fiscal_years": [
+    {
+      "bs": "2073/74",
+      "bs_start": 2073,
+      "ad_start": "2016-07-16",
+      "ad_end": "2017-07-15",
+      "ad_source": "doc89 header"
+    },
+    {
+      "bs": "2074/75",
+      "bs_start": 2074,
+      "ad_start": "2017-07-16",
+      "ad_end": "2018-07-16",
+      "ad_source": "annex IX-XII"
+    },
+    {
+      "bs": "2075/76",
+      "bs_start": 2075,
+      "ad_start": "2018-07-17",
+      "ad_end": "2019-07-16",
+      "ad_source": "annex XIII"
+    },
+    {
+      "bs": "2076/77",
+      "bs_start": 2076,
+      "ad_start": "2019-07-17",
+      "ad_end": "2020-07-15",
+      "ad_source": "nominal (BS Shrawan 1 2076..Ashadh end 2077)"
+    },
+    {
+      "bs": "2077/78",
+      "bs_start": 2077,
+      "ad_start": "2020-07-16",
+      "ad_end": "2021-07-15",
+      "ad_source": "doc34/doc27 header"
+    },
+    {
+      "bs": "2078/79",
+      "bs_start": 2078,
+      "ad_start": "2021-07-16",
+      "ad_end": "2022-07-16",
+      "ad_source": "doc33 header"
+    },
+    {
+      "bs": "2079/80",
+      "bs_start": 2079,
+      "ad_start": "2022-07-17",
+      "ad_end": "2023-07-16",
+      "ad_source": "nominal"
+    },
+    {
+      "bs": "2080/81",
+      "bs_start": 2080,
+      "ad_start": "2023-07-17",
+      "ad_end": "2024-07-15",
+      "ad_source": "doc29 header"
+    },
+    {
+      "bs": "2081/82",
+      "bs_start": 2081,
+      "ad_start": "2024-07-16",
+      "ad_end": "2025-07-16",
+      "ad_source": "doc20 header"
+    },
+    {
+      "bs": "2082/83",
+      "bs_start": 2082,
+      "ad_start": "2025-07-17",
+      "ad_end": "2026-07-16",
+      "ad_source": "doc278 header"
+    },
+    {
+      "bs": "2083/84",
+      "bs_start": 2083,
+      "ad_start": "2026-07-17",
+      "ad_end": "2027-07-16",
+      "ad_source": "nominal"
+    }
+  ],
+  "months": [
+    {
+      "index": 1,
+      "name": "Baisakh",
+      "np": [
+        "बैशाख",
+        "वैशाख"
+      ]
+    },
+    {
+      "index": 2,
+      "name": "Jestha",
+      "np": [
+        "जेठ",
+        "जेष्ठ"
+      ]
+    },
+    {
+      "index": 3,
+      "name": "Ashadh",
+      "np": [
+        "असार",
+        "अषाढ",
+        "असाढ"
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Shrawan",
+      "np": [
+        "श्रावण",
+        "साउन"
+      ]
+    },
+    {
+      "index": 5,
+      "name": "Bhadra",
+      "np": [
+        "भाद्र",
+        "भदौ"
+      ]
+    },
+    {
+      "index": 6,
+      "name": "Ashwin",
+      "np": [
+        "असोज",
+        "आश्विन"
+      ]
+    },
+    {
+      "index": 7,
+      "name": "Kartik",
+      "np": [
+        "कार्तिक"
+      ]
+    },
+    {
+      "index": 8,
+      "name": "Mangsir",
+      "np": [
+        "मंसिर"
+      ]
+    },
+    {
+      "index": 9,
+      "name": "Poush",
+      "np": [
+        "पौष",
+        "पुष"
+      ]
+    },
+    {
+      "index": 10,
+      "name": "Magh",
+      "np": [
+        "माघ"
+      ]
+    },
+    {
+      "index": 11,
+      "name": "Falgun",
+      "np": [
+        "फागुन",
+        "फाल्गुन"
+      ]
+    },
+    {
+      "index": 12,
+      "name": "Chaitra",
+      "np": [
+        "चैत",
+        "चैत्र"
+      ]
+    }
+  ]
+}

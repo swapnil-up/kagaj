@@ -1,0 +1,1023 @@
+[
+  {
+    "name": "Afghanistan",
+    "iso3": "AFG",
+    "resolved": true
+  },
+  {
+    "name": "Albania",
+    "iso3": "ALB",
+    "resolved": true
+  },
+  {
+    "name": "Algeria",
+    "iso3": "DZA",
+    "resolved": true
+  },
+  {
+    "name": "Angola",
+    "iso3": "AGO",
+    "resolved": true
+  },
+  {
+    "name": "Antigua and Barbuda",
+    "iso3": "ATG",
+    "resolved": true,
+    "aliases": [
+      "Antigua & Barbuda"
+    ]
+  },
+  {
+    "name": "Argentina",
+    "iso3": "ARG",
+    "resolved": true
+  },
+  {
+    "name": "Armenia",
+    "iso3": "ARM",
+    "resolved": true
+  },
+  {
+    "name": "Australia",
+    "iso3": "AUS",
+    "resolved": true
+  },
+  {
+    "name": "Austria",
+    "iso3": "AUT",
+    "resolved": true
+  },
+  {
+    "name": "Azerbaijan",
+    "iso3": "AZE",
+    "resolved": true,
+    "aliases": [
+      "AZERBAI"
+    ]
+  },
+  {
+    "name": "Bahamas",
+    "iso3": "BHS",
+    "resolved": true
+  },
+  {
+    "name": "Bahrain",
+    "iso3": "BHR",
+    "resolved": true
+  },
+  {
+    "name": "Bangladesh",
+    "iso3": "BGD",
+    "resolved": true
+  },
+  {
+    "name": "Barbados",
+    "iso3": "BRB",
+    "resolved": true
+  },
+  {
+    "name": "Belarus",
+    "iso3": "BLR",
+    "resolved": true
+  },
+  {
+    "name": "Belgium",
+    "iso3": "BEL",
+    "resolved": true
+  },
+  {
+    "name": "Benin",
+    "iso3": "BEN",
+    "resolved": true
+  },
+  {
+    "name": "Bermuda",
+    "iso3": "BMU",
+    "resolved": true
+  },
+  {
+    "name": "Bosnia and Herzegovina",
+    "iso3": "BIH",
+    "resolved": true,
+    "aliases": [
+      "BOSNIA A"
+    ]
+  },
+  {
+    "name": "Brazil",
+    "iso3": "BRA",
+    "resolved": true
+  },
+  {
+    "name": "British Virgin Islands",
+    "iso3": "VGB",
+    "resolved": true,
+    "aliases": [
+      "British Vir"
+    ]
+  },
+  {
+    "name": "Brunei Darussalam",
+    "iso3": "BRN",
+    "resolved": true,
+    "aliases": [
+      "Brunei Dar"
+    ]
+  },
+  {
+    "name": "Bulgaria",
+    "iso3": "BGR",
+    "resolved": true,
+    "aliases": [
+      "Republic of Bulgaria"
+    ]
+  },
+  {
+    "name": "Burkina Faso",
+    "iso3": "BFA",
+    "resolved": true
+  },
+  {
+    "name": "Myanmar",
+    "iso3": "MMR",
+    "resolved": true,
+    "aliases": [
+      "Burma",
+      "Myanmmar"
+    ]
+  },
+  {
+    "name": "Burundi",
+    "iso3": "BDI",
+    "resolved": true
+  },
+  {
+    "name": "Cambodia",
+    "iso3": "KHM",
+    "resolved": true,
+    "aliases": [
+      "Combodia"
+    ]
+  },
+  {
+    "name": "Cameroon",
+    "iso3": "CMR",
+    "resolved": true
+  },
+  {
+    "name": "Canada",
+    "iso3": "CAN",
+    "resolved": true
+  },
+  {
+    "name": "Cayman Islands",
+    "iso3": "CYM",
+    "resolved": true,
+    "aliases": [
+      "Cayman"
+    ]
+  },
+  {
+    "name": "Central African Republic",
+    "iso3": "CAF",
+    "resolved": true
+  },
+  {
+    "name": "Chile",
+    "iso3": "CHL",
+    "resolved": true
+  },
+  {
+    "name": "China",
+    "iso3": "CHN",
+    "resolved": true
+  },
+  {
+    "name": "Colombia",
+    "iso3": "COL",
+    "resolved": true
+  },
+  {
+    "name": "Comoros",
+    "iso3": "COM",
+    "resolved": true
+  },
+  {
+    "name": "Republic of the Congo",
+    "iso3": "COG",
+    "resolved": true,
+    "aliases": [
+      "Republic of Congo",
+      "Congo"
+    ]
+  },
+  {
+    "name": "Cook Islands",
+    "iso3": "COK",
+    "resolved": true,
+    "aliases": [
+      "Cook Islan"
+    ]
+  },
+  {
+    "name": "Cote d'Ivoire",
+    "iso3": "CIV",
+    "resolved": true,
+    "aliases": [
+      "Cote DIvoire",
+      "Cote Dlvoire",
+      "Ivory Coast"
+    ]
+  },
+  {
+    "name": "Croatia",
+    "iso3": "HRV",
+    "resolved": true
+  },
+  {
+    "name": "Cuba",
+    "iso3": "CUB",
+    "resolved": true
+  },
+  {
+    "name": "Cyprus",
+    "iso3": "CYP",
+    "resolved": true
+  },
+  {
+    "name": "Czech Republic",
+    "iso3": "CZE",
+    "resolved": true,
+    "aliases": [
+      "Czech Rep"
+    ]
+  },
+  {
+    "name": "Denmark",
+    "iso3": "DNK",
+    "resolved": true,
+    "aliases": [
+      "DENMAR"
+    ]
+  },
+  {
+    "name": "Djibouti",
+    "iso3": "DJI",
+    "resolved": true
+  },
+  {
+    "name": "Dominican Republic",
+    "iso3": "DOM",
+    "resolved": true
+  },
+  {
+    "name": "Timor-Leste",
+    "iso3": "TLS",
+    "resolved": true,
+    "aliases": [
+      "East Timor"
+    ]
+  },
+  {
+    "name": "Ecuador",
+    "iso3": "ECU",
+    "resolved": true
+  },
+  {
+    "name": "Egypt",
+    "iso3": "EGY",
+    "resolved": true
+  },
+  {
+    "name": "Equatorial Guinea",
+    "iso3": "GNQ",
+    "resolved": true,
+    "aliases": [
+      "Republic of Equatorial Guinea"
+    ]
+  },
+  {
+    "name": "Eritrea",
+    "iso3": "ERI",
+    "resolved": true
+  },
+  {
+    "name": "Estonia",
+    "iso3": "EST",
+    "resolved": true
+  },
+  {
+    "name": "Ethiopia",
+    "iso3": "ETH",
+    "resolved": true
+  },
+  {
+    "name": "Fiji",
+    "iso3": "FJI",
+    "resolved": true
+  },
+  {
+    "name": "Finland",
+    "iso3": "FIN",
+    "resolved": true
+  },
+  {
+    "name": "France",
+    "iso3": "FRA",
+    "resolved": true
+  },
+  {
+    "name": "French Polynesia",
+    "iso3": "PYF",
+    "resolved": true,
+    "aliases": [
+      "French Pol"
+    ]
+  },
+  {
+    "name": "Gabon",
+    "iso3": "GAB",
+    "resolved": true
+  },
+  {
+    "name": "Georgia",
+    "iso3": "GEO",
+    "resolved": true
+  },
+  {
+    "name": "Germany",
+    "iso3": "DEU",
+    "resolved": true
+  },
+  {
+    "name": "Ghana",
+    "iso3": "GHA",
+    "resolved": true
+  },
+  {
+    "name": "Greece",
+    "iso3": "GRC",
+    "resolved": true
+  },
+  {
+    "name": "Guinea",
+    "iso3": "GIN",
+    "resolved": true
+  },
+  {
+    "name": "Guyana",
+    "iso3": "GUY",
+    "resolved": true,
+    "aliases": [
+      "Co-Operative Republic of Guyana"
+    ]
+  },
+  {
+    "name": "Hong Kong",
+    "iso3": "HKG",
+    "resolved": true,
+    "aliases": [
+      "Hong Kong SAR, China",
+      "Hong Kong SAR,China",
+      "Hong Kong Sar,China"
+    ]
+  },
+  {
+    "name": "Hungary",
+    "iso3": "HUN",
+    "resolved": true
+  },
+  {
+    "name": "Iceland",
+    "iso3": "ISL",
+    "resolved": true
+  },
+  {
+    "name": "Indonesia",
+    "iso3": "IDN",
+    "resolved": true
+  },
+  {
+    "name": "Iran",
+    "iso3": "IRN",
+    "resolved": true
+  },
+  {
+    "name": "Iraq",
+    "iso3": "IRQ",
+    "resolved": true
+  },
+  {
+    "name": "Ireland",
+    "iso3": "IRL",
+    "resolved": true
+  },
+  {
+    "name": "Israel",
+    "iso3": "ISR",
+    "resolved": true
+  },
+  {
+    "name": "Italy",
+    "iso3": "ITA",
+    "resolved": true
+  },
+  {
+    "name": "Jamaica",
+    "iso3": "JAM",
+    "resolved": true
+  },
+  {
+    "name": "Japan",
+    "iso3": "JPN",
+    "resolved": true
+  },
+  {
+    "name": "Jordan",
+    "iso3": "JOR",
+    "resolved": true
+  },
+  {
+    "name": "Kazakhstan",
+    "iso3": "KAZ",
+    "resolved": true,
+    "aliases": [
+      "Kazakhastan"
+    ]
+  },
+  {
+    "name": "Kenya",
+    "iso3": "KEN",
+    "resolved": true
+  },
+  {
+    "name": "Kosovo",
+    "iso3": "XKX",
+    "resolved": true,
+    "aliases": [
+      "Republic of Kosovo"
+    ]
+  },
+  {
+    "name": "Kuwait",
+    "iso3": "KWT",
+    "resolved": true
+  },
+  {
+    "name": "Laos",
+    "iso3": "LAO",
+    "resolved": true,
+    "aliases": [
+      "Lao PDR"
+    ]
+  },
+  {
+    "name": "Latvia",
+    "iso3": "LVA",
+    "resolved": true
+  },
+  {
+    "name": "Lebanon",
+    "iso3": "LBN",
+    "resolved": true
+  },
+  {
+    "name": "Liberia",
+    "iso3": "LBR",
+    "resolved": true
+  },
+  {
+    "name": "Lithuania",
+    "iso3": "LTU",
+    "resolved": true,
+    "aliases": [
+      "Lietuva",
+      "Republic of Lithuania"
+    ]
+  },
+  {
+    "name": "Luxembourg",
+    "iso3": "LUX",
+    "resolved": true,
+    "aliases": [
+      "LUXEMB"
+    ]
+  },
+  {
+    "name": "Macau",
+    "iso3": "MAC",
+    "resolved": true,
+    "aliases": [
+      "Macau SA",
+      "Macau SAR, China",
+      "Macau SAR,China",
+      "Macau Sar,China",
+      "Macau, SAR, China"
+    ]
+  },
+  {
+    "name": "Madagascar",
+    "iso3": "MDG",
+    "resolved": true,
+    "aliases": [
+      "Madagasca"
+    ]
+  },
+  {
+    "name": "Malawi",
+    "iso3": "MWI",
+    "resolved": true
+  },
+  {
+    "name": "Malaysia",
+    "iso3": "MYS",
+    "resolved": true
+  },
+  {
+    "name": "Maldives",
+    "iso3": "MDV",
+    "resolved": true
+  },
+  {
+    "name": "Mali",
+    "iso3": "MLI",
+    "resolved": true
+  },
+  {
+    "name": "Malta",
+    "iso3": "MLT",
+    "resolved": true
+  },
+  {
+    "name": "Mauritania",
+    "iso3": "MRT",
+    "resolved": true
+  },
+  {
+    "name": "Mauritius",
+    "iso3": "MUS",
+    "resolved": true
+  },
+  {
+    "name": "Mexico",
+    "iso3": "MEX",
+    "resolved": true,
+    "aliases": [
+      "Maxico"
+    ]
+  },
+  {
+    "name": "Moldova",
+    "iso3": "MDA",
+    "resolved": true
+  },
+  {
+    "name": "Mongolia",
+    "iso3": "MNG",
+    "resolved": true
+  },
+  {
+    "name": "Morocco",
+    "iso3": "MAR",
+    "resolved": true,
+    "aliases": [
+      "Maroc"
+    ]
+  },
+  {
+    "name": "Mozambique",
+    "iso3": "MOZ",
+    "resolved": true
+  },
+  {
+    "name": "Namibia",
+    "iso3": "NAM",
+    "resolved": true
+  },
+  {
+    "name": "Netherlands",
+    "iso3": "NLD",
+    "resolved": true,
+    "aliases": [
+      "Netherland"
+    ]
+  },
+  {
+    "name": "New Zealand",
+    "iso3": "NZL",
+    "resolved": true,
+    "aliases": [
+      "New Zeala"
+    ]
+  },
+  {
+    "name": "Nigeria",
+    "iso3": "NGA",
+    "resolved": true
+  },
+  {
+    "name": "Norway",
+    "iso3": "NOR",
+    "resolved": true
+  },
+  {
+    "name": "Oman",
+    "iso3": "OMN",
+    "resolved": true
+  },
+  {
+    "name": "Pakistan",
+    "iso3": "PAK",
+    "resolved": true
+  },
+  {
+    "name": "Palau",
+    "iso3": "PLW",
+    "resolved": true
+  },
+  {
+    "name": "Panama",
+    "iso3": "PAN",
+    "resolved": true
+  },
+  {
+    "name": "Papua New Guinea",
+    "iso3": "PNG",
+    "resolved": true,
+    "aliases": [
+      "PAPUA N"
+    ]
+  },
+  {
+    "name": "Peru",
+    "iso3": "PER",
+    "resolved": true
+  },
+  {
+    "name": "Philippines",
+    "iso3": "PHL",
+    "resolved": true,
+    "aliases": [
+      "Phillippines"
+    ]
+  },
+  {
+    "name": "Poland",
+    "iso3": "POL",
+    "resolved": true
+  },
+  {
+    "name": "Portugal",
+    "iso3": "PRT",
+    "resolved": true
+  },
+  {
+    "name": "Puerto Rico",
+    "iso3": "PRI",
+    "resolved": true
+  },
+  {
+    "name": "Qatar",
+    "iso3": "QAT",
+    "resolved": true
+  },
+  {
+    "name": "North Macedonia",
+    "iso3": "MKD",
+    "resolved": true,
+    "aliases": [
+      "Republic of Macedonia"
+    ]
+  },
+  {
+    "name": "Romania",
+    "iso3": "ROU",
+    "resolved": true
+  },
+  {
+    "name": "Russia",
+    "iso3": "RUS",
+    "resolved": true
+  },
+  {
+    "name": "Rwanda",
+    "iso3": "RWA",
+    "resolved": true
+  },
+  {
+    "name": "Saint Lucia",
+    "iso3": "LCA",
+    "resolved": true
+  },
+  {
+    "name": "Samoa",
+    "iso3": "WSM",
+    "resolved": true
+  },
+  {
+    "name": "Saudi Arabia",
+    "iso3": "SAU",
+    "resolved": true,
+    "aliases": [
+      "Saudi Arab"
+    ]
+  },
+  {
+    "name": "Senegal",
+    "iso3": "SEN",
+    "resolved": true
+  },
+  {
+    "name": "Serbia",
+    "iso3": "SRB",
+    "resolved": true
+  },
+  {
+    "name": "Seychelles",
+    "iso3": "SYC",
+    "resolved": true,
+    "aliases": [
+      "Republic of Seychelles"
+    ]
+  },
+  {
+    "name": "Sierra Leone",
+    "iso3": "SLE",
+    "resolved": true
+  },
+  {
+    "name": "Singapore",
+    "iso3": "SGP",
+    "resolved": true
+  },
+  {
+    "name": "Sint Maarten",
+    "iso3": "SXM",
+    "resolved": true,
+    "aliases": [
+      "Sint Maart"
+    ]
+  },
+  {
+    "name": "Slovakia",
+    "iso3": "SVK",
+    "resolved": true,
+    "aliases": [
+      "Slovakia(R",
+      "Slovakia(Republic of Slovak)"
+    ]
+  },
+  {
+    "name": "Slovenia",
+    "iso3": "SVN",
+    "resolved": true
+  },
+  {
+    "name": "Somalia",
+    "iso3": "SOM",
+    "resolved": true
+  },
+  {
+    "name": "South Africa",
+    "iso3": "ZAF",
+    "resolved": true
+  },
+  {
+    "name": "South Korea",
+    "iso3": "KOR",
+    "resolved": true,
+    "aliases": [
+      "Republic of Korea"
+    ]
+  },
+  {
+    "name": "South Sudan",
+    "iso3": "SSD",
+    "resolved": true
+  },
+  {
+    "name": "Spain",
+    "iso3": "ESP",
+    "resolved": true
+  },
+  {
+    "name": "Sri Lanka",
+    "iso3": "LKA",
+    "resolved": true
+  },
+  {
+    "name": "Sudan",
+    "iso3": "SDN",
+    "resolved": true
+  },
+  {
+    "name": "Suriname",
+    "iso3": "SUR",
+    "resolved": true
+  },
+  {
+    "name": "Eswatini",
+    "iso3": "SWZ",
+    "resolved": true,
+    "aliases": [
+      "Swaziland"
+    ]
+  },
+  {
+    "name": "Sweden",
+    "iso3": "SWE",
+    "resolved": true
+  },
+  {
+    "name": "Switzerland",
+    "iso3": "CHE",
+    "resolved": true
+  },
+  {
+    "name": "Taiwan",
+    "iso3": "TWN",
+    "resolved": true
+  },
+  {
+    "name": "Tajikistan",
+    "iso3": "TJK",
+    "resolved": true
+  },
+  {
+    "name": "Tanzania",
+    "iso3": "TZA",
+    "resolved": true
+  },
+  {
+    "name": "Thailand",
+    "iso3": "THA",
+    "resolved": true
+  },
+  {
+    "name": "Togo",
+    "iso3": "TGO",
+    "resolved": true,
+    "aliases": [
+      "Republique Togolaise"
+    ]
+  },
+  {
+    "name": "Trinidad and Tobago",
+    "iso3": "TTO",
+    "resolved": true,
+    "aliases": [
+      "Trinidad"
+    ]
+  },
+  {
+    "name": "Tunisia",
+    "iso3": "TUN",
+    "resolved": true
+  },
+  {
+    "name": "Turkey",
+    "iso3": "TUR",
+    "resolved": true
+  },
+  {
+    "name": "Turkmenistan",
+    "iso3": "TKM",
+    "resolved": true,
+    "aliases": [
+      "Turkemenistan"
+    ]
+  },
+  {
+    "name": "Turks and Caicos Islands",
+    "iso3": "TCA",
+    "resolved": true,
+    "aliases": [
+      "Turks And Caicos Island",
+      "Turks and Caicos Island",
+      "Turks and"
+    ]
+  },
+  {
+    "name": "United Arab Emirates",
+    "iso3": "ARE",
+    "resolved": true,
+    "aliases": [
+      "UAE"
+    ]
+  },
+  {
+    "name": "Uganda",
+    "iso3": "UGA",
+    "resolved": true
+  },
+  {
+    "name": "Ukraine",
+    "iso3": "UKR",
+    "resolved": true
+  },
+  {
+    "name": "United Kingdom",
+    "iso3": "GBR",
+    "resolved": true,
+    "aliases": [
+      "United Kin",
+      "UK",
+      "Great Britain"
+    ]
+  },
+  {
+    "name": "United States of America",
+    "iso3": "USA",
+    "resolved": true,
+    "aliases": [
+      "USA",
+      "United States"
+    ]
+  },
+  {
+    "name": "Uruguay",
+    "iso3": "URY",
+    "resolved": true
+  },
+  {
+    "name": "Uzbekistan",
+    "iso3": "UZB",
+    "resolved": true
+  },
+  {
+    "name": "Vanuatu",
+    "iso3": "VUT",
+    "resolved": true
+  },
+  {
+    "name": "Vietnam",
+    "iso3": "VNM",
+    "resolved": true
+  },
+  {
+    "name": "Yemen",
+    "iso3": "YEM",
+    "resolved": true
+  },
+  {
+    "name": "Zambia",
+    "iso3": "ZMB",
+    "resolved": true
+  },
+  {
+    "name": "Africa",
+    "iso3": null,
+    "resolved": false,
+    "kind": "region",
+    "note": "Vague regional grouping appearing in one source"
+  },
+  {
+    "name": "East Africa Djibouti",
+    "iso3": null,
+    "resolved": false,
+    "kind": "flagged",
+    "note": "Odd printed entry, distinct from 'Djibouti' row in same source"
+  },
+  {
+    "name": "Kango",
+    "iso3": null,
+    "resolved": false,
+    "kind": "flagged",
+    "note": "Printed literally; unidentified (possibly a misprint)"
+  },
+  {
+    "name": "MALABO",
+    "iso3": null,
+    "resolved": false,
+    "kind": "flagged",
+    "note": "Printed as 'MALABO' (capital of Equatorial Guinea); a distinct row from 'Equatorial Guinea' in every source that contains it"
+  },
+  {
+    "name": "Saipan",
+    "iso3": null,
+    "resolved": false,
+    "kind": "flagged",
+    "note": "Northern Mariana Islands (US territory)"
+  },
+  {
+    "name": "West-Indies",
+    "iso3": null,
+    "resolved": false,
+    "kind": "region",
+    "note": "Cricket-region grouping, not a country"
+  },
+  {
+    "name": "Republic o",
+    "iso3": null,
+    "resolved": false,
+    "kind": "clipped",
+    "note": "A 'Republic of ...' name clipped in source (content 332); 4 distinct countries, unresolvable from text"
+  },
+  {
+    "name": "REPUBLI",
+    "iso3": null,
+    "resolved": false,
+    "kind": "clipped",
+    "note": "'Republic of ...' name clipped in source (content 332); unresolvable from text"
+  }
+]

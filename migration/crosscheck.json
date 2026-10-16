@@ -1,0 +1,291 @@
+{
+  "note": "opendatanepal is a cross-check only; never used to fill panel gaps.",
+  "tolerance": 0.005,
+  "checks": [
+    {
+      "id": "ra_by_country",
+      "file": "nepal-labor-migratio__labour-approvals-issued-through-recruitment-agencies-by-country-of-destination.csv",
+      "panel": {
+        "section": "country",
+        "channel": "recruiting_agency",
+        "gender": "total"
+      },
+      "comparable": true,
+      "matched_keys": 42,
+      "opendata_keys": 42,
+      "skipped_rows": 3,
+      "opendata_total": 544833,
+      "matched_opendata_total": 544833,
+      "matched_panel_total": 544855,
+      "abs_frac_diff": 4e-05,
+      "status": "match",
+      "top_diffs": [
+        {
+          "fy": "2077/78",
+          "entity": "Romania",
+          "opendata": 1428,
+          "panel": 1386,
+          "diff": -42
+        },
+        {
+          "fy": "2076/77",
+          "entity": "United Arab Emirates",
+          "opendata": 46518,
+          "panel": 46542,
+          "diff": 24
+        },
+        {
+          "fy": "2076/77",
+          "entity": "Saudi Arabia",
+          "opendata": 39217,
+          "panel": 39236,
+          "diff": 19
+        },
+        {
+          "fy": "2076/77",
+          "entity": "Malaysia",
+          "opendata": 38972,
+          "panel": 38980,
+          "diff": 8
+        },
+        {
+          "fy": "2077/78",
+          "entity": "Saudi Arabia",
+          "opendata": 23298,
+          "panel": 23303,
+          "diff": 5
+        },
+        {
+          "fy": "2076/77",
+          "entity": "Kuwait",
+          "opendata": 8397,
+          "panel": 8400,
+          "diff": 3
+        },
+        {
+          "fy": "2077/78",
+          "entity": "Qatar",
+          "opendata": 21279,
+          "panel": 21281,
+          "diff": 2
+        },
+        {
+          "fy": "2076/77",
+          "entity": "Qatar",
+          "opendata": 27517,
+          "panel": 27518,
+          "diff": 1
+        },
+        {
+          "fy": "2076/77",
+          "entity": "Bahrain",
+          "opendata": 3047,
+          "panel": 3048,
+          "diff": 1
+        },
+        {
+          "fy": "2078/79",
+          "entity": "Saudi Arabia",
+          "opendata": 125237,
+          "panel": 125238,
+          "diff": 1
+        }
+      ],
+      "opendata_only": []
+    },
+    {
+      "id": "women_renewing",
+      "file": "nepal-labor-migratio__women-migrant-workers-renewing-labor-approvals.csv",
+      "panel": {
+        "section": "country",
+        "channel": "individual_reentry",
+        "gender": "female"
+      },
+      "comparable": true,
+      "matched_keys": 50,
+      "opendata_keys": 50,
+      "skipped_rows": 5,
+      "opendata_total": 50430,
+      "matched_opendata_total": 50430,
+      "matched_panel_total": 50430,
+      "abs_frac_diff": 0.0,
+      "status": "match",
+      "top_diffs": [
+        {
+          "fy": "2076/77",
+          "entity": "United Arab Emirates",
+          "opendata": 5081,
+          "panel": 5080,
+          "diff": -1
+        },
+        {
+          "fy": "2076/77",
+          "entity": "Saudi Arabia",
+          "opendata": 375,
+          "panel": 376,
+          "diff": 1
+        }
+      ],
+      "opendata_only": []
+    },
+    {
+      "id": "new_approvals_total",
+      "file": "nepal-labor-migratio__labour-approvals-issued-by-skills-profile-and-destination.csv",
+      "panel": {
+        "section": "country",
+        "channel": "total_without_reentry",
+        "gender": "total"
+      },
+      "comparable": true,
+      "matched_keys": 42,
+      "opendata_keys": 42,
+      "skipped_rows": 3,
+      "opendata_total": 113355,
+      "matched_opendata_total": 113355,
+      "matched_panel_total": 113312,
+      "abs_frac_diff": 0.00038,
+      "status": "match",
+      "top_diffs": [
+        {
+          "fy": "2077/78",
+          "entity": "Romania",
+          "opendata": 1954,
+          "panel": 1912,
+          "diff": -42
+        },
+        {
+          "fy": "2076/77",
+          "entity": "Cyprus",
+          "opendata": 1458,
+          "panel": 1447,
+          "diff": -11
+        },
+        {
+          "fy": "2076/77",
+          "entity": "Malaysia",
+          "opendata": 39159,
+          "panel": 39167,
+          "diff": 8
+        },
+        {
+          "fy": "2076/77",
+          "entity": "Maldives",
+          "opendata": 886,
+          "panel": 887,
+          "diff": 1
+        },
+        {
+          "fy": "2077/78",
+          "entity": "Maldives",
+          "opendata": 1007,
+          "panel": 1008,
+          "diff": 1
+        }
+      ],
+      "opendata_only": []
+    },
+    {
+      "id": "new_individual",
+      "file": "nepal-labor-migratio__new-individual-labour-approvals-issued-by-country-of-destination.csv",
+      "panel": {
+        "section": "country",
+        "channel": "individual_new",
+        "gender": "total"
+      },
+      "comparable": false,
+      "matched_keys": 10,
+      "opendata_keys": 41,
+      "skipped_rows": 0,
+      "opendata_total": 85826,
+      "matched_opendata_total": 7192,
+      "matched_panel_total": 6776,
+      "abs_frac_diff": 0.05784,
+      "status": "divergent",
+      "top_diffs": [
+        {
+          "fy": "2075/76",
+          "entity": "Poland",
+          "opendata": 1662,
+          "panel": 28,
+          "diff": -1634
+        },
+        {
+          "fy": "2075/76",
+          "entity": "Malta",
+          "opendata": 466,
+          "panel": 1150,
+          "diff": 684
+        },
+        {
+          "fy": "2075/76",
+          "entity": "Kuwait",
+          "opendata": 277,
+          "panel": 566,
+          "diff": 289
+        },
+        {
+          "fy": "2075/76",
+          "entity": "Germany",
+          "opendata": 290,
+          "panel": 67,
+          "diff": -223
+        },
+        {
+          "fy": "2075/76",
+          "entity": "Maldives",
+          "opendata": 1643,
+          "panel": 1817,
+          "diff": 174
+        },
+        {
+          "fy": "2075/76",
+          "entity": "United Arab Emirates",
+          "opendata": 740,
+          "panel": 888,
+          "diff": 148
+        },
+        {
+          "fy": "2075/76",
+          "entity": "Qatar",
+          "opendata": 1038,
+          "panel": 1149,
+          "diff": 111
+        },
+        {
+          "fy": "2075/76",
+          "entity": "Japan",
+          "opendata": 350,
+          "panel": 399,
+          "diff": 49
+        },
+        {
+          "fy": "2075/76",
+          "entity": "Seychelles",
+          "opendata": 347,
+          "panel": 337,
+          "diff": -10
+        },
+        {
+          "fy": "2075/76",
+          "entity": "Czech Republic",
+          "opendata": 379,
+          "panel": 375,
+          "diff": -4
+        }
+      ],
+      "opendata_only": [
+        "Croatia",
+        "Czech Republic",
+        "Japan",
+        "Kuwait",
+        "Macau",
+        "Maldives",
+        "Malta",
+        "Oman",
+        "Poland",
+        "Portugal"
+      ]
+    }
+  ],
+  "comparable_failures": []
+}

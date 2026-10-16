@@ -1,4 +1,18 @@
-"""CLI: migration extract <pdf> ... | migration verify <pdf> ..."""
+"""CLI: migration <command> ...
+
+Commands:
+  extract    extract + verify country/district rows from PDFs (library demo)
+  scrape     scrape the DoFE listings into the manifest
+  process    download + extract + verify the live wide tables
+  annex      extract the migration_2020 Annex tables
+  agencies   extract pre-approval / institutional agency detail
+  series     extract historical metric-series tables
+  normalize  add canonical entity/channel/fiscal-year columns
+  reconcile  cross-document reconciliation + dedup -> panel_canonical.csv
+  verify     panel-wide math-invariant audit -> verification.json
+  crosscheck cross-check against opendatanepal -> crosscheck.json
+  build      one-command reproducible build + packaging
+"""
 
 import argparse
 import csv
@@ -8,6 +22,32 @@ import sys
 
 from .parser import extract_doc, melt
 from .verify import verify
+
+
+def _dispatch(stage: str) -> callable:
+    if stage == "scrape":
+        from .scripts import cmd_scrape as m
+    elif stage == "process":
+        from .scripts import cmd_process as m
+    elif stage == "annex":
+        from .scripts import cmd_annex as m
+    elif stage == "agencies":
+        from .scripts import cmd_agencies as m
+    elif stage == "series":
+        from .scripts import cmd_series as m
+    elif stage == "normalize":
+        from .scripts import cmd_normalize as m
+    elif stage == "reconcile":
+        from .scripts import cmd_reconcile as m
+    elif stage == "verify":
+        from .scripts import cmd_verify as m
+    elif stage == "crosscheck":
+        from .scripts import cmd_crosscheck as m
+    elif stage == "build":
+        from .scripts import cmd_build as m
+    else:  # pragma: no cover - guarded by argparse choices
+        raise SystemExit(f"unknown stage: {stage}")
+    return m.main
 
 
 def cmd_extract(args) -> int:
@@ -52,6 +92,10 @@ def _write_csv(rows: list[dict], path: str) -> None:
         w.writerows(rows)
 
 
+STAGES = ("scrape", "process", "annex", "agencies", "series",
+          "normalize", "reconcile", "verify", "crosscheck", "build")
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="migration")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -62,8 +106,20 @@ def main(argv=None) -> int:
     e.add_argument("--json", help="also dump tidy rows as JSON")
     e.set_defaults(func=cmd_extract)
 
-    args = p.parse_args(argv)
-    return args.func(args)
+    for name in STAGES:
+        s = sub.add_parser(name, help=f"run the {name} pipeline stage",
+                           add_help=False)
+        s.set_defaults(func=_dispatch(name))
+
+    args, extra = p.parse_known_args(argv)
+    if args.cmd == "extract":
+        return args.func(args)
+    # forward stage-specific flags to the stage's own parser
+    return args.func(extra)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
 
 
 if __name__ == "__main__":

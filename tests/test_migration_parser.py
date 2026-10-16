@@ -1,5 +1,16 @@
 """Tests for migration_parser — model templates, verification, periods."""
 
+import csv
+from pathlib import Path
+
+from migration_parser import normalize
+from migration_parser.annex import (
+    ANNEX_COUNTRY,
+    ANNEX_DISTRICT,
+    extract_country_table,
+    extract_district_table,
+)
+from migration_parser.agencies import _find_summary, _page_lines, parse_window
 from migration_parser.model import DocMeta, ExtractResult, WideRow, channels_for
 from migration_parser.parser import melt
 from migration_parser.periods import (
@@ -8,8 +19,25 @@ from migration_parser.periods import (
     parse_bs_period,
 )
 from migration_parser.series import (
+    _clean_name,
+    _scalar,
     classify_metric,
+    extract_calendar_year_matrix,
+    extract_cause_country,
+    extract_cause_of_death_year,
+    extract_country_snapshot,
+    extract_cross_tab,
+    extract_destination_gender_crosstab,
+    extract_measure_crosstab,
+    extract_migration_cost,
+    extract_mrrc_cases,
+    extract_occupation_profile,
+    extract_remittance_cost,
+    extract_remittance_households,
+    extract_remittance_use,
+    extract_year_gender_blocks,
     extract_year_matrix,
+    norm_cal_year,
     norm_year,
 )
 from migration_parser.verify import verify
@@ -147,6 +175,37 @@ def test_extract_year_matrix():
     assert mal == {"2008/09": 15, "2009/10": 1363}  # space separator handled
 
 
+def test_extract_year_matrix_row_label_period_does_not_flip_unit():
+    # A period in a *row label* (e.g. "Rep. of Korea") must not mark the whole
+    # count table as `percent` (regression for the flawed any-cell heuristic).
+    rows = [
+        ["Country/Year", "2008/09", "2009/10", "Total"],
+        ["Rep. of Korea", "1", "6", "7"],
+        ["U.A.E.", "13", "53", "66"],
+    ]
+    got = extract_year_matrix(rows, "Table 8. Incident of death, by country", 1, "r")
+    assert got and all(r["unit"] == "count" for r in got)
+
+
+def test_extract_year_matrix_share_header_is_percent():
+    rows = [
+        ["District/Year", "2008/09", "2009/10", "Total share in six years"],
+        ["Jhapa", "18", "20", "6.1"],
+    ]
+    got = extract_year_matrix(rows, "Table 3. Yearly pattern of labour migrants", 1, "r")
+    assert got and all(r["unit"] == "percent" for r in got)
+
+
+def test_extract_year_matrix_decimal_majority_is_percent():
+    rows = [
+        ["Province", "2008/09", "2009/10"],
+        ["Bagmati", "33.1", "13.6"],
+        ["Koshi", "30.6", "15.1"],
+    ]
+    got = extract_year_matrix(rows, "Table 18. Labour migration and caste", 1, "r")
+    assert got and all(r["unit"] == "percent" for r in got)
+
+
 def test_extract_year_matrix_rejects_crosstab():
     rows = [
         ["Country", "2008/09", "2009/10"],
@@ -155,3 +214,699 @@ def test_extract_year_matrix_rejects_crosstab():
         ["Qatar", "5", "6"],
     ]
     assert extract_year_matrix(rows, "Table", 1, "r") == []
+
+
+def test_extract_cause_of_death_year_reads_printed_totals():
+    # migration_2020 "TABLE 16: Cause of Death by Year": years run down col 0,
+    # causes across, ending in a printed Total M/F pair per row.
+    rows = [
+        ["FISCAL YEAR", "CAUSE OF DEATH", "", "", "Total", ""],
+        ["", "CARDIAC ARREST", "SUICIDE", "OTHER CAUSES", "", ""],
+        ["", "", "", "", "M", "F"],
+        ["2008/09", "26", "9", "15", "87", "3"],
+        ["2014/15", "268", "113", "54", "1000", "6"],
+        ["Total", "294", "122", "69", "1087", "9"],
+    ]
+    got = extract_cause_of_death_year(rows, "TABLE 16: Cause of Death by Year", 103, "migration_2020")
+    assert got
+    assert all(r["metric"] == "deaths" and r["gender"] in {"male", "female", "total"} for r in got)
+    tot = {r["fiscal_year"]: r["count"] for r in got if r["gender"] == "total"}
+    assert tot == {"2008/09": 90, "2014/15": 1006}  # M + F
+    mal = {r["fiscal_year"]: r["count"] for r in got if r["gender"] == "male"}
+    assert mal == {"2008/09": 87, "2014/15": 1000}
+
+
+def test_extract_cause_of_death_year_sums_cause_cells():
+    # migration_2024 "Table 4.1: Cause of Death, 2008/09–2023/24": years down
+    # col 0, causes across, no sex columns — all-cause = row sum of causes.
+    rows = [
+        ["Fiscal Year", "Cardiac Arrest", "Natural Causes", "Other Causes"],
+        ["2008/09", "26", "24", "40"],
+        ["2009/10", "106", "118", "194"],
+        ["Total", "132", "142", "234"],
+    ]
+    got = extract_cause_of_death_year(
+        rows, "Table 4.1: Cause of Death, 2008/09–2023/24", 81, "migration_2024")
+    assert {r["fiscal_year"]: r["count"] for r in got} == {"2008/09": 90, "2009/10": 418}
+    assert all(r["gender"] == "total" and r["metric"] == "deaths" for r in got)
+
+
+def test_extract_cause_of_death_year_requires_caption():
+    rows = [["", "", "M", "F"], ["2008/09", "x", "87", "3"], ["2009/10", "y", "400", "18"]]
+    assert extract_cause_of_death_year(rows, "TABLE 17: Cause of Death by Country", 1, "r") == []
+    # status-report "by sex" cause tables must not be summed as all-cause
+    assert extract_cause_of_death_year(
+        rows, "Table 13. Reported cause of death among labour migrants, by sex, 2008/09–2014/15",
+        1, "r") == []
+
+
+def test_extract_year_gender_blocks_skips_grand_total():
+    # Annex 13 shape: District | 2022/23 M/F/T | 2023/24 M/F/T | Total M/F/T.
+    rows = [
+        ["Province", "District", "2022/23", None, None, "2023/24", None, None, "Total", None, None],
+        ["", "", "Male", "Female", "Total", "Male", "Women", "Total", "Male", "Women", "Total"],
+        ["Koshi", "Taplejung", "3,161", "257", "3,418", "2,588", "152", "2,740", "5,749", "409", "6,158"],
+        ["", "Total", "3,161", "257", "3,418", "2,588", "152", "2,740", "5,749", "409", "6,158"],
+        ["", "Grand Total", "503,037", "42,986", "546,023", "486,475", "50,771", "537,246",
+         "989,512", "93,757", "1,083,269"],
+    ]
+    got = extract_year_gender_blocks(rows, "Annex 13: Number of returnee migrants", 147,
+                                     "migration_2024", "return_migration", "district")
+    assert {r["name"] for r in got} == {"Taplejung"}
+    assert all(r["metric"] == "return_migration" for r in got)
+    t = {(r["fiscal_year"], r["gender"]): r["count"] for r in got}
+    assert t[("2022/23", "male")] == 3161
+    assert t[("2022/23", "female")] == 257
+    assert t[("2022/23", "total")] == 3418
+    assert t[("2023/24", "female")] == 152  # "Women" maps to female
+
+
+def test_extract_cross_tab_needs_year_tokens():
+    assert extract_cross_tab(
+        [["", "Male", "Female"], ["x", "1", "2"]], "Table 4.4", 1, "r") == []
+
+
+def test_extract_occupation_profile_counts_not_percentages():
+    # status-report T25: Occupation | Male Female Total | Percentage M F T.
+    rows = [
+        ["Occupation", "Male", "Female", "Total", "Percentage", "", ""],
+        ["", "", "", "", "M", "F", "T"],
+        ["Factory worker", "54 512", "1 697", "56 209", "56.81", "84.55", "59.52"],
+        ["Security guard", "10 984", "0", "10 984", "11.8", "0", "11.63"],
+        ["Total", "65 496", "1 697", "67 193", "100", "100", "100"],
+    ]
+    got = extract_occupation_profile(
+        rows, "Table 25: Occupation profile: Malaysia, 2016/17, via recruitment agency only", 67,
+        "status_2015_17")
+    assert {r["name"] for r in got} == {"Factory worker", "Security guard"}
+    assert all(r["dimension"] == "occupation" and r["note"] == "Malaysia"
+               and r["fiscal_year"] == "2016/17" and r["unit"] == "count" for r in got)
+    mal = {(r["name"], r["gender"]): r["count"] for r in got}
+    assert mal[("Factory worker", "male")] == 54512   # space thousands parsed
+    assert mal[("Factory worker", "total")] == 56209
+    assert mal[("Security guard", "female")] == 0
+    # percentage block (cols 4-6) must not be emitted
+    assert not any(r["count"] in {5681, 8455, 5952} for r in got)
+
+
+def test_extract_occupation_profile_requires_destination_caption():
+    rows = [["Occupation", "Male", "Female", "Total"],
+            ["x", "1", "2", "3"], ["y", "4", "5", "6"]]
+    assert extract_occupation_profile(rows, "Table 21: Skills categorization", 1, "r") == []
+
+
+def test_extract_calendar_year_matrix():
+    rows = [
+        ["Status of Residence", "2013", "2014"],
+        ["Engineer/Specialist in humanities/\nInternational services", "1,251", "1,484"],
+        ["Skilled labour", "6775", "7412"],
+        ["Total", "8026", "8896"],
+    ]
+    got = extract_calendar_year_matrix(
+        rows, "Table 3.19: Number of Mid- to Long-Term Nepali Residents in Japan, 2013–2023",
+        75, "migration_2024")
+    assert len(got) == 4
+    assert all(r["year_basis"] == "calendar" and r["dimension"] == "residence_status"
+               and r["metric"] == "migration_stock" for r in got)
+    assert {(r["name"], r["fiscal_year"]): r["count"] for r in got}[
+        ("Skilled labour", "2013")] == 6775
+    assert norm_cal_year("2013") == "2013" and norm_cal_year("2008/09") == ""
+
+
+def test_clean_name_collapses_whitespace():
+    assert _clean_name("Nawalparasi\nEast") == "Nawalparasi East"
+    assert _clean_name("  Grand Total  ") == "Grand"
+
+
+def test_scalar_keeps_percent_decimals():
+    assert _scalar("25.6", "percent") == 25.6
+    assert _scalar("1.08 %", "percent") == 1.08
+    assert _scalar("1,234", "percent") == 1234.0
+    assert _scalar("547", "count") == 547
+    assert _scalar("", "percent") == 0
+
+
+def test_extract_measure_crosstab_skill_by_mode():
+    rows = [
+        ["Fiscal Year", "Skill", "Modes of Labour Approval", "", ""],
+        ["", "", "G2G", "Individual", "Recruitment Agencies"],
+        ["2022/23", "Professional", "0.1", "41.0", "58.8"],
+        ["", "Skilled", "5.7", "16.8", "77.6"],
+        ["", "Total", "4.3", "14.0", "81.7"],
+        ["2023/24", "Professional", "0.1", "36.3", "63.7"],
+        ["", "Skilled", "3.1", "22.9", "74.0"],
+    ]
+    got = extract_measure_crosstab(
+        rows, "Table 3.7: New Labour Approvals, 2022/23–2023/24", 56, "migration_2024")
+    key = {(r["name"], r["fiscal_year"], r["note"]): r["count"] for r in got}
+    assert key[("Skilled", "2022/23", "G2G")] == 5.7
+    assert key[("Skilled", "2022/23", "Recruitment Agencies")] == 77.6
+    assert key[("Skilled", "2023/24", "G2G")] == 3.1
+    assert all(r["dimension"] == "skill" and r["unit"] == "percent" for r in got)
+
+
+def test_extract_measure_crosstab_occupation_by_mode_sex():
+    rows = [
+        ["", "Occupational Category", "G2G", "", "", "Individual", "", ""],
+        ["", "", "Female", "Male", "Total", "Female", "Male", "Total"],
+        ["2022/23", "Elementary Occupations", "94.5", "97.4", "97.2", "39.1", "36.5", "37.1"],
+        ["", "Service & Sales", "0.0", "0.0", "0.0", "37.6", "28.1", "30.2"],
+    ]
+    got = extract_measure_crosstab(
+        rows, "Table 3.13: New Labour Approvals, 2022/23–2023/24", 61, "migration_2024")
+    key = {(r["name"], r["note"], r["gender"]): r["count"] for r in got}
+    assert key[("Elementary Occupations", "G2G", "female")] == 94.5
+    assert key[("Elementary Occupations", "G2G", "male")] == 97.4
+    assert key[("Elementary Occupations", "Individual", "female")] == 39.1
+    assert all(r["dimension"] == "occupation" for r in got)
+
+
+def test_extract_measure_crosstab_total_n_is_count():
+    rows = [
+        ["", "Destination Country", "Skilled", "Total %", "Total N"],
+        ["2022/23", "Malaysia", "64.8", "100", "259,591"],
+        ["", "Cyprus", "18.8", "100", "5,317"],
+    ]
+    got = extract_measure_crosstab(
+        rows, "Table 3.10: New Labour Approvals, 2022/23–2023/24", 59, "migration_2024")
+    by = {(r["name"], r["note"]): (r["unit"], r["count"]) for r in got}
+    assert by[("Malaysia", "Skilled")] == ("percent", 64.8)
+    assert by[("Malaysia", "Total N")] == ("count", 259591)
+    assert all(r["dimension"] == "country" for r in got)
+
+
+def test_extract_country_snapshot_paired_and_sectioned():
+    paired = [
+        ["Country", "Number", "Country", "Number"],
+        ["Saudi Arabia", "547", "Cyprus", "4"],
+        ["UAE", "242", "Hong Kong", "3"],
+    ]
+    got = extract_country_snapshot(
+        paired, "Table 4.5: Number of Nepali Migrants in Jail and Detention Centres Abroad",
+        83, "migration_2024")
+    assert {(r["name"], r["count"]) for r in got} == {
+        ("Saudi Arabia", 547), ("Cyprus", 4), ("UAE", 242), ("Hong Kong", 3)}
+    assert all(r["metric"] == "detention" and r["year_basis"] == "snapshot" for r in got)
+
+    sectioned = [
+        ["Country", "Number"],
+        ["Hospitalised Nepali Migrants", None],
+        ["Qatar", "11"],
+        ["South Korea", "4"],
+        ["Nepali Migrants in Shelters", None],
+        ["South Korea", "400"],
+    ]
+    got = extract_country_snapshot(
+        sectioned, "Table 4.6: Number of Nepali Migrants Hospitalised or in Shelters Abroad",
+        84, "migration_2024")
+    assert {(r["name"], r["note"]) for r in got} == {
+        ("Qatar", "Hospitalised Nepali Migrants"),
+        ("South Korea", "Hospitalised Nepali Migrants"),
+        ("South Korea", "Nepali Migrants in Shelters")}
+    assert all(r["metric"] == "hospitalisation" for r in got)
+
+
+def test_extract_mrrc_cases_percent_and_total_n():
+    rows = [
+        ["Type of Case", "Total (2022/23 and 2023/24)", "", ""],
+        ["", "Female", "Male", "Total"],
+        ["Cheating", "25.6", "47.1", "45.5"],
+        ["Other", "4.3", "1.4", "1.6"],
+        ["Total %", "100", "100", "100"],
+        ["Total N", "1,069", "13,281", "14,350"],
+    ]
+    got = extract_mrrc_cases(
+        rows, "Table 4.7: Cases Registered at Migrant Resource Centres, 2022/23–2023/24",
+        86, "migration_2024")
+    pct = {(r["name"], r["gender"]): r["count"] for r in got if r["unit"] == "percent"}
+    assert pct[("Cheating", "female")] == 25.6
+    assert ("Total", "female") not in pct  # Total % skipped
+    cnt = {r["gender"]: r["count"] for r in got if r["unit"] == "count"}
+    assert cnt == {"female": 1069, "male": 13281, "total": 14350}
+    assert all(r["name"] == "all cases" for r in got if r["unit"] == "count")
+
+
+def test_extract_remittance_households_units():
+    rows = [
+        ["Province", "Per cent of HHs Receiving Remittance (%)", "Amount per remitter (NPR)"],
+        ["Koshi", "31.0", "281,973"],
+        ["Madhesh", "37.9", "134,568"],
+    ]
+    got = extract_remittance_households(
+        rows, "Table 4.8: Remittance Receiving Households by Provinces", 87, "migration_2024")
+    pct = {(r["name"], r["unit"]): r["count"] for r in got}
+    assert pct[("Koshi", "percent")] == 31.0
+    assert pct[("Koshi", "npr")] == 281973
+    assert all(r["dimension"] == "province" for r in got)
+
+
+def test_extract_remittance_use_priority_and_year():
+    rows = [
+        ["Use", "First Priority", "", "Second Priority", ""],
+        ["", "2011", "2023", "2011", "2023"],
+        ["Daily consumption", "69.3", "72.3", "24.3", "18.2"],
+        ["Repay loan", "15.9", "13.5", "17.4", "19.4"],
+    ]
+    got = extract_remittance_use(rows, "Table 4.9: Use of Remittances (%)", 89, "migration_2024")
+    key = {(r["name"], r["fiscal_year"], r["note"]): r["count"] for r in got}
+    assert key[("Daily consumption", "2023", "first priority")] == 72.3
+    assert key[("Daily consumption", "2011", "second priority")] == 24.3
+    assert all(r["year_basis"] == "calendar" and r["unit"] == "percent" for r in got)
+
+
+def test_extract_destination_gender_crosstab_counts_and_percent():
+    rows = [
+        ["Place of destination", "Male", "", "Female", "", "Total", ""],
+        ["", "No.", "%", "No.", "%", "No.", "%"],
+        ["Qatar", "71,322", "30.2", "3,702", "1.6", "75,024", "31.76"],
+        ["Saudi Arabia", "44,493", "18.8", "1,587", "0.7", "46,080", "19.51"],
+    ]
+    got = extract_destination_gender_crosstab(
+        rows, "Table 8: Labour permits issued by place of destination and sex, 2018/2019",
+        77, "country_intro_2019")
+    key = {(r["name"], r["gender"], r["unit"]): r["count"] for r in got}
+    assert key[("Qatar", "male", "count")] == 71322
+    assert key[("Qatar", "female", "count")] == 3702
+    assert key[("Qatar", "total", "count")] == 75024
+    assert key[("Qatar", "male", "percent")] == 30.2
+    assert all(r["fiscal_year"] == "2018/19" and r["dimension"] == "country" for r in got)
+
+
+def test_extract_cause_country():
+    rows = [
+        ["COUNTRY", "CAUSE OF DEATH", "", ""],
+        ["", "CARDIAC ARREST", "SUICIDE", "OTHER CAUSES"],
+        ["MALAYSIA", "330", "240", "184"],
+        ["QATAR", "489", "87", "119"],
+    ]
+    got = extract_cause_country(rows, "TABLE 17: CAUSE OF DEATH BY COUNTRY", 103, "migration_2020")
+    key = {(r["name"], r["note"]): r["count"] for r in got}
+    assert key[("MALAYSIA", "suicide")] == 240
+    assert all(r["metric"] == "deaths_by_cause" and r["year_basis"] == "snapshot" for r in got)
+
+
+def test_extract_remittance_cost():
+    rows = [
+        ["2019 Q3 (Total Cost %)", "500 USD", "200 USD"],
+        ["Malaysia", "2.5", "3.36"],
+        ["Oman", "3.8", "5.69"],
+    ]
+    got = extract_remittance_cost(rows, "TABLE 19: REMITTANCE TRANSFER COSTS", 115, "migration_2020")
+    key = {(r["name"], r["note"]): r["count"] for r in got}
+    assert key[("Malaysia", "500 USD")] == 2.5
+    assert all(r["metric"] == "remittance_cost" and r["unit"] == "percent" for r in got)
+
+
+def test_extract_migration_cost():
+    rows = [
+        ["Country", "Average cost (USD)", "Average monthly earnings (USD)"],
+        ["Australia", "10,849", "1,589"],
+        ["Bahrain", "1,404", "418"],
+    ]
+    got = extract_migration_cost(
+        rows, "Table 12: Cost of migration versus average earnings by destination country",
+        89, "country_intro_2019")
+    key = {(r["name"], r["note"]): r["count"] for r in got}
+    assert key[("Australia", "Average cost (USD)")] == 10849
+    assert all(r["metric"] == "migration_cost" and r["unit"] == "usd" for r in got)
+
+
+def _cells(*groups):
+    """[m, f, m+f] per group → flat list of ints."""
+    out = []
+    for m, f in groups:
+        out += [str(m), str(f), str(m + f)]
+    return out
+
+
+def test_annex_country_ix_verifies():
+    # components sum to Total With; With − Re-Entry == Total Without.
+    ra, new, reg, re = (10, 5), (20, 10), (3, 1), (4, 6)
+    with_ = tuple(sum(g[i] for g in (ra, new, reg, re)) for i in (0, 1))
+    without = (with_[0] - re[0], with_[1] - re[1])
+    rows = [
+        ["Country", "Recruiting Agency", None, None, "New Entry", None, None,
+         "Regularized Entry", None, None, "Re-Entry", None, None,
+         "Total With Re-Entry", None, None, "Total Without Re-Entry", None, None],
+        [None] * 19,
+        ["Testland"] + _cells(ra, new, reg, re, with_, without),
+    ]
+    got, problems = extract_country_table(rows, ANNEX_COUNTRY["IX"], 144, "u", "d")
+    assert problems == []
+    assert len(got) == 6 * 3
+    mal = {(r["channel"], r["gender"]): r["count"] for r in got}
+    assert mal[("recruiting_agency", "total")] == 15
+    assert mal[("total_with_reentry", "total")] == 59
+    assert mal[("total_without_reentry", "total")] == 49
+
+
+def test_annex_country_x_swapped_totals_verify():
+    # Table X order: ... Total Without Renew, Total With Renew (swapped vs IX).
+    ra, new, reg, renew = (10, 5), (20, 10), (3, 1), (4, 6)
+    with_ = tuple(sum(g[i] for g in (ra, new, reg, renew)) for i in (0, 1))
+    without = (with_[0] - renew[0], with_[1] - renew[1])
+    rows = [
+        ["Country", "Recruiting Agency", None, None, "Individual-New", None, None,
+         "Individual-Regularization", None, None, "Individual-Renew", None, None,
+         "Total Without Renew", None, None, "Total With Renew", None, None],
+        [None] * 19,
+        ["Testland"] + _cells(ra, new, reg, renew, without, with_),
+    ]
+    got, problems = extract_country_table(rows, ANNEX_COUNTRY["X"], 148, "u", "d")
+    assert problems == []
+    vals = {(r["channel"], r["gender"]): r["count"] for r in got}
+    assert vals[("total_with_renew", "total")] == 59
+    assert vals[("total_without_renew", "total")] == 49
+
+
+def test_annex_country_flags_arithmetic_typo():
+    ra, new, reg, re = (10, 5), (20, 10), (3, 1), (4, 6)
+    with_ = tuple(sum(g[i] for g in (ra, new, reg, re)) for i in (0, 1))
+    without = (with_[0] - re[0], with_[1] - re[1])
+    cells = _cells(ra, new, reg, re, with_, without)
+    cells[2] = "16"  # RA total printed 16 but M+F=15 (source typo)
+    rows = [["Country"] + [None] * 18, [None] * 19, ["Testland"] + cells]
+    _, problems = extract_country_table(rows, ANNEX_COUNTRY["IX"], 144, "u", "d")
+    assert any("recruiting_agency" in p for p in problems)
+
+
+def test_annex_district_verifies():
+    rows = [
+        ["District", "Men", "Women", "Total"],
+        ["Kathmandu", "5", "3", "8"],
+        ["Total", "5", "3", "8"],
+    ]
+    got, problems = extract_district_table(rows, ANNEX_DISTRICT["XI"], 152, "u", "d")
+    assert problems == []
+    assert [(r["gender"], r["count"]) for r in got] == [
+        ("male", 5), ("female", 3), ("total", 8)]
+    assert all(r["channel"] == "recruiting_agency" for r in got)
+
+
+def test_annex_district_flags_mismatch():
+    rows = [
+        ["District", "Men", "Women", "Total"],
+        ["Kathmandu", "5", "3", "9"],
+    ]
+    _, problems = extract_district_table(rows, ANNEX_DISTRICT["XI"], 152, "u", "d")
+    assert len(problems) == 1
+
+
+def test_agencies_parse_window():
+    t = "Report on Prepermission List  from 2075 Ashad 2018-06-15 to 2018-07-16\n"
+    assert parse_window(t) == ("2018-06-15", "2018-07-16")
+    assert parse_window("no window here") == ("", "")
+
+
+def test_agencies_find_summary():
+    rows = [
+        ["Government of Nepal", None, None, None, None],
+        ["SN", "Country", "Male", "Female", "Total"],
+        ["1", "Nepal", "5", "3", "8"],
+        ["2", "Qatar", "10", "0", "10"],
+        ["", "Total", "15", "3", "18"],
+    ]
+    detail, totals = _find_summary(rows)
+    assert [d[1] for d in detail] == ["Nepal", "Qatar"]
+    assert totals[0][1] == "Total"
+
+
+def test_agencies_page_lines_rejoins_split_sn():
+    lines = ["883", "86799 Malaysia", "A.N.S.ASSOCIATES PVT. LTD.",
+             "100", "0", "100"]
+    assert _page_lines("\n".join(lines)) == [
+        "883 86799 Malaysia", "A.N.S.ASSOCIATES PVT. LTD.", "100", "0", "100"]
+    # a lone number followed by a plain name is NOT joined
+    line2 = ["0", "10", "NAME", "1", "0", "1"]
+    assert _page_lines("\n".join(line2))[0] == "0"
+
+
+# ---- entity + period normalisation ----------------------------------------
+
+def test_normalize_country_variants():
+    assert normalize.canonical_country("UAE")["name"] == "United Arab Emirates"
+    assert normalize.canonical_country("uae")["iso3"] == "ARE"
+    assert normalize.canonical_country("Saudi Arab")["name"] == "Saudi Arabia"
+    assert normalize.canonical_country("Combodia")["name"] == "Cambodia"
+    assert normalize.canonical_country("Myanmmar")["name"] == "Myanmar"
+    assert normalize.canonical_country("Burma")["name"] == "Myanmar"
+    assert normalize.canonical_country("Macau, SAR, China")["name"] == "Macau"
+    assert normalize.canonical_country("Republic of Korea")["name"] == "South Korea"
+    assert normalize.canonical_country("Ivory Coast")["name"] == "Cote d'Ivoire"
+    assert normalize.canonical_country("AZERBAI")["name"] == "Azerbaijan"
+
+
+def test_normalize_country_flagged_and_unknown():
+    # flagged entities resolve to a record but carry resolved=False
+    assert normalize.canonical_country("Saipan")["resolved"] is False
+    assert normalize.canonical_country("Republic o")["kind"] == "clipped"
+    assert normalize.canonical_country("Narnia") is None
+
+
+def test_normalize_district_variants_and_province():
+    assert normalize.canonical_district("Acham")["name"] == "Achham"
+    assert normalize.canonical_district("Acham")["province"] == "sudurpashchim"
+    assert normalize.canonical_district("Mahotat ri")["name"] == "Mahottari"
+    assert normalize.canonical_district("Kavrepalanchowk")["name"] == "Kavrepalanchok"
+    assert normalize.canonical_district("Udaypur")["name"] == "Udayapur"
+    assert normalize.canonical_district("Rukum East")["province"] == "lumbini"
+    assert normalize.canonical_district("Rukum West")["province"] == "karnali"
+
+
+def test_every_district_province_is_one_of_seven():
+    # No compound "gandaki+lumbini" labels: every district maps to exactly one
+    # modern province so a 7-province rollup is never polluted.
+    provinces = {"koshi", "madhesh", "bagmati", "gandaki", "lumbini",
+                 "karnali", "sudurpashchim"}
+    for d in normalize._load_json("districts.json"):
+        assert d.get("province") in provinces, d
+
+
+def test_presplit_districts_use_hq_province_with_note():
+    # Pre-2018 unified districts are assigned to their (historical) HQ province
+    # and must carry an explanatory provenance note.
+    nawal = normalize.canonical_district("Nawalparasi")
+    assert nawal["province"] == "gandaki" and nawal["note"]
+    rukum = normalize.canonical_district("Rukum")
+    assert rukum["province"] == "karnali" and rukum["note"]
+    # the note reaches the normalised output
+    info = normalize.normalize_name("district", "Nawalparasi")
+    assert info["note"] and info["province"] == "gandaki"
+
+
+def test_parse_bs_month():
+    year, month = normalize.parse_bs_month("2082 असोज")
+    assert year == 2082 and month["name"] == "Ashwin" and month["index"] == 6
+    year, month = normalize.parse_bs_month("2083 वैशाख")
+    assert year == 2083 and month["index"] == 1
+    assert normalize.parse_bs_month("2079/80") == (None, None)
+
+
+def test_fiscal_year_of_month():
+    assert normalize.fiscal_year_of_month(2082, 6) == "2082/83"   # Ashwin
+    assert normalize.fiscal_year_of_month(2083, 1) == "2082/83"   # Baisakh 2083
+    assert normalize.fiscal_year_of_month(2083, 5) == "2083/84"   # Bhadra
+    assert normalize.fiscal_year_of_month(2084, 3) == "2083/84"   # Ashadh
+
+
+def test_fiscal_year_for_row():
+    # monthly periods
+    assert normalize.fiscal_year_for_row("303", "2083 श्रावण") == "2083/84"
+    assert normalize.fiscal_year_for_row("36", "2082 वैशाख") == "2081/82"
+    assert normalize.fiscal_year_for_row("228", "2083 वैशाख") == "2082/83"
+    # annual label
+    assert normalize.fiscal_year_for_row("89", "2074/75") == "2074/75"
+    # docs whose BS period the parser could not read -> doc-id map
+    assert normalize.fiscal_year_for_row("33", "") == "2078/79"
+    assert normalize.fiscal_year_for_row("89", "") == "2073/74"
+    assert normalize.fiscal_year_for_row("332", "") == "2083/84"
+
+
+def test_normalize_name_dispatch():
+    assert normalize.normalize_name("country", "Qatar")["canonical"] == "Qatar"
+    got = normalize.normalize_name("district", "TEHRATHUM")
+    assert got["canonical"] == "Terhathum" and got["province"] == "koshi"
+
+
+def test_every_panel_name_is_covered_by_reference_data():
+    """Guard: any raw name in the shipped panel must resolve to an entity."""
+    panel = Path(__file__).resolve().parents[1] / "migration" / "panel.csv"
+    missing = []
+    with panel.open(newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if row["row_type"] != "detail":
+                continue
+            if row["section"] == "country":
+                ent = normalize.canonical_country(row["name"])
+            elif row["section"] == "district":
+                ent = normalize.canonical_district(row["name"])
+            else:
+                continue
+            if ent is None:
+                missing.append((row["section"], row["name"]))
+    assert not missing, f"unmapped names: {sorted(set(missing))}"
+
+
+# ---- channel reconciliation ------------------------------------------------
+
+def test_canonical_channel_equivalences():
+    assert normalize.canonical_channel("re_entry")["canonical"] == "individual_reentry"
+    assert normalize.canonical_channel("individual_renew")["canonical"] == "individual_reentry"
+    assert normalize.canonical_channel("legalized_entry")["canonical"] == "legalization"
+    assert normalize.canonical_channel("regularized_entry")["canonical"] == "legalization"
+    assert normalize.canonical_channel("individual_regularization")["canonical"] == "legalization"
+    assert normalize.canonical_channel("total_with_renew")["canonical"] == "total_with_reentry"
+    assert normalize.canonical_channel("total_without_renew")["canonical"] == "total_without_reentry"
+
+
+def test_canonical_channel_classes():
+    assert normalize.canonical_channel("recruiting_agency")["class"] == "component"
+    assert normalize.canonical_channel("new_entry")["class"] == "component"
+    assert normalize.canonical_channel("g2g")["class"] == "component"
+    assert normalize.canonical_channel("total_with_reentry")["class"] == "aggregate"
+    assert normalize.canonical_channel("individual")["class"] == "aggregate"
+    assert normalize.canonical_channel("preapproval")["class"] == "measure"
+
+
+def test_canonical_channel_new_entry_not_merged():
+    # old-template new_entry must NOT be silently treated as individual_new
+    got = normalize.canonical_channel("new_entry")
+    assert got["canonical"] == "new_entry"
+
+
+def test_canonical_channel_unknown_is_passthrough():
+    got = normalize.canonical_channel("something_new")
+    assert got == {"canonical": "something_new", "class": "unknown", "label": "something_new"}
+
+
+def test_every_panel_channel_is_mapped():
+    panel = Path(__file__).resolve().parents[1] / "migration" / "panel.csv"
+    unknown = set()
+    with panel.open(newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if normalize.canonical_channel(row["channel"])["class"] == "unknown":
+                unknown.add(row["channel"])
+    assert not unknown, f"unmapped channels: {sorted(unknown)}"
+
+
+# ---- cross-document reconciliation -----------------------------------------
+
+def test_classify_doc_type_month_beats_progress():
+    assert classify_doc_type("भदौ महिनाको प्रगति विवरण") == "single_month"
+    assert classify_doc_type("आ. ब. २०८२-८३ वार्षिक  प्रगति प्रतिवेदन") == "annual"
+    assert classify_doc_type("२०८३ श्रावण महिनाको श्रम स्वीकृति विवरण") == "single_month"
+
+
+def test_doc_granularity():
+    assert normalize.doc_granularity("single_month") == "month"
+    assert normalize.doc_granularity("annual") == "year"
+    assert normalize.doc_granularity("annual", channel_class="measure") == "measure"
+    assert normalize.doc_granularity("cumulative") == "month"
+
+
+def test_annex_table_x_year_override():
+    # Table X is printed FY2074/75 but its data is FY2018/19 -> overridden
+    assert normalize.override_for("report2020_annex_X")["reconciled_fiscal_year"] == "2075/76"
+    assert normalize.reconciled_fiscal_year("report2020_annex_X", "2074/75") == "2075/76"
+    # unchanged docs / years pass through
+    assert normalize.reconciled_fiscal_year("report2020_annex_IX", "2074/75") == "2074/75"
+    assert normalize.reconciled_fiscal_year("278", "2082/83") == "2082/83"
+
+
+def test_reconciliation_rule_and_key():
+    rec = normalize.reconciliation()
+    assert normalize.dedup_key_columns() == rec["dedup_key"]
+    assert "granularity" in rec["dedup_key"] and "channel_canonical" in rec["dedup_key"]
+    kinds = {g["kind"] for g in rec["overlap_groups"]}
+    assert "annual_vs_months" in kinds and "dimension_pair" in kinds
+
+
+# ---- panel-wide verification ----------------------------------------------
+
+def test_channel_classes():
+    cls = normalize.channel_classes()
+    assert cls["recruiting_agency"] == "component"
+    assert cls["total_with_reentry"] == "aggregate"
+    assert cls["preapproval"] == "measure"
+
+
+def _prow(doc, name, channel, gender, count, row_type="detail"):
+    return {"doc_id": doc, "section": "country", "row_type": row_type,
+            "name": name, "channel": channel, "gender": gender,
+            "count": str(count), "verified": "True"}
+
+
+def test_panel_verify_detects_component_mismatch():
+    from migration_parser.panel_verify import verify_panel
+    base = [
+        _prow("d", "Nepal", "recruiting_agency", "total", 10),
+        _prow("d", "Nepal", "individual_new", "total", 5),
+        _prow("d", "Nepal", "g2g", "total", 3),
+        _prow("d", "Nepal", "individual_reentry", "total", 2),
+        _prow("d", "Nepal", "legalization", "total", 0),
+        _prow("d", "Nepal", "total_with_reentry", "total", 20),
+        _prow("d", "Nepal", "total_without_reentry", "total", 18),
+        _prow("d", "Nepal", "recruiting_agency", "total", 10, "total"),
+    ]
+    assert verify_panel(base) == []
+    bad = [dict(r) for r in base]
+    bad[5]["count"] = "21"
+    bad[6]["count"] = "19"
+    fails = verify_panel(bad)
+    assert [f.kind for f in fails] == ["components_with_reentry"]
+
+
+def test_panel_verify_canonicalises_old_template_channels():
+    from migration_parser.panel_verify import verify_panel
+    # old template: new_entry/legalized_entry/re_entry are components
+    rows = [
+        _prow("d", "Nepal", "recruiting_agency", "total", 653),
+        _prow("d", "Nepal", "new_entry", "total", 9),
+        _prow("d", "Nepal", "legalized_entry", "total", 3),
+        _prow("d", "Nepal", "re_entry", "total", 237),
+        _prow("d", "Nepal", "total_with_reentry", "total", 902),
+        _prow("d", "Nepal", "total_without_reentry", "total", 665),
+    ]
+    assert verify_panel(rows) == []
+
+
+# ---- opendatanepal cross-check helpers -------------------------------------
+
+def test_fiscal_year_for_ad():
+    assert normalize.fiscal_year_for_ad("2019/20") == "2076/77"
+    assert normalize.fiscal_year_for_ad("2021/22") == "2078/79"
+    assert normalize.fiscal_year_for_ad("1900/01") is None
+    assert normalize.fiscal_year_for_ad("") is None
+
+
+def test_opendata_country_aliases():
+    assert normalize.canonical_country("UK")["name"] == "United Kingdom"
+    assert normalize.canonical_country("Macau SAR, China")["name"] == "Macau"
+    assert normalize.canonical_country("UAE")["name"] == "United Arab Emirates"
+
+
+# ---- packaging / build -----------------------------------------------------
+
+def test_codebook_columns_match_shipped_headers():
+    from migration_parser.scripts import cmd_build
+    cmd_build._verify_columns()  # raises SystemExit on drift
+
+
+def test_cli_dispatch_covers_all_stages():
+    from migration_parser import cli
+    for stage in cli.STAGES:
+        assert callable(cli._dispatch(stage))
+
+
+def test_build_gunzip_is_deterministic(tmp_path, monkeypatch):
+    import gzip
+    from migration_parser.scripts import cmd_build
+    monkeypatch.setattr(cmd_build, "MIGRATION_DIR", tmp_path)
+    payload = b"a,b\n1,2\n3,4\n"
+    (tmp_path / "panel_canonical.csv").write_bytes(payload)
+
+    out = cmd_build.gunzip_panel()
+    first = out.read_bytes()
+    assert gzip.decompress(first) == payload
+    assert cmd_build.gunzip_panel().read_bytes() == first  # mtime=0 -> stable
+

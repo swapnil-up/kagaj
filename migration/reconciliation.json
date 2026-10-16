@@ -1,0 +1,73 @@
+{
+  "rule": "The panel contains multiple documents describing overlapping real-world quantities. Never mix granularities when summing: (a) within a fiscal year use EITHER all monthly documents OR the annual document, never both; (b) Table IX/X (country) and XI/XII/XIII (district) are the same measure along different dimensions — pick one dimension, do not sum across them; (c) pre-approval (channel_class=measure) is a distinct stage, not a deployment channel. Each row carries `granularity` (month|year|measure) and `reconciled_fiscal_year`; deduplicate on the `dedup_key` below.",
+  "dedup_key": ["granularity", "reconciled_fiscal_year", "period_ad_start", "section", "name_canonical", "gender", "channel_canonical", "row_type"],
+  "granularity": {
+    "single_month": "month",
+    "cumulative": "month",
+    "annual": "year",
+    "_measure_override": "rows with channel_class=='measure' are 'measure' regardless of doc_type"
+  },
+  "overrides": [
+    {
+      "doc_id": "report2020_annex_X",
+      "printed_fiscal_year": "2074/75",
+      "reconciled_fiscal_year": "2075/76",
+      "evidence": "Table X recruiting-agency total 208,351 equals Table XIII (printed 2018/19) 208,349, while Table XI (printed 2017/18) 323,877 equals Table IX 323,876.",
+      "note": "The report repeats Table IX's header year on Table X; the data is FY2018/19 (2075/76). Raw period columns are left as printed; only reconciled_fiscal_year changes."
+    }
+  ],
+  "overlap_groups": [
+    {
+      "kind": "annual_vs_months",
+      "fiscal_year": "2082/83",
+      "annual": ["278"],
+      "months": ["39", "40", "21", "41", "114", "141", "162", "173", "207", "228", "258", "277"],
+      "note": "All 12 months present; annual 278 is their roll-up (annual total_with_reentry 1,584,374 vs months 1,584,406 — small source revisions). Use one series or the other."
+    },
+    {
+      "kind": "annual_vs_partial_months",
+      "fiscal_year": "2081/82",
+      "annual": ["20"],
+      "months": ["36", "37", "38"],
+      "note": "Only 3 of 12 months present (Baisakh/Jestha/Ashadh 2082); they are a subset of annual 20, so no dedup needed — just do not treat 3 months as the full year."
+    },
+    {
+      "kind": "dimension_pair",
+      "fiscal_year": "2074/75",
+      "country": ["report2020_annex_IX"],
+      "district": ["report2020_annex_XI", "report2020_annex_XII"],
+      "note": "Same approvals along country vs district dimensions; complementary, not additive."
+    },
+    {
+      "kind": "dimension_pair",
+      "fiscal_year": "2075/76",
+      "country": ["report2020_annex_X"],
+      "district": ["report2020_annex_XIII"],
+      "note": "Same approvals along country vs district dimensions; complementary, not additive."
+    }
+  ],
+  "separate_measures": {
+    "preapproval": "pre-approval documents (#030-#032); a screening stage, distinct from final labour approvals.",
+    "series.csv": "historical narrative-report metrics (deaths, complaints, etc.) — never merged into panel counts."
+  },
+  "known_arithmetic_errors": [
+    {
+      "doc_id": "report2020_annex_X",
+      "section": "country",
+      "name": "Qatar",
+      "channel": "recruiting_agency",
+      "gender": "total",
+      "kind": "male_female_total",
+      "note": "Printed Total 68,955 but Male+Female=68,956; reproduces the source typo. This document's rows carry verified=False."
+    },
+    {
+      "doc_id": "report2020_annex_X",
+      "section": "country",
+      "name": "Qatar",
+      "channel": "total_with_reentry",
+      "gender": "total",
+      "kind": "components_with_reentry",
+      "note": "Consequent 1-worker mismatch from the Qatar Total typo."
+    }
+  ]
+}

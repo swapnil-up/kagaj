@@ -1,24 +1,24 @@
 """Scrape DoFE labour-migration report listings into a manifest.
 
 Modes:
-  python scrape_migration.py              enumerate categories, resolve PDF URLs
-  python scrape_migration.py --list-only  enumerate listings only (fast)
+  python -m migration_parser scrape              enumerate categories, resolve PDF URLs
+  python -m migration_parser scrape --list-only  enumerate listings only (fast)
 
 Output: bill-tracker/migration_manifest.json
 """
+
+from __future__ import annotations
 
 import json
 import re
 import sys
 import time
-import urllib3
-from pathlib import Path
 
 import requests
+import urllib3
 from bs4 import BeautifulSoup
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from config import (  # noqa: E402
+from ..paths import (
     DOFE_BASE,
     DOFE_MIGRATION_CATEGORIES,
     DOFE_PDF_BARE_RE,
@@ -145,9 +145,10 @@ def save_manifest(entries: list[dict]) -> None:
     print(f"[manifest] wrote {len(entries)} entries", file=sys.stderr)
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    argv = sys.argv[1:] if argv is None else argv
     load_env()
-    list_only = "--list-only" in sys.argv
+    list_only = "--list-only" in argv
     existing = load_manifest()
     by_key = {(e.get("detail_url") or e.get("pdf_url") or e.get("title")): e
               for e in existing}

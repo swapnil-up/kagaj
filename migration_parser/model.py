@@ -51,12 +51,18 @@ GROUP_LABELS = {
     "new_entry": "New Entry",
     "legalized_entry": "Legalized Entry",
     "re_entry": "Re-Entry",
+    "regularized_entry": "Regularized Entry",
+    "individual_regularization": "Individual-Regularization",
+    "individual_renew": "Individual-Renew",
+    "individual": "Individual",
     "total_with_reentry": "Total with ReEntry",
     "total_without_reentry": "Total without ReEntry",
+    "total_with_renew": "Total with Renew",
+    "total_without_renew": "Total without Renew",
 }
 
 # Channels that denote re-entry, per template (used by the without-ReEntry check).
-RE_ENTRY_CHANNELS = ("individual_reentry", "re_entry")
+RE_ENTRY_CHANNELS = ("individual_reentry", "re_entry", "individual_renew")
 
 NUMERIC_COLS = len(CHANNEL_GROUPS) * 3  # 21 (modern default)
 MAX_NUMERIC_COLS = 21

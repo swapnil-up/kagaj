@@ -1,0 +1,43 @@
+{
+  "canonical_channels": [
+    {"name": "recruiting_agency", "label": "Recruiting Agency", "class": "component",
+     "note": "Workers deployed through licensed recruitment agencies."},
+    {"name": "individual_new", "label": "Individual (New)", "class": "component",
+     "note": "Modern tables' new-entry individual channel (not via RA, not G-to-G)."},
+    {"name": "g2g", "label": "Government-to-Government", "class": "component",
+     "note": "Government-to-government channel; only the modern template breaks this out separately."},
+    {"name": "individual_reentry", "label": "Individual (Re-entry)", "class": "component",
+     "note": "Workers re-entering on existing permits."},
+    {"name": "legalization", "label": "Legalization / Regularization", "class": "component",
+     "note": "Regularization of previously irregular workers. Printed as 'Legalization' (modern), 'Legalized Entry' (old), 'Regularized Entry' (Annex IX), 'Individual Regularization' (Annex X)."},
+    {"name": "new_entry", "label": "New Entry (old template)", "class": "component",
+     "note": "Old-template new-entry channel. NOT split into individual_new vs g2g, so it is kept distinct; treat as new entries when the g2g split is unavailable."},
+    {"name": "individual", "label": "Individual (all modes)", "class": "aggregate",
+     "note": "Annex XII district table: individual approvals summed over modes. Aggregate of individual_new + individual_reentry; do not add to components."},
+    {"name": "total_with_reentry", "label": "Total with Re-entry", "class": "aggregate",
+     "note": "Printed row total including re-entries. Annex X prints the same as 'Total with Renew'."},
+    {"name": "total_without_reentry", "label": "Total without Re-entry", "class": "aggregate",
+     "note": "Printed row total excluding re-entries. Annex X prints the same as 'Total without Renew'."},
+    {"name": "preapproval", "label": "Pre-approval", "class": "measure",
+     "note": "Pre-approval list total; no channel breakdown. A distinct measure, not a deployment channel."}
+  ],
+  "source_map": [
+    {"source": "recruiting_agency", "canonical": "recruiting_agency"},
+    {"source": "individual_new", "canonical": "individual_new"},
+    {"source": "g2g", "canonical": "g2g"},
+    {"source": "individual_reentry", "canonical": "individual_reentry"},
+    {"source": "legalization", "canonical": "legalization"},
+    {"source": "new_entry", "canonical": "new_entry"},
+    {"source": "re_entry", "canonical": "individual_reentry", "note": "old-template re-entry == individual_reentry"},
+    {"source": "individual_renew", "canonical": "individual_reentry", "note": "Annex X 'renew' == re-entry"},
+    {"source": "legalized_entry", "canonical": "legalization", "note": "old-template 'Legalized Entry' == Legalization"},
+    {"source": "regularized_entry", "canonical": "legalization", "note": "Annex IX 'Regularized Entry' == Legalization"},
+    {"source": "individual_regularization", "canonical": "legalization", "note": "Annex X 'Individual Regularization' == Legalization"},
+    {"source": "individual", "canonical": "individual"},
+    {"source": "total_with_reentry", "canonical": "total_with_reentry"},
+    {"source": "total_with_renew", "canonical": "total_with_reentry", "note": "Annex X 'with renew' == with re-entry"},
+    {"source": "total_without_reentry", "canonical": "total_without_reentry"},
+    {"source": "total_without_renew", "canonical": "total_without_reentry", "note": "Annex X 'without renew' == without re-entry"},
+    {"source": "preapproval", "canonical": "preapproval"}
+  ]
+}

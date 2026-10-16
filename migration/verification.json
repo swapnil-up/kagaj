@@ -1,0 +1,37 @@
+{
+  "rows": 102744,
+  "failures": 2,
+  "known": 2,
+  "unexpected": 0,
+  "by_kind": {
+    "male_female_total": 1,
+    "components_with_reentry": 1
+  },
+  "verified_contract": "verified=True on a row means it came from a document whose extraction math audit passed",
+  "documents_unverified": [
+    "report2020_annex_X"
+  ],
+  "unexpected_detail": [],
+  "known_detail": [
+    {
+      "doc_id": "report2020_annex_X",
+      "section": "country",
+      "name": "Qatar",
+      "channel": "recruiting_agency",
+      "gender": "total",
+      "kind": "male_female_total",
+      "computed": 68956,
+      "stated": 68955
+    },
+    {
+      "doc_id": "report2020_annex_X",
+      "section": "country",
+      "name": "Qatar",
+      "channel": "total_with_reentry",
+      "gender": "total",
+      "kind": "components_with_reentry",
+      "computed": 161214,
+      "stated": 161215
+    }
+  ]
+}

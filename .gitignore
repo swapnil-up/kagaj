@@ -13,3 +13,8 @@ tmpvenv/
 redbook-env/
 bill-tracker/.venv
 MIGRATION_NOTES.md
+
+# generated normalised companions (rerun: python -m migration_parser.cli normalize)
+migration/*_normalized.csv
+# generated reconciled panel (rerun: python -m migration_parser.cli reconcile)
+migration/panel_canonical.csv

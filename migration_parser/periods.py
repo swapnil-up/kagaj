@@ -69,10 +69,10 @@ def parse_bs_period(text: str) -> str:
 def classify_doc_type(title: str) -> str:
     """Best-effort document-type classification from the title."""
     t = _norm_digits(title or "")
-    if "प्रगति" in t or "progress" in t.lower():
-        return "cumulative"
-    if "महिना" in t or "month" in t.lower():
-        return "single_month"
     if "वार्षिक" in t or "annual" in t.lower():
         return "annual"
+    if "महिना" in t or "month" in t.lower():
+        return "single_month"
+    if "प्रगति" in t or "progress" in t.lower():
+        return "cumulative"
     return ""

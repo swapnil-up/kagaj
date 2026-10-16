@@ -5,7 +5,7 @@ description = "Nepali government PDF extraction and translation pipeline"
 requires-python = ">=3.10"
 
 [tool.setuptools.packages.find]
-include = ["redbook_parser*", "cidmap*", "dictionary*"]
+include = ["redbook_parser*", "migration_parser*", "cidmap*", "dictionary*"]
 exclude = ["archive*", "output*", "tmpvenv*", "bill-tracker*", "tests*"]
 
 [project.optional-dependencies]

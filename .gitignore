@@ -12,3 +12,4 @@ static_dist/
 tmpvenv/
 redbook-env/
 bill-tracker/.venv
+MIGRATION_NOTES.md

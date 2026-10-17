@@ -140,6 +140,9 @@ def _vocabularies() -> dict:
         "granularity": _col_values(canon, "granularity"),
         "doc_type": _col_values(canon, "doc_type"),
         "channel_class": sorted({m.get("class", "unknown") for m in channels.values()}),
+        "channel_reviewed": _col_values(canon, "channel_reviewed"),
+        "analysis_safe": _col_values(canon, "analysis_safe"),
+        "analysis_safe_permissive": _col_values(canon, "analysis_safe_permissive"),
         "entity_type": _col_values(canon, "entity_type"),
         "channel_canonical": {
             name: {"label": m.get("label", name), "class": m.get("class", "unknown")}
@@ -307,6 +310,12 @@ def main(argv: list[str] | None = None) -> int:
             "bytes": path.stat().st_size if path.exists() else None,
             "sha256": _sha256(path) if path.exists() else None,
         }
+
+    try:
+        from . import cmd_provenance
+        cmd_provenance.main([])
+    except Exception as e:  # noqa: BLE001 - provenance is best-effort in build
+        print(f"warn: provenance attestation failed: {e}", file=sys.stderr)
 
     (MIGRATION_DIR / "build.json").write_text(
         json.dumps(build, indent=2, ensure_ascii=False) + "\n")

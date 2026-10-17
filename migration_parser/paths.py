@@ -27,6 +27,17 @@ MIGRATION_OPENDATA_DIR = MIGRATION_OUTPUT_DIR / "opendatanepal"
 # --- Manifest (scraper's working state, kept beside the other manifests) ---
 MIGRATION_MANIFEST = BILLTRACKER_ROOT / "migration_manifest.json"
 
+# --- Archive.org backfill (separate tracked panel; see cmd_archive_panel) ---
+MIGRATION_ARCHIVE_MANIFEST = BILLTRACKER_ROOT / "migration_archive_manifest.json"
+MIGRATION_ARCHIVE_PANEL = MIGRATION_DIR / "panel_archive.csv.gz"
+MIGRATION_ARCHIVE_BUILD = MIGRATION_DIR / "panel_archive_build.json"
+ARCHIVE_PANEL_COLUMNS = [
+    "source_kind", "doc_id", "period_bs", "doc_type", "section", "row_type",
+    "name", "sn", "approval_type", "gender", "count", "scope", "scope_class",
+    "granularity", "source_page", "name_canonical", "iso3", "entity_resolved",
+    "analysis_safe", "verified", "source_url", "source_pdf_sha256",
+]
+
 # --- DoFE (Department of Foreign Employment) ---
 DOFE_BASE = "https://dofe.gov.np"
 # Categories that carry statistical reports (grid or table listings).

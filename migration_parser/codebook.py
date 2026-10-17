@@ -58,8 +58,15 @@ COLUMNS: dict[str, dict[str, str]] = {
         "period_override": "true when reconciled_fiscal_year differs from fiscal_year.",
         "merged_rows": "Number of raw rows collapsed into this canonical key.",
         "raw_names": "Semicolon-joined distinct printed names merged into this row.",
-        "analysis_safe": "true when entity_resolved AND the source doc passed its math audit; "
-                          "the safe default filter before aggregating.",
+        "analysis_safe": "true when entity_resolved AND the source doc passed its math audit "
+                          "AND channel_reviewed; the safe default filter before aggregating. "
+                          "Excludes the unreviewed legalization / old-template new_entry rows.",
+        "analysis_safe_permissive": "true when entity_resolved AND the source doc passed its "
+                                    "math audit, ignoring channel_reviewed. Use only for "
+                                    "deliberate legalization-specific specifications.",
+        "channel_reviewed": "true when the channel's cross-template equivalence is independently "
+                            "reviewed; false flags a single-analyst judgment call (currently "
+                            "legalization, new_entry) — treat those channels with caution.",
     },
     "panel_rollup.csv.gz": {
         "doc_id": "Source document id.",
@@ -86,12 +93,16 @@ COLUMNS: dict[str, dict[str, str]] = {
         "fiscal_year": "Canonical BS fiscal year label.",
         "channel_canonical": "Canonical channel (channels.json).",
         "channel_class": "component | aggregate | measure | unknown (all non-component here).",
+        "channel_reviewed": "true when the channel's cross-template equivalence is independently reviewed.",
         "granularity": "month | year | measure.",
         "reconciled_fiscal_year": "Fiscal year after documented period overrides.",
         "period_override": "true when reconciled_fiscal_year differs from fiscal_year.",
         "merged_rows": "Number of raw rows collapsed into this canonical key.",
         "raw_names": "Semicolon-joined distinct printed names merged into this row.",
-        "analysis_safe": "true when entity_resolved AND the source doc passed its math audit.",
+        "analysis_safe": "true when entity_resolved AND the source doc passed its math audit "
+                         "AND channel_reviewed.",
+        "analysis_safe_permissive": "true when entity_resolved AND the source doc passed its "
+                                    "math audit (ignores channel_reviewed).",
     },
     "period_windows.csv": {
         "period_bs": "Printed BS period label for the reporting window.",
@@ -120,6 +131,12 @@ COLUMNS: dict[str, dict[str, str]] = {
         "source_url": "URL of the source PDF.",
     },
     "series.csv": {
+        "series_key": "Summation-safe block key = report|source_page|caption|metric|"
+                      "dimension|unit|year_basis|gender|note. Sum `count` only within a "
+                      "key; never across keys (mixes units / bases / genders). `note` is "
+                      "keyed because it carries the sub-measure (e.g. the cause of a "
+                      "cause-of-death table) that can otherwise collide across sibling "
+                      "tables sharing one caption.",
         "report": "Source report key (status_2013_14, migration_2020, ...).",
         "source_page": "Page of the source PDF.",
         "caption": "Table caption as printed.",
@@ -167,6 +184,9 @@ EXPECTED_VOCAB: dict[str, dict[str, set[str]]] = {
         "row_type": {"detail", "total", "grand_total"},
         "granularity": {"month", "year", "measure", ""},
         "channel_class": {"component", "aggregate", "measure", "unknown"},
+        "channel_reviewed": {"true", "false", ""},
+        "analysis_safe": {"true", "false", ""},
+        "analysis_safe_permissive": {"true", "false", ""},
         "doc_type": {"annual", "single_month", "cumulative", ""},
         "entity_type": {"country", "district", ""},
     },

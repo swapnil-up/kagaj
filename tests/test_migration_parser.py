@@ -1,7 +1,10 @@
 """Tests for migration_parser — model templates, verification, periods."""
 
 import csv
+import json
 from pathlib import Path
+
+import pytest
 
 from migration_parser import normalize
 from migration_parser.annex import (
@@ -24,6 +27,7 @@ from migration_parser.series import (
     classify_metric,
     extract_calendar_year_matrix,
     extract_cause_country,
+    extract_cause_country_year,
     extract_cause_of_death_year,
     extract_country_snapshot,
     extract_cross_tab,
@@ -258,6 +262,54 @@ def test_extract_cause_of_death_year_requires_caption():
     assert extract_cause_of_death_year(
         rows, "Table 13. Reported cause of death among labour migrants, by sex, 2008/09–2014/15",
         1, "r") == []
+
+
+def test_extract_cause_country_year_captures_cause_and_sex():
+    # status_2014_15 DATASET 7: one table per cause, fiscal years across the top
+    # with M/F beneath (year only on the M column), country down col 0.
+    rows = [
+        ["Country", "Natural cause", None, None, None, None],
+        [None, "2008/09", None, "2009/10", None, "Total"],
+        [None, "M", "F", "M", "F", "M+F"],
+        ["Saudi Arabia", "16", "", "51", "1", "68"],
+        ["Malaysia", "1", "2", "31", "3", "37"],
+        ["total ", "17", "2", "82", "4", "105"],
+    ]
+    cap = ("DATASET 7. Number of deaths among Nepali migrant workers while "
+           "working abroad, by cause of death, destination country and sex, "
+           "2008/9–2014/15")
+    got = extract_cause_country_year(rows, cap, 100, "status_2014_15")
+    assert got and all(r["metric"] == "deaths_by_cause" for r in got)
+    assert all(r["note"] == "natural cause" and r["dimension"] == "country" for r in got)
+    # both sexes captured, with the year forward-filled onto the F column
+    assert {(r["name"], r["fiscal_year"], r["gender"]): r["count"] for r in got} == {
+        ("Saudi Arabia", "2008/09", "female"): 0,  # blank cell → 0
+        ("Saudi Arabia", "2008/09", "male"): 16,
+        ("Saudi Arabia", "2009/10", "male"): 51,
+        ("Saudi Arabia", "2009/10", "female"): 1,
+        ("Malaysia", "2008/09", "male"): 1,
+        ("Malaysia", "2008/09", "female"): 2,
+        ("Malaysia", "2009/10", "male"): 31,
+        ("Malaysia", "2009/10", "female"): 3,
+    }
+    # grand-total row and the (genderless) Total column are dropped
+    assert not any(r["name"].lower().startswith("total") for r in got)
+
+
+def test_extract_cause_country_year_requires_caption():
+    rows = [["Country", "Natural cause", None], [None, "2008/09", None],
+            [None, "M", "F"], ["Malaysia", "1", "2"]]
+    assert extract_cause_country_year(rows, "Table 8. Deaths by country", 1, "r") == []
+
+
+def test_series_key_includes_note():
+    from migration_parser.series import SERIES_KEY_FIELDS, series_key
+    assert "note" in SERIES_KEY_FIELDS
+    a = {"report": "r", "source_page": 1, "caption": "c", "metric": "deaths_by_cause",
+         "dimension": "country", "unit": "count", "year_basis": "fiscal",
+         "gender": "male", "note": "natural cause"}
+    b = {**a, "note": "workplace accident"}
+    assert series_key(a) != series_key(b)
 
 
 def test_extract_year_gender_blocks_skips_grand_total():
@@ -776,7 +828,8 @@ def test_canonical_channel_new_entry_not_merged():
 
 def test_canonical_channel_unknown_is_passthrough():
     got = normalize.canonical_channel("something_new")
-    assert got == {"canonical": "something_new", "class": "unknown", "label": "something_new"}
+    assert got == {"canonical": "something_new", "class": "unknown",
+                   "label": "something_new", "reviewed": False}
 
 
 def test_every_panel_channel_is_mapped():
@@ -914,6 +967,7 @@ def test_build_gunzip_is_deterministic(tmp_path, monkeypatch):
 # ---- canonical safety / packaging invariants -------------------------------
 
 MIGRATION_DIR = Path(__file__).resolve().parents[1] / "migration"
+MIGRATION_MANIFEST = Path(__file__).resolve().parents[1] / "bill-tracker" / "migration_manifest.json"
 
 
 def _read_shipped(name: str) -> list[dict]:
@@ -963,9 +1017,13 @@ def test_clipped_entities_are_disambiguated_and_flagged():
 def test_analysis_safe_flag_definition():
     rows = _read_shipped("panel_canonical.csv.gz")
     for r in rows:
-        expected = (r["entity_resolved"] == "true"
-                    and str(r["verified"]).strip().lower() == "true")
-        assert (r["analysis_safe"] == "true") == expected
+        resolved = r["entity_resolved"] == "true"
+        verified = str(r["verified"]).strip().lower() == "true"
+        reviewed = r["channel_reviewed"] == "true"
+        # Safe default folds in channel_reviewed; the permissive flag does not.
+        assert (r["analysis_safe"] == "true") == (resolved and verified and reviewed)
+        assert (r["analysis_safe_permissive"] == "true") == (resolved and verified)
+    assert any(r["channel_reviewed"] == "false" for r in rows)
 
 
 def test_vocabularies_are_documented():
@@ -1032,3 +1090,410 @@ def test_fiscal_year_calendar_anchors():
     for bs, ad_start in anchors.items():
         assert fy[bs]["ad_start"] == ad_start, bs
 
+
+def test_preeti_decoder_known_tokens():
+    from migration_parser.preeti import decode
+    cases = {
+        "g]kfn ;/sf/": "\u0928\u0947\u092a\u093e\u0932 \u0938\u0930\u0915\u093e\u0930",          # नेपाल सरकार
+        "j}b]lzs /f]huf/ ljefu": "\u0935\u0948\u0926\u0947\u0936\u093f\u0915 \u0930\u094b\u091c\u0917\u093e\u0930 \u0935\u093f\u092d\u093e\u0917",  # वैदेशिक रोजगार विभाग
+        "k'?if": "\u092a\u0941\u0930\u0941\u0937",   # पुरुष
+        "dlxnf": "\u092e\u0939\u093f\u0932\u093e",   # महिला
+        "hDdf": "\u091c\u092e\u094d\u092e\u093e",    # जम्मा
+        "tLgs'g],": "\u0924\u0940\u0928\u0915\u0941\u0928\u0947,",
+        "sf7df8f+}": "\u0915\u093e\u0920\u092e\u093e\u0921\u094c\u0902",  # काठमाडौं
+        ";+=": "\u0938\u0902.",                       # सं.
+    }
+    for preeti, unicode_text in cases.items():
+        assert decode(preeti) == unicode_text, preeti
+
+
+def test_preeti_digits_and_empty():
+    from migration_parser.preeti import ascii_digits, decode, has_devanagari
+    assert decode("") == ""
+    assert ascii_digits("\u0967\u0968\u0969") == "123"
+    assert has_devanagari("नेपाल") and not has_devanagari("g]kfn")
+
+
+def test_high_risk_channels_are_flagged_unreviewed():
+    reviewed = normalize.channel_reviewed()
+    assert reviewed["legalization"] is False
+    assert reviewed["new_entry"] is False
+    assert reviewed["individual_new"] is True
+
+
+def test_channel_reviewed_lands_in_shipped_canonical():
+    import gzip
+    reviewed = normalize.channel_reviewed()
+    with gzip.open(MIGRATION_DIR / "panel_canonical.csv.gz", "rt",
+                   encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    seen = {r["channel_canonical"]: r["channel_reviewed"] for r in rows}
+    for channel, flag in reviewed.items():
+        if channel in seen:
+            assert seen[channel] == ("true" if flag else "false"), channel
+
+
+def test_series_key_is_summation_safe():
+    from migration_parser.series import SERIES_KEY_FIELDS, series_key
+    with (MIGRATION_DIR / "series.csv").open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    assert rows and "series_key" in rows[0]
+    groups: dict[str, dict] = {}
+    seen: dict[str, set] = {}
+    for r in rows:
+        assert r["series_key"] == series_key(r)
+        key = r["series_key"]
+        for fld in ("metric", "dimension", "unit", "year_basis", "gender", "note"):
+            groups.setdefault(key, {}).setdefault(fld, set()).add(r[fld])
+        # A summation-safe key must not repeat the row identity: two rows with
+        # the same (name, fiscal_year, gender) inside one key would be silently
+        # double-counted by a naive in-key sum (regression for the DATASET 7
+        # cause-of-death tables, whose causes collided before `note` was keyed).
+        ident = (r["name"], r["fiscal_year"], r["gender"])
+        assert ident not in seen.setdefault(key, set()), f"{key}: duplicate {ident}"
+        seen[key].add(ident)
+    # every summation key is single-valued in the additive-relevant fields
+    for key, cols in groups.items():
+        for fld, vals in cols.items():
+            assert len(vals) == 1, f"{key}: {fld}={vals}"
+    # and no key omits a field required by SERIES_KEY_FIELDS
+    assert set(SERIES_KEY_FIELDS) == {
+        "report", "source_page", "caption", "metric", "dimension",
+        "unit", "year_basis", "gender", "note"}
+
+
+def test_source_attestation_shape():
+    from migration_parser.scripts import cmd_provenance as prov
+    att = json.loads(prov.ATTESTATION.read_text())
+    docs = att["docs"]
+    assert docs, "attestation has no docs"
+    for d in docs:
+        if d.get("missing_cached"):
+            continue
+        assert d["page_count"] > 0
+        assert len(d["page_hashes"]) == d["page_count"]
+        assert len(d["text_sha256"]) == 64
+        assert d.get("pdf_sha256") and len(d["pdf_sha256"]) == 64
+
+
+def test_manifest_pdf_hashes_are_recorded():
+    manifest = json.loads(MIGRATION_MANIFEST.read_text())
+    hashed = [e for e in manifest if e.get("pdf_sha256")]
+    assert hashed, "no manifest entries carry a pdf_sha256"
+    for e in hashed:
+        assert len(e["pdf_sha256"]) == 64
+        assert e.get("pdf_bytes", 0) > 1000
+
+
+def test_driftcheck_clean_when_cached_hashes_match():
+    from migration_parser.scripts import cmd_driftcheck
+    rc = cmd_driftcheck.main([])
+    assert rc == 0, "driftcheck reported drift on a freshly hashed manifest"
+    out = json.loads((mpaths.MIGRATION_OUTPUT_DIR / "drift.json").read_text())
+    if cmd_driftcheck.ARCHIVE_MANIFEST.exists():
+        fetched = [e for e in json.loads(cmd_driftcheck.ARCHIVE_MANIFEST.read_text())
+                   if e.get("status") == "fetched"]
+        # the archive PDFs get the same drift treatment as the live manifest
+        assert out["archive_checked"] == len(fetched) > 0
+
+
+
+# --- archive backfill: family (a) monthly country × period-scope M/F/T ---
+
+from migration_parser import historical  # noqa: E402
+from migration_parser.historical import (  # noqa: E402
+    HistDoc,
+    HistRow,
+    _check_additivity,
+    _country_name,
+    _is_gender_cell,
+    _is_scope_word,
+    _num,
+    _table_layout,
+    _validate,
+    parse_report_month,
+)
+from migration_parser.model import DocMeta  # noqa: E402
+
+# Preeti-codepoint header labels (these decode to the scope words below).
+_PREV = "cf=j= d;fGt;Ddsf] hDdf"        # आ.व. मसान्तसम्मको जम्मा
+_MONTH = "sflt{s dlxgfsf] hDdf"          # कार्तिक महिनाको जम्मा
+_CUM = "cf=a= sflt{s d;fGt;Ddsf] hDdf"   # आ.ब. कार्तिक मसान्तसम्मको जम्मा
+
+
+def test_preeti_scope_header_vectors_decode():
+    assert _is_scope_word(_PREV) and _is_scope_word(_CUM)
+    assert _is_scope_word(_MONTH)
+    assert not _is_scope_word("Bahrain")
+
+
+def test_gender_cell_recognises_preeti_mft():
+    assert _is_gender_cell("k?if")
+    assert _is_gender_cell("dlxnf")
+    assert _is_gender_cell("hDdf")
+    assert not _is_gender_cell("Bahrain")
+
+
+def test_table_layout_family_a():
+    row0 = ["क्र", "मुलुक", _PREV, "", "", _MONTH, "", "", _CUM, "", ""]
+    row1 = ["", "", "k?if", "dlxnf", "hDdf",
+            "k?if", "dlxnf", "hDdf", "k?if", "dlxnf", "hDdf"]
+    row2 = ["1", "Bahrain", "1532", "47", "1579",
+            "798", "20", "818", "2330", "67", "2397"]
+    lay = _table_layout([row0, row1, row2])
+    assert lay is not None
+    data_start, b0, labels = lay
+    assert (data_start, b0) == (2, 2)
+    assert "महिना" in labels[1] and "मसान्त" in labels[0]
+
+
+def test_table_layout_rejects_non_family():
+    row0 = ["S.N.", "Country", "Total", "", "", "Total", "", ""]
+    row1 = ["", "", "k?if", "dlxnf", "hDdf", "k?if", "dlxnf", "hDdf"]
+    assert _table_layout([row0, row1]) is None
+
+
+def test_table_layout_detects_second_block_offset():
+    # 12-col institutional variant: M/F/T blocks start at col 3 (not 2).
+    row0 = ["क्र", "मुलुक", "किसिम", _PREV, "", "", _MONTH, "", "",
+            _CUM, "", ""]
+    row1 = ["", "", "", "k?if", "dlxnf", "hDdf",
+            "k?if", "dlxnf", "hDdf", "k?if", "dlxnf", "hDdf"]
+    lay = _table_layout([row0, row1])
+    assert lay is not None and lay[1] == 3
+
+
+def test_parse_report_month():
+    period, month = parse_report_month([_decode_lbl(_PREV), "०६९ कार्तिक महिनाको जम्मा"])
+    assert period == "2069 कार्तिक"
+    assert month == "कार्तिक"
+    assert parse_report_month(["Bahrain", "no month here"]) == ("", "")
+
+
+def test_parse_report_month_fiscal_year_scope():
+    # "मसान्त" scope headers carry no "महिना"; report month = last label.
+    labels = [
+        "आ.व.०७१/७२ को चैत मसान्तसम्मको जम्मा",
+        "आ.व.०७१/७२ को बैशाख मसान्तको जम्मा",
+        "आ.व.०७१/७२ को बैशाख मसान्तसम्मको जम्मा",
+    ]
+    # Baishakh (month 1) of FY2071/72 falls in BS calendar year 2072.
+    assert parse_report_month(labels) == ("2072 बैशाख", "बैशाख")
+    # Falgun (month 11) stays in the fiscal start year; broken "फागन ु" alias.
+    assert parse_report_month(
+        ["आ.व.०७०/७१ को माघ मसान्तसम्मको जम्मा",
+         "आ.व.०७०/७१ को फागन ु मसान्तको जम्मा",
+         "आ.व.०७०/७१ को फागन ु मसान्तसम्मको जम्मा"]) == ("2070 फागुन", "फागुन")
+
+
+def _decode_lbl(raw):
+    from migration_parser import preeti
+    return preeti.decode(raw)
+
+
+def test_historical_num_and_country_name():
+    assert _num("1,532") == 1532
+    assert _num("") == 0
+    assert _num(" 47 ") == 47
+    assert _country_name("1", "Bahrain") == ("1", "Bahrain")
+    assert _country_name("", "Afghanistan") == ("", "Afghanistan")
+    # Preeti name in col-0 (no Latin col-1) falls back to decode.
+    sn, np = _country_name("sf]l/of", "")
+    assert sn == "" and np == "कोरिया"
+
+
+def test_validate_flags_math_and_totals():
+    meta = DocMeta(doc_id="x", filename="x.pdf", period_bs="2069 कार्तिक")
+    rows = [
+        HistRow("Bahrain", "month", 10, 2, 12),
+        HistRow("Bahrain", "cumulative", 30, 5, 35),
+        HistRow("Bahrain", "previous_cumulative", 20, 3, 23),
+        HistRow("Qatar", "month", 5, 1, 6),
+        HistRow("Qatar", "cumulative", 15, 2, 17),
+        HistRow("Qatar", "previous_cumulative", 10, 1, 11),
+    ]
+    doc = HistDoc(meta=meta, rows=list(rows),
+                  totals={"month": (15, 3, 18), "cumulative": (45, 7, 52)})
+    assert _validate(doc) == []
+    assert not doc.warnings  # 20+10==30, 10+5==15 etc.
+
+    rows[0].total = 99  # break M+F==T and month total
+    doc2 = HistDoc(meta=meta, rows=list(rows),
+                   totals={"month": (15, 3, 18)})
+    problems = _validate(doc2)
+    assert any("M+F != T" in p for p in problems)
+    assert any("month detail sum" in p for p in problems)
+
+
+def test_validate_warns_on_source_cumulative_inconsistency():
+    meta = DocMeta(doc_id="x", filename="x.pdf")
+    doc = HistDoc(
+        meta=meta,
+        rows=[HistRow("Bahrain", "previous_cumulative", 20, 3, 23)],
+        totals={"previous_cumulative": (999, 9, 1008)},
+    )
+    assert _validate(doc) == []
+    assert any("source total inconsistent" in w for w in doc.warnings)
+
+
+def test_additivity_warning():
+    meta = DocMeta(doc_id="x", filename="x.pdf")
+    doc = HistDoc(meta=meta, rows=[
+        HistRow("Bahrain", "previous_cumulative", 1, 0, 1),
+        HistRow("Bahrain", "month", 1, 0, 1),
+        HistRow("Bahrain", "cumulative", 5, 0, 5),
+    ])
+    _check_additivity(doc)
+    assert any("previous+month != cumulative" in w for w in doc.warnings)
+
+
+def _sample(name):
+    import os
+    d = os.environ.get("MIGRATION_BACKFILL_SAMPLES", "/tmp/opencode/backfill")
+    return Path(d) / name
+
+
+@pytest.mark.skipif(not _sample("monthly_2069_kartik.pdf").exists(),
+                    reason="archive backfill sample PDFs not available")
+def test_extract_monthly_real_sample():
+    # Family (a) is the 12-col labour-approval table (b0=3), split into
+    # institutional / individual channels.
+    doc = historical.extract_monthly(str(_sample("monthly_2069_kartik.pdf")))
+    assert doc.ok
+    assert doc.meta.period_bs == "2069 कार्तिक"
+    assert len({r.country for r in doc.rows}) == 128
+    assert {r.approval_type for r in doc.rows} == {"institutional", "individual"}
+    assert all(r.male + r.female == r.total for r in doc.rows)
+    assert all(r.scope in historical.SCOPES for r in doc.rows)
+
+
+# --- archive backfill: resolve/fetch selection + period parsing ---
+
+from migration_parser.scripts import cmd_backfill as backfill  # noqa: E402
+
+
+def test_monthly_period_parsing():
+    assert backfill._monthly_period("final-app-Kartik-2067.pdf") == (2067, 7)
+    assert backfill._monthly_period(
+        "२०६९_कार्तिक_महिनाको_प्रगति_विवरण.pdf") == (2069, 7)
+    assert backfill._monthly_period(
+        "monthly report of shrawan-2069_20120823122613.pdf") == (2069, 4)
+    assert backfill._monthly_period("Monthly Report of  Bhandra-2068.pdf") == (2068, 5)
+
+
+def test_monthly_period_excludes_other_products():
+    assert backfill._monthly_period(
+        "26Monthly Report of Ashwin -2067 (Sushashan Format).pdf") is None
+    assert backfill._monthly_period("final-app-Kartik-2067 (Sastha & Ujuri).pdf") is None
+    assert backfill._monthly_period("Final Data of 2050_51 to 2067_68.pdf") is None
+    # Bare-month filenames (no year token) are admitted with an unknown year;
+    # the extractor's verifier rejects them downstream if they are not family (a).
+    assert backfill._monthly_period("kartik.pdf") == (None, 7)
+    assert backfill._monthly_period("Push Final Report_20140130093447.pdf") == (None, 9)
+
+
+def test_period_from_filename():
+    assert backfill._period_from_filename("022_2070_Bhadra.pdf") == "2070 Bhadra"
+    assert backfill._period_from_filename("012_2069_Shrawan.pdf") == "2069 Shrawan"
+    assert backfill._period_from_filename("weird.pdf") == ""
+
+
+def test_histdoc_verified_flag():
+    meta = DocMeta(doc_id="x", filename="x.pdf")
+    good = HistDoc(meta=meta, rows=[HistRow("Bahrain", "month", 1, 0, 1)])
+    assert good.verified
+    bad = HistDoc(meta=meta, rows=[HistRow("Bahrain", "month", 1, 0, 9)])
+    bad.problems.extend(_validate(bad))
+    assert not bad.verified
+    assert not HistDoc(meta=meta).verified
+
+
+@pytest.mark.skipif(not backfill.ARCHIVE_INVENTORY.exists(),
+                    reason="Wayback inventory not available")
+def test_resolve_candidates_shape():
+    entries = backfill.resolve_candidates()
+    assert entries, "no candidates resolved"
+    for e in entries:
+        assert e["serial"] >= 1
+        assert e["wayback_url"].startswith("https://web.archive.org/web/")
+        assert e["status"] == "pending"
+        head = e["period_bs"].split()[0]
+        assert head.startswith("20") or head == "unknown"
+    periods = [(e["period_bs"]) for e in entries]
+    assert len(periods) == len(set(periods)), "duplicate (year, month) candidates"
+
+
+# --- archive panel: dedup of mismatched Wayback captures + gz schema ---
+
+from migration_parser.scripts import cmd_archive_panel as apanel  # noqa: E402
+from migration_parser import paths as mpaths  # noqa: E402
+
+
+def _pair(serial, header, period):
+    return ({"serial": serial, "period_bs": period, "wayback_url": ""},
+            {"header_period_bs": header, "period_bs": period})
+
+
+def test_archive_panel_pick_prefers_lowest_serial():
+    keep, drop = apanel._pick(_pair(22, "", "2070 Bhadra"),
+                              _pair(19, "2069 Chaitra", "2069 Chaitra"))
+    assert keep[0]["serial"] == 19
+    assert drop[0]["serial"] == 22
+
+
+def test_archive_panel_pick_header_disagreement_overrides_serial():
+    mismatched = _pair(19, "2069 Chaitra", "2070 Bhadra")
+    agrees = _pair(22, "", "2070 Bhadra")
+    keep, drop = apanel._pick(mismatched, agrees)
+    assert keep[0]["serial"] == 22
+    assert drop[0]["serial"] == 19
+
+
+def test_archive_panel_gz_schema_and_dedup():
+    if not mpaths.MIGRATION_ARCHIVE_PANEL.exists():
+        pytest.skip("archive panel not built")
+    import gzip as _gz
+    import csv as _csv
+    with _gz.open(mpaths.MIGRATION_ARCHIVE_PANEL, "rt") as f:
+        rows = list(_csv.DictReader(f))
+    assert rows
+    assert list(rows[0].keys()) == mpaths.ARCHIVE_PANEL_COLUMNS
+    assert {r["source_kind"] for r in rows} == {"archive_org"}
+    assert {r["verified"] for r in rows} == {"True"}
+    shas = {r["source_pdf_sha256"] for r in rows}
+    assert len(shas) == len({r["doc_id"] for r in rows}), "duplicate content not deduped"
+    assert {r["scope"] for r in rows} == {"previous_cumulative", "month", "cumulative"}
+    assert {r["scope_class"] for r in rows} == {"prior_ytd", "window", "ytd"}
+    assert {r["granularity"] for r in rows} == {"month"}
+    assert {r["approval_type"] for r in rows} == {"institutional", "individual"}
+    for r in rows:
+        assert (r["analysis_safe"] == "True") == (
+            r["verified"] == "True" and r["entity_resolved"] == "True")
+    # Every row carries a canonical name (so groupby(name_canonical) never
+    # splits a resolved entity across alias variants); resolved rows also carry
+    # an ISO-3 code.
+    assert all(r["name_canonical"] for r in rows)
+    resolved = [r for r in rows if r["entity_resolved"] == "True"]
+    assert resolved and all(r["iso3"] for r in resolved)
+
+
+def test_scope_class_mapping():
+    from migration_parser import historical
+    assert historical.SCOPE_CLASS == {
+        "previous_cumulative": "prior_ytd", "month": "window", "cumulative": "ytd"}
+
+
+def test_channels_channel_map_is_explicit_tbd():
+    from migration_parser import normalize
+    cm = normalize.channel_map()
+    assert cm.get("status") == "TBD"
+    assert "individual" in cm and "institutional" in cm
+    assert cm["institutional"] is None and cm["individual"] is None
+
+
+def test_archive_panel_period_key_normalises_scripts():
+    assert apanel._period_key("2069 Shrawan") == (2069, 4)
+    assert apanel._period_key("2069 श्रावण") == (2069, 4)
+    assert apanel._period_key("2070 मंसिर") == (2070, 8)
+    assert apanel._period_key("") is None
+    assert apanel._period_key("kartik") is None

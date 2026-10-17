@@ -5,12 +5,16 @@ Commands:
   scrape     scrape the DoFE listings into the manifest
   process    download + extract + verify the live wide tables
   annex      extract the migration_2020 Annex tables
+  backfill   extract archive.org reports (family (a): monthly country-wise)
+  archivepanel  build tracked panel_archive.csv.gz from verified backfill docs
   agencies   extract pre-approval / institutional agency detail
   series     extract historical metric-series tables
   normalize  add canonical entity/channel/fiscal-year columns
   reconcile  cross-document reconciliation + dedup -> panel_canonical.csv
   verify     panel-wide math-invariant audit -> verification.json
   crosscheck cross-check against opendatanepal -> crosscheck.json
+  driftcheck detect source-PDF revision drift vs recorded hashes
+  provenance freeze/verify per-page source fingerprints (offline check)
   build      one-command reproducible build + packaging
 """
 
@@ -31,6 +35,10 @@ def _dispatch(stage: str) -> callable:
         from .scripts import cmd_process as m
     elif stage == "annex":
         from .scripts import cmd_annex as m
+    elif stage == "backfill":
+        from .scripts import cmd_backfill as m
+    elif stage == "archivepanel":
+        from .scripts import cmd_archive_panel as m
     elif stage == "agencies":
         from .scripts import cmd_agencies as m
     elif stage == "series":
@@ -43,6 +51,10 @@ def _dispatch(stage: str) -> callable:
         from .scripts import cmd_verify as m
     elif stage == "crosscheck":
         from .scripts import cmd_crosscheck as m
+    elif stage == "driftcheck":
+        from .scripts import cmd_driftcheck as m
+    elif stage == "provenance":
+        from .scripts import cmd_provenance as m
     elif stage == "build":
         from .scripts import cmd_build as m
     else:  # pragma: no cover - guarded by argparse choices
@@ -92,8 +104,10 @@ def _write_csv(rows: list[dict], path: str) -> None:
         w.writerows(rows)
 
 
-STAGES = ("scrape", "process", "annex", "agencies", "series",
-          "normalize", "reconcile", "verify", "crosscheck", "build")
+STAGES = ("scrape", "process", "annex", "backfill", "archivepanel",
+          "agencies", "series",
+          "normalize", "reconcile", "verify", "crosscheck", "driftcheck",
+          "provenance", "build")
 
 
 def main(argv=None) -> int:
@@ -116,10 +130,6 @@ def main(argv=None) -> int:
         return args.func(args)
     # forward stage-specific flags to the stage's own parser
     return args.func(extra)
-
-
-if __name__ == "__main__":
-    sys.exit(main())
 
 
 if __name__ == "__main__":

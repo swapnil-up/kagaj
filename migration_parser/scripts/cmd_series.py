@@ -18,7 +18,7 @@ import requests
 import urllib3
 
 from ..paths import MIGRATION_DIR, MIGRATION_REPORTS, MIGRATION_REPORTS_DIR
-from ..series import extract_series
+from ..series import extract_series, series_key
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 HEADERS = {"User-Agent": "Mozilla/5.0"}
@@ -26,8 +26,8 @@ HEADERS = {"User-Agent": "Mozilla/5.0"}
 REPORTS = list(MIGRATION_REPORTS)
 
 COLUMNS = [
-    "report", "source_page", "caption", "metric", "dimension", "unit",
-    "name", "fiscal_year", "year_basis", "gender", "count", "note",
+    "series_key", "report", "source_page", "caption", "metric", "dimension",
+    "name", "fiscal_year", "unit", "year_basis", "gender", "count", "note",
 ]
 
 
@@ -62,6 +62,9 @@ def main(argv: list[str] | None = None) -> int:
         all_problems.extend(problems)
         print(f"[{report}] {len(rows)} rows, {len(problems)} problems",
               file=sys.stderr)
+
+    for row in all_rows:
+        row["series_key"] = series_key(row)
 
     MIGRATION_DIR.mkdir(parents=True, exist_ok=True)
     out = MIGRATION_DIR / "series.csv"

@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 import sys
@@ -60,6 +61,27 @@ def content_id(url: str | None) -> str:
     return m.group(1) if m else ""
 
 
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def pdf_path(entry: dict) -> Path:
+    """Cached-PDF path for a manifest entry (same convention as the downloader)."""
+    cid = content_id(entry.get("detail_url")) or content_id(entry.get("pdf_url"))
+    return PDFS_DIR / f"{entry['serial']:03d}_{cid or 'x'}.pdf"
+
+
+def record_pdf_hash(entry: dict, dest: Path) -> None:
+    """Stamp an entry with the source PDF's content hash (drift detection)."""
+    if dest.exists():
+        entry["pdf_sha256"] = sha256_file(dest)
+        entry["pdf_bytes"] = dest.stat().st_size
+
+
 def download(url: str, dest: Path) -> bool:
     if dest.exists() and dest.stat().st_size > 1000:
         return True
@@ -73,15 +95,31 @@ def download(url: str, dest: Path) -> bool:
         return False
 
 
+def backfill_pdf_hashes() -> int:
+    """Stamp every manifest entry whose cached PDF already exists. Idempotent."""
+    manifest = load_manifest()
+    n = 0
+    for entry in manifest:
+        dest = pdf_path(entry)
+        if dest.exists():
+            record_pdf_hash(entry, dest)
+            n += 1
+    if n:
+        save_manifest(manifest)
+    print(f"hashed {n} cached source PDFs into the manifest", file=sys.stderr)
+    return n
+
+
 def process_entry(entry: dict) -> tuple[list[dict], str]:
     """Download + extract one manifest entry. Returns (rows, status)."""
     pdf_url = entry.get("pdf_url")
     if not pdf_url:
         return [], "no_pdf"
     cid = content_id(entry.get("detail_url"))
-    dest = PDFS_DIR / f"{entry['serial']:03d}_{cid or 'x'}.pdf"
+    dest = pdf_path(entry)
     if not download(pdf_url, dest):
         return [], "failed"
+    record_pdf_hash(entry, dest)
 
     meta = DocMeta(
         doc_id=cid or str(entry["serial"]),
@@ -144,7 +182,13 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="migration process")
     p.add_argument("--max-count", type=int, default=None)
     p.add_argument("--force", action="store_true")
+    p.add_argument("--hash-only", action="store_true",
+                   help="stamp cached PDFs with content hashes and exit (no download)")
     args = p.parse_args(sys.argv[1:] if argv is None else argv)
+
+    if args.hash_only:
+        backfill_pdf_hashes()
+        return 0
 
     PDFS_DIR.mkdir(parents=True, exist_ok=True)
     MIGRATION_DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -170,6 +214,7 @@ def main(argv: list[str] | None = None) -> int:
               f"country={n_c} district={n_d} {entry.get('checks','')}", file=sys.stderr)
         save_manifest(manifest)
 
+    backfill_pdf_hashes()
     rebuild_panel()
     print(f"processed {done} docs this run", file=sys.stderr)
     return 0

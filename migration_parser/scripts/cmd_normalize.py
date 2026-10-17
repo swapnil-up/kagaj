@@ -17,7 +17,8 @@ from ..paths import MIGRATION_DIR
 
 PANEL_EXTRA = ["entity_type", "name_canonical", "iso3", "province", "entity_note",
                "entity_resolved", "fiscal_year", "channel_canonical", "channel_class",
-               "granularity", "reconciled_fiscal_year", "period_override", "analysis_safe"]
+               "granularity", "reconciled_fiscal_year", "period_override", "analysis_safe",
+               "analysis_safe_permissive", "channel_reviewed"]
 AGENCY_EXTRA = ["country_canonical", "country_iso3", "fiscal_year"]
 
 
@@ -66,11 +67,21 @@ def normalize_panel() -> int:
             ch = normalize.canonical_channel(row["channel"])
             row["channel_canonical"] = ch["canonical"]
             row["channel_class"] = ch["class"]
+            row["channel_reviewed"] = _bool(ch.get("reviewed", True))
             row["granularity"] = normalize.doc_granularity(row["doc_type"], ch["class"])
             row["reconciled_fiscal_year"] = normalize.reconciled_fiscal_year(row["doc_id"], row["fiscal_year"])
             row["period_override"] = _bool(row["reconciled_fiscal_year"] != row["fiscal_year"])
+            # Safe default: exclude entity-unresolved rows AND channels whose
+            # cross-template equivalence is a single-analyst judgment call
+            # (channel_reviewed=false: legalization, old-template new_entry).
+            # ``analysis_safe_permissive`` is the older, looser flag kept for
+            # deliberate legalization-specific work — see migration/README.md.
+            resolved = row["entity_resolved"] == "true"
             row["analysis_safe"] = _bool(_truthy(row.get("verified"))
-                                         and row["entity_resolved"] == "true")
+                                         and resolved
+                                         and row["channel_reviewed"] == "true")
+            row["analysis_safe_permissive"] = _bool(_truthy(row.get("verified"))
+                                                    and resolved)
             w.writerow(row)
             n += 1
     return n

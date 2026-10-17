@@ -11,13 +11,32 @@ compensation, complaints, …) that is named in the table caption, not the data.
 This module turns those matrices into long rows tagged with a metric.
 
 Output schema (``migration/series.csv``) is a superset of ``panel.csv``:
-``report, source_page, caption, metric, dimension, name, fiscal_year,
-gender, count, note``.
+``series_key, report, source_page, caption, metric, dimension, name,
+fiscal_year, unit, year_basis, gender, count, note``.
 """
 
 import re
 
 from .parser import _to_int
+
+# Fields that identify one additive series block: rows sharing a ``series_key``
+# differ only in ``name``/``fiscal_year`` and may be summed safely. Every field
+# here is constant within a key by construction, so summing across keys would mix
+# incompatible measures (count vs percent vs usd, fiscal vs calendar, total vs
+# male+female). ``note`` is keyed because it carries the sub-measure that a page
+# can print as sibling tables under one caption (e.g. DATASET 7 prints one
+# cause-of-death table per cause: "natural cause", "workplace accident", …) —
+# without it those tables collide on ``(name, fiscal_year, gender)`` and a naive
+# in-key sum double-counts.
+SERIES_KEY_FIELDS = (
+    "report", "source_page", "caption", "metric", "dimension",
+    "unit", "year_basis", "gender", "note",
+)
+
+
+def series_key(row: dict) -> str:
+    """Stable summation-safe key for a ``series.csv`` row."""
+    return "|".join(str(row.get(f, "")) for f in SERIES_KEY_FIELDS)
 
 _YEAR = re.compile(r"^\s*(\d{4})\s*[/\-]\s*(\d{2,4})\s*$")
 
@@ -59,6 +78,7 @@ _METRIC_RULES = (
     ("complaints", r"complaint"),
     ("assistance", r"assistance|welfare|rescue"),
     ("no_objection_letters", r"no objection|no-objection"),
+    ("training", r"trainees trained|skill training"),
     ("labour_approval", r"labour permit|labor permit|labour approval|"
                         r"labour migration|labour migrant|migrant worker|"
                         r"recruiting agency|permit|"
@@ -442,6 +462,74 @@ def extract_cause_country(rows, caption: str, page: int, report: str) -> list[di
                 "metric": "deaths_by_cause", "dimension": "country", "unit": "count",
                 "name": name, "fiscal_year": "", "gender": "", "count": _to_int(r[j]),
                 "note": cause.lower(), "year_basis": "snapshot",
+            })
+    return out if len(out) >= 4 else []
+
+
+_CAUSE_COUNTRY_YEAR_RE = re.compile(
+    r"(?i)by cause of death,\s*destination country")
+
+
+def _sex_single(cell) -> str:
+    """Map the single-letter sex tokens (``M``/``F``) these tables print."""
+    return {"m": "male", "f": "female"}.get(str(cell or "").strip().lower(), "")
+
+
+def extract_cause_country_year(rows, caption: str, page: int, report: str) -> list[dict]:
+    """Cause × destination country × fiscal year × sex (status-report DATASET 7).
+
+    The status reports print **one table per cause** ("Other or unidentified
+    causes", "Natural cause", "Workplace accident", "Cardiac arrest", …), each
+    with a two-level header: fiscal years across the top and ``M``/``F`` beneath
+    each year (the year label sits on the ``M`` column, so it is forward-filled
+    to the ``F`` column). The cause is the first non-name header cell.
+
+    This is kept as ``deaths_by_cause`` with the cause in ``note`` and the sex in
+    ``gender`` — without the cause, the per-cause tables collide on
+    ``(name, fiscal_year, gender)`` under the shared caption and in-key summing
+    double-counts.
+    """
+    if not _CAUSE_COUNTRY_YEAR_RE.search(caption):
+        return []
+    cause = ""
+    for cell in (rows[0][1:] if rows else []):
+        if str(cell or "").strip():
+            cause = str(cell).strip().lower()
+            break
+    if not cause:
+        return []
+    h = None
+    for i in range(min(4, len(rows) - 1)):
+        yr = [j for j, c in enumerate(rows[i]) if _year_token(c)]
+        gm = [j for j, c in enumerate(rows[i + 1]) if _sex_single(c)]
+        if len(yr) >= 2 and yr[0] == 1 and len(gm) >= 2:
+            h = i
+            break
+    if h is None:
+        return []
+    yrow, grow = rows[h], rows[h + 1]
+    cols: list[tuple[int, str, str]] = []
+    year = ""
+    for j in range(1, len(yrow)):
+        y = _year_token(yrow[j])
+        if y:
+            year = y
+        g = _sex_single(grow[j]) if j < len(grow) else ""
+        if year and g:
+            cols.append((j, year, g))
+    if len(cols) < 2:
+        return []
+    out: list[dict] = []
+    for r in rows[h + 2:]:
+        name = _clean_name(r[0]) if r else ""
+        if not name or re.match(r"(?i)^(total|grand\s+total)\b", name):
+            continue
+        for j, fy, g in cols:
+            out.append({
+                "report": report, "source_page": page, "caption": caption,
+                "metric": "deaths_by_cause", "dimension": "country",
+                "unit": "count", "name": name, "fiscal_year": fy, "gender": g,
+                "count": _to_int(r[j]) if j < len(r) else 0, "note": cause,
             })
     return out if len(out) >= 4 else []
 
@@ -882,6 +970,7 @@ def extract_series(path: str, report: str = "") -> tuple[list[dict], list[str]]:
                         or extract_remittance_use(rows, caption, pi + 1, report)
                         or extract_destination_gender_crosstab(rows, caption, pi + 1, report)
                         or extract_cause_country(rows, caption, pi + 1, report)
+                        or extract_cause_country_year(rows, caption, pi + 1, report)
                         or extract_remittance_cost(rows, caption, pi + 1, report)
                         or extract_migration_cost(rows, caption, pi + 1, report)
                         or extract_year_matrix(rows, caption, pi + 1, report)

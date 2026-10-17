@@ -10,10 +10,31 @@ entities/channels/fiscal-years and within-document merges applied (see
 `groupby` a country or a year) can never double-count an aggregate against its
 components. Printed totals, `channel_class=aggregate` rows and distinct measures
 live in the companion `panel_rollup.csv.gz`, which you compare against but never
-add to the primary. Filter `analysis_safe=true` for the safe default set of rows.
+add to the primary. Filter `analysis_safe=true` for the safe default set of rows
+(it also drops the unreviewed `channel_reviewed=false` channels — see below).
 `panel.csv` is the raw extraction; `agencies.csv` holds agency-level detail and
 `series.csv` the historical metric series. A machine-readable data dictionary
 ships as `codebook.json`; the build is fingerprinted in `build.json`.
+
+**Default table and scope.** Use `panel_canonical.csv.gz` (filter
+`analysis_safe=true`) for the headline destination/composition/origin analysis;
+it is additive-only, every row passed its document's math audit, **and** every
+row uses a `channel_reviewed=true` channel. `analysis_safe` is therefore
+`entity_resolved AND verified AND channel_reviewed`; the looser
+`analysis_safe_permissive` (`entity_resolved AND verified`) is provided only for
+deliberate legalization-specific work, which must be reported as a separate
+flagged specification rather than pooled with the reviewed channels. Explicitly **out of scope** for that
+default: `panel_rollup.csv.gz` totals, the deaths/return/remittance series in
+`series.csv` (different units and bases), and anything derived from the archive
+backfill until it lands. Do not screen specifications on the outcome — the
+default table and the safe-subset filter are fixed *before* estimation to avoid
+p-hacking; any deviation should be reported as such.
+
+**Source integrity.** Every source PDF is hashed when fetched — `pdf_sha256` on
+the live manifest, `source_pdf_sha256` on the archive manifest. Run
+`python -m migration_parser driftcheck [--recheck]` to catch a source revised in
+place before trusting a rebuild; it checks **both** manifests (the archive PDFs
+are the ones least likely to be re-examined by anyone else).
 
 `panel.csv` is **one row per (document × section × name × channel × gender)**.
 Almost every row is `verified=True`: the printed male/female totals, channel
@@ -208,6 +229,7 @@ would conflate incompatible measures.
 
 | Field | Meaning |
 |-------|---------|
+| `series_key` | **Summation-safe block key** = `report\|source_page\|caption\|metric\|dimension\|unit\|year_basis\|gender`. Rows sharing a key differ only in `name`/`fiscal_year`/`note`; sum `count` **only within a key**. Keys are single-valued in unit/basis/gender by construction, so summing across keys can never silently mix counts with percents, fiscal with calendar, or totals with male+female. |
 | `report` | Source report key: `status_2013_14`, `status_2014_15`, `status_2015_17`, `country_intro_2019`, `migration_2020`, `migration_2024` |
 | `source_page` | 1-based page in the source PDF |
 | `caption` | Printed table caption (the primary disambiguator — always filter on this before summing) |
@@ -331,7 +353,7 @@ record; the `normalize` stage writes the normalised companions
 **`migration/panel_normalized.csv`** and
 **`migration/agencies_normalized.csv`** by *appending* columns:
 
-- panel: `entity_type, name_canonical, iso3, province, entity_note, entity_resolved, fiscal_year, channel_canonical, channel_class, granularity, reconciled_fiscal_year, period_override, analysis_safe`
+- panel: `entity_type, name_canonical, iso3, province, entity_note, entity_resolved, fiscal_year, channel_canonical, channel_class, channel_reviewed, granularity, reconciled_fiscal_year, period_override, analysis_safe, analysis_safe_permissive`
 - agencies: `country_canonical, country_iso3, fiscal_year`
 
 `fiscal_year` is derived from the row's BS period — annual labels directly,
@@ -393,9 +415,15 @@ Two applied corrections documented in the JSON:
    spellings (e.g. `Combodia` + `Cambodia` in doc 332), the rows resolve to one
    entity and are summed (`merged_rows`, `raw_names` in the output).
 
-`granularity` (`month`/`year`/`measure`), `reconciled_fiscal_year` and
-`analysis_safe` (`entity_resolved AND verified`) are appended by the `normalize`
-stage. The audit asserts **no canonical key is produced by more than one
+`granularity` (`month`/`year`/`measure`), `channel_reviewed`,
+`analysis_safe` (`entity_resolved AND verified AND channel_reviewed`) and
+`analysis_safe_permissive` (`entity_resolved AND verified`) are appended by the
+`normalize` stage. `channel_reviewed=false` marks a channel whose cross-template
+equivalence is a *single-analyst judgment call* not covered by the opendata
+cross-check — currently `legalization` and the old-template `new_entry`. The safe
+default `analysis_safe=true` excludes them; reach for `analysis_safe_permissive`
+only when legalization is the object of study, and report those results as a
+separate specification rather than pooling them with the reviewed channels. The audit asserts **no canonical key is produced by more than one
 document** (currently 0 conflicts; 1599 intra-doc merges), that the primary is
 unique on the dedup key, and that the annual doc reconciles to the sum of its
 months.
@@ -487,6 +515,7 @@ canonical way to reproduce them:
 | `period_windows.csv` | 28 | reporting-window lookup (`period_bs` → AD start/end) for date merges |
 | `codebook.json` | — | machine-readable column dictionary + vocabularies + per-file checksums |
 | `build.json` | — | build manifest: git revision, timestamp, row counts, SHA-256, audit pass/fail |
+| `source_attestation.json` | — | frozen per-source page count + per-page text digests (offline `provenance --verify`) |
 
 `build` gzips `panel_canonical`/`panel_rollup` deterministically (mtime=0), writes
 `period_windows.csv`, and writes `build.json` + `codebook.json`; it exits non-zero
@@ -675,18 +704,34 @@ turned "Grand Total" into "Grand" and double-counted grand totals).
 ### Archive.org backfill — yield analysis & plan
 
 > **Research-design warning (read before scoping a paper).** High-frequency
-> coverage effectively starts in 2025/26: the primary panel's monthly windows run
-> 2025-04 → 2026-09 only. That means the headline natural experiments a
-> migration economist would reach for — the Qatar 2022 World Cup, the Malaysia
-> 2018–20 policy swings, the Israel quota changes — **predate the monthly panel
-> and cannot be studied with it**. Until this backfill lands, those questions are
-> stuck on annual data, a much weaker identification strategy. Do not write
-> "event study" or "high-frequency" into a design doc against the current data.
-> The backfill is therefore the single highest-value data expansion, not merely a
-> coverage nicety.
+> coverage in the *primary panel* starts in 2025/26: its monthly windows run
+> 2025-04 → 2026-09 only. The headline natural experiments a migration economist
+> would reach for — the Qatar 2022 World Cup, the Malaysia 2018–20 policy swings,
+> the Israel quota changes — sit in **BS 2075–2081 (2018/19–2024/25)**. The
+> Wayback archive **does capture monthly country reports inside that window**
+> (BS 2075 Baishakh/Jestha/Shrawan/Bhadra/Ashoj, plus BS 2080/81 and BS 2081/82
+> progress reports), but they are a **newer DoFE template that the current
+> family-(a) extractor reads as 0 rows** — the same limitation already noted for
+> BS 2080/2081 below. The window is therefore an **extractor gap, not a source
+> hole**: closing it needs a *new-template extractor* (or a different source —
+> DoFE directly, MoLESS reports), not more filename-resolving. The archive panel
+> that *does* extract covers **BS 2067–2073 (2010/11–2016/17)**. Annual data
+> (through FY2081/82) is the best input currently available for those questions.
+> Do not write "event study" or "high-frequency" into a design doc against the
+> current data without stating this. (Corrects an earlier README claim that the
+> archive held *no* in-window captures — see `migration/CHANGELOG.md`,
+> 2026-10-17.)
 
-Assessed read-only via the Wayback Machine; **not yet implemented**. Goal:
-extend `panel.csv` backward from BS 2082 (2025/26) to ~BS 2065 (2008/09).
+Assessed read-only via the Wayback Machine. **Family (a)** (monthly country-wise)
+is now extracted (`migration_parser/historical.py`) and shipped as a separate
+archive panel (BS 2067–2073); families (b)/(c) are still pending. The original
+goal was to extend `panel.csv` backward from BS 2082 (2025/26) to ~BS 2065
+(2008/09). The BS 2075–2081 in-window captures are a newer template (unscoped,
+above); note also that the filename-based `resolve` skips family-(a) reports
+whose names carry no year token (e.g. the bare-month `ashoj.pdf`/`baisakh.pdf`
+set, which are actually **BS 2071/72** and extract fine) — so the manifest
+under-counts the pre-2074 archive by filename heuristics, separate from the
+template gap.
 
 **Verified facts** (two live docs pulled via
 `https://web.archive.org/web/{ts}id_/{url}`):
@@ -719,6 +764,37 @@ Un-downloaded `opendatanepal` datasets (`country-wise ... 2050/51–2072/73`,
 `issuance of labour permits 2009/10–2023/24`, district-wise legalization,
 households-receiving-remittance) are small summary CSVs → **cross-check only**.
 
+**Scope-check (5 Wayback docs pulled and inspected, read-only):**
+
+| Sample | Era | pp | images | `find_tables` (cols) | Layout |
+|--------|-----|----|--------|----------------------|--------|
+| `monthly_2069_shrawan` | BS 2069 | 17 | 0 | 25 tables, 11–12 col | country × repeated M/F/T blocks |
+| `monthly_2069_kartik` | BS 2069 | 19 | 0 | 27 tables, 11–12 col | same family |
+| `longrun_2050_2068` | 2050/51–2067/68 | 2 | 0 | 3 tables, 16–20 col | **transposed** year × country matrix |
+| `quarter_2070_71_2nd` | 2070/71 | 25 | 1 | 15 tables but mostly prose | narrative + scattered tables |
+| `yearly_2072_2073` | 2072/73 | **235** | 8 | **2 tables in first 10pp** | huge narrative; `find_tables` fails |
+
+All five are native vector PDFs, Devanagari **Preeti-encoded** (`k'?if`=पुरुष,
+`hDdf`=जम्मा), numerals clean ASCII → the decoder is the shared prerequisite.
+
+**Two legacy encodings per document.** The PDFs embed *both* a `Preeti` font and
+a `PCSNEPALI` font (plus Times/Helvetica for numerals). Table labels (gender,
+`hDdf`, channel) are `Preeti`; some title/caption runs are `PCSNEPALI`, whose
+codes differ (e.g. कात्तिक is `sflts` in PCSNEPALI vs `sflt{s` in Preeti). Decode
+therefore **must be font-scoped per span** (`page.get_text("dict")`), not applied
+to the flattened string: ASCII digit runs in Latin fonts must be left untouched.
+`migration_parser/preeti.py` implements the Preeti map (font-scoped caller);
+PCSNEPALI is a **documented TODO** (titles/captions only so far — the numeric
+data tables and gender labels are Preeti).
+
+**Conclusion (corrects an earlier assumption):** "mirror `annex.py`" is **too
+optimistic**. The archive is **at least three layout families** — (a) monthly
+country × period-scope M/F/T matrices, (b) a transposed long-run year × country
+table, (c) large narrative quarterly/annual progress reports where
+`find_tables()` returns ~0 (the 235-pp yearly doc detects almost nothing). (c)
+needs a flow/text parser, not the wide-table machinery. Budget the backfill as a
+*family of extractors* sharing one Preeti decoder, not a single reuse.
+
 **Decisions**
 
 - Scope: **monthly + quarterly + yearly + pre-approval**.
@@ -729,24 +805,75 @@ households-receiving-remittance) are small summary CSVs → **cross-check only**
   (pre-approval), Sastha Darta & Ujuri (registration/complaints) and Sushasan
   (governance) — only approval / pre-approval tables feed the panel.
 - Older templates differ from the live ones (period-scope columns ×
-  institutional/individual/total × M/F/T), so a dedicated extractor is needed
-  (mirroring `annex.py`), not `parser.py`.
+  institutional/individual/total × M/F/T) **and from each other** (see the
+   scope-check above), so dedicated per-family extractors are needed, not
+   `parser.py` and not a single `annex.py` clone. Confirmed on the full 52-doc
+   archive set: three distinct vintages (2067–68 / 2069–70 / 2073+), only the
+   middle one matching family (a).
 
 **Plan** (phased; each shippable)
 
-1. `migration_parser/preeti.py` + `migration_parser/historical.py`: Preeti→Unicode
-   map + old-template extractor; unit + doc tests on the two verified docs.
-2. `cmd_backfill` stage (`resolve` → `fetch` → `extract`) + tracked
-   `bill-tracker/migration_archive_manifest.json`; recover the monthly
-   country-wise family.
-3. Add the `source_kind` schema + `merge`; wire verified monthly rows into
-   `panel.csv`; run `cmd_verify`.
-4. Quarterly / yearly / pre-approval families.
-5. Docs: update the coverage table above + `DATA_AVAILABILITY.md`.
+1. ~~`migration_parser/preeti.py`: Preeti→Unicode map + `decode`; unit tests on
+   known tokens~~ **done** (canonical Shuvayatra table, font-scoped). PCSNEPALI
+   map still TODO (titles/captions only).
+2. **family (a)** monthly country × period-scope M/F/T — **extractor done**
+   (`migration_parser/historical.py` + `cli backfill --extract <pdf|dir>`).
+   The target is the **12-col labour-approval table** ("कामदार गएको मुलुक", col 2
+   = श्रम स्वीकृतिको किसिम → संस्थागत/व्यक्तिगत, three period-scope M/F/T blocks at
+   col 3/6/9). The sibling 11-col table at col 2 ("पूर्व स्वीकृति लिएको मुलुक") is
+   the **pre-approval** product and is deliberately *not* this family. Each
+   country prints institutional + individual rows plus a जम्मा subtotal (the
+   subtotal is skipped; `M+F` is authoritative since the printed Total cell is
+   unreliable in later vintages). Grand-total rows omit the type cell (blocks
+   shift to col 2), located by the first numeric cell; a grand total is optional
+   and, when absent, validation falls back to `M+F=T` + `previous+month=cumulative`
+   + `Σ detail = printed total`. Header decode is Preeti-scoped; numerals are
+   ASCII/PCSNEPALI and country names Latin, so they are **not** decoded.
+   `resolve`/`fetch` wired (`cli backfill --list|--resolve|--fetch`): 52 monthly
+   candidates resolved from the Wayback inventory into the tracked
+   `bill-tracker/migration_archive_manifest.json` (deduped by `(year, month)`,
+   `final`/`monthly`/`report` preferred) and all 52 downloaded to
+   `output/migration/archive_pdfs/` with `source_pdf_sha256`/`source_pdf_bytes`.
+   **Extraction yield across the full set** (`--extract`): **25 docs fully
+   verified** (BS 2067–2073); the rest are unverified — duplicated/misaligned
+   captures (e.g. a spurious "Republic of Korea from EPS" row) or a printed total
+   that does not reconcile. In-window captures (BS 2075, 2080/81, 2081/82) still
+   yield 0 rows — a **newer template** the family-(a) extractor does not parse.
+3. **Separate archive panel** (`migration/panel_archive.csv.gz` +
+   `panel_archive_build.json`) built by `cli archivepanel` from the verified
+   backfill docs — kept out of `panel.csv` because the three period-scopes
+   (`previous_cumulative`/`month`/`cumulative`) don't map onto the live monthly
+   schema. Ships BS 2067–2073 (25 docs, 54,360 rows), `source_kind=archive_org`,
+   all `verified=True`. Columns beyond the live panel:
+   - `approval_type` — `institutional` / `individual`, the printed श्रम स्वीकृतिको
+     किसिम axis. This is **not** the modern delivery-channel axis; the
+     correspondence is an open domain item documented as `channel_map: null/TBD`
+     in `channels.json`. **Do not join to `panel_canonical.channel_canonical`.**
+   - `scope` (`previous_cumulative`/`month`/`cumulative`) plus `scope_class`
+     (`prior_ytd`/`window`/`ytd`) and `granularity` (`month`). Join to the live
+     panel on `period_bs` (+ `granularity`), not on scope.
+   - `name_canonical` + `iso3` (from `countries.json`, same resolver as the main
+     panel), `entity_resolved`, and `analysis_safe`
+     (= `verified AND entity_resolved`), the same safe-default discipline as the
+     main panel. `name_canonical` is kept — not just the boolean — so a
+     `groupby(name_canonical)` on resolved rows can't split alias variants
+     (`UAE` vs `United Arab Emirates`) into separate buckets. 40,977 of 54,360
+     rows are `analysis_safe=true`; the rest carry unresolved printed names
+     (misspellings, clipped labels, ambiguous groupings, the spurious "Republic
+     of Korea from EPS" row) kept verbatim, `name_canonical` falling back to the
+     raw name.
+   Supersedes the earlier pre-approval-table panel (that read the wrong sibling
+   table). Note the main panel's `individual` channel is the *aggregate* "Individual
+   (all modes)"; the archive's `individual` is a raw approval type — the string
+   match is a trap.
+4. **family (b)** transposed long-run year × country extractor; **family (c)**
+   narrative/quarterly series extractor (flow/text, not `find_tables`).
+5. Pre-approval family; docs: update the coverage table above + `DATA_AVAILABILITY.md`.
 
 **Risks**: ~half the candidate filenames are `404/302` (uncaptured) → uneven
-month coverage; per-vintage layout drift may surface layouts beyond the two
-inspected; the Preeti map may be incomplete (fall back to manifest metadata).
+month coverage; per-vintage layout drift will surface families beyond the three
+sampled (the 235-pp yearly doc is the known outlier); the Preeti map may be
+incomplete (fall back to manifest metadata).
 
 **Validation & delivery**
 - ~~**Cross-check** against `opendatanepal` CSVs (**cross-check only** — never

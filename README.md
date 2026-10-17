@@ -71,14 +71,25 @@ Both pipelines are exposed as a **FastAPI web app** with a **Vue 3 SPA** fronten
 ### CLI Tools
 - `bill-tracker/pdf_to_text.py` — single-file OCR with optional translation and HTML overlay
 - `run.sh` — orchestrator wrapper
-- `archive/budget/pdf_to_excel_v2.py` / `pdf_to_excel_v3.py` — budget extraction
-- `archive/budget/verify_budget.py` — cross-verify extracted totals
+- `redbook_parser/` — active budget extraction (`python -m redbook_parser.cli extract …`; see `redbook_parser/STRATEGY.md`)
+- `archive/budget/` — frozen legacy budget extraction + `verify_budget.py`
+- `migration_parser/` — DoFE labour-migration panel (`python -m migration_parser.cli build`)
 
 ### Notice Automation Pipeline
-- `bill-tracker/scripts/scrape_notices.py` — scrapes parliament notices list (1,300+ entries) and backfills PDF URLs
-- `bill-tracker/scripts/process_notice.py` — picks 1 pending notice, downloads PDF, runs OCR + translation, saves both
+- `bill-tracker/scripts/scrape_notices.py` — scrapes parliament notices list and backfills PDF URLs (current 7th HoR, **182 entries**; 6th-HoR archive in `notices-6th-hor.json`)
+- `bill-tracker/scripts/process_notice.py` — picks 1 pending notice, downloads PDF, runs OCR + structured translation
+- `bill-tracker/scripts/upsert_notice.py` — chunks + embeds → pgvector
 - `bill-tracker/notices.json` — manifest tracking status (pending/done/failed) for all notices
 - GitHub Actions: weekly scrape + daily backfill translation (`GEMINI_API_KEY` secret required)
+
+### Verbatim Pipeline (National Assembly)
+- `bill-tracker/scripts/scrape_verbatims.py` — NA verbatims API, sessions 19+ (**68 entries**)
+- `bill-tracker/scripts/process_verbatim.py` — segmented Gemini translation (10KB/segment) + merge, checkpointed
+- `bill-tracker/scripts/upsert_verbatim.py` — chunks + embeds → `verbatims`/`verbatim_chunks`
+
+### Labour-Migration Panel (`migration/`)
+- Primary: **additive-only** `migration/panel_canonical.csv.gz`; companion `panel_rollup.csv.gz`; plus `series.csv`, `agencies.csv`, `codebook.json`, `build.json`
+- Reproducible build: `python -m migration_parser.cli build`; source PDFs are content-hashed (`driftcheck`)
 
 ```bash
 # Scrape notice list (fast, incremental)
@@ -128,24 +139,22 @@ python pdf_to_text.py notice.pdf --html --translate
 
 ```
 ├── bill-tracker/             # Parliamentary notice/verbatim pipeline
-│   ├── scripts/
-│   │   ├── scrape_notices.py   # Scraper (list + PDF backfill)
-│   │   └── process_notice.py   # Download, OCR, translate pipeline
+│   ├── scripts/                # scrape/process/upsert notices + verbatims, DDA tools
 │   ├── backend/                # FastAPI app
-│   │   └── app/
 │   ├── frontend/               # Vue 3 SPA
 │   ├── pdf_to_text.py          # OCR CLI
-│   ├── notices.json            # Notice manifest (current 7th HoR, ~124 entries)
+│   ├── notices.json            # Notice manifest (current 7th HoR, 182 entries)
+│   ├── verbatims.json          # Verbatim manifest (NA sessions 19+, 68 entries)
+│   ├── migration_manifest.json # DoFE labour-migration source manifest (35)
 │   └── .env                    # API keys (GEMINI_API_KEY, DATABASE_URL)
 ├── cidmap/                  # CID mapping: font-scoped CID → Devanagari
 ├── redbook_parser/          # Budget extraction (PyMuPDF + spatial-first)
+├── migration_parser/        # DoFE labour-migration panel (`migration/`) + Preeti decoder
 ├── dictionary/              # Nepali-English dict builder
 ├── archive/budget/          # Frozen legacy budget extraction (v1/v2/v3)
-├── tests/                   # Pytest suite (tests redbook_parser)
+├── tests/                   # Pytest suite (redbook_parser + migration_parser)
 ├── translations/            # Tracked output: OCR text, translations, JSON
-├── .github/workflows/       # GitHub Actions
-│   ├── scrape-notices.yml   # Weekly scrape
-│   └── translate-notices.yml # Daily backfill translation
+├── .github/workflows/       # GitHub Actions (scrape/translate notices + verbatims, init-db)
 ├── Dockerfile               # Production build
 └── requirements.txt         # Root dependencies
 ```

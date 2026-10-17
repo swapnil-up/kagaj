@@ -375,13 +375,15 @@ filter; vocab is data-derived + asserted; `build.json` is a clean ancestor of
 1. Canonical dedup / `Republic o` conflation — **DONE** (suffixed + unique-key assertion).
 2. Resolve doc 332 clipped names against the source — **DONE via disambiguation** (source text unrecoverable; serial-suffixed).
 3. Clean-tree rebuild + ancestry check — **DONE** (`--require-clean`, regression test).
-4. Summation-safe `series_key` incl. `gender`/`unit`/`year_basis` — **OPEN**.
+4. Summation-safe `series_key` incl. `gender`/`unit`/`year_basis` — **DONE** (`series_key` column + constant-within-key regression test).
 5. Regenerate codebook vocab from data + assertion — **DONE**.
 6. Row-level `source_complete` flag for `preapproval_032` (90% unverified) — **DONE** via `analysis_safe` (still 90% false).
 7. Archive backfill (`preeti.py` + `historical.py`) — **OPEN** (highest-value expansion).
 8. Granularity-aware "one row per FY" view — **DONE** (`analysis.fiscal_year_panel`).
 9. Refresh stale repo docs + docs-vs-manifest check — **PARTIAL** (migration docs done; root ROADMAP/README counts still stale).
-10. Offline-checkable provenance (frozen PDF pages/hashes) — **OPEN**.
+10. Offline-checkable provenance (frozen PDF pages/hashes) — **DONE** (`source_attestation.json` freezes page count + per-page text digests; `provenance --verify` checks offline; whole-file `pdf_sha256` + `driftcheck` for upstream revisions).
+11. Flag highest-risk channel equivalences for the reader — **DONE** (`channel_reviewed=false` on `legalization`, `new_entry`; documented + regression-tested).
+12. Archive-backfill scope-check (old-template layout audit) — **DONE** (5 Wayback docs inspected; ≥3 layout families, not an `annex.py` clone — see `migration/README.md`).
 
 **Three questions the current artifacts cannot answer**
 

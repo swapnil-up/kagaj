@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-16T18:46:13+0545",
-  "duration_s": 110.4,
+  "generated_at": "2026-10-17T22:48:39+0545",
+  "duration_s": 155.1,
   "git": {
-    "commit": "d89b11f10a2fbe96e595f9d0731788ef5ba96f06",
-    "describe": "d89b11f-dirty",
-    "dirty": true,
-    "clean": false
+    "commit": "78d153d793d69bbd94633368a4fb74d6675aefd2",
+    "describe": "78d153d",
+    "dirty": false,
+    "clean": true
   },
   "audits": {
     "reconcile": {
@@ -30,13 +30,13 @@
     },
     "panel_canonical.csv.gz": {
       "rows": 70104,
-      "bytes": 612668,
-      "sha256": "f6edc8cd0655fea1e4b0bc43e0e46ee6ebe0fe81d70dc9ff971a781f28fd8590"
+      "bytes": 617418,
+      "sha256": "5733821db3fa1d7eefa4ed26859c457c13150736dc728187901eea816b78ca1d"
     },
     "panel_rollup.csv.gz": {
       "rows": 31041,
-      "bytes": 338875,
-      "sha256": "11ed1760a214079c7db72b1a3451581c60ef36ca1e4557d9b8ce1805bf4f442d"
+      "bytes": 341013,
+      "sha256": "29013e47ed797f75277258f1686da73b33cf9b20ac439416115146fa51a727ea"
     },
     "agencies.csv": {
       "rows": 26224,
@@ -44,9 +44,9 @@
       "sha256": "7cbc151543cc31bccde54b216208ff7575e22ea61bc31491bc5ae2c4409ada47"
     },
     "series.csv": {
-      "rows": 9208,
-      "bytes": 1670987,
-      "sha256": "c8c6583d3f39376624bc7ad3cea2489602962563af67170c671f19ac78f87c11"
+      "rows": 9748,
+      "bytes": 3420802,
+      "sha256": "75482753cee81b904db763b6e7ac1f6a5e1f445e768e3509e7d4fd17d4ff20e4"
     },
     "period_windows.csv": {
       "rows": 28,

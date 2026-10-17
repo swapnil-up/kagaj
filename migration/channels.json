@@ -9,9 +9,13 @@
     {"name": "individual_reentry", "label": "Individual (Re-entry)", "class": "component",
      "note": "Workers re-entering on existing permits."},
     {"name": "legalization", "label": "Legalization / Regularization", "class": "component",
-     "note": "Regularization of previously irregular workers. Printed as 'Legalization' (modern), 'Legalized Entry' (old), 'Regularized Entry' (Annex IX), 'Individual Regularization' (Annex X)."},
+     "reviewed": false,
+     "note": "Regularization of previously irregular workers. Printed as 'Legalization' (modern), 'Legalized Entry' (old), 'Regularized Entry' (Annex IX), 'Individual Regularization' (Annex X).",
+     "review_note": "Equivalence mapping is a single-analyst call and NOT covered by the opendata cross-check (nor by arithmetic alone, since the printed total is just the sum of whatever channels the template defines). Highest policy-drift risk — do not treat as equivalent to the other channels without an independent read."},
     {"name": "new_entry", "label": "New Entry (old template)", "class": "component",
-     "note": "Old-template new-entry channel. NOT split into individual_new vs g2g, so it is kept distinct; treat as new entries when the g2g split is unavailable."},
+     "reviewed": false,
+     "note": "Old-template new-entry channel. NOT split into individual_new vs g2g, so it is kept distinct; treat as new entries when the g2g split is unavailable.",
+     "review_note": "Old-template lumping is a single-analyst call and NOT covered by the opendata cross-check."},
     {"name": "individual", "label": "Individual (all modes)", "class": "aggregate",
      "note": "Annex XII district table: individual approvals summed over modes. Aggregate of individual_new + individual_reentry; do not add to components."},
     {"name": "total_with_reentry", "label": "Total with Re-entry", "class": "aggregate",
@@ -39,5 +43,12 @@
     {"source": "total_without_reentry", "canonical": "total_without_reentry"},
     {"source": "total_without_renew", "canonical": "total_without_reentry", "note": "Annex X 'without renew' == without re-entry"},
     {"source": "preapproval", "canonical": "preapproval"}
-  ]
+  ],
+  "channel_map": {
+    "status": "TBD",
+    "applies_to": "panel_archive.csv.gz approval_type ((\"approval_type\" = श्रम स्वीकृतिको किसिम))",
+    "note": "The archive labour-approval tables classify approvals only as institutional (संस्थागत) vs individual (व्यक्तिगत). This is NOT the modern delivery-channel axis and the two vocabularies do not share a period in which both are printed, so the correspondence is unverifiable from the data at hand. It is deliberately left null/TBD: do not join panel_archive to panel_canonical on channel string equality, and do not fold archive approval_type into channel_canonical until a DoFE documentation source or an overlapping-template period resolves the mapping.",
+    "institutional": null,
+    "individual": null
+  }
 }

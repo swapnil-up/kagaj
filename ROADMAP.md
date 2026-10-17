@@ -1,26 +1,34 @@
 # ROADMAP — Nepali Admin Copilot
 
-## 2026-07 · Current State
+## 2026-10 · Current State
 
 | Area | Status |
 |------|--------|
 | OCR pipeline (PaddleOCR) | Done — rasterizes everything, no pre-processing |
-| Gemini freeform translation | Done — block-based, no structured output |
-| Notice scraper | Done — `scripts/scrape_notices.py`, current 7th HoR only (~124 entries) |
-| Notice processor | Done — `scripts/process_notice.py`, GH Actions cron |
-| **Verbatim scraper** | Done — `scripts/scrape_verbatims.py`, NA API, sessions 19+ (52 entries) |
-| **Verbatim processor** | Done — `scripts/process_verbatim.py`, segmented Gemini translation (10KB/segment) + merge |
+| Gemini structured translation | Done — `response_mime_type="application/json"` schema (one call → translation + fields) |
+| Notice scraper | Done — `scripts/scrape_notices.py`, 7th HoR only (**182 entries**) |
+| Notice processor | Done — `scripts/process_notice.py`, GH Actions cron (174 done) |
+| **Verbatim scraper** | Done — `scripts/scrape_verbatims.py`, NA API, sessions 19+ (**68 entries**) |
+| **Verbatim processor** | Done — segmented Gemini translation (10KB/segment) + merge, checkpointed |
 | FastAPI backend | Done — upload → OCR → translate endpoints |
 | Vue.js frontend | Basic — upload + overlay/text view, no search |
-| Budget PDF extraction (v3) | Working — PyMuPDF + CID fixups for redbook8283.pdf |
-| Database | None — all file-based |
-| Embeddings / vector search | None |
+| Postgres + pgvector | Done — `notices`+`chunks`, `verbatims`+`verbatim_chunks`; `init-db.yml` |
+| Embeddings | Done — `text-embedding-004` / `gemini-embedding-001` at 768-dim |
+| Vector **search UI** | None — tables + embeddings exist; no similarity query surface |
+| Budget PDF extraction | `redbook_parser/` (PyMuPDF, spatial-first) active; v1/v2/v3 frozen in `archive/` |
+| **Labour-migration panel** | Active — `migration_parser/`; additive-only `panel_canonical.csv.gz` + `panel_rollup.csv.gz`, verified + hash-pinned |
 | Alerts | None |
 | Image pre-processing | None — deemed unnecessary for digital PDFs |
 
 ---
 
-## Phase 1 — Structured Translation + pgvector
+## Phase 1 — Structured Translation + pgvector ✅ DONE (2026)
+
+Implemented: structured-JSON Gemini call, segmented verbatim translation with
+checkpointing, `text-embedding-004`/`gemini-embedding-001` embeddings, and the
+`notices`/`chunks` + `verbatims`/`verbatim_chunks` pgvector schema
+(`init_db.py`, `upsert_*.py`, `init-db.yml`). The design notes below are kept for
+reference.
 
 ### 1a. Gemini → structured JSON (both outputs from one call)
 
@@ -109,21 +117,31 @@ PDF download → PyMuPDF/PaddleOCR → Gemini structured JSON
 - No SQLite intermediate. First run goes straight to Postgres.
 - Gemini quota handling stays the same (retry + backoff).
 
-## Phase 2 — Web App (Vue.js)
+## Phase 2 — Web App (Vue.js) — PARTIAL
 
 - Keep Vue.js (replace SvelteKit idea). Too early to switch; the current app works for testing.
-- Add: vector similarity search bar → `SELECT * FROM chunks ORDER BY embedding <=> $1 LIMIT 20`
-- Add: split document viewer (English translation + PDF page side-by-side)
-- Add: basic analytics (speaker frequency, topic trends over time)
+- **TODO** vector similarity search bar → `SELECT * FROM chunks ORDER BY embedding <=> $1 LIMIT 20`
+- **TODO** split document viewer (English translation + PDF page side-by-side)
+- **TODO** basic analytics (speaker frequency, topic trends over time)
 
-## Phase 3 — Alerts (Telegram/WhatsApp)
+## Phase 3 — Alerts (Telegram/WhatsApp) — NOT STARTED
 
 - GH Action cron → query recent upserts → format digest from `summary_en` + speakers → push via Telegram Bot API (simplest, no Meta approval).
 
-## Phase 4 — Budget Pipeline Integration (later)
+## Phase 4 — Budget Pipeline Integration — IN PROGRESS
 
-- Connect v3 budget extraction output to the same Postgres schema.
+- `redbook_parser/` is the active budget module (spatial-first extraction; see
+  `redbook_parser/STRATEGY.md`); v1/v2/v3 are frozen in `archive/budget/`.
+- **TODO** connect budget output to the same Postgres schema.
 - Cross-reference: "what was allocated" (budget) vs "what was discussed" (notices).
+
+## Phase 5 — Labour-migration panel (`migration_parser/`) — ACTIVE
+
+- DoFE labour-approval panel; primary = additive-only `migration/panel_canonical.csv.gz`
+  with `migration/panel_rollup.csv.gz`, `series.csv`, `agencies.csv`,
+  `codebook.json`, `build.json`. See `migration/README.md` / `DATA_AVAILABILITY.md`.
+- **TODO** archive.org backfill (pre-2025 monthly/quarterly/yearly) — Preeti decoder
+  landed; ≥3 layout families remaining (see `migration/README.md`).
 
 ## Non-Goals (for now)
 

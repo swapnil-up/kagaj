@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-16T18:46:13+0545",
+  "generated_at": "2026-10-17T22:48:39+0545",
   "build": {
-    "commit": "d89b11f10a2fbe96e595f9d0731788ef5ba96f06",
-    "describe": "d89b11f-dirty"
+    "commit": "78d153d793d69bbd94633368a4fb74d6675aefd2",
+    "describe": "78d153d"
   },
   "datasets": {
     "panel.csv": {
@@ -35,7 +35,7 @@
       "role": "canonical",
       "description": "Primary analysis dataset. Additive-only: component detail rows with canonical entities/channels/fiscal years and within-document typo-row merges applied. Aggregate rows, printed totals and distinct measures are NOT here — they live in panel_rollup.csv.gz, so summing this file can never double-count an aggregate against its components. Gzipped CSV.",
       "rows": 70104,
-      "sha256": "f6edc8cd0655fea1e4b0bc43e0e46ee6ebe0fe81d70dc9ff971a781f28fd8590",
+      "sha256": "5733821db3fa1d7eefa4ed26859c457c13150736dc728187901eea816b78ca1d",
       "columns": {
         "doc_id": "Source document id.",
         "period_bs": "Printed BS period (raw).",
@@ -66,7 +66,9 @@
         "period_override": "true when reconciled_fiscal_year differs from fiscal_year.",
         "merged_rows": "Number of raw rows collapsed into this canonical key.",
         "raw_names": "Semicolon-joined distinct printed names merged into this row.",
-        "analysis_safe": "true when entity_resolved AND the source doc passed its math audit; the safe default filter before aggregating."
+        "analysis_safe": "true when entity_resolved AND the source doc passed its math audit AND channel_reviewed; the safe default filter before aggregating. Excludes the unreviewed legalization / old-template new_entry rows.",
+        "analysis_safe_permissive": "true when entity_resolved AND the source doc passed its math audit, ignoring channel_reviewed. Use only for deliberate legalization-specific specifications.",
+        "channel_reviewed": "true when the channel's cross-template equivalence is independently reviewed; false flags a single-analyst judgment call (currently legalization, new_entry) — treat those channels with caution."
       }
     },
     "panel_rollup.csv.gz": {
@@ -74,7 +76,7 @@
       "role": "rollup",
       "description": "Non-additive companion to panel_canonical.csv.gz: channel_class=aggregate rows, printed total/grand_total rows and separate measures (pre-approval). Compare against, never sum with, the primary file.",
       "rows": 31041,
-      "sha256": "11ed1760a214079c7db72b1a3451581c60ef36ca1e4557d9b8ce1805bf4f442d",
+      "sha256": "29013e47ed797f75277258f1686da73b33cf9b20ac439416115146fa51a727ea",
       "columns": {
         "doc_id": "Source document id.",
         "period_bs": "Printed BS period (raw).",
@@ -100,12 +102,14 @@
         "fiscal_year": "Canonical BS fiscal year label.",
         "channel_canonical": "Canonical channel (channels.json).",
         "channel_class": "component | aggregate | measure | unknown (all non-component here).",
+        "channel_reviewed": "true when the channel's cross-template equivalence is independently reviewed.",
         "granularity": "month | year | measure.",
         "reconciled_fiscal_year": "Fiscal year after documented period overrides.",
         "period_override": "true when reconciled_fiscal_year differs from fiscal_year.",
         "merged_rows": "Number of raw rows collapsed into this canonical key.",
         "raw_names": "Semicolon-joined distinct printed names merged into this row.",
-        "analysis_safe": "true when entity_resolved AND the source doc passed its math audit."
+        "analysis_safe": "true when entity_resolved AND the source doc passed its math audit AND channel_reviewed.",
+        "analysis_safe_permissive": "true when entity_resolved AND the source doc passed its math audit (ignores channel_reviewed)."
       }
     },
     "agencies.csv": {
@@ -137,9 +141,10 @@
       "primary": false,
       "role": "series",
       "description": "Historical known-series matrices (approvals, deaths, complaints, ...) from narrative reports.",
-      "rows": 9208,
-      "sha256": "c8c6583d3f39376624bc7ad3cea2489602962563af67170c671f19ac78f87c11",
+      "rows": 9748,
+      "sha256": "75482753cee81b904db763b6e7ac1f6a5e1f445e768e3509e7d4fd17d4ff20e4",
       "columns": {
+        "series_key": "Summation-safe block key = report|source_page|caption|metric|dimension|unit|year_basis|gender|note. Sum `count` only within a key; never across keys (mixes units / bases / genders). `note` is keyed because it carries the sub-measure (e.g. the cause of a cause-of-death table) that can otherwise collide across sibling tables sharing one caption.",
         "report": "Source report key (status_2013_14, migration_2020, ...).",
         "source_page": "Page of the source PDF.",
         "caption": "Table caption as printed.",
@@ -195,6 +200,18 @@
       "aggregate",
       "component",
       "measure"
+    ],
+    "channel_reviewed": [
+      "false",
+      "true"
+    ],
+    "analysis_safe": [
+      "false",
+      "true"
+    ],
+    "analysis_safe_permissive": [
+      "false",
+      "true"
     ],
     "entity_type": [
       "country",
@@ -271,7 +288,7 @@
         "remittance_receiving",
         "remittance_use",
         "return_migration",
-        "unknown"
+        "training"
       ],
       "dimension": [
         "case_type",

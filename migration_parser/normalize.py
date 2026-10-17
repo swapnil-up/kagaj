@@ -219,6 +219,15 @@ def _channel_index():
     return idx
 
 
+def channel_map() -> dict:
+    """Mapping from the archive panel's ``approval_type`` to modern channels.
+
+    Currently a documented ``null/TBD`` stub (the two axes never overlap in the
+    printed data, so the correspondence is unverifiable) — see ``channels.json``.
+    """
+    return dict(_channel_data().get("channel_map", {}))
+
+
 def canonical_channels() -> dict[str, dict]:
     """Canonical channel metadata, keyed by canonical name."""
     return {e["name"]: e for e in _channel_data()["canonical_channels"]}
@@ -229,6 +238,12 @@ def channel_classes() -> dict[str, str]:
     return {e["name"]: e["class"] for e in _channel_data()["canonical_channels"]}
 
 
+def channel_reviewed() -> dict[str, bool]:
+    """Map each canonical channel to whether its cross-template equivalence is
+    independently reviewed (``false`` flags a single-analyst judgment call)."""
+    return {e["name"]: e.get("reviewed", True) for e in _channel_data()["canonical_channels"]}
+
+
 def canonical_channel(channel: str) -> dict:
     """Resolve a raw channel (as printed across templates) to the canonical one.
 
@@ -237,10 +252,12 @@ def canonical_channel(channel: str) -> dict:
     """
     src = _channel_index().get(channel)
     if src is None:
-        return {"canonical": channel, "class": "unknown", "label": channel}
+        return {"canonical": channel, "class": "unknown", "label": channel,
+                "reviewed": False}
     name = src["canonical"]
     meta = canonical_channels().get(name, {})
-    out = {"canonical": name, "class": meta.get("class", "unknown"), "label": meta.get("label", name)}
+    out = {"canonical": name, "class": meta.get("class", "unknown"),
+           "label": meta.get("label", name), "reviewed": meta.get("reviewed", True)}
     if src.get("note"):
         out["note"] = src["note"]
     return out

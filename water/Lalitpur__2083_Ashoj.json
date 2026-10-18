@@ -1,0 +1,3818 @@
+{
+  "branch_np": "ललितपुर शाखा कार्यालय",
+  "branch_en": "Lalitpur",
+  "month_bs": "२०८३ असोज",
+  "reservoirs": [
+    {
+      "name_np": "DMA 8.1,8.",
+      "name_en": "DMA 8.1,8.",
+      "zones": [
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "07:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "भनिमंडल,शान्तिमार्ग,चिडियाखाना वरपर,एकान्तकुना मार्ग,सरस्वती मन्दिर.उज्यालो एफ.एम,जावलाखेल वरपर क्षेत्र"
+          ],
+          "areas_en": [
+            "Bhanimandal, Shanti Marg, Chidiyakhana Varpar, Ekantakuna Marg, Saraswati Mandir. Ujyalo FM, Jawalakhel Varpar Kshetra"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "बखुन्डोल,कुटुम्ब होटल,अमरसिस स्कुल,भटराई मार्ग वरपर क्षेत्र"
+          ],
+          "areas_en": [
+            "Bakhundol, Kutumba Hotel, Amarsis School, Bhattarai Marg Varpar Kshetra"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "11:30",
+          "areas_np": [
+            "कान्देवता स्थान,कुपन्डोल.गुशिंगाल पुलसम्म,तिन्खाम्बा मार्ग र WHO Office"
+          ],
+          "areas_en": [
+            "Kandevta Sthan, Kupandol. Gushingal Pul Samma, Tinkhamba Marg and WHO Office"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "ढोकाडोल"
+          ],
+          "areas_en": [
+            "Dhokadol"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "हनुमान थान,नाइटेगल स्कुल,नागार्जुन स्कुल,भजन मण्डल.बिग मार्ट,सर्वानग हस्पिटल"
+          ],
+          "areas_en": [
+            "Hanuman Than, Nightingale School, Nagarjun School, Bhajan Mandal. Big Mart, Sarwanag Hospital"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "कुमारी गल्ली"
+          ],
+          "areas_en": [
+            "Kumari Galli"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "लिलाघर,लिला मार्ग र साउदी एम्बेशी"
+          ],
+          "areas_en": [
+            "Lilaghar, Lila Marg and Saudi Embassy"
+          ],
+          "contacts": [
+            "१.राजु देवकोटा"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "11:30",
+          "time_to": "13:00",
+          "areas_np": [
+            "गुशिंगाल चोक,संकटा मार्ग,दराज सम्म"
+          ],
+          "areas_en": [
+            "Gushingal Chowk, Sankata Marg, Daraj Samma"
+          ],
+          "contacts": [
+            "9849186565"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "डल्ले रेस्टुरेन्टको तल,पंचाकुमारी मन्दिरपश्चिम(तल/माथि आलोपालो)"
+          ],
+          "areas_en": [
+            "Dalle Restaurant ko Tala, Panchakumari Mandir Paschim (Tala/Mathi Alopalo)"
+          ],
+          "contacts": [
+            "२. ई.लोकेश ठाकुर"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "बुद् एयर,सेन्ट मेरिज,खानेपानी अफिस,दमकल मार्ग"
+          ],
+          "areas_en": [
+            "Buddha Air, St. Mary's, Khanepani Office, Damkal Marg"
+          ],
+          "contacts": [
+            "9845610162"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "कवाडी माथि,डल्ले रेस्टुरेन्टको पारी"
+          ],
+          "areas_en": [
+            "Kwadi Mathi, Dalle Restaurant ko Pari"
+          ],
+          "contacts": [
+            "३. धनन्जय कुमार हाथी"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "अजिमा मन्दिर,सानेपा खरिबोट,कुन्तुहीटी मार्ग,पंचाकुमारी मन्दिर तल माथि आलो पालो"
+          ],
+          "areas_en": [
+            "Ajima Mandir, Sanepa Kharibot, Kuntuhiti Marg, Panchakumari Mandir Tala Mathi Alopalo"
+          ],
+          "contacts": [
+            "9840572259"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "शान्ति बिहार मार्ग,राम मन्दिर,राजतिर्थ मार्ग ,दराज वरपर क्षेत्र"
+          ],
+          "areas_en": [
+            "Shanti Bihar Marg, Ram Mandir, Rajtirtha Marg, Daraj Varpar Kshetra"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "झम्सिखेल, अरुण थापा मार्ग, सुमित होटेल, चौधरी ग्रुप, हेरिटेज पार्टी प्यालेस, किरण भवन मार्ग, ज्ञानोदय पुस्तकालय, टिका स्कुल, हास्पोता गणेश मार्ग, देवल मार्ग, सम्पदा स्कुल, वडा नं ३ वरपर,पुल्चोक,लाछी,हरिहर भवन,सुमेरु हस्पिटल,खल्ती अफिस,मलेसियन अम्ब्बेसी,वाग्देल"
+          ],
+          "areas_en": [
+            "Jhamshikhel, Arun Thapa Marg, Sumit Hotel, Chaudhary Group, Heritage Party Palace, Kiran Bhawan Marg, Gyanodaya Pustakalaya, Tika School, Haspochha Ganesh Marg, Deval Marg, Sampada School, Ward No. 3 Varpar, Pulchowk, Lachi, Harihar Bhawan, Sumeru Hospital, Khalti Office, Malaysian Embassy, Wagdel"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "राधा कृष्ण मार्ग"
+          ],
+          "areas_en": [
+            "Radha Krishna Marg"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "21:00",
+          "time_to": "23:30",
+          "areas_np": [
+            "कान्तिपुर एफ.एम र वडा नं ३ कार्यालयको माथिलो भाग"
+          ],
+          "areas_en": [
+            "Kantipur FM ra Ward No. 3 Karyalaya ko Mathillo Bhag"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "DMA 8.2",
+      "name_en": "DMA 8.2",
+      "zones": [
+        {
+          "dma": "8.2",
+          "label": null,
+          "days": [
+            1,
+            7,
+            13,
+            19,
+            25,
+            31
+          ],
+          "time_from": "22:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "बिजयबस्ति, साँचल मार्ग, बागमती कोरिडोर, त्रिवेणी मार्ग, सिगाली मार्ग, यला मार्ग, कालोपुल, राजतिर्थ गल्लि, रेडियन्ट स्कुल, सगरमाथा कलेज, नया बाटो, बारुधखाना मार्ग, ठाडो ढुंगा, निलभावन ढुंगेधारा, धोबिघट, धोबिघट मार्ग, मनकामना मार्ग, दमकल चक्रपथ मार्ग, नया कोलोनी मार्ग पश्चिम, मेगा हस्पिटल एरिया, शान्तिकुना मार्ग, (आलोपालो मिलाएर )"
+          ],
+          "areas_en": [
+            "Bijaybasti, Sanchal Marg, Bagmati Corridor, Triveni Marg, Sigali Marg, Yala Marg, Kalopul, Rajtirtha Galli, Radiant School, Sagarmatha College, Naya Bato, Barudhkhana Marg, Thado Dunga, Nilbhaban Dhunge Dhara, Dhobighat, Dhobighat Marg, Manakamana Marg, Damkal Chakrapath Marg, Naya Colony Marg Paschim, Mega Hospital Area, Shantikuna Marg, (Alopalo Milaiyer)"
+          ],
+          "contacts": [
+            "चा.चा.दीपक मगर९८०८७६२५५०)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.2",
+          "label": null,
+          "days": [
+            2,
+            8,
+            14,
+            20,
+            26
+          ],
+          "time_from": "08:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "साचाल गणेश मन्दिर"
+          ],
+          "areas_en": [
+            "Sanchal Ganesh Mandir"
+          ],
+          "contacts": [
+            "२. ई.लोकेश ठाकुर"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.2",
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "कन्तुहिटि मार्ग, यु टर्न"
+          ],
+          "areas_en": [
+            "Kuntuhiti Marg, U-Turn"
+          ],
+          "contacts": [
+            "9845610162"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.2",
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "14:30",
+          "areas_np": [
+            "सत्संग मार्ग"
+          ],
+          "areas_en": [
+            "Satsang Marg"
+          ],
+          "contacts": [
+            "३. धनन्जय कुमार हाथी"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.2",
+          "label": null,
+          "days": [],
+          "time_from": "14:30",
+          "time_to": "17:00",
+          "areas_np": [
+            "कालिका मन्दिर मार्ग, मनमोहन प्रतिष्ठान मार्ग"
+          ],
+          "areas_en": [
+            "Kalika Mandir Marg, Manmohan Pratishthan Marg"
+          ],
+          "contacts": [
+            "9840572259"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.2",
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "23:00",
+          "areas_np": [
+            "कालिका मन्दिर मार्ग, एभेरेस्ट कलेज"
+          ],
+          "areas_en": [
+            "Kalika Mandir Marg, Everest College"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "DMA 5 and 6",
+      "name_en": "DMA 5 and 6",
+      "zones": [
+        {
+          "dma": "5.1",
+          "label": null,
+          "days": [
+            2,
+            8,
+            14,
+            20,
+            26
+          ],
+          "time_from": "20:00",
+          "time_to": "05:00",
+          "areas_np": [
+            "ग्वार्को देखि बालकुमारी, त्यागल, सिन्पा मार्ग, सरस्वती मार्ग, कसुम वरपर, गुइटा, क्वार्को, च्यासल मार्ग, चपट टोल (आलोपालो मिलाएर)"
+          ],
+          "areas_en": [
+            "Gwarko dekhi Balkumari, Tyagal, Sinpa Marg, Saraswati Marg, Kusum Varpar, Guita, Quarko, Chyasal Marg, Chapat Tol (Alopalo Milaiyer)"
+          ],
+          "contacts": [
+            "इ. सुरज खनाल स.प्रा.अ निवास गुरागाईं ओ.सी रोशन शर्मा",
+            "९७६७२३७६३८",
+            "९८५२०५४२४४",
+            "९८६४४३४९०३"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "5.2",
+          "label": null,
+          "days": [
+            3,
+            9,
+            15,
+            21,
+            27
+          ],
+          "time_from": "20:00",
+          "time_to": "05:00",
+          "areas_np": [
+            "नाग बहाल,छाया बहाल,छा बहाल,गाबहाल,पाटन ढोका,पूल्चोक,चाकुपट,शंखमूल,मणि मार्ग,ज्वागल,दरवार टोल (आलोपालो मिलाएर)"
+          ],
+          "areas_en": [
+            "Nag Bahal, Chhaya Bahal, Chha Bahal, Gabahal, Patan Dhoka, Pulchowk, Chakupat, Shankhamul, Mani Marg, Jawagal, Darbar Tol (Alopalo Milaiyer)"
+          ],
+          "contacts": [
+            "इ. सुरज खनाल स.प्रा.अ निवास गुरागाईं ओ.सी रोशन शर्मा",
+            "९७६७२३७६३८",
+            "९८५२०५४२४४",
+            "९८६४४३४९०३"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "6.1",
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "19:00",
+          "time_to": "05:00",
+          "areas_np": [
+            "सातदोबाटो, रिन्ङरोड भित्र, माटीमार्ग, नरविनायक मार्ग, ताल्छिखेल–,महालक्ष्मी मार्ग, लखनखेल अशोक स्तुपा एरिया, सिंचाहिटी, दिपावली मार्ग, थापा गल्ली, ज्याठा मार्ग, कूमा गल्ली, कनिवहाल (आलोपालो मिलाएर)"
+          ],
+          "areas_en": [
+            "Satdobato, Ringroad Bhitra, Mati Marg, Narabinayak Marg, Talchhikhel-, Mahalakshmi Marg, LakhanKhel Ashok Stupa Area, Sinchahiti, Dipawali Marg, Thapa Galli, Jyata Marg, Kuma Galli, Kanibahal (Alopalo Milaiyer)"
+          ],
+          "contacts": [
+            "ईं सिकेन्द्र गोईत ई.रवीन्द्र यादव इ. सुरज खनाल स.प्रा.अ निवास गुरागाईं ओ.सी रोशन शर्मा",
+            "9801233255",
+            "9801233256",
+            "९७६७२३७६३८",
+            "९८५२०५४२४४",
+            "९८६४४३४९०३"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "6.1",
+          "label": null,
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "ओकूवाहाल,सुमन्गल गल्ली, सुन्धारा, गुजीबहाल"
+          ],
+          "areas_en": [
+            "Okuwahal, Sumangal Galli, Sundhara, Gujibahal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "6.2",
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "17:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "जावलाखेल,पुल्चोक, मछिन्द्र मार्ग,त्रिपद्म गल्ली"
+          ],
+          "areas_en": [
+            "Jawalakhel, Pulchowk, Machhindra Marg, Tripadma Galli"
+          ],
+          "contacts": [
+            "ईं सिकेन्द्र गोईत ई.रवीन्द्र यादव इ. सुरज खनाल स.प्रा.अ निवास गुरागाईं ओ.सी रोशन शर्मा",
+            "9801233255",
+            "9801233256",
+            "९७६७२३७६३८",
+            "९८५२०५४२४४",
+            "९८६४४३४९०३"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "6.2",
+          "label": null,
+          "days": [],
+          "time_from": "21:00",
+          "time_to": "05:00",
+          "areas_np": [
+            "थसीखेल मार्ग, दक्षिणकाली मार्ग, कुमारीमाटी, दामोदर मार्ग, , मानभवनपाटन हस्पिटल, सि.डि.ओ. कार्यालय वरिपरी,नःटोल, पूर्णचण्डी मार्ग,जावलाखेल,(आलोपालो मिलाएर )"
+          ],
+          "areas_en": [
+            "Thasel Marg, Dakshinkali Marg, Kumarimati, Damodar Marg, , Manbhavan Patan Hospital, C.D.O. Karyalaya Varipari, Nahtol, Purnachandi Marg, Jawalakhel, (Alopalo Milaiyer)"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "DMA 8.1 8.2",
+      "name_en": "DMA 8.1 8.2",
+      "zones": [
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [
+            1,
+            7,
+            13,
+            19,
+            25,
+            31
+          ],
+          "time_from": "07:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "भानिमंडल, शान्तिमार्ग, चिडियाखाना वरपर, एकान्तकुना मार्ग, सरस्वति मन्दिर, उज्यालो एफ.एम, जावलाखेल वरपर क्षेत्र"
+          ],
+          "areas_en": [
+            "Bhanimandal, Shanti Marg, Chidiyakhana Varpar, Ekantakuna Marg, Saraswati Mandir, Ujyalo FM, Jawalakhel Varpar Kshetra"
+          ],
+          "contacts": [
+            "१. राजु देवकोटा ९८४९१८६५६५ ई.लोकेश ठाकुर ९८४५६१०१६२ धनन्जय कुमार हाथी: ९८४०५७२२५९"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "बखुन्डोल, कुटुम्ब होटल, अमरसिस् स्कुल, भट्टराइ मार्ग वरपर क्षेत्र"
+          ],
+          "areas_en": [
+            "Bakhundol, Kutumba Hotel, Amarsis School, Bhattarai Marg Varpar Kshetra"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "हनुमान थान, नाइँटेंगल स्कुल, नागार्जुन स्कुल, तिनखम्बा मार्ग, भजन मण्डल, बिग मार्ट, सर्वाङ्ग हस्पिटल, साउदी एम्ब्बेसी,"
+          ],
+          "areas_en": [
+            "Hanuman Than, Nightingale School, Nagarjun School, Tinkhamba Marg, Bhajan Mandal, Big Mart, Sarwang Hospital, Saudi Embassy,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "कानदेवता स्थान, कुपण्डोल, गुसिंगाल पुलसम्म"
+          ],
+          "areas_en": [
+            "Kandevta Sthan, Kupandol, Gushingal Pul Samma"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "ढोकाडोल"
+          ],
+          "areas_en": [
+            "Dhokadol"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "कुमारी गल्लि,"
+          ],
+          "areas_en": [
+            "Kumari Galli,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "लिलाघर, लिलामार्ग,"
+          ],
+          "areas_en": [
+            "Lilaghar, Lilamarg,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:30",
+          "areas_np": [
+            "गुसिंगाल चोक, संकटा मार्ग, दराज सम्म"
+          ],
+          "areas_en": [
+            "Gushingal Chowk, Sankata Marg, Daraj Samma"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "12:30",
+          "time_to": "13:30",
+          "areas_np": [
+            "डल्ले रेस्टुरेन्टको तल, पंचाकुमारी मन्दिरको पश्चिम"
+          ],
+          "areas_en": [
+            "Dalle Restaurant ko Tala, Panchakumari Mandir ko Paschim"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "अजिमा मन्दिर, सानेपा खरिबोट, कुन्तुहीटि मार्ग, पंचाकुमारी मन्दिर तल माथि आलो पालो"
+          ],
+          "areas_en": [
+            "Ajima Mandir, Sanepa Kharibot, Kuntuhiti Marg, Panchakumari Mandir Tala Mathi Alopalo"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "शान्ति बिहार मार्ग, राम मन्दिर, राजतिर्थ मार्ग, दराज वरपर क्षेत्र"
+          ],
+          "areas_en": [
+            "Shanti Bihar Marg, Ram Mandir, Rajtirtha Marg, Daraj Varpar Kshetra"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "बुद्ध एयर, सेन्ट मेरिज, खानेपानी अफिस दमकल मार्ग"
+          ],
+          "areas_en": [
+            "Buddha Air, St. Mary's, Khanepani Office Damkal Marg"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "कवाडी माथि डल्ले रेस्टुरेन्टको पारि"
+          ],
+          "areas_en": [
+            "Kwadi Mathi Dalle Restaurant ko Pari"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "झम्सिखेल, अरुण थापा, सुमित होटल, चौधरीग्रुप, हेरिटेज पार्टी प्यालेस, किरण भवन, ज्ञानोदय पुस्तकालय, टिका स्कुल गणेश मार्ग, देवल मार्ग, सम्पदा स्कुल, वडा नं ३ कार्यालय वरपर, पुलचोक, लाछी, हरिहर भवन, सुमेरु हस्पिटल, खल्ती अफिस, मलेसियन एम्ब्बेसी, वान्ग्देल मार्ग"
+          ],
+          "areas_en": [
+            "Jhamshikhel, Arun Thapa, Sumit Hotel, Chaudhary Group, Heritage Party Palace, Kiran Bhawan, Gyanodaya Pustakalaya, Tika School Ganesh Marg, Deval Marg, Sampada School, Ward No. 3 Karyalaya Varpar, Pulchowk, Lachi, Harihar Bhawan, Sumeru Hospital, Khalti Office, Malaysian Embassy, Wangdel Marg"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.1",
+          "label": null,
+          "days": [],
+          "time_from": "19:00",
+          "time_to": "00:30",
+          "areas_np": [
+            "कान्तिपुर एफ.एम र वडा नं ३ कार्यालयको माथिल्लो भाग"
+          ],
+          "areas_en": [
+            "Kantipur FM ra Ward No. 3 Karyalaya ko Mathillo Bhag"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.2",
+          "label": null,
+          "days": [
+            3,
+            9,
+            15,
+            21,
+            27
+          ],
+          "time_from": "06:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "विजयबस्ती, संचल मार्ग, बागमती कोरिडोर, त्रिवेणी मार्ग, सिगाली मार्ग, यला मार्ग, कालोपुल, राजतिर्थ गल्ली, रेडियन्ट स्कुल, सगरमाथा कलेज, नयाँ बाटो, बारुधखाना मार्ग, ठाडो डुङ्गा, निर भवन, ढुंगेधारा, धोबीघाट, धोबीघाट मार्ग, मनकामना मार्ग, दमकल चक्रपथ मार्ग, नयाँ कोलोनी मार्ग पश्चिम, मेगा होस्टल एरिया, शान्तिनगर मार्ग (आलोपालो मिलाएर )"
+          ],
+          "areas_en": [
+            "Vijaybasti, Sanchal Marg, Bagmati Corridor, Triveni Marg, Sigali Marg, Yala Marg, Kalopul, Rajtirtha Galli, Radiant School, Sagarmatha College, Naya Bato, Barudhkhana Marg, Thado Dunga, Nir Bhawan, Dhunge Dhara, Dhobighat, Dhobighat Marg, Manakamana Marg, Damkal Chakrapath Marg, Naya Colony Marg Paschim, Mega Hostel Area, Shantinagar Marg (Alopalo Milaiyer)"
+          ],
+          "contacts": [
+            "दिपक थापा: ९८०८७६२५५० धनन्जय कुमार हाथी: ९८४०५७२२५९ ई.लोकेश ठाकुर ९८४५६१०१६२"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "8.2",
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "कुन्तुहिटि मार्ग, सत्संग मार्ग, यु टर्न"
+          ],
+          "areas_en": [
+            "Kuntuhiti Marg, Satsang Marg, U-Turn"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.2",
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "कालिका मन्दिर मार्ग, मनमोहन प्रतिष्ठान मार्ग"
+          ],
+          "areas_en": [
+            "Kalika Mandir Marg, Manmohan Pratishthan Marg"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "8.2",
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "00:30",
+          "areas_np": [
+            "कालिका मन्दिर मार्ग, एभेरेस्ट कलेज"
+          ],
+          "areas_en": [
+            "Kalika Mandir Marg, Everest College"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "old line (Kiran)",
+      "name_en": "old line (Kiran)",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            11,
+            18,
+            25
+          ],
+          "time_from": "11:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "चाँपागाँउ दोबाटो, टूटेपानी, ताल्छिखेल"
+          ],
+          "areas_en": [
+            "Chapagaun Dobato, Tutepani, Talchhikhel"
+          ],
+          "contacts": [
+            "चा.चा.टंक निरौला ओ.सि. धनन्जय कूमार हाथी (८”)",
+            "9849809155",
+            "9840572259"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "08:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "चाँपागाँउ दोबाटो, टूटेपानी, ताल्छिखेल"
+          ],
+          "areas_en": [
+            "Chapagaun Dobato, Tutepani, Talchhikhel"
+          ],
+          "contacts": [
+            "चा.चा. टंकनाथ निरौला",
+            "9849809155"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [
+            3,
+            9,
+            15,
+            21,
+            27
+          ],
+          "time_from": "06:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "सातदोबाटो, खूमलहाईट, हात्तिवन, प्रिमियर स्कुल, बि.एण्ड.बि.बलेज,जय श्रीराम टोल, काली मार्ग, गैरी मार्ग, सिभिल होम्स"
+          ],
+          "areas_en": [
+            "Satdobato, Khumal Height, Hattiban, Premier School, B&B Village, Jayashriram Tol, Kali Marg, Gairi Marg, Civil Homes"
+          ],
+          "contacts": [
+            "चा.चा.किरण महर्जन (८”)",
+            "9841904106"
+          ],
+          "notes": "Alopalo milaiyer 45 min"
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "बोधिग्राम, बोधिग्राम नयाँ लाईन, सुर्यविनायक"
+          ],
+          "areas_en": [
+            "Bodhigram, Bodhigram Naya Line, Suryavinayak"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "शिवनगर"
+          ],
+          "areas_en": [
+            "Shivanagar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "अस्थानगर"
+          ],
+          "areas_en": [
+            "Asthanagar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "मनिप्लान्ट, ग्वार्को हात्तिबन मार्ग , सिटिस्केप"
+          ],
+          "areas_en": [
+            "Maniplant, Gwarko Hattiban Marg, Cityscape"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "06:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "भेल्पा दक्षिण"
+          ],
+          "areas_en": [
+            "Bhelpa Dakshin"
+          ],
+          "contacts": [
+            "चा.चा.किरण महर्जन (८”)",
+            "9841904106"
+          ],
+          "notes": "Alopalo milaiyer 45 min"
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "भल्पा नयाँ लाईन उत्तर"
+          ],
+          "areas_en": [
+            "Bhalpa Naya Line Uttar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "भेल्पा पूरानो लाइन, भेल्पा नयाँ लाईन पूर्व"
+          ],
+          "areas_en": [
+            "Bhelpa Purano Line, Bhelpa Naya Line Purba"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "शसि दिदीको लाइन"
+          ],
+          "areas_en": [
+            "Shashi Didi ko Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "ग्वार्को बजार नयाँ लाइन"
+          ],
+          "areas_en": [
+            "Gwarko Bazar Naya Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "सि.डि.ओ.लाईन"
+          ],
+          "areas_en": [
+            "C.D.O. Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "06:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "ग्वार्को, वाफल, KCM, महल ब्यान्क्वेट, पुरानो गुण हल लाईन, हरित कोलोनी ,पाको महादेव मार्ग, बालकुमारी, म्यखुमार्ग"
+          ],
+          "areas_en": [
+            "Gwarko, Wafal, KCM, Mahal Banquet, Purano Gun Hall Line, Harit Colony, Pako Mahadev Marg, Balkumari, Myakhu Marg"
+          ],
+          "contacts": [
+            "चा.चा.किरण महर्जन (८”)",
+            "9841904106"
+          ],
+          "notes": "Alopalo milaiyer 45 min"
+        }
+      ]
+    },
+    {
+      "name_np": "old line 3 bikram",
+      "name_en": "old line 3 bikram",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "06:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "सर्वाङ्ग हस्पिटल, सेतू देवल"
+          ],
+          "areas_en": [
+            "Sarwang Hospital, Setu Deval"
+          ],
+          "contacts": [
+            "चा.चा.राजेन्द्र श्रेष्ठ प.अ.मधुकर विष्ट सू.भा.महेन्द्र काजी महर्जन (१२”)",
+            "12”"
+          ],
+          "notes": "Alopalo milaiyer 1 ghanta"
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "ढूकूटी चोक, ज्वागल, वाग्मती तर्फ"
+          ],
+          "areas_en": [
+            "Dhukuti Chowk, Jawagal, Bagmati Tarfa"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "पूरानो कर कार्यालय, म्याक्स मिडिया"
+          ],
+          "areas_en": [
+            "Purano Kar Karyalaya, Max Media"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "पाटनढोका बजार भित्र, अशोक हल तर्फ"
+          ],
+          "areas_en": [
+            "Patan Dhoka Bazar Bhitra, Ashok Hall Tarfa"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गणेश मंदिर, ललितपूर ईन्जिनियरिé कलेज"
+          ],
+          "areas_en": [
+            "Ganesh Mandir, Lalitpur Engineering College"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गःछे ८” महापाल चोक सम्म"
+          ],
+          "areas_en": [
+            "Gachhe 8\" Mahapal Chowk Samma"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गःछे २” रोड बहिर, नेपाल बैंक, सनराईज बैंक, गावाहाल"
+          ],
+          "areas_en": [
+            "Gachhe 2\" Road Bahir, Nepal Bank, Sunrise Bank, Gabahal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "तूम्वाहाल बाट भेलाछें, गावहाल चोक, कायाननी गल्ली"
+          ],
+          "areas_en": [
+            "Tumbalhal Bato Bhelachhen, Gabahal Chowk, Kayanani Galli"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            11,
+            18,
+            25
+          ],
+          "time_from": "11:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "चाँपागाँउ दोबाटो, टूटेपानी, ताल्छिखेल"
+          ],
+          "areas_en": [
+            "Chapagaun Dobato, Tutepani, Talchhikhel"
+          ],
+          "contacts": [
+            "चा.चा.टंक निरौला ओ.सि. धनन्जय कूमार हाथी (८”)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            7,
+            14,
+            21,
+            28
+          ],
+          "time_from": "15:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "नःटोल व्यापार पवर्धन जाने बाटो, नःटोल, त्रिपद्म वरपर"
+          ],
+          "areas_en": [
+            "Nahtol Vyapar Pravardhan Jane Bato, Nahtol, Tripadma Varpar"
+          ],
+          "contacts": [
+            "चा.चा.रमेश अधिकारी सू.भा.महेन्द्र काजी महर्जन (१२”र२०”)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            10,
+            17,
+            24,
+            31
+          ],
+          "time_from": "10:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "पूल्चोक कान्तिपुर FM Area"
+          ],
+          "areas_en": [
+            "Pulchowk Kantipur FM Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            11,
+            19,
+            27
+          ],
+          "time_from": "06:30",
+          "time_to": "08:00",
+          "areas_np": [
+            "पार्टी कार्यालय"
+          ],
+          "areas_en": [
+            "Party Karyalaya"
+          ],
+          "contacts": [
+            "जीवन माझि ९८६१६६६८२९ बिक्रम राउत ९८५१३१२२४४"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:30",
+          "areas_np": [
+            "वडा नं २ कार्यालय तल"
+          ],
+          "areas_en": [
+            "Ward No. 2 Karyalaya Tala"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "09:30",
+          "time_to": "11:00",
+          "areas_np": [
+            "मगर गाउँ"
+          ],
+          "areas_en": [
+            "Magar Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:30",
+          "areas_np": [
+            "मगर गाउँ गल्लि १"
+          ],
+          "areas_en": [
+            "Magar Gaun Galli 1"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "12:30",
+          "time_to": "14:00",
+          "areas_np": [
+            "मगर गाउँ गल्लि २"
+          ],
+          "areas_en": [
+            "Magar Gaun Galli 2"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:30",
+          "areas_np": [
+            "कापी कारखाना (इन्द्रेणी हाइट)"
+          ],
+          "areas_en": [
+            "Kapi Karkhana (Indreni Height)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "15:30",
+          "time_to": "17:00",
+          "areas_np": [
+            "ढुंगा छापेको २"
+          ],
+          "areas_en": [
+            "Dhunga Chhapeko 2"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [
+            7,
+            15,
+            23,
+            31
+          ],
+          "time_from": "06:30",
+          "time_to": "09:30",
+          "areas_np": [
+            "ठाडो लाइन (संहिटि, बस्नेत गाउँ, मल्पोखरी गेट)"
+          ],
+          "areas_en": [
+            "Thado Line (Sanhiti, Basnet Gaun, Malpokhari Gate)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "09:30",
+          "time_to": "11:30",
+          "areas_np": [
+            "संगम बस्ति, गंगटे कुलो,"
+          ],
+          "areas_en": [
+            "Sangam Basti, Gangate Kulo,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "11:30",
+          "time_to": "13:00",
+          "areas_np": [
+            "नया बाटो (परिबोध लाइन)"
+          ],
+          "areas_en": [
+            "Naya Bato (Paribodh Line)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:30",
+          "areas_np": [
+            "मन्दिर आगाडी, बाउचा लाइन"
+          ],
+          "areas_en": [
+            "Mandir Agadi, Baucha Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "14:30",
+          "time_to": "16:00",
+          "areas_np": [
+            "मन्दिर तल, मैया लाइन, ढुंगा छापेको १"
+          ],
+          "areas_en": [
+            "Mandir Tala, Maiya Line, Dhunga Chhapeko 1"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "17:30",
+          "areas_np": [
+            "किरणको लाइन, भण्डारीको लाइन"
+          ],
+          "areas_en": [
+            "Kiran ko Line, Bhandari ko Line"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "old line (Kiran) फुल फ्लोव",
+      "name_en": "old line (Kiran) Full Flow",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            11,
+            18,
+            25
+          ],
+          "time_from": "11:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "चाँपागाँउ दोबाटो, टूटेपानी, ताल्छिखेल"
+          ],
+          "areas_en": [
+            "Chapagaun Dobato, Tutepani, Talchhikhel"
+          ],
+          "contacts": [
+            "चा.चा.टंक निरौला ओ.सि. धनन्जय कूमार हाथी (८”)",
+            "9849809155",
+            "9840572259"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "18:00",
+          "time_to": "23:00",
+          "areas_np": [
+            "चाँपागाँउ दोबाटो, टूटेपानी, ताल्छिखेल"
+          ],
+          "areas_en": [
+            "Chapagaun Dobato, Tutepani, Talchhikhel"
+          ],
+          "contacts": [
+            "चा.चा. टंकनाथ निरौला",
+            "9849809155"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "05:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "सातदोबाटो, खूमलहाईट, हात्तिवन, प्रिमियर स्कुल, बि.एण्ड.बि.बलेज,जय श्रीराम टोल, काली मार्ग, गैरी मार्ग, सिभिल होम्स"
+          ],
+          "areas_en": [
+            "Satdobato, Khumal Height, Hattiban, Premier School, B&B Village, Jayashriram Tol, Kali Marg, Gairi Marg, Civil Homes"
+          ],
+          "contacts": [
+            "चा.चा.किरण महर्जन (८”)",
+            "9841904106"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "बोधिग्राम, बोधिग्राम नयाँ लाईन, सुर्यविनायक"
+          ],
+          "areas_en": [
+            "Bodhigram, Bodhigram Naya Line, Suryavinayak"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "शिवनगर"
+          ],
+          "areas_en": [
+            "Shivanagar"
+          ],
+          "contacts": [],
+          "notes": "Alopalo milaiyer 1 ghanta"
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "अस्थानगर"
+          ],
+          "areas_en": [
+            "Asthanagar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "मनिप्लान्ट, ग्वार्को हात्तिबन मार्ग , सिटिस्केप"
+          ],
+          "areas_en": [
+            "Maniplant, Gwarko Hattiban Marg, Cityscape"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "05:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "भेल्पा दक्षिण"
+          ],
+          "areas_en": [
+            "Bhelpa Dakshin"
+          ],
+          "contacts": [
+            "चा.चा.किरण महर्जन (८”)",
+            "9841904106"
+          ],
+          "notes": "Alopalo milaiyer 1 ghanta"
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "भल्पा नयाँ लाईन उत्तर"
+          ],
+          "areas_en": [
+            "Bhalpa Naya Line Uttar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "भेल्पा पूरानो लाइन,"
+          ],
+          "areas_en": [
+            "Bhelpa Purano Line,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "शसि दिदीको लाइन"
+          ],
+          "areas_en": [
+            "Shashi Didi ko Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "ग्वार्को बजार नयाँ लाइन"
+          ],
+          "areas_en": [
+            "Gwarko Bazar Naya Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "सि.डि.ओ.लाईन"
+          ],
+          "areas_en": [
+            "C.D.O. Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "अस्थानगर"
+          ],
+          "areas_en": [
+            "Asthanagar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [
+            1,
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "05:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "ग्वार्को, वाफल, KCM, महल ब्यान्क्वेट, पुरानो गुण हल लाईन, हरित कोलोनी ,पाको महादेव मार्ग, बालकुमारी, म्यखुमार्ग"
+          ],
+          "areas_en": [
+            "Gwarko, Wafal, KCM, Mahal Banquet, Purano Gun Hall Line, Harit Colony, Pako Mahadev Marg, Balkumari, Myakhu Marg"
+          ],
+          "contacts": [
+            "चा.चा.किरण महर्जन (८”)",
+            "9841904106"
+          ],
+          "notes": "Alopalo milaiyer 1 ghanta"
+        }
+      ]
+    },
+    {
+      "name_np": "tanka full flow",
+      "name_en": "tanka full flow",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "06:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "कर्म मार्ग, पुरानो वडा कार्यालय"
+          ],
+          "areas_en": [
+            "Karma Marg, Purano Ward Karyalaya"
+          ],
+          "contacts": [
+            "चा.चा. टंकनाथ निरौला",
+            "9849809155"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "मिलन टोल"
+          ],
+          "areas_en": [
+            "Milan Tol"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "जेम्स स्कुल लाइन,"
+          ],
+          "areas_en": [
+            "James School Line,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "सिटि ड्राइभिंग(जागरण मार्ग),खुमल मार्ग"
+          ],
+          "areas_en": [
+            "City Driving (Jagaran Marg), Khumal Marg"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "17:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "जुगल लाइन,जेम्स अगाडि पुरानो लाइन"
+          ],
+          "areas_en": [
+            "Jugal Line, James Agadi Purano Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "20:00",
+          "time_to": "00:00",
+          "areas_np": [
+            "उज्यालो टोल,महादेव खोला,अनन्त मार्ग,"
+          ],
+          "areas_en": [
+            "Ujyalo Tol, Mahadev Khola, Ananta Marg,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            1,
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "17:00",
+          "time_to": "00:00",
+          "areas_np": [
+            "गैरीगाउँ, शान्तिनगर माइक्रोपार्क,जेम्स अगाडि नयाँ लाइन ,मिलनबस्ति"
+          ],
+          "areas_en": [
+            "Gairigaun, Shantinagar Micropark, James Agadi Naya Line, Milan Basti"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "17:00",
+          "time_to": "00:00",
+          "areas_np": [
+            "एरावत टोल;,संगम मार्ग ,अरुण टोल, पुरानो वडा कार्यालय, जागृति मार्ग, सिटि ड्राइभिंग सेन्टर सम्म"
+          ],
+          "areas_en": [
+            "Erawat Tol;, Sangam Marg, Arun Tol, Purano Ward Karyalaya, Jagriti Marg, City Driving Center Samma"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "20:00",
+          "time_to": "00:00",
+          "areas_np": [
+            "समिति भवन, जनता ग्यारेज, ,संगम मार्ग , इसिमोड लाइन"
+          ],
+          "areas_en": [
+            "Samiti Bhawan, Janata Garage, , Sangam Marg, Isimod Line"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "२०८२ (Tanka 15)",
+      "name_en": "2082 (Tanka 15)",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            9,
+            15,
+            21,
+            27
+          ],
+          "time_from": "08:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "डाडा टोल, छिमेकी टोल,रामस्टोर, सम्पाङ् चोक (४\")"
+          ],
+          "areas_en": [
+            "Dada Tol, Chhimeki Tol, Ramstore, Sampang Chowk (4\")"
+          ],
+          "contacts": [
+            "टंकनाथ निरौला अच्युत बस्नेत",
+            "9849809155"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "विशाल चोक, शिव चोक (८\")"
+          ],
+          "areas_en": [
+            "Bishal Chowk, Shiva Chowk (8\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "नखिपोट , कान्तिनगर (८\")"
+          ],
+          "areas_en": [
+            "Nakhapot, Kantinagar (8\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "शान्तीनगर,बुद्ध मार्ग, गंगा जमुना चोक,फूलवारी मार्ग,राउत टोल (६\")"
+          ],
+          "areas_en": [
+            "Shantinagar, Buddha Marg, Ganga Jamuna Chowk, Phulwari Marg, Raut Tol (6\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "गंगा जमुना चोक (2\")"
+          ],
+          "areas_en": [
+            "Ganga Jamuna Chowk (2\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "खुमल पूर्व (६\")"
+          ],
+          "areas_en": [
+            "Khumal Purba (6\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            2,
+            8,
+            14,
+            20,
+            26
+          ],
+          "time_from": "08:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "रमाईलो टार, लावती टोल, यलियन्स स्कुल वरपर,जननी मार्ग (८\")"
+          ],
+          "areas_en": [
+            "Ramailo Tar, Lavati Tol, Aliens School Varpar, Janani Marg (8\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "कन्चन मार्ग दक्षिण, श्रीकृष्ण टोल"
+          ],
+          "areas_en": [
+            "Kanchan Marg Dakshin, Shri Krishna Tol"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "कन्चन मार्ग पचिम,सुमिना मार्ग(४\"),"
+          ],
+          "areas_en": [
+            "Kanchan Marg Paschim, Sumina Marg(4\"),"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "शान्ति चोक माइक्रोपार्क"
+          ],
+          "areas_en": [
+            "Shanti Chowk Micropark"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "लोहा चोक,सुमिना मार्ग(२\"),"
+          ],
+          "areas_en": [
+            "Loha Chowk, Sumina Marg(2\"),"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "शिव चोक नयाँ लाईन"
+          ],
+          "areas_en": [
+            "Shiva Chowk Naya Line"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "tanka",
+      "name_en": "tanka",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "17:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "पुरानो वडा कार्यालय,खुमल मार्ग,इसिमोड लाइन,इसिमोड नयाँ लाइन,शान्तिनगर माइक्रोपार्क"
+          ],
+          "areas_en": [
+            "Purano Ward Karyalaya, Khumal Marg, Isimod Line, Isimod Naya Line, Shantinagar Micropark"
+          ],
+          "contacts": [
+            "चा.चा. टंकनाथ निरौला",
+            "9849809155"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "17:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "सिटि ड्राइभिंग(जागरण मार्ग),"
+          ],
+          "areas_en": [
+            "City Driving (Jagaran Marg),"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            30
+          ],
+          "time_from": "17:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "जुगल लाइन,जेम्स अगाडि पुरानो लाइन"
+          ],
+          "areas_en": [
+            "Jugal Line, James Agadi Purano Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            31
+          ],
+          "time_from": "17:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "उज्यालो टोल,महादेव खोला,अनन्त मार्ग,"
+          ],
+          "areas_en": [
+            "Ujyalo Tol, Mahadev Khola, Ananta Marg,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "17:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "गैरीगाउँ, जेम्स अगाडि नयाँ लाइन ,मिलनबस्ति, कर्म मार्ग, जेम्स स्कुल लाइन,"
+          ],
+          "areas_en": [
+            "Gairigaun, James Agadi Naya Line, Milan Basti, Karma Marg, James School Line,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            2,
+            8,
+            14,
+            20,
+            26
+          ],
+          "time_from": "17:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "एरावत टोल;,संगम मार्ग ,अरुण टोल, सिटि ड्राइभिंग सेन्टर, जागृति मार्ग सम्म"
+          ],
+          "areas_en": [
+            "Erawat Tol;, Sangam Marg, Arun Tol, City Driving Center, Jagriti Marg Samma"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            9,
+            15,
+            21,
+            27
+          ],
+          "time_from": "17:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "समिति भवन, जनता ग्यारेज, ,संगम मार्ग , मिलन टोल"
+          ],
+          "areas_en": [
+            "Samiti Bhawan, Janata Garage, , Sangam Marg, Milan Tol"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "binod (23-24)",
+      "name_en": "binod (23-24)",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            2,
+            8,
+            14,
+            20,
+            26
+          ],
+          "time_from": "15:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "बाहुन टोल"
+          ],
+          "areas_en": [
+            "Bahun Tol"
+          ],
+          "contacts": [
+            "बिनोद बस्नेत देवेन्द्र के.सी",
+            "9869362402"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            2,
+            8,
+            14,
+            20,
+            26
+          ],
+          "time_from": "17:00",
+          "time_to": null,
+          "areas_np": [
+            "गा.वि.स. भवन (वडा-२४)"
+          ],
+          "areas_en": [
+            "G.V.S. Bhawan (Ward-24)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "15:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "भीमसेन पिपलबोट, पशुपति टोल"
+          ],
+          "areas_en": [
+            "Bhimsen Piplabot, Pashupati Tol"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "17:00",
+          "time_to": null,
+          "areas_np": [
+            "भगवती टोल,नागदह गेट"
+          ],
+          "areas_en": [
+            "Bhagawati Tol, Nagadah Gate"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "17:00",
+          "time_to": null,
+          "areas_np": [
+            "सेतो गणेश"
+          ],
+          "areas_en": [
+            "Seto Ganesh"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "15:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "पिपल बोट"
+          ],
+          "areas_en": [
+            "Pipal Boat"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "17:00",
+          "time_to": null,
+          "areas_np": [
+            "टेवा"
+          ],
+          "areas_en": [
+            "Tewa"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            9,
+            15,
+            21,
+            27
+          ],
+          "time_from": "17:00",
+          "time_to": null,
+          "areas_np": [
+            "ठुलो पधेरो,इनार चोक"
+          ],
+          "areas_en": [
+            "Thulo Padhero,Inar Chowk"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            1,
+            7,
+            13,
+            19,
+            25,
+            31
+          ],
+          "time_from": "17:00",
+          "time_to": null,
+          "areas_np": [
+            "धापाहाइट"
+          ],
+          "areas_en": [
+            "Dhapa Height"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Anish",
+      "name_en": "Anish",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "06:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "सर्वाङ्ग हस्पिटल, सेतू देवल"
+          ],
+          "areas_en": [
+            "Sarwang Hospital, Setu Deval"
+          ],
+          "contacts": [
+            "चा.चा.राजेन्द्र श्रेष्ठ प.अ.मधुकर विष्ट सू.भा.महेन्द्र काजी महर्जन (१२”)",
+            "12”"
+          ],
+          "notes": "Alopalo milaiyer 1 ghanta"
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "ढूकूटी चोक, ज्वागल, वाग्मती तर्फ"
+          ],
+          "areas_en": [
+            "Dhukuti Chowk, Jawagal, Bagmati Tarfa"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "पूरानो कर कार्यालय, म्याक्स मिडिया"
+          ],
+          "areas_en": [
+            "Purano Kar Karyalaya, Max Media"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "पाटनढोका बजार भित्र, अशोक हल तर्फ"
+          ],
+          "areas_en": [
+            "Patan Dhoka Bazar Bhitra, Ashok Hall Tarfa"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गणेश मंदिर, ललितपूर ईन्जिनियरिé कलेज"
+          ],
+          "areas_en": [
+            "Ganesh Mandir, Lalitpur Engineering College"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गःछे ८” महापाल चोक सम्म"
+          ],
+          "areas_en": [
+            "Gachhe 8\" Mahapal Chowk Samma"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गःछे २” रोड बहिर, नेपाल बैंक, सनराईज बैंक, गावाहाल"
+          ],
+          "areas_en": [
+            "Gachhe 2\" Road Bahir, Nepal Bank, Sunrise Bank, Gabahal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "तूम्वाहाल बाट भेलाछें, गावहाल चोक, कायाननी गल्ली"
+          ],
+          "areas_en": [
+            "Tumbalhal Bato Bhelachhen, Gabahal Chowk, Kayanani Galli"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            11,
+            18,
+            25
+          ],
+          "time_from": "11:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "चाँपागाँउ दोबाटो, टूटेपानी, ताल्छिखेल"
+          ],
+          "areas_en": [
+            "Chapagaun Dobato, Tutepani, Talchhikhel"
+          ],
+          "contacts": [
+            "चा.चा.टंक निरौला ओ.सि. धनन्जय कूमार हाथी (८”)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            7,
+            14,
+            21,
+            28
+          ],
+          "time_from": "15:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "नःटोल व्यापार पवर्धन जाने बाटो, नःटोल, त्रिपद्म वरपर"
+          ],
+          "areas_en": [
+            "Nahtol Vyapar Pravardhan Jane Bato, Nahtol, Tripadma Varpar"
+          ],
+          "contacts": [
+            "चा.चा.रमेश अधिकारी सू.भा.महेन्द्र काजी महर्जन (१२”र२०”)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            10,
+            17,
+            24,
+            31
+          ],
+          "time_from": "10:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "पूल्चोक कान्तिपुर FM Area"
+          ],
+          "areas_en": [
+            "Pulchowk Kantipur FM Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            9,
+            15,
+            21,
+            27
+          ],
+          "time_from": "05:00",
+          "time_to": "06:30",
+          "areas_np": [
+            "वडा नं १३ मार्ग, कुसुन्ती आदर्श मार्ग (१.५\" लाइन र ३\"), कुसुन्ती कुमारपिठ मार्ग(३\")"
+          ],
+          "areas_en": [
+            "Ward No. 13 Marg, Kusunti Adarsha Marg (1.5\" Line and 3\"), Kusunti Kumar Pith Marg(3\")"
+          ],
+          "contacts": [
+            "अनिश श्रेष्ठ ९८४३७६१११५"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "06:30",
+          "time_to": "08:00",
+          "areas_np": [
+            "कुसुन्ती कुमारपिठ मार्ग(३\" र २\")"
+          ],
+          "areas_en": [
+            "Kusunti Kumar Pith Marg(3\" and 2\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:30",
+          "areas_np": [
+            "कुसुन्ती मनकामना बोगटी मार्ग अगाडि(२\")"
+          ],
+          "areas_en": [
+            "Kusunti Manakamana Bogati Marg Agadi(2\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "10:30",
+          "time_to": "12:00",
+          "areas_np": [
+            "कुसुन्ती मनकामना बोगटी मार्ग पछाडी(२\")"
+          ],
+          "areas_en": [
+            "Kusunti Manakamana Bogati Marg Pachhadi(2\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "कुसुन्ती कुमार मन्दिर,डल्ले थकाली(२\")"
+          ],
+          "areas_en": [
+            "Kusunti Kumar Mandir, Dalle Thakali(2\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "गायेत्री पेट्रोल पम्प देखि नख्खु खोलासम्म(४\")"
+          ],
+          "areas_en": [
+            "Gayetri Petrol Pump dekhi Nakkhu Kholasamma(4\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "कुसुन्ती आदर्श मार्ग पद्मा कोलोनी जाने बाटो(१.५\")"
+          ],
+          "areas_en": [
+            "Kusunti Adarsha Marg Padma Colony Jane Bato(1.5\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "मिलिजुलि मार्ग(२\")"
+          ],
+          "areas_en": [
+            "Milijuli Marg(2\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "06:30",
+          "areas_np": [
+            "कुसुन्ती हाइट मार्ग( वोर्ल्डलिंक अगाडी) (४\" ), कुसुन्ती मजुवा मार्ग पश्चिम (३\") ,रिंगरोड दक्षिण मार्ग (२\")"
+          ],
+          "areas_en": [
+            "Kusunti Height Marg( Worldlink Agadi) (4\" ), Kusunti Majuwa Marg Paschim (3\") ,Ringroad Dakshin Marg (2\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "06:30",
+          "time_to": "07:00",
+          "areas_np": [
+            "कुसुन्ती कल्धरा मार्ग(४\")"
+          ],
+          "areas_en": [
+            "Kusunti Kaldhara Marg(4\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "07:30",
+          "time_to": "09:00",
+          "areas_np": [
+            "कुसुन्ती बोगटी मार्ग(३\")"
+          ],
+          "areas_en": [
+            "Kusunti Bogati Marg(3\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:30",
+          "areas_np": [
+            "कुसुन्ती हाईट आगाडी(३\")"
+          ],
+          "areas_en": [
+            "Kusunti Height Agadi(3\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "कुसुन्ती हाईट (४\")"
+          ],
+          "areas_en": [
+            "Kusunti Height (4\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "कुसुन्ती पंचेश्वर मार्ग (२\")"
+          ],
+          "areas_en": [
+            "Kusunti Pancheshwor Marg (2\")"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "पाचौथली गणेश कुसुन्ती एरिया(२\")"
+          ],
+          "areas_en": [
+            "Pauchathali Ganesh Kusunti Area(2\")"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "old line",
+      "name_en": "old line",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "06:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "सर्वाङ्ग हस्पिटल, सेतू देवल"
+          ],
+          "areas_en": [
+            "Sarwang Hospital, Setu Deval"
+          ],
+          "contacts": [
+            "चा.चा.राजेन्द्र श्रेष्ठ प.अ.मधुकर विष्ट सू.भा.महेन्द्र काजी महर्जन (१२”)",
+            "9860484972",
+            "9841983763",
+            "9841592400"
+          ],
+          "notes": "Alopalo milaiyer 1 ghanta"
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "ढूकूटी चोक, ज्वागल, वाग्मती तर्फ"
+          ],
+          "areas_en": [
+            "Dhukuti Chowk, Jawagal, Bagmati Tarfa"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "पूरानो कर कार्यालय, म्याक्स मिडिया"
+          ],
+          "areas_en": [
+            "Purano Kar Karyalaya, Max Media"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "पाटनढोका बजार भित्र, अशोक हल तर्फ"
+          ],
+          "areas_en": [
+            "Patan Dhoka Bazar Bhitra, Ashok Hall Tarfa"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गणेश मंदिर, ललितपूर ईन्जिनियरिé कलेज"
+          ],
+          "areas_en": [
+            "Ganesh Mandir, Lalitpur Engineering College"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गःछे ८” महापाल चोक सम्म"
+          ],
+          "areas_en": [
+            "Gachhe 8\" Mahapal Chowk Samma"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गःछे २” रोड बहिर, नेपाल बैंक, सनराईज बैंक, गावाहाल"
+          ],
+          "areas_en": [
+            "Gachhe 2\" Road Bahir, Nepal Bank, Sunrise Bank, Gabahal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "तूम्वाहाल बाट भेलाछें, गावहाल चोक, कायाननी गल्ली"
+          ],
+          "areas_en": [
+            "Tumbalhal Bato Bhelachhen, Gabahal Chowk, Kayanani Galli"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            "हरेक बुधबार"
+          ],
+          "time_from": "11:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "चाँपागाँउ दोबाटो, टूटेपानी, ताल्छिखेल"
+          ],
+          "areas_en": [
+            "Chapagaun Dobato, Tutepani, Talchhikhel"
+          ],
+          "contacts": [
+            "चा.चा.बिनोद बस्नेत",
+            "9869362402"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            "हरेक सनिबार"
+          ],
+          "time_from": "15:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "नःटोल व्यापार पवर्धन जाने बाटो, नःटोल, त्रिपद्म वरपर"
+          ],
+          "areas_en": [
+            "Nahtol Vyapar Pravardhan Jane Bato, Nahtol, Tripadma Varpar"
+          ],
+          "contacts": [
+            "चा.चा.रमेश अधिकारी (१२”र२०”)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            "हरेक मंगलबार"
+          ],
+          "time_from": "10:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "पूल्चोक कान्तिपुर FM Area"
+          ],
+          "areas_en": [
+            "Pulchowk Kantipur FM Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            "हरेक सुक्रवार"
+          ],
+          "time_from": "10:00",
+          "time_to": "11:30",
+          "areas_np": [
+            "कूपण्डोल, हनूमानस्थान, रुपक मेमोरियल, भजनमण्डल, प्रसाई घाट, अमरशिशू स्कुल"
+          ],
+          "areas_en": [
+            "Kupandol, Hanumansthan, Rupak Memorial, Bhajanmandal, Prasai Ghat, Amarshishu School"
+          ],
+          "contacts": [
+            "चा.चा.जीवन माझी चा.चा. विक्रम राउत (१२”र२०”)",
+            "9861666829",
+            "9851312244"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "11:30",
+          "time_to": "13:00",
+          "areas_np": [
+            "बखूण्डोल, गणेशस्थान, कोरियन दूतावास, ब्रिटिस स्कूल, अरुण थापा चोक ।"
+          ],
+          "areas_en": [
+            "Bakhundol, Ganeshsthan, Korean Embassy, British School, Arun Thapa Chowk."
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:30",
+          "areas_np": [
+            "शूभतारा, कालिकास्थान"
+          ],
+          "areas_en": [
+            "Shubhatara, Kalikasthan"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "14:30",
+          "time_to": "16:00",
+          "areas_np": [
+            "सानेपा चोक, रेडियन्ट स्कुल"
+          ],
+          "areas_en": [
+            "Sanepa Chowk, Radiant School"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "17:30",
+          "areas_np": [
+            "गूसिंङ्गाल, राम मंदिर, साँचल"
+          ],
+          "areas_en": [
+            "Gusingal, Ram Mandir, Sanchal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "17:30",
+          "time_to": "19:00",
+          "areas_np": [
+            "ढोका टोल,क्याम्पेन कलेज वरपर, लिलाघर,कूमारीस्थान"
+          ],
+          "areas_en": [
+            "Dhoka Tol, Campen College Varpar, Lilaghar, Koomaristhan"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "4",
+          "days": [
+            "हरेक सनिबार"
+          ],
+          "time_from": "06:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "कुसुन्ती सबै लाईन (आलोपालो मिलाएर १ -१.५ घण्टा)"
+          ],
+          "areas_en": [
+            "Kusunti Sabai Line (Alopalo Milaiyer 1 - 1.5 Ghanta)"
+          ],
+          "contacts": [
+            "चा.चा.अनिश श्रेष्ठ",
+            "9808825486"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "5",
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "बागडोल सबै लाईन (आलोपालो मिलाएर १ -१.५ घण्टा)"
+          ],
+          "areas_en": [
+            "Bagdol Sabai Line (Alopalo Milaiyer 1 - 1.5 Ghanta)"
+          ],
+          "contacts": [
+            "चा.चा.दीपक मगर",
+            "9808762250"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "6",
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "मेडीसिटीदेखि भङ्ज़ाङ सम्मका सबै लाईन (आलोपालो मिलाएर १ -१.५ घण्टा)"
+          ],
+          "areas_en": [
+            "Mediticity dekhi Bhanjyang Samma ka Sabai Line (Alopalo Milaiyer 1 - 1.5 Ghanta)"
+          ],
+          "contacts": [
+            "चा.चा.सुदीप पुडासैनी",
+            "9849034297"
+          ],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "old line (2)",
+      "name_en": "old line (2)",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "06:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "सर्वाङ्ग हस्पिटल, सेतू देवल"
+          ],
+          "areas_en": [
+            "Sarwang Hospital, Setu Deval"
+          ],
+          "contacts": [
+            "चा.चा.राजेन्द्र श्रेष्ठ प.अ.मधुकर विष्ट सू.भा.महेन्द्र काजी महर्जन (१२”)",
+            "9860484972",
+            "9841983763",
+            "9841592400"
+          ],
+          "notes": "Alopalo milaiyer 1 ghanta"
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "ढूकूटी चोक, ज्वागल, वाग्मती तर्फ"
+          ],
+          "areas_en": [
+            "Dhukuti Chowk, Jawagal, Bagmati Tarfa"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "पूरानो कर कार्यालय, म्याक्स मिडिया"
+          ],
+          "areas_en": [
+            "Purano Kar Karyalaya, Max Media"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "पाटनढोका बजार भित्र, अशोक हल तर्फ"
+          ],
+          "areas_en": [
+            "Patan Dhoka Bazar Bhitra, Ashok Hall Tarfa"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गणेश मंदिर, ललितपूर ईन्जिनियरिé कलेज"
+          ],
+          "areas_en": [
+            "Ganesh Mandir, Lalitpur Engineering College"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गःछे ८” महापाल चोक सम्म"
+          ],
+          "areas_en": [
+            "Gachhe 8\" Mahapal Chowk Samma"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "गःछे २” रोड बहिर, नेपाल बैंक, सनराईज बैंक, गावाहाल"
+          ],
+          "areas_en": [
+            "Gachhe 2\" Road Bahir, Nepal Bank, Sunrise Bank, Gabahal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "तूम्वाहाल बाट भेलाछें, गावहाल चोक, कायाननी गल्ली"
+          ],
+          "areas_en": [
+            "Tumbalhal Bato Bhelachhen, Gabahal Chowk, Kayanani Galli"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            11,
+            18,
+            25
+          ],
+          "time_from": "11:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "चाँपागाँउ दोबाटो, टूटेपानी, ताल्छिखेल"
+          ],
+          "areas_en": [
+            "Chapagaun Dobato, Tutepani, Talchhikhel"
+          ],
+          "contacts": [
+            "चा.चा.टंक निरौला ओ.सि. धनन्जय कूमार हाथी (८”)",
+            "9849809155",
+            "9840572259"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            7,
+            14,
+            21,
+            28
+          ],
+          "time_from": "15:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "नःटोल व्यापार पवर्धन जाने बाटो, नःटोल, त्रिपद्म वरपर"
+          ],
+          "areas_en": [
+            "Nahtol Vyapar Pravardhan Jane Bato, Nahtol, Tripadma Varpar"
+          ],
+          "contacts": [
+            "चा.चा.रमेश अधिकारी सू.भा.महेन्द्र काजी महर्जन (१२”र२०”)",
+            "9841619823",
+            "9841592400"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            3,
+            10,
+            17,
+            24,
+            31
+          ],
+          "time_from": "10:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "पूल्चोक कान्तिपुर FM Area"
+          ],
+          "areas_en": [
+            "Pulchowk Kantipur FM Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            "हरेक बिहिबार"
+          ],
+          "time_from": "05:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "सातदोबाटो, खूमलहाईट, हात्तिवन, प्रिमियर स्कुल, बि.एण्ड.बि.बलेज,जय श्रीराम टोल, काली मार्ग, गैरी मार्ग, सिभिल होम्स"
+          ],
+          "areas_en": [
+            "Satdobato, Khumal Height, Hattiban, Premier School, B&B Village, Jayashriram Tol, Kali Marg, Gairi Marg, Civil Homes"
+          ],
+          "contacts": [
+            "चा.चा.किरण महर्जन (८”)",
+            "9841904106"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "बोधिग्राम, बोधिग्राम नयाँ लाईन, सुर्यविनायक"
+          ],
+          "areas_en": [
+            "Bodhigram, Bodhigram Naya Line, Suryavinayak"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "भेल्पा दक्षिण"
+          ],
+          "areas_en": [
+            "Bhelpa Dakshin"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "भल्पा नयाँ लाईन उत्तर"
+          ],
+          "areas_en": [
+            "Bhalpa Naya Line Uttar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "शिवनगर"
+          ],
+          "areas_en": [
+            "Shivanagar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "भेल्पा पूरानो लाइन,"
+          ],
+          "areas_en": [
+            "Bhelpa Purano Line,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "शसि दिदीको लाइन"
+          ],
+          "areas_en": [
+            "Shashi Didi ko Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "ग्वार्को बजार नयाँ लाइन"
+          ],
+          "areas_en": [
+            "Gwarko Bazar Naya Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "सि.डि.ओ.लाईन"
+          ],
+          "areas_en": [
+            "C.D.O. Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [
+            "हरेक सुक्रवार"
+          ],
+          "time_from": "05:00",
+          "time_to": "17:30",
+          "areas_np": [
+            "ग्वार्को, वाफल,महल ब्यान्क्वेट, पुरानो गुण हल लाईन, हरित कोलोनी ,पाको महादेव मार्ग,बालकुमारी,म्यखुमार्ग"
+          ],
+          "areas_en": [
+            "Gwarko, Wafal, Mahal Banquet, Purano Gun Hall Line, Harit Colony, Pako Mahadev Marg, Balkumari, Myakhu Marg"
+          ],
+          "contacts": [
+            "चा.चा.किरण महर्जन (८”)",
+            "9841904106"
+          ],
+          "notes": "Alopalo milaiyer"
+        }
+      ]
+    },
+    {
+      "name_np": "२०८२",
+      "name_en": "2082",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "05:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "डाडा टोल, कान्तिनगर, विशाल चोक, छिमेकी टोल,सम्पाङ् चोक, नखिपोट, शिव चोक (४\")"
+          ],
+          "areas_en": [
+            "Dada Tol, Kantinagar, Bishal Chowk, Chhimeki Tol, Sampang Chowk, Nakhapot, Shiva Chowk (4\")"
+          ],
+          "contacts": [
+            "रमेश थापा विनोद बस्नेत ८\"",
+            "9841783108",
+            "9869362402"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "10:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "रामस्टोर, शान्ति चोक, लोहा चोक, सुनिता मार्ग, फूलवारी मार्ग, महत टोल"
+          ],
+          "areas_en": [
+            "Ramstore, Shanti Chowk, Loha Chowk, Sunita Marg, Phulwari Marg, Mahat Tol"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "05:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "रमाईलो तार, लावती टोल, यलियन्स स्कुल वरपर,जननी मार्ग"
+          ],
+          "areas_en": [
+            "Ramailo Tar, Lavati Tol, Aliens School Varpar, Janani Marg"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "10:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "शान्तीनगर,बुद्ध मार्ग, गंगा जमुना चोक (६\")"
+          ],
+          "areas_en": [
+            "Shantinagar, Buddha Marg, Ganga Jamuna Chowk (6\")"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    }
+  ],
+  "source": {
+    "branch": "Lalitpur",
+    "month_key": "2083_Ashoj",
+    "url": "https://kukl.org.np/storage/download/277/file/2566-Lalitpur_ Water_Schedule_2083_Ashoj.xlsx",
+    "file": "2566-Lalitpur_ Water_Schedule_2083_Ashoj.xlsx",
+    "kind": "xlsx",
+    "extracted_at": "2026-10-18T13:01:35+00:00"
+  }
+}

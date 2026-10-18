@@ -1,0 +1,1080 @@
+{
+  "branch_np": "भक्तपुर",
+  "branch_en": "Bhaktpur",
+  "month_bs": "२०८३ असोज",
+  "reservoirs": [
+    {
+      "name_np": "मिति २०८३.०६.०१ देखि लागु हुने गरी भक्तपुर क्षत्रमा कटुन्जे टंकी",
+      "name_en": null,
+      "zones": [
+        {
+          "dma": null,
+          "label": "2",
+          "days": [
+            1,
+            7,
+            13,
+            19,
+            25,
+            31
+          ],
+          "time_from": "17:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "क्वैत्र",
+            "अरनिको हाईवे क्षत्र",
+            "भुलांचा टुरिजम मार्ेट",
+            "आदर्श चोक",
+            "बाराही",
+            "पीठ लाईन",
+            "गपली",
+            "राम मन्दिर",
+            "दुवाकोट ३ ईन्च लाईन पुरानो (मिलृन टोल",
+            "के.एम.सि. लाईन"
+          ],
+          "areas_en": [
+            "क्वैत्र",
+            "अरनिको हाईवे क्षत्र",
+            "भुलांचा टुरिजम मार्ेट",
+            "आदर्श चोक",
+            "बाराही",
+            "पीठ लाईन",
+            "गपली",
+            "राम मन्दिर",
+            "दुवाकोट ३ ईन्च लाईन पुरानो (मिलृन टोल",
+            "के.एम.सि. लाईन"
+          ],
+          "contacts": [
+            "भाईकाजी शाही"
+          ],
+          "notes": "cfbz{sf] 10 / af/fxLsf] 14 O{Gr rfaL aGb ug{",
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "notes",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "२",
+          "days": [
+            2,
+            8,
+            14,
+            20,
+            26
+          ],
+          "time_from": "06:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "सल्लाघारी कोलोनी)",
+            "दुवाकोट लाईन नंया",
+            "बंसगोपल ओरालो",
+            "भवाचो",
+            "नासमना",
+            "बुल्चा",
+            "मंगलाछें",
+            "तहमला",
+            "पोटरी स्कायर",
+            "राम मन्देर अरालो",
+            "पाच तले मन्देर",
+            "सोमला"
+          ],
+          "areas_en": [
+            "सल्लाघारी कोलोनी)",
+            "दुवाकोट लाईन नंया",
+            "बंसगोपल ओरालो",
+            "भवाचो",
+            "नासमना",
+            "बुल्चा",
+            "मंगलाछें",
+            "तहमला",
+            "पोटरी स्कायर",
+            "राम मन्देर अरालो",
+            "पाच तले मन्देर",
+            "सोमला"
+          ],
+          "contacts": [
+            "चन्द्र पुतुवार ९८४९१७२७१८"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "notes",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "२",
+          "days": [
+            2,
+            8,
+            14,
+            20,
+            26
+          ],
+          "time_from": "14:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "गल्ली",
+            "पुरानो जगाती",
+            "आदर्श",
+            "वसिकचा",
+            "सिद्ध हस्पटल",
+            "नबिन स्कृल",
+            "जगाती एरिया"
+          ],
+          "areas_en": [
+            "गल्ली",
+            "पुरानो जगाती",
+            "आदर्श",
+            "वसिकचा",
+            "सिद्ध हस्पटल",
+            "नबिन स्कृल",
+            "जगाती एरिया"
+          ],
+          "contacts": [
+            "ओम साखकर्मी ९८४१७०८00"
+          ],
+          "notes": "cfbz{sf] 10 / ;Nnf#f/Lsf] 14 O{Gr rfaL sG^|f]n u/L rnfpg]",
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "notes",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "३",
+          "days": [
+            3,
+            9,
+            15,
+            21,
+            27
+          ],
+          "time_from": "06:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "पुरान बस पाक एरया",
+            "हाकु फल्चा",
+            "दमकल",
+            "भवोचा",
+            "गणेश स्कूल",
+            "खेल मैदान",
+            "सहिद स्मृति उदधान",
+            "क्याम्पस लाईन",
+            "दमकल २ ईन्च",
+            "लाईन"
+          ],
+          "areas_en": [
+            "पुरान बस पाक एरया",
+            "हाकु फल्चा",
+            "दमकल",
+            "भवोचा",
+            "गणेश स्कूल",
+            "खेल मैदान",
+            "सहिद स्मृति उदधान",
+            "क्याम्पस लाईन",
+            "दमकल २ ईन्च",
+            "लाईन"
+          ],
+          "contacts": [
+            "भाईकाजी शाही"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "notes",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "३",
+          "days": [
+            3,
+            9,
+            15,
+            21,
+            27
+          ],
+          "time_from": "14:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "लकुलाछे",
+            "मलाचा",
+            "खंला",
+            "डोगन",
+            "भेलुखेल",
+            "काछें",
+            "भद्रकाली",
+            "बेताल",
+            "इत्ताछे",
+            "कुसके",
+            "दोक्छे"
+          ],
+          "areas_en": [
+            "लकुलाछे",
+            "मलाचा",
+            "खंला",
+            "डोगन",
+            "भेलुखेल",
+            "काछें",
+            "भद्रकाली",
+            "बेताल",
+            "इत्ताछे",
+            "कुसके",
+            "दोक्छे"
+          ],
+          "contacts": [
+            "चन्द्र पुतुवार ९८४९१७२७१८"
+          ],
+          "notes": "cfbz{sf] 10 / ;Nnf#f/Lsf] 14 O{Gr rfaL aGb ug]{",
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "notes",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        }
+      ]
+    },
+    {
+      "name_np": "मिति २०८३.०६.०१ देख लागु हुने गरी भक्तपुर क्षत्रमा बॉसबारी टंकी",
+      "name_en": null,
+      "zones": [
+        {
+          "dma": null,
+          "label": "२",
+          "days": [
+            1,
+            6,
+            11,
+            16,
+            21,
+            26,
+            31
+          ],
+          "time_from": "04:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "चोछें",
+            "तुछीमला"
+          ],
+          "areas_en": [
+            "चोछें",
+            "तुछीमला"
+          ],
+          "contacts": [],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "२",
+          "days": [
+            1,
+            6,
+            11,
+            16,
+            21,
+            26,
+            31
+          ],
+          "time_from": "13:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "कुमारी क्लब",
+            "हनुमानघाट",
+            "सुकुलढोका",
+            "पालिखेल",
+            "गलासी पुखु",
+            "गोलमध",
+            "चंदेस्वारी",
+            "कुटु पाॅली"
+          ],
+          "areas_en": [
+            "कुमारी क्लब",
+            "हनुमानघाट",
+            "सुकुलढोका",
+            "पालिखेल",
+            "गलासी पुखु",
+            "गोलमध",
+            "चंदेस्वारी",
+            "कुटु पाॅली"
+          ],
+          "contacts": [
+            "सुनिल मास्के ९८६१२८७७५६"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "२",
+          "days": [
+            2,
+            7,
+            12,
+            17,
+            22,
+            27
+          ],
+          "time_from": "04:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "सुर्यमाढी",
+            "समाज सुधार",
+            "महेस्वारी",
+            "कमिचा गल्ली"
+          ],
+          "areas_en": [
+            "सुर्यमाढी",
+            "समाज सुधार",
+            "महेस्वारी",
+            "कमिचा गल्ली"
+          ],
+          "contacts": [
+            "सिसन थामी ९८६३८६०२४१"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "२",
+          "days": [
+            2,
+            7,
+            12,
+            17,
+            22,
+            27
+          ],
+          "time_from": "13:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "मकव गली",
+            "वान्चु टोल",
+            "खंचा",
+            "मुनिबिहर",
+            "ईनाचो"
+          ],
+          "areas_en": [
+            "मकव गली",
+            "वान्चु टोल",
+            "खंचा",
+            "मुनिबिहर",
+            "ईनाचो"
+          ],
+          "contacts": [
+            "दिनेश महत ९८४१३८९३६६"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "२",
+          "days": [
+            2,
+            7,
+            12,
+            17,
+            22,
+            27
+          ],
+          "time_from": "04:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "यालाछे",
+            "तुलाछे",
+            "सानो ब्यासी",
+            "शारदा स्कूल",
+            "बलाखु"
+          ],
+          "areas_en": [
+            "यालाछे",
+            "तुलाछे",
+            "सानो ब्यासी",
+            "शारदा स्कूल",
+            "बलाखु"
+          ],
+          "contacts": [],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "२",
+          "days": [
+            2,
+            7,
+            12,
+            17,
+            22,
+            27
+          ],
+          "time_from": "13:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "खौमा",
+            "साकोठा",
+            "सि.डी.ओ कार्यालय",
+            "लामाचौर"
+          ],
+          "areas_en": [
+            "खौमा",
+            "साकोठा",
+            "सि.डी.ओ कार्यालय",
+            "लामाचौर"
+          ],
+          "contacts": [
+            "सुनिल मास्के ९८६१२८७७५६"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "३",
+          "days": [
+            3,
+            8,
+            13,
+            18,
+            23,
+            28
+          ],
+          "time_from": "04:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "बॉसबारी",
+            "यातु महादेव",
+            "पुष्प बस्ती",
+            "सैंजु डेरी",
+            "सुकुनाफांट"
+          ],
+          "areas_en": [
+            "बॉसबारी",
+            "यातु महादेव",
+            "पुष्प बस्ती",
+            "सैंजु डेरी",
+            "सुकुनाफांट"
+          ],
+          "contacts": [],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "३",
+          "days": [
+            3,
+            8,
+            13,
+            18,
+            23,
+            28
+          ],
+          "time_from": "13:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "कमल विनायक प्लानिंग",
+            "कमलपोखरी लाईन",
+            "कमलविनायक हल लाईन",
+            "वन्ति",
+            "लाईन",
+            "जेनुईन् लाईन",
+            "मूलढोका"
+          ],
+          "areas_en": [
+            "कमल विनायक प्लानिंग",
+            "कमलपोखरी लाईन",
+            "कमलविनायक हल लाईन",
+            "वन्ति",
+            "लाईन",
+            "जेनुईन् लाईन",
+            "मूलढोका"
+          ],
+          "contacts": [
+            "सिसन थामी ९८६३८६०२४१"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "३",
+          "days": [
+            3,
+            8,
+            13,
+            18,
+            23,
+            28
+          ],
+          "time_from": "04:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "चोखा विनायक ८ ईन्च बाट चल्े लाईन"
+          ],
+          "areas_en": [
+            "चोखा विनायक ८ ईन्च बाट चल्े लाईन"
+          ],
+          "contacts": [
+            "दिनेश महत ९८४१३८९३६६"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "३",
+          "days": [
+            3,
+            8,
+            13,
+            18,
+            23,
+            28
+          ],
+          "time_from": "13:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "लिवाली प्लानिंग",
+            "धारा चोक",
+            "राष्टिय बाणिज्य बैंक लाईन"
+          ],
+          "areas_en": [
+            "लिवाली प्लानिंग",
+            "धारा चोक",
+            "राष्टिय बाणिज्य बैंक लाईन"
+          ],
+          "contacts": [],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "✗",
+          "days": [
+            4,
+            9,
+            14,
+            19,
+            24,
+            29
+          ],
+          "time_from": "04:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "बेखाल",
+            "महालक्ष्मी",
+            "नागपोखरी",
+            "चोर्चा"
+          ],
+          "areas_en": [
+            "बेखाल",
+            "महालक्ष्मी",
+            "नागपोखरी",
+            "चोर्चा"
+          ],
+          "contacts": [],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "✗",
+          "days": [
+            4,
+            9,
+            14,
+            19,
+            24,
+            29
+          ],
+          "time_from": "13:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "याछें",
+            "लालाछें",
+            "भोलाछे"
+          ],
+          "areas_en": [
+            "याछें",
+            "लालाछें",
+            "भोलाछे"
+          ],
+          "contacts": [
+            "भरत प्रजापति ९८४१०४९४४६"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "✗",
+          "days": [
+            4,
+            9,
+            14,
+            19,
+            24,
+            29
+          ],
+          "time_from": "04:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "गछे",
+            "काथांदु",
+            "नागांचा",
+            "याता पोखरी",
+            "सरस्वती स्कूल लाईन"
+          ],
+          "areas_en": [
+            "गछे",
+            "काथांदु",
+            "नागांचा",
+            "याता पोखरी",
+            "सरस्वती स्कूल लाईन"
+          ],
+          "contacts": [],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "✗",
+          "days": [
+            4,
+            9,
+            14,
+            19,
+            24,
+            29
+          ],
+          "time_from": "13:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "पाग्राचा गली",
+            "तलाका",
+            "मयुर इयाल",
+            "जेंला",
+            "कार्चा",
+            "नवदुर्गा लाईन"
+          ],
+          "areas_en": [
+            "पाग्राचा गली",
+            "तलाका",
+            "मयुर इयाल",
+            "जेंला",
+            "कार्चा",
+            "नवदुर्गा लाईन"
+          ],
+          "contacts": [
+            "सिसन थामी ९८६३८६०२४१"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "५",
+          "days": [
+            5,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          "time_from": "04:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "लांचा फल्चा जीतपुर रोड",
+            "ब्र्यानी रोड दाया",
+            "बॉया",
+            "तुमचो"
+          ],
+          "areas_en": [
+            "लांचा फल्चा जीतपुर रोड",
+            "ब्र्यानी रोड दाया",
+            "बॉया",
+            "तुमचो"
+          ],
+          "contacts": [
+            "सिसन थामी ९८६३८६०२४१"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "५",
+          "days": [
+            5,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          "time_from": "13:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "ब्रहयानी",
+            "धारा लाईन"
+          ],
+          "areas_en": [
+            "ब्रहयानी",
+            "धारा लाईन"
+          ],
+          "contacts": [
+            "दिनेश महत ९८४१३८९३६६"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "५",
+          "days": [
+            5,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          "time_from": "04:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "डेकोचा",
+            "खवप कलेज एरिया",
+            "चॉँगु वन्त रोड",
+            "महाकाली गेट",
+            "कासन लाईन"
+          ],
+          "areas_en": [
+            "डेकोचा",
+            "खवप कलेज एरिया",
+            "चॉँगु वन्त रोड",
+            "महाकाली गेट",
+            "कासन लाईन"
+          ],
+          "contacts": [
+            "भरत प्रजापति ९८४१०४९४४६"
+          ],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "५",
+          "days": [
+            5,
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          "time_from": "13:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "ठुलो ब्यासी",
+            "एभरेस्ट स्कूल",
+            "मिबाछे",
+            "शिक्षा कायोलय",
+            "औध्योगिक क्षेत्र",
+            "नोट :माथि उल्लेखित समय तालिकामा बॉसबारीबा्ट प्रत्यक दिन पानी आएमा मात्र पानी वितरण गने सकिने व्यहोरा अनुरोध छ"
+          ],
+          "areas_en": [
+            "ठुलो ब्यासी",
+            "एभरेस्ट स्कूल",
+            "मिबाछे",
+            "शिक्षा कायोलय",
+            "औध्योगिक क्षेत्र",
+            "नोट :माथि उल्लेखित समय तालिकामा बॉसबारीबा्ट प्रत्यक दिन पानी आएमा मात्र पानी वितरण गने सकिने व्यहोरा अनुरोध छ"
+          ],
+          "contacts": [],
+          "notes": null,
+          "time_tags": [
+            "period_inferred"
+          ],
+          "source_columns": [
+            "areas",
+            "contacts",
+            "days",
+            "label",
+            "time"
+          ],
+          "review_flags": [
+            "period_inferred"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "branch": "Bhaktpur",
+    "month_key": "2083_Ashoj",
+    "url": "https://kukl.org.np/storage/download/276/file/7762-Bhaktpur_ Water_Schedule_2083_Ashoj.pdf",
+    "file": "7762-Bhaktpur_ Water_Schedule_2083_Ashoj.pdf",
+    "kind": "pdf",
+    "method": "spatial",
+    "extracted_at": "2026-10-18T15:17:55+00:00"
+  }
+}

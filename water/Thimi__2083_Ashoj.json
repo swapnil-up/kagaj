@@ -1,0 +1,696 @@
+{
+  "branch_np": "मध्यपुर ठिमी शाखा",
+  "branch_en": "Madhyapur Thimi",
+  "month_bs": "२०८३ असोज",
+  "reservoirs": [
+    {
+      "name_np": "टिगनी पानी पोखरीबाट मध्यपुर",
+      "name_en": "Tigni Water Tank to Madhyapur",
+      "zones": [
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            1
+          ],
+          "time_from": "04:00",
+          "time_to": "05:30",
+          "areas_np": [
+            "पुरानी थिमी (सुजन भिन्दुवा-९८४९३७५९३६) र कोरियन अस्पताल (सुधन साहुखल-९८४१२५०५२१)",
+            "(चपचो, हात्ती महांकाल, पोबु) दाँया टिला चोक, सिद्धिकाली मुल बाटो चोडे"
+          ],
+          "areas_en": [
+            "Purani Thimi (Sujan Bhinduba-9849375936) and Korean Hospital (Sudhan Sakhul-9841250521)",
+            "(Chapcho, Hatti Mahankal, Pobu) Danya Tila Chowk, Siddhikali Mul Bato Chode"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            1
+          ],
+          "time_from": "05:30",
+          "time_to": "07:00",
+          "areas_np": [
+            "(लोकेश्वर, विष्णू बीर, यमा। दाँया"
+          ],
+          "areas_en": [
+            "(Lokeshwor, Vishnu Beer, Yama. Danya"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            1
+          ],
+          "time_from": "15:00",
+          "time_to": "16:30",
+          "areas_np": [
+            "(बालकुमारी, बमननी) दाँया/ सगरमाथा कोलोनी"
+          ],
+          "areas_en": [
+            "(Balkumari, Bamani) Danya/ Sagarmatha Colony"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            1
+          ],
+          "time_from": "16:30",
+          "time_to": "18:00",
+          "areas_np": [
+            "(बनदेबी, शंखधर चोक उत्तर) दाँया"
+          ],
+          "areas_en": [
+            "(Bhandebi, Shankhadhar Chowk Uttar) Danya"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            1
+          ],
+          "time_from": "20:00",
+          "time_to": "21:30",
+          "areas_np": [
+            "(बहाखा बजार, गोंगचीबा)"
+          ],
+          "areas_en": [
+            "(Bahakha Bazar, Gongchiba)"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "1",
+          "days": [
+            1
+          ],
+          "time_from": "21:30",
+          "time_to": "23:00",
+          "areas_np": [
+            "(, दुई पोखरी, आदर्श स्कुल) दाँया र विद्युत प्राधिकरण एरिया"
+          ],
+          "areas_en": [
+            "(, Dui Pokhari, Adarsha School) Danya and Vidyut Pradhikaran Area"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [
+            2
+          ],
+          "time_from": "04:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "धुन्चेपाखा, नगदेश, मिलरोड (सुधन साहखल-९८४१२५०५२१), सिन्चिटार(नगेन्द्र शाही -९८६०३६५६७४)",
+            "मिलरोड, सिन्चिटार प्लानिङ्ग उत्तर"
+          ],
+          "areas_en": [
+            "Dhunshepa, Nagadesh, Millroad (Sudhan Sakhul-9841250521), Sinchitar(Nagendra Shahi -9860365674)",
+            "Millroad, Sinchitar Planning Uttar"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [
+            2
+          ],
+          "time_from": "15:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "धुन्चेपाखा दौया"
+          ],
+          "areas_en": [
+            "Dhunshepa Danya"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "2",
+          "days": [
+            2
+          ],
+          "time_from": "20:00",
+          "time_to": "23:00",
+          "areas_np": [
+            "थून्चेपास्खा-मधुचोक, कमेरोटार"
+          ],
+          "areas_en": [
+            "Thunchepas-Madhuchok, Kamerotar"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [
+            3
+          ],
+          "time_from": "04:00",
+          "time_to": "05:30",
+          "areas_np": [
+            "गठ्ठाघर (अजय झा -९८१२०६४८०८)",
+            "टि.आई.टि.आई.पश्चिम, कालोसिसा,"
+          ],
+          "areas_en": [
+            "Gatthaghar (Ajay Jha -9812064808)",
+            "T.I.T.I. Paschim, Kalosisa,"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [
+            3
+          ],
+          "time_from": "05:30",
+          "time_to": "07:00",
+          "areas_np": [
+            "वेलबासे, गट्टाघर पुरानो अफिस लाईन"
+          ],
+          "areas_en": [
+            "Welbase, Gatthaghar Purano Office Line"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [
+            3
+          ],
+          "time_from": "15:00",
+          "time_to": "16:30",
+          "areas_np": [
+            "हाज्मा लाईन, भु. पु.मेयर लाईन"
+          ],
+          "areas_en": [
+            "Hajma Line, Bhu. Pu. Mayor Line"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [
+            3
+          ],
+          "time_from": "16:30",
+          "time_to": "18:00",
+          "areas_np": [
+            "सरस्वती नगर, ढुङ्गाना, हरि दाई, दाहाल लाईन"
+          ],
+          "areas_en": [
+            "Saraswati Nagar, Dhungana, Hari Dai, Dahal Line"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [
+            3
+          ],
+          "time_from": "20:00",
+          "time_to": "21:30",
+          "areas_np": [
+            "गणेश मन्दिर दुवै, तीन धारा लाईन,"
+          ],
+          "areas_en": [
+            "Ganesh Mandir Dubai, Teen Dhara Line,"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "3",
+          "days": [
+            3
+          ],
+          "time_from": "21:30",
+          "time_to": "23:00",
+          "areas_np": [
+            "प्राईम बैंक लाईन"
+          ],
+          "areas_en": [
+            "Prime Bank Line"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "4",
+          "days": [
+            4
+          ],
+          "time_from": "04:00",
+          "time_to": "05:30",
+          "areas_np": [
+            "पुरानो थिमी (सुजन भिन्दुवा-९८४९३७५९३६) र कोरियन अस्पताल (सुधन साहुखल-९८४१२५०५२१)",
+            "(चपचो, हात्ती महांकाल, पोषु। बाँया कोरियन हस्पिटल-डिपो पछाडीसिद्धिकाली मुल बाटो,चोडे"
+          ],
+          "areas_en": [
+            "Purano Thimi (Sujan Bhinduba-9849375936) and Korean Hospital (Sudhan Sakhul-9841250521)",
+            "(Chapcho, Hatti Mahankal, Posu. Banya Korean Hospital-Depo Pachadi Siddhikali Mul Bato, Chode"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "4",
+          "days": [
+            4
+          ],
+          "time_from": "05:30",
+          "time_to": "07:00",
+          "areas_np": [
+            "(लोकेश्वर, विष्णू बीर, यमा बाँया"
+          ],
+          "areas_en": [
+            "(Lokeshwor, Vishnu Beer, Yama Banya"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "4",
+          "days": [
+            4
+          ],
+          "time_from": "15:00",
+          "time_to": "16:30",
+          "areas_np": [
+            "(बालकुमारी, बमननी) बाँया कोरियन, हस्पिटल पुरानो लाईन"
+          ],
+          "areas_en": [
+            "(Balkumari, Bamani) Banya Korean, Hospital Purano Line"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "4",
+          "days": [
+            4
+          ],
+          "time_from": "16:30",
+          "time_to": "18:00",
+          "areas_np": [
+            "(बनदेबी, शंखधर चोक उत्तर। बाँया"
+          ],
+          "areas_en": [
+            "(Bhandebi, Shankhadhar Chowk Uttar. Banya"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "4",
+          "days": [
+            4
+          ],
+          "time_from": "20:00",
+          "time_to": "21:30",
+          "areas_np": [
+            "(बहाखा बजार, गोंगचीया, )"
+          ],
+          "areas_en": [
+            "(Bahakha Bazar, Gongchiya, )"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "4",
+          "days": [
+            4
+          ],
+          "time_from": "21:30",
+          "time_to": "23:00",
+          "areas_np": [
+            "(, दुई पोखरी, आदर्श स्कुल), बाँया र आदर्श बस्ति"
+          ],
+          "areas_en": [
+            "(, Dui Pokhari, Adarsha School), Banya and Adarsha Basti"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "5",
+          "days": [
+            5
+          ],
+          "time_from": "04:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "धून्चेपाखा, नगदेश, मिलरोड (सुधन साहुखल-९८४१२५०५२१) सिन्चिटार(नगेन्द्र शाही -९८६०३६५६७४) गठ्ठाघर (अजय झा -९८१२०६४८०८)",
+            "मिलरोड, सिन्चिटार प्लानिङ्ग दक्षिण"
+          ],
+          "areas_en": [
+            "Dhunshepa, Nagadesh, Millroad (Sudhan Sakhul-9841250521) Sinchitar(Nagendra Shahi -9860365674) Gatthaghar (Ajay Jha -9812064808)",
+            "Millroad, Sinchitar Planning Dakshin"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "5",
+          "days": [
+            5
+          ],
+          "time_from": "15:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "धून्चेपाखा - बाँया"
+          ],
+          "areas_en": [
+            "Dhunshepa - Banya"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "5",
+          "days": [
+            5
+          ],
+          "time_from": "20:00",
+          "time_to": "23:00",
+          "areas_np": [
+            "थून्चेपाखा-न्यु हिटी आसपास क्षेत्र, बाल सुधार, खड्‌का लाईन"
+          ],
+          "areas_en": [
+            "Thunchepa-New Hiti Area, Bal Sudhar, Khadka Line"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "6",
+          "days": [
+            6
+          ],
+          "time_from": "04:00",
+          "time_to": "05:30",
+          "areas_np": [
+            "गठ्ठाघर (अजय झा -९८१२०६४८०८)",
+            "शिव मन्दिर पूर्व, झा लाईन, टि. आई. टि. आई. खाल्डो पूर्व"
+          ],
+          "areas_en": [
+            "Gatthaghar (Ajay Jha -9812064808)",
+            "Shiva Mandir Purba, Jha Line, T.I.T.I. Khaddo Purba"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "6",
+          "days": [
+            6
+          ],
+          "time_from": "05:30",
+          "time_to": "07:00",
+          "areas_np": [
+            "एफ. एम. टावर, नर्कत घारी चोक"
+          ],
+          "areas_en": [
+            "F.M. Tower, Narkat Ghari Chowk"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "6",
+          "days": [
+            6
+          ],
+          "time_from": "15:00",
+          "time_to": "16:30",
+          "areas_np": [
+            "भद्रकाली, राधाकृष्ण लाईन"
+          ],
+          "areas_en": [
+            "Bhadrakali, Radhakrishna Line"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "6",
+          "days": [
+            6
+          ],
+          "time_from": "16:30",
+          "time_to": "18:00",
+          "areas_np": [
+            "ग्रीन पोइन्ट, भट्टराई टोल"
+          ],
+          "areas_en": [
+            "Green Point, Bhattarai Tol"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "6",
+          "days": [
+            6
+          ],
+          "time_from": "20:00",
+          "time_to": "21:30",
+          "areas_np": [
+            "कैलाश मार्ग,"
+          ],
+          "areas_en": [
+            "Kailash Marg,"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "6",
+          "days": [
+            6
+          ],
+          "time_from": "21:30",
+          "time_to": "23:00",
+          "areas_np": [
+            "सानो ठिमी"
+          ],
+          "areas_en": [
+            "Sano Thimi"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "7",
+          "days": [
+            7
+          ],
+          "time_from": "04:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "नँया ठिमी एरिया (सुजन भिन्दुवा ९८४९३७५९३६)",
+            "मध्यपुर हस्पिटल, तामाखुसि, ब्राईटर लाईन, दक्षिण बाराही"
+          ],
+          "areas_en": [
+            "Naya Thimi Area (Sujan Bhinduba 9849375936)",
+            "Madhyapur Hospital, Tamakhusi, Brighter Line, Dakshin Barahi"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "7",
+          "days": [
+            7
+          ],
+          "time_from": "15:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "शंखधर चोक, अफिस लाईन, यचु, बप्पा"
+          ],
+          "areas_en": [
+            "Shankhadhar Chowk, Office Line, Yachu, Bappa"
+          ],
+          "contacts": [],
+          "notes": null,
+          "review_flags": [
+            "dma_missing"
+          ]
+        },
+        {
+          "dma": null,
+          "label": "7",
+          "days": [
+            7
+          ],
+          "time_from": "20:00",
+          "time_to": "23:00",
+          "areas_np": [
+            "दक्षिण सुन्दरनगर, टि. बि. हस्पिटल पारि"
+          ],
+          "areas_en": [
+            "Dakshin Sundernagar, T.B. Hospital Pari"
+          ],
+          "contacts": [],
+          "notes": "Note: Schedule may be altered due to power outage affecting water production.",
+          "review_flags": [
+            "dma_missing"
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "branch": "Thimi",
+    "month_key": "2083_Ashoj",
+    "url": "https://kukl.org.np/storage/download/273/file/6360-Thimi_ Water_Schedule_2083_Ashoj.xlsx",
+    "file": "6360-Thimi_ Water_Schedule_2083_Ashoj.xlsx",
+    "kind": "xlsx",
+    "method": "llm",
+    "extracted_at": "2026-10-18T14:50:10+00:00"
+  }
+}

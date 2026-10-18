@@ -13,6 +13,7 @@ tmpvenv/
 redbook-env/
 bill-tracker/.venv
 MIGRATION_NOTES.md
+.water-handoff.md
 
 # generated normalised companions (rerun: python -m migration_parser.cli normalize)
 migration/*_normalized.csv

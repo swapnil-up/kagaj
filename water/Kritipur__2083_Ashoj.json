@@ -1,0 +1,5824 @@
+{
+  "branch_np": "कीर्तिपुर शाखा कार्यालय",
+  "branch_en": "Kirtipur",
+  "month_bs": "२०८३ असोज",
+  "reservoirs": [
+    {
+      "name_np": "Tyangala",
+      "name_en": "Tyangala",
+      "zones": [
+        {
+          "dma": null,
+          "label": "ट्याङलाफाँट अमृत नगर",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "हेल्थपोष्ट रिङ्गरोड लाईन"
+          ],
+          "areas_en": [
+            "Healthpost Ringroad Line"
+          ],
+          "contacts": [
+            "तिर्थ महर्जन ९७६१८९५९२८"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "ग्रेभिटी लाईन"
+          ],
+          "areas_en": [
+            "Gravity Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "रमिते ओरालो माथि (आलोपालो)"
+          ],
+          "areas_en": [
+            "Ramite Oralo Mati (Alopalo)"
+          ],
+          "contacts": [
+            "श्याम के. सी. ९८६९६६३९४९"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "रिमिटे ओरालो तल ( आलो पालो )"
+          ],
+          "areas_en": [
+            "Rimite Oralo Tal (Alo Palo)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "रमिते ओरालो २ (दधिराम line) ग्रिनभिल्ला भित्र"
+          ],
+          "areas_en": [
+            "Ramite Oralo 2 (Dadhiram line) Greenvilla Bhitra"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "ग्रिनभिल्ला पछाडी, अमृत नगर पुरानो १½\" लाईन"
+          ],
+          "areas_en": [
+            "Greenvilla Pachadi, Amrit Nagar Purano 1½\" Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "अमृत डेरी"
+          ],
+          "areas_en": [
+            "Amrit Dairy"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "अमृत डेरी दायाँ ( मालपोत लाईन )"
+          ],
+          "areas_en": [
+            "Amrit Dairy Daya (Malpot Line)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "अमृत डेरी बायाँ ( धौलागीरी चोक )"
+          ],
+          "areas_en": [
+            "Amrit Dairy Baya (Dhaulagiri Chowk)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "अमृत नगर ओरालो"
+          ],
+          "areas_en": [
+            "Amrit Nagar Oralo"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "ग्रिनभिल्ला अगाडी २ वटा लाईन ( २\" लाईन )"
+          ],
+          "areas_en": [
+            "Greenvilla Agadi 2 Wata Line (2\" Line)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "कार्की दाई लाईन पुरानो ३, स्टार कोलोनी"
+          ],
+          "areas_en": [
+            "Karki Dai Line Purano 3, Star Colony"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "ट्याङलाफाँट तथा सिवालय एरियाहरु",
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "रसिका लाईन"
+          ],
+          "areas_en": [
+            "Rasika Line"
+          ],
+          "contacts": [
+            "दया राम बस्‍नेत ९८६०६३९९६९"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "dineshko लाईन"
+          ],
+          "areas_en": [
+            "dineshko Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "तुयुको घर पछाडि लाईन"
+          ],
+          "areas_en": [
+            "Tuyu ko Ghar Pachadi Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "३ ” जि. आई. NIC लाईन"
+          ],
+          "areas_en": [
+            "3\" GI. NIC Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "अंकुर मेटल लाईन सबै"
+          ],
+          "areas_en": [
+            "Ankur Metal Line Sabai"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "KESB स्कूल लाईन बाहिरी लाईन"
+          ],
+          "areas_en": [
+            "KESB School Line Bahiri Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "KESB स्कूल भित्री लाईन"
+          ],
+          "areas_en": [
+            "KESB School Bhitri Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "लुईटेल लाईन"
+          ],
+          "areas_en": [
+            "Luitel Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "कालो ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Kalo Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "ट्याङलाफाँट तथा सिवालय एरियाहरु",
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "सूर्य काठ गोडाम पछाडी २” लाईन"
+          ],
+          "areas_en": [
+            "Surya Kath Godam Pachadi 2\" Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "स्विमिङ्ग पुल ३” लाईन, नर्सरी माग, ल्क्ष्ऋ बैक एरिया ( चाबी पुरा खुल्ला )"
+          ],
+          "areas_en": [
+            "Swimming Pool 3\" Line, Nursery Mag, Lkhr Back Area (Chabi Pura Khulla)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "नेपाल ग्यास डबल लाईन"
+          ],
+          "areas_en": [
+            "Nepal Gas Double Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "शिवालय ३” लाईन"
+          ],
+          "areas_en": [
+            "Shivalaya 3\" Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "सिधा २” र क्। ए। लाईन"
+          ],
+          "areas_en": [
+            "Sidha 2\" ra K.A. Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "गिरी लाईन"
+          ],
+          "areas_en": [
+            "Giri Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "ज्योती म्याडम लाईन, सिता पेट्रोल पम्प लाईन"
+          ],
+          "areas_en": [
+            "Jyoti Madam Line, Sita Petrol Pump Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "न्यायधिश लाईन"
+          ],
+          "areas_en": [
+            "Nyayadhish Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "शविनगर लाईन"
+          ],
+          "areas_en": [
+            "Shabinagar Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "ट्याङलाफाँट",
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "बागभैरब ड्राईभिङ्ग सेन्टर मुनि २\" र ३\" लाईन"
+          ],
+          "areas_en": [
+            "Bagbhairab Driving Center Muni 2\" ra 3\" Line"
+          ],
+          "contacts": [
+            "तुयु ब. प्रधान ९८४१७६५२००"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "पुरानो अंकुर मेटल, अजिमा पार्क मुनी (नयां)"
+          ],
+          "areas_en": [
+            "Purano Ankur Metal, Ajima Park Muni (Naya)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "अजिमा पार्क मुनी, बुद्ध चोक भित्र"
+          ],
+          "areas_en": [
+            "Ajima Park Muni, Buddha Chowk Bhitra"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "राजकुलो"
+          ],
+          "areas_en": [
+            "Rajkulo"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "बुद्ध चोक माथी"
+          ],
+          "areas_en": [
+            "Buddha Chowk Mathi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "स्वर्गद्वरी"
+          ],
+          "areas_en": [
+            "Swargadwari"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "बिष्णु देबी हेल्थपोष्ट लाईन एरिया २ वटा लाईन, त्रयमान लाईन"
+          ],
+          "areas_en": [
+            "Bishnu Debi Healthpost Line Area 2 Wata Line, Trayaman Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "ढकाल सर, पार्टी प्यालेस पछाडी ( पम्प लाईन )"
+          ],
+          "areas_en": [
+            "Dhakal Sir, Party Palace Pachadi (Pump Line)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "ग:सी पुरानो लाईन ( चाबी नं. १ )"
+          ],
+          "areas_en": [
+            "G:si Purano Line (Chabi No. 1)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "ग:सी पुरानो लाईन ( चाबी नं. २ ) , ड्राईभिङ्ग एरिया"
+          ],
+          "areas_en": [
+            "G:si Purano Line (Chabi No. 2), Driving Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "ग:सी पुरानो लाईन ( चाबी नं. ३ ) , लण्डन हाउस"
+          ],
+          "areas_en": [
+            "G:si Purano Line (Chabi No. 3), London House"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "ग:सी नयां लाईन"
+          ],
+          "areas_en": [
+            "G:si Naya Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "कुसुम फाइनाईन्स"
+          ],
+          "areas_en": [
+            "Kusum Finance"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "कीर्ति नगर"
+          ],
+          "areas_en": [
+            "Kirti Nagar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "खोला किनारा ( ग्रेभिटी लाईन )"
+          ],
+          "areas_en": [
+            "Khola Kinara (Gravity Line)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "शितल नगर २\" २ वटा लाईन"
+          ],
+          "areas_en": [
+            "Shital Nagar 2\" 2 Wata Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "मैत्री नगर चाँदनी चोक मिलन चोक",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "ओम बस्त, कीर्ति नगर तल, आदर्श स्कूल"
+          ],
+          "areas_en": [
+            "Om Bast, Kirti Nagar Tal, Adarsha School"
+          ],
+          "contacts": [
+            "बासु बिष्ट ९८४१३६३९७६"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "शान्ति मार्ग , शिव मंन्दिर"
+          ],
+          "areas_en": [
+            "Shanti Marg, Shiva Mandir"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "चिया पसल लाईन, नौ घर"
+          ],
+          "areas_en": [
+            "Chiya Pasal Line, Nau Ghar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "सिसा घर, पार्टि पालेस पछाडी लाईन"
+          ],
+          "areas_en": [
+            "Sisa Ghar, Party Palace Pachadi Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "आदर्स टोल, संम्पन्न वस्ती"
+          ],
+          "areas_en": [
+            "Adarsha Toll, Sampanna Basti"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "मोडल नगर, धौलागिरी चोक र संन्तोषी टोल"
+          ],
+          "areas_en": [
+            "Model Nagar, Dhaulagiri Chowk ra Santoshi Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "चाँदनी चोक, प्रदिप धिमिरे लाईन"
+          ],
+          "areas_en": [
+            "Chandani Chowk, Pradip Dhimire Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "देब बहादुर लाईन (आलोपालो), चाँदनी चोक पुरानो line"
+          ],
+          "areas_en": [
+            "Deb Bahadur Line (Alopalo), Chandani Chowk Purano line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "सिता पेट्रोलपुम्प line, देवबहादुरline दोस्रो"
+          ],
+          "areas_en": [
+            "Sita Petrolpump line, Devbahadurline Dosro"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "पशुपती कोलोनी ,बालुवा डिपो लाईन"
+          ],
+          "areas_en": [
+            "Pashupati Colony, Baluwa Depot Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "केदार line, पशुपती कोलोनी बाहिर"
+          ],
+          "areas_en": [
+            "Kedar line, Pashupati Colony Bahir"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "बंगलादेश बैक लाईन, गोपीSIR लाईन आलोपालो"
+          ],
+          "areas_en": [
+            "Bangladesh Bank Line, GopiSIR Line Alopalo"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Krishana",
+      "name_en": "Krishana",
+      "zones": [
+        {
+          "dma": null,
+          "label": "पाँगा ढोकासी आसपास",
+          "days": [
+            10,
+            17,
+            24
+          ],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "पाँगा स्कूल, परियार टोल, नायाँ नमख्वा, तल्लो सालिक, साल्भानिया स्कूल"
+          ],
+          "areas_en": [
+            "Panga School, Pariyar Toll, Naya Namkhwa, Tallo Salik, Salvania School"
+          ],
+          "contacts": [
+            "कृष्ण तामाङ्ग ९८४९२९६८३९"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "ढोकासी, हनुमान घाट, भ्या बुँ , याक छें , पार्टी प्यालेस लाईन लाईन"
+          ],
+          "areas_en": [
+            "Dhokasi, Hanuman Ghat, Vya Bun, Yak Chhen, Party Palace Line Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "कार्कि गाऊँ, केश लाईन, नयां नमख्वा – १, पुरानो हल, ए वान पार्टी प्यालेस, नयां नमख्वा – २"
+          ],
+          "areas_en": [
+            "Karki Gaun, Kesh Line, Naya Namkhwa - 1, Purano Hal, A One Party Palace, Naya Namkhwa - 2"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "हेम बहादुर लाईन नयां, हेम बहादुर लाईन पुरानो, नयां नमख्वा – ३, प्रगति पथ"
+          ],
+          "areas_en": [
+            "Hem Bahadur Line Naya, Hem Bahadur Line Purano, Naya Namkhwa - 3, Pragati Path"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "सालिक्, पुरानो नमख्वा, टाउन प्लानिङ्ग, नयां नमख्वा – ४"
+          ],
+          "areas_en": [
+            "Salik, Purano Namkhwa, Town Planning, Naya Namkhwa - 4"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            5,
+            29
+          ],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "पाँगा स्कूल, परियार टोल, नायाँ नमख्वा, तल्लो सालिक, साल्भानिया स्कूल"
+          ],
+          "areas_en": [
+            "Panga School, Pariyar Toll, Naya Namkhwa, Tallo Salik, Salvania School"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "ढोकासी, हनुमान घाट, भ्या बुँ , याक छें , पार्टी प्यालेस लाईन लाईन"
+          ],
+          "areas_en": [
+            "Dhokasi, Hanuman Ghat, Vya Bun, Yak Chhen, Party Palace Line Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "कार्कि गाऊँ, केश लाईन, नयां नमख्वा – १, पुरानो हल, ए वान पार्टी प्यालेस, नयां नमख्वा – २"
+          ],
+          "areas_en": [
+            "Karki Gaun, Kesh Line, Naya Namkhwa - 1, Purano Hal, A One Party Palace, Naya Namkhwa - 2"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "हेम बहादुर लाईन नयां, हेम बहादुर लाईन पुरानो, नयां नमख्वा – ३, प्रगति पथ"
+          ],
+          "areas_en": [
+            "Hem Bahadur Line Naya, Hem Bahadur Line Purano, Naya Namkhwa - 3, Pragati Path"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "सालिक्, पुरानो नमख्वा, टाउन प्लानिङ्ग, नयां नमख्वा – ४"
+          ],
+          "areas_en": [
+            "Salik, Purano Namkhwa, Town Planning, Naya Namkhwa - 4"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Nanda",
+      "name_en": "Nanda",
+      "zones": [
+        {
+          "dma": null,
+          "label": "भत्केपाटी, नगाऊँ, ढल्पा, सागल,जाखा – सिकुछें.",
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "भत्केपाटी राराहिल"
+          ],
+          "areas_en": [
+            "Bhatkepati Rarahil"
+          ],
+          "contacts": [
+            "नन्द लाल कपाली ९८४१९७०१११"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "भत्केपाटी राराहिल प्रगती नगर"
+          ],
+          "areas_en": [
+            "Bhatkepati Rarahil Pragati Nagar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "नगाऊँ तल गणेश मंन्दिर"
+          ],
+          "areas_en": [
+            "Nagau Tal Ganesh Mandir"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "नगाऊँ बाँया"
+          ],
+          "areas_en": [
+            "Nagau Baya"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "जि. आई. पुरानो"
+          ],
+          "areas_en": [
+            "GI. Purano"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "फयखा नगर चर्च"
+          ],
+          "areas_en": [
+            "Fayakha Nagar Church"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "ग्यारेज"
+          ],
+          "areas_en": [
+            "Garage"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "उर्मिला लाईन"
+          ],
+          "areas_en": [
+            "Urmila Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "पुरानो नगाऊँ दोबाटो"
+          ],
+          "areas_en": [
+            "Purano Nagau Dobato"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "पुष्प सदन पछाडी"
+          ],
+          "areas_en": [
+            "Pushpa Sadan Pachadi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "पुष्प सदन अगाडी"
+          ],
+          "areas_en": [
+            "Pushpa Sadan Agadi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "दो:बु line"
+          ],
+          "areas_en": [
+            "Do:bu line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            1,
+            7,
+            13,
+            19,
+            25,
+            31
+          ],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "एन्जल स्कूल लाईन"
+          ],
+          "areas_en": [
+            "Angel School Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "सुन्दर बस्ती बाहिर"
+          ],
+          "areas_en": [
+            "Sundar Basti Bahir"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "सुन्दर बस्ती भित्र"
+          ],
+          "areas_en": [
+            "Sundar Basti Bhitra"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "बाल कृष्ण लाईन"
+          ],
+          "areas_en": [
+            "Bal Krishna Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            2,
+            8,
+            14,
+            20,
+            26
+          ],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "सुरेश लाईन , बुद्ध लाईन"
+          ],
+          "areas_en": [
+            "Suresh Line, Buddha Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "ढल्पा स्कूल"
+          ],
+          "areas_en": [
+            "Dhalpa School"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "सल्यान्थान गनेशमंदिर line"
+          ],
+          "areas_en": [
+            "Salyanthan Ganesh Mandir line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            3,
+            9,
+            15,
+            21,
+            27
+          ],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "मिलन सर लाईन"
+          ],
+          "areas_en": [
+            "Milan Sir Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "नया बस्ती"
+          ],
+          "areas_en": [
+            "Naya Basti"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "सागल टोल"
+          ],
+          "areas_en": [
+            "Sagal Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "माथिल्लो सिकुछें टोल"
+          ],
+          "areas_en": [
+            "Mathillo Sikuchhe Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "पुष्प सदन अगाडी"
+          ],
+          "areas_en": [
+            "Pushpa Sadan Agadi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "तल्लो सिकुछें टोल"
+          ],
+          "areas_en": [
+            "Tallo Sikuchhe Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Birbahadur",
+      "name_en": "Birbahadur",
+      "zones": [
+        {
+          "dma": null,
+          "label": "नगाऊँ रिजरभ्वायबाट पानी बितरण हुने स्थानहरु — नगाऊँ, पुरानो बस्तिहरु",
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "05:40",
+          "areas_np": [
+            "खालँ"
+          ],
+          "areas_en": [
+            "Khalan"
+          ],
+          "contacts": [
+            "बिर बाहादुर तामांग ९८१०२०६२४४ सानुभाई बिष्ट ९८४९४४३९७८"
+          ],
+          "notes": "Monday Wednesday Friday Saturday (Alopalo)"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:40",
+          "time_to": "06:20",
+          "areas_np": [
+            "खल्ब चोक, छपीचा"
+          ],
+          "areas_en": [
+            "Khalba Chowk, Chapi Cha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:20",
+          "time_to": "07:00",
+          "areas_np": [
+            "देवल वारी र पारी"
+          ],
+          "areas_en": [
+            "Deval Wari ra Pari"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "07:40",
+          "areas_np": [
+            "खल्ब ( पुरानो )"
+          ],
+          "areas_en": [
+            "Khalba (Purano)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:40",
+          "time_to": "08:20",
+          "areas_np": [
+            "भगवान देवल र साँल वारी"
+          ],
+          "areas_en": [
+            "Bhagwan Deval ra Sal Wari"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:20",
+          "time_to": "09:00",
+          "areas_np": [
+            "साँल पारी"
+          ],
+          "areas_en": [
+            "Sal Pari"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "09:40",
+          "areas_np": [
+            "तल्लो साँल"
+          ],
+          "areas_en": [
+            "Tallo Sal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:40",
+          "time_to": "10:20",
+          "areas_np": [
+            "आर्वाचा बाईपास र खल्ब नयां बाईपास"
+          ],
+          "areas_en": [
+            "Arvacha Bypass ra Khalba Naya Bypass"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "05:40",
+          "areas_np": [
+            "देशय्"
+          ],
+          "areas_en": [
+            "Desh"
+          ],
+          "contacts": [],
+          "notes": "Sunday Tuesday Thursday Saturday (Alopalo)"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:40",
+          "time_to": "06:20",
+          "areas_np": [
+            "बसन्तल"
+          ],
+          "areas_en": [
+            "Basantaal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:20",
+          "time_to": "07:00",
+          "areas_np": [
+            "अर्वाचा"
+          ],
+          "areas_en": [
+            "Arvacha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "07:40",
+          "areas_np": [
+            "देश: बाईपास"
+          ],
+          "areas_en": [
+            "Desh: Bypass"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:40",
+          "time_to": "08:20",
+          "areas_np": [
+            "कोथु पुरानो"
+          ],
+          "areas_en": [
+            "Kothu Purano"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:20",
+          "time_to": "09:00",
+          "areas_np": [
+            "कोथु बाईपास"
+          ],
+          "areas_en": [
+            "Kothu Bypass"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "09:40",
+          "areas_np": [
+            "डम्फोचा"
+          ],
+          "areas_en": [
+            "Damphucha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:40",
+          "time_to": "10:20",
+          "areas_np": [
+            "चि:खु"
+          ],
+          "areas_en": [
+            "Chi:khu"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तामांग गाउँ एरिया",
+          "days": [],
+          "time_from": "16:30",
+          "time_to": "17:10",
+          "areas_np": [
+            "तामांग गाउ माथिल्लो"
+          ],
+          "areas_en": [
+            "Tamang Gaun Mathillo"
+          ],
+          "contacts": [],
+          "notes": "Every other day"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:10",
+          "time_to": "17:50",
+          "areas_np": [
+            "बस्नेत गाउ- तामांग गाउ"
+          ],
+          "areas_en": [
+            "Basnet Gaun- Tamang Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:50",
+          "time_to": "18:30",
+          "areas_np": [
+            "बिस्ट गाउ"
+          ],
+          "areas_en": [
+            "Bist Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Shanta & Sanjaya",
+      "name_en": "Shanta & Sanjaya",
+      "zones": [
+        {
+          "dma": null,
+          "label": "कीर्तिपुर पुरानो बस्ती — छ्वास टोल देखि झोचा, कुटुझोल हुदै खासी बजार आसपास क्षेत्रहरु",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "09:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "खासी बजार, दूर संचार पछाडी, दो:बुँ मार्ग"
+          ],
+          "areas_en": [
+            "Khasi Bazar, Dur Sanchar Pachadi, Do:bun Marg"
+          ],
+          "contacts": [
+            "शान्त कु. महर्जन ९८४१४४७९४७"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "दूर संचार अगाडी, बाहिरी गाऊँ गेट, प्राधिकरण"
+          ],
+          "areas_en": [
+            "Dur Sanchar Agadi, Bahiri Gaun Gate, Pradhikaran"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "दथल, खासी बजार बिच"
+          ],
+          "areas_en": [
+            "Dathal, Khasi Bazar Bich"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "खासी बजार माथी"
+          ],
+          "areas_en": [
+            "Khasi Bazar Mathi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "धल्पा चोक"
+          ],
+          "areas_en": [
+            "Dhalpa Chowk"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "सागल"
+          ],
+          "areas_en": [
+            "Sagal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "सम्यक टोल माथी"
+          ],
+          "areas_en": [
+            "Samyak Toll Mathi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "सम्यक टोल तल"
+          ],
+          "areas_en": [
+            "Samyak Toll Tal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "कुटुझोल टोल पूर्ब"
+          ],
+          "areas_en": [
+            "Kutujhol Toll Purba"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "बाहिरी गाऊँ माथी"
+          ],
+          "areas_en": [
+            "Bahiri Gaun Mathi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "बाहिरी गाऊँ तल, मुगल्छें"
+          ],
+          "areas_en": [
+            "Bahiri Gaun Tal, Mugalchen"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "छ्वास टोल"
+          ],
+          "areas_en": [
+            "Chhwas Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "झोचा टोल देखि पालिफल गणेश मन्दिर सम्म"
+          ],
+          "areas_en": [
+            "Jhocha Toll Dekhi Paliphal Ganesh Mandir Samm"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "16:30",
+          "areas_np": [
+            "खासी बजार, हिटीगाल"
+          ],
+          "areas_en": [
+            "Khasi Bazar, Hitigal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:30",
+          "time_to": "17:30",
+          "areas_np": [
+            "दोपाचा टोल"
+          ],
+          "areas_en": [
+            "Dopacha Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:30",
+          "time_to": "18:30",
+          "areas_np": [
+            "कुटुझोल टोल पश्चिम"
+          ],
+          "areas_en": [
+            "Kutujhol Toll Paschim"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "कीर्तिपुर हाईटको पुरानो बस्ती — चिलंन्चो देखि मान टोल, गुटपौ, बाकुन:नी, ईटाछें, भरया पुखुसी, माटंखेल, जिफाग:, तन:नी, चिठू, तुझो, कुसीचा, आदी",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "04:00",
+          "time_to": "05:00",
+          "areas_np": [
+            "चिलंन्चो"
+          ],
+          "areas_en": [
+            "Chilanchho"
+          ],
+          "contacts": [
+            "Sanjay Bajracharya ९८४९७२४०८८"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "04:30",
+          "time_to": "05:30",
+          "areas_np": [
+            "बाकुन:नी"
+          ],
+          "areas_en": [
+            "Bakun:ni"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:30",
+          "time_to": "06:30",
+          "areas_np": [
+            "गुटपौ"
+          ],
+          "areas_en": [
+            "Gutpau"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:30",
+          "time_to": "07:30",
+          "areas_np": [
+            "बसी ब"
+          ],
+          "areas_en": [
+            "Basi B"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:30",
+          "time_to": "08:30",
+          "areas_np": [
+            "ईटाछें – २"
+          ],
+          "areas_en": [
+            "Itachhen - 2"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "04:30",
+          "time_to": "05:30",
+          "areas_np": [
+            "मान टोल, ल्वहं देग:, चिठू"
+          ],
+          "areas_en": [
+            "Man Toll, Lwahan Deg:, Chithu"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "गोरख नाथ तल, माथी"
+          ],
+          "areas_en": [
+            "Gorakh Nath Tal, Mathi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "चोगल, मजादेग"
+          ],
+          "areas_en": [
+            "Chogal, Majadeg"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "गुटपौ"
+          ],
+          "areas_en": [
+            "Gutpau"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "05:00",
+          "time_to": "05:45",
+          "areas_np": [
+            "कुसीचा, थतुझो, सिद्वा"
+          ],
+          "areas_en": [
+            "Kusicha, Thutujho, Sidwa"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:45",
+          "time_to": "06:30",
+          "areas_np": [
+            "तुं झो"
+          ],
+          "areas_en": [
+            "Tun Jho"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:30",
+          "time_to": "07:30",
+          "areas_np": [
+            "भरिया पुखुसी, माटंखेल, तन:नी"
+          ],
+          "areas_en": [
+            "Bhariya Pukhusi, Matkhel, Tanan:ni"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:30",
+          "time_to": "08:30",
+          "areas_np": [
+            "जिफाग:,हिल साईड"
+          ],
+          "areas_en": [
+            "Jifag:, Hill Side"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:30",
+          "time_to": "09:30",
+          "areas_np": [
+            "चिठू, तन:नी, मगंल लाईन"
+          ],
+          "areas_en": [
+            "Chithu, Tanan:ni, Mangal Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "गोरख नाथ, १० घर"
+          ],
+          "areas_en": [
+            "Gorakh Nath, 10 Ghar"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Anil",
+      "name_en": "Anil",
+      "zones": [
+        {
+          "dma": null,
+          "label": "क्वा:चो रिजरभ्वायर बाट बितरण हुने एरियाहरु",
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "था:ँबहाल"
+          ],
+          "areas_en": [
+            "Tha:nbahal"
+          ],
+          "contacts": [
+            "अनिल महर्जन ९८४०४९१५३१"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "चैते लाईन, पा:छे )"
+          ],
+          "areas_en": [
+            "Chaite Line, Pa:chhe )"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "ट्याँकी भर्ने"
+          ],
+          "areas_en": [
+            "Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "19:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "समल मेन लाईन"
+          ],
+          "areas_en": [
+            "Samal Main Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "20:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "समल ढोका बाहिर"
+          ],
+          "areas_en": [
+            "Samal Dhoka Bahir"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "19:00",
+          "time_to": "22:00",
+          "areas_np": [
+            "क्वा:चो एरिया (पूर्ब र पाश्चिम) (सिम पम्प)"
+          ],
+          "areas_en": [
+            "Kwa:cho Area (Purba ra Paschim) (Sim Pump)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "03:00",
+          "time_to": "04:00",
+          "areas_np": [
+            "समल पुरानो लाईन, ( कुटुसाल )"
+          ],
+          "areas_en": [
+            "Samal Purano Line, (Kutasal)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "04:00",
+          "time_to": "05:00",
+          "areas_np": [
+            "देबढोका रमेश लाईन"
+          ],
+          "areas_en": [
+            "Debdhoka Ramesh Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "सरस्वती मंन्दिर लाईन"
+          ],
+          "areas_en": [
+            "Saraswati Mandir Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "गल्छें नरमान लाईन"
+          ],
+          "areas_en": [
+            "Galchen Narman Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "गल्छें पूर्ण लाईन"
+          ],
+          "areas_en": [
+            "Galchen Purna Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "सागल टोल"
+          ],
+          "areas_en": [
+            "Sagal Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "कुटीसाल"
+          ],
+          "areas_en": [
+            "Kutisaal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "था:ँबहा, ईटाछें, ह्वाकुंचा"
+          ],
+          "areas_en": [
+            "Tha:nbaha, Itachhen, Hwakun:cha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "गल्छें, दोपाचा"
+          ],
+          "areas_en": [
+            "Galchen, Dopacha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "समल ( नवोचो, देबढोका )"
+          ],
+          "areas_en": [
+            "Samal (Navocho, Debdhoka)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "19:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "दोपाचा ( सायमी टमेल ) पहिलो"
+          ],
+          "areas_en": [
+            "Dopacha (Sayami Tamel) Pahilo"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "20:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "दोपाचा ( सायमी टमेल ) दोश्रो"
+          ],
+          "areas_en": [
+            "Dopacha (Sayami Tamel) Dosro"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Ram",
+      "name_en": "Ram",
+      "zones": [
+        {
+          "dma": null,
+          "label": "भाजंगाल, पाँगा, नयां बजार, चोभार, गूठ",
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "04:00",
+          "time_to": "05:00",
+          "areas_np": [
+            "चोभार गेट ( ग्राभिटी"
+          ],
+          "areas_en": [
+            "Chobar Gate (Gravity)"
+          ],
+          "contacts": [
+            "राम चंन्द्र सापकोटा ९८४१७६५२२१ जीबन श्रेष्ठ ९८४१३२९५१३"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "७ ईन्ची ग्राभिटी"
+          ],
+          "areas_en": [
+            "7 Inchi Gravity"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "04:00",
+          "time_to": "05:00",
+          "areas_np": [
+            "देबनारायण लाईन ( पम्प लाईन )"
+          ],
+          "areas_en": [
+            "Debnarayan Line (Pump Line)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "ईटागोल एरिया"
+          ],
+          "areas_en": [
+            "Itagol Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "05:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "ओपी लाईन"
+          ],
+          "areas_en": [
+            "OP Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "सुन्दर चौर, कटुवाल गाऊँ, शालिक"
+          ],
+          "areas_en": [
+            "Sundar Chaur, Katuwal Gaun, Salik"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "देवल, बैष्णदेबी स्कूल पछाडी, रेग्मी लाईन"
+          ],
+          "areas_en": [
+            "Deval, Baishnavi Debi School Pachadi, Regmi Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "खोरिया, हरी दाई, सन्तोष लाईन"
+          ],
+          "areas_en": [
+            "Khoriya, Hari Dai, Santosh Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            1,
+            7,
+            13,
+            19,
+            25,
+            31
+          ],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "नयाँ बस्ती, जिबन्त लाईन"
+          ],
+          "areas_en": [
+            "Naya Basti, Jibanta Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "पन्चकन्या"
+          ],
+          "areas_en": [
+            "Panchakanya"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "हाउजिङ्ग, समचा"
+          ],
+          "areas_en": [
+            "Housing, Samacha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "बिष्णुदेबी पछाडी"
+          ],
+          "areas_en": [
+            "Bishnu Debi Pachadi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            1,
+            7,
+            13,
+            19,
+            25,
+            31
+          ],
+          "time_from": "05:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "शुभकामना सबै एरिया"
+          ],
+          "areas_en": [
+            "Shubhkamna Sabai Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            1,
+            7,
+            13,
+            19,
+            25,
+            31
+          ],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "चुनदेबी र कार्की गाऊँ"
+          ],
+          "areas_en": [
+            "Chundebi ra Karki Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            1,
+            7,
+            13,
+            19,
+            25,
+            31
+          ],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "तल्लो चोभार"
+          ],
+          "areas_en": [
+            "Tallo Chobar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "टाउन प्लानिङ्ग"
+          ],
+          "areas_en": [
+            "Town Planning"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "माथिल्लो चोभार"
+          ],
+          "areas_en": [
+            "Mathillo Chobar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "जाल्पादेबी"
+          ],
+          "areas_en": [
+            "Jalpa Debi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "19:00",
+          "time_to": null,
+          "areas_np": [
+            "गूठ लाईन ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Guth Line Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Naya Bazar ( Dipendra )",
+      "name_en": "Naya Bazar ( Dipendra )",
+      "zones": [
+        {
+          "dma": null,
+          "label": "नयां बजार एरिया",
+          "days": [
+            5,
+            12,
+            16,
+            23,
+            30
+          ],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "सिटिजन बैक लाईन"
+          ],
+          "areas_en": [
+            "Citizen Bank Line"
+          ],
+          "contacts": [
+            "दिपेन्द्र महर्जन ९८०२३९००१०"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "कृष्ण कटेरिंग लाईन"
+          ],
+          "areas_en": [
+            "Krishna Catering Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "प्राधिकरण लाईन"
+          ],
+          "areas_en": [
+            "Pradhikaran Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "12:00",
+          "areas_np": [
+            "कृषि बिकास बैक र नगाउं दोबाटो"
+          ],
+          "areas_en": [
+            "Krishi Bikas Bank ra Nagau Dobato"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "एन. आई. सी. बैक लाईन"
+          ],
+          "areas_en": [
+            "N.I.C. Bank Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "एन. आई. सी. बैक लाईन २"
+          ],
+          "areas_en": [
+            "N.I.C. Bank Line 2"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "प्रेस तल लाईन"
+          ],
+          "areas_en": [
+            "Press Tal Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "प्रस माथी लाईन"
+          ],
+          "areas_en": [
+            "Pras Mathi Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "पोलिथिन लाईन"
+          ],
+          "areas_en": [
+            "Polythin Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "द्वारीका लाईन"
+          ],
+          "areas_en": [
+            "Dwarika Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "मंगल जि. आई. लाईन र अफिस लाईन ( मकै लाईन )"
+          ],
+          "areas_en": [
+            "Mangal GI. Line ra Office Line (Makai Line)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "19:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "नगर पालीका लाईन माथी"
+          ],
+          "areas_en": [
+            "Nagar Palika Line Mathi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "14:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "मंगल स्कूल तल्लो लाईन १½\" लाईन"
+          ],
+          "areas_en": [
+            "Mangal School Tallo Line 1½\" Line"
+          ],
+          "contacts": [
+            "श्याम के. सी. ९८६९६६३९४९"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "नगर पालीका लाईन तल"
+          ],
+          "areas_en": [
+            "Nagar Palika Line Tal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "पार्टि प्यालेस लाईन पुरानो १½\" गेट भल्भ लाईन"
+          ],
+          "areas_en": [
+            "Party Palace Line Purano 1½\" Gate Valve Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "गुरुङ्ग कम्पाउण्ड नर्सरी तल १½\" लाईन"
+          ],
+          "areas_en": [
+            "Gurung Compound Nursery Tal 1½\" Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "रसिका लाईन भित्र"
+          ],
+          "areas_en": [
+            "Rasika Line Bhitra"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Sita Ram K. C.",
+      "name_en": "Sita Ram K. C.",
+      "zones": [
+        {
+          "dma": null,
+          "label": "चोभार, तल्लो लाईन , माथिल्लो लाईन , चुन देबी , कार्की गाऊँ , आदी",
+          "days": [],
+          "time_from": "05:30",
+          "time_to": "06:30",
+          "areas_np": [
+            "चोभार तल्लो लाईन"
+          ],
+          "areas_en": [
+            "Chobar Tallo Line"
+          ],
+          "contacts": [
+            "सिता राम के. सी. ९८४३४५६९५८"
+          ],
+          "notes": "Every other day"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:30",
+          "time_to": "18:00",
+          "areas_np": [
+            null
+          ],
+          "areas_en": [
+            null
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:30",
+          "time_to": "06:30",
+          "areas_np": [
+            "चोभार माथिल्लो लाईन"
+          ],
+          "areas_en": [
+            "Chobar Mathillo Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:30",
+          "time_to": "18:00",
+          "areas_np": [
+            null
+          ],
+          "areas_en": [
+            null
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "चुन देबी"
+          ],
+          "areas_en": [
+            "Chun Debi"
+          ],
+          "contacts": [],
+          "notes": "Monday Wednesday Saturday"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "कार्की गाऊँ"
+          ],
+          "areas_en": [
+            "Karki Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Tirtha & Dipendra",
+      "name_en": "Tirtha & Dipendra",
+      "zones": [
+        {
+          "dma": null,
+          "label": "देबढोका बाहिर एरिया र कीर्तिपुर अस्पताल",
+          "days": [
+            4,
+            6,
+            10,
+            12,
+            16,
+            18,
+            22,
+            24,
+            28,
+            30
+          ],
+          "time_from": "07:00",
+          "time_to": "07:30",
+          "areas_np": [
+            "गुम्बा दांया ( मनिषको लाईन )"
+          ],
+          "areas_en": [
+            "Gumba Daya (Manishko Line)"
+          ],
+          "contacts": [
+            "तिर्थ महर्जन ९७६१८९५९२८"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "08:30",
+          "areas_np": [
+            "गुम्बा बांया ( हरे रामको लाईन )"
+          ],
+          "areas_en": [
+            "Gumba Baya (Hare Ramko Line)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            4,
+            6,
+            10,
+            12,
+            16,
+            18,
+            22,
+            24,
+            28,
+            30
+          ],
+          "time_from": "06:00",
+          "time_to": "06:30",
+          "areas_np": [
+            "देब ढोका बाहिरको लाईन"
+          ],
+          "areas_en": [
+            "Deb Dhoka Bahirko Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            "दैनिक"
+          ],
+          "time_from": "05:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "कीर्तिपुर अस्पताल"
+          ],
+          "areas_en": [
+            "Kirtipur Hospital"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "हेल्थपोष्ट रिङ्गरोड लाईन"
+          ],
+          "areas_en": [
+            "Healthpost Ringroad Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "ग्रेभिटी लाईन"
+          ],
+          "areas_en": [
+            "Gravity Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "नायगाल तथा सागल टोल एरिया",
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "नायगाल नयां बस्ती र",
+            "सागल टोल एरिया"
+          ],
+          "areas_en": [
+            "Nayagal Naya Basti ra",
+            "Sagal Toll Area"
+          ],
+          "contacts": [
+            "दिपेन्द्र महर्जन ९८०२३९००१०"
+          ],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Hira Bahadur",
+      "name_en": "Hira Bahadur",
+      "zones": [
+        {
+          "dma": null,
+          "label": "पांगा पुरानो बस्ती एरिया",
+          "days": [],
+          "time_from": "08:45",
+          "time_to": "09:15",
+          "areas_np": [
+            "लाछी"
+          ],
+          "areas_en": [
+            "Lachhi"
+          ],
+          "contacts": [
+            "हिरा बहादुर महर्जन ९८४०५६६५६०"
+          ],
+          "notes": "Every other day"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:15",
+          "time_to": "09:45",
+          "areas_np": [
+            "धुसी माथी"
+          ],
+          "areas_en": [
+            "Dhusi Mathi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:45",
+          "time_to": "10:00",
+          "areas_np": [
+            "धुसी तल"
+          ],
+          "areas_en": [
+            "Dhusi Tal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "10:30",
+          "areas_np": [
+            "कार्की टोल"
+          ],
+          "areas_en": [
+            "Karki Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:30",
+          "time_to": "11:00",
+          "areas_np": [
+            "हेखाली पौ"
+          ],
+          "areas_en": [
+            "Hekhali Pau"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:00",
+          "time_to": "11:15",
+          "areas_np": [
+            "कल गा:"
+          ],
+          "areas_en": [
+            "Kal Ga:"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:15",
+          "time_to": "11:45",
+          "areas_np": [
+            "तुंचाखेल"
+          ],
+          "areas_en": [
+            "Tunchakhel"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:45",
+          "time_to": "12:15",
+          "areas_np": [
+            "तुंचाखेल"
+          ],
+          "areas_en": [
+            "Tunchakhel"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:15",
+          "time_to": "12:45",
+          "areas_np": [
+            "भुजीन्द"
+          ],
+          "areas_en": [
+            "Bhujind"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:45",
+          "time_to": "13:15",
+          "areas_np": [
+            "चि:खु"
+          ],
+          "areas_en": [
+            "Chi:khu"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:15",
+          "time_to": "13:45",
+          "areas_np": [
+            "भुजीन्द गल्ली"
+          ],
+          "areas_en": [
+            "Bhujind Galli"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:45",
+          "time_to": "14:15",
+          "areas_np": [
+            "भुजीन्द"
+          ],
+          "areas_en": [
+            "Bhujind"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:15",
+          "time_to": "08:45",
+          "areas_np": [
+            "बाकुननी"
+          ],
+          "areas_en": [
+            "Bakunni"
+          ],
+          "contacts": [],
+          "notes": "Every other day"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:45",
+          "time_to": "09:15",
+          "areas_np": [
+            "ध्वाखाफल"
+          ],
+          "areas_en": [
+            "Dhwakhaphal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:15",
+          "time_to": "09:45",
+          "areas_np": [
+            "दिउखेल माथी"
+          ],
+          "areas_en": [
+            "Diyukhel Mathi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:45",
+          "time_to": "10:15",
+          "areas_np": [
+            "लाय्बचा"
+          ],
+          "areas_en": [
+            "Laybcha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:15",
+          "time_to": "10:45",
+          "areas_np": [
+            "दिउखेल तल"
+          ],
+          "areas_en": [
+            "Diyukhel Tal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:45",
+          "time_to": "11:15",
+          "areas_np": [
+            "मा:ं बो"
+          ],
+          "areas_en": [
+            "Ma:n Bo"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:15",
+          "time_to": "11:45",
+          "areas_np": [
+            "लखु"
+          ],
+          "areas_en": [
+            "Lakhu"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:45",
+          "time_to": "12:25",
+          "areas_np": [
+            "सिकुछे माथी"
+          ],
+          "areas_en": [
+            "Sikuchhe Mathi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:25",
+          "time_to": "12:55",
+          "areas_np": [
+            "सिकुछे तल"
+          ],
+          "areas_en": [
+            "Sikuchhe Tal"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Rama Thapa",
+      "name_en": "Rama Thapa",
+      "zones": [
+        {
+          "dma": null,
+          "label": "पांगा, जाखा आसपास क्षेत्रमा सप्लाई हुने",
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "05:30",
+          "time_to": "08:30",
+          "areas_np": [
+            "पाँगा दथल"
+          ],
+          "areas_en": [
+            "Panga Dathal"
+          ],
+          "contacts": [
+            "रमा थापा ९८६०९३३१३१"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:30",
+          "time_to": "15:30",
+          "areas_np": [
+            "पाांगा ( हिरा बहादुर )"
+          ],
+          "areas_en": [
+            "Paanga (Hira Bahadur)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "भत्केपाटी"
+          ],
+          "areas_en": [
+            "Bhatkepati"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "अधिकारी गाउँ"
+          ],
+          "areas_en": [
+            "Adhikari Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "बिचको जाखा"
+          ],
+          "areas_en": [
+            "Bichko Jakha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "19:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "समचा टोल (पम्पबाट )"
+          ],
+          "areas_en": [
+            "Samacha Toll (Pampabaat)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "20:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "तल्लो जाखा"
+          ],
+          "areas_en": [
+            "Tallo Jakha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "21:00",
+          "time_to": null,
+          "areas_np": [
+            "जाखा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Jakha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "05:30",
+          "time_to": "08:30",
+          "areas_np": [
+            "माथिल्लो जाखा , बिचको जाखा , तल्लो जाखा मिलवाला ( तिन टोल )"
+          ],
+          "areas_en": [
+            "Mathillo Jakha, Bichko Jakha, Tallo Jakha Milwala (Tin Toll)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:30",
+          "time_to": "15:30",
+          "areas_np": [
+            "पाांगा ( हिरा बहादुर )"
+          ],
+          "areas_en": [
+            "Paanga (Hira Bahadur)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "जाखा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Jakha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "मल्फु फाँट ( दमाई खोला बाट )"
+          ],
+          "areas_en": [
+            "Malphu Phant (Damai Khola Baat)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "राराहिल तल्लो"
+          ],
+          "areas_en": [
+            "Rarahil Tallo"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "19:00",
+          "time_to": "20:00",
+          "areas_np": [
+            "राराहिल माथिल्लो"
+          ],
+          "areas_en": [
+            "Rarahil Mathillo"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "20:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "सेरा ७ ” लाईन ( दुर्गाको लाईन ) ( पम्पबाट )"
+          ],
+          "areas_en": [
+            "Sera 7\" Line (Durga ko Line) (Pampabaat)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "21:00",
+          "time_to": null,
+          "areas_np": [
+            "जाखा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Jakha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "05:30",
+          "time_to": "08:30",
+          "areas_np": [
+            "पाँगा दथल"
+          ],
+          "areas_en": [
+            "Panga Dathal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:30",
+          "time_to": "15:30",
+          "areas_np": [
+            "पाांगा ( हिरा बहादुर )"
+          ],
+          "areas_en": [
+            "Paanga (Hira Bahadur)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "सिकुछें टोल"
+          ],
+          "areas_en": [
+            "Sikuchhe Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            " नरेशको घर लाईन ( मिल साइट )"
+          ],
+          "areas_en": [
+            "Nareshko Ghar Line (Mill Site)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "ईन्चु गाउँ ( पम्पबाट )"
+          ],
+          "areas_en": [
+            "Inchu Gaun (Pampabaat)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "भत्केपाटी"
+          ],
+          "areas_en": [
+            "Bhatkepati"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "अधिकारी गाउँ"
+          ],
+          "areas_en": [
+            "Adhikari Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "19:00",
+          "time_to": "20:30",
+          "areas_np": [
+            "समचा टोल (पम्पबाट )"
+          ],
+          "areas_en": [
+            "Samacha Toll (Pampabaat)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "19:30",
+          "time_to": "20:30",
+          "areas_np": [
+            "तल्लो जाखा"
+          ],
+          "areas_en": [
+            "Tallo Jakha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "20:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "चार धारा पुलिसको बस्ती तिर"
+          ],
+          "areas_en": [
+            "Char Dhara Police ko Basti Tira"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "21:00",
+          "time_to": null,
+          "areas_np": [
+            "जाखा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Jakha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Saroj Bistha",
+      "name_en": "Saroj Bistha",
+      "zones": [
+        {
+          "dma": null,
+          "label": "दमाई खोला एरिया, गाम्चा, जाखा, आदी क्षेत्रहरु",
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "परियार टोल"
+          ],
+          "areas_en": [
+            "Pariyar Toll"
+          ],
+          "contacts": [
+            "सरोज बिष्ट ९८६९२७५३४४"
+          ],
+          "notes": "Sunday Wednesday"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "09:30",
+          "areas_np": [
+            "ए. पि. एफ. लाईन"
+          ],
+          "areas_en": [
+            "A.P.F. Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:30",
+          "time_to": "17:30",
+          "areas_np": [
+            "गाम्चा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Gamcha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:30",
+          "time_to": "06:00",
+          "areas_np": [
+            "नगाउं र जाखा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Nagau ra Jakha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "मनकामना कोलोनी"
+          ],
+          "areas_en": [
+            "Manakamana Colony"
+          ],
+          "contacts": [],
+          "notes": "Monday Thursday"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "09:30",
+          "areas_np": [
+            "ए. पि. एफ. लाईन"
+          ],
+          "areas_en": [
+            "A.P.F. Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:30",
+          "time_to": "17:30",
+          "areas_np": [
+            "गाम्चा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Gamcha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:30",
+          "time_to": "06:00",
+          "areas_np": [
+            "नगाउं र जाखा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Nagau ra Jakha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "भत्क्यापाटि नया लाईन"
+          ],
+          "areas_en": [
+            "Bhatkyapati Naya Line"
+          ],
+          "contacts": [],
+          "notes": "Tuesday Saturday"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "07:45",
+          "areas_np": [
+            "संन्जय सिंह मार्ग"
+          ],
+          "areas_en": [
+            "Sanjay Singh Marg"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:45",
+          "time_to": "10:30",
+          "areas_np": [
+            "ए. पि. एफ. लाईन"
+          ],
+          "areas_en": [
+            "A.P.F. Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:30",
+          "time_to": "14:00",
+          "areas_np": [
+            "गाम्चा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Gamcha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "नगाउं र जाखा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Nagau ra Jakha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "19:00",
+          "time_to": "06:00",
+          "areas_np": [
+            null
+          ],
+          "areas_en": [
+            null
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:30",
+          "time_to": "08:00",
+          "areas_np": [
+            "गाम्चा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Gamcha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": "Friday"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "10:30",
+          "areas_np": [
+            "ए. पि. एफ. लाईन"
+          ],
+          "areas_en": [
+            "A.P.F. Line"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:30",
+          "time_to": "14:00",
+          "areas_np": [
+            "गाम्चा ट्यांकी भर्ने"
+          ],
+          "areas_en": [
+            "Gamcha Tanki Bharne"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    },
+    {
+      "name_np": "Rakesh + Lazxman",
+      "name_en": "Rakesh + Lazxman",
+      "zones": [
+        {
+          "dma": null,
+          "label": "गाम्चा, झुल पोखरी, सल्यान स्थान, प्रगती हाईट आदी एरियाहरु",
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "06:30",
+          "areas_np": [
+            "बाँसको झाङ्ग"
+          ],
+          "areas_en": [
+            "Bansko Jhang"
+          ],
+          "contacts": [
+            "राकेश बिष्ट ९८६६२६९३१५"
+          ],
+          "notes": "Sunday Wednesday"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:30",
+          "time_to": "07:00",
+          "areas_np": [
+            "सुनलि घर"
+          ],
+          "areas_en": [
+            "Sunali Ghar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "07:40",
+          "areas_np": [
+            "खत्रि गाऊ"
+          ],
+          "areas_en": [
+            "Khatri Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:40",
+          "time_to": "08:20",
+          "areas_np": [
+            "बनयिा गाऊ"
+          ],
+          "areas_en": [
+            "Baniya Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:20",
+          "time_to": "09:00",
+          "areas_np": [
+            "माथिल्लो गाम्चा"
+          ],
+          "areas_en": [
+            "Mathillo Gamcha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:45",
+          "time_to": "10:45",
+          "areas_np": [
+            "महादेब स्थान"
+          ],
+          "areas_en": [
+            "Mahadev Sthan"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            "आइतबार बुधबार"
+          ],
+          "time_from": "11:00",
+          "time_to": "11:40",
+          "areas_np": [
+            "सल्यान स्थान, कालि बक्स"
+          ],
+          "areas_en": [
+            "Salyan Sthan, Kali Baks"
+          ],
+          "contacts": [
+            "बिरबहादुर तामांग ९८१०२०६२४४"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:40",
+          "time_to": "12:20",
+          "areas_np": [
+            "नयां बस्ती"
+          ],
+          "areas_en": [
+            "Naya Basti"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:20",
+          "time_to": "13:00",
+          "areas_np": [
+            "सल्यान स्थान खनाल टोल"
+          ],
+          "areas_en": [
+            "Salyan Sthan Khanaal Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "13:30",
+          "areas_np": [
+            "सल्यान स्थान स्वास्थ चौकि"
+          ],
+          "areas_en": [
+            "Salyan Sthan Swasthya Chauki"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:30",
+          "time_to": "14:10",
+          "areas_np": [
+            "सल्यान स्थान अनिल बास्कोटा एरिया"
+          ],
+          "areas_en": [
+            "Salyan Sthan Anil Baskota Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:10",
+          "time_to": "14:40",
+          "areas_np": [
+            "ज्क्ष्ऋब्क्त् पछाडी"
+          ],
+          "areas_en": [
+            "Jkhrbkt Pachadi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "06:40",
+          "areas_np": [
+            "ओम शान्ती"
+          ],
+          "areas_en": [
+            "Om Shanti"
+          ],
+          "contacts": [
+            "राकेश बिष्ट ९८६६२६९३१५"
+          ],
+          "notes": "Monday Thursday"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:40",
+          "time_to": "07:20",
+          "areas_np": [
+            "बाल कुमारी पछाडी"
+          ],
+          "areas_en": [
+            "Bal Kumari Pachadi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:20",
+          "time_to": "08:00",
+          "areas_np": [
+            "कालिका स्थान"
+          ],
+          "areas_en": [
+            "Kalika Sthan"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "तल्लो गाम्चा"
+          ],
+          "areas_en": [
+            "Tallo Gamcha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:30",
+          "time_to": "11:00",
+          "areas_np": [
+            "प्रगती हाईट अन्तिम टोल"
+          ],
+          "areas_en": [
+            "Pragati Height Antim Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            "सोमबार, बिहिबार"
+          ],
+          "time_from": "11:00",
+          "time_to": "11:40",
+          "areas_np": [
+            "तल्लो एकता बस्ती"
+          ],
+          "areas_en": [
+            "Tallo Ekta Basti"
+          ],
+          "contacts": [
+            "बिरबहादुर तामांग ९८१०२०६२४४"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:40",
+          "time_to": "12:20",
+          "areas_np": [
+            "माथिल्लो एकता बस्ती"
+          ],
+          "areas_en": [
+            "Mathillo Ekta Basti"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:20",
+          "time_to": "13:00",
+          "areas_np": [
+            "झुल पोखरी, रुपाखेती टोल"
+          ],
+          "areas_en": [
+            "Jhul Pokhari, Rupakheti Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "13:00",
+          "time_to": "13:40",
+          "areas_np": [
+            "झुल पोखरी चोक"
+          ],
+          "areas_en": [
+            "Jhul Pokhari Chowk"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "06:30",
+          "areas_np": [
+            "बाँसको झाङ्ग"
+          ],
+          "areas_en": [
+            "Bansko Jhang"
+          ],
+          "contacts": [
+            "राकेश बिष्ट ९८६६२६९३१५"
+          ],
+          "notes": "Tuesday"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:30",
+          "time_to": "07:00",
+          "areas_np": [
+            "सुनलि घर"
+          ],
+          "areas_en": [
+            "Sunali Ghar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "07:40",
+          "areas_np": [
+            "खत्रि गाऊ"
+          ],
+          "areas_en": [
+            "Khatri Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:40",
+          "time_to": "08:20",
+          "areas_np": [
+            "बनयिा गाऊ"
+          ],
+          "areas_en": [
+            "Baniya Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:20",
+          "time_to": "09:00",
+          "areas_np": [
+            "तल्लो गाम्चा, नयां बस्ती"
+          ],
+          "areas_en": [
+            "Tallo Gamcha, Naya Basti"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:30",
+          "time_to": "11:00",
+          "areas_np": [
+            "प्रगती हाईट, पहलिो टोल"
+          ],
+          "areas_en": [
+            "Pragati Height, Pahilo Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            "बिहिबार"
+          ],
+          "time_from": "11:00",
+          "time_to": "11:40",
+          "areas_np": [
+            "तल्लो एकता बस्ती"
+          ],
+          "areas_en": [
+            "Tallo Ekta Basti"
+          ],
+          "contacts": [
+            "बिरबहादुर तामांग ९८१०२०६२४४"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "11:40",
+          "time_to": "12:20",
+          "areas_np": [
+            "माथिल्लो एकता बस्ती"
+          ],
+          "areas_en": [
+            "Mathillo Ekta Basti"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "12:20",
+          "time_to": "13:00",
+          "areas_np": [
+            "झुल पोखरी, रुपाखेती टोल"
+          ],
+          "areas_en": [
+            "Jhul Pokhari, Rupakheti Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "06:40",
+          "areas_np": [
+            "ओम शान्ती"
+          ],
+          "areas_en": [
+            "Om Shanti"
+          ],
+          "contacts": [
+            "राकेश बिष्ट ९८६६२६९३१५"
+          ],
+          "notes": "Friday"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:40",
+          "time_to": "07:20",
+          "areas_np": [
+            "बाल कुमारी पछाडी"
+          ],
+          "areas_en": [
+            "Bal Kumari Pachadi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:20",
+          "time_to": "08:00",
+          "areas_np": [
+            "कालिका स्थान"
+          ],
+          "areas_en": [
+            "Kalika Sthan"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "तल्लो गाम्चा"
+          ],
+          "areas_en": [
+            "Tallo Gamcha"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:30",
+          "time_to": "08:00",
+          "areas_np": [
+            "प्रगती हाईट दोस्रो टोल"
+          ],
+          "areas_en": [
+            "Pragati Height Dosro Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            "शनिबार"
+          ],
+          "time_from": "08:00",
+          "time_to": "09:30",
+          "areas_np": [
+            "प्रगती हाईट तेस्रो टोल"
+          ],
+          "areas_en": [
+            "Pragati Height Tesro Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "बस्नेत गाउ"
+          ],
+          "areas_en": [
+            "Basnet Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दुधपोखरी एरिया",
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "दुधपोखरी सिम्ले खोला"
+          ],
+          "areas_en": [
+            "Dudhpokhari Simle Khola"
+          ],
+          "contacts": [],
+          "notes": "One day"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "बंझोबरी APF"
+          ],
+          "areas_en": [
+            "Banjobari APF"
+          ],
+          "contacts": [
+            "राकेश बिष्ट ९८६६२६९३१५"
+          ],
+          "notes": "Alternate day"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "दुधपोखरी दोबाटो हुदै दमैखोला"
+          ],
+          "areas_en": [
+            "Dudhpokhari Dobato Hudai Damaikhola"
+          ],
+          "contacts": [
+            "सरोज बिष्ट ९८६९२७५३४४"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "सिम्लेखोला- सईराम चोक"
+          ],
+          "areas_en": [
+            "Simlekhola- Sairam Chowk"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "तामांग गाउ"
+          ],
+          "areas_en": [
+            "Tamang Gaun"
+          ],
+          "contacts": [],
+          "notes": "Saturday Tuesday"
+        }
+      ]
+    },
+    {
+      "name_np": "Keshab + Anil",
+      "name_en": "Keshab + Anil",
+      "zones": [
+        {
+          "dma": null,
+          "label": "कीर्तिपुर न. पा. वडा नं.– ४, मच्छेगाउँ एरिया",
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "बस पार्क, मच्छेगाउं जाने बाटो, खड्का गाउं, टुसाल माथील्लो लाईन, टुसाल बिचको लाईन, टुसाल तल्लो लाईन"
+          ],
+          "areas_en": [
+            "Bus Park, Machehgaon Jane Bato, Khadka Gaun, Tusal Mathillo Line, Tusal Bichko Line, Tusal Tallo Line"
+          ],
+          "contacts": [
+            "अनिल सुनार ९७६२७८७३२७"
+          ],
+          "notes": "Every other day"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "गोडाम, वडा कार्यालय, बस्नेत गाउं, भुसाल टोल एरिया, माने डांडा, बस पार्क पछाडी टुसाल"
+          ],
+          "areas_en": [
+            "Godam, Ward Office, Basnet Gaun, Bhusal Toll Area, Mane Danda, Bus Park Pachadi Tusal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "बस्नेत गाउं, बोहरा टोल, गोडाम, बस पार्क तल"
+          ],
+          "areas_en": [
+            "Basnet Gaun, Bohora Toll, Godam, Bus Park Tal"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "05:00",
+          "areas_np": [
+            "रिजरभ्वायरमा पानी भर्ने"
+          ],
+          "areas_en": [
+            "Reservoirma Pani Bharne"
+          ],
+          "contacts": [],
+          "notes": "Next day morning 5:00"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "पुष्प लाल पार्क तल"
+          ],
+          "areas_en": [
+            "Pushpa Lal Park Tal"
+          ],
+          "contacts": [
+            "अनिल सुनार ९७६२७८७३२७"
+          ],
+          "notes": "Every other day"
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "पुष्प लाल पार्क एरिया"
+          ],
+          "areas_en": [
+            "Pushpa Lal Park Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "पुष्प लाल पार्क भिरालो"
+          ],
+          "areas_en": [
+            "Pushpa Lal Park Bhiralo"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "मागर गाउं, थापा गाउं"
+          ],
+          "areas_en": [
+            "Magar Gaun, Thapa Gaun"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "थापा गाउं, मसला रुख, तामाङ्ग गाउं, बानियां डांडा, अर्याल टोल, पुरानो डांडा ( आलो पालो )"
+          ],
+          "areas_en": [
+            "Thapa Gaun, Masala Rukh, Tamang Gaun, Baniyan Danda, Aryal Toll, Purano Danda (Alo Palo)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "डांडा बाटो, बस पार्क, नयां बस्ती, तामाङ्ग गाउं, थापा गाउं ( आलो पालो )"
+          ],
+          "areas_en": [
+            "Danda Bato, Bus Park, Naya Basti, Tamang Gaun, Thapa Gaun (Alo Palo)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "05:00",
+          "areas_np": [
+            "रिजरभ्वायरमा पानी भर्ने"
+          ],
+          "areas_en": [
+            "Reservoirma Pani Bharne"
+          ],
+          "contacts": [],
+          "notes": "Next day morning 5:00"
+        }
+      ]
+    },
+    {
+      "name_np": "Pharping",
+      "name_en": "Pharping",
+      "zones": [
+        {
+          "dma": null,
+          "label": "फर्पिङ्ग एरियाको नयां तथा पुरानो बस्तीहरु",
+          "days": [],
+          "time_from": "13:30",
+          "time_to": "14:30",
+          "areas_np": [
+            "कोटाल टोल भिमसेन बस्नेतको घर आगाडीको २” र ३” चाबीबाट गोपालेश्वर बितरण"
+          ],
+          "areas_en": [
+            "Kotal Toll Bhimsen Basnet ko Ghar Agadi ko 2\" ra 3\" Chabibaat Gopaleshwor Bitaran"
+          ],
+          "contacts": [
+            "प्रभात खडका ९७६३२०४६५८"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "14:30",
+          "time_to": "15:30",
+          "areas_np": [
+            "कोटाल टोल भिमसेन बस्नेतको घर आगाडीको २” र ३” चाबीबाट गेट सम्म र ३” निमि टोलमा बितरण"
+          ],
+          "areas_en": [
+            "Kotal Toll Bhimsen Basnet ko Ghar Agadi ko 2\" ra 3\" Chabibaat Gate Samm ra 3\" Nimi Tollma Bitaran"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "15:30",
+          "time_to": "16:30",
+          "areas_np": [
+            "४” भिमसेन बस्नेतको घर अगाडीको २” र ३” चाबी बन्द गर्ने र कोटाल टोल देखि झंकेश्वरी सम्म बितरण"
+          ],
+          "areas_en": [
+            "4\" Bhimsen Basnet ko Ghar Agadiko 2\" ra 3\" Chabi Band Garne ra Kotal Toll Dekhi Jhankeshwari Samm Bitaran"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:30",
+          "time_to": "17:00",
+          "areas_np": [
+            "टिपी टोल देखि झंकेश्वरी सम्म बितरण"
+          ],
+          "areas_en": [
+            "Tipi Toll Dekhi Jhankeshwari Samm Bitaran"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "17:45",
+          "areas_np": [
+            "४” झंकेश्वरी टिपी टोल सम्म बितरण"
+          ],
+          "areas_en": [
+            "4\" Jhankeshwari Tipi Toll Samm Bitaran"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:45",
+          "time_to": "18:30",
+          "areas_np": [
+            "४” कोटाल टोल सम्म बितरण"
+          ],
+          "areas_en": [
+            "4\" Kotal Toll Samm Bitaran"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:30",
+          "time_to": "06:30",
+          "areas_np": [
+            "४” कोछु टोल, झंकेश्वरी"
+          ],
+          "areas_en": [
+            "4\" Kochhu Toll, Jhankeshwari"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:30",
+          "time_to": "07:30",
+          "areas_np": [
+            "४” कोटाल टोल"
+          ],
+          "areas_en": [
+            "4\" Kotal Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:30",
+          "time_to": "08:30",
+          "areas_np": [
+            "चाबी २” र ३” चाबीबाट गेट सम्म र ३” निमि टोल बितरण"
+          ],
+          "areas_en": [
+            "Chabi 2\" ra 3\" Chabibaat Gate Samm ra 3\" Nimi Toll Bitaran"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:30",
+          "time_to": "09:30",
+          "areas_np": [
+            "गोपालेश्वर २” र ३”"
+          ],
+          "areas_en": [
+            "Gopaleshwor 2\" ra 3\""
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "17:30",
+          "areas_np": [
+            "नारायण दबली, बसपार्क, ईखा पोखरी, गोल बहाल, कोठेप टोल, भिमसेन थान ( ३” मेनबाट ) बितरण"
+          ],
+          "areas_en": [
+            "Narayan Dabali, Buspark, Ikha Pokhari, Gol Bahal, Kothep Toll, Bhimsen Than (3\" Mainbaat) Bitaran"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:00",
+          "time_to": "16:45",
+          "areas_np": [
+            "थल्कु टोल, ठाडो ढुङ्गा बितरण"
+          ],
+          "areas_en": [
+            "Thalku Toll, Thado Dunga Bitaran"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "16:45",
+          "time_to": "17:30",
+          "areas_np": [
+            "टिपी टोल ( ४” मेनबाट ) बितरण"
+          ],
+          "areas_en": [
+            "Tipi Toll (4\" Mainbaat) Bitaran"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "19:30",
+          "areas_np": [
+            "नारायण दबली, बसपार्क, ईखा पोखरी, गोल बहाल, कोठेप टोल, भिमसेन थान ( ३” मेनबाट )"
+          ],
+          "areas_en": [
+            "Narayan Dabali, Buspark, Ikha Pokhari, Gol Bahal, Kothep Toll, Bhimsen Than (3\" Mainbaat)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "17:00",
+          "time_to": "18:30",
+          "areas_np": [
+            "टिपी टोल ( ४” मेनबाट )"
+          ],
+          "areas_en": [
+            "Tipi Toll (4\" Mainbaat)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "18:30",
+          "time_to": "20:00",
+          "areas_np": [
+            "थल्कु टोल,"
+          ],
+          "areas_en": [
+            "Thalku Toll,"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "डल्लुबाट बितरण हुने"
+          ],
+          "areas_en": [
+            "Distribution from Dallu"
+          ],
+          "contacts": [
+            "शुसील कुमार महत ९८१८४६९७४३"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "05:30",
+          "time_to": "06:30",
+          "areas_np": [
+            "नौमुले"
+          ],
+          "areas_en": [
+            "Naumule"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "06:00",
+          "time_to": "07:30",
+          "areas_np": [
+            "डल्लु खोला"
+          ],
+          "areas_en": [
+            "Dallu Khola"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:30",
+          "time_to": "08:30",
+          "areas_np": [
+            "तल्लो डल्लु"
+          ],
+          "areas_en": [
+            "Tallo Dallu"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:30",
+          "time_to": "09:30",
+          "areas_np": [
+            "महत टोल"
+          ],
+          "areas_en": [
+            "Mahat Toll"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:30",
+          "time_to": "10:30",
+          "areas_np": [
+            "नाग स्थान भन्दा माथि"
+          ],
+          "areas_en": [
+            "Nag Sthan Bhanda Mathi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "देबी तल्लो"
+          ],
+          "areas_en": [
+            "Devi Tallo"
+          ],
+          "contacts": [
+            "मधुकर के सी ९८२३१९२५६१"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:00",
+          "time_to": "08:00",
+          "areas_np": [
+            "देबी एरिया"
+          ],
+          "areas_en": [
+            "Devi Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "08:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "भेन्छेन गुम्बा एरिया"
+          ],
+          "areas_en": [
+            "Benchen Gumba Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "09:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "हस्पितल एरिया"
+          ],
+          "areas_en": [
+            "Hospital Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "10:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "पोखरी एरिया"
+          ],
+          "areas_en": [
+            "Pokhari Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [],
+          "time_from": "07:30",
+          "time_to": "07:30",
+          "areas_np": [
+            "माथिल्लो देबी"
+          ],
+          "areas_en": [
+            "Mathillo Devi"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": null,
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10
+          ],
+          "time_from": null,
+          "time_to": null,
+          "areas_np": [
+            "ग्वालदह, डल्लु, सतिखेल, एरियामा मिटरिङ्ग गर्ने दिन"
+          ],
+          "areas_en": [
+            "Gwladaha, Dallu, Satikhel, Area ma Metering Garne Din"
+          ],
+          "contacts": [],
+          "notes": null
+        }
+      ]
+    }
+  ],
+  "source": {
+    "branch": "Kritipur",
+    "month_key": "2083_Ashoj",
+    "url": "https://kukl.org.np/storage/download/279/file/4567-Kritipur_ Water_Schedule_2083_Ashoj.xlsx",
+    "file": "4567-Kritipur_ Water_Schedule_2083_Ashoj.xlsx",
+    "kind": "xlsx",
+    "extracted_at": "2026-10-18T13:04:04+00:00"
+  }
+}

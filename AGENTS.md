@@ -310,3 +310,53 @@ GEMINI_API_KEY=$key .venv/bin/python bill-tracker/scripts/process_verbatim.py --
 `verbatims-archive.json` — the 379 pre-19th-session verbatims (sessions 1–18),
 kept so the API ids stay discoverable; not reprocessed by any script.
 
+## KUKL Water-Schedule Pipeline (`water_parser/`)
+
+### Overview
+Extracts monthly water-distribution schedules published per KUKL branch office
+(https://kukl.org.np/downloads/water-distribution-schedule) into one normalised
+JSON. Sources are **xlsx/doc** (modern; openpyxl flattens every sheet) or **pdf**
+(legacy/scanned; PaddleOCR). Layouts differ branch-to-branch, so there is no
+per-branch parser: the flattened text goes to Gemini with a fixed schema and
+comes back as reservoirs → zones (DMA, days, time window, areas, contacts).
+
+### CLI
+```bash
+# 1. fetch the schedule page → water/manifest.json (tracked; re-runnable)
+python -m water_parser.cli scrape
+
+# 2. download + flatten + Gemini-extract selected entries
+python -m water_parser.cli process --month 2083_Ashoj
+python -m water_parser.cli process --branch Baneshwor --force
+
+# 3. merge latest month per branch → water/schedule.json (website artifact)
+python -m water_parser.cli build
+
+# inspect manifest status
+python -m water_parser.cli list --month 2083_Ashoj
+```
+
+### Layout
+| Path | Role |
+|------|------|
+| `water_parser/paths.py` | paths, KUKL constants, filename/month parsing |
+| `water_parser/text.py` | xlsx→text (openpyxl) and pdf→text (OCR) front-ends |
+| `water_parser/schema.py` | Gemini prompt + `build_prompt(text)` |
+| `water_parser/gemini.py` | structured JSON client (requests only) |
+| `water_parser/scripts/cmd_{scrape,process,build}.py` | command implementations |
+| `water/<branch>__<month>.json` | tracked per-branch extract |
+| `water/manifest.json` | tracked scrape/processing state |
+| `water/schedule.json` | tracked merged artifact (latest per branch) |
+| `output/water/{raw,text}/` | gitignored downloads + cached flattened text |
+
+### Notes
+- Flattened text is cached in `output/water/text/`, so re-running `process`
+  after a prompt tweak skips the slow OCR pass (use `--force` to redo it).
+- `schedule.json` zones gain a `search_terms` array (area names split on
+  comma-like separators, both scripts) for the frontend fuzzy search.
+- Requires `[water]` deps (pymupdf, openpyxl, requests, bs4, lxml, numpy,
+  pdf2image, paddleocr). `bill-tracker/.env` supplies `GEMINI_API_KEY`.
+- Tests: `redbook-env/bin/python -m pytest tests/test_water_parser.py -q`
+  (the xlsx case is skipped when openpyxl is absent).
+
+

@@ -1,0 +1,1645 @@
+{
+  "branch_np": "महाराजगंज शाखा कार्यालय",
+  "branch_en": "Maharajgunj",
+  "month_bs": "२०८३ असोज",
+  "reservoirs": [
+    {
+      "name_np": "old bansbari",
+      "name_en": "Old Bansbari",
+      "zones": [
+        {
+          "dma": null,
+          "label": "पहिलो",
+          "days": [
+            1,
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "07:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "मिनी मार्ट साईड (सरस्वतीस्थान नजिक)",
+            "अनुपमा स्कुल साईड",
+            "सरकारी धारा",
+            "उत्तर ढोका (४\",३\")",
+            "दिबेश्वर महादेव गेट",
+            "अल्काबस्ती",
+            "कपुरधारा",
+            "गंगबु प्लानिंग(क)"
+          ],
+          "areas_en": [
+            "Mini Mart side (near Saraswati Sthan)",
+            "Anupama School side",
+            "Government tap",
+            "North gate (4\",3\")",
+            "Dibeshwor Mahadev Gate",
+            "Alka Basti",
+            "Kapuradhara",
+            "Gangabu Planning (A)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "पहिलो",
+          "days": [
+            1,
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "15:00",
+          "time_to": "18:00",
+          "areas_np": [
+            "बासबारी पानीपोखरी भर्ने"
+          ],
+          "areas_en": [
+            "Bansbari water tank filling"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "पहिलो",
+          "days": [
+            1,
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "18:00",
+          "time_to": "20:30",
+          "areas_np": [
+            "ड्राइभर लाइन",
+            "लाजिम्पाट",
+            "नर्सरीगल्लि"
+          ],
+          "areas_en": [
+            "Driver Line",
+            "Lajimpat",
+            "Nursery Galli"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "पहिलो",
+          "days": [
+            1,
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "20:30",
+          "time_to": "03:00",
+          "areas_np": [
+            "बासबारी पानीपोखरी भर्ने"
+          ],
+          "areas_en": [
+            "Bansbari water tank filling"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोश्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "03:00",
+          "time_to": "05:30",
+          "areas_np": [
+            "खुर्सानीटार",
+            "सामाखुसी रानीदेवी आसरा स्कुल आसपास क्षेत्र",
+            "लैनचौर",
+            "ब्रिटिश चिहान"
+          ],
+          "areas_en": [
+            "Khursani Tar",
+            "Samakhusi Ranidevi Asra School surrounding area",
+            "Lainchaur",
+            "British Cemetery"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोश्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "05:30",
+          "time_to": "08:30",
+          "areas_np": [
+            "बासबारी पानीपोखरी भर्ने"
+          ],
+          "areas_en": [
+            "Bansbari water tank filling"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोश्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "08:30",
+          "time_to": "11:00",
+          "areas_np": [
+            "विशालनगर",
+            "भाटभटेनी क्षेत्र",
+            "नक्साल",
+            "रानीबारी ३\"",
+            "सामाखुसी बजार पिपलबोट टाउनप्लानिंग (क)"
+          ],
+          "areas_en": [
+            "Vishalnagar",
+            "Bhatbhateni area",
+            "Naxal",
+            "Ranibari 3\"",
+            "Samakhusi Bazar Pipalbot Townplanning (A)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोश्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "11:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "बासबारी पानीपोखरी भर्ने"
+          ],
+          "areas_en": [
+            "Bansbari water tank filling"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोश्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "14:00",
+          "time_to": "16:30",
+          "areas_np": [
+            "सितलनिवास",
+            "बालुवाटार क्षेत्र",
+            "बालुवाटार ३ नं गेट माथिका क्षेत्र"
+          ],
+          "areas_en": [
+            "Shital Niwas",
+            "Baluwatar area",
+            "Area above Baluwatar Gate No. 3"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोश्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "16:30",
+          "time_to": "19:30",
+          "areas_np": [
+            "बासबारी पानीपोखरी भर्ने"
+          ],
+          "areas_en": [
+            "Bansbari water tank filling"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोश्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "19:30",
+          "time_to": "22:00",
+          "areas_np": [
+            "कोइराला मार्ट",
+            "म्हेपीसेफ स्कुल",
+            "गंगबुटाउनप्लानिंग",
+            "नर्सरी लाइन",
+            "गणेश मन्दिर आवास क्षेत्र",
+            "म्हेपी मनाङगे टोल",
+            "SMT कलेज",
+            "बासझाँग रोम मार्ग",
+            "कुमारीटोल"
+          ],
+          "areas_en": [
+            "Koirala Mart",
+            "Mhepi Chef School",
+            "Gangabu Townplanning",
+            "Nursery Line",
+            "Ganesh Mandir Housing Area",
+            "Mhepi Manange Tole",
+            "SMT College",
+            "Basjhang Rome Marg",
+            "Kumari Tole"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोश्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "22:00",
+          "time_to": "03:00",
+          "areas_np": [
+            "बासबारी पानीपोखरी भर्ने"
+          ],
+          "areas_en": [
+            "Bansbari water tank filling"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेश्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "03:00",
+          "time_to": "05:30",
+          "areas_np": [
+            "जलधारा ३\"",
+            "सामाखुसी टाउनप्लानिंग",
+            "दक्षिणकाली मन्दिर",
+            "त्रिबेणी मार्ग",
+            "चाईनिज राजदूतावास",
+            "गैरीधारा एरिया",
+            "सभामुख आवास एरिया",
+            "गणेशमन्दिर मनोकामना वर्कसप एरिया"
+          ],
+          "areas_en": [
+            "Jaldhara 3\"",
+            "Samakhusi Townplanning",
+            "Dakshinkali Temple",
+            "Tribeni Marg",
+            "Chinese Embassy",
+            "Gairidhara Area",
+            "Speaker's Housing Area",
+            "Ganesh Mandir Manokamana Workshop Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेश्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "05:30",
+          "time_to": "08:30",
+          "areas_np": [
+            "बासबारी पानीपोखरी भर्ने"
+          ],
+          "areas_en": [
+            "Bansbari water tank filling"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेश्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "08:30",
+          "time_to": "11:00",
+          "areas_np": [
+            "क्यानभास स्कुल क्षेत्र",
+            "चेतनसिल मार्ग",
+            "दिब्य कोल्ड स्टोर",
+            "सगरमाथा टोल एरिया",
+            "रेडन पुष्पाजली मार्ग"
+          ],
+          "areas_en": [
+            "Canvas School area",
+            "Chetanshil Marg",
+            "Dibya Cold Store",
+            "Sagarmatha Tole Area",
+            "Radon Pushpanjali Marg"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेश्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "11:00",
+          "time_to": "14:00",
+          "areas_np": [
+            "बासबारी पानीपोखरी भर्ने"
+          ],
+          "areas_en": [
+            "Bansbari water tank filling"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेश्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "14:00",
+          "time_to": "16:30",
+          "areas_np": [
+            "कुमारीकृपा क्षेत्र",
+            "बासको झाँग",
+            "रानीबारी पुलिस क्षेत्र",
+            "गाईगोठ",
+            "सर्भभुमी प्रतिष्ठा गल्लि"
+          ],
+          "areas_en": [
+            "Kumari Krupa area",
+            "Basko Jhang",
+            "Ranibari Police area",
+            "Gaigoth",
+            "Sarvabhumi Pratishtha Galli"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेश्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "16:30",
+          "time_to": "19:30",
+          "areas_np": [
+            "बासबारी पानीपोखरी भर्ने"
+          ],
+          "areas_en": [
+            "Bansbari water tank filling"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेश्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "19:30",
+          "time_to": "22:00",
+          "areas_np": [
+            "चुलाचुली",
+            "गणेश मन्दिर",
+            "आत्माज्ञान",
+            "चुनदेवी",
+            "रेडन ४\""
+          ],
+          "areas_en": [
+            "Chulachuli",
+            "Ganesh Mandir",
+            "Atmagyan",
+            "Chundevi",
+            "Radon 4\""
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेश्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27
+          ],
+          "time_from": "22:00",
+          "time_to": "03:00",
+          "areas_np": [
+            "बासबारी पानीपोखरी भर्ने"
+          ],
+          "areas_en": [
+            "Bansbari water tank filling"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "चौथो",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "03:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "धापासी-५,७ (गोधुली लाईन,दियालो लाईन,श्री टोल ,मयुर क्याफे एरिया,कुमारी गल्लि एरिया,राम मन्दिर उकालो)"
+          ],
+          "areas_en": [
+            "Dhapasi-5,7 (Godhuli Line, Diyalo Line, Shri Tole, Mayur Cafe Area, Kumari Galli Area, Ram Mandir Ukaalo)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "चौथो",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "11:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "धापासी-४,६ (फिसल टोल,नेचर क्लब एरिया,तिलंगाटार-७,अपि स्कुल,कृष्णमन्दिर,जन कल्याण चोक,शिव मन्दिर साईड,भगवती मन्दिर पुरानो लाईन,डाँफे कोलोनी)"
+          ],
+          "areas_en": [
+            "Dhapasi-4,6 (Phisal Tole, Nature Club Area, Tilangatar-7, Api School, Krishan Mandir, Jan Kalyan Chowk, Shiva Mandir side, Bhagwati Mandir Purano Line, Danfe Colony)"
+          ],
+          "contacts": [],
+          "notes": "Distribution time may vary according to Melamchi water volume from BDS system"
+        }
+      ]
+    },
+    {
+      "name_np": "Pani pokhari",
+      "name_en": "Pani Pokhari",
+      "zones": [
+        {
+          "dma": null,
+          "label": "पहिलो",
+          "days": [
+            1,
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "07:00",
+          "time_to": "10:00",
+          "areas_np": [
+            "लैनचौर, गल्कोपाखादेखि सोह्रखुट्टे ओरालोसम्मसम्म"
+          ],
+          "areas_en": [
+            "Lainchaur, from Galkopakha to Sohra Khutte downhill"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोस्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "04:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "११\" लाजिम्पाट",
+            "गैरीधारा"
+          ],
+          "areas_en": [
+            "11\" Lajimpat",
+            "Gairidhara"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेस्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27,
+            31
+          ],
+          "time_from": "04:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "डोचा मार्ग"
+          ],
+          "areas_en": [
+            "Docha Marg"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेस्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27,
+            31
+          ],
+          "time_from": "07:00",
+          "time_to": "09:00",
+          "areas_np": [
+            "महाराजगंज बजार एरिया"
+          ],
+          "areas_en": [
+            "Maharajgunj Bazar Area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेस्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27,
+            31
+          ],
+          "time_from": "09:00",
+          "time_to": "11:00",
+          "areas_np": [
+            "कुमरिथान माथि"
+          ],
+          "areas_en": [
+            "Above Kumaristhan"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेस्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27,
+            31
+          ],
+          "time_from": "11:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "कुमारीथान तल"
+          ],
+          "areas_en": [
+            "Below Kumaristhan"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेस्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27,
+            31
+          ],
+          "time_from": "13:00",
+          "time_to": "16:00",
+          "areas_np": [
+            "आचार्य गल्लि"
+          ],
+          "areas_en": [
+            "Acharya Galli"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेस्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27,
+            31
+          ],
+          "time_from": "16:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "खुर्सानीटार ३\""
+          ],
+          "areas_en": [
+            "Khursani Tar 3\""
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेस्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27,
+            31
+          ],
+          "time_from": "19:00",
+          "time_to": "22:00",
+          "areas_np": [
+            "पन्डोल मार्ग"
+          ],
+          "areas_en": [
+            "Pandol Marg"
+          ],
+          "contacts": [],
+          "notes": "Distribution time may vary according to Melamchi water volume from BDS system"
+        }
+      ]
+    },
+    {
+      "name_np": "New bansbari",
+      "name_en": "New Bansbari",
+      "zones": [
+        {
+          "dma": null,
+          "label": "पहिलो",
+          "days": [
+            1,
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "06:00",
+          "time_to": "08:30",
+          "areas_np": [
+            "गुम्बा भाग क्षेत्र"
+          ],
+          "areas_en": [
+            "Gumba Bhag area"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "पहिलो",
+          "days": [
+            1,
+            5,
+            9,
+            13,
+            17,
+            21,
+            25,
+            29
+          ],
+          "time_from": "14:00",
+          "time_to": "16:30",
+          "areas_np": [
+            "चारघरे",
+            "माथिल्लो ल्होसार"
+          ],
+          "areas_en": [
+            "Charghare",
+            "Upper Lhosar"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोस्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "06:00",
+          "time_to": "08:30",
+          "areas_np": [
+            "गल्फुटार",
+            "हेपाली क्षेत्र",
+            "हातीगौडा क्षेत्र"
+          ],
+          "areas_en": [
+            "Gulfutar",
+            "Hepaali area",
+            "Hati Gonda area"
+          ],
+          "contacts": [
+            "Superviser Narendra Thapa (9841449709)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोस्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "13:00",
+          "time_to": "14:30",
+          "areas_np": [
+            "माथिल्लो धारापाटी",
+            "तल्लो ल्होसार"
+          ],
+          "areas_en": [
+            "Upper Dharapati",
+            "Lower Lhosar"
+          ],
+          "contacts": [
+            "Superviser Narendra Thapa (9841449709)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "दोस्रो",
+          "days": [
+            2,
+            6,
+            10,
+            14,
+            18,
+            22,
+            26,
+            30
+          ],
+          "time_from": "14:30",
+          "time_to": "15:30",
+          "areas_np": [
+            "महापुर मार्ग"
+          ],
+          "areas_en": [
+            "Mahapur Marg"
+          ],
+          "contacts": [
+            "Uma Prasad Bhandari (9849127466)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेस्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27,
+            31
+          ],
+          "time_from": "06:00",
+          "time_to": "08:30",
+          "areas_np": [
+            "बसुन्धरा पश्चिम क्षेत्र (चक्रपथ बाहिर)"
+          ],
+          "areas_en": [
+            "Basundhara West Area (Outside Ring Road)"
+          ],
+          "contacts": [
+            "Sanukaji Pandey (9841789139)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेस्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27,
+            31
+          ],
+          "time_from": "12:00",
+          "time_to": "13:30",
+          "areas_np": [
+            "कपन मार्ग"
+          ],
+          "areas_en": [
+            "Kapan Marg"
+          ],
+          "contacts": [
+            "Krishnaram Rayamajhi (9860127200)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "तेस्रो",
+          "days": [
+            3,
+            7,
+            11,
+            15,
+            19,
+            23,
+            27,
+            31
+          ],
+          "time_from": "17:00",
+          "time_to": "19:00",
+          "areas_np": [
+            "पिपलबोट माथि (मगर टोल)",
+            "मिलिजुली टोल"
+          ],
+          "areas_en": [
+            "Above Pipalbot (Magar Tole)",
+            "Milijuli Tole"
+          ],
+          "contacts": [
+            "Thir Bahadur Basnet (9844128405)"
+          ],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "चौथो",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "06:00",
+          "time_to": "08:30",
+          "areas_np": [
+            "बसुन्धरा पश्चिम क्षेत्र (चक्रपथ भित्र)"
+          ],
+          "areas_en": [
+            "Basundhara West Area (Inside Ring Road)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "चौथो",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "12:00",
+          "time_to": "14:30",
+          "areas_np": [
+            "चक्रपथ पूर्व क्षेत्रहरु",
+            "पिपलबोट तल"
+          ],
+          "areas_en": [
+            "East of Ring Road areas",
+            "Below Pipalbot"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "चौथो",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "16:30",
+          "time_to": "18:30",
+          "areas_np": [
+            "अमेरिकन दुतावास आगाडी (आस्था कला केन्द्र)",
+            "६\" बाँसबारी कम्पाउन भित्र"
+          ],
+          "areas_en": [
+            "In front of American Embassy (Astha Kala Kendra)",
+            "Inside 6\" Bansbari Compound"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": null,
+          "label": "चौथो",
+          "days": [
+            4,
+            8,
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "time_from": "18:30",
+          "time_to": "20:30",
+          "areas_np": [
+            "महाराजगंज बजार क्षेत्र"
+          ],
+          "areas_en": [
+            "Maharajgunj Bazar Area"
+          ],
+          "contacts": [],
+          "notes": "Distribution time may vary according to Melamchi water volume from BDS system"
+        }
+      ]
+    },
+    {
+      "name_np": "Panipokhari",
+      "name_en": "Panipokhari",
+      "zones": [
+        {
+          "dma": "1.1",
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "18:00",
+          "time_to": "21:00",
+          "areas_np": [
+            "दरबारमार्ग",
+            "जमल",
+            "नारायणचौर",
+            "तीनधारा",
+            "हात्तिसार",
+            "नक्साल चौरढुंगे"
+          ],
+          "areas_en": [
+            "Durbar Marg",
+            "Jamal",
+            "Narayan Chaur",
+            "Tindhara",
+            "Hattisar",
+            "Naxal Chaurdhunge"
+          ],
+          "contacts": [
+            "Om Gurung-9810107563"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "1.1",
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "21:00",
+          "time_to": "06:00",
+          "areas_np": [
+            "जैन मन्दिर तर्फ",
+            "दुगड मार्ग (कमलपोखरी)"
+          ],
+          "areas_en": [
+            "Towards Jain Mandir",
+            "Dugad Marg (Kamalpokhari)"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "1.2",
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "13:00",
+          "time_to": "15:00",
+          "areas_np": [
+            "पुतलीसडक",
+            "बागबजार",
+            "बग्गीखाना",
+            "कमलादी"
+          ],
+          "areas_en": [
+            "Putalisadak",
+            "Bagbazar",
+            "Baggikhana",
+            "Kamaladi"
+          ],
+          "contacts": [
+            "Nabin Chaudhary-9802335141"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "1.2",
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "15:00",
+          "time_to": "17:00",
+          "areas_np": [
+            "कृष्ण पाउरोटी",
+            "चारबुर्जा मार्ग",
+            "कमलपोखरी",
+            "धोवीधारा"
+          ],
+          "areas_en": [
+            "Krishna Paurati",
+            "Charburja Marg",
+            "Kamalpokhari",
+            "Dhobidhara"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "1.2",
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "20:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "के.सी.टोल",
+            "कमल मार्ग",
+            "धोवीधारा"
+          ],
+          "areas_en": [
+            "K.C. Tole",
+            "Kamal Marg",
+            "Dhobidhara"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "1.2",
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "19:00",
+          "time_to": "07:00",
+          "areas_np": [
+            "चारखाल",
+            "गर्जु मार्ग",
+            "अमर गल्लि",
+            "तिवारी गल्लि"
+          ],
+          "areas_en": [
+            "Charkhal",
+            "Garju Marg",
+            "Amar Galli",
+            "Tiwari Galli"
+          ],
+          "contacts": [],
+          "notes": "Distribution time may vary according to Melamchi water volume from BDS system"
+        }
+      ]
+    },
+    {
+      "name_np": "New Balaju",
+      "name_en": "New Balaju",
+      "zones": [
+        {
+          "dma": "7.1",
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "20:00",
+          "time_to": "22:00",
+          "areas_np": [
+            "नयाँबजार",
+            "खुसिबू वडा-१६,१७"
+          ],
+          "areas_en": [
+            "Naya Bazar",
+            "Khusibu Ward-16,17"
+          ],
+          "contacts": [
+            "Dhanbir Ghale-9841378328",
+            "Kumar-9841423596"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "7.2",
+          "label": null,
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "19:00",
+          "time_to": "22:30",
+          "areas_np": [
+            "भगवानबहाल",
+            "पुरानो ढल्को",
+            "कल्धारा",
+            "पकनाजोल सोह्रखुट्टे",
+            "ठमेल",
+            "केशरमहल",
+            "नरसिङ्ग चोक",
+            "क्षेत्रपाट्टि",
+            "धोवीचौर"
+          ],
+          "areas_en": [
+            "Bhagwan Bahal",
+            "Purano Dhalko",
+            "Kaldhara",
+            "Paknajol Sohra Khutte",
+            "Thamel",
+            "Kesharmahal",
+            "Narsingh Chowk",
+            "Kshetrapati",
+            "Dhobichaur"
+          ],
+          "contacts": [
+            "Dhanbir Ghale-9841378328",
+            "Kumar-9841423596"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "7.3",
+          "label": null,
+          "days": [
+            6,
+            12,
+            18,
+            24,
+            30
+          ],
+          "time_from": "04:00",
+          "time_to": "13:00",
+          "areas_np": [
+            "भुरंखेल",
+            "ठहिटी",
+            "ज्याठा जमल",
+            "कमलाक्ची",
+            "असन",
+            "टंगाल"
+          ],
+          "areas_en": [
+            "Bhurunkhel",
+            "Thahiti",
+            "Jatha Jamal",
+            "Kamalpokchi",
+            "Asan",
+            "Tangal"
+          ],
+          "contacts": [
+            "Kiran-9801229117",
+            "Tek-9801808100"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "7.4",
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "07:00",
+          "time_to": "09:30",
+          "areas_np": [
+            "तम्सिपाखा",
+            "डल्लुपुल",
+            "नरदेवी",
+            "येत्खा",
+            "मरु",
+            "रामघाट",
+            "कन्केश्वरी",
+            "परोपकार",
+            "भीमसेनस्थान"
+          ],
+          "areas_en": [
+            "Tamsipakha",
+            "Dallu Pul",
+            "Naradevi",
+            "Yetkha",
+            "Maru",
+            "Ramghat",
+            "Kankeshwari",
+            "Paropakar",
+            "Bhimsensthan"
+          ],
+          "contacts": [
+            "Kiran-9801229117",
+            "Tek-9801808100"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "7.4",
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "11:30",
+          "time_to": "14:00",
+          "areas_np": [
+            "किल्लागल",
+            "इन्द्रचोक",
+            "माखन",
+            "भोटाहिटी",
+            "महाबौद्ध",
+            "ओत्तू",
+            "रन्जना",
+            "विर अस्पताल",
+            "न्युरोड गेट"
+          ],
+          "areas_en": [
+            "Killagal",
+            "Indra Chowk",
+            "Makhan",
+            "Bhotahiti",
+            "Mahabouddha",
+            "Ottu",
+            "Ranjana",
+            "Bir Hospital",
+            "New Road Gate"
+          ],
+          "contacts": [
+            "Kiran-9801229117",
+            "Tek-9801808100"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "10.1",
+          "label": null,
+          "days": [
+            5,
+            11,
+            17,
+            23,
+            29
+          ],
+          "time_from": "16:00",
+          "time_to": "18:30",
+          "areas_np": [
+            "चःमती",
+            "ब्याट्री कारखाना",
+            "रामटेल",
+            "सम्रिधि स्कुल",
+            "१६ नं वडा कार्यालय एरिया"
+          ],
+          "areas_en": [
+            "Chahmati",
+            "Battery Factory",
+            "Ram Tole",
+            "Samriddhi School",
+            "Ward No. 16 Office Area"
+          ],
+          "contacts": [
+            "Rajan Magar-9869985977"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "10.2",
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "20:00",
+          "time_to": "22:30",
+          "areas_np": [
+            "चःमती",
+            "शोभाभगवती",
+            "घोरिंगा",
+            "जनमार्ग-२"
+          ],
+          "areas_en": [
+            "Chahmati",
+            "Shobha Bhagwati",
+            "Ghoringa",
+            "Janmarg-2"
+          ],
+          "contacts": [
+            "Parashuram Adhikari-9841727544"
+          ],
+          "notes": null
+        },
+        {
+          "dma": "10.2",
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "17:30",
+          "time_to": "20:00",
+          "areas_np": [
+            "जर्मन क्वाटर",
+            "जगत गुम्बा",
+            "तामांग रेस्टुरेन्ट",
+            "लामी कफि"
+          ],
+          "areas_en": [
+            "German Quarter",
+            "Jagat Gumaba",
+            "Tamang Restaurant",
+            "Lami Coffee"
+          ],
+          "contacts": [],
+          "notes": null
+        },
+        {
+          "dma": "10.2",
+          "label": null,
+          "days": [
+            4,
+            10,
+            16,
+            22,
+            28
+          ],
+          "time_from": "15:00",
+          "time_to": "17:30",
+          "areas_np": [
+            "डल्लु",
+            "बज्र होटेल",
+            "ससुखेत",
+            "बडेगल",
+            "फुर्केसल्ला",
+            "बिजेश्वरी",
+            "तल्लो बिजेश्वरी"
+          ],
+          "areas_en": [
+            "Dallu",
+            "Bajra Hotel",
+            "Sasukhet",
+            "Badegal",
+            "Furkesalla",
+            "Bijeshwari",
+            "Tallo Bijeshwari"
+          ],
+          "contacts": [],
+          "notes": "Distribution time may vary according to Melamchi water volume from BDS system"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "branch": "Maharajgunj",
+    "month_key": "2083_Ashoj",
+    "url": "https://kukl.org.np/storage/download/275/file/1625-Maharajgunj_ Water_Schedule_2083_Ashoj.xlsx",
+    "file": "1625-Maharajgunj_ Water_Schedule_2083_Ashoj.xlsx",
+    "kind": "xlsx",
+    "extracted_at": "2026-10-18T12:58:42+00:00"
+  }
+}

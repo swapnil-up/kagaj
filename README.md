@@ -104,6 +104,17 @@ GEMINI_API_KEY=$key bill-tracker/.venv/bin/python bill-tracker/scripts/process_n
 # Output: output/{title}.txt (translation) + output/{title}-ocr.txt (Devanagari)
 ```
 
+### KUKL Water-Schedule Extraction (`water_parser/`)
+Normalises KUKL's per-branch monthly water-distribution schedules (xlsx/doc via
+openpyxl, or pdf via PaddleOCR) into one JSON: reservoirs → zones with DMA,
+delivery days, time window, served areas, and contacts.
+
+```bash
+python -m water_parser.cli scrape                       # → water/manifest.json
+python -m water_parser.cli process --month 2083_Ashoj   # → water/<branch>__<month>.json
+python -m water_parser.cli build                        # → water/schedule.json
+```
+
 ## Tech Stack
 
 | Component | Technology |
@@ -150,6 +161,7 @@ python pdf_to_text.py notice.pdf --html --translate
 ├── cidmap/                  # CID mapping: font-scoped CID → Devanagari
 ├── redbook_parser/          # Budget extraction (PyMuPDF + spatial-first)
 ├── migration_parser/        # DoFE labour-migration panel (`migration/`) + Preeti decoder
+├── water_parser/            # KUKL water-schedule extraction (`water/schedule.json`)
 ├── dictionary/              # Nepali-English dict builder
 ├── archive/budget/          # Frozen legacy budget extraction (v1/v2/v3)
 ├── tests/                   # Pytest suite (redbook_parser + migration_parser)

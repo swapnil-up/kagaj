@@ -765,5 +765,25 @@
     "status": "skipped",
     "scraped_at": "2026-10-05",
     "serial": "68."
+  },
+  {
+    "id": 3013,
+    "title": "Complete Proceedings of the Twenty-First Session, 16 Ashoj 2083 Friday (Meeting no. 52)",
+    "title_np": "एक्काइसौँ अधिवेशन कार्यवाहीको सम्पूर्ण विवरण, १६ असोज २०८३ शुक्ववार (बैठक सङ्ख्या- ५२)",
+    "published_at": "2026-10-06",
+    "attachment_url": "https://na.parliament.gov.np/uploads/attachments/u9653ulpemt8faja.pdf",
+    "status": "pending",
+    "scraped_at": "2026-10-19",
+    "serial": "69."
+  },
+  {
+    "id": 3011,
+    "title": "Complete Proceedings of the Twenty-First Session, 15 Ashoj 2083 Thursday (Meeting no. 51)",
+    "title_np": "एक्काइसौँ अधिवेशन कार्यवाहीको सम्पूर्ण विवरण, १५ असोज २०८३ बिहीवार (बैठक सङ्ख्या- ५१)",
+    "published_at": "2026-10-05",
+    "attachment_url": "https://na.parliament.gov.np/uploads/attachments/rz76wafyjqb4krep.pdf",
+    "status": "pending",
+    "scraped_at": "2026-10-19",
+    "serial": "70."
   }
 ]

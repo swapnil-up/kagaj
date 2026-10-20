@@ -785,8 +785,11 @@
     "title_np": "एक्काइसौँ अधिवेशन कार्यवाहीको सम्पूर्ण विवरण, १५ असोज २०८३ बिहीवार (बैठक सङ्ख्या- ५१)",
     "published_at": "2026-10-05",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/rz76wafyjqb4krep.pdf",
-    "status": "pending",
+    "status": "done",
     "scraped_at": "2026-10-19",
-    "serial": "70."
+    "serial": "70.",
+    "ocr_path": "/home/runner/work/translation/translation/output/Verbatim_3011-ocr.txt",
+    "translated_path": "/home/runner/work/translation/translation/output/Verbatim_3011.txt",
+    "structured_path": "/home/runner/work/translation/translation/translations/Verbatim_3011.json"
   }
 ]

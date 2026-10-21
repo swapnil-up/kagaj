@@ -1,12 +1,12 @@
 [project]
-name = "translation"
+name = "kagaj"
 version = "0.1.0"
-description = "Nepali government PDF extraction and translation pipeline"
+description = "Turn Nepali government PDFs into open, structured data"
 requires-python = ">=3.10"
 
 [tool.setuptools.packages.find]
 include = ["redbook_parser*", "migration_parser*", "water_parser*", "cidmap*", "dictionary*"]
-exclude = ["archive*", "output*", "tmpvenv*", "bill-tracker*", "tests*"]
+exclude = ["archive*", "output*", "tmpvenv*", "parliament*", "drug_prices*", "tests*"]
 
 [project.optional-dependencies]
 # Budget PDF extraction (redbook_parser, cidmap)
@@ -44,36 +44,18 @@ water = [
     "paddlepaddle<3.3,>=3.1",
 ]
 
-# FastAPI backend
-backend = [
-    "fastapi",
-    "uvicorn[standard]",
-    "pydantic-settings",
-    "python-multipart",
-    "python-dotenv",
-    "Pillow",
-    "paddleocr>=3.5.0",
-    "paddlepaddle<3.3,>=3.1",
-    "pdf2image>=1.17.0",
-    "google-genai",
-]
-
 # Testing
 test = [
     "pytest",
+    "pandas",
 ]
 
-# All bill-tracker components (scripts + backend + ocr)
-billtracker-full = [
-    "translation[billtracker,ocr,backend]",
-]
-
-# Everything except the backend (for CLI/CI work)
+# Everything needed for CLI/CI work
 dev = [
-    "translation[redbook,billtracker,ocr,water,test]",
+    "kagaj[redbook,billtracker,ocr,water,test]",
 ]
 
 # Full install (all components)
 all = [
-    "translation[redbook,billtracker,ocr,backend,water,test]",
+    "kagaj[redbook,billtracker,ocr,water,test]",
 ]

@@ -1,6 +1,6 @@
 """Entity + period normalisation for the migration panel.
 
-Canonical reference data lives in ``migration/{countries,districts,fiscal_years}.json``
+Canonical reference data lives in ``datasets/labour-migration/{countries,districts,fiscal_years}.json``
 (tracked). This module resolves raw, source-specific names to canonical entities
 and derives a canonical fiscal year for every row, without mutating the raw data
 (provenance is preserved by keeping the original ``name``/``period_bs`` columns).
@@ -12,8 +12,7 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
-_REPO_ROOT = Path(__file__).resolve().parent.parent
-_ENTITIES_DIR = _REPO_ROOT / "migration"
+_ENTITIES_DIR = Path(__file__).resolve().parent.parent / "datasets" / "labour-migration"
 
 # Content-id -> fiscal year, for annual documents whose parser could not read the
 # BS period from the page (older layouts). Cropped from the manifest titles.

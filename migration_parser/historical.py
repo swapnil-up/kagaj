@@ -13,7 +13,7 @@ numerals are ASCII codepoints in a PCSNEPALI font. Decoding is therefore
 numeric cells are parsed directly (never run through ``preeti.decode``).
 
 The monthly increment (``scope="month"``) is the high-frequency datum; the other
-two are the surrounding cumulative levels. See ``migration/README.md``
+two are the surrounding cumulative levels. See ``datasets/labour-migration/README.md``
 (archive-backfill scope-check) for the family taxonomy.
 """
 

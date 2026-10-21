@@ -2,9 +2,9 @@
 
 Writes:
 * country-summary rows for #030–#032 into output/migration/docs/ (picked up by
-  the panel rebuild → migration/panel.csv, channel="preapproval");
+  the panel rebuild → datasets/labour-migration/panel.csv, channel="preapproval");
 * agency-level detail (pre-approval + institutional) into the tracked
-  migration/agencies.csv.
+  datasets/labour-migration/agencies.csv.
 
   python -m migration_parser agencies
 """

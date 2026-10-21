@@ -1,7 +1,7 @@
-"""Build the tracked archive.org backfill panel (``migration/panel_archive.csv.gz``).
+"""Build the tracked archive.org backfill panel (``datasets/labour-migration/panel_archive.csv.gz``).
 
 Consumes the downloaded ``output/migration/archive_pdfs/`` cache + the tracked
-``bill-tracker/migration_archive_manifest.json`` and emits tidy-long rows for the
+``datasets/labour-migration/manifests/migration_archive_manifest.json`` and emits tidy-long rows for the
 **fully verified** family-(a) monthly country reports (BS 2067-2073).
 
 Family (a) is the 12-col *labour-approval* table ("कामदार गएको मुलुक" ×

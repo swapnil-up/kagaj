@@ -1,13 +1,13 @@
 """Cross-document reconciliation for the migration panel.
 
-Applies the documented rule in ``migration/reconciliation.json`` and:
+Applies the documented rule in ``datasets/labour-migration/reconciliation.json`` and:
   1. collapses rows that resolve to the same canonical entity within one document
      (e.g. the source's ``Combodia`` + ``Cambodia`` typo-rows) by summing counts,
   2. asserts no canonical key is produced by more than one document (no
      cross-document double count after the Table X year override),
   3. reconciles overlapping sources (annual vs months; country-vs-district pairs),
-  4. writes ``migration/panel_canonical.csv`` (additive component detail only) and
-     ``migration/panel_rollup.csv`` (aggregates, measures, printed totals), both
+  4. writes ``datasets/labour-migration/panel_canonical.csv`` (additive component detail only) and
+     ``datasets/labour-migration/panel_rollup.csv`` (aggregates, measures, printed totals), both
      gitignored.
 
 Key = (granularity, reconciled_fiscal_year, period_ad_start, section,

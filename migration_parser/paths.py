@@ -2,7 +2,7 @@
 
 Centralises every filesystem location and DoFE constant used by the
 ``migration_parser`` CLIs so that the package has no dependency on the
-``bill-tracker`` scripts. Path resolution is deterministic (relative to the
+``parliament`` scripts. Path resolution is deterministic (relative to the
 installed package, not the CWD).
 """
 
@@ -13,10 +13,9 @@ from pathlib import Path
 
 # --- Project layout ---
 REPO_ROOT = Path(__file__).resolve().parents[1]
-BILLTRACKER_ROOT = REPO_ROOT / "bill-tracker"
 
 # --- Tracked data (committed) ---
-MIGRATION_DIR = REPO_ROOT / "migration"
+MIGRATION_DIR = REPO_ROOT / "datasets" / "labour-migration"
 
 # --- Scratch output (gitignored: raw PDFs, per-doc CSV, reports) ---
 OUTPUT_DIR = REPO_ROOT / "output"
@@ -24,11 +23,11 @@ MIGRATION_OUTPUT_DIR = OUTPUT_DIR / "migration"
 MIGRATION_REPORTS_DIR = MIGRATION_OUTPUT_DIR / "reports"
 MIGRATION_OPENDATA_DIR = MIGRATION_OUTPUT_DIR / "opendatanepal"
 
-# --- Manifest (scraper's working state, kept beside the other manifests) ---
-MIGRATION_MANIFEST = BILLTRACKER_ROOT / "migration_manifest.json"
+# --- Manifest (scraper's working state, kept with the dataset) ---
+MIGRATION_MANIFEST = MIGRATION_DIR / "manifests" / "migration_manifest.json"
 
 # --- Archive.org backfill (separate tracked panel; see cmd_archive_panel) ---
-MIGRATION_ARCHIVE_MANIFEST = BILLTRACKER_ROOT / "migration_archive_manifest.json"
+MIGRATION_ARCHIVE_MANIFEST = MIGRATION_DIR / "manifests" / "migration_archive_manifest.json"
 MIGRATION_ARCHIVE_PANEL = MIGRATION_DIR / "panel_archive.csv.gz"
 MIGRATION_ARCHIVE_BUILD = MIGRATION_DIR / "panel_archive_build.json"
 ARCHIVE_PANEL_COLUMNS = [
@@ -73,8 +72,8 @@ MIGRATION_PANEL_COLUMNS = [
 ]
 
 def load_env() -> None:
-    """Load ``bill-tracker/.env`` into ``os.environ`` (if present)."""
-    env_path = BILLTRACKER_ROOT / ".env"
+    """Load the repository-root ``.env`` into ``os.environ`` (if present)."""
+    env_path = REPO_ROOT / ".env"
     if not env_path.exists():
         return
     for line in env_path.read_text().splitlines():

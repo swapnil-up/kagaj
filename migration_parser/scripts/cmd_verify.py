@@ -1,9 +1,9 @@
 """Panel-wide verification pass.
 
-Re-checks the math invariants of ``migration/panel.csv`` independently of
+Re-checks the math invariants of ``datasets/labour-migration/panel.csv`` independently of
 extraction (see ``migration_parser.panel_verify``) and writes a tracked
-``migration/verification.json`` summary. Failures listed in
-``migration/reconciliation.json`` → ``known_arithmetic_errors`` are counted but
+``datasets/labour-migration/verification.json`` summary. Failures listed in
+``datasets/labour-migration/reconciliation.json`` → ``known_arithmetic_errors`` are counted but
 tolerated; any other failure is unexpected and makes the script exit non-zero.
 
     python -m migration_parser verify
@@ -60,7 +60,7 @@ def main(argv: list[str] | None = None) -> int:
     }
     (MIGRATION_DIR / "verification.json").write_text(
         json.dumps(summary, indent=2, ensure_ascii=False) + "\n")
-    print(f"wrote migration/verification.json ({contract})")
+    print(f"wrote datasets/labour-migration/verification.json ({contract})")
     return 1 if unexpected else 0
 
 

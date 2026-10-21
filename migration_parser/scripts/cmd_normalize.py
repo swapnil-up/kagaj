@@ -1,6 +1,6 @@
 """Apply canonical entity + fiscal-year normalisation to the migration outputs.
 
-Reads the raw tracked outputs (``migration/panel.csv``, ``migration/agencies.csv``)
+Reads the raw tracked outputs (``datasets/labour-migration/panel.csv``, ``datasets/labour-migration/agencies.csv``)
 and writes normalised companions with added canonical columns. Raw columns are
 kept intact; normalisation only appends.
 
@@ -75,7 +75,7 @@ def normalize_panel() -> int:
             # cross-template equivalence is a single-analyst judgment call
             # (channel_reviewed=false: legalization, old-template new_entry).
             # ``analysis_safe_permissive`` is the older, looser flag kept for
-            # deliberate legalization-specific work — see migration/README.md.
+            # deliberate legalization-specific work — see datasets/labour-migration/README.md.
             resolved = row["entity_resolved"] == "true"
             row["analysis_safe"] = _bool(_truthy(row.get("verified"))
                                          and resolved

@@ -17,14 +17,14 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: pip-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+          key: pip-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
       - name: Install deps
         run: pip install requests
       - name: Scrape verbatims
-        run: python bill-tracker/scripts/scrape_verbatims.py
+        run: python parliament/scripts/scrape_verbatims.py
       - name: Commit manifest
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add bill-tracker/verbatims.json
+          git add parliament/manifests/verbatims.json
           git diff --cached --quiet || (git commit -m "update verbatims manifest" && git push)

@@ -3,7 +3,7 @@
 The chosen workflow is human-verified boundaries (mark-boxes). This module makes
 that cheap: it detects the table's vertical rules within the table body and maps
 them to each page's known column order, writing a draft
-``water/column_regions.json`` plus a divider overlay for eyeballing. If the draft
+``water_parser/column_regions.json`` plus a divider overlay for eyeballing. If the draft
 is right, no dragging is needed; if a boundary is off, re-mark that page with
 ``agent-tools/mark-boxes`` and fold it in.
 

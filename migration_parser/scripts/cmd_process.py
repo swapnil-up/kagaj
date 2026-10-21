@@ -1,8 +1,8 @@
 """Process DoFE migration reports: download → extract → verify → tidy CSV.
 
-Reads bill-tracker/migration_manifest.json, downloads each pending PDF, extracts
+Reads datasets/labour-migration/manifests/migration_manifest.json, downloads each pending PDF, extracts
 country/district approval rows, runs the math audit, writes per-document CSV under
-output/migration/docs/ and the combined tracked panel to migration/panel.csv.
+output/migration/docs/ and the combined tracked panel to datasets/labour-migration/panel.csv.
 
   python -m migration_parser process [--max-count N] [--force]
 """
@@ -169,11 +169,11 @@ def _load_all_docs() -> list[dict]:
 
 
 def rebuild_panel() -> int:
-    """Rebuild migration/panel.csv from all per-doc CSVs (idempotent)."""
+    """Rebuild datasets/labour-migration/panel.csv from all per-doc CSVs (idempotent)."""
     panel = _load_all_docs()
     if panel:
         _write_csv(panel, MIGRATION_DATA_DIR / "panel.csv")
-        print(f"\nWrote {len(panel)} rows to migration/panel.csv", file=sys.stderr)
+        print(f"\nWrote {len(panel)} rows to datasets/labour-migration/panel.csv", file=sys.stderr)
     return len(panel)
 
 

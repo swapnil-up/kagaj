@@ -1,8 +1,8 @@
 """Machine-readable data dictionary for the shipped migration datasets.
 
 The descriptions here are the single source of truth for
-``migration/codebook.json`` (emitted by ``python -m migration_parser build``).
-Human-readable prose lives in ``migration/README.md``.
+``datasets/labour-migration/codebook.json`` (emitted by ``python -m migration_parser build``).
+Human-readable prose lives in ``datasets/labour-migration/README.md``.
 """
 from __future__ import annotations
 

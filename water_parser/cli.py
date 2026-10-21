@@ -1,11 +1,11 @@
 """CLI: ``python -m water_parser.cli <command>``.
 
 Commands:
-  scrape    fetch the KUKL schedule page → water/manifest.json
+  scrape    fetch the KUKL schedule page → datasets/water/manifest.json
   process   download + extract selected manifest entries
   render    render PDF entries to page PNGs for mark-boxes
   validate  flag suspicious zones in per-branch extracts
-  build     merge per-branch extracts → water/schedule.json
+  build     merge per-branch extracts → datasets/water/schedule.json
   list      show manifest entries and their status
 """
 

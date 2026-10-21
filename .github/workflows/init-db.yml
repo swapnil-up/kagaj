@@ -17,4 +17,4 @@ jobs:
       - name: Install deps
         run: pip install "psycopg[binary]"
       - name: Create schema
-        run: python bill-tracker/scripts/init_db.py
+        run: python parliament/scripts/init_db.py

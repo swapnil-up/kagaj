@@ -782,7 +782,7 @@ def test_normalize_name_dispatch():
 
 def test_every_panel_name_is_covered_by_reference_data():
     """Guard: any raw name in the shipped panel must resolve to an entity."""
-    panel = Path(__file__).resolve().parents[1] / "migration" / "panel.csv"
+    panel = Path(__file__).resolve().parents[1] / "datasets" / "labour-migration" / "panel.csv"
     missing = []
     with panel.open(newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
@@ -833,7 +833,7 @@ def test_canonical_channel_unknown_is_passthrough():
 
 
 def test_every_panel_channel_is_mapped():
-    panel = Path(__file__).resolve().parents[1] / "migration" / "panel.csv"
+    panel = Path(__file__).resolve().parents[1] / "datasets" / "labour-migration" / "panel.csv"
     unknown = set()
     with panel.open(newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
@@ -966,8 +966,8 @@ def test_build_gunzip_is_deterministic(tmp_path, monkeypatch):
 
 # ---- canonical safety / packaging invariants -------------------------------
 
-MIGRATION_DIR = Path(__file__).resolve().parents[1] / "migration"
-MIGRATION_MANIFEST = Path(__file__).resolve().parents[1] / "bill-tracker" / "migration_manifest.json"
+MIGRATION_DIR = Path(__file__).resolve().parents[1] / "datasets" / "labour-migration"
+MIGRATION_MANIFEST = MIGRATION_DIR / "manifests" / "migration_manifest.json"
 
 
 def _read_shipped(name: str) -> list[dict]:

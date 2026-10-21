@@ -4,7 +4,7 @@ The Nepal Labour Migration Report 2020 prints FY2017/18 & FY2018/19 labour
 approvals in annexes that predate the live wide template (no S.N. column,
 report-specific channel typologies, compact district Men/Women/Total tables).
 This driver writes them as per-doc CSVs under output/migration/docs/ (picked up
-automatically by the panel rebuild) and then rebuilds migration/panel.csv.
+automatically by the panel rebuild) and then rebuilds datasets/labour-migration/panel.csv.
 
   python -m migration_parser annex
 """

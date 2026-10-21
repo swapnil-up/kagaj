@@ -1,6 +1,6 @@
 """``water_parser validate`` — flag suspicious zones in per-branch extracts.
 
-Reads tracked ``water/<Branch>__<month>.json`` files, runs the invariant checks
+Reads tracked ``datasets/water/<Branch>__<month>.json`` files, runs the invariant checks
 in :mod:`water_parser.validate` over every zone, prints a summary, and lists the
 flagged zones so a human can inspect the source row.
 """
@@ -14,7 +14,7 @@ from .. import paths, validate
 
 def run(args) -> int:
     if not paths.WATER_DIR.exists():
-        print("[validate] water/ not found")
+        print("[validate] datasets/water/ not found")
         return 1
 
     total = 0

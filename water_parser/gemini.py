@@ -1,6 +1,6 @@
 """Thin Gemini client for structured JSON extraction.
 
-Mirrors the call shape used by ``bill-tracker/scripts/process_notice.py``:
+Mirrors the call shape used by ``parliament/scripts/process_notice.py``:
 raw REST, ``response_mime_type=application/json``, low temperature, retry on
 transient errors. Kept dependency-free (requests only) so the water pipeline
 does not pull in the google-genai SDK.
@@ -46,7 +46,7 @@ def call_structured(prompt: str, api_key: str | None = None) -> dict:
     """Send a prompt expecting a JSON object back; return the parsed dict."""
     key = api_key or os.environ.get("GEMINI_API_KEY")
     if not key:
-        raise GeminiError("GEMINI_API_KEY not set (add bill-tracker/.env)")
+        raise GeminiError("GEMINI_API_KEY not set (add .env at the repo root)")
 
     body = {
         "system_instruction": {"parts": [{"text": SYSTEM_INSTRUCTION}]},

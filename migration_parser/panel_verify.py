@@ -1,9 +1,9 @@
-"""Panel-wide verification — independent math audit of ``migration/panel.csv``.
+"""Panel-wide verification — independent math audit of ``datasets/labour-migration/panel.csv``.
 
 ``verify.py`` checks the tables at extraction time (on the in-memory wide rows).
 This module re-checks the *melted* panel, so it also guards against melt/
 normalisation regressions. Channels are canonicalised first (the panel stores the
-raw printed names) via ``migration/channels.json``. Invariants:
+raw printed names) via ``datasets/labour-migration/channels.json``. Invariants:
 
     Male + Female                       = Total           (each channel)
     Σ component channels (per gender)   = Total with Re-Entry

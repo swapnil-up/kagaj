@@ -24,7 +24,7 @@ import urllib3
 
 from ..historical import extract_monthly, melt
 from ..model import DocMeta
-from ..paths import BILLTRACKER_ROOT, MIGRATION_OUTPUT_DIR, REPO_ROOT
+from ..paths import MIGRATION_ARCHIVE_MANIFEST, MIGRATION_OUTPUT_DIR, REPO_ROOT
 from ..periods import BS_MONTHS_EN, BS_MONTHS_NP, _norm_digits
 from . import cmd_process as process
 
@@ -34,7 +34,7 @@ HEADERS = {"User-Agent": "Mozilla/5.0"}
 BACKFILL_DIR = MIGRATION_OUTPUT_DIR / "backfill"
 ARCHIVE_INVENTORY = MIGRATION_OUTPUT_DIR / "archive_org.json"
 ARCHIVE_PDFS = MIGRATION_OUTPUT_DIR / "archive_pdfs"
-ARCHIVE_MANIFEST = BILLTRACKER_ROOT / "migration_archive_manifest.json"
+ARCHIVE_MANIFEST = MIGRATION_ARCHIVE_MANIFEST
 
 MONTH_LABEL = {
     1: "Baishakh", 2: "Jestha", 3: "Asar", 4: "Shrawan", 5: "Bhadra",

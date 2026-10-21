@@ -1,8 +1,8 @@
 """``water_parser build`` — merge per-branch extractions into one schedule file.
 
-Scans tracked ``water/*.json`` (excluding the manifest), keeps the most recent
+Scans tracked ``datasets/water/*.json`` (excluding the manifest), keeps the most recent
 month per branch (Nepali month order via :func:`paths.month_sort_key`), and
-writes ``water/schedule.json`` — the single artifact the website consumes.
+writes ``datasets/water/schedule.json`` — the single artifact the website consumes.
 """
 
 from __future__ import annotations
@@ -31,7 +31,7 @@ def _search_terms(zone: dict) -> list[str]:
 
 def run(args) -> int:
     if not paths.WATER_DIR.exists():
-        print("[build] water/ not found — run `process` first")
+        print("[build] datasets/water/ not found — run `process` first")
         return 1
 
     # latest structured file per branch

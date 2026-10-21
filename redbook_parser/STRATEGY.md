@@ -343,7 +343,6 @@ Still needs redbook8283.pdf:
 
 - No English translation of the redbook (that is the OCR/notice pipeline's
   job; this repo's budget work stops at structured Devanagari numbers).
-- No changes to the HoR / notice automation pipeline (`scripts/`,
-  `translations/`, `notices.json`, `backend/`, `frontend/`). That pipeline is
-  the project priority and is off-limits.
+- No changes to the HoR / notice automation pipeline (`parliament/` and `datasets/translations/`). That pipeline is separate
+  and off-limits to budget work.
 - No deletion of `budget/*.py`; they are archived for reference.

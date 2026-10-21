@@ -4,6 +4,7 @@ output/
 dictionary-data/
 *.png
 __pycache__/
+.pytest_cache/
 .env
 node_modules/
 dist/
@@ -11,12 +12,12 @@ static_dist/
 *.egg-info/
 tmpvenv/
 redbook-env/
-bill-tracker/.venv
+parliament/.venv
 MIGRATION_NOTES.md
 .water-handoff.md
 
 # generated normalised companions (rerun: python -m migration_parser.cli normalize)
-migration/*_normalized.csv
+datasets/labour-migration/*_normalized.csv
 # generated reconciled panels (rerun: python -m migration_parser.cli reconcile)
-migration/panel_canonical.csv
-migration/panel_rollup.csv
+datasets/labour-migration/panel_canonical.csv
+datasets/labour-migration/panel_rollup.csv

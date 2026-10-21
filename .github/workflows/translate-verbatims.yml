@@ -27,7 +27,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: pip-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+          key: pip-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
       - name: Cache PaddleOCR models
         uses: actions/cache@v4
         with:
@@ -45,12 +45,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y poppler-utils libgl1 libglib2.0-0
       - name: Install Python deps
-        run: pip install -r requirements.txt
+        run: pip install -e ".[billtracker,ocr]"
       - name: Ensure schema exists (idempotent)
         if: env.DATABASE_URL != ''
-        run: python bill-tracker/scripts/init_db.py
+        run: python parliament/scripts/init_db.py
       - name: Process verbatims until quota exhausted
-        run: python bill-tracker/scripts/process_verbatim.py --max-count ${{ github.event.inputs.count || '0' }}
+        run: python parliament/scripts/process_verbatim.py --max-count ${{ github.event.inputs.count || '0' }}
       - name: Save partial verbatim segment cache
         if: always()
         continue-on-error: true
@@ -61,10 +61,10 @@ jobs:
       - name: Upsert to pgvector (if DATABASE_URL configured)
         if: env.DATABASE_URL != ''
         continue-on-error: true
-        run: python bill-tracker/scripts/upsert_verbatim.py translations/Verbatim_*.json
+        run: python parliament/scripts/upsert_verbatim.py datasets/translations/Verbatim_*.json
       - name: Commit results
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add bill-tracker/verbatims.json translations/Verbatim_*.json
+          git add parliament/manifests/verbatims.json datasets/translations/Verbatim_*.json
           git diff --cached --quiet || (git commit -m "translate verbatims" && git push)

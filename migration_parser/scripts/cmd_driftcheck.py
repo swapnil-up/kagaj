@@ -29,12 +29,12 @@ import sys
 import requests
 import urllib3
 
-from ..paths import BILLTRACKER_ROOT, MIGRATION_OUTPUT_DIR, REPO_ROOT
+from ..paths import MIGRATION_ARCHIVE_MANIFEST, MIGRATION_OUTPUT_DIR, REPO_ROOT
 from . import cmd_process as process
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-ARCHIVE_MANIFEST = BILLTRACKER_ROOT / "migration_archive_manifest.json"
+ARCHIVE_MANIFEST = MIGRATION_ARCHIVE_MANIFEST
 ARCHIVE_PDFS = MIGRATION_OUTPUT_DIR / "archive_pdfs"
 
 

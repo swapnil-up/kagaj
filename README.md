@@ -1,193 +1,167 @@
 <div align="center">
 
-# Nepali Admin Copilot
+# कागज · Kagaj
 
-Extract Devanagari text from Nepali government PDFs — OCR for legacy fonts, structured extraction for CID-keyed budget documents.
+### Nepali government paper, as data.
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![Vue.js](https://img.shields.io/badge/Vue_3-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white)](https://vuejs.org)
-[![PaddleOCR](https://img.shields.io/badge/PaddleOCR-FF6F00?style=for-the-badge&logo=paddlepaddle&logoColor=white)](https://github.com/PaddlePaddle/PaddleOCR)
-[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+Open extractors and datasets for Nepal's public PDFs — parliament, budgets,
+labour migration, water schedules, and more.
+
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Tests](https://img.shields.io/badge/tests-pytest-brightgreen?style=flat-square)](#data-integrity)
+[![License](https://img.shields.io/badge/license-MIT-yellow?style=flat-square)](LICENSE)
+[![PRs](https://img.shields.io/badge/PRs-welcome-blue?style=flat-square)](#contributing)
 
 </div>
 
-## Overview
+---
 
-Nepali government documents use two kinds of PDFs:
+## Why
 
-- **Legacy font PDFs** (Preeti/Kantipur) — no embedded Unicode, text exists only as glyphs. Solution: OCR pipeline that rasterizes pages and runs PaddleOCR (Devanagari model).
-- **CID-keyed budget PDFs** (Kalimati font) — embedded ToUnicode CMap tables but encoded with custom CID mappings. Solution: vector extraction via pdfplumber/PyMuPDF with CID→Unicode decoding.
+Nepali government offices publish critical information as PDFs. A lot of it is
+hard to use: legacy Preeti/Kantipur fonts with no Unicode layer, scanned tables,
+CID-keyed Kalimati text, or spreadsheets that change layout every month.
 
-Both pipelines are exposed as a **FastAPI web app** with a **Vue 3 SPA** frontend and also work as **CLI tools**.
+Kagaj turns that paper into **structured, verifiable, reusable data** — and
+keeps the tools open so anyone can extend them to a new office or document type.
 
-## Architecture
+## Datasets
 
+| Dataset | What it is | Coverage | Format | Link |
+|---|---|---|---|---|
+| **Labour-migration panel** | DoFE labour approvals, deaths, return migration, remittances, agency detail | FY2074/75–2082/83 · 70,104 canonical rows | CSV.GZ + codebook | [`datasets/labour-migration/`](datasets/labour-migration/) |
+| **Parliament translations** | HoR notices + National Assembly verbatims, English + structured JSON | 7th HoR · NA sessions 19+ · 218 structured docs | TXT / JSON | [`datasets/translations/`](datasets/translations/) |
+| **KUKL water schedules** | Branch → reservoir → zone/DMA/day/time/areas | 2083 Ashoj · 7 branches · 231 source entries | JSON | [`datasets/water/schedule.json`](datasets/water/schedule.json) |
+| **Budget (redbook)** | Ministry/program budget rows with a math audit against printed totals | 2082/83 redbook | SQLite / CSV / Excel | [`redbook_parser/`](redbook_parser/) |
+
+The labour-migration panel is the most mature artifact. Every row carries a
+`source_url`, each source document passes a printed-total audit, overlaps between
+documents are reconciled explicitly, and the build is fingerprinted with
+SHA-256 hashes (`datasets/labour-migration/build.json`). Start with
+[`codebook.json`](datasets/labour-migration/codebook.json) and the
+[dataset README](datasets/labour-migration/README.md).
+
+A full catalog, with row counts and licenses, lives in
+[`datasets/README.md`](datasets/README.md).
+
+## Use the data
+
+```python
+import pandas as pd
+
+panel = pd.read_csv(
+    "datasets/labour-migration/panel_canonical.csv.gz",
+    dtype={"period_bs": str},
+)
+
+# The safe default: verified rows with reviewed channels, additive-only.
+safe = panel[panel["analysis_safe"] == True]
+
+# Approvals by destination country, latest fiscal year.
+latest = safe[safe["fiscal_year"] == safe["fiscal_year"].max()]
+latest.groupby("name_canonical")["count"].sum().sort_values(ascending=False).head(10)
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    Vue 3 SPA Frontend                    │
-│  UploadView → ResultView (overlay / text / translation) │
-└──────────────────────────┬──────────────────────────────┘
-                           │ HTTP /api/*
-┌──────────────────────────▼──────────────────────────────┐
-│                    FastAPI Backend                        │
-│  ┌──────────┐  ┌──────────────┐  ┌──────────────────┐   │
-│  │ OCR API  │  │ Translation  │  │ Budget Extract   │   │
-│  │ Endpoints│  │ Service      │  │ Endpoints        │   │
-│  └────┬─────┘  └──────┬───────┘  └───────┬──────────┘   │
-│       │               │                  │               │
-│  ┌────▼─────┐   ┌─────▼───────┐   ┌──────▼──────────┐   │
-│  │ PaddleOCR│   │ Google      │   │ pdfplumber /    │   │
-│  │ (OCR)    │   │ Gemini      │   │ PyMuPDF (CID)   │   │
-│  └──────────┘   └─────────────┘   └─────────────────┘   │
-└──────────────────────────────────────────────────────────┘
+
+```python
+import json
+
+schedule = json.load(open("datasets/water/schedule.json"))
+for branch in schedule["branches"]:
+    print(branch["branch"], len(branch["reservoirs"]))
 ```
 
-## Features
+Bulk SQL / DuckDB:
 
-### OCR Pipeline (Legacy Fonts)
-- Upload Nepali government PDFs (Preeti/Kantipur fonts)
-- PDF rasterized at configurable DPI → PaddleOCR Devanagari recognition
-- Output: Unicode text with word-level bounding box positions
-- Optional Gemini translation to English with context-aware batch translation
-- HTML overlay with positioned text blocks over page images
-- Async task processing with progress polling
+```sql
+SELECT fiscal_year, sum(count) AS approvals
+FROM read_csv_auto('datasets/labour-migration/panel_canonical.csv.gz')
+WHERE analysis_safe = true
+GROUP BY fiscal_year
+ORDER BY fiscal_year;
+```
 
-### Vector Budget Extraction (CID Fonts)
-- Two extraction engines: pdfplumber (v2) and PyMuPDF (v3)
-- Parses 17+ ToUnicode CMap tables from embedded fonts
-- Extracts structured budget rows (budget code, description, actual/revised/estimate columns)
-- Auto-detects scale multipliers (हजार=×1,000, लाख=×100,000, करोड=×10,000,000)
-- Exports to SQLite, CSV, Excel with cross-verification against stated totals
+## The toolkit
 
-### Web App
-- Drag-and-drop PDF upload (up to 50MB)
-- Real-time progress polling with queue position
-- Interactive overlay view with hover zoom and translation display
-- Side-by-side Devanagari/English text view
-- Download as TXT or CSV
+| Module | Source | Method | Entry point |
+|---|---|---|---|
+| [`parliament/`](parliament/) | `hr.parliament.gov.np`, NA API | PaddleOCR + Gemini structured JSON → pgvector | `python parliament/scripts/process_notice.py` |
+| [`redbook_parser/`](redbook_parser/) | Budget redbook | PyMuPDF spatial-first extraction + CID mapping | `python -m redbook_parser.cli extract` |
+| [`migration_parser/`](migration_parser/) | `dofe.gov.np` | PyMuPDF tables + per-document math audit | `python -m migration_parser.cli build` |
+| [`water_parser/`](water_parser/) | `kukl.org.np` | xlsx/doc flatten or PaddleOCR + Gemini | `python -m water_parser.cli build` |
+| [`drug_prices/`](drug_prices/) | `dda.gov.np` | OCR + spatial columns (experimental) | `python drug_prices/scripts/process_dda.py` |
+| [`cidmap/`](cidmap/) | Any CID-keyed PDF | Font-scoped CID → Devanagari mapping | `python -m cidmap.cli` |
+| [`dictionary/`](dictionary/) | Legacy Nepali PDFs | OCR → StarDict dictionary | see `dictionary/README.md` |
 
-### CLI Tools
-- `bill-tracker/pdf_to_text.py` — single-file OCR with optional translation and HTML overlay
-- `run.sh` — orchestrator wrapper
-- `redbook_parser/` — active budget extraction (`python -m redbook_parser.cli extract …`; see `redbook_parser/STRATEGY.md`)
-- `archive/budget/` — frozen legacy budget extraction + `verify_budget.py`
-- `migration_parser/` — DoFE labour-migration panel (`python -m migration_parser.cli build`)
+Shared infrastructure: OCR (`paddleocr`), PDF text/geometry (`pymupdf`),
+structured extraction (`gemini-2.5-flash-lite`), and pgvector for semantic search.
 
-### Notice Automation Pipeline
-- `bill-tracker/scripts/scrape_notices.py` — scrapes parliament notices list and backfills PDF URLs (current 7th HoR, **182 entries**; 6th-HoR archive in `notices-6th-hor.json`)
-- `bill-tracker/scripts/process_notice.py` — picks 1 pending notice, downloads PDF, runs OCR + structured translation
-- `bill-tracker/scripts/upsert_notice.py` — chunks + embeds → pgvector
-- `bill-tracker/notices.json` — manifest tracking status (pending/done/failed) for all notices
-- GitHub Actions: weekly scrape + daily backfill translation (`GEMINI_API_KEY` secret required)
-
-### Verbatim Pipeline (National Assembly)
-- `bill-tracker/scripts/scrape_verbatims.py` — NA verbatims API, sessions 19+ (**68 entries**)
-- `bill-tracker/scripts/process_verbatim.py` — segmented Gemini translation (10KB/segment) + merge, checkpointed
-- `bill-tracker/scripts/upsert_verbatim.py` — chunks + embeds → `verbatims`/`verbatim_chunks`
-
-### Labour-Migration Panel (`migration/`)
-- Primary: **additive-only** `migration/panel_canonical.csv.gz`; companion `panel_rollup.csv.gz`; plus `series.csv`, `agencies.csv`, `codebook.json`, `build.json`
-- Reproducible build: `python -m migration_parser.cli build`; source PDFs are content-hashed (`driftcheck`)
+## Quick start
 
 ```bash
-# Scrape notice list (fast, incremental)
-bill-tracker/.venv/bin/python bill-tracker/scripts/scrape_notices.py
+git clone https://github.com/swapnil-up/kagaj.git
+cd kagaj
 
-# Backfill PDF URLs
-bill-tracker/.venv/bin/python bill-tracker/scripts/scrape_notices.py --backfill
+uv venv .venv --python 3.12
+uv pip install --python .venv/bin/python -e ".[redbook,test]"
 
-# Process one notice (download, OCR, translate)
-GEMINI_API_KEY=$key bill-tracker/.venv/bin/python bill-tracker/scripts/process_notice.py
+# Run the test suite
+.venv/bin/python -m pytest tests/ -q
 
-# Output: output/{title}.txt (translation) + output/{title}-ocr.txt (Devanagari)
+# Rebuild the labour-migration dataset
+.venv/bin/python -m migration_parser.cli build
 ```
 
-### KUKL Water-Schedule Extraction (`water_parser/`)
-Normalises KUKL's per-branch monthly water-distribution schedules (xlsx/doc via
-openpyxl, or pdf via PaddleOCR) into one JSON: reservoirs → zones with DMA,
-delivery days, time window, served areas, and contacts.
+Extras: `redbook`, `billtracker`, `ocr`, `water`, `test`, `dev`, `all`.
+Most pipelines read `GEMINI_API_KEY` from a repo-root `.env`; copy
+[`.env.example`](.env.example) to get started.
 
-```bash
-python -m water_parser.cli scrape                       # → water/manifest.json
-python -m water_parser.cli process --month 2083_Ashoj   # → water/<branch>__<month>.json
-python -m water_parser.cli build                        # → water/schedule.json
+## Data integrity
+
+This is the part we care about most:
+
+- **Per-document audits** — extracted rows must reconcile with the printed
+  subtotals and totals; a ±1 mismatch is recorded, not silently fixed.
+- **Row-level provenance** — every panel row keeps its `source_url`; every
+  series row keeps its report, page, and caption.
+- **Fingerprinted builds** — `build.json` records the git revision and the
+  SHA-256 of every shipped artifact.
+- **Gold pages** — hand-transcribed pages in [`tests/gold/`](tests/gold/) treat
+  extraction accuracy as a testable contract.
+
+See [`docs/data-integrity.md`](docs/data-integrity.md) for the full model.
+
+## Repository map
+
+```text
+parliament/        HoR notices + NA verbatims → translations + pgvector
+redbook_parser/    Budget redbook extraction
+migration_parser/  DoFE labour-migration panel
+water_parser/      KUKL water-distribution schedules
+drug_prices/       DDA drug-price extraction (experimental)
+cidmap/            CID → Devanagari font mapping
+dictionary/        Nepali–English dictionary builder
+
+datasets/          Committed, reusable outputs (start here)
+docs/              Architecture, integrity, roadmap, plans
+tests/             Pytest suite + gold pages
+archive/           Frozen legacy budget extractors (reference only)
 ```
 
-## Tech Stack
+## Contributing
 
-| Component | Technology |
-|---|---|
-| Backend | FastAPI + uvicorn |
-| OCR | PaddleOCR PP-OCRv5 (Devanagari model) |
-| Translation | Google Gemini 2.5 Flash Lite |
-| PDF Vector | pdfplumber, PyMuPDF |
-| Frontend | Vue 3 + TypeScript + Vite + Tailwind CSS |
-| Container | Docker (multi-stage) |
-| Deployment | Hugging Face Spaces |
-| Data | SQLite, openpyxl (Excel) |
+Contributions are welcome — especially new document sources, extraction fixes
+for legacy fonts, and help closing the remaining failed verbatim translations.
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md) first.
 
-## Quick Start
+## Citation & license
 
-```bash
-# Local development
-cd backend
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+If you use the labour-migration panel, cite it using [`CITATION.cff`](CITATION.cff).
+All code and data in this repository are released under the MIT License — see
+[`LICENSE`](LICENSE).
 
-# Frontend (separate terminal)
-cd frontend
-npm install
-npm run dev
+## नेपालीमा
 
-# CLI OCR
-python pdf_to_text.py notice.pdf --html --translate
-```
-
-## Project Structure
-
-```
-├── bill-tracker/             # Parliamentary notice/verbatim pipeline
-│   ├── scripts/                # scrape/process/upsert notices + verbatims, DDA tools
-│   ├── backend/                # FastAPI app
-│   ├── frontend/               # Vue 3 SPA
-│   ├── pdf_to_text.py          # OCR CLI
-│   ├── notices.json            # Notice manifest (current 7th HoR, 182 entries)
-│   ├── verbatims.json          # Verbatim manifest (NA sessions 19+, 68 entries)
-│   ├── migration_manifest.json # DoFE labour-migration source manifest (35)
-│   └── .env                    # API keys (GEMINI_API_KEY, DATABASE_URL)
-├── cidmap/                  # CID mapping: font-scoped CID → Devanagari
-├── redbook_parser/          # Budget extraction (PyMuPDF + spatial-first)
-├── migration_parser/        # DoFE labour-migration panel (`migration/`) + Preeti decoder
-├── water_parser/            # KUKL water-schedule extraction (`water/schedule.json`)
-├── dictionary/              # Nepali-English dict builder
-├── archive/budget/          # Frozen legacy budget extraction (v1/v2/v3)
-├── tests/                   # Pytest suite (redbook_parser + migration_parser)
-├── translations/            # Tracked output: OCR text, translations, JSON
-├── .github/workflows/       # GitHub Actions (scrape/translate notices + verbatims, init-db)
-├── Dockerfile               # Production build
-└── requirements.txt         # Root dependencies
-```
-
-## Deployment
-
-One-click deploy to Hugging Face Spaces:
-
-```bash
-git remote add space https://huggingface.co/spaces/<user>/<space>
-git push space main
-```
-
-Set `GEMINI_API_KEY` in Space secrets for translation support.
-
-## GitHub Actions Setup
-
-1. Add `GEMINI_API_KEY` to repo secrets (Settings → Secrets and variables → Actions)
-2. The scrape workflow runs Monday 6am, translate workflow runs daily 4am
-3. Both can also be triggered manually from the Actions tab
-
-## License
-
-MIT
+कागज नेपाल सरकारका PDF कागजातलाई खुला र संरचित डेटामा बदल्ने खुला परियोजना हो।
+संसदका सूचना र बहस, बजेट, वैदेशिक रोजगारीको तथ्याङ्क, र KUKL को पानी वितरण
+तालिका यसबाट निकालिएका छन्। सबै डेटा [`datasets/`](datasets/) मा राखिएको छ;
+प्रत्येक डेटासेटको स्रोत, जाँच र प्रमाण कागजातसँगै उपलब्ध छ।

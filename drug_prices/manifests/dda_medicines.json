@@ -1,0 +1,54 @@
+[
+  {
+    "title": "Notice regarding price",
+    "date_str": "असार १, २०८२, आइतबार १२:२७",
+    "url": "https://dda.gov.np/content/67/notice-regarding-price/",
+    "source_type": "pdf",
+    "file_url": "https://giwmscdnone.gov.np/media/pdf_upload/notice%20regarding%20price_gcbymnz.pdf",
+    "status": "done",
+    "scraped_at": "2026-08-20",
+    "serial": "1.",
+    "ocr_path": "datasets/translations/dda-notice_regarding_price-ocr.txt",
+    "structured_path": "datasets/translations/dda-notice_regarding_price.json",
+    "drug_count": 21
+  },
+  {
+    "title": "Gazette",
+    "date_str": "असार १, २०८२, आइतबार १२:२७",
+    "url": "https://dda.gov.np/content/66/gazette/",
+    "source_type": "pdf",
+    "file_url": "https://giwmscdnone.gov.np/media/pdf_upload/gazette_r7pxsu0.pdf",
+    "status": "done",
+    "scraped_at": "2026-08-20",
+    "serial": "2.",
+    "ocr_path": "datasets/translations/dda-gazette-ocr.txt",
+    "structured_path": "datasets/translations/dda-gazette.json",
+    "drug_count": 77
+  },
+  {
+    "title": "औषधिको मूल्य सम्वन्धि विभागको विज्ञप्ति - २०८२/१२/२६",
+    "date_str": "",
+    "url": "https://dda.gov.np/content/209/release-of-dda-regarding-drug-prices/",
+    "source_type": "jpg",
+    "file_url": "https://giwmscdnone.gov.np/media/albums/Bigyapti%252020821226_Rlp2MVpjgl_addk4nt_Y0SpKA5cmn_rg1pifu.jpg",
+    "status": "done",
+    "scraped_at": "2026-08-20",
+    "serial": "3.",
+    "drug_count": 0,
+    "ocr_path": "datasets/translations/dda-औषध_क_म_ल_य_सम_वन_ध_व_भ_गक_व_ज_ञप_त_२०८२_१२_२६-ocr.txt",
+    "structured_path": "datasets/translations/dda-औषध_क_म_ल_य_सम_वन_ध_व_भ_गक_व_ज_ञप_त_२०८२_१२_२६.json"
+  },
+  {
+    "title": "औषधिको मूल्य सम्वन्धि विभागको विज्ञप्ति - २०८२/०७/१३",
+    "date_str": "",
+    "url": "https://dda.gov.np/content/181/regarding-the-price-20820713/",
+    "source_type": "jpg",
+    "file_url": "https://giwmscdnone.gov.np/media/albums/Notice%252020820713_ZqH4tWxGZi_xtpcl0c_G3ChYL9Cz4_mspivpo.jpg",
+    "status": "done",
+    "scraped_at": "2026-08-20",
+    "serial": "4.",
+    "drug_count": 0,
+    "ocr_path": "datasets/translations/dda-औषध_क_म_ल_य_सम_वन_ध_व_भ_गक_व_ज_ञप_त_२०८२_०७_१३-ocr.txt",
+    "structured_path": "datasets/translations/dda-औषध_क_म_ल_य_सम_वन_ध_व_भ_गक_व_ज_ञप_त_२०८२_०७_१३.json"
+  }
+]

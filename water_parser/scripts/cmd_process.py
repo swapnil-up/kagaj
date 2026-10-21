@@ -4,7 +4,7 @@ For each selected manifest entry:
 
 1. download the attachment into ``output/water/raw/`` (cached by file name);
 2. extract to the normalised reservoir/zone shape, then write
-   ``water/<branch>__<month_key>.json`` (tracked).
+   ``datasets/water/<branch>__<month_key>.json`` (tracked).
 
 Two extraction paths:
 

@@ -15,7 +15,7 @@ Checks (entity is country unless noted):
                             destinations listed each year — not the full country
                             distribution; reported for information only)
 
-Writes ``migration/crosscheck.json``. Exits non-zero if any *comparable* check
+Writes ``datasets/labour-migration/crosscheck.json``. Exits non-zero if any *comparable* check
 misses the tolerance.
 
     python -m migration_parser crosscheck
@@ -153,7 +153,7 @@ def main(argv: list[str] | None = None) -> int:
         "comparable_failures": [r["id"] for r in fails],
     }
     (MIGRATION_DIR / "crosscheck.json").write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
-    print(f"wrote migration/crosscheck.json ({len(fails)} comparable failures)")
+    print(f"wrote datasets/labour-migration/crosscheck.json ({len(fails)} comparable failures)")
     return 1 if fails else 0
 
 

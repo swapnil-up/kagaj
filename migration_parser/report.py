@@ -5,7 +5,7 @@ dependency). Run directly::
 
     redbook-env/bin/python -m migration_parser.report
 
-Reads the tracked artefacts in ``migration/`` and writes a self-contained
+Reads the tracked artefacts in ``datasets/labour-migration/`` and writes a self-contained
 HTML report (figures embedded as base64 PNG) to ``output/migration/report.html``.
 """
 

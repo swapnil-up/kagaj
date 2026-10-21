@@ -1,7 +1,7 @@
 """Load and query human-marked column regions for PDF schedule tables.
 
 The JSON is produced by folding ``agent-tools/mark-boxes`` output into
-``water/column_regions.json`` (one region per branch/table/page). Each region
+``water_parser/column_regions.json`` (one region per branch/table/page). Each region
 holds pixel-space column rectangles at a known render dpi and an anchor column
 used by :mod:`water_parser.spatial` to detect new records.
 """

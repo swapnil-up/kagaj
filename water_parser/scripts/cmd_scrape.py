@@ -2,7 +2,7 @@
 
 Fetches the public water-distribution-schedule page, collects every PDF / XLSX /
 DOC attachment, and records branch + month parsed from the file name. The
-manifest is tracked (``water/manifest.json``) and re-runnable: entries are keyed
+manifest is tracked (``datasets/water/manifest.json``) and re-runnable: entries are keyed
 on URL, so previously-processed rows keep their status.
 """
 

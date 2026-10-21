@@ -3,7 +3,7 @@
 Reads the 5 narrative reports under output/migration/reports/, pulls every
 name × fiscal-year matrix (labour approvals, deaths, deaths-by-cause,
 disability compensation, complaints, assistance), and writes the tracked long
-panel to migration/series.csv.
+panel to datasets/labour-migration/series.csv.
 
   python -m migration_parser series [--no-download]
 """

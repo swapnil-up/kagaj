@@ -2,7 +2,7 @@
 
 For every branch that has a known layout and rendered page PNGs, detect the
 table rules, map them to the branch's column order, merge the draft into
-``water/column_regions.json``, and write divider overlays under
+``water_parser/column_regions.json``, and write divider overlays under
 ``output/water/rendered/<branch>/overlay/`` for human review.
 """
 

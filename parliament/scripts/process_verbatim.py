@@ -1,0 +1,531 @@
+"""Process pending National Assembly verbatims: download → OCR → Gemini.
+
+Verbatims are 30+ page meeting records (often >150KB OCR text), far too
+large for a single Gemini translation call. Workaround: OCR text is split
+into character-budgeted segments, each translated independently, then
+re-merged into one structured JSON so downstream (upsert_verbatim.py)
+sees the same schema as notices.
+
+Big files (OCR text, full English translation) go to output/verbatims/
+(gitignored). Only the structured JSON lands in datasets/translations/ so the repo
+stays lean at ~50KB per verbatim.
+
+Per-segment checkpointing: each completed segment is written to
+output/verbatims/{stem}.segments/{idx}-{hash}.json as it finishes, so if
+Gemini credits run out mid-document the next run resumes at the first
+unfinished segment instead of re-translating from segment 1. The cache is
+keyed on the segment text hash so any OCR drift invalidates only the
+affected segments. The cache directory is deleted once the whole verbatim
+is merged and saved. On GitHub Actions the output/verbatims dir is
+persisted across runs via the actions/cache service (see
+translate-verbatims.yml).
+
+Usage:
+    .venv/bin/python scripts/process_verbatim.py --max-count 1
+"""
+
+import argparse
+import hashlib
+import json
+import os
+import subprocess
+import sys
+import time
+import urllib3
+from pathlib import Path
+
+import requests
+
+from config import (
+    ADAPTIVE_BUDGET_RETRIES,
+    GEMINI_API,
+    GEMINI_MODEL,
+    GEMINI_SYSTEM_INSTRUCTION,
+    GEMINI_TEMPERATURE,
+    HEADERS,
+    MAX_OUTPUT_TOKENS,
+    MAX_RETRIES,
+    OUTPUT_DIR,
+    RETRY_DELAY,
+    SEGMENT_CHARS,
+    TRANSLATIONS_DIR,
+    VERBATIM_TIMEOUT,
+    VERBATIMS_MANIFEST,
+    VERBATIMS_OUTPUT_DIR,
+    load_env,
+)
+from schema import VERBATIM_PROMPT, build_schema
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+MANIFEST = VERBATIMS_MANIFEST
+
+VERBATIM_SCHEMA_DESC = build_schema(
+    body="National Assembly",
+    context="this segment as a single narrative string",
+    date_suffix=" if mentioned",
+    section_examples="Opening, Questions, Zero Hour, Main Business, Adjournment",
+    speaker_label="speaker",
+    search_label="verbatims",
+)
+
+
+def load_manifest() -> list:
+    if MANIFEST.exists():
+        return json.loads(MANIFEST.read_text())
+    return []
+
+
+def save_manifest(verbatims: list):
+    MANIFEST.write_text(json.dumps(verbatims, indent=2, ensure_ascii=False))
+    print(f"[manifest] saved {len(verbatims)} entries", file=sys.stderr)
+
+
+def pick_pending(verbatims: list) -> int | None:
+    for i, v in enumerate(verbatims):
+        if v.get("status") != "pending":
+            continue
+        url = v.get("attachment_url", "")
+        if not url or not url.endswith(".pdf"):
+            continue
+        return i
+    return None
+
+
+def fetch_with_retry(url: str, **kwargs) -> requests.Response | None:
+    last_err = None
+    for attempt in range(MAX_RETRIES):
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=VERBATIM_TIMEOUT, verify=False, **kwargs)
+            resp.raise_for_status()
+            return resp
+        except requests.exceptions.RequestException as e:
+            last_err = e
+            if attempt < MAX_RETRIES - 1:
+                wait = RETRY_DELAY * (2 ** attempt)
+                print(f"[retry] {url} ({e}), waiting {wait}s...", file=sys.stderr)
+                time.sleep(wait)
+    print(f"[error] {url}: {last_err}", file=sys.stderr)
+    return None
+
+
+def download_pdf(pdf_url: str, dest: Path) -> bool:
+    print(f"[download] {pdf_url}")
+    try:
+        resp = fetch_with_retry(pdf_url)
+        if not resp:
+            return False
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_bytes(resp.content)
+        print(f"[download] saved {len(resp.content)} bytes to {dest}")
+        return True
+    except Exception as e:
+        print(f"[error] download: {e}", file=sys.stderr)
+        return False
+
+
+def dedup_lines(text: str) -> str:
+    lines = text.splitlines()
+    result = [lines[0]] if lines else []
+    for i in range(1, len(lines)):
+        if lines[i] != lines[i - 1]:
+            result.append(lines[i])
+    return "\n".join(result)
+
+
+def run_ocr(pdf_path: Path) -> str:
+    """Extract Devanagari text. Reuses an existing {stem}-ocr.txt so
+    segment inputs stay deterministic across runs (the resume anchor)."""
+    stem = pdf_path.stem
+    ocr_txt = OUTPUT_DIR / f"{stem}-ocr.txt"
+
+    if ocr_txt.exists():
+        text = ocr_txt.read_text(encoding="utf-8")
+        print(f"[ocr] reused cached {ocr_txt} ({len(text):,} chars)", file=sys.stderr)
+        return text
+
+    bill_tracker = Path(__file__).resolve().parent.parent
+    cmd = [
+        sys.executable, str(bill_tracker / "pdf_to_text.py"),
+        str(pdf_path),
+        "-o", str(ocr_txt),
+    ]
+    print(f"[ocr] OCR only -> {ocr_txt}", file=sys.stderr)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        err = (result.stderr or "") + (result.stdout or "")
+        raise RuntimeError(err[-500:])
+
+    if ocr_txt.exists():
+        ocr_txt.write_text(dedup_lines(ocr_txt.read_text()), encoding="utf-8")
+
+    text = ocr_txt.read_text(encoding="utf-8")
+    print(f"[ocr] extracted {len(text):,} chars", file=sys.stderr)
+    return text
+
+
+def segment_text(text: str, target_chars: int = SEGMENT_CHARS) -> list[str]:
+    lines = text.splitlines(keepends=True)
+    segments = []
+    cur = []
+    cur_len = 0
+    for line in lines:
+        cur.append(line)
+        cur_len += len(line)
+        if cur_len >= target_chars:
+            segments.append("".join(cur))
+            cur = []
+            cur_len = 0
+    if cur:
+        segments.append("".join(cur))
+    return segments
+
+
+def compute_segment_hash(text: str) -> str:
+    """Stable 10-char SHA-1 of segment content, used to key the checkpoint."""
+    return hashlib.sha1(text.encode("utf-8")).hexdigest()[:10]
+
+
+def get_segment_cache_path(stem: str, idx: int, text: str) -> Path:
+    """Path to output/verbatims/{stem}.segments/{idx:03d}-{hash}.json."""
+    cache_dir = OUTPUT_DIR / f"{stem}.segments"
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    return cache_dir / f"{idx:03d}-{compute_segment_hash(text)}.json"
+
+
+def load_cached_segment(cache_path: Path) -> dict | None:
+    """Return the cached segment result, or None if missing/corrupt.
+
+    A corrupt or 0-byte file (abrupt runner death, bad cache restore) is
+    deleted and treated as a cache miss so it gets re-translated.
+    """
+    if not cache_path.exists():
+        return None
+    try:
+        with open(cache_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict) and data.get("full_translation_en"):
+            return data
+        raise ValueError("incomplete segment result")
+    except Exception as e:
+        print(f"[cache] corrupt {cache_path.name} ({e}) — dropping", file=sys.stderr)
+        try:
+            cache_path.unlink(missing_ok=True)
+        except OSError:
+            pass
+        return None
+
+
+def save_cached_segment(cache_path: Path, data: dict):
+    """Atomically write a segment result to disk."""
+    temp_path = cache_path.with_suffix(".tmp")
+    with open(temp_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False)
+    os.replace(temp_path, cache_path)
+
+
+def cleanup_segment_cache(stem: str):
+    """Delete the segment checkpoint dir after a full successful merge."""
+    cache_dir = OUTPUT_DIR / f"{stem}.segments"
+    if not cache_dir.exists():
+        return
+    for f in cache_dir.iterdir():
+        try:
+            f.unlink()
+        except OSError:
+            pass
+    try:
+        cache_dir.rmdir()
+        print(f"[cache] cleared {cache_dir}", file=sys.stderr)
+    except OSError:
+        pass
+
+
+def _classify_gemini_error(err: str) -> str:
+    lowered = err.lower()
+    if any(p in lowered for p in ["rate limit", "high demand", "try again later"]):
+        return "rpm"
+    if any(p in err for p in ["429", "403", "RESOURCE_EXHAUSTED", "quota"]):
+        return "rpd"
+    return "other"
+
+
+def _output_token_budget(segment_text: str) -> int:
+    chars = len(segment_text)
+    return max(8192, min(chars // 2, MAX_OUTPUT_TOKENS))
+
+
+def call_gemini_segment(segment_text: str, idx: int, total: int, api_key: str) -> dict:
+    prompt = VERBATIM_PROMPT.format(
+        schema=VERBATIM_SCHEMA_DESC,
+        idx=idx,
+        total=total,
+        segment_text=segment_text,
+    )
+    budget = _output_token_budget(segment_text)
+
+    for attempt in range(ADAPTIVE_BUDGET_RETRIES):
+        resp = requests.post(
+            f"{GEMINI_API}/{GEMINI_MODEL}:generateContent",
+            headers={"Content-Type": "application/json"},
+            params={"key": api_key},
+            json={
+                "system_instruction": {
+                    "parts": [{"text": GEMINI_SYSTEM_INSTRUCTION}]
+                },
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {
+                    "response_mime_type": "application/json",
+                    "temperature": GEMINI_TEMPERATURE,
+                    "maxOutputTokens": budget,
+                },
+            },
+        )
+
+        try:
+            body = resp.json()
+        except ValueError:
+            body = {}
+
+        if not resp.ok:
+            err = body.get("error", {}).get("message", resp.text[:500])
+            kind = _classify_gemini_error(err)
+            if kind in ("rpm", "rpd"):
+                raise RuntimeError(f"{kind.upper()}: {err}")
+            raise RuntimeError(f"Gemini API error: {err}")
+
+        candidates = body.get("candidates", [])
+        if not candidates:
+            raise RuntimeError("Gemini returned no candidates")
+
+        candidate = candidates[0]
+        finish_reason = candidate.get("finishReason", "")
+        parts = candidate.get("content", {}).get("parts", [])
+        if not parts:
+            raise RuntimeError("Gemini returned empty content")
+
+        text = parts[0].get("text", "").strip()
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as e:
+            if finish_reason == "MAX_TOKENS":
+                used = (body.get("usageMetadata") or {}).get("candidatesTokenCount") or budget
+                grown = min(int(used * 1.5) + 2048, MAX_OUTPUT_TOKENS)
+                if grown > budget:
+                    print(f"[retry] truncated at {used} tokens, growing budget {budget} -> {grown}...", file=sys.stderr)
+                    budget = grown
+                    continue
+            raise RuntimeError(f"TRUNCATED: Gemini response cut off mid-JSON ({e})")
+        raise RuntimeError(f"Gemini returned invalid JSON ({e})")
+
+    raise RuntimeError("TRUNCATED: Gemini response cut off mid-JSON after budget growth")
+
+
+def merge_segments(results: list[dict]) -> dict:
+    """Combine per-segment structured JSON into one document, mirroring the
+    notice schema. Session metadata comes from the first mentioning it;
+    lists are unioned; translation segments joined."""
+    session = {}
+    sections = []
+    tag_counts = {}
+    ministries = []
+    all_speakers = []
+    translations = []
+    adjournment_time = None
+    next_meeting_date = None
+
+    def add_tag(t):
+        if t not in tag_counts:
+            tag_counts[t] = 0
+        tag_counts[t] += 1
+
+    for r in results:
+        s = r.get("session") or {}
+        for k, v in s.items():
+            if v and not session.get(k):
+                session[k] = v
+        for sec in (r.get("sections") or []):
+            sections.append(sec)
+        for t in (r.get("agenda_tags") or []):
+            add_tag(t)
+        for m in (r.get("ministries_mentioned") or []):
+            if m not in ministries:
+                ministries.append(m)
+        seen = {(x.get("name"), x.get("section")) for x in all_speakers}
+        for sp in (r.get("all_speakers_mentioned") or []):
+            if (sp.get("name"), sp.get("section")) not in seen:
+                all_speakers.append(sp)
+                seen.add((sp.get("name"), sp.get("section")))
+        ft = (r.get("full_translation_en") or "").strip()
+        if ft:
+            translations.append(ft)
+        adjournment_time = r.get("adjournment_time") or adjournment_time
+        next_meeting_date = r.get("next_meeting_date") or next_meeting_date
+
+    # Per-segment prompts each emit 5-15 tags; unioning across N segments
+    # explodes the list (98 observed for a 10-segment verbatim). Keep the
+    # most frequent tags — those recurring across segments describe the
+    # whole document — capped at 15.
+    MAX_AGENDA_TAGS = 15
+    tags = [t for t, _ in sorted(tag_counts.items(), key=lambda kv: -kv[1])][:MAX_AGENDA_TAGS]
+
+    return {
+        "full_translation_en": "\n\n".join(translations),
+        "session": session,
+        "sections": sections,
+        "agenda_tags": tags,
+        "ministries_mentioned": ministries,
+        "all_speakers_mentioned": all_speakers,
+        "adjournment_time": adjournment_time,
+        "next_meeting_date": next_meeting_date,
+    }
+
+
+def process_one(verbatim: dict, index: int, verbatims: list) -> bool:
+    v_id = verbatim.get("id")
+    stem = f"Verbatim_{v_id}"
+    pdf_url = verbatim.get("attachment_url")
+    if not pdf_url:
+        print(f"[error] no attachment URL", file=sys.stderr)
+        verbatims[index]["status"] = "no_pdf"
+        save_manifest(verbatims)
+        return False
+
+    pdf_dest = OUTPUT_DIR / f"{stem}.pdf"
+
+    if not download_pdf(pdf_url, pdf_dest):
+        verbatims[index]["status"] = "failed"
+        save_manifest(verbatims)
+        return False
+
+    max_rpm_retries = 5
+    for attempt in range(max_rpm_retries + 1):
+        try:
+            ocr_text = run_ocr(pdf_dest)
+            api_key = os.environ.get("GEMINI_API_KEY", "")
+
+            if not api_key:
+                print("[warn] GEMINI_API_KEY not set — OCR only, no translation", file=sys.stderr)
+                result = {"ocr_path": str(OUTPUT_DIR / f"{stem}-ocr.txt")}
+            else:
+                segments = segment_text(ocr_text)
+                print(f"[translate] {len(segments)} segments ({SEGMENT_CHARS} chars each)...", file=sys.stderr)
+                results = []
+                resumed = 0
+                for seg_idx, seg in enumerate(segments, 1):
+                    cache_path = get_segment_cache_path(stem, seg_idx, seg)
+                    cached = load_cached_segment(cache_path)
+                    if cached:
+                        resumed += 1
+                        print(f"  [seg] {seg_idx}/{len(segments)} (cached)", file=sys.stderr)
+                        results.append(cached)
+                        continue
+                    print(f"  [seg] {seg_idx}/{len(segments)} ({len(seg):,} chars)...", file=sys.stderr)
+                    res = call_gemini_segment(seg, seg_idx, len(segments), api_key)
+                    save_cached_segment(cache_path, res)
+                    results.append(res)
+                if resumed:
+                    print(f"[cache] resumed {resumed}/{len(segments)} segments", file=sys.stderr)
+
+                structured = merge_segments(results)
+                structured["_trigger"] = "verbatim"
+                structured["na_id"] = verbatim.get("id")
+                structured["title"] = verbatim.get("title", "")
+                structured["title_np"] = verbatim.get("title_np", "")
+                structured["published_at"] = verbatim.get("published_at")
+                structured["source_pdf"] = pdf_url
+
+                translation = structured.get("full_translation_en", "")
+                trans_txt = OUTPUT_DIR / f"{stem}.txt"
+                trans_txt.parent.mkdir(parents=True, exist_ok=True)
+                trans_txt.write_text(translation, encoding="utf-8")
+                print(f"[translate] full translation -> {trans_txt} ({len(translation):,} chars)", file=sys.stderr)
+
+                out_json = TRANSLATIONS_DIR / f"{stem}.json"
+                out_json.parent.mkdir(parents=True, exist_ok=True)
+                out_json.write_text(json.dumps(structured, indent=2, ensure_ascii=False))
+                print(f"[translate] structured JSON -> {out_json}", file=sys.stderr)
+
+                result = {
+                    "ocr_path": str(OUTPUT_DIR / f"{stem}-ocr.txt"),
+                    "translated_path": str(trans_txt),
+                    "structured_path": str(out_json),
+                }
+
+            verbatims[index].update(result)
+            verbatims[index]["status"] = "done"
+            save_manifest(verbatims)
+            if api_key:
+                cleanup_segment_cache(stem)
+            print(f"[done] {verbatim.get('title', stem)}")
+            return True
+
+        except RuntimeError as e:
+            msg = str(e)
+            if msg.startswith(("RPM", "TRUNCATED")):
+                if attempt < max_rpm_retries:
+                    wait = min(2 ** (attempt + 2), 60)
+                    print(f"[retry] {msg.split(':')[0].lower()}, retry {attempt + 1}/{max_rpm_retries} in {wait}s...", file=sys.stderr)
+                    time.sleep(wait)
+                    continue
+                print(f"[retry] max retries exceeded — marking '{verbatim.get('title', stem)}' as skipped", file=sys.stderr)
+                verbatims[index]["status"] = "skipped"
+                save_manifest(verbatims)
+                return False
+            if msg.startswith("RPD"):
+                print(f"[quota] daily Gemini quota exhausted — keeping '{verbatim.get('title', stem)}' as pending", file=sys.stderr)
+                save_manifest(verbatims)
+                return False
+            print(f"[error] processing: {msg}", file=sys.stderr)
+            verbatims[index]["status"] = "failed"
+            save_manifest(verbatims)
+            return False
+        except Exception as e:
+            print(f"[error] processing: unexpected {type(e).__name__}: {e}", file=sys.stderr)
+            verbatims[index]["status"] = "failed"
+            save_manifest(verbatims)
+            return False
+    return False
+
+
+def main():
+    load_env()
+
+    parser = argparse.ArgumentParser(description="Process pending verbatims through OCR + segmented Gemini translation")
+    parser.add_argument("--max-count", "-n", type=int, default=0,
+                        help="Max verbatims to process per run (0 = unlimited)")
+    args = parser.parse_args()
+
+    api_key = os.environ.get("GEMINI_API_KEY", "")
+    if not api_key:
+        print("[warn] GEMINI_API_KEY not set — OCR only, no translation", file=sys.stderr)
+
+    verbatims = load_manifest()
+    if not verbatims:
+        print("[error] verbatims.json empty — run scrape first", file=sys.stderr)
+        return
+
+    processed = 0
+    max_count = args.max_count
+
+    while True:
+        if max_count and processed >= max_count:
+            print(f"[limit] reached max-count ({max_count})", file=sys.stderr)
+            break
+
+        idx = pick_pending(verbatims)
+        if idx is None:
+            print("[done] no pending verbatims")
+            break
+
+        ok = process_one(verbatims[idx], idx, verbatims)
+        processed += 1
+
+        if not ok and verbatims[idx].get("status") == "pending":
+            print(f"[quota] stopping — {processed} verbatim(s) processed this run", file=sys.stderr)
+            break
+
+
+if __name__ == "__main__":
+    main()

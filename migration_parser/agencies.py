@@ -7,7 +7,7 @@ Two shapes appear:
   (``SN | Country | Male | Female | Total``) followed by a country × agency
   detail table (``S.N | Lot No | Country | Name | Male | Female | Total``).
   The summary goes into ``panel.csv`` (``channel="preapproval"``); the detail
-  goes into the tracked ``migration/agencies.csv``.
+  goes into the tracked ``datasets/labour-migration/agencies.csv``.
 * **Institutional** documents (#027–#028) — a single agency table
   (``S.N | Recruitment Agency | Male | Female | Total``) → ``agencies.csv``.
 

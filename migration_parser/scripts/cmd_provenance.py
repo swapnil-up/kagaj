@@ -3,7 +3,7 @@
 The manifest carries a whole-file ``pdf_sha256`` per source (see
 ``cmd_process.record_pdf_hash``). This stage freezes a finer fingerprint —
 page count, a document text digest, and a per-page text digest — into a tracked
-``migration/source_attestation.json``. A third party holding the original PDFs
+``datasets/labour-migration/source_attestation.json``. A third party holding the original PDFs
 (or a re-download) can then verify offline that the exact pages the panel was
 built from are the ones they have, without us redistributing the PDFs.
 

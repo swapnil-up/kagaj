@@ -6,10 +6,10 @@ artifacts and a manifest:
   extract (process/annex/agencies/series) → normalize → reconcile → verify →
   crosscheck → package
 
-Packaging gzips ``migration/panel_canonical.csv`` to ``panel_canonical.csv.gz``
-(deterministic, mtime=0) and writes ``migration/build.json`` (git revision,
+Packaging gzips ``datasets/labour-migration/panel_canonical.csv`` to ``panel_canonical.csv.gz``
+(deterministic, mtime=0) and writes ``datasets/labour-migration/build.json`` (git revision,
 timestamps, row counts, SHA-256 checksums, audit results) plus the
-machine-readable ``migration/codebook.json``.
+machine-readable ``datasets/labour-migration/codebook.json``.
 
     python -m migration_parser build                 # offline, from cached PDFs
     python -m migration_parser build --scrape        # refresh manifest first
@@ -177,7 +177,7 @@ def _check_vocabularies(vocab: dict) -> None:
             if extra:
                 raise SystemExit(
                     f"vocabulary drift: {dataset}.{col} has undocumented values {sorted(extra)}; "
-                    f"add them to codebook.EXPECTED_VOCAB and migration/README.md")
+                    f"add them to codebook.EXPECTED_VOCAB and datasets/labour-migration/README.md")
 
 
 def write_codebook(build: dict) -> Path:

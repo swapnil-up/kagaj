@@ -10,7 +10,7 @@ Each matrix measures a **metric** (labour approvals, deaths, disability
 compensation, complaints, …) that is named in the table caption, not the data.
 This module turns those matrices into long rows tagged with a metric.
 
-Output schema (``migration/series.csv``) is a superset of ``panel.csv``:
+Output schema (``datasets/labour-migration/series.csv``) is a superset of ``panel.csv``:
 ``series_key, report, source_page, caption, metric, dimension, name,
 fiscal_year, unit, year_basis, gender, count, note``.
 """

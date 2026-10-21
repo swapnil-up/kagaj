@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this dataset or toolkit, please cite it as below."
+title: "Kagaj: Nepali government paper, as data"
+abstract: >-
+  Open extractors and datasets for Nepali government PDFs, including a verified
+  labour-migration panel, parliamentary translations and structured records,
+  budget extraction, and KUKL water-distribution schedules.
+type: software
+license: MIT
+repository-code: "https://github.com/swapnil-up/kagaj"
+authors:
+  - family-names: "Upadhyay Kharel"
+    given-names: "Swapnil"
+keywords:
+  - Nepal
+  - civic tech
+  - open data
+  - Devanagari
+  - OCR
+  - PDF extraction
+  - labour migration
+  - parliament
+  - budget
+version: "0.1.0"
+date-released: "2026-10-21"

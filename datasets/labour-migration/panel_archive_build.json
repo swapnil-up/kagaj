@@ -1,0 +1,395 @@
+{
+  "n_docs": 36,
+  "n_rows": 79236,
+  "scopes": [
+    "previous_cumulative",
+    "month",
+    "cumulative"
+  ],
+  "scope_classes": {
+    "previous_cumulative": "prior_ytd",
+    "month": "window",
+    "cumulative": "ytd"
+  },
+  "approval_types": [
+    "institutional",
+    "individual"
+  ],
+  "n_analysis_safe": 59958,
+  "n_unresolved": 19278,
+  "dropped_duplicates": [
+    {
+      "serial": 27,
+      "period_bs": "2069 Magh",
+      "duplicate_of": 8
+    },
+    {
+      "serial": 32,
+      "period_bs": "2070 Bhadra",
+      "duplicate_of": 29
+    }
+  ],
+  "docs": [
+    {
+      "serial": 1,
+      "period_bs": "2072 बैशाख",
+      "header_period_bs": "2072 बैशाख",
+      "doc_id": "3fe6cc097655c382",
+      "source_pdf_sha256": "3fe6cc097655c382c73f0d2a90eef8973b7fe8dc31c5797ad7a32ef284139c9a",
+      "wayback_url": "https://web.archive.org/web/20150701070555id_/http://www.dofe.gov.np:80/new/uploads/article/baisakh.pdf",
+      "verified": true,
+      "n_rows": 2502
+    },
+    {
+      "serial": 2,
+      "period_bs": "2072 जेठ",
+      "header_period_bs": "2072 जेठ",
+      "doc_id": "542a4fd2359447e6",
+      "source_pdf_sha256": "542a4fd2359447e68cf11bdb623e587941462db703aff8b11533a68df8c2d1a1",
+      "wayback_url": "https://web.archive.org/web/20150701135817id_/http://www.dofe.gov.np:80/new/uploads/article/jeth.pdf",
+      "verified": true,
+      "n_rows": 2502
+    },
+    {
+      "serial": 3,
+      "period_bs": "2071 भदौ",
+      "header_period_bs": "2071 भदौ",
+      "doc_id": "8dc8dacc9d1b7a8f",
+      "source_pdf_sha256": "8dc8dacc9d1b7a8f9b5647cccbedabf47ff876fd3f59ec7a6472fcbaee47ef9f",
+      "wayback_url": "https://web.archive.org/web/20141107103840id_/http://www.dofe.gov.np:80/new/uploads/article/bhadra.pdf",
+      "verified": true,
+      "n_rows": 2430
+    },
+    {
+      "serial": 4,
+      "period_bs": "2071 असोज",
+      "header_period_bs": "2071 असोज",
+      "doc_id": "b90f51cf4d427299",
+      "source_pdf_sha256": "b90f51cf4d427299cec53908915d605be2334d9efa834106b6b071f479d1c985",
+      "wayback_url": "https://web.archive.org/web/20141031094651id_/http://www.dofe.gov.np:80/new/uploads/article/ashoj.pdf",
+      "verified": true,
+      "n_rows": 2439
+    },
+    {
+      "serial": 6,
+      "period_bs": "2071 मार्ग",
+      "header_period_bs": "2071 मार्ग",
+      "doc_id": "42eecead5b62eee6",
+      "source_pdf_sha256": "42eecead5b62eee60ff6a0a106b71935a8a588d5126e6d3fddf97fea15d43056",
+      "wayback_url": "https://web.archive.org/web/20150701071047id_/http://www.dofe.gov.np:80/new/uploads/article/mangsir.pdf",
+      "verified": true,
+      "n_rows": 2457
+    },
+    {
+      "serial": 8,
+      "period_bs": "2069 माघ",
+      "header_period_bs": "2069 माघ",
+      "doc_id": "3a2c6dc1e15e49ae",
+      "source_pdf_sha256": "3a2c6dc1e15e49aee7594fe42541234070b13987c68da29a68d9d556b2dd7e88",
+      "wayback_url": "https://web.archive.org/web/20130512214531id_/http://www.dofe.gov.np:80/uploads/document/Final%20Monthly%20reports_%20Magh_20130219012109.pdf",
+      "verified": true,
+      "n_rows": 2097
+    },
+    {
+      "serial": 9,
+      "period_bs": "2071 फागुन",
+      "header_period_bs": "2071 फागुन",
+      "doc_id": "ffbb63c39d4ae4dc",
+      "source_pdf_sha256": "ffbb63c39d4ae4dc72981741f40e3c32bccf6a65b94c026784b87c62864e327f",
+      "wayback_url": "https://web.archive.org/web/20150421044600id_/http://www.dofe.gov.np:80/new/uploads/article/fagun.pdf",
+      "verified": true,
+      "n_rows": 2493
+    },
+    {
+      "serial": 10,
+      "period_bs": "2071 चैत",
+      "header_period_bs": "2071 चैत",
+      "doc_id": "96714a9d5e1340a7",
+      "source_pdf_sha256": "96714a9d5e1340a7347f53962842a29b6ecafa06a391f2e40b1532fe73ea7e28",
+      "wayback_url": "https://web.archive.org/web/20150513042237id_/http://www.dofe.gov.np:80/new/uploads/article/chaitra.pdf",
+      "verified": true,
+      "n_rows": 2511
+    },
+    {
+      "serial": 14,
+      "period_bs": "2067 Kartik",
+      "header_period_bs": "2067 कार्तिक",
+      "doc_id": "553e4f44fe36c478",
+      "source_pdf_sha256": "553e4f44fe36c478cc4f49867a4a8c0c8376bf522ce835240b4b1c31867ae06c",
+      "wayback_url": "https://web.archive.org/web/20110112035921id_/http://dofe.gov.np:80/uploads/labour%20permission/final-app-Kartik-2067.pdf",
+      "verified": true,
+      "n_rows": 1998
+    },
+    {
+      "serial": 15,
+      "period_bs": "2067 Magh",
+      "header_period_bs": "2067 श्रावण",
+      "doc_id": "5172b1b5c3cb2dbd",
+      "source_pdf_sha256": "5172b1b5c3cb2dbd100550f245415642870d068ff15fed68afee26ed433bec41",
+      "wayback_url": "https://web.archive.org/web/20110322045544id_/http://dofe.gov.np:80/uploads/labour%20permission/Monthly%20report_2067%20Magha(Final%20Approval).pdf",
+      "verified": true,
+      "n_rows": 2025
+    },
+    {
+      "serial": 16,
+      "period_bs": "2067 Falgun",
+      "header_period_bs": "2067 फाल्गुन",
+      "doc_id": "f6bb7f3f7baac17a",
+      "source_pdf_sha256": "f6bb7f3f7baac17ae76853bcec2ba2da59c374c4f47259d2899dbdb370e8eb0d",
+      "wayback_url": "https://web.archive.org/web/20110409153656id_/http://dofe.gov.np:80/uploads/labour%20permission/Monthly%20report%20Of%20%20Falgun-2067.pdf",
+      "verified": true,
+      "n_rows": 2025
+    },
+    {
+      "serial": 17,
+      "period_bs": "2068 Baishakh",
+      "header_period_bs": "2067 श्रावण",
+      "doc_id": "37636750913bf5f4",
+      "source_pdf_sha256": "37636750913bf5f443dd61ddbb0b3fd8fc3483ef3efbccc723a231f00e7698f8",
+      "wayback_url": "https://web.archive.org/web/20120216082743id_/http://dofe.gov.np:80/uploads/labour%20permission/Monthly%20Report%20of%20Baishakh-2068.pdf",
+      "verified": true,
+      "n_rows": 2025
+    },
+    {
+      "serial": 18,
+      "period_bs": "2068 Jestha",
+      "header_period_bs": "2067 श्रावण",
+      "doc_id": "b48cc0a6be862f3b",
+      "source_pdf_sha256": "b48cc0a6be862f3b12db6143be72b818dc9d28253c4486d9107ed64459d23fab",
+      "wayback_url": "https://web.archive.org/web/20120216081930id_/http://dofe.gov.np:80/uploads/labour%20permission/Monthly%20Report%20of%20%20Jestha-2068.pdf",
+      "verified": true,
+      "n_rows": 2043
+    },
+    {
+      "serial": 19,
+      "period_bs": "2068 Shrawan",
+      "header_period_bs": "2068 श्रावण",
+      "doc_id": "69b6f0853e553c74",
+      "source_pdf_sha256": "69b6f0853e553c749c4a275f3b9623c4f8ee93e97a3124f1c0e307151295ce96",
+      "wayback_url": "https://web.archive.org/web/20120216082718id_/http://dofe.gov.np:80/uploads/labour%20permission/Monthly%20Report%20of%20%20Shreawan-2068.pdf",
+      "verified": true,
+      "n_rows": 2070
+    },
+    {
+      "serial": 20,
+      "period_bs": "2068 Bhadra",
+      "header_period_bs": "2068 भाद्र",
+      "doc_id": "a188e2bec7bef073",
+      "source_pdf_sha256": "a188e2bec7bef07375da46526b1164ff4ea83d00791a157dc2e65973401ae1c3",
+      "wayback_url": "https://web.archive.org/web/20120216081201id_/http://dofe.gov.np:80/uploads/labour%20permission/Monthly%20Report%20of%20%20Bhandra-2068.pdf",
+      "verified": true,
+      "n_rows": 2088
+    },
+    {
+      "serial": 21,
+      "period_bs": "2068 Ashwin",
+      "header_period_bs": "2068 आश्विन",
+      "doc_id": "81d20e3f9978dc11",
+      "source_pdf_sha256": "81d20e3f9978dc116f3bfe0bcd5c367504bf6f8eae25a048853139934a90b82a",
+      "wayback_url": "https://web.archive.org/web/20120216081156id_/http://dofe.gov.np:80/uploads/labour%20permission/Monthly%20Report%20Of%20Ashwin-2068.pdf",
+      "verified": true,
+      "n_rows": 2088
+    },
+    {
+      "serial": 22,
+      "period_bs": "2069 Shrawan",
+      "header_period_bs": "2069 श्रावण",
+      "doc_id": "4e8bab67341be839",
+      "source_pdf_sha256": "4e8bab67341be83950b7d0b44466a1a66147a9f0e21186013bbb736e6d60ad8e",
+      "wayback_url": "https://web.archive.org/web/20121021115157id_/http://www.dofe.gov.np:80/uploads/document/monthly%20report%20of%20shrawan-2069_20120823122613.pdf",
+      "verified": true,
+      "n_rows": 2043
+    },
+    {
+      "serial": 23,
+      "period_bs": "2069 Bhadra",
+      "header_period_bs": "2069 भाद्र",
+      "doc_id": "cde42a45f0b5e301",
+      "source_pdf_sha256": "cde42a45f0b5e3016e732181562aee4cf1a30b62a874dbd212afe14f2a57a940",
+      "wayback_url": "https://web.archive.org/web/20130124051128id_/http://www.dofe.gov.np:80/uploads/document/Monthly%20report%20of%20Bhadra2069_20120920065800.pdf",
+      "verified": true,
+      "n_rows": 2043
+    },
+    {
+      "serial": 25,
+      "period_bs": "2069 Kartik",
+      "header_period_bs": "2069 कार्तिक",
+      "doc_id": "d59ec815f9d6bf3a",
+      "source_pdf_sha256": "d59ec815f9d6bf3a4dae96eb8f62a3a2e7248403538d2234260c96e814184a3b",
+      "wayback_url": "https://web.archive.org/web/20130124053417id_/http://www.dofe.gov.np:80/uploads/document/monthly%20Report%20Of%20Kartik%202069_20121121084736.pdf",
+      "verified": true,
+      "n_rows": 2106
+    },
+    {
+      "serial": 26,
+      "period_bs": "2069 Poush",
+      "header_period_bs": "2069 पौष",
+      "doc_id": "44d447309c7cb9d8",
+      "source_pdf_sha256": "44d447309c7cb9d82ed4a4ac57d8a6d79b13de9c32180b9110eb82a02717219e",
+      "wayback_url": "https://web.archive.org/web/20140801184113id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AC%E0%A5%AF_%E0%A4%AA%E0%A5%8C%E0%A4%B7_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2088
+    },
+    {
+      "serial": 28,
+      "period_bs": "2069 Falgun",
+      "header_period_bs": "2069 फागुन",
+      "doc_id": "bc50619e3fa19a35",
+      "source_pdf_sha256": "bc50619e3fa19a3590c573dbe4260b162744c971e66ab08c4fc23f7f4b074990",
+      "wayback_url": "https://web.archive.org/web/20140801184424id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AC%E0%A5%AF_%E0%A4%AB%E0%A4%BE%E0%A4%B2%E0%A5%8D%E0%A4%97%E0%A5%81%E0%A4%A8_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2124
+    },
+    {
+      "serial": 29,
+      "period_bs": "2069 Chaitra",
+      "header_period_bs": "2069 चैत्र",
+      "doc_id": "587df4e36c827997",
+      "source_pdf_sha256": "587df4e36c8279971cd4c941fc2ad69b9d9b45a0853bf45b0c90d6cd92f62890",
+      "wayback_url": "https://web.archive.org/web/20140801190234id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AC%E0%A5%AF_%E0%A4%9A%E0%A5%88%E0%A4%A4%E0%A5%8D%E0%A4%B0_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2133
+    },
+    {
+      "serial": 30,
+      "period_bs": "2070 Jestha",
+      "header_period_bs": "2070 बैशाख",
+      "doc_id": "30483220b76709a4",
+      "source_pdf_sha256": "30483220b76709a48ffc3c9b1a3b39ef3a2d6c808e74cf9c0ee792805e81e331",
+      "wayback_url": "https://web.archive.org/web/20140801194239id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A6_%E0%A4%9C%E0%A5%8D%E0%A4%AF%E0%A5%87%E0%A4%B7%E0%A5%8D%E0%A4%A0_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2142
+    },
+    {
+      "serial": 31,
+      "period_bs": "2070 Shrawan",
+      "header_period_bs": "2070 श्रावण",
+      "doc_id": "007799c10d0a1923",
+      "source_pdf_sha256": "007799c10d0a1923572f3bd93e6d2ffb96f6ec0cd2aebb4ca522c56423172aeb",
+      "wayback_url": "https://web.archive.org/web/20140801175909id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A6_%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B5%E0%A4%A3_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2106
+    },
+    {
+      "serial": 33,
+      "period_bs": "2070 Ashwin",
+      "header_period_bs": "2070 असोज",
+      "doc_id": "49631209d92a3a61",
+      "source_pdf_sha256": "49631209d92a3a61bc6f33e5fd5ee2a349504b89422510fc99a5fe297514196c",
+      "wayback_url": "https://web.archive.org/web/20140801184847id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A6_%E0%A4%86%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%BF%E0%A4%A8_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2169
+    },
+    {
+      "serial": 37,
+      "period_bs": "2070 Magh",
+      "header_period_bs": "2070 माघ",
+      "doc_id": "728d2547e7c9ae96",
+      "source_pdf_sha256": "728d2547e7c9ae964deda2f932b57f1c50695f2fcc861ce0b48aa981b6637c3e",
+      "wayback_url": "https://web.archive.org/web/20140801193055id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A6_%E0%A4%AE%E0%A4%BE%E0%A4%98_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2331
+    },
+    {
+      "serial": 38,
+      "period_bs": "2070 Falgun",
+      "header_period_bs": "2070 फागुन",
+      "doc_id": "90e151f065e5a9ca",
+      "source_pdf_sha256": "90e151f065e5a9ca0390b57cf79d3fd3ce6bc61054faba495c4d3464b80b09c1",
+      "wayback_url": "https://web.archive.org/web/20140801180250id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A6_%E0%A4%AB%E0%A4%BE%E0%A4%B2%E0%A5%8D%E0%A4%97%E0%A5%81%E0%A4%A8_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%AC%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2385
+    },
+    {
+      "serial": 39,
+      "period_bs": "2070 Chaitra",
+      "header_period_bs": "2070 चैत",
+      "doc_id": "f83d5ca6b96d9d7b",
+      "source_pdf_sha256": "f83d5ca6b96d9d7bfe2aa6ae9687b16f0befc67ab83539b815a8216d5ea8461d",
+      "wayback_url": "https://web.archive.org/web/20140801181939id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A6_%E0%A4%9A%E0%A5%88%E0%A4%A4%E0%A5%8D%E0%A4%B0_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%AC%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2385
+    },
+    {
+      "serial": 40,
+      "period_bs": "2071 Baishakh",
+      "header_period_bs": "2071 वैशाख",
+      "doc_id": "93f56c3fb38a9a93",
+      "source_pdf_sha256": "93f56c3fb38a9a93e39b507398a7753671230e93a8fdce37f53136d9512e9bc3",
+      "wayback_url": "https://web.archive.org/web/20140801182014id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A7_%E0%A4%AC%E0%A5%88%E0%A4%B6%E0%A4%BE%E0%A4%96_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%AC%E0%A4%BF%E0%A4%AC%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2403
+    },
+    {
+      "serial": 41,
+      "period_bs": "2071 Jestha",
+      "header_period_bs": "2071 जेठ",
+      "doc_id": "687ed145f8599388",
+      "source_pdf_sha256": "687ed145f85993885718c8b37c68b5c79cf70bfe97651c8b8e82adde87997867",
+      "wayback_url": "https://web.archive.org/web/20140801182307id_/http://dofe.gov.np/new/uploads/article/jestha2071.pdf",
+      "verified": true,
+      "n_rows": 2403
+    },
+    {
+      "serial": 42,
+      "period_bs": "2071 Asar",
+      "header_period_bs": "2071 असार",
+      "doc_id": "e91e9806677524cb",
+      "source_pdf_sha256": "e91e9806677524cbf33a41bd287269f521394d8f9150b2fa854173d46e01b998",
+      "wayback_url": "https://web.archive.org/web/20141107103833id_/http://www.dofe.gov.np:80/new/uploads/article/Ashad_2071.pdf",
+      "verified": true,
+      "n_rows": 144
+    },
+    {
+      "serial": 45,
+      "period_bs": "2072 Bhadra",
+      "header_period_bs": "",
+      "doc_id": "c98ab6e058690dba",
+      "source_pdf_sha256": "c98ab6e058690dbaed23304ef0c3cf81b77f453be8316ec2f00dbf55c114cc6e",
+      "wayback_url": "https://web.archive.org/web/20160107225944id_/http://dofe.gov.np:80/new/uploads/article/2072Bhadra.pdf",
+      "verified": true,
+      "n_rows": 2502
+    },
+    {
+      "serial": 46,
+      "period_bs": "2072 Ashwin",
+      "header_period_bs": "",
+      "doc_id": "1bfd631112ff2e63",
+      "source_pdf_sha256": "1bfd631112ff2e63232fa1c0aee6356ad9a70305b4a3971687a02a8485869902",
+      "wayback_url": "https://web.archive.org/web/20160107225059id_/http://dofe.gov.np:80/new/uploads/article/2072Ashoj.pdf",
+      "verified": true,
+      "n_rows": 2493
+    },
+    {
+      "serial": 48,
+      "period_bs": "2072 Poush",
+      "header_period_bs": "",
+      "doc_id": "89c186c7b2be3d27",
+      "source_pdf_sha256": "89c186c7b2be3d27046b382b9134cd8be0804f2a967ef88001b9c692c1441bff",
+      "wayback_url": "https://web.archive.org/web/20160909080925id_/http://dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A8_%E0%A4%AA%E0%A5%8C%E0%A4%B7_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%AC%E0%A4%BF%E0%A4%AC%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2475
+    },
+    {
+      "serial": 49,
+      "period_bs": "2072 Magh",
+      "header_period_bs": "",
+      "doc_id": "0cc701c1c489b248",
+      "source_pdf_sha256": "0cc701c1c489b2486b4b11ec3efd671ef4d1ae47229c1835df737fb2ee94cf58",
+      "wayback_url": "https://web.archive.org/web/20160909080940id_/http://dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A8_%E0%A4%AE%E0%A4%BE%E0%A4%98_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%AC%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2475
+    },
+    {
+      "serial": 51,
+      "period_bs": "2073 Baishakh",
+      "header_period_bs": "",
+      "doc_id": "46610315b16f16ca",
+      "source_pdf_sha256": "46610315b16f16cae861fb5231a99aa0140939f42e839465b4a03f91072bb60e",
+      "wayback_url": "https://web.archive.org/web/20160615210107id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A9_%E0%A4%B5%E0%A5%88%E0%A4%B6%E0%A4%BE%E0%A4%96_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 2493
+    }
+  ],
+  "output": "datasets/labour-migration/panel_archive.csv.gz"
+}

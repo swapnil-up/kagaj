@@ -4,7 +4,7 @@ Modes:
   python -m migration_parser scrape              enumerate categories, resolve PDF URLs
   python -m migration_parser scrape --list-only  enumerate listings only (fast)
 
-Output: bill-tracker/migration_manifest.json
+Output: datasets/labour-migration/manifests/migration_manifest.json
 """
 
 from __future__ import annotations

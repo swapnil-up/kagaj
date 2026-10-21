@@ -16,14 +16,14 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: pip-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+          key: pip-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
       - name: Install deps
         run: pip install beautifulsoup4 lxml requests
       - name: Scrape notices
-        run: python bill-tracker/scripts/scrape_notices.py
+        run: python parliament/scripts/scrape_notices.py
       - name: Commit manifest
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add bill-tracker/notices.json
+          git add parliament/manifests/notices.json
           git diff --cached --quiet || (git commit -m "update notices manifest" && git push)

@@ -12,14 +12,13 @@ from pathlib import Path
 
 # --- Project layout ---------------------------------------------------------
 REPO_ROOT = Path(__file__).resolve().parents[1]
-BILLTRACKER_ROOT = REPO_ROOT / "bill-tracker"
 
 # --- Tracked output (committed): manifests + normalised schedule JSON --------
-WATER_DIR = REPO_ROOT / "water"
+WATER_DIR = REPO_ROOT / "datasets" / "water"
 MANIFEST = WATER_DIR / "manifest.json"
 SCHEDULE = WATER_DIR / "schedule.json"
 # Human-marked PDF column regions (created with agent-tools/mark-boxes).
-COLUMN_REGIONS = WATER_DIR / "column_regions.json"
+COLUMN_REGIONS = REPO_ROOT / "water_parser" / "column_regions.json"
 
 # --- Scratch output (gitignored): raw downloads, OCR text, per-doc dumps -----
 OUTPUT_DIR = REPO_ROOT / "output"
@@ -74,8 +73,8 @@ def month_sort_key(month_key: str) -> tuple[int, int, str]:
 
 
 def load_env() -> None:
-    """Load ``bill-tracker/.env`` into ``os.environ`` (Gemini key lives there)."""
-    env_path = BILLTRACKER_ROOT / ".env"
+    """Load the repository-root ``.env`` into ``os.environ`` (Gemini key lives there)."""
+    env_path = REPO_ROOT / ".env"
     if not env_path.exists():
         return
     for line in env_path.read_text().splitlines():

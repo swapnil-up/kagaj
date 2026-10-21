@@ -55,12 +55,19 @@ def ocr_words(engine, page_array):
     return out
 
 
-def word_at(words, x_pt, y_pt):
-    """Return the OCR word whose box contains (x, y) in PDF points."""
-    for t, x0, y0, x1, y1 in words:
+def word_box_at(words, x_pt, y_pt):
+    """Return the full OCR word tuple whose box contains (x, y) in PDF points."""
+    for word in words:
+        _, x0, y0, x1, y1 = word
         if x0 <= x_pt <= x1 and y0 <= y_pt <= y1:
-            return t
+            return word
     return None
+
+
+def word_at(words, x_pt, y_pt):
+    """Return the OCR word text whose box contains (x, y) in PDF points."""
+    word = word_box_at(words, x_pt, y_pt)
+    return word[0] if word else None
 
 
 def cross_check(doc, census_result, max_pages=None,
@@ -68,7 +75,8 @@ def cross_check(doc, census_result, max_pages=None,
     """For each unknown (font,cid), collect the OCR words it appears in.
 
     Returns {font: {cid: {word: count}}} plus per-glyph reads
-    {font: {cid: [{page, word, x, y}]}}.
+    {font: {cid: [{page, word, bbox, x, y}]}}; ``bbox`` is the printed word
+    box in PDF points, not the glyph box.
     """
     engine = _ocr_engine()
     reads: dict[str, dict[int, list[dict]]] = {}
@@ -89,13 +97,15 @@ def cross_check(doc, census_result, max_pages=None,
                     continue
                 font = g["font"] or ""
                 ox, oy = g["origin"][0], g["origin"][1]
-                w = word_at(words, ox, oy)
-                if not w:
+                word = word_box_at(words, ox, oy)
+                if not word:
                     continue
+                text, x0, y0, x1, y1 = word
                 reads.setdefault(font, {}).setdefault(g["cid"], []).append({
-                    "page": pn + 1, "word": w, "x": ox, "y": oy})
+                    "page": pn + 1, "word": text, "bbox": (x0, y0, x1, y1),
+                    "x": ox, "y": oy})
                 cnt = counts.setdefault(font, {}).setdefault(g["cid"], {})
-                cnt[w] = cnt.get(w, 0) + 1
+                cnt[text] = cnt.get(text, 0) + 1
     if log:
         nf = sum(len(v) for v in counts.values())
         log(f"  reads for {nf} (font,cid) pairs across {len(counts)} fonts")

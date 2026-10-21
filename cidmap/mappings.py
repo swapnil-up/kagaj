@@ -96,7 +96,7 @@ def set_value(store: dict, font: str, cid: int, value: str,
     """Record one font-scoped mapping, keeping both cross-references in sync."""
     font = _norm_font(font)
     store.setdefault("fonts", {}).setdefault(font, {})[cid] = value
-    cid_mp = store.setdefault("cids", {}).setdefault(str(cid), {})
+    cid_mp = store.setdefault("cids", {}).setdefault(cid, {})
     cid_mp[font] = value
     if meta:
         cid_mp.setdefault("_meta", {}).update(meta)
@@ -121,7 +121,11 @@ def get_value(store: dict, font: str, cid: int) -> str | None:
     scoped = store.get("fonts", {}).get(font, {}).get(cid)
     if scoped is not None:
         return scoped
-    return store.get("cids", {}).get(cid, {}).get("")
+    by_cid = store.get("cids", {})
+    entry = by_cid.get(cid)
+    if entry is None:
+        entry = by_cid.get(str(cid), {})
+    return entry.get("")
 
 
 def mark_undecodable(store: dict, font: str, cid: int) -> None:

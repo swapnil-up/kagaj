@@ -43,7 +43,7 @@ REQUIRED_CATEGORIES = {
     "ocr-snippet",
 }
 
-OPERATIONS = {"normalize", "canonical_key", "segment", "invalid"}
+OPERATIONS = {"normalize", "canonical_key", "segment", "invalid", "repair"}
 
 SOURCE_RE = re.compile(
     r"^(?P<path>(?:datasets|tests|cidmap|docs|archive|redbook_parser|water_parser)/[^:]+):(?P<line>\d+)$"
@@ -184,9 +184,8 @@ def test_repo_sources_resolve_and_contain_the_input(cases):
         )
 
 
-def test_corpus_tests_do_not_import_runtime_code():
+def test_corpus_tests_do_not_import_parser_code():
     banned = (
-        "kagaj_core",
         "redbook_parser",
         "water_parser",
         "migration_parser",
@@ -228,7 +227,7 @@ def test_rejects_unknown_category(tmp_path):
 
 
 def test_rejects_unknown_operation(tmp_path):
-    path = _write_corpus(tmp_path, [json.dumps(_valid_record(rule="repair.nukta"))])
+    path = _write_corpus(tmp_path, [json.dumps(_valid_record(rule="transliterate.nukta"))])
     with pytest.raises(CorpusError, match="unknown operation"):
         load_cases(path)
 

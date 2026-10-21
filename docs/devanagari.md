@@ -1,7 +1,8 @@
 # Devanagari: terminology and normalization policy
 
-Status: **specification** (no runtime normalizer yet). The companion corpus is
-`tests/devanagari/cases.jsonl`; the schema is enforced by
+Status: **specification and implementation**. The runtime is
+`kagaj_core/devanagari.py`; the companion corpus is
+`tests/devanagari/cases.jsonl`, and the schema is enforced by
 `tests/devanagari/test_corpus.py`.
 
 This document defines the vocabulary used by the corpus and the behaviour that
@@ -230,10 +231,15 @@ A case tagged `invalid.*` must be rejected by `validate`. The `expected` field
 in such a case is the intended valid spelling, **not** an automatic repair
 promise. Repair is deferred (§11.5).
 
+A case tagged `repair.*` is a known lexical or OCR substitution whose structure
+is still valid. `validate` must accept it; the corpus records the intended word
+for the deferred `repair` stage. This is why `सड़घीय` is a repair case (nukta on
+`ड`) while `खड़्का` is an invalid case (nukta after a virama).
+
 ## 11. Normalizer policy
 
-The names below are the contract for issue #5. No implementation is added by
-this spec.
+The names below are the contract. The implementation lives in
+`kagaj_core/devanagari.py`.
 
 ### 11.1 `normalize(text) -> str` — lossless
 
@@ -252,25 +258,30 @@ this spec.
 
 Property: `normalize` may change code points but not words. It is idempotent.
 
-### 11.2 `canonical_key(text) -> str` — lossy, for comparison
+### 11.2 `canonical_key(text, *, drop_joiners=False) -> str` — lossy
 
 1. Start from `normalize(text)`.
-2. Remove ZWJ and ZWNJ.
-3. Canonicalise split two-part matras to the atomic code points:
+2. If `drop_joiners=True`, remove ZWJ and ZWNJ. The default is `False` because
+   joiners can carry CID-mapping meaning.
+3. Fold Devanagari digits `U+0966`–`U+096F` to ASCII `0`–`9`.
+4. Canonicalise split two-part matras to the atomic code points:
    - `U+0947 U+093E` and `U+093E U+0947` → `U+094B` (ो);
    - `U+0948 U+093E` and `U+093E U+0948` → `U+094C` (ौ).
-4. Collapse whitespace runs to a single space and strip the ends.
-5. Leave nukta, digits, punctuation, and anusvara/candrabindu alone.
+5. Collapse whitespace runs to a single space and strip the ends.
+6. Normalize danda spacing, not characters: remove whitespace before `।` and
+   `॥`, and put one space after one when a letter or digit follows.
+7. Leave nukta, punctuation other than danda spacing, and
+   anusvara/candrabindu alone.
 
-Property: `canonical_key` may merge spellings that are the same word. It must
-not merge phonemically distinct letters (`ज` vs `ज़`) or different numbers
-(`५` vs `5`) unless a later policy explicitly says so.
+The key is idempotent. It may merge spellings that are the same word, but it
+must not merge phonemically distinct letters (`ज` vs `ज़`) or reorder
+visual-order text to logical order.
 
 ### 11.3 `validate(text) -> list[Issue]` — non-mutating
 
 Returns structural and orthographic issues with offsets. It does not repair,
-truncate, or drop text. It must flag every `invalid.*` corpus case and accept
-every valid case.
+truncate, or drop text. It must flag every `invalid.*` corpus case, accept every
+valid case, and accept structurally valid `repair.*` cases.
 
 ### 11.4 `segment_aksaras(text) -> list[str]`
 
@@ -280,7 +291,8 @@ Splits at aksara boundaries:
 - a matra belongs to the preceding cluster;
 - anusvara, candrabindu, and visarga belong to the preceding aksara;
 - a reph (`र + ्`) belongs to the following aksara;
-- ZWNJ breaks a conjunct for segmentation; ZWJ stays inside the cluster;
+- ZWNJ breaks a conjunct and stays attached to the preceding virama; ZWJ stays
+  inside the cluster;
 - digits, punctuation, and whitespace are separate segments.
 
 Property: concatenating the result returns the input string exactly.
@@ -310,7 +322,7 @@ record the rule and the original text.
 |---|---|---|
 | `id` | string | Unique, stable identifier. |
 | `category` | string | Tag from the list below. |
-| `rule` | string | `<operation>.<detail>`; `operation` is `normalize`, `canonical_key`, `segment`, or `invalid`. |
+| `rule` | string | `<operation>.<detail>`; `operation` is `normalize`, `canonical_key`, `segment`, `invalid`, or `repair`. |
 | `input` | string | Raw text. |
 | `expected` | string | Expected result, non-empty. Semantics depend on `rule` (§13.1). |
 | `source` | string | Provenance: `path:line`, `cidmap/data/cid_mappings.json:line`, or an issue/spec reference. |
@@ -331,6 +343,10 @@ invalid  digits-punctuation  valid-word  ocr-snippet
 | `canonical_key.` | The exact output of `canonical_key(input)`. |
 | `segment.` | The aksaras of `input` joined with `|`. |
 | `invalid.` | The intended valid spelling for a human reader. `validate(input)` must report at least one issue; no automatic repair is implied. |
+| `repair.` | The intended valid spelling. `validate(input)` must report no structural issue; the change belongs to the deferred repair stage. |
+
+`canonical_key.joiners-dropped` cases are evaluated with `drop_joiners=True`.
+All other `canonical_key.` cases use the default `drop_joiners=False`.
 
 ### 13.2 Adding a case
 

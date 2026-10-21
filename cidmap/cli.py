@@ -48,18 +48,18 @@ def cmd_scan(args) -> int:
         os.makedirs(os.path.dirname(ocr_path) or ".", exist_ok=True)
         with open(ocr_path, "w", encoding="utf-8") as f:
             json.dump(res, f, ensure_ascii=False, indent=2)
-        ocr_counts = res["counts"]
+        ocr_data = res
         print(f"Wrote {ocr_path}", file=sys.stderr)
     else:
-        ocr_counts = {}
+        ocr_data = {}
         if args.ocr and os.path.exists(args.ocr):
             with open(args.ocr, encoding="utf-8") as f:
-                ocr_counts = json.load(f).get("counts", {})
+                ocr_data = json.load(f)
 
     out = args.output
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
-    htmlout = build_review_html(doc, store, ocr_counts, only_font=args.font,
-                                max_pages=args.max_pages)
+    htmlout = build_review_html(doc, store, ocr_data, only_font=args.font,
+                                max_pages=args.max_pages, census_result=cen)
     with open(out, "w", encoding="utf-8") as f:
         f.write(htmlout)
     print(f"Wrote {out} ({os.path.getsize(out) / 1e6:.1f} MB)", file=sys.stderr)

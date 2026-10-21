@@ -15,6 +15,7 @@ jobs:
         tests/test_water_fields.py
         tests/test_cidmap_compare.py
         tests/test_cidmap_conflicts.py
+        tests/test_cidmap_review.py
         tests/devanagari
     steps:
       - uses: actions/checkout@v4

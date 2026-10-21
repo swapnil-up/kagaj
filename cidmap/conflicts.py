@@ -83,7 +83,7 @@ def _from_reads(reads: dict, counts: dict) -> dict:
                 cand["_n"] += 1
                 if entry.get("page") is not None:
                     cand["pages"].append(entry["page"])
-                if entry.get("bbox") is not None:
+                if entry.get("bbox") is not None and cand["bbox"] is None:
                     cand["bbox"] = entry["bbox"]
 
     for font, cids in counts.items():

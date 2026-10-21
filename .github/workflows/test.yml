@@ -13,6 +13,7 @@ jobs:
         tests/test_fonts.py
         tests/test_numbers.py
         tests/test_water_fields.py
+        tests/devanagari
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -20,20 +20,36 @@ from __future__ import annotations
 import argparse
 import html
 import json
-import re
 import random
 import sys
 from pathlib import Path
 
+from kagaj_core.devanagari import canonical_key
+
 from .decode import census
 from .mappings import get_value, load
 
-# Normalize OCR reads: drop digits/punct so e.g. "व्यय" vs "2व्यय3" compare.
-_STRIP = re.compile(r"[0-9/().\-\u0966-\u096F ]+")
+
+def _key(s: str) -> str:
+    """Canonical key for an OCR read; folds digits and matra variants."""
+    return canonical_key(s or "", drop_joiners=False)
 
 
-def _clean(s: str) -> str:
-    return _STRIP.sub("", s or "")
+def _read_counts(reads: dict[str, int], value: str | None) -> tuple[int, int, int]:
+    """Tally (agree, disagree, evidence) occurrences for one CID's OCR reads."""
+    key = _key(value or "")
+    agree = disagree = evidence = 0
+    for read, count in reads.items():
+        read_key = _key(read)
+        if not read_key:
+            continue
+        if not key:
+            evidence += count
+        elif key in read_key:
+            agree += count
+        else:
+            disagree += count
+    return agree, disagree, evidence
 
 
 def quorum(doc, store, engine, pages=None, log=None):
@@ -56,10 +72,7 @@ def quorum(doc, store, engine, pages=None, log=None):
     for font, cid, rec in rows:
         val = get_value(store, font, cid)
         reads = counts.get(font, {}).get(cid, {})
-        clean_reads = [(_clean(w), n) for w, n in reads.items()]
-        agree = sum(n for w, n in clean_reads if w and val and val in w)
-        disagree = sum(n for w, n in clean_reads if w and val and val not in w)
-        evidence = sum(n for w, n in clean_reads if w and not val)
+        agree, disagree, evidence = _read_counts(reads, val)
         no_ocr = rec["count"] - (agree + disagree + evidence)
         if not val:
             verdict = "missing"

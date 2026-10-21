@@ -25,11 +25,14 @@ import json
 import sys
 from pathlib import Path
 
+from kagaj_core.devanagari import canonical_key, normalize
+
 from .decode import cluster_lines, glyphs
 from .decoder import decode_page
 from .mappings import load
 
 Y_TOL = 6.0
+AGREE_RATIO = 0.85
 
 
 def _decoder_lines(page, store):
@@ -43,7 +46,7 @@ def _line_y(line):
 
 def _line_text(line, store):
     from .decoder import _resolve
-    return "".join(_resolve(g, store) for g in line)
+    return normalize("".join(_resolve(g, store) for g in line))
 
 
 def _ocr_lines(page_array, engine):
@@ -124,18 +127,20 @@ def _page_html(pn, dec_lines, ocr_lines, stats=None):
 </div>"""
 
 
-def _normalize(s: str) -> str:
-    """Collapse whitespace and drop unmapped markers for similarity scoring."""
-    return "".join(s.split())
+def _line_key(s: str) -> str:
+    """Whitespace-free canonical key for line similarity scoring."""
+    return "".join(canonical_key(s, drop_joiners=False).split())
 
 
 def _agree(a: str, b: str) -> bool:
-    """True when decoder/OCR agree on a line after normalization.
+    """True when decoder/OCR agree on a line after canonicalization.
 
-    Decoder is visual order, OCR is reading order — exact equality is rare,
-    so agreement means a difflib ratio at or above ``AGREE_RATIO``.
+    Decoder output is visual order and OCR is reading order, so exact equality
+    is rare; agreement means a difflib ratio at or above ``AGREE_RATIO``.
+    ``canonical_key`` folds digits and matra variants but deliberately does not
+    reorder text, so visual-order/logical-order disagreements still surface.
     """
-    return difflib.SequenceMatcher(None, _normalize(a), _normalize(b)).ratio() >= 0.85
+    return difflib.SequenceMatcher(None, _line_key(a), _line_key(b)).ratio() >= AGREE_RATIO
 
 
 def _page_stats(pairs, dec_only, ocr_only) -> dict:

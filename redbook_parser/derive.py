@@ -1,8 +1,9 @@
 """Word-diff CID derive tool.
 
 The human fills the review HTML with the full printed WORD that contains an
-unknown CID (not the lone glyph). This module consumes ``cid_corrections.json``
-(``[{"cid": N, "correct": "word"}]``) and recovers the exact Devanagari
+unknown CID (not the lone glyph). This module consumes ``cid_corrections.json``,
+either the neutral review shape (``[{"key", "value", "undecodable", "data"}]``)
+or the legacy ``[{"cid": N, "correct": "word"}]``, and recovers the exact Devanagari
 cluster(s) each unknown CID maps to by diffing the typed word against the
 PDF's *logical-order* text.
 
@@ -213,6 +214,8 @@ def joint_match(tt, target: str):
     # the hot path (180k compiles were the bottleneck).
     out = []
     for lens in _compositions(rem, len(unk)):
+        if not all(lens):
+            continue
         slots = []
         i = 0
         li = 0
@@ -284,6 +287,8 @@ def derive(doc, corrections: dict[int, str], max_span_evidence: int = 200,
                 totals[cid] += 1
                 for value, span, slots in solve_line_tokens(
                         toks, cid, word, cap=max_span_evidence):
+                    if not value:
+                        continue
                     tgt_vals[cid][value] = tgt_vals[cid].get(value, 0) + 1
                     tgt_ex[cid].setdefault(value, []).append(f"p{pn} {span}")
                     solved[cid] += 1
@@ -335,6 +340,37 @@ def make_blank(mode: str) -> dict:
             "conflicts": {}, "windows_total": 0, "windows_solved": 0}
 
 
+def load_corrections(records) -> dict[int, str]:
+    """Read legacy ``{cid, correct}`` and neutral review records.
+
+    Neutral records are ``{key, value, undecodable, data}``; the CID comes from
+    ``data.cid`` with ``key`` as a fallback. Blank and undecodable records are
+    ignored.
+    """
+    out: dict[int, str] = {}
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        if "cid" in record:
+            cid = int(record["cid"])
+            value = (record.get("correct") or "").strip()
+            undecodable = bool(record.get("undecodable"))
+        else:
+            data = record.get("data") or {}
+            raw_cid = data.get("cid", record.get("key"))
+            if raw_cid is None:
+                continue
+            try:
+                cid = int(raw_cid)
+            except (TypeError, ValueError):
+                continue
+            value = (record.get("value") or record.get("correct") or "").strip()
+            undecodable = bool(record.get("undecodable"))
+        if value and not undecodable:
+            out[cid] = value
+    return out
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("pdf")
@@ -347,11 +383,7 @@ def main(argv=None) -> int:
     doc = fitz.open(a.pdf)
     with open(a.corrections, encoding="utf-8") as f:
         recs = json.load(f)
-    corrections = {}
-    for r in recs:
-        w = (r.get("correct") or "").strip()
-        if w:
-            corrections[int(r["cid"])] = w
+    corrections = load_corrections(recs)
     results = derive(doc, corrections, max_span_evidence=200, max_pages=a.max_pages)
 
     os.makedirs(os.path.dirname(a.output) or ".", exist_ok=True)

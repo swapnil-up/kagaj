@@ -42,6 +42,8 @@ python parliament/scripts/scrape_verbatims.py
 # Process one document (requires GEMINI_API_KEY in the repo-root .env)
 python parliament/scripts/process_notice.py --max-count 1
 python parliament/scripts/process_verbatim.py --max-count 1
+# Retry failed verbatims (default cap: 3 recorded attempts)
+python parliament/scripts/process_verbatim.py --retry-failed --max-attempts 3 -n 3
 
 # Upsert to pgvector
 python parliament/scripts/init_db.py

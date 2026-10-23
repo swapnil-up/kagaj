@@ -31,7 +31,7 @@ def _resolve(g: dict, store: dict) -> str:
     c = g["c"]
     if c and not is_unknown(c):
         return c
-    font = g["font"] or ""
+    font = g["font_id"] or ""
     v = get_value(store, font, g["cid"])
     if v:
         return v

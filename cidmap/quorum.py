@@ -3,12 +3,12 @@
 Text-level diffs are misleading — the decoder emits visual-order Devanagari
 (reph/मात्रा before their base) while OCR reads logical order, so whole-line
 strings rarely match even when every glyph is right. The meaningful concurrence
-check is per (font, cid):
+check is per (font_id, cid):
 
   - for a sample of pages, run OCR and note the word box containing each
     unknown glyph's origin (``cross_check``),
   - ask whether that OCR word contains the canonical store value for the glyph,
-  - tally concurrence / disagreement per (font, cid).
+  - tally concurrence / disagreement per (font_id, cid).
 
 Output: a plain-text report + HTML. "agree" = store value appears in the OCR
 read word; "disagree" = OCR read contradicts the store; "missing" = no store
@@ -111,7 +111,7 @@ def _cross_check_pages(doc, engine, pages, log):
             for g in line:
                 if not is_unknown(g["c"]):
                     continue
-                font = g["font"] or ""
+                font = g["font_id"] or ""
                 ox, oy = g["origin"][0], g["origin"][1]
                 w = next((t for t, x0, y0, x1, y1 in words
                           if x0 <= ox <= x1 and y0 <= oy <= y1), None)

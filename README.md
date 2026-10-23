@@ -93,7 +93,8 @@ ORDER BY fiscal_year;
 | [`dictionary/`](dictionary/) | Legacy Nepali PDFs | OCR → StarDict dictionary | see `dictionary/README.md` |
 
 Shared infrastructure: OCR (`paddleocr`), PDF text/geometry (`pymupdf`),
-structured extraction (`gemini-2.5-flash-lite`), and pgvector for semantic search.
+structured extraction (`gemini-2.5-flash-lite`), pgvector for semantic search,
+and a static unknown-glyph review harness (`kagaj_core.review`).
 
 ## Quick start
 
@@ -139,10 +140,11 @@ migration_parser/  DoFE labour-migration panel
 water_parser/      KUKL water-distribution schedules
 drug_prices/       DDA drug-price extraction (experimental)
 cidmap/            CID → Devanagari font mapping
+kagaj_core/        Shared Devanagari + unknown-glyph review harness
 dictionary/        Nepali–English dictionary builder
 
 datasets/          Committed, reusable outputs (start here)
-docs/              Architecture, integrity, roadmap, plans
+docs/              Architecture, integrity, roadmap, review harness, plans
 tests/             Pytest suite + gold pages
 archive/           Frozen legacy budget extractors (reference only)
 ```

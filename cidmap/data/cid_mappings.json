@@ -1,13 +1,115 @@
 {
   "cids": {
     "1": {
-      "": "व",
+      "Kalimati@cmap:2c89241e37": "ि",
+      "Kalimati@cmap:8cd8148aeb": "ि",
+      "Kalimati@cmap:97330a90f6": "ि",
+      "Kalimati@cmap:bb98e63fdb": "व्",
+      "Kalimati@cmap:c2b66beffd": "ि",
+      "Kalimati@cmap:fcb6cc26c3": "ि",
       "_meta": {
         "evidence": [
           "p5 ⟦1⟧⟦1⟧",
           "p5 ⟦1⟧⟦15⟧"
         ],
+        "source": "review"
+      }
+    },
+    "2": {
+      "Kalimati@cmap:1f9b8743c3": "ण्",
+      "Kalimati@cmap:53dd91f316": "ण्",
+      "Kalimati@cmap:829024f9b2": "ण्",
+      "Kalimati@cmap:83d9f4c4c8": "ण्",
+      "Kalimati@cmap:ae67b5e4c6": "ि",
+      "_meta": {
+        "evidence": [
+          "p3",
+          "ref:glyph467",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "3": {
+      "": "केत",
+      "_meta": {
+        "evidence": [
+          "p544 ⟦34⟧⟦52⟧⟦53⟧⟦3⟧",
+          "p544 ⟦34⟧⟦52⟧⟦53⟧⟦3⟧"
+        ],
         "source": "derive"
+      }
+    },
+    "4": {
+      "": "आर",
+      "_meta": {
+        "evidence": [
+          "p3 ⟦4⟧⟦59⟧⟦31⟧⟦59⟧",
+          "p3 ⟦4⟧⟦59⟧⟦31⟧⟦59⟧"
+        ],
+        "source": "derive"
+      }
+    },
+    "7": {
+      "Kalimati@cmap:2c89241e37": "त्",
+      "Kalimati@cmap:c2b66beffd": "त्",
+      "_meta": {
+        "evidence": [
+          "p552",
+          "ref:glyph215",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "9": {
+      "Kalimati@cmap:150796cb30": "ख्",
+      "Kalimati@cmap:459b0511b1": "ि",
+      "Kalimati@cmap:5536fc8cc6": "ख्",
+      "Kalimati@cmap:61e860828e": "ख्",
+      "Kalimati@cmap:a7bb3a16d4": "ि",
+      "_meta": {
+        "evidence": [
+          "p41",
+          "ref:glyph467",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "10": {
+      "Kalimati@cmap:fcb6cc26c3": "म्",
+      "_meta": {
+        "evidence": [
+          "p542",
+          "ref:glyph224",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "11": {
+      "Kalimati@cmap:180a6419da": "म्",
+      "Kalimati@cmap:bb98e63fdb": "ि",
+      "_meta": {
+        "evidence": [
+          "p1",
+          "ref:glyph466",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "12": {
+      "Kalimati@cmap:150796cb30": "न्",
+      "Kalimati@cmap:5536fc8cc6": "न्",
+      "_meta": {
+        "evidence": [
+          "p35",
+          "ref:glyph219",
+          "score:0.000"
+        ],
+        "source": "reference"
       }
     },
     "13": {
@@ -30,13 +132,43 @@
         "source": "derive"
       }
     },
-    "17": {
-      "": "व्",
+    "15": {
+      "Kalimati@cmap:174d25db55": "ि",
+      "Kalimati@cmap:a31150303a": "ि",
+      "Kalimati@cmap:ae67b5e4c6": "व्",
       "_meta": {
         "evidence": [
-          "p9 ⟦17⟧ययभार"
+          "p3",
+          "ref:glyph229",
+          "score:0.488"
         ],
-        "source": "derive"
+        "source": "reference"
+      }
+    },
+    "16": {
+      "Kalimati@cmap:150796cb30": "ि",
+      "Kalimati@cmap:1c20f1fedc": "ि",
+      "Kalimati@cmap:5536fc8cc6": "ि",
+      "Kalimati@cmap:8cd8148aeb": "र्",
+      "_meta": {
+        "evidence": [
+          "p7",
+          "ref:glyph91",
+          "score:0.500"
+        ],
+        "source": "reference"
+      }
+    },
+    "17": {
+      "": "व्",
+      "Kalimati@cmap:174d25db55": "व्",
+      "_meta": {
+        "evidence": [
+          "p9",
+          "ref:glyph229",
+          "score:0.488"
+        ],
+        "source": "reference"
       }
     },
     "18": {
@@ -49,6 +181,43 @@
         "source": "derive"
       }
     },
+    "19": {
+      "Kalimati@cmap:61e860828e": "र्",
+      "_meta": {
+        "evidence": [
+          "p549",
+          "ref:glyph91",
+          "score:0.500"
+        ],
+        "source": "reference"
+      }
+    },
+    "20": {
+      "Kalimati@cmap:1f9b8743c3": "ि",
+      "Kalimati@cmap:83d9f4c4c8": "ि",
+      "_meta": {
+        "evidence": [
+          "p11",
+          "ref:glyph467",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "21": {
+      "Kalimati@cmap:180a6419da": "ै",
+      "Kalimati@cmap:53dd91f316": "ि",
+      "Kalimati@cmap:829024f9b2": "ि",
+      "Kalimati@cmap:97330a90f6": "म्",
+      "_meta": {
+        "evidence": [
+          "p5",
+          "ref:glyph224",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
     "22": {
       "": "वि",
       "_meta": {
@@ -59,14 +228,76 @@
         "source": "derive"
       }
     },
-    "3": {
-      "": "केत",
+    "23": {
+      "Kalimati@cmap:53dd91f316": "ि",
+      "Kalimati@cmap:61e860828e": "ि",
+      "Kalimati@cmap:829024f9b2": "ि",
       "_meta": {
         "evidence": [
-          "p544 ⟦34⟧⟦52⟧⟦53⟧⟦3⟧",
-          "p544 ⟦34⟧⟦52⟧⟦53⟧⟦3⟧"
+          "p39",
+          "ref:glyph467",
+          "score:0.000"
         ],
-        "source": "derive"
+        "source": "reference"
+      }
+    },
+    "24": {
+      "Kalimati@cmap:150796cb30": "र्",
+      "Kalimati@cmap:5536fc8cc6": "र्",
+      "_meta": {
+        "evidence": [
+          "p35",
+          "ref:glyph91",
+          "score:0.500"
+        ],
+        "source": "reference"
+      }
+    },
+    "26": {
+      "Kalimati@cmap:2c89241e37": ",",
+      "Kalimati@cmap:c2b66beffd": ",",
+      "_meta": {
+        "evidence": [
+          "p552",
+          "ref:comma",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "27": {
+      "Kalimati@cmap:180a6419da": "र्",
+      "_meta": {
+        "evidence": [
+          "p554",
+          "ref:glyph91",
+          "score:0.500"
+        ],
+        "source": "reference"
+      }
+    },
+    "28": {
+      "Kalimati@cmap:a31150303a": "म्",
+      "_meta": {
+        "evidence": [
+          "p540",
+          "ref:glyph224",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "29": {
+      "Kalimati@cmap:53dd91f316": "व्",
+      "Kalimati@cmap:bb98e63fdb": "ि",
+      "Kalimati@cmap:cba8f38f0b": "म्",
+      "_meta": {
+        "evidence": [
+          "p544",
+          "ref:glyph224",
+          "score:0.000"
+        ],
+        "source": "reference"
       }
     },
     "31": {
@@ -79,6 +310,17 @@
         "source": "derive"
       }
     },
+    "32": {
+      "Kalimati@cmap:829024f9b2": "र्",
+      "_meta": {
+        "evidence": [
+          "p39",
+          "ref:glyph91",
+          "score:0.500"
+        ],
+        "source": "reference"
+      }
+    },
     "33": {
       "": "ह",
       "_meta": {
@@ -89,6 +331,29 @@
         "source": "derive"
       }
     },
+    "34": {
+      "Kalimati@cmap:1f9b8743c3": "ि",
+      "Kalimati@cmap:cba8f38f0b": "ि",
+      "_meta": {
+        "evidence": [
+          "p544",
+          "ref:glyph464",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "35": {
+      "Kalimati@cmap:5536fc8cc6": "म्",
+      "_meta": {
+        "evidence": [
+          "p35",
+          "ref:glyph224",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
     "36": {
       "": "स्र",
       "_meta": {
@@ -96,6 +361,31 @@
           "p39 ⟦36⟧ोतग"
         ],
         "source": "derive"
+      }
+    },
+    "37": {
+      "Kalimati@cmap:150796cb30": "म्",
+      "Kalimati@cmap:61e860828e": "म्",
+      "Kalimati@cmap:a31150303a": "न्",
+      "_meta": {
+        "evidence": [
+          "p540",
+          "ref:glyph219",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "38": {
+      "Kalimati@cmap:150796cb30": "ि",
+      "Kalimati@cmap:bb98e63fdb": "न्",
+      "_meta": {
+        "evidence": [
+          "p1",
+          "ref:glyph219",
+          "score:0.000"
+        ],
+        "source": "reference"
       }
     },
     "39": {
@@ -108,14 +398,30 @@
         "source": "derive"
       }
     },
-    "4": {
-      "": "आर",
+    "41": {
+      "Kalimati@cmap:5536fc8cc6": "व्",
+      "Kalimati@cmap:61e860828e": "ी",
+      "Kalimati@cmap:8cd8148aeb": "न्",
+      "Kalimati@cmap:bb98e63fdb": "@",
+      "Kalimati@cmap:cba8f38f0b": ",",
       "_meta": {
         "evidence": [
-          "p3 ⟦4⟧⟦59⟧⟦31⟧⟦59⟧",
-          "p3 ⟦4⟧⟦59⟧⟦31⟧⟦59⟧"
+          "p544",
+          "ref:comma",
+          "score:0.000"
         ],
-        "source": "derive"
+        "source": "reference"
+      }
+    },
+    "42": {
+      "Kalimati@cmap:8cd8148aeb": "ि",
+      "_meta": {
+        "evidence": [
+          "p7",
+          "ref:glyph464",
+          "score:0.000"
+        ],
+        "source": "reference"
       }
     },
     "43": {
@@ -126,6 +432,52 @@
           "p3 ⟦43⟧⟦43⟧"
         ],
         "source": "derive"
+      }
+    },
+    "44": {
+      "Kalimati@cmap:8cd8148aeb": ",",
+      "_meta": {
+        "evidence": [
+          "p7",
+          "ref:comma",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "45": {
+      "Kalimati@cmap:150796cb30": ",",
+      "_meta": {
+        "evidence": [
+          "p13",
+          "ref:comma",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "46": {
+      "Kalimati@cmap:2c89241e37": "ख्",
+      "Kalimati@cmap:a31150303a": "ी",
+      "Kalimati@cmap:c2b66beffd": "ख्",
+      "_meta": {
+        "evidence": [
+          "p552",
+          "ref:glyph201",
+          "score:0.250"
+        ],
+        "source": "reference"
+      }
+    },
+    "47": {
+      "Kalimati@cmap:180a6419da": "ि",
+      "_meta": {
+        "evidence": [
+          "p554",
+          "ref:glyph467",
+          "score:0.000"
+        ],
+        "source": "reference"
       }
     },
     "48": {
@@ -158,6 +510,69 @@
         "source": "derive"
       }
     },
+    "51": {
+      "Kalimati@cmap:459b0511b1": ",",
+      "Kalimati@cmap:61e860828e": "ि",
+      "_meta": {
+        "evidence": [
+          "p549",
+          "ref:glyph464",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "52": {
+      "Kalimati@cmap:fcb6cc26c3": "ख्",
+      "_meta": {
+        "evidence": [
+          "p542",
+          "ref:glyph201",
+          "score:0.250"
+        ],
+        "source": "reference"
+      }
+    },
+    "53": {
+      "Kalimati@cmap:2c89241e37": "ी",
+      "Kalimati@cmap:c2b66beffd": "ी",
+      "Kalimati@cmap:cba8f38f0b": "ि",
+      "Kalimati@cmap:fcb6cc26c3": "न्",
+      "_meta": {
+        "evidence": [
+          "p542",
+          "ref:glyph219",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "54": {
+      "Kalimati@cmap:2c89241e37": "र्",
+      "Kalimati@cmap:8cd8148aeb": "व्",
+      "Kalimati@cmap:a7bb3a16d4": ",",
+      "Kalimati@cmap:c2b66beffd": "र्",
+      "_meta": {
+        "evidence": [
+          "p552",
+          "ref:glyph91",
+          "score:0.500"
+        ],
+        "source": "reference"
+      }
+    },
+    "55": {
+      "Kalimati@cmap:61e860828e": ",",
+      "Kalimati@cmap:cba8f38f0b": "ि",
+      "_meta": {
+        "evidence": [
+          "p544",
+          "ref:glyph466",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
     "56": {
       "": "स",
       "_meta": {
@@ -178,6 +593,77 @@
         "source": "derive"
       }
     },
+    "58": {
+      "Kalimati@cmap:150796cb30": "ी",
+      "Kalimati@cmap:2c89241e37": "ि",
+      "Kalimati@cmap:459b0511b1": "ि",
+      "Kalimati@cmap:ae67b5e4c6": "ख्",
+      "Kalimati@cmap:c2b66beffd": "ि",
+      "Kalimati@cmap:cba8f38f0b": "द्य",
+      "Kalimati@cmap:fcb6cc26c3": "र्",
+      "_meta": {
+        "evidence": [
+          "p542",
+          "ref:glyph91",
+          "score:0.500"
+        ],
+        "source": "reference"
+      }
+    },
+    "59": {
+      "Kalimati@cmap:61e860828e": "द्य",
+      "Kalimati@cmap:97330a90f6": "ि",
+      "Kalimati@cmap:ae67b5e4c6": "न्",
+      "Kalimati@cmap:cba8f38f0b": "न्न",
+      "Kalimati@cmap:fcb6cc26c3": "ि",
+      "_meta": {
+        "evidence": [
+          "p542",
+          "ref:glyph464",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "60": {
+      "Kalimati@cmap:150796cb30": "ि",
+      "Kalimati@cmap:459b0511b1": "ी",
+      "Kalimati@cmap:a7bb3a16d4": "ि",
+      "_meta": {
+        "evidence": [
+          "p41",
+          "ref:glyph464",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "61": {
+      "Kalimati@cmap:180a6419da": "ल्",
+      "Kalimati@cmap:459b0511b1": "न्",
+      "Kalimati@cmap:ae67b5e4c6": "ी",
+      "_meta": {
+        "evidence": [
+          "p3",
+          "ref:glyph547",
+          "score:0.738"
+        ],
+        "source": "reference"
+      }
+    },
+    "62": {
+      "Kalimati@cmap:5536fc8cc6": "ी",
+      "Kalimati@cmap:61e860828e": "ज्",
+      "Kalimati@cmap:a7bb3a16d4": "ी",
+      "_meta": {
+        "evidence": [
+          "p41",
+          "ref:glyph547",
+          "score:0.738"
+        ],
+        "source": "reference"
+      }
+    },
     "64": {
       "": "प",
       "_meta": {
@@ -186,6 +672,17 @@
           "p3 ⟦59⟧⟦64⟧⟦75⟧⟦76⟧"
         ],
         "source": "derive"
+      }
+    },
+    "65": {
+      "Kalimati@cmap:150796cb30": "ि",
+      "_meta": {
+        "evidence": [
+          "p13",
+          "ref:glyph465",
+          "score:0.000"
+        ],
+        "source": "reference"
       }
     },
     "66": {
@@ -206,6 +703,20 @@
           "p3 ⟦2⟧⟦67⟧⟦22⟧"
         ],
         "source": "derive"
+      }
+    },
+    "68": {
+      "Kalimati@cmap:2c89241e37": "द्य",
+      "Kalimati@cmap:a31150303a": "ि",
+      "Kalimati@cmap:c2b66beffd": "द्य",
+      "Kalimati@cmap:fcb6cc26c3": "द्य",
+      "_meta": {
+        "evidence": [
+          "p542",
+          "ref:glyph429",
+          "score:0.000"
+        ],
+        "source": "reference"
       }
     },
     "69": {
@@ -278,6 +789,45 @@
         "source": "derive"
       }
     },
+    "76": {
+      "Kalimati@cmap:180a6419da": "ि",
+      "Kalimati@cmap:2c89241e37": "व्",
+      "Kalimati@cmap:c2b66beffd": "व्",
+      "_meta": {
+        "evidence": [
+          "p552",
+          "ref:glyph229",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
+    "77": {
+      "Kalimati@cmap:180a6419da": "द्व",
+      "Kalimati@cmap:5536fc8cc6": "द्य",
+      "Kalimati@cmap:a31150303a": "द्य",
+      "Kalimati@cmap:cba8f38f0b": "व्",
+      "_meta": {
+        "evidence": [
+          "p544",
+          "ref:glyph229",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
+    "78": {
+      "Kalimati@cmap:5536fc8cc6": "ज्",
+      "Kalimati@cmap:fcb6cc26c3": "व्",
+      "_meta": {
+        "evidence": [
+          "p542",
+          "ref:glyph229",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
     "79": {
       "": "एकी",
       "_meta": {
@@ -348,6 +898,17 @@
         "source": "derive"
       }
     },
+    "86": {
+      "Kalimati@cmap:ae67b5e4c6": ",",
+      "_meta": {
+        "evidence": [
+          "p4",
+          "ref:comma",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
     "87": {
       "": "वा",
       "_meta": {
@@ -368,6 +929,29 @@
         "source": "derive"
       }
     },
+    "89": {
+      "Kalimati@cmap:2c89241e37": "थ्",
+      "Kalimati@cmap:459b0511b1": "ख्",
+      "_meta": {
+        "evidence": [
+          "p21",
+          "ref:glyph201",
+          "score:0.250"
+        ],
+        "source": "reference"
+      }
+    },
+    "90": {
+      "Kalimati@cmap:ae67b5e4c6": "ी",
+      "_meta": {
+        "evidence": [
+          "p4",
+          "ref:glyph548",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
     "91": {
       "": "ययन",
       "_meta": {
@@ -376,6 +960,30 @@
           "p4 ⟦2⟧⟦4⟧⟦64⟧⟦91⟧"
         ],
         "source": "derive"
+      }
+    },
+    "92": {
+      "Kalimati@cmap:c2b66beffd": "द्व",
+      "Kalimati@cmap:fcb6cc26c3": "द्व",
+      "_meta": {
+        "evidence": [
+          "p543",
+          "ref:glyph430",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
+    "93": {
+      "Kalimati@cmap:2c89241e37": "द्व",
+      "Kalimati@cmap:cba8f38f0b": "ण्",
+      "_meta": {
+        "evidence": [
+          "p545",
+          "ref:glyph214",
+          "score:0.488"
+        ],
+        "source": "reference"
       }
     },
     "94": {
@@ -398,6 +1006,18 @@
         "source": "derive"
       }
     },
+    "96": {
+      "Kalimati@cmap:459b0511b1": "ब्",
+      "Kalimati@cmap:a7bb3a16d4": "प्",
+      "_meta": {
+        "evidence": [
+          "p50",
+          "ref:glyph220",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
     "97": {
       "": "ङिक",
       "_meta": {
@@ -417,11 +1037,257 @@
         ],
         "source": "derive"
       }
+    },
+    "100": {
+      "Kalimati@cmap:a7bb3a16d4": "व्",
+      "_meta": {
+        "evidence": [
+          "p51",
+          "ref:glyph229",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
+    "101": {
+      "Kalimati@cmap:459b0511b1": "द्व",
+      "Kalimati@cmap:cba8f38f0b": "द्द",
+      "_meta": {
+        "evidence": [
+          "p546",
+          "ref:glyph423",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "102": {
+      "Kalimati@cmap:2c89241e37": "क्",
+      "Kalimati@cmap:cba8f38f0b": "ग्",
+      "_meta": {
+        "evidence": [
+          "p546",
+          "ref:glyph202",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
+    "103": {
+      "Kalimati@cmap:a7bb3a16d4": "ेर्",
+      "_meta": {
+        "evidence": [
+          "p58",
+          "ref:glyph566",
+          "score:0.500"
+        ],
+        "source": "reference"
+      }
+    },
+    "104": {
+      "Kalimati@cmap:a7bb3a16d4": "ख्",
+      "_meta": {
+        "evidence": [
+          "p63",
+          "ref:glyph201",
+          "score:0.250"
+        ],
+        "source": "reference"
+      }
+    },
+    "105": {
+      "Kalimati@cmap:a7bb3a16d4": "द्य",
+      "Kalimati@cmap:cba8f38f0b": "क्",
+      "_meta": {
+        "evidence": [
+          "p547",
+          "ref:glyph200",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "106": {
+      "Kalimati@cmap:a7bb3a16d4": "न्न",
+      "Kalimati@cmap:cba8f38f0b": "प्",
+      "_meta": {
+        "evidence": [
+          "p547",
+          "ref:glyph220",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "107": {
+      "Kalimati@cmap:a7bb3a16d4": "ग्",
+      "_meta": {
+        "evidence": [
+          "p64",
+          "ref:glyph202",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
+    "108": {
+      "Kalimati@cmap:2c89241e37": "ग्",
+      "Kalimati@cmap:a7bb3a16d4": "ध्",
+      "_meta": {
+        "evidence": [
+          "p69",
+          "ref:glyph218",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
+    "110": {
+      "Kalimati@cmap:2c89241e37": "ल्",
+      "_meta": {
+        "evidence": [
+          "p551",
+          "ref:glyph227",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "112": {
+      "Kalimati@cmap:2c89241e37": "द्ध",
+      "_meta": {
+        "evidence": [
+          "p551",
+          "ref:glyph424",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
+    "115": {
+      "Kalimati@cmap:a7bb3a16d4": "द्ध",
+      "_meta": {
+        "evidence": [
+          "p89",
+          "ref:glyph424",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
+    "116": {
+      "Kalimati@cmap:a7bb3a16d4": "थ्",
+      "_meta": {
+        "evidence": [
+          "p92",
+          "ref:glyph216",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "117": {
+      "Kalimati@cmap:a7bb3a16d4": "ङ्क",
+      "_meta": {
+        "evidence": [
+          "p92",
+          "ref:glyph459",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "124": {
+      "Kalimati@cmap:a7bb3a16d4": "ब्",
+      "_meta": {
+        "evidence": [
+          "p116",
+          "ref:glyph222",
+          "score:0.738"
+        ],
+        "source": "reference"
+      }
+    },
+    "125": {
+      "Kalimati@cmap:a7bb3a16d4": "ज्",
+      "_meta": {
+        "evidence": [
+          "p117",
+          "ref:glyph207",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "126": {
+      "Kalimati@cmap:a7bb3a16d4": "ङ्ग",
+      "_meta": {
+        "evidence": [
+          "p123",
+          "ref:glyph461",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "132": {
+      "Kalimati@cmap:a7bb3a16d4": "द्द",
+      "_meta": {
+        "evidence": [
+          "p143",
+          "ref:glyph423",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "138": {
+      "Kalimati@cmap:a7bb3a16d4": "ी",
+      "_meta": {
+        "evidence": [
+          "p186",
+          "ref:glyph548",
+          "score:0.488"
+        ],
+        "source": "reference"
+      }
+    },
+    "141": {
+      "Kalimati@cmap:a7bb3a16d4": "ैँ",
+      "_meta": {
+        "evidence": [
+          "p228",
+          "ref:glyph582",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "155": {
+      "Kalimati@cmap:a7bb3a16d4": "ैर्",
+      "_meta": {
+        "evidence": [
+          "p385",
+          "ref:glyph567",
+          "score:0.000"
+        ],
+        "source": "reference"
+      }
+    },
+    "168": {
+      "Kalimati@cmap:a7bb3a16d4": "द्घ",
+      "_meta": {
+        "evidence": [
+          "p535",
+          "ref:glyph422",
+          "score:0.738"
+        ],
+        "source": "reference"
+      }
     }
   },
   "fonts": {
     "": {
-      "1": "व",
       "3": "केत",
       "4": "आर",
       "13": "सञ्",
@@ -463,10 +1329,208 @@
       "95": "स",
       "97": "ङिक",
       "98": "ब"
+    },
+    "Kalimati@cmap:150796cb30": {
+      "9": "ख्",
+      "12": "न्",
+      "16": "ि",
+      "24": "र्",
+      "37": "म्",
+      "38": "ि",
+      "45": ",",
+      "58": "ी",
+      "60": "ि",
+      "65": "ि"
+    },
+    "Kalimati@cmap:174d25db55": {
+      "15": "ि",
+      "17": "व्"
+    },
+    "Kalimati@cmap:180a6419da": {
+      "11": "म्",
+      "21": "ै",
+      "27": "र्",
+      "47": "ि",
+      "61": "ल्",
+      "76": "ि",
+      "77": "द्व"
+    },
+    "Kalimati@cmap:1c20f1fedc": {
+      "16": "ि"
+    },
+    "Kalimati@cmap:1f9b8743c3": {
+      "2": "ण्",
+      "20": "ि",
+      "34": "ि"
+    },
+    "Kalimati@cmap:2c89241e37": {
+      "1": "ि",
+      "7": "त्",
+      "26": ",",
+      "46": "ख्",
+      "53": "ी",
+      "54": "र्",
+      "58": "ि",
+      "68": "द्य",
+      "76": "व्",
+      "89": "थ्",
+      "93": "द्व",
+      "102": "क्",
+      "108": "ग्",
+      "110": "ल्",
+      "112": "द्ध"
+    },
+    "Kalimati@cmap:459b0511b1": {
+      "9": "ि",
+      "51": ",",
+      "58": "ि",
+      "60": "ी",
+      "61": "न्",
+      "89": "ख्",
+      "96": "ब्",
+      "101": "द्व"
+    },
+    "Kalimati@cmap:53dd91f316": {
+      "2": "ण्",
+      "21": "ि",
+      "23": "ि",
+      "29": "व्"
+    },
+    "Kalimati@cmap:5536fc8cc6": {
+      "9": "ख्",
+      "12": "न्",
+      "16": "ि",
+      "24": "र्",
+      "35": "म्",
+      "41": "व्",
+      "62": "ी",
+      "77": "द्य",
+      "78": "ज्"
+    },
+    "Kalimati@cmap:61e860828e": {
+      "9": "ख्",
+      "19": "र्",
+      "23": "ि",
+      "37": "म्",
+      "41": "ी",
+      "51": "ि",
+      "55": ",",
+      "59": "द्य",
+      "62": "ज्"
+    },
+    "Kalimati@cmap:829024f9b2": {
+      "2": "ण्",
+      "21": "ि",
+      "23": "ि",
+      "32": "र्"
+    },
+    "Kalimati@cmap:83d9f4c4c8": {
+      "2": "ण्",
+      "20": "ि"
+    },
+    "Kalimati@cmap:8cd8148aeb": {
+      "1": "ि",
+      "16": "र्",
+      "41": "न्",
+      "42": "ि",
+      "44": ",",
+      "54": "व्"
+    },
+    "Kalimati@cmap:97330a90f6": {
+      "1": "ि",
+      "21": "म्",
+      "59": "ि"
+    },
+    "Kalimati@cmap:a31150303a": {
+      "15": "ि",
+      "28": "म्",
+      "37": "न्",
+      "46": "ी",
+      "68": "ि",
+      "77": "द्य"
+    },
+    "Kalimati@cmap:a7bb3a16d4": {
+      "9": "ि",
+      "54": ",",
+      "60": "ि",
+      "62": "ी",
+      "96": "प्",
+      "100": "व्",
+      "103": "ेर्",
+      "104": "ख्",
+      "105": "द्य",
+      "106": "न्न",
+      "107": "ग्",
+      "108": "ध्",
+      "115": "द्ध",
+      "116": "थ्",
+      "117": "ङ्क",
+      "124": "ब्",
+      "125": "ज्",
+      "126": "ङ्ग",
+      "132": "द्द",
+      "138": "ी",
+      "141": "ैँ",
+      "155": "ैर्",
+      "168": "द्घ"
+    },
+    "Kalimati@cmap:ae67b5e4c6": {
+      "2": "ि",
+      "15": "व्",
+      "58": "ख्",
+      "59": "न्",
+      "61": "ी",
+      "86": ",",
+      "90": "ी"
+    },
+    "Kalimati@cmap:bb98e63fdb": {
+      "1": "व्",
+      "11": "ि",
+      "29": "ि",
+      "38": "न्",
+      "41": "@"
+    },
+    "Kalimati@cmap:c2b66beffd": {
+      "1": "ि",
+      "7": "त्",
+      "26": ",",
+      "46": "ख्",
+      "53": "ी",
+      "54": "र्",
+      "58": "ि",
+      "68": "द्य",
+      "76": "व्",
+      "92": "द्व"
+    },
+    "Kalimati@cmap:cba8f38f0b": {
+      "29": "म्",
+      "34": "ि",
+      "41": ",",
+      "53": "ि",
+      "55": "ि",
+      "58": "द्य",
+      "59": "न्न",
+      "77": "व्",
+      "93": "ण्",
+      "101": "द्द",
+      "102": "ग्",
+      "105": "क्",
+      "106": "प्"
+    },
+    "Kalimati@cmap:fcb6cc26c3": {
+      "1": "ि",
+      "10": "म्",
+      "52": "ख्",
+      "53": "न्",
+      "58": "र्",
+      "59": "ि",
+      "68": "द्य",
+      "78": "व्",
+      "92": "द्व"
     }
   },
   "meta": {
-    "updated": "2026-08-12T23:35:36.387815+00:00"
+    "updated": "2026-10-23T04:09:04.591813+00:00"
   },
   "schema_version": 1,
   "undecodable": []

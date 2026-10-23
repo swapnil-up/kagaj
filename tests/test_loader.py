@@ -19,9 +19,9 @@ class TestLoadStore:
         approved, rejections = load_store(store_path)
         assert isinstance(approved, dict)
         assert isinstance(rejections, dict)
-        # All 42 store entries accounted for.
+        data = json.loads(store_path.read_text(encoding="utf-8"))
         total = len(approved) + sum(len(v) for v in rejections.values())
-        assert total == 42
+        assert total == len(data["cids"])
 
     def test_approved_are_single_devanagari(self, store_path):
         approved, _ = load_store(store_path)
@@ -48,13 +48,13 @@ class TestLoadStore:
     def test_single_devanagari_approved(self, store_path):
         approved, _ = load_store(store_path)
         # Single-char, non-legacy, non-artifact entries.
-        for cid in (1, 43, 56, 57, 64, 74, 81, 82, 84, 95, 98):
+        for cid in (43, 56, 57, 64, 74, 81, 82, 84, 95, 98):
             assert cid in approved, f"cid {cid} should be approved"
 
     def test_approved_count(self, store_path):
         approved, _ = load_store(store_path)
-        # 11 single-char entries approved.
-        assert len(approved) == 11
+        # 10 single-char entries approved; CID 1 is font-scoped, not a fallback.
+        assert len(approved) == 10
 
     def test_rejection_report_structure(self, store_path):
         _, rejections = load_store(store_path)

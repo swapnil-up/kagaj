@@ -8,8 +8,9 @@ Schema (version 1):
       "schema_version": 1,
       "fonts": {"KLMNGO+Kalimati-1": {4: "ि", 16: "र्", ...}, ...},
       "cids": {4: {font: scoped_value, ...}, ...},
-      "undecodable": ["KLMNGO+Kalimati-1╱9", ...],
-      "meta": {"updated": "...", "source_pdf": "...", "derive": true}
+      "undecodable": ["Kalimati@cmap:abcd123456╱9", ...],
+      "meta": {"updated": "...", "source_pdf": "...", "derive": true,
+               "font_labels": {"Kalimati@cmap:abcd123456": "Kalimati p1"}}
     }
 
 Two cross-references are kept in sync:
@@ -17,7 +18,8 @@ Two cross-references are kept in sync:
   - ``cids[cid][font] -> value`` — the per-CID audit / review surface
 
 A CID with no font-specific entry can still carry a fallback in ``cids[cid][""]``;
-decoders should prefer ``fonts[font].get(cid)`` then ``cids[cid][""]``.
+that legacy path exists only for derive output. Reviewed values are always
+font-scoped. ``meta.font_labels`` is reserved for optional human labels.
 
 CIDs a reviewer marked undecodable are listed in ``undecodable`` as
 ``"{font}╱{cid}"``; ``get_value`` returns None for those before any fallback.
@@ -39,7 +41,7 @@ def empty_store() -> dict:
         "fonts": {},
         "cids": {},
         "undecodable": [],
-        "meta": {},
+        "meta": {"font_labels": {}},
     }
 
 
@@ -53,6 +55,9 @@ def _validate(store: dict) -> None:
     for cid, mp in store.get("cids", {}).items():
         if not isinstance(mp, dict):
             raise ValueError(f"cids[{cid!r}] is not an object")
+    labels = store.get("meta", {}).get("font_labels", {})
+    if labels is not None and not isinstance(labels, dict):
+        raise ValueError("meta.font_labels is not an object")
 
 
 def _normalize(store: dict) -> None:
@@ -102,6 +107,19 @@ def set_value(store: dict, font: str, cid: int, value: str,
         cid_mp.setdefault("_meta", {}).update(meta)
     store.setdefault("meta", {})["updated"] = datetime.now(
         timezone.utc).isoformat()
+
+
+def set_font_label(store: dict, font: str, label: str) -> None:
+    """Attach an optional human label to a font identity."""
+    font = _norm_font(font)
+    if not font:
+        raise ValueError("font label requires a non-empty font id")
+    store.setdefault("meta", {}).setdefault("font_labels", {})[font] = label
+
+
+def font_label(store: dict, font: str) -> str | None:
+    return store.get("meta", {}).get("font_labels", {}).get(
+        _norm_font(font))
 
 
 def set_fallback(store: dict, cid: int, value: str,

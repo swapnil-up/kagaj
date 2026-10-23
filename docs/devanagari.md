@@ -141,12 +141,18 @@ After a virama:
 | `क् + U+200C + ष` | ZWNJ | Prevents joining; the virama is typically visible. |
 
 All three are distinct text but can be considered the same word for matching.
+A ZWJ may also appear **before** the virama (`C + U+200D + ् + C`). This is the
+valid sequence that suppresses reph for `र` and requests the full consonant plus
+the following conjunct form; `validate` accepts it and `segment_aksaras` keeps
+it inside one aksara.
+
 Therefore:
 
 - `normalize` **preserves** ZWJ and ZWNJ.
 - `canonical_key` **removes** them.
-- `validate` rejects a ZWJ/ZWNJ that is not after a virama (for example at the
-  start of a word or after a matra).
+- `validate` rejects a ZWJ/ZWNJ that is neither after a virama nor a ZWJ
+  directly before a virama after a consonant base (for example at the start of a
+  word or after a matra).
 
 ## 8. Nukta and precomposed letters
 
@@ -155,8 +161,10 @@ preceding consonant. Nepali text commonly uses it on `ड`, `ढ`, `फ`, `ज`,
 `ख`, `ग`, and `य`, producing `ड़`, `ढ़`, `फ़`, `ज़`, `क़`, `ख़`, `ग़`, `य़`.
 
 Unicode also has precomposed code points for some of these, for example
-`U+0958` क़ and `U+095C` ड़. The precomposed and decomposed forms are canonically
-equivalent, but composition is not symmetric; see §9.
+`U+0958` क़ and `U+095C` ड़. The native compositions `U+0929` ऩ, `U+0931` ऱ, and
+`U+0934` ऴ are accepted in both forms (`न + ़`, `र + ़`, `ळ + ़`). The
+precomposed and decomposed forms are canonically equivalent, but composition is
+not symmetric; see §9.
 
 Nukta is **phonemic**. `ज` and `ज़` are not the same letter, and `ड` and `ड़`
 are not the same letter. A normalizer must not delete nukta merely because OCR
@@ -222,7 +230,8 @@ Structural rules used by the corpus:
 - A virama must follow a consonant (or a nukta attached to one).
 - A nukta must follow a consonant directly, before virama and matra.
 - No double virama in one cluster.
-- ZWJ/ZWNJ only after a virama.
+- ZWJ/ZWNJ only after a virama, except a ZWJ placed between a consonant and its
+  virama to suppress reph.
 - No lone combining mark at the start of a token.
 - Unknown control characters are invalid; normal whitespace (space, tab,
   newline) is allowed between tokens.
@@ -292,7 +301,7 @@ Splits at aksara boundaries:
 - anusvara, candrabindu, and visarga belong to the preceding aksara;
 - a reph (`र + ्`) belongs to the following aksara;
 - ZWNJ breaks a conjunct and stays attached to the preceding virama; ZWJ stays
-  inside the cluster;
+  inside the cluster, including when it precedes the virama;
 - digits, punctuation, and whitespace are separate segments.
 
 Property: concatenating the result returns the input string exactly.

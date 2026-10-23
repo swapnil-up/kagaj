@@ -1,0 +1,6 @@
+{
+  "source": "nep_dict.sqlite3",
+  "rows": 9935,
+  "sha256": "d52f2f215fc202eb256e348f642931b47b24d5c37d5d5f2ee6b69cf23eee5d51",
+  "builder": "cidmap.build_lexicon"
+}

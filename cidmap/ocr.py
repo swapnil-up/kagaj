@@ -29,12 +29,17 @@ def _ocr_engine(**kwargs):
 
 
 def render_page(page):
-    import fitz  # noqa: F401 (imports pymupdf for matrix)
+    import fitz
     pix = page.get_pixmap(matrix=fitz.Matrix(RENDER_SCALE, RENDER_SCALE))
+    if pix.colorspace is None or pix.colorspace.name not in (
+            "RGB", fitz.csRGB.name):
+        pix = fitz.Pixmap(fitz.csRGB, pix)
     import numpy as np
     arr = np.frombuffer(pix.samples, dtype=np.uint8).reshape(
         pix.height, pix.width, pix.n)
-    return arr[:, :, :3]
+    if pix.n > 3:
+        arr = arr[:, :, :3]
+    return arr
 
 
 def ocr_words(engine, page_array):
@@ -55,6 +60,20 @@ def ocr_words(engine, page_array):
     return out
 
 
+def _text_space_bbox(page, bbox):
+    """Map a rendered-page word box into unrotated text space."""
+    if not int(getattr(page, "rotation", 0) or 0):
+        return bbox
+    import fitz
+    rect = fitz.Rect(bbox) * page.derotation_matrix
+    return (rect.x0, rect.y0, rect.x1, rect.y1)
+
+
+def _text_space_words(page, words):
+    return [(text, *_text_space_bbox(page, (x0, y0, x1, y1)))
+            for text, x0, y0, x1, y1 in words]
+
+
 def word_box_at(words, x_pt, y_pt):
     """Return the full OCR word tuple whose box contains (x, y) in PDF points."""
     for word in words:
@@ -72,11 +91,11 @@ def word_at(words, x_pt, y_pt):
 
 def cross_check(doc, census_result, max_pages=None,
                 log=None) -> dict:
-    """For each unknown (font,cid), collect the OCR words it appears in.
+    """For each unknown (font_id,cid), collect the OCR words it appears in.
 
     Returns {font: {cid: {word: count}}} plus per-glyph reads
     {font: {cid: [{page, word, bbox, x, y}]}}; ``bbox`` is the printed word
-    box in PDF points, not the glyph box.
+    box in unrotated text space, not the glyph box.
     """
     engine = _ocr_engine()
     reads: dict[str, dict[int, list[dict]]] = {}
@@ -88,14 +107,14 @@ def cross_check(doc, census_result, max_pages=None,
     for pn in pages:
         page = doc[pn]
         arr = render_page(page)
-        words = ocr_words(engine, arr)
+        words = _text_space_words(page, ocr_words(engine, arr))
         if log:
             log(f"  OCR p{pn + 1}: {len(words)} words")
         for line in cluster_lines(glyphs(page)):
             for g in line:
                 if not is_unknown(g["c"]):
                     continue
-                font = g["font"] or ""
+                font = g["font_id"] or ""
                 ox, oy = g["origin"][0], g["origin"][1]
                 word = word_box_at(words, ox, oy)
                 if not word:

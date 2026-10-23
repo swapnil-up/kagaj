@@ -147,6 +147,16 @@ def test_validate_accepts_split_two_part_matra():
     assert validate("हेा") == []
 
 
+@pytest.mark.parametrize("decomposed,precomposed", [
+    ("\u0928\u093c", "\u0929"),
+    ("\u0930\u093c", "\u0931"),
+    ("\u0933\u093c", "\u0934"),
+])
+def test_validate_accepts_native_nukta_compositions(decomposed, precomposed):
+    assert validate(decomposed) == []
+    assert validate(precomposed) == []
+
+
 def test_validate_accepts_precomposed_nukta_consonant_cluster():
     assert validate("\u0958\u094d\u0937") == []
 

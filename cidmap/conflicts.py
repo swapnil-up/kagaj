@@ -1,7 +1,7 @@
 """Conflict records for the CID review workbench.
 
 One :class:`Conflict` combines the census evidence for an unknown
-``(font, cid)`` with the store value, the CID-wide derive fallback, and ranked
+``(font_id, cid)`` with the store value, the CID-wide derive fallback, and ranked
 OCR candidates. Verdicts use the shared Devanagari key so equivalent digits
 and matra encodings compare equal while visual-order differences still show.
 """
@@ -41,9 +41,21 @@ def _key(text: str | None) -> str:
 
 
 def _issue_codes(text: str | None) -> list[str]:
+    """Return validation codes for a printed glyph fragment.
+
+    CID values may start with a matra, virama, nukta, or joiner because the
+    preceding base is a different CID. Validate such fragments against a
+    virtual base before treating their leading marks as invalid text.
+    """
     if not text:
         return []
-    return [issue.code for issue in validate(text)]
+    issues = validate(text)
+    if not issues:
+        return []
+    for prefix in ("\u0915", "\u0915\u094d"):
+        if not validate(prefix + text):
+            return []
+    return [issue.code for issue in issues]
 
 
 def _bbox(value) -> tuple[float, float, float, float] | None:
@@ -52,13 +64,17 @@ def _bbox(value) -> tuple[float, float, float, float] | None:
     return tuple(float(x) for x in value)
 
 
-def _candidate(word: str, count: int = 0, pages=None, bbox=None) -> dict:
-    return {
+def _candidate(word: str, count: int = 0, pages=None, bbox=None,
+               bbox_page=None) -> dict:
+    candidate = {
         "word": "" if word is None else str(word),
         "count": int(count),
         "pages": sorted({int(p) for p in (pages or []) if p is not None}),
         "bbox": _bbox(bbox),
     }
+    if bbox_page is not None:
+        candidate["bbox_page"] = int(bbox_page)
+    return candidate
 
 
 def _rank(candidates) -> list[dict]:
@@ -78,13 +94,14 @@ def _from_reads(reads: dict, counts: dict) -> dict:
                     continue
                 cand = by_word.setdefault(word, {
                     "word": word, "count": 0, "pages": [], "bbox": None,
-                    "_n": 0,
+                    "bbox_page": None, "_n": 0,
                 })
                 cand["_n"] += 1
                 if entry.get("page") is not None:
                     cand["pages"].append(entry["page"])
                 if entry.get("bbox") is not None and cand["bbox"] is None:
                     cand["bbox"] = entry["bbox"]
+                    cand["bbox_page"] = entry.get("page")
 
     for font, cids in counts.items():
         for raw_cid, words in (cids or {}).items():
@@ -93,7 +110,7 @@ def _from_reads(reads: dict, counts: dict) -> dict:
             for word, count in (words or {}).items():
                 cand = by_word.setdefault(word, {
                     "word": word, "count": 0, "pages": [], "bbox": None,
-                    "_n": 0,
+                    "bbox_page": None, "_n": 0,
                 })
                 cand["count"] = int(count)
 
@@ -105,7 +122,8 @@ def _from_reads(reads: dict, counts: dict) -> dict:
                 if not cand["count"]:
                     cand["count"] = cand["_n"]
                 candidates.append(_candidate(
-                    cand["word"], cand["count"], cand["pages"], cand["bbox"]))
+                    cand["word"], cand["count"], cand["pages"], cand["bbox"],
+                    cand.get("bbox_page")))
             out.setdefault(font, {})[cid] = _rank(candidates)
     return out
 
@@ -124,7 +142,8 @@ def _from_counts(ocr: dict) -> dict:
                     if isinstance(item, dict):
                         candidates.append(_candidate(
                             item.get("word", ""), item.get("count", 0),
-                            item.get("pages"), item.get("bbox")))
+                            item.get("pages"), item.get("bbox"),
+                            item.get("bbox_page")))
                     else:
                         candidates.append(_candidate(str(item)))
             out.setdefault(str(font), {})[cid] = _rank(candidates)
@@ -251,7 +270,8 @@ def build_conflicts_from_census(cen: dict, store: dict, ocr_data: dict, *,
                 derive_value=derive_value,
                 ocr_candidates=candidates,
                 glyph_bbox=_bbox(sample.get("bbox")),
-                word_bbox=candidates[0]["bbox"] if candidates else None,
+                word_bbox=next(
+                    (c["bbox"] for c in candidates if c.get("bbox")), None),
                 page=sample.get("page"),
                 context=context,
                 n_occ=n_occ,

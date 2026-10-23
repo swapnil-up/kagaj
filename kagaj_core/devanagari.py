@@ -16,7 +16,7 @@ ZWJ = "\u200d"
 ZWNJ = "\u200c"
 JOINERS = frozenset({ZWJ, ZWNJ})
 
-NUKTA_BASES = frozenset("कखगजडढफय")
+NUKTA_BASES = frozenset("कखगजडढफयनरळ")
 
 DEVANAGARI_DIGITS = str.maketrans("०१२३४५६७८९", "0123456789")
 
@@ -147,9 +147,14 @@ def validate(text: str) -> list[Issue]:
                 )
         elif char in JOINERS:
             if index == 0 or previous != VIRAMA:
-                issues.append(
-                    Issue("joiner-position", "joiner is only valid after a virama", *span)
-                )
+                if not (char == ZWJ and _has_vowel_base(text, index)
+                        and index + 1 < len(text)
+                        and text[index + 1] == VIRAMA):
+                    issues.append(
+                        Issue("joiner-position",
+                              "joiner is only valid before or after a virama",
+                              *span)
+                    )
         elif _is_sign(char):
             if index == 0 or previous.isspace() or previous in "।॥" or previous in JOINERS:
                 issues.append(
@@ -261,7 +266,7 @@ def _has_vowel_base(text: str, index: int) -> bool:
     previous = text[index - 1]
     if _is_consonant(previous):
         return True
-    if previous == NUKTA and index >= 2 and _is_consonant(text[index - 2]):
+    if previous in (NUKTA, ZWJ) and index >= 2 and _is_consonant(text[index - 2]):
         return True
     return False
 
@@ -273,7 +278,12 @@ def _consume_consonant_cluster(text: str, index: int) -> int:
     if end < length and text[end] == NUKTA:
         end += 1
 
-    while end < length and text[end] == VIRAMA:
+    while end < length:
+        if (text[end] == ZWJ and end + 1 < length
+                and text[end + 1] == VIRAMA):
+            end += 1
+        if text[end] != VIRAMA:
+            break
         after_virama = end + 1
         if after_virama < length and text[after_virama] == ZWJ:
             end = after_virama + 1

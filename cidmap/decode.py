@@ -1,22 +1,30 @@
-"""Text-layer decode: per-glyph census of unmapped CIDs, scoped by font subset.
+"""Text-layer decode: per-glyph census of unmapped CIDs, scoped by font_id.
 
 PyMuPDF decodes ~95% of redbook glyphs via each font subset's ToUnicode CMap.
 Unmapped CIDs fall through to Identity-H -> control chars / \\ufffd / ASCII
-artifacts. This module finds those glyphs and records, per (font subset, cid):
+artifacts. This module finds those glyphs and records, per (font_id, cid):
 
   - occurrence count,
   - pages,
   - the logical-order window around each occurrence (context), and
   - a representative position (bbox) for OCR cross-check / crop rendering.
 
-The font SUB SET resource name (``KLMNGO+Kalimati-1``) is captured from the
-texttrace span so the same CID in different font instances stays distinguishable
--- the exact failure mode a bare-CID map cannot represent.
+Font identity comes from :mod:`cidmap.fonts`: a ToUnicode CMap hash when
+available, otherwise a PDF-local source hash plus font xref. Texttrace only
+reports the BaseFont name (``Kalimati``), which is shared by every subset and is
+therefore unusable as a scoping key on its own.
 """
 
 from __future__ import annotations
 
 from collections import defaultdict
+
+from .fonts import (
+    FontIdentity,
+    FontResolutionError,
+    lookup_identity,
+    page_fonts,
+)
 
 # Unmapped-CID fallthrough signatures from texttrace.
 _CONTROL = {c for c in range(0x20)}
@@ -37,27 +45,55 @@ def is_unknown(char: str) -> bool:
     return False
 
 
+def _font_lookup(page):
+    wanted = {span["font"] for span in page.get_texttrace()}
+    if getattr(page, "parent", None) is None:
+        def unresolved(base: str) -> FontIdentity:
+            return FontIdentity(base, base, None, "unresolved")
+        return unresolved
+    fonts = page_fonts(page, wanted=wanted)
+    resolved = {}
+
+    def identity(base: str) -> FontIdentity:
+        if base not in resolved:
+            resolved[base] = lookup_identity(fonts, base)
+        return resolved[base]
+
+    return identity
+
+
+def _glyph_record(identity: FontIdentity, cid, char, origin, bbox):
+    return {
+        "cid": cid,
+        "c": char,
+        "font": identity.base_font,
+        "base_font": identity.base_font,
+        "font_id": identity.font_id,
+        "font_xref": identity.font_xref,
+        "font_id_scheme": identity.font_id_scheme,
+        "origin": origin,
+        "bbox": bbox,
+    }
+
+
 def glyphs(page, dedup=True) -> list[dict]:
-    """Per-glyph records from texttrace: {cid, c, font, origin, bbox}.
+    """Per-glyph records with a stable ``font_id`` plus legacy font metadata.
 
     ``dedup`` merges glyphs the text layer draws twice at ~the same spot
-    (redbook shadow/outline artifact: same (font, cid) within X_TOL pt).
+    (same font_id and CID within X_TOL pt).
 
     Falls back to span-level bbox division when per-glyph chars are absent.
     """
+    identity = _font_lookup(page)
     out = []
     for span in page.get_texttrace():
         font = span["font"]
+        info = identity(font)
         chars = span.get("chars", [])
         if chars:
             for (u, glyph, origin, bbox) in chars:
-                out.append({
-                    "cid": glyph,          # == CID for Identity-H
-                    "c": chr(u) if u else "",
-                    "font": font,
-                    "origin": origin,
-                    "bbox": bbox,
-                })
+                out.append(_glyph_record(
+                    info, glyph, chr(u) if u else "", origin, bbox))
         else:
             sb = span["bbox"]
             text = span.get("text", "")
@@ -67,19 +103,16 @@ def glyphs(page, dedup=True) -> list[dict]:
                 origin = (sb[0] + idx * span_w, sb[1])
                 char_x0 = sb[0] + idx * span_w
                 char_x1 = char_x0 + span_w
-                out.append({
-                    "font": font,
-                    "cid": 0,  # CID unknown at span level
-                    "c": ch,
-                    "origin": origin,
-                    "bbox": (char_x0, sb[1], char_x1, sb[3]),
-                })
+                out.append(_glyph_record(
+                    info, 0, ch, origin,
+                    (char_x0, sb[1], char_x1, sb[3])))
     if not dedup:
         return out
     seen = set()
     deduped = []
     for g in out:
-        key = (g["font"], g["cid"], round(g["origin"][1]), round(g["origin"][0]))
+        key = (g["font_id"], g["cid"], round(g["origin"][1]),
+               round(g["origin"][0]))
         if key in seen:
             continue
         seen.add(key)
@@ -106,8 +139,11 @@ def _marker(g) -> str:
     return f"⟦{g['cid']}⟧" if is_unknown(g["c"]) else g["c"]
 
 
-def census(doc, max_pages=None) -> dict:
-    """Scan pages; return {font: {cid: record}} for unknown glyphs.
+def census(doc, max_pages=None, issues=None) -> dict:
+    """Scan pages; return {font_id: {cid: record}} for unknown glyphs.
+
+    ``issues`` optionally collects page-level font-resolution failures instead
+    of aborting the whole scan.
 
     Record keys: count, pages (list), contexts (list of window strings),
     samples (list of {page, bbox} for OCR / render).
@@ -119,11 +155,19 @@ def census(doc, max_pages=None) -> dict:
         min(max_pages, len(doc)))
     for pn in pages:
         page = doc[pn]
-        for line in cluster_lines(glyphs(page)):
+        try:
+            page_glyphs = glyphs(page)
+        except FontResolutionError as exc:
+            if issues is None:
+                raise
+            issues.append({"page": pn + 1, "kind": type(exc).__name__,
+                           "message": str(exc)})
+            continue
+        for line in cluster_lines(page_glyphs):
             for i, g in enumerate(line):
                 if not is_unknown(g["c"]):
                     continue
-                font = g["font"] or ""
+                font = g["font_id"] or ""
                 rec = out[font][g["cid"]]
                 rec["count"] += 1
                 rec["pages"].append(pn + 1)
@@ -133,7 +177,13 @@ def census(doc, max_pages=None) -> dict:
                 if ctx not in rec["contexts"] and len(rec["contexts"]) < 8:
                     rec["contexts"].append(ctx)
                 if len(rec["samples"]) < 3:
-                    rec["samples"].append({"page": pn + 1, "bbox": g["bbox"]})
+                    rec["samples"].append({
+                        "page": pn + 1, "bbox": g["bbox"],
+                        "font_id": g["font_id"],
+                        "base_font": g["base_font"],
+                        "font_xref": g["font_xref"],
+                        "font_id_scheme": g["font_id_scheme"],
+                    })
     # dedup pages
     for font in out:
         for cid in out[font]:
@@ -144,9 +194,10 @@ def census(doc, max_pages=None) -> dict:
 
 
 def flatten(census_result: dict) -> list[dict]:
-    """Flatten to rows keyed by (font, cid) for review."""
+    """Flatten to rows keyed by (font_id, cid) for review."""
     rows = []
-    for font, cids in census_result.items():
+    for font_id, cids in census_result.items():
         for cid, rec in sorted(cids.items()):
-            rows.append({"key": f"{font}╱{cid}", "font": font, "cid": cid, **rec})
+            rows.append({"key": f"{font_id}╱{cid}", "font": font_id,
+                         "font_id": font_id, "cid": cid, **rec})
     return rows

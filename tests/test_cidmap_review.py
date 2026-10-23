@@ -1,7 +1,10 @@
 import json
+import logging
 import re
+import sys
 from types import SimpleNamespace
 
+from kagaj_core.review import ReviewCrop
 from cidmap import cli, review
 from cidmap.conflicts import Conflict
 from cidmap.review import build_conflicts_html, build_review_html
@@ -34,25 +37,34 @@ def _conflict(cid=2, verdict="disagree", font=FONT):
 
 def test_candidates_are_separate_buttons():
     html = build_conflicts_html([_conflict()])
-    words = re.findall(r'class="cand" data-word="([^"]*)"', html)
+    words = re.findall(r'class="cand" data-value="([^"]*)"', html)
     assert words == ["\u0935\u094d\u092f\u092a", "\u0935\u094d\u092f\u092f"]
     assert html.count('class="cand"') == 2
 
 
-def test_export_bootstrap_has_commit_shape():
+def test_bootstrap_has_neutral_item_shape():
     html = build_conflicts_html([_conflict()])
     match = re.search(
-        r'<script id="cards-data" type="application/json">(.*?)</script>',
+        r'<script id="review-data" type="application/json">(.*?)</script>',
         html, re.S)
     assert match
-    assert json.loads(match.group(1)) == [
-        {"font": FONT, "cid": 2, "decision": "", "undecodable": False}
-    ]
+    assert json.loads(match.group(1)) == [{
+        "key": f"{FONT}\u25712", "current": "\u0935\u094d\u092f\u092f",
+        "data": {"font": FONT, "font_id": FONT, "cid": 2},
+    }]
+
+
+def test_verdict_is_a_tag_filter():
+    html = build_conflicts_html([_conflict()])
+    assert 'id="filter-verdict"' in html
+    assert 'data-tag="verdict"' in html
+    assert 'data-tag-verdict="disagree"' in html
+    assert '<span class="badge tag">disagree</span>' in html
 
 
 def test_workbench_has_filters_progress_and_shortcuts():
     html = build_conflicts_html([_conflict()])
-    for element in ("filter-verdict", "filter-font", "filter-cid",
+    for element in ("filter-verdict", "filter-group", "filter-search",
                     "only-undecided", "filled", "export", "import", "reset"):
         assert f'id="{element}"' in html
     assert "1\u20139 pick candidate" in html
@@ -60,12 +72,12 @@ def test_workbench_has_filters_progress_and_shortcuts():
 
 
 def test_word_crop_highlights_the_glyph_region():
-    crops = {(FONT, 2): {
-        "glyph": "data:image/png;base64,AAAA",
-        "word": "data:image/png;base64,BBBB",
-        "overlay": {"left": "10.0%", "top": "20.0%",
-                    "width": "30.0%", "height": "40.0%"},
-    }}
+    crops = {(FONT, 2): ReviewCrop(
+        glyph="data:image/png;base64,AAAA",
+        word="data:image/png;base64,BBBB",
+        overlay={"left": "10.0%", "top": "20.0%",
+                 "width": "30.0%", "height": "40.0%"},
+    )}
     html = build_conflicts_html([_conflict()], crops)
     assert html.count("<img") == 2
     assert 'class="gbox"' in html
@@ -82,8 +94,8 @@ def test_only_font_filters_cards():
     other = _conflict(cid=3, font="OTHER+Font")
     html = build_review_html(None, {}, {}, conflicts=[_conflict(), other],
                              only_font=FONT)
-    assert 'data-cid="2"' in html
-    assert 'data-cid="3"' not in html
+    assert f'data-key="{FONT}\u25712"' in html
+    assert f'data-key="{FONT}\u25713"' not in html
 
 
 def test_candidate_words_are_html_escaped():
@@ -91,31 +103,48 @@ def test_candidate_words_are_html_escaped():
     conflict.ocr_candidates = [{"word": '"\u0915<', "count": 1,
                                 "pages": [], "bbox": None}]
     html = build_conflicts_html([conflict])
-    assert "data-word=\"&quot;\u0915&lt;\"" in html
+    assert "data-value=\"&quot;\u0915&lt;\"" in html
 
 
 def test_build_review_html_renders_crops_without_fitz(monkeypatch):
     calls = []
 
-    def fake_render(doc, page_no, bbox, dpi=review.DPI):
-        calls.append((page_no, bbox, dpi))
-        return "data:image/png;base64,AAAA"
+    def fake_crop(doc, *, word=None, glyph=None, **kwargs):
+        calls.append((word, glyph))
+        return ReviewCrop(
+            glyph="data:image/png;base64,AAAA",
+            word="data:image/png;base64,BBBB",
+            overlay={"left": "10.0%", "top": "20.0%",
+                     "width": "30.0%", "height": "40.0%"},
+        )
 
-    monkeypatch.setattr(review, "_render", fake_render)
+    monkeypatch.setattr(review, "render_review_crop", fake_crop)
     html = build_review_html(object(), {}, {},
                              conflicts=[_conflict()])
-    assert len(calls) == 2
-    assert calls[0] == (1, (4.0, 14.0, 24.0, 36.0), 400)
-    assert calls[1] == (1, (103.0, 203.0, 159.0, 239.0), review.DPI)
+    assert calls == [((1, (111, 211, 151, 231)), (1, (10, 20, 18, 30)))]
     assert 'class="gbox"' in html
 
 
-def test_exported_records_are_accepted_by_commit(tmp_path):
+def test_legacy_records_are_rejected_by_commit(tmp_path):
     decisions = tmp_path / "decisions.json"
     decisions.write_text(json.dumps([
         {"font": FONT, "cid": 2,
          "decision": "व्यय", "undecodable": False},
-        {"font": FONT, "cid": 3, "decision": "", "undecodable": True},
+    ]), encoding="utf-8")
+    store = tmp_path / "store.json"
+
+    assert cli.cmd_commit(SimpleNamespace(
+        decisions=str(decisions), store=str(store))) == 1
+    assert not store.exists()
+
+
+def test_neutral_records_are_accepted_by_commit(tmp_path):
+    decisions = tmp_path / "decisions.json"
+    decisions.write_text(json.dumps([
+        {"key": f"{FONT}\u25712", "value": "व्यय", "undecodable": False,
+         "data": {"font": FONT, "cid": 2}},
+        {"key": f"{FONT}\u25713", "value": "", "undecodable": True,
+         "data": {"font": FONT, "cid": 3}},
     ]), encoding="utf-8")
     store = tmp_path / "store.json"
 
@@ -134,12 +163,15 @@ def test_cmd_scan_wires_full_ocr_data_and_census(monkeypatch, tmp_path):
     captured = {}
 
     def fake_review(doc, store, ocr_data, only_font=None, max_pages=None,
-                    census_result=None):
-        captured.update(ocr=ocr_data, census=census_result, font=only_font)
+                    census_result=None, **kwargs):
+        captured.update(ocr=ocr_data, census=census_result, font=only_font,
+                        session=kwargs.get("session"))
         return "<html></html>"
 
     monkeypatch.setattr(cli, "_doc", lambda args: object())
-    monkeypatch.setattr(cli, "census", lambda doc, max_pages=None: {})
+    monkeypatch.setattr(
+        cli, "census",
+        lambda doc, max_pages=None, issues=None: issues or {})
     monkeypatch.setattr(cli, "build_review_html", fake_review)
 
     args = SimpleNamespace(
@@ -149,5 +181,52 @@ def test_cmd_scan_wires_full_ocr_data_and_census(monkeypatch, tmp_path):
     assert cli.cmd_scan(args) == 0
     assert captured["ocr"] == {"reads": {}, "counts": {}}
     assert captured["census"] == {}
+    assert captured["session"].startswith("cidmap:")
     assert (tmp_path / "review.html").read_text(encoding="utf-8") == \
         "<html></html>"
+
+
+def test_word_crop_uses_first_candidate_with_a_bbox(monkeypatch):
+    conflict = _conflict()
+    conflict.ocr_candidates[0]["bbox"] = None
+    calls = []
+
+    def fake_crop(doc, *, word=None, glyph=None, **kwargs):
+        calls.append((word, glyph))
+        return ReviewCrop(glyph="g", word="w")
+
+    monkeypatch.setattr(review, "render_review_crop", fake_crop)
+    crop = review._crops(object(), conflict)
+
+    assert crop.word == "w"
+    assert calls == [((1, (110, 210, 150, 230)), (1, (10, 20, 18, 30)))]
+
+
+def test_crop_failures_are_logged(monkeypatch, caplog):
+    def boom(*args, **kwargs):
+        raise RuntimeError("bad page")
+
+    monkeypatch.setattr(review, "render_review_crop", boom)
+    with caplog.at_level(logging.WARNING):
+        crop = review._crops(object(), _conflict())
+
+    assert crop is None
+    assert "crops failed" in caplog.text
+
+
+def test_review_main_loads_store_through_mappings(monkeypatch, tmp_path):
+    captured = {}
+    monkeypatch.setitem(sys.modules, "fitz", SimpleNamespace(open=lambda p: object()))
+    monkeypatch.setattr(review, "load_store", lambda path: {"loaded": path})
+
+    def fake_review(doc, store, ocr, **kwargs):
+        captured["store"] = store
+        return "<html></html>"
+
+    monkeypatch.setattr(review, "build_review_html", fake_review)
+    out = tmp_path / "review.html"
+
+    assert review.main(["fake.pdf", "--store", "store.json",
+                        "-o", str(out)]) == 0
+    assert captured["store"] == {"loaded": "store.json"}
+    assert out.read_text(encoding="utf-8") == "<html></html>"

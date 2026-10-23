@@ -30,7 +30,9 @@ class TestExtractGlyphs:
         page = FakePage([span("CIDFont+F1", [char(2346, 148, 10.0, 20.0)])])
         out = extract_glyphs(page)
         assert out == [{
-            "font": "CIDFont+F1", "cid": 148, "c": "प",
+            "font": "CIDFont+F1", "base_font": "CIDFont+F1",
+            "font_id": "CIDFont+F1", "font_xref": None,
+            "font_id_scheme": "unresolved", "cid": 148, "c": "प",
             "origin": (10.0, 20.0), "bbox": (10.0, 20.0, 15.0, 25.0),
         }]
 

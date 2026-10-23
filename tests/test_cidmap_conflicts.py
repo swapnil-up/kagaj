@@ -146,12 +146,28 @@ def test_pages_filter_limits_rows(cen, store, ocr_data):
     assert {c.cid for c in conflicts} == {1, 2}
 
 
-def test_invalid_store_value_is_reported_as_disagree(cen, store):
-    set_value(store, FONT, 3, "\u093f")
+@pytest.mark.parametrize("value,ocr_word", [
+    ("\u093f", "\u0915\u093f"),
+    ("\u094d", "\u0915\u094d"),
+    ("\u093c", "\u0915\u093c"),
+    ("\u094b", "\u0915\u094b"),
+    ("\u0930\u094d", "\u0915\u0930\u094d\u092e"),
+])
+def test_glyph_fragments_are_valid_store_values(cen, store, value, ocr_word):
+    set_value(store, FONT, 3, value)
+    conflict = _by_cid(build_conflicts_from_census(
+        cen, store, {FONT: {3: {ocr_word: 2}}}))[3]
+
+    assert conflict.agreement["value_valid"] is True
+    assert conflict.verdict == "agree"
+
+
+def test_invalid_glyph_value_is_reported_as_disagree(cen, store):
+    set_value(store, FONT, 3, "\u093f\u093e")
     conflicts = _by_cid(build_conflicts_from_census(
-        cen, store, {FONT: {3: {"\u093f": 1}}}))
+        cen, store, {FONT: {3: {"\u0915\u093f\u093e": 1}}}))
     assert conflicts[3].verdict == "disagree"
-    assert "leading-matra" in conflicts[3].agreement["value_issues"]
+    assert "matra-on-matra" in conflicts[3].agreement["value_issues"]
 
 
 def test_word_box_at_returns_the_printed_word_box():

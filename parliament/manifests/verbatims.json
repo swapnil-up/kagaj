@@ -264,7 +264,11 @@
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/splby63xhhktqvzf.pdf",
     "status": "failed",
     "scraped_at": "2026-08-10",
-    "serial": "21."
+    "serial": "21.",
+    "failure_kind": "download",
+    "last_error": "download failed: connection to na.parliament.gov.np timed out after 3 attempts",
+    "failed_at": "2026-10-21T23:15:14+00:00",
+    "attempts": 2
   },
   {
     "id": 2960,

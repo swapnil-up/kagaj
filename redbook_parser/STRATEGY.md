@@ -63,9 +63,10 @@ For v3 the correct model is:
 
 - The **CID = glyph id** (Identity-H). The gap is only CIDs *missing from a
   subset's ToUnicode CMap*.
-- The scoped map is keyed by **font subset resource name** (e.g.
-  `KLMNGO+Kalimati-*`), consulted only when PyMuPDF's decoded char is
-  garbage (control char / `\ufffd` / ASCII artifact).
+- The scoped map is keyed by a resolved **font identity** (for example
+  `Kalimati@cmap:bb98e63fdb`, or a `Kalimati@src:<pdf-hash>:xref<N>` fallback),
+  consulted only when PyMuPDF's decoded char is garbage (control char /
+  `\ufffd` / ASCII artifact).
 - It is a *supplement* to PyMuPDF, not a shadow of the whole font.
 - The Preeti byte→Unicode map stays in the v2 path.
 
@@ -75,7 +76,7 @@ Measured on the HoR `Notice_2083-03-31.pdf` and `Daily_Agenda` PDFs, which
 share the exact Type0 / Identity-H architecture of redbook8283.pdf:
 
 - **`page.get_texttrace()` is the ONLY API we need.** It returns span dicts
-  carrying the **font subset name** plus a `chars` tuple of per-glyph
+  carrying the **BaseFont name** plus a `chars` tuple of per-glyph
   `(unicode, glyph_id, origin, bbox)`. Font + CID + geometry in one pass.
 - **Unmapped CIDs decode to `U+FFFD` in texttrace; the CID is the `glyph` id.**
   `rawdict`/`get_text` instead render `chr(cid)` fallbacks (control chars and
@@ -244,7 +245,7 @@ Port v3 into the new package **behaviour-preserving**, then fix these in order:
 +-------------------------------------------------------------------------+
 | STEP 2: Spatial & Glyph Extraction (Replacing Repair Tables)             |
 | - Extract text via bounding boxes (x0,y0,x1,y1) per char.                |
-| - Font-scoped CMap dictionaries keyed by font subset name.               |
+| - Font-scoped CMap dictionaries keyed by resolved font identity.         |
 | - Log unmapped CIDs to unmapped_cids.log (page numbers) instead of       |
 |   regex-stripping [N].                                                   |
 | - Page-template classifier (TOC / detail / summary) before column maps.  |

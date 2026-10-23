@@ -105,10 +105,25 @@ def cmd_review(args) -> int:
     if not os.path.exists(args.pdf):
         print(f"Error: {args.pdf} not found", file=sys.stderr)
         return 1
+    if args.reference_font and not os.path.exists(args.reference_font):
+        print(f"Error: {args.reference_font} not found", file=sys.stderr)
+        return 1
+    if args.shape_runs and not args.reference_font:
+        print("Error: --shape-runs requires --reference-font",
+              file=sys.stderr)
+        return 1
     doc = fitz.open(args.pdf)
     out = args.output or "output/cid_review.html"
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
-    htmlout = build_review_html(doc, args.crop, only=args.cids)
+    registry = None
+    if getattr(args, "registry", None):
+        from cidmap import registry as registry_mod
+        registry = registry_mod.load(args.registry)
+    htmlout = build_review_html(
+        doc, args.crop, only=args.cids,
+        session=f"redbook:{os.path.abspath(args.pdf)}",
+        reference_font=args.reference_font, shape_runs=args.shape_runs,
+        registry=registry)
     with open(out, "w", encoding="utf-8") as f:
         f.write(htmlout)
     print(f"Wrote {out} ({os.path.getsize(out) / 1e6:.1f} MB)", file=sys.stderr)
@@ -116,7 +131,7 @@ def cmd_review(args) -> int:
 
 
 def cmd_derive(args) -> int:
-    from .derive import derive
+    from .derive import derive, load_corrections
     import fitz  # lazy
 
     if not os.path.exists(args.pdf):
@@ -128,11 +143,7 @@ def cmd_derive(args) -> int:
 
     with open(args.corrections, encoding="utf-8") as f:
         recs = json.load(f)
-    corrections = {}
-    for r in recs:
-        w = (r.get("correct") or "").strip()
-        if w:
-            corrections[int(r["cid"])] = w
+    corrections = load_corrections(recs)
     if not corrections:
         print("No non-empty corrections found in the file", file=sys.stderr)
         return 1
@@ -189,13 +200,19 @@ def main(argv=None) -> int:
     rv.add_argument("--crop", type=int, default=3, help="render samples per CID")
     rv.add_argument("--cids", type=lambda s: {int(x) for x in s.split(",")},
                     default=None, help="restrict to these CIDs (comma-separated)")
+    rv.add_argument("--reference-font", default=None,
+                    help="original TTF/OTF used to suggest glyph values")
+    rv.add_argument("--shape-runs", action="store_true",
+                    help="add shape-run candidates (requires --reference-font)")
+    rv.add_argument("--registry", default=None,
+                    help="cross-document glyph registry for candidates")
     rv.set_defaults(fn=cmd_review)
 
     dr = sub.add_parser("derive",
                         help="Turn typed word corrections into per-CID Devanagari mappings")
     dr.add_argument("pdf")
     dr.add_argument("corrections",
-                    help="JSON list of {cid, correct} words exported from the review sheet")
+                    help="JSON list exported from the review sheet (neutral or {cid, correct})")
     dr.add_argument("--output", "-o", default="output/cid_mappings.json")
     dr.add_argument("--max-pages", type=int, default=None)
     dr.set_defaults(fn=cmd_derive)

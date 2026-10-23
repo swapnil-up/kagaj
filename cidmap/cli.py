@@ -1,8 +1,20 @@
-"""CLI: cidmap scan <pdf> | cidmap commit <decisions.json> | cidmap seed <derive.json>
+"""CLI: cidmap scan <pdf> | cidmap review <pdf> | cidmap probe <pdf>
+       cidmap registry ingest <pdf> | cidmap promote <pdf>
+       cidmap autoscope <pdf> | cidmap repair <pdf>
+       cidmap commit <decisions.json>
 
-``scan``  decode -> (optional OCR) -> HTML decision sheet (+ census JSON),
-``commit``  fold a decisions.json exported from the sheet into the canonical
-            store, ``seed``  fold a derive output into the store as fallbacks.
+``scan``     decode -> (optional OCR) -> conflict decision sheet (+ census JSON),
+``review``   unknown-CID PDF crops -> neutral review sheet for human mapping,
+``probe``    read-only font coverage, hybrid classes, and fingerprint report,
+``infer``    read-only shape-run candidates for unknown CIDs,
+``registry`` record or query cross-document glyph evidence,
+``promote``  dry-run or apply registry-backed mappings to the canonical store,
+``autoscope`` bootstrap exact reference-outline matches into font-scoped store
+             mappings (dry-run by default),
+``repair``   write a copy with store-backed ToUnicode CMap additions,
+``commit``   fold a neutral decisions.json into the canonical store (font-scoped
+             only), ``seed`` fold a derive output into the store as fallbacks.
+``quorum``   OCR cross-check per unknown CID.
 
 Default store: ``cidmap/data/cid_mappings.json`` (tracked, the consumable map).
 """
@@ -14,10 +26,10 @@ import json
 import os
 import sys
 
-from .decode import census, flatten
-from .mappings import (
-    load, save, set_value, mark_undecodable, merge_derive_results,
-)
+from .decisions import apply_decisions
+from .decode import census, flatten, glyphs as extract_glyphs
+from .mappings import load, save, merge_derive_results
+from .registry import DEFAULT_REGISTRY
 from .review import build_review_html
 
 DEFAULT_STORE = "cidmap/data/cid_mappings.json"
@@ -36,7 +48,8 @@ def cmd_scan(args) -> int:
     if doc is None:
         return 1
 
-    cen = census(doc, max_pages=args.max_pages)
+    issues: list[dict] = []
+    cen = census(doc, max_pages=args.max_pages, issues=issues)
     store = load(args.store)
 
     ocr_path = None
@@ -58,8 +71,11 @@ def cmd_scan(args) -> int:
 
     out = args.output
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
-    htmlout = build_review_html(doc, store, ocr_data, only_font=args.font,
-                                max_pages=args.max_pages, census_result=cen)
+    htmlout = build_review_html(
+        doc, store, ocr_data, only_font=args.font,
+        max_pages=args.max_pages, census_result=cen, issues=issues,
+        session=f"cidmap:{os.path.abspath(args.pdf)}:"
+                f"{os.path.abspath(args.store)}")
     with open(out, "w", encoding="utf-8") as f:
         f.write(htmlout)
     print(f"Wrote {out} ({os.path.getsize(out) / 1e6:.1f} MB)", file=sys.stderr)
@@ -73,31 +89,370 @@ def cmd_scan(args) -> int:
     return 0
 
 
+def cmd_glyph_review(args) -> int:
+    from .glyph_review import build_review_html as build_glyph_review_html
+
+    doc = _doc(args)
+    if doc is None:
+        return 1
+    if args.reference_font and not os.path.exists(args.reference_font):
+        print(f"Error: {args.reference_font} not found", file=sys.stderr)
+        return 1
+    out = args.output
+    os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
+    if args.shape_runs and not args.reference_font:
+        print("Error: --shape-runs requires --reference-font",
+              file=sys.stderr)
+        return 1
+    registry = None
+    if getattr(args, "registry", None):
+        from . import registry as registry_mod
+        registry = registry_mod.load(args.registry)
+    htmlout = build_glyph_review_html(
+        doc, args.crop, only=args.cids,
+        reference_font=args.reference_font,
+        shape_runs=args.shape_runs,
+        registry=registry,
+        session=f"cidmap:{os.path.abspath(args.pdf)}")
+    with open(out, "w", encoding="utf-8") as f:
+        f.write(htmlout)
+    print(f"Wrote {out} ({os.path.getsize(out) / 1e6:.1f} MB)", file=sys.stderr)
+    return 0
+
+
+def cmd_probe(args) -> int:
+    from .probe import format_probe, probe_document
+
+    doc = _doc(args)
+    if doc is None:
+        return 1
+    if args.reference_font and not os.path.exists(args.reference_font):
+        print(f"Error: {args.reference_font} not found", file=sys.stderr)
+        return 1
+    kwargs = {
+        "max_pages": args.max_pages,
+        "reference_font": args.reference_font,
+    }
+    registry_path = getattr(args, "registry", None)
+    if registry_path:
+        from . import registry as registry_mod
+        kwargs["registry"] = registry_mod.load(registry_path)
+    try:
+        result = probe_document(doc, **kwargs)
+    except Exception as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        return 1
+    print(format_probe(result))
+    if args.json:
+        os.makedirs(os.path.dirname(args.json) or ".", exist_ok=True)
+        with open(args.json, "w", encoding="utf-8") as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
+        print(f"Wrote {args.json}", file=sys.stderr)
+    return 0
+
+
+def cmd_infer(args) -> int:
+    from .infer import (
+        aggregate_cids, format_inference, infer_runs, inference_payload,
+    )
+
+    doc = _doc(args)
+    if doc is None:
+        return 1
+    if not args.reference_font:
+        print("Error: --reference-font is required", file=sys.stderr)
+        return 1
+    if not os.path.exists(args.reference_font):
+        print(f"Error: {args.reference_font} not found", file=sys.stderr)
+        return 1
+    try:
+        inferences = infer_runs(
+            doc,
+            reference_font=args.reference_font,
+            lexicon=args.lexicon,
+            max_pages=args.max_pages,
+            max_candidates=args.max_candidates,
+        )
+    except Exception as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        return 1
+    cids = args.cids
+    if cids is not None:
+        inferences = [
+            inference for inference in inferences
+            if any(
+                assignment.cid in cids
+                for candidate in inference.candidates
+                for assignment in candidate.assignments
+            )
+        ]
+    print(format_inference(inferences))
+    if args.json:
+        payload = inference_payload(inferences, cids=cids)
+        os.makedirs(os.path.dirname(args.json) or ".", exist_ok=True)
+        with open(args.json, "w", encoding="utf-8") as handle:
+            json.dump(payload, handle, ensure_ascii=False, indent=2)
+        print(f"Wrote {args.json}", file=sys.stderr)
+        for item in aggregate_cids(inferences):
+            if cids is None or item.cid in cids:
+                print(f"CID {item.cid}: {item.value} ({item.score:.1f})",
+                      file=sys.stderr)
+    return 0
+
+
+def _registry_matches(doc, cid: int, only_font: str | None = None,
+                     max_pages=None, issues=None):
+    from .fonts import FontResolutionError
+
+    seen = set()
+    pages = range(len(doc)) if max_pages is None else range(
+        min(max_pages, len(doc)))
+    for pn in pages:
+        try:
+            page_glyphs = extract_glyphs(doc[pn], dedup=True)
+        except FontResolutionError as exc:
+            if issues is not None:
+                issues.append({
+                    "page": pn + 1,
+                    "kind": type(exc).__name__,
+                    "message": str(exc),
+                })
+            continue
+        for glyph in page_glyphs:
+            if glyph.get("cid") != cid:
+                continue
+            font_id = glyph.get("font_id") or ""
+            if only_font and font_id != only_font:
+                continue
+            identity = (font_id, glyph.get("font_xref"))
+            if identity in seen:
+                continue
+            seen.add(identity)
+            yield glyph
+
+
+def cmd_registry(args) -> int:
+    from . import registry as registry_mod
+
+    doc = _doc(args)
+    if doc is None:
+        return 1
+    store = load(args.store)
+    registry = registry_mod.load(args.registry)
+
+    if args.action == "ingest":
+        issues = []
+        added = registry_mod.ingest_document(
+            doc, store, registry=registry, max_pages=args.max_pages,
+            issues=issues)
+        registry_mod.save(registry, args.registry)
+        observations = sum(
+            len(entry.get("observations") or [])
+            for entry in registry.get("glyphs", {}).values())
+        print(f"Added {added} observation(s); registry has {observations} "
+              f"across {len(registry.get('glyphs', {}))} glyph(s) -> "
+              f"{args.registry}", file=sys.stderr)
+        if issues:
+            print(f"Skipped {len(issues)} page(s) with ambiguous fonts",
+                  file=sys.stderr)
+        return 0
+
+    if args.cid is None:
+        print("Error: registry query requires --cid", file=sys.stderr)
+        return 1
+    from .embedded import EmbeddedFontCache
+
+    embedded = EmbeddedFontCache(doc)
+    rows = []
+    issues = []
+    for glyph in _registry_matches(
+            doc, args.cid, args.font, args.max_pages, issues=issues):
+        bundle = registry_mod.resolve_glyph(
+            registry, embedded, glyph.get("font_xref"), args.cid,
+            glyph.get("base_font") or "")
+        rows.append({
+            "font_id": glyph.get("font_id") or "",
+            "font_xref": glyph.get("font_xref"),
+            "cid": args.cid,
+            "entry": bundle.get("entry") if bundle else None,
+            "family_hash": bundle.get("family_hash") if bundle else None,
+            "outline_hash": bundle.get("outline_hash") if bundle else None,
+        })
+    if issues:
+        print(f"Skipped {len(issues)} page(s) with ambiguous fonts",
+              file=sys.stderr)
+    if args.json:
+        path = args.json
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump({"cid": args.cid, "matches": rows}, f,
+                      ensure_ascii=False, indent=2)
+        print(f"Wrote {path}", file=sys.stderr)
+    if not rows:
+        print(f"No observed glyph for CID {args.cid}", file=sys.stderr)
+        return 0
+    for row in rows:
+        print(f"[{row['font_id']}] xref {row['font_xref']}")
+        print(registry_mod.format_entry(row["entry"]))
+    return 0
+
+
+def cmd_promote(args) -> int:
+    from . import registry as registry_mod
+    from .confidence import format_candidates, promote_document
+
+    doc = _doc(args)
+    if doc is None:
+        return 1
+    store = load(args.store)
+    registry = registry_mod.load(args.registry)
+    issues = []
+    candidates = promote_document(
+        doc, store, registry,
+        reference_font=args.reference_font,
+        lexicon=args.lexicon,
+        max_pages=args.max_pages,
+        cids=args.cids,
+        issues=issues,
+    )
+    print(format_candidates(candidates))
+    if issues:
+        print(f"Skipped {len(issues)} page(s) with ambiguous fonts",
+              file=sys.stderr)
+
+    promotable = [candidate for candidate in candidates if candidate.promotable]
+    promoted = []
+    if args.apply and promotable:
+        result = apply_decisions(store, [c.decision() for c in promotable])
+        if not result.ok:
+            for message in result.errors:
+                print(f"Error: {message}", file=sys.stderr)
+            print("No changes written; resolve the conflicts above.",
+                  file=sys.stderr)
+            return 1
+        save(store, args.store)
+        promoted = [candidate.to_dict() for candidate in promotable]
+        print(f"Promoted {result.values} mapping(s) -> {args.store}",
+              file=sys.stderr)
+    elif args.apply:
+        print("Nothing to promote.", file=sys.stderr)
+
+    if args.json:
+        path = args.json
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        payload = {
+            "candidates": [candidate.to_dict() for candidate in candidates],
+            "promoted": promoted,
+        }
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+        print(f"Wrote {path}", file=sys.stderr)
+    return 0
+
+
+
+
+def cmd_autoscope(args) -> int:
+    from .autoscope import apply_scope_plan, build_scope_plan, format_plan
+
+    doc = _doc(args)
+    if doc is None:
+        return 1
+    if not os.path.exists(args.reference_font):
+        print(f"Error: {args.reference_font} not found", file=sys.stderr)
+        return 1
+    store = load(args.store)
+    plan = build_scope_plan(
+        doc, store,
+        reference_font=args.reference_font,
+        max_pages=args.max_pages,
+        max_score=args.max_score,
+        min_margin=args.min_margin,
+    )
+    print(format_plan(plan))
+    if args.json:
+        os.makedirs(os.path.dirname(args.json) or ".", exist_ok=True)
+        with open(args.json, "w", encoding="utf-8") as f:
+            json.dump(plan.to_dict(), f, ensure_ascii=False, indent=2)
+        print(f"Wrote {args.json}", file=sys.stderr)
+    if not args.apply:
+        return 0
+    if not plan.mappings:
+        print("Nothing to add.", file=sys.stderr)
+        return 0
+    count = apply_scope_plan(store, plan)
+    save(store, args.store)
+    print(f"Added {count} font-scoped mapping(s) -> {args.store}",
+          file=sys.stderr)
+    return 0
+
+
+def cmd_repair(args) -> int:
+    from .repair import build_repair_plan, format_plan, write_repair
+
+    doc = _doc(args)
+    if doc is None:
+        return 1
+    output = getattr(args, "output", None)
+    if output:
+        source = os.path.abspath(args.pdf)
+        target = os.path.abspath(output)
+        if source == target:
+            print("Error: output must differ from the source PDF",
+                  file=sys.stderr)
+            return 1
+        if os.path.exists(target) and not args.force:
+            print(f"Error: {output} exists (use --force to overwrite)",
+                  file=sys.stderr)
+            return 1
+    store = load(args.store)
+    plan = build_repair_plan(
+        doc, store,
+        replace_conflicts=args.replace_conflicts,
+        max_pages=args.max_pages,
+    )
+    print(format_plan(plan))
+    if args.json:
+        os.makedirs(os.path.dirname(args.json) or ".", exist_ok=True)
+        with open(args.json, "w", encoding="utf-8") as f:
+            json.dump(plan.to_dict(), f, ensure_ascii=False, indent=2)
+        print(f"Wrote {args.json}", file=sys.stderr)
+    if not output:
+        return 0
+    if not plan.changed:
+        print("No changes; no output written.", file=sys.stderr)
+        return 0
+    try:
+        count = write_repair(doc, plan, output)
+    except Exception as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        return 1
+    print(f"Wrote {output} ({count} font(s) repaired)", file=sys.stderr)
+    return 0
+
+
 def cmd_commit(args) -> int:
     if not os.path.exists(args.decisions):
         print(f"Error: {args.decisions} not found", file=sys.stderr)
         return 1
     with open(args.decisions, encoding="utf-8") as f:
         decisions = json.load(f)
+    if not isinstance(decisions, list):
+        print("Error: decisions file must contain a JSON list", file=sys.stderr)
+        return 1
 
     store = load(args.store)
-    n_val, n_undec = 0, 0
-    for d in decisions:
-        font = d.get("font") or ""
-        cid = int(d["cid"])
-        if d.get("undecodable"):
-            mark_undecodable(store, font, cid)
-            n_undec += 1
-            continue
-        val = (d.get("decision") or "").strip()
-        if not val:
-            continue
-        set_value(store, font, cid, val, {"source": "review"})
-        n_val += 1
+    result = apply_decisions(store, decisions)
+    if not result.ok:
+        for message in result.errors:
+            print(f"Error: {message}", file=sys.stderr)
+        print("No changes written; resolve the conflicts above.",
+              file=sys.stderr)
+        return 1
 
     save(store, args.store)
-    print(f"Committed {n_val} values, {n_undec} undecodable -> {args.store}",
-          file=sys.stderr)
+    print(f"Committed {result.values} values, {result.undecodable} undecodable, "
+          f"{result.unchanged} unchanged -> {args.store}", file=sys.stderr)
     return 0
 
 
@@ -187,11 +542,122 @@ def main(argv=None) -> int:
                     help="path for OCR reads; with --offline this is instead read")
     sc.add_argument("--offline", action="store_true",
                     help="skip OCR; reuse the --ocr JSON if present")
-    sc.add_argument("--font", default=None, help="restrict to one font subset")
+    sc.add_argument("--font", default=None, help="restrict to one font_id")
     sc.add_argument("--max-pages", type=int, default=None)
     sc.add_argument("-o", "--output", default="output/cidmap_review.html")
     sc.add_argument("--census", default=None, help="also dump census JSON")
     sc.set_defaults(fn=cmd_scan)
+
+    gr = sub.add_parser("review", help="unknown-CID PDF crops -> review HTML")
+    gr.add_argument("pdf")
+    gr.add_argument("--output", "-o", default="output/cid_review.html")
+    gr.add_argument("--crop", type=int, default=3,
+                    help="render samples per (font, CID) pair")
+    gr.add_argument("--cids", type=lambda s: {int(x) for x in s.split(",")},
+                    default=None, help="restrict to these CIDs (comma-separated)")
+    gr.add_argument("--reference-font", default=None,
+                    help="original TTF/OTF used to suggest glyph values")
+    gr.add_argument("--shape-runs", action="store_true",
+                    help="add shape-run candidates (requires --reference-font)")
+    gr.add_argument("--registry", default=None,
+                    help="cross-document glyph registry for candidates")
+    gr.set_defaults(fn=cmd_glyph_review)
+
+    pr = sub.add_parser("probe",
+                        help="read-only font coverage/fingerprint report")
+    pr.add_argument("pdf")
+    pr.add_argument("--max-pages", type=int, default=None)
+    pr.add_argument("--reference-font", default=None,
+                    help="original TTF/OTF used to suggest unknown glyph values")
+    pr.add_argument("--registry", default=None,
+                    help="annotate unknown CIDs with cross-document evidence")
+    pr.add_argument("--json", default=None,
+                    help="write the full report as JSON")
+    pr.set_defaults(fn=cmd_probe)
+
+    inf = sub.add_parser(
+        "infer", help="read-only shape-run candidates for unknown CIDs")
+    inf.add_argument("pdf")
+    inf.add_argument("--reference-font", required=True,
+                     help="original TTF/OTF used to shape candidate words")
+    inf.add_argument("--lexicon", default=None,
+                     help="lexicon text/gzip/SQLite (default: local or committed)")
+    inf.add_argument("--max-pages", type=int, default=None)
+    inf.add_argument("--max-candidates", type=int, default=5)
+    inf.add_argument("--cids", type=lambda s: {int(x) for x in s.split(",")},
+                     default=None, help="restrict output to these CIDs")
+    inf.add_argument("--json", default=None,
+                     help="write run and CID candidates as JSON")
+    inf.set_defaults(fn=cmd_infer)
+
+    rg = sub.add_parser("registry",
+                        help="record or query cross-document glyph evidence")
+    rg.add_argument("action", choices=("ingest", "query"))
+    rg.add_argument("pdf")
+    rg.add_argument("--store", default=DEFAULT_STORE)
+    rg.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    rg.add_argument("--cid", type=int, default=None)
+    rg.add_argument("--font", default=None)
+    rg.add_argument("--max-pages", type=int, default=None)
+    rg.add_argument("--json", default=None)
+    rg.set_defaults(fn=cmd_registry)
+
+    pm = sub.add_parser(
+        "promote", help="dry-run or apply registry-backed mappings")
+    pm.add_argument("pdf")
+    pm.add_argument("--store", default=DEFAULT_STORE)
+    pm.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    pm.add_argument("--reference-font", default=None,
+                    help="original TTF/OTF used to confirm shape runs")
+    pm.add_argument("--lexicon", default=None,
+                    help="lexicon text/gzip/SQLite for shape-run evidence")
+    pm.add_argument("--max-pages", type=int, default=None)
+    pm.add_argument("--cids", type=lambda s: {int(x) for x in s.split(",")},
+                    default=None, help="restrict to these CIDs (comma-separated)")
+    mode = pm.add_mutually_exclusive_group()
+    mode.add_argument("--apply", action="store_true",
+                      help="write promotable mappings")
+    mode.add_argument("--dry-run", action="store_true",
+                      help="report candidates without writing (default)")
+    pm.add_argument("--json", default=None,
+                    help="write the full candidate report as JSON")
+    pm.set_defaults(fn=cmd_promote)
+
+
+
+    au = sub.add_parser(
+        "autoscope",
+        help="bootstrap exact reference-outline matches into font-scoped mappings")
+    au.add_argument("pdf")
+    au.add_argument("--reference-font", required=True)
+    au.add_argument("--store", default=DEFAULT_STORE)
+    au.add_argument("--max-pages", type=int, default=None)
+    au.add_argument("--max-score", type=float, default=0.75,
+                    help="maximum outline distance for an exact match")
+    au.add_argument("--min-margin", type=float, default=1.0,
+                    help="minimum score gap to the next candidate value")
+    mode = au.add_mutually_exclusive_group()
+    mode.add_argument("--apply", action="store_true",
+                      help="write mappings to the store")
+    mode.add_argument("--dry-run", action="store_true",
+                      help="report without writing (default)")
+    au.add_argument("--json", default=None)
+    au.set_defaults(fn=cmd_autoscope)
+
+    rp = sub.add_parser(
+        "repair", help="write a copy with store-backed ToUnicode entries")
+    rp.add_argument("pdf")
+    rp.add_argument("--store", default=DEFAULT_STORE)
+    rp.add_argument("-o", "--output", default=None,
+                    help="write the repaired PDF here (default: dry-run)")
+    rp.add_argument("--replace-conflicts", action="store_true",
+                    help="replace existing CMap values that disagree with the store")
+    rp.add_argument("--max-pages", type=int, default=None)
+    rp.add_argument("--force", action="store_true",
+                    help="overwrite an existing output file")
+    rp.add_argument("--json", default=None,
+                    help="write the repair plan as JSON")
+    rp.set_defaults(fn=cmd_repair)
 
     cm = sub.add_parser("commit", help="fold decisions.json into the store")
     cm.add_argument("decisions")

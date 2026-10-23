@@ -20,8 +20,15 @@ is merged and saved. On GitHub Actions the output/verbatims dir is
 persisted across runs via the actions/cache service (see
 translate-verbatims.yml).
 
+Failures are recorded in the manifest as status=failed with failure_kind,
+last_error, failed_at, and attempts. Quota exhaustion stays pending with
+failure_kind=quota; truncated/rate-limited responses fail with their own kinds.
+Use --retry-failed to retry failures below --max-attempts (default 3). Metadata
+is cleared when the verbatim succeeds.
+
 Usage:
     .venv/bin/python scripts/process_verbatim.py --max-count 1
+    .venv/bin/python scripts/process_verbatim.py --retry-failed -n 3
 """
 
 import argparse
@@ -32,6 +39,7 @@ import subprocess
 import sys
 import time
 import urllib3
+from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
@@ -59,6 +67,9 @@ from schema import VERBATIM_PROMPT, build_schema
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 MANIFEST = VERBATIMS_MANIFEST
+DEFAULT_MAX_ATTEMPTS = 3
+MAX_ERROR_CHARS = 1000
+FAILURE_FIELDS = ("failure_kind", "last_error", "failed_at", "attempts")
 
 VERBATIM_SCHEMA_DESC = build_schema(
     body="National Assembly",
@@ -77,13 +88,31 @@ def load_manifest() -> list:
 
 
 def save_manifest(verbatims: list):
-    MANIFEST.write_text(json.dumps(verbatims, indent=2, ensure_ascii=False))
+    MANIFEST.write_text(
+        json.dumps(verbatims, indent=2, ensure_ascii=False) + "\n")
     print(f"[manifest] saved {len(verbatims)} entries", file=sys.stderr)
 
 
-def pick_pending(verbatims: list) -> int | None:
+def _attempts(verbatim: dict) -> int:
+    try:
+        return int(verbatim.get("attempts") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def pick_pending(verbatims: list, *, retry_failed: bool = False,
+                 max_attempts: int = DEFAULT_MAX_ATTEMPTS,
+                 skip: set[int] | None = None) -> int | None:
+    skip = skip or set()
     for i, v in enumerate(verbatims):
-        if v.get("status") != "pending":
+        if i in skip:
+            continue
+        status = v.get("status")
+        if status == "pending":
+            pass
+        elif retry_failed and status == "failed" and _attempts(v) < max_attempts:
+            pass
+        else:
             continue
         url = v.get("attachment_url", "")
         if not url or not url.endswith(".pdf"):
@@ -92,13 +121,30 @@ def pick_pending(verbatims: list) -> int | None:
     return None
 
 
-def fetch_with_retry(url: str, **kwargs) -> requests.Response | None:
+def _record_failure(verbatim: dict, kind: str, message: str,
+                    *, status: str = "failed") -> None:
+    verbatim["status"] = status
+    verbatim["failure_kind"] = kind
+    verbatim["last_error"] = str(message)[:MAX_ERROR_CHARS]
+    verbatim["failed_at"] = datetime.now(timezone.utc).isoformat(
+        timespec="seconds")
+    verbatim["attempts"] = _attempts(verbatim) + 1
+
+
+def _record_success(verbatim: dict, result: dict) -> None:
+    verbatim.update(result)
+    verbatim["status"] = "done"
+    for field in FAILURE_FIELDS:
+        verbatim.pop(field, None)
+
+
+def fetch_with_retry(url: str, **kwargs) -> tuple[requests.Response | None, str]:
     last_err = None
     for attempt in range(MAX_RETRIES):
         try:
             resp = requests.get(url, headers=HEADERS, timeout=VERBATIM_TIMEOUT, verify=False, **kwargs)
             resp.raise_for_status()
-            return resp
+            return resp, ""
         except requests.exceptions.RequestException as e:
             last_err = e
             if attempt < MAX_RETRIES - 1:
@@ -106,22 +152,22 @@ def fetch_with_retry(url: str, **kwargs) -> requests.Response | None:
                 print(f"[retry] {url} ({e}), waiting {wait}s...", file=sys.stderr)
                 time.sleep(wait)
     print(f"[error] {url}: {last_err}", file=sys.stderr)
-    return None
+    return None, str(last_err or "request failed")
 
 
-def download_pdf(pdf_url: str, dest: Path) -> bool:
+def download_pdf(pdf_url: str, dest: Path) -> tuple[bool, str]:
     print(f"[download] {pdf_url}")
     try:
-        resp = fetch_with_retry(pdf_url)
+        resp, error = fetch_with_retry(pdf_url)
         if not resp:
-            return False
+            return False, f"download failed: {error}"
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_bytes(resp.content)
         print(f"[download] saved {len(resp.content)} bytes to {dest}")
-        return True
+        return True, ""
     except Exception as e:
         print(f"[error] download: {e}", file=sys.stderr)
-        return False
+        return False, f"download failed: {e}"
 
 
 def dedup_lines(text: str) -> str:
@@ -382,27 +428,41 @@ def merge_segments(results: list[dict]) -> dict:
     }
 
 
+def _phase_failure_kind(phase: str, message: str) -> str:
+    if message.startswith("RPD"):
+        return "quota"
+    if message.startswith("RPM"):
+        return "rate_limit"
+    if message.startswith("TRUNCATED"):
+        return "truncated"
+    return phase
+
+
 def process_one(verbatim: dict, index: int, verbatims: list) -> bool:
     v_id = verbatim.get("id")
     stem = f"Verbatim_{v_id}"
     pdf_url = verbatim.get("attachment_url")
     if not pdf_url:
-        print(f"[error] no attachment URL", file=sys.stderr)
-        verbatims[index]["status"] = "no_pdf"
+        print("[error] no attachment URL", file=sys.stderr)
+        _record_failure(verbatim, "no_pdf", "no attachment URL", status="no_pdf")
         save_manifest(verbatims)
         return False
 
     pdf_dest = OUTPUT_DIR / f"{stem}.pdf"
 
-    if not download_pdf(pdf_url, pdf_dest):
-        verbatims[index]["status"] = "failed"
+    downloaded, download_error = download_pdf(pdf_url, pdf_dest)
+    if not downloaded:
+        _record_failure(verbatim, "download",
+                        download_error or "PDF download failed")
         save_manifest(verbatims)
         return False
 
+    phase = "ocr"
     max_rpm_retries = 5
     for attempt in range(max_rpm_retries + 1):
         try:
             ocr_text = run_ocr(pdf_dest)
+            phase = "translation"
             api_key = os.environ.get("GEMINI_API_KEY", "")
 
             if not api_key:
@@ -436,6 +496,7 @@ def process_one(verbatim: dict, index: int, verbatims: list) -> bool:
                 structured["published_at"] = verbatim.get("published_at")
                 structured["source_pdf"] = pdf_url
 
+                phase = "output"
                 translation = structured.get("full_translation_en", "")
                 trans_txt = OUTPUT_DIR / f"{stem}.txt"
                 trans_txt.parent.mkdir(parents=True, exist_ok=True)
@@ -453,8 +514,7 @@ def process_one(verbatim: dict, index: int, verbatims: list) -> bool:
                     "structured_path": str(out_json),
                 }
 
-            verbatims[index].update(result)
-            verbatims[index]["status"] = "done"
+            _record_success(verbatim, result)
             save_manifest(verbatims)
             if api_key:
                 cleanup_segment_cache(stem)
@@ -469,21 +529,26 @@ def process_one(verbatim: dict, index: int, verbatims: list) -> bool:
                     print(f"[retry] {msg.split(':')[0].lower()}, retry {attempt + 1}/{max_rpm_retries} in {wait}s...", file=sys.stderr)
                     time.sleep(wait)
                     continue
-                print(f"[retry] max retries exceeded — marking '{verbatim.get('title', stem)}' as skipped", file=sys.stderr)
-                verbatims[index]["status"] = "skipped"
+                kind = _phase_failure_kind(phase, msg)
+                print(f"[retry] max retries exceeded — marking '{verbatim.get('title', stem)}' as failed ({kind})", file=sys.stderr)
+                _record_failure(verbatim, kind, msg)
                 save_manifest(verbatims)
                 return False
             if msg.startswith("RPD"):
                 print(f"[quota] daily Gemini quota exhausted — keeping '{verbatim.get('title', stem)}' as pending", file=sys.stderr)
+                _record_failure(verbatim, "quota", msg, status="pending")
                 save_manifest(verbatims)
                 return False
-            print(f"[error] processing: {msg}", file=sys.stderr)
-            verbatims[index]["status"] = "failed"
+            kind = _phase_failure_kind(phase, msg)
+            print(f"[error] processing ({kind}): {msg}", file=sys.stderr)
+            _record_failure(verbatim, kind, msg)
             save_manifest(verbatims)
             return False
         except Exception as e:
-            print(f"[error] processing: unexpected {type(e).__name__}: {e}", file=sys.stderr)
-            verbatims[index]["status"] = "failed"
+            message = f"{type(e).__name__}: {e}"
+            kind = _phase_failure_kind(phase, message)
+            print(f"[error] processing ({kind}): unexpected {message}", file=sys.stderr)
+            _record_failure(verbatim, kind, message)
             save_manifest(verbatims)
             return False
     return False
@@ -495,6 +560,12 @@ def main():
     parser = argparse.ArgumentParser(description="Process pending verbatims through OCR + segmented Gemini translation")
     parser.add_argument("--max-count", "-n", type=int, default=0,
                         help="Max verbatims to process per run (0 = unlimited)")
+    parser.add_argument("--retry-failed", action="store_true",
+                        help="Also retry failed verbatims below --max-attempts")
+    parser.add_argument("--max-attempts", type=int,
+                        default=DEFAULT_MAX_ATTEMPTS,
+                        help=f"Max recorded failures before a failed verbatim "
+                             f"is not retried (default: {DEFAULT_MAX_ATTEMPTS})")
     args = parser.parse_args()
 
     api_key = os.environ.get("GEMINI_API_KEY", "")
@@ -507,6 +578,7 @@ def main():
         return
 
     processed = 0
+    attempted = set()
     max_count = args.max_count
 
     while True:
@@ -514,11 +586,16 @@ def main():
             print(f"[limit] reached max-count ({max_count})", file=sys.stderr)
             break
 
-        idx = pick_pending(verbatims)
+        idx = pick_pending(verbatims, retry_failed=args.retry_failed,
+                           max_attempts=args.max_attempts, skip=attempted)
         if idx is None:
-            print("[done] no pending verbatims")
+            if args.retry_failed:
+                print("[done] no pending or retryable failed verbatims")
+            else:
+                print("[done] no pending verbatims")
             break
 
+        attempted.add(idx)
         ok = process_one(verbatims[idx], idx, verbatims)
         processed += 1
 

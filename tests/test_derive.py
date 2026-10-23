@@ -33,6 +33,10 @@ def test_joint_match_returns_empty_when_impossible():
     assert joint_match(tokens_of("आ⟦2⟧थ⟦4⟧क"), "क") == []
 
 
+def test_joint_match_never_assigns_an_empty_glyph():
+    assert joint_match(tokens_of("⟦2⟧⟦4⟧"), "आ") == []
+
+
 def test_solve_span_handles_reph_transpose():
     # खच⟦3⟧ -> खर्च needs the reph swap (⟦3⟧ belongs before the च).
     got = solve_span(tokens_of("खच⟦3⟧"), "खर्च")

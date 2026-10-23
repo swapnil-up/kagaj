@@ -7,9 +7,10 @@ re-exports them for backward compatibility and adds ``extract_page_text``
 
 SPIKE RESULT (validated on Type0/Identity-H notice PDFs, PyMuPDF 1.28):
 
-- ``page.get_texttrace()`` returns span dicts with the **font subset name**
-  and a ``chars`` tuple of per-glyph ``(unicode, glyph_id, origin, bbox)``.
-  This is the ONLY API we need: font + CID + bbox per glyph in one pass.
+- ``page.get_texttrace()`` returns span dicts with the **BaseFont name** (not
+  the subset resource name) and a ``chars`` tuple of per-glyph
+  ``(unicode, glyph_id, origin, bbox)``. ``cidmap.fonts`` resolves the actual
+  font resource and gives each glyph a stable ``font_id``.
 - For unmapped CIDs the ``unicode`` is ``U+FFFD`` and ``glyph_id`` IS the CID.
   ``rawdict``/``get_text`` instead render ``chr(cid)`` fallbacks (control
   chars / ASCII artifacts) — the source of the old EXACT_FIXES table.
@@ -17,7 +18,7 @@ SPIKE RESULT (validated on Type0/Identity-H notice PDFs, PyMuPDF 1.28):
   semantics: texttrace bbox is the glyph box, rawdict char bbox is a line
   box). Do not attempt it; texttrace alone is sufficient.
 - Same CID maps to different glyphs in different font subsets, so decoding
-  must be scoped by ``font`` + ``glyph_id`` (see fonts.py).
+  must be scoped by ``font_id`` + ``glyph_id`` (see ``cidmap.fonts``).
 """
 
 

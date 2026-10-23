@@ -1,0 +1,2631 @@
+{
+  "glyphs": {
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:0557bbfcf51a3191e54365b4980cb6c2cfed35aa42e2263b09872da26210cb3b": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 126,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p123",
+            "ref:glyph461"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.495670+00:00",
+          "source": "reference",
+          "value": "ङ्ग"
+        }
+      ],
+      "outline_hash": "0557bbfcf51a3191e54365b4980cb6c2cfed35aa42e2263b09872da26210cb3b",
+      "status": "provisional",
+      "support": 1,
+      "value": "ङ्ग",
+      "values": [
+        "ङ्ग"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:105b465cd49eaafa7918405cf3e3eec80a472b790905d432a689b84bc3b8cece": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 155,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p385",
+            "ref:glyph567"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.502803+00:00",
+          "source": "reference",
+          "value": "ैर्"
+        }
+      ],
+      "outline_hash": "105b465cd49eaafa7918405cf3e3eec80a472b790905d432a689b84bc3b8cece",
+      "status": "provisional",
+      "support": 1,
+      "value": "ैर्",
+      "values": [
+        "ैर्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:12fd5fa1d5decece455903cc182e5c309c8ecaeb83b5a351ccead0b4669294ca": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 37,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p540",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:150796cb30",
+          "observed_at": "2026-10-23T04:27:01.192372+00:00",
+          "source": "reference",
+          "value": "म्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 11,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p1",
+            "ref:glyph466"
+          ],
+          "font_id": "Kalimati@cmap:180a6419da",
+          "observed_at": "2026-10-23T04:27:01.218920+00:00",
+          "source": "reference",
+          "value": "म्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 35,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p35",
+            "ref:glyph224"
+          ],
+          "font_id": "Kalimati@cmap:5536fc8cc6",
+          "observed_at": "2026-10-23T04:27:01.337766+00:00",
+          "source": "reference",
+          "value": "म्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 37,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p540",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:61e860828e",
+          "observed_at": "2026-10-23T04:27:01.358705+00:00",
+          "source": "reference",
+          "value": "म्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 21,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p5",
+            "ref:glyph224"
+          ],
+          "font_id": "Kalimati@cmap:97330a90f6",
+          "observed_at": "2026-10-23T04:27:01.421990+00:00",
+          "source": "reference",
+          "value": "म्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 28,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p540",
+            "ref:glyph224"
+          ],
+          "font_id": "Kalimati@cmap:a31150303a",
+          "observed_at": "2026-10-23T04:27:01.436865+00:00",
+          "source": "reference",
+          "value": "म्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 29,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph224"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.575955+00:00",
+          "source": "reference",
+          "value": "म्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 10,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph224"
+          ],
+          "font_id": "Kalimati@cmap:fcb6cc26c3",
+          "observed_at": "2026-10-23T04:27:01.608490+00:00",
+          "source": "reference",
+          "value": "म्"
+        }
+      ],
+      "outline_hash": "12fd5fa1d5decece455903cc182e5c309c8ecaeb83b5a351ccead0b4669294ca",
+      "status": "provisional",
+      "support": 1,
+      "value": "म्",
+      "values": [
+        "म्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:16183e03466a1bf11f1cdeca8eb47b6d03fdc3f0269985b6504f388bc0e74324": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 12,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p35",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:150796cb30",
+          "observed_at": "2026-10-23T04:27:01.187857+00:00",
+          "source": "reference",
+          "value": "न्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 61,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph547"
+          ],
+          "font_id": "Kalimati@cmap:459b0511b1",
+          "observed_at": "2026-10-23T04:27:01.297278+00:00",
+          "source": "reference",
+          "value": "न्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 12,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p35",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:5536fc8cc6",
+          "observed_at": "2026-10-23T04:27:01.334009+00:00",
+          "source": "reference",
+          "value": "न्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 41,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:comma"
+          ],
+          "font_id": "Kalimati@cmap:8cd8148aeb",
+          "observed_at": "2026-10-23T04:27:01.408214+00:00",
+          "source": "reference",
+          "value": "न्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 37,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p540",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:a31150303a",
+          "observed_at": "2026-10-23T04:27:01.437921+00:00",
+          "source": "reference",
+          "value": "न्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 59,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:ae67b5e4c6",
+          "observed_at": "2026-10-23T04:27:01.521226+00:00",
+          "source": "reference",
+          "value": "न्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 38,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p1",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:bb98e63fdb",
+          "observed_at": "2026-10-23T04:27:01.534733+00:00",
+          "source": "reference",
+          "value": "न्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 53,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:fcb6cc26c3",
+          "observed_at": "2026-10-23T04:27:01.612146+00:00",
+          "source": "reference",
+          "value": "न्"
+        }
+      ],
+      "outline_hash": "16183e03466a1bf11f1cdeca8eb47b6d03fdc3f0269985b6504f388bc0e74324",
+      "status": "provisional",
+      "support": 1,
+      "value": "न्",
+      "values": [
+        "न्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:18acf26877ccdc1312b54dcd2909e37f83df06e3961fe1f30a738f1ba78b0b73": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 168,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p535",
+            "ref:glyph422"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.505097+00:00",
+          "source": "reference",
+          "value": "द्घ"
+        }
+      ],
+      "outline_hash": "18acf26877ccdc1312b54dcd2909e37f83df06e3961fe1f30a738f1ba78b0b73",
+      "status": "provisional",
+      "support": 1,
+      "value": "द्घ",
+      "values": [
+        "द्घ"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:190ab7398e304c315ad2605f818903bbae95191081e43758751185571da96136": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 68,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph429"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.267251+00:00",
+          "source": "reference",
+          "value": "द्य"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 77,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:5536fc8cc6",
+          "observed_at": "2026-10-23T04:27:01.342533+00:00",
+          "source": "reference",
+          "value": "द्य"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 59,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:61e860828e",
+          "observed_at": "2026-10-23T04:27:01.366234+00:00",
+          "source": "reference",
+          "value": "द्य"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 77,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:a31150303a",
+          "observed_at": "2026-10-23T04:27:01.444169+00:00",
+          "source": "reference",
+          "value": "द्य"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 105,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p547",
+            "ref:glyph200"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.475760+00:00",
+          "source": "reference",
+          "value": "द्य"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 68,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph429"
+          ],
+          "font_id": "Kalimati@cmap:c2b66beffd",
+          "observed_at": "2026-10-23T04:27:01.559813+00:00",
+          "source": "reference",
+          "value": "द्य"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 58,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.583889+00:00",
+          "source": "reference",
+          "value": "द्य"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 68,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph429"
+          ],
+          "font_id": "Kalimati@cmap:fcb6cc26c3",
+          "observed_at": "2026-10-23T04:27:01.616562+00:00",
+          "source": "reference",
+          "value": "द्य"
+        }
+      ],
+      "outline_hash": "190ab7398e304c315ad2605f818903bbae95191081e43758751185571da96136",
+      "status": "provisional",
+      "support": 1,
+      "value": "द्य",
+      "values": [
+        "द्य"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:1f2c9924ed3fc74421d70e734c50c478a6fce191be0bd9cb7ed131b92d21da9d": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 65,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p13",
+            "ref:glyph465"
+          ],
+          "font_id": "Kalimati@cmap:150796cb30",
+          "observed_at": "2026-10-23T04:27:01.199890+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 76,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:180a6419da",
+          "observed_at": "2026-10-23T04:27:01.225466+00:00",
+          "source": "reference",
+          "value": "ि"
+        }
+      ],
+      "outline_hash": "1f2c9924ed3fc74421d70e734c50c478a6fce191be0bd9cb7ed131b92d21da9d",
+      "status": "provisional",
+      "support": 1,
+      "value": "ि",
+      "values": [
+        "ि"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:26877b99c9e21a40b7fb81c94ff68c19e2e364895565978f969dce8266fc77d9": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 16,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p7",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:150796cb30",
+          "observed_at": "2026-10-23T04:27:01.189406+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 15,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:174d25db55",
+          "observed_at": "2026-10-23T04:27:01.204569+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 47,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p554",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:180a6419da",
+          "observed_at": "2026-10-23T04:27:01.222454+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 20,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p11",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:1f9b8743c3",
+          "observed_at": "2026-10-23T04:27:01.238858+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 1,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p5 ⟦1⟧⟦1⟧",
+            "p5 ⟦1⟧⟦15⟧"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T03:08:22.697165+00:00",
+          "source": "review",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 9,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:459b0511b1",
+          "observed_at": "2026-10-23T04:27:01.293047+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 23,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p39",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:53dd91f316",
+          "observed_at": "2026-10-23T04:27:01.318853+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 16,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p7",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:5536fc8cc6",
+          "observed_at": "2026-10-23T04:27:01.335560+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 23,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p39",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:61e860828e",
+          "observed_at": "2026-10-23T04:27:01.357306+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 23,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p39",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:829024f9b2",
+          "observed_at": "2026-10-23T04:27:01.382473+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 20,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p11",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:83d9f4c4c8",
+          "observed_at": "2026-10-23T04:27:01.395340+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 59,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:97330a90f6",
+          "observed_at": "2026-10-23T04:27:01.423873+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 15,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:a31150303a",
+          "observed_at": "2026-10-23T04:27:01.435561+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 9,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.463872+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 2,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:ae67b5e4c6",
+          "observed_at": "2026-10-23T04:27:01.516494+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 29,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph224"
+          ],
+          "font_id": "Kalimati@cmap:bb98e63fdb",
+          "observed_at": "2026-10-23T04:27:01.532527+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 1,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p5 ⟦1⟧⟦1⟧",
+            "p5 ⟦1⟧⟦15⟧"
+          ],
+          "font_id": "Kalimati@cmap:c2b66beffd",
+          "observed_at": "2026-10-23T03:08:22.736155+00:00",
+          "source": "review",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 53,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.579550+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 1,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p5 ⟦1⟧⟦1⟧",
+            "p5 ⟦1⟧⟦15⟧"
+          ],
+          "font_id": "Kalimati@cmap:fcb6cc26c3",
+          "observed_at": "2026-10-23T03:08:22.746163+00:00",
+          "source": "review",
+          "value": "ि"
+        }
+      ],
+      "outline_hash": "26877b99c9e21a40b7fb81c94ff68c19e2e364895565978f969dce8266fc77d9",
+      "status": "confirmed",
+      "support": 1,
+      "value": "ि",
+      "values": [
+        "ि"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:2b32402ec11651a84c2e1094aac15bf144bd68ab7bdef21248a0d931deac1da4": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 102,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p546",
+            "ref:glyph202"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.275815+00:00",
+          "source": "reference",
+          "value": "क्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 105,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p547",
+            "ref:glyph200"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.595110+00:00",
+          "source": "reference",
+          "value": "क्"
+        }
+      ],
+      "outline_hash": "2b32402ec11651a84c2e1094aac15bf144bd68ab7bdef21248a0d931deac1da4",
+      "status": "provisional",
+      "support": 1,
+      "value": "क्",
+      "values": [
+        "क्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:3f0d519d8e245731d5235568167e184e3a6827ef3f16be366959cd49836ebf63": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 138,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p186",
+            "ref:glyph548"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.498978+00:00",
+          "source": "reference",
+          "value": "ी"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 90,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p4",
+            "ref:glyph548"
+          ],
+          "font_id": "Kalimati@cmap:ae67b5e4c6",
+          "observed_at": "2026-10-23T04:27:01.524734+00:00",
+          "source": "reference",
+          "value": "ी"
+        }
+      ],
+      "outline_hash": "3f0d519d8e245731d5235568167e184e3a6827ef3f16be366959cd49836ebf63",
+      "status": "provisional",
+      "support": 1,
+      "value": "ी",
+      "values": [
+        "ी"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:4bb097bf55354a57f4d86dffa2baeee1a612fd349973d6682e3f8ee1ce5fe50c": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 108,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p69",
+            "ref:glyph218"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.276998+00:00",
+          "source": "reference",
+          "value": "ग्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 107,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p64",
+            "ref:glyph202"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.478668+00:00",
+          "source": "reference",
+          "value": "ग्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 102,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p546",
+            "ref:glyph202"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.593312+00:00",
+          "source": "reference",
+          "value": "ग्"
+        }
+      ],
+      "outline_hash": "4bb097bf55354a57f4d86dffa2baeee1a612fd349973d6682e3f8ee1ce5fe50c",
+      "status": "provisional",
+      "support": 1,
+      "value": "ग्",
+      "values": [
+        "ग्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:4e3d69810dec9c254944a1df08a4592673b5792c6dc5d8a9c8d7b761ffd17bbb": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 21,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p5",
+            "ref:glyph224"
+          ],
+          "font_id": "Kalimati@cmap:180a6419da",
+          "observed_at": "2026-10-23T04:27:01.220236+00:00",
+          "source": "reference",
+          "value": "ै"
+        }
+      ],
+      "outline_hash": "4e3d69810dec9c254944a1df08a4592673b5792c6dc5d8a9c8d7b761ffd17bbb",
+      "status": "provisional",
+      "support": 1,
+      "value": "ै",
+      "values": [
+        "ै"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:514942420b4cf110d57abc3cd73d6d4be317284dd7ed8911b2d76720fc6fbeb5": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 17,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p9",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:174d25db55",
+          "observed_at": "2026-10-23T04:27:01.205895+00:00",
+          "source": "reference",
+          "value": "व्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 76,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.268547+00:00",
+          "source": "reference",
+          "value": "व्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 29,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph224"
+          ],
+          "font_id": "Kalimati@cmap:53dd91f316",
+          "observed_at": "2026-10-23T04:27:01.321081+00:00",
+          "source": "reference",
+          "value": "व्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 41,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:comma"
+          ],
+          "font_id": "Kalimati@cmap:5536fc8cc6",
+          "observed_at": "2026-10-23T04:27:01.339032+00:00",
+          "source": "reference",
+          "value": "व्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 54,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:8cd8148aeb",
+          "observed_at": "2026-10-23T04:27:01.412847+00:00",
+          "source": "reference",
+          "value": "व्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 100,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p51",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.470100+00:00",
+          "source": "reference",
+          "value": "व्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 15,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:ae67b5e4c6",
+          "observed_at": "2026-10-23T04:27:01.517752+00:00",
+          "source": "reference",
+          "value": "व्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 1,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p5 ⟦1⟧⟦1⟧",
+            "p5 ⟦1⟧⟦15⟧"
+          ],
+          "font_id": "Kalimati@cmap:bb98e63fdb",
+          "observed_at": "2026-10-23T03:08:22.719347+00:00",
+          "source": "review",
+          "value": "व्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 76,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:c2b66beffd",
+          "observed_at": "2026-10-23T04:27:01.561165+00:00",
+          "source": "reference",
+          "value": "व्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 77,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.587627+00:00",
+          "source": "reference",
+          "value": "व्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 78,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:fcb6cc26c3",
+          "observed_at": "2026-10-23T04:27:01.619679+00:00",
+          "source": "reference",
+          "value": "व्"
+        }
+      ],
+      "outline_hash": "514942420b4cf110d57abc3cd73d6d4be317284dd7ed8911b2d76720fc6fbeb5",
+      "status": "confirmed",
+      "support": 1,
+      "value": "व्",
+      "values": [
+        "व्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:5bc3ae28371e3f1629d3dd85405676c1472f261623ad289756645743cbf97a65": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 106,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p547",
+            "ref:glyph220"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.477703+00:00",
+          "source": "reference",
+          "value": "न्न"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 59,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.586247+00:00",
+          "source": "reference",
+          "value": "न्न"
+        }
+      ],
+      "outline_hash": "5bc3ae28371e3f1629d3dd85405676c1472f261623ad289756645743cbf97a65",
+      "status": "provisional",
+      "support": 1,
+      "value": "न्न",
+      "values": [
+        "न्न"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:683ec691b2e7d5c97360cfd7b2f0ff3eb40bd204567ba4237149de7dacf2a7c1": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 9,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:150796cb30",
+          "observed_at": "2026-10-23T04:27:01.186717+00:00",
+          "source": "reference",
+          "value": "ख्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 46,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph201"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.261231+00:00",
+          "source": "reference",
+          "value": "ख्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 89,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p21",
+            "ref:glyph201"
+          ],
+          "font_id": "Kalimati@cmap:459b0511b1",
+          "observed_at": "2026-10-23T04:27:01.300805+00:00",
+          "source": "reference",
+          "value": "ख्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 9,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:5536fc8cc6",
+          "observed_at": "2026-10-23T04:27:01.332970+00:00",
+          "source": "reference",
+          "value": "ख्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 9,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:61e860828e",
+          "observed_at": "2026-10-23T04:27:01.355013+00:00",
+          "source": "reference",
+          "value": "ख्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 104,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p63",
+            "ref:glyph201"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.473459+00:00",
+          "source": "reference",
+          "value": "ख्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 58,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:ae67b5e4c6",
+          "observed_at": "2026-10-23T04:27:01.520110+00:00",
+          "source": "reference",
+          "value": "ख्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 46,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph201"
+          ],
+          "font_id": "Kalimati@cmap:c2b66beffd",
+          "observed_at": "2026-10-23T04:27:01.553018+00:00",
+          "source": "reference",
+          "value": "ख्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 52,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph201"
+          ],
+          "font_id": "Kalimati@cmap:fcb6cc26c3",
+          "observed_at": "2026-10-23T04:27:01.611159+00:00",
+          "source": "reference",
+          "value": "ख्"
+        }
+      ],
+      "outline_hash": "683ec691b2e7d5c97360cfd7b2f0ff3eb40bd204567ba4237149de7dacf2a7c1",
+      "status": "provisional",
+      "support": 1,
+      "value": "ख्",
+      "values": [
+        "ख्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:71f927d98b3323b0241a3e35cad333d5388346cfa3eee44e7c7cade32a23cc67": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 96,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p50",
+            "ref:glyph220"
+          ],
+          "font_id": "Kalimati@cmap:459b0511b1",
+          "observed_at": "2026-10-23T04:27:01.303590+00:00",
+          "source": "reference",
+          "value": "ब्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 124,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p116",
+            "ref:glyph222"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.491761+00:00",
+          "source": "reference",
+          "value": "ब्"
+        }
+      ],
+      "outline_hash": "71f927d98b3323b0241a3e35cad333d5388346cfa3eee44e7c7cade32a23cc67",
+      "status": "provisional",
+      "support": 1,
+      "value": "ब्",
+      "values": [
+        "ब्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:728f17f3f5b41fa058cefb6d996f25cb5a550ffc3d8e9809114d6718e74c479f": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 77,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:180a6419da",
+          "observed_at": "2026-10-23T04:27:01.227834+00:00",
+          "source": "reference",
+          "value": "द्व"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 93,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p545",
+            "ref:glyph214"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.272893+00:00",
+          "source": "reference",
+          "value": "द्व"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 101,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p546",
+            "ref:glyph423"
+          ],
+          "font_id": "Kalimati@cmap:459b0511b1",
+          "observed_at": "2026-10-23T04:27:01.309156+00:00",
+          "source": "reference",
+          "value": "द्व"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 92,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p543",
+            "ref:glyph430"
+          ],
+          "font_id": "Kalimati@cmap:c2b66beffd",
+          "observed_at": "2026-10-23T04:27:01.564116+00:00",
+          "source": "reference",
+          "value": "द्व"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 92,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p543",
+            "ref:glyph430"
+          ],
+          "font_id": "Kalimati@cmap:fcb6cc26c3",
+          "observed_at": "2026-10-23T04:27:01.621787+00:00",
+          "source": "reference",
+          "value": "द्व"
+        }
+      ],
+      "outline_hash": "728f17f3f5b41fa058cefb6d996f25cb5a550ffc3d8e9809114d6718e74c479f",
+      "status": "provisional",
+      "support": 1,
+      "value": "द्व",
+      "values": [
+        "द्व"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:874faf910efda78aae9ab22f9a8d430fad7577e6ae6fd0c5f16c139737cfb70a": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 103,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p58",
+            "ref:glyph566"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.471132+00:00",
+          "source": "reference",
+          "value": "ेर्"
+        }
+      ],
+      "outline_hash": "874faf910efda78aae9ab22f9a8d430fad7577e6ae6fd0c5f16c139737cfb70a",
+      "status": "provisional",
+      "support": 1,
+      "value": "ेर्",
+      "values": [
+        "ेर्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:8f4a58e7a90a5c1b7febb5b8e985ab907d5c344f3da199b43fe4b9c2b0de5900": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 58,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:150796cb30",
+          "observed_at": "2026-10-23T04:27:01.196904+00:00",
+          "source": "reference",
+          "value": "ी"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 53,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.262640+00:00",
+          "source": "reference",
+          "value": "ी"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 60,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:459b0511b1",
+          "observed_at": "2026-10-23T04:27:01.296379+00:00",
+          "source": "reference",
+          "value": "ी"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 62,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph547"
+          ],
+          "font_id": "Kalimati@cmap:5536fc8cc6",
+          "observed_at": "2026-10-23T04:27:01.340420+00:00",
+          "source": "reference",
+          "value": "ी"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 41,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:comma"
+          ],
+          "font_id": "Kalimati@cmap:61e860828e",
+          "observed_at": "2026-10-23T04:27:01.360037+00:00",
+          "source": "reference",
+          "value": "ी"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 46,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph201"
+          ],
+          "font_id": "Kalimati@cmap:a31150303a",
+          "observed_at": "2026-10-23T04:27:01.439528+00:00",
+          "source": "reference",
+          "value": "ी"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 62,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph547"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.467694+00:00",
+          "source": "reference",
+          "value": "ी"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 61,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph547"
+          ],
+          "font_id": "Kalimati@cmap:ae67b5e4c6",
+          "observed_at": "2026-10-23T04:27:01.522756+00:00",
+          "source": "reference",
+          "value": "ी"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 53,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:c2b66beffd",
+          "observed_at": "2026-10-23T04:27:01.554974+00:00",
+          "source": "reference",
+          "value": "ी"
+        }
+      ],
+      "outline_hash": "8f4a58e7a90a5c1b7febb5b8e985ab907d5c344f3da199b43fe4b9c2b0de5900",
+      "status": "provisional",
+      "support": 1,
+      "value": "ी",
+      "values": [
+        "ी"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:911ad60fd5face5a2c4ec1787bdf784d644a95cf95f98178fb80b9dfaf03f8bd": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 61,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph547"
+          ],
+          "font_id": "Kalimati@cmap:180a6419da",
+          "observed_at": "2026-10-23T04:27:01.223939+00:00",
+          "source": "reference",
+          "value": "ल्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 110,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p551",
+            "ref:glyph227"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.278592+00:00",
+          "source": "reference",
+          "value": "ल्"
+        }
+      ],
+      "outline_hash": "911ad60fd5face5a2c4ec1787bdf784d644a95cf95f98178fb80b9dfaf03f8bd",
+      "status": "provisional",
+      "support": 1,
+      "value": "ल्",
+      "values": [
+        "ल्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:95d2db3cb7b30b390ec4c1023deef3acf370741d97313006647638b6e737b0fc": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 60,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:150796cb30",
+          "observed_at": "2026-10-23T04:27:01.198427+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 58,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.265102+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 58,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:459b0511b1",
+          "observed_at": "2026-10-23T04:27:01.295090+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 51,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p549",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:61e860828e",
+          "observed_at": "2026-10-23T04:27:01.361618+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 42,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p7",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:8cd8148aeb",
+          "observed_at": "2026-10-23T04:27:01.410774+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 68,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph429"
+          ],
+          "font_id": "Kalimati@cmap:a31150303a",
+          "observed_at": "2026-10-23T04:27:01.441773+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 60,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.466270+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 58,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:c2b66beffd",
+          "observed_at": "2026-10-23T04:27:01.557150+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 34,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.577495+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 59,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:fcb6cc26c3",
+          "observed_at": "2026-10-23T04:27:01.614416+00:00",
+          "source": "reference",
+          "value": "ि"
+        }
+      ],
+      "outline_hash": "95d2db3cb7b30b390ec4c1023deef3acf370741d97313006647638b6e737b0fc",
+      "status": "provisional",
+      "support": 1,
+      "value": "ि",
+      "values": [
+        "ि"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:973cbad2bc87a507ca7de9d97216bb88b092c409e5fb9ea0310100281bdf186d": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 2,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:1f9b8743c3",
+          "observed_at": "2026-10-23T04:27:01.236537+00:00",
+          "source": "reference",
+          "value": "ण्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 2,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:53dd91f316",
+          "observed_at": "2026-10-23T04:27:01.314092+00:00",
+          "source": "reference",
+          "value": "ण्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 2,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:829024f9b2",
+          "observed_at": "2026-10-23T04:27:01.376623+00:00",
+          "source": "reference",
+          "value": "ण्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 2,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p3",
+            "ref:glyph467"
+          ],
+          "font_id": "Kalimati@cmap:83d9f4c4c8",
+          "observed_at": "2026-10-23T04:27:01.392426+00:00",
+          "source": "reference",
+          "value": "ण्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 93,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p545",
+            "ref:glyph214"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.589058+00:00",
+          "source": "reference",
+          "value": "ण्"
+        }
+      ],
+      "outline_hash": "973cbad2bc87a507ca7de9d97216bb88b092c409e5fb9ea0310100281bdf186d",
+      "status": "provisional",
+      "support": 1,
+      "value": "ण्",
+      "values": [
+        "ण्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:9d495efe8792500ff1e3ccd0b4da2afb9b7d4dc361ad0b85449ab79f96bd6425": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 7,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph215"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.257544+00:00",
+          "source": "reference",
+          "value": "त्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 7,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph215"
+          ],
+          "font_id": "Kalimati@cmap:c2b66beffd",
+          "observed_at": "2026-10-23T04:27:01.548741+00:00",
+          "source": "reference",
+          "value": "त्"
+        }
+      ],
+      "outline_hash": "9d495efe8792500ff1e3ccd0b4da2afb9b7d4dc361ad0b85449ab79f96bd6425",
+      "status": "provisional",
+      "support": 1,
+      "value": "त्",
+      "values": [
+        "त्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:acae56a6e5a1a6a0e00db2985d8084c494231312f150491f7bbf35f7748e9dfd": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 112,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p551",
+            "ref:glyph424"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.281249+00:00",
+          "source": "reference",
+          "value": "द्ध"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 115,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p89",
+            "ref:glyph424"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.483005+00:00",
+          "source": "reference",
+          "value": "द्ध"
+        }
+      ],
+      "outline_hash": "acae56a6e5a1a6a0e00db2985d8084c494231312f150491f7bbf35f7748e9dfd",
+      "status": "provisional",
+      "support": 1,
+      "value": "द्ध",
+      "values": [
+        "द्ध"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:af42150b09ec21d47a268bcfedbf9b2bb0218d5034fe753f7326902554e34a13": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 89,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p21",
+            "ref:glyph201"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.270038+00:00",
+          "source": "reference",
+          "value": "थ्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 116,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p92",
+            "ref:glyph216"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.484577+00:00",
+          "source": "reference",
+          "value": "थ्"
+        }
+      ],
+      "outline_hash": "af42150b09ec21d47a268bcfedbf9b2bb0218d5034fe753f7326902554e34a13",
+      "status": "provisional",
+      "support": 1,
+      "value": "थ्",
+      "values": [
+        "थ्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:c12032d8e961066c8559cc8aa445ec19224af030fcdb341c8f72206e991ebc4e": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 38,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p1",
+            "ref:glyph219"
+          ],
+          "font_id": "Kalimati@cmap:150796cb30",
+          "observed_at": "2026-10-23T04:27:01.194431+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 16,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p7",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:1c20f1fedc",
+          "observed_at": "2026-10-23T04:27:01.232040+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 34,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:1f9b8743c3",
+          "observed_at": "2026-10-23T04:27:01.241253+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 21,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p5",
+            "ref:glyph224"
+          ],
+          "font_id": "Kalimati@cmap:53dd91f316",
+          "observed_at": "2026-10-23T04:27:01.316118+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 21,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p5",
+            "ref:glyph224"
+          ],
+          "font_id": "Kalimati@cmap:829024f9b2",
+          "observed_at": "2026-10-23T04:27:01.379565+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 1,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p5 ⟦1⟧⟦1⟧",
+            "p5 ⟦1⟧⟦15⟧"
+          ],
+          "font_id": "Kalimati@cmap:8cd8148aeb",
+          "observed_at": "2026-10-23T03:08:22.706199+00:00",
+          "source": "review",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 1,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p5 ⟦1⟧⟦1⟧",
+            "p5 ⟦1⟧⟦15⟧"
+          ],
+          "font_id": "Kalimati@cmap:97330a90f6",
+          "observed_at": "2026-10-23T03:08:22.713592+00:00",
+          "source": "review",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 11,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p1",
+            "ref:glyph466"
+          ],
+          "font_id": "Kalimati@cmap:bb98e63fdb",
+          "observed_at": "2026-10-23T04:27:01.531056+00:00",
+          "source": "reference",
+          "value": "ि"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 55,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph466"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.581564+00:00",
+          "source": "reference",
+          "value": "ि"
+        }
+      ],
+      "outline_hash": "c12032d8e961066c8559cc8aa445ec19224af030fcdb341c8f72206e991ebc4e",
+      "status": "confirmed",
+      "support": 1,
+      "value": "ि",
+      "values": [
+        "ि"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:ccacfe61b7c2f2fbbaf7500b4085aa0bbcc106279b851be1bd82d7a2284fddcd": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 141,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p228",
+            "ref:glyph582"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.500766+00:00",
+          "source": "reference",
+          "value": "ैँ"
+        }
+      ],
+      "outline_hash": "ccacfe61b7c2f2fbbaf7500b4085aa0bbcc106279b851be1bd82d7a2284fddcd",
+      "status": "provisional",
+      "support": 1,
+      "value": "ैँ",
+      "values": [
+        "ैँ"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:cf3ecad5231181f9f15d732845c1640806e40141e16d7a928ac55635950e1180": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 108,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p69",
+            "ref:glyph218"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.480468+00:00",
+          "source": "reference",
+          "value": "ध्"
+        }
+      ],
+      "outline_hash": "cf3ecad5231181f9f15d732845c1640806e40141e16d7a928ac55635950e1180",
+      "status": "provisional",
+      "support": 1,
+      "value": "ध्",
+      "values": [
+        "ध्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:d87f6ca6eb460968a502eba83513b9a72a585ae222f059579bec754cc2afd40e": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 78,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph229"
+          ],
+          "font_id": "Kalimati@cmap:5536fc8cc6",
+          "observed_at": "2026-10-23T04:27:01.343817+00:00",
+          "source": "reference",
+          "value": "ज्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 62,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p41",
+            "ref:glyph547"
+          ],
+          "font_id": "Kalimati@cmap:61e860828e",
+          "observed_at": "2026-10-23T04:27:01.367737+00:00",
+          "source": "reference",
+          "value": "ज्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 125,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p117",
+            "ref:glyph207"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.493268+00:00",
+          "source": "reference",
+          "value": "ज्"
+        }
+      ],
+      "outline_hash": "d87f6ca6eb460968a502eba83513b9a72a585ae222f059579bec754cc2afd40e",
+      "status": "provisional",
+      "support": 1,
+      "value": "ज्",
+      "values": [
+        "ज्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:da05da5fb1f49d3cb8d8a9b273e2821cdbad889313af87c3bd61a38ef7ed34e8": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 24,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p35",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:150796cb30",
+          "observed_at": "2026-10-23T04:27:01.190235+00:00",
+          "source": "reference",
+          "value": "र्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 27,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p554",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:180a6419da",
+          "observed_at": "2026-10-23T04:27:01.221052+00:00",
+          "source": "reference",
+          "value": "र्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 54,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.263449+00:00",
+          "source": "reference",
+          "value": "र्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 24,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p35",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:5536fc8cc6",
+          "observed_at": "2026-10-23T04:27:01.336560+00:00",
+          "source": "reference",
+          "value": "र्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 19,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p549",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:61e860828e",
+          "observed_at": "2026-10-23T04:27:01.355833+00:00",
+          "source": "reference",
+          "value": "र्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 32,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p39",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:829024f9b2",
+          "observed_at": "2026-10-23T04:27:01.384122+00:00",
+          "source": "reference",
+          "value": "र्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 16,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p7",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:8cd8148aeb",
+          "observed_at": "2026-10-23T04:27:01.405575+00:00",
+          "source": "reference",
+          "value": "र्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 54,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:c2b66beffd",
+          "observed_at": "2026-10-23T04:27:01.555804+00:00",
+          "source": "reference",
+          "value": "र्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 58,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p542",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:fcb6cc26c3",
+          "observed_at": "2026-10-23T04:27:01.612973+00:00",
+          "source": "reference",
+          "value": "र्"
+        }
+      ],
+      "outline_hash": "da05da5fb1f49d3cb8d8a9b273e2821cdbad889313af87c3bd61a38ef7ed34e8",
+      "status": "provisional",
+      "support": 1,
+      "value": "र्",
+      "values": [
+        "र्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:e3ccad4457723acd1862334eca53ccc26a6afdea968be9fe413f2b74949a51d6": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 41,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:comma"
+          ],
+          "font_id": "Kalimati@cmap:bb98e63fdb",
+          "observed_at": "2026-10-23T04:27:01.537760+00:00",
+          "source": "reference",
+          "value": "@"
+        }
+      ],
+      "outline_hash": "e3ccad4457723acd1862334eca53ccc26a6afdea968be9fe413f2b74949a51d6",
+      "status": "provisional",
+      "support": 1,
+      "value": "@",
+      "values": [
+        "@"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:ed0d1a61e371943054c75bffe0bd0c340d71248161c6484f62af8803ca897567": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 117,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p92",
+            "ref:glyph459"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.489969+00:00",
+          "source": "reference",
+          "value": "ङ्क"
+        }
+      ],
+      "outline_hash": "ed0d1a61e371943054c75bffe0bd0c340d71248161c6484f62af8803ca897567",
+      "status": "provisional",
+      "support": 1,
+      "value": "ङ्क",
+      "values": [
+        "ङ्क"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:efd1dd320aa71c279075ea99f24b266a843ace70a9a837879e3da9eac294c7d3": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 132,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p143",
+            "ref:glyph423"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.497708+00:00",
+          "source": "reference",
+          "value": "द्द"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 101,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p546",
+            "ref:glyph423"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.592273+00:00",
+          "source": "reference",
+          "value": "द्द"
+        }
+      ],
+      "outline_hash": "efd1dd320aa71c279075ea99f24b266a843ace70a9a837879e3da9eac294c7d3",
+      "status": "provisional",
+      "support": 1,
+      "value": "द्द",
+      "values": [
+        "द्द"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:f180f37d83777c6802e41cb50661d0212aba3db8c39df3f3a90b2b9b103e3899": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 96,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p50",
+            "ref:glyph220"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.468836+00:00",
+          "source": "reference",
+          "value": "प्"
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 106,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p547",
+            "ref:glyph220"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.596107+00:00",
+          "source": "reference",
+          "value": "प्"
+        }
+      ],
+      "outline_hash": "f180f37d83777c6802e41cb50661d0212aba3db8c39df3f3a90b2b9b103e3899",
+      "status": "provisional",
+      "support": 1,
+      "value": "प्",
+      "values": [
+        "प्"
+      ]
+    },
+    "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434:fb7a62afb9e7cc35d8fd9809a9e20eec44ab100de6ac1be80139ba0cb17c1383": {
+      "base_font": "Kalimati",
+      "conflicts": [],
+      "documents": [
+        "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f"
+      ],
+      "family_hash": "456cb5e19b40f4f3b1a61c88da4fda80ade800f48bb3585d19581c6bf2b66434",
+      "observations": [
+        {
+          "base_font": "Kalimati",
+          "cid": 45,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p13",
+            "ref:comma"
+          ],
+          "font_id": "Kalimati@cmap:150796cb30",
+          "observed_at": "2026-10-23T04:27:01.195114+00:00",
+          "source": "reference",
+          "value": ","
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 26,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:comma"
+          ],
+          "font_id": "Kalimati@cmap:2c89241e37",
+          "observed_at": "2026-10-23T04:27:01.258718+00:00",
+          "source": "reference",
+          "value": ","
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 51,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p549",
+            "ref:glyph464"
+          ],
+          "font_id": "Kalimati@cmap:459b0511b1",
+          "observed_at": "2026-10-23T04:27:01.293726+00:00",
+          "source": "reference",
+          "value": ","
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 55,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:glyph466"
+          ],
+          "font_id": "Kalimati@cmap:61e860828e",
+          "observed_at": "2026-10-23T04:27:01.362755+00:00",
+          "source": "reference",
+          "value": ","
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 44,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p7",
+            "ref:comma"
+          ],
+          "font_id": "Kalimati@cmap:8cd8148aeb",
+          "observed_at": "2026-10-23T04:27:01.411473+00:00",
+          "source": "reference",
+          "value": ","
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 54,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:glyph91"
+          ],
+          "font_id": "Kalimati@cmap:a7bb3a16d4",
+          "observed_at": "2026-10-23T04:27:01.464505+00:00",
+          "source": "reference",
+          "value": ","
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 86,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p4",
+            "ref:comma"
+          ],
+          "font_id": "Kalimati@cmap:ae67b5e4c6",
+          "observed_at": "2026-10-23T04:27:01.523393+00:00",
+          "source": "reference",
+          "value": ","
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 26,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p552",
+            "ref:comma"
+          ],
+          "font_id": "Kalimati@cmap:c2b66beffd",
+          "observed_at": "2026-10-23T04:27:01.549892+00:00",
+          "source": "reference",
+          "value": ","
+        },
+        {
+          "base_font": "Kalimati",
+          "cid": 41,
+          "doc_sha256": "2a536436d24dfabbb211a0e6bb4958bc44cd58eac98766471c1d2296b0c4eb2f",
+          "evidence": [
+            "p544",
+            "ref:comma"
+          ],
+          "font_id": "Kalimati@cmap:cba8f38f0b",
+          "observed_at": "2026-10-23T04:27:01.578109+00:00",
+          "source": "reference",
+          "value": ","
+        }
+      ],
+      "outline_hash": "fb7a62afb9e7cc35d8fd9809a9e20eec44ab100de6ac1be80139ba0cb17c1383",
+      "status": "provisional",
+      "support": 1,
+      "value": ",",
+      "values": [
+        ","
+      ]
+    }
+  },
+  "meta": {
+    "updated": "2026-10-23T04:30:42.854360+00:00"
+  },
+  "schema_version": 1
+}

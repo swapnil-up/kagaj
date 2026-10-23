@@ -48,9 +48,19 @@ it.
 |---|---|
 | OCR CLI | `parliament/pdf_to_text.py` |
 | CID → Devanagari | `cidmap/data/cid_mappings.json` |
+| Unknown-glyph review | `kagaj_core/review/` |
 | pgvector schema | `parliament/scripts/init_db.py` |
 | Tests | `tests/` (pytest) |
 | Gold pages | `tests/gold/` |
+
+### Unknown-glyph review
+
+`kagaj_core.review` renders one static HTML decision sheet for any extractor.
+Adapters scan the PDF and choose the key; `kagaj_core.review.crops` renders the
+glyph close-up and word crop with its overlay, handling page rotation, clipping,
+and partial failures. The HTML shell is stdlib-only; the crop helper imports
+PyMuPDF lazily. Redbook and cidmap are the current adapters; see
+`docs/review-harness.md` for the contract and export compatibility.
 
 ## Data flow (parliament)
 

@@ -18,13 +18,14 @@ kagaj/
 ├── redbook_parser/          # budget redbook extraction (active)
 ├── migration_parser/        # DoFE labour-migration panel
 ├── water_parser/            # KUKL water schedules
+├── kagaj_core/              # shared primitives (devanagari, review harness)
 ├── cidmap/                  # font-scoped CID → Devanagari mapping
 ├── dictionary/              # Nepali–English StarDict builder
 ├── datasets/                # committed outputs (START HERE)
 │   ├── labour-datasets/labour-migration/    # panels + codebook + build.json
 │   ├── datasets/translations/        # parliamentary OCR / EN / JSON + INDEX.md
 │   └── datasets/water/               # per-branch schedules + schedule.json
-├── docs/                    # architecture, integrity, roadmap, plans
+├── docs/                    # architecture, integrity, roadmap, review harness, plans
 ├── tests/                   # pytest + gold pages
 ├── archive/budget/          # frozen legacy budget extractors
 ├── .github/workflows/       # scrape + translate crons
@@ -109,11 +110,38 @@ python -m migration_parser.cli verify
 python -m redbook_parser.cli extract <pdf> --sqlite -o out.db
 python -m redbook_parser.cli verify out.db
 python -m redbook_parser.cli census <pdf>
-python -m redbook_parser.cli review <pdf>
+python -m cidmap.cli probe <pdf> [--reference-font Kalimati.ttf] [--registry cidmap/data/glyph_registry.json] [--json out.json]
+python -m cidmap.cli infer <pdf> --reference-font Kalimati.ttf [--json out.json]
+python -m cidmap.cli review <pdf> [--reference-font Kalimati.ttf] [--shape-runs] [--registry cidmap/data/glyph_registry.json]
+python -m cidmap.cli registry ingest <pdf> --store cidmap/data/cid_mappings.json --registry cidmap/data/glyph_registry.json
+python -m cidmap.cli registry query <pdf> --cid 1
+python -m cidmap.cli promote <pdf> --reference-font Kalimati.ttf [--apply] [--json out.json]
+python -m cidmap.cli autoscope <pdf> --reference-font Kalimati.ttf [--apply] [--json out.json]
+python -m cidmap.cli repair <pdf> -o repaired.pdf [--replace-conflicts] [--json out.json]
+python -m cidmap.build_lexicon   # rebuild cidmap/data/nepali_lexicon.txt.gz
+python -m redbook_parser.cli review <pdf>   # thin alias, adds legacy hints
 python -m redbook_parser.cli derive <pdf> cid_corrections.json
 ```
 
-- Unknown-CID workflow: `census` → `review` → `derive`.
+- `cidmap probe` is read-only: per-font ToUnicode coverage, character classes,
+  fingerprints, and unknown CIDs. Use it before review to spot hybrid fonts.
+- `cidmap infer` is read-only shape-run inference; `review --shape-runs` adds
+  the same candidates to the review sheet. Both need a reference font.
+- `cidmap registry ingest` records glyph fingerprints from committed mappings;
+  `registry query` resolves one CID through the cross-document registry.
+- `cidmap promote` is dry-run by default. `--apply` only adds values backed by
+  confirmed registry evidence; `commit` and `promote` share validation.
+- `cidmap autoscope` bootstraps font-scoped values from exact, unambiguous
+  reference outlines. It is dry-run by default and never overwrites a differing
+  fallback.
+- `cidmap repair` is dry-run by default. `-o/--output` writes a copy with
+  font-scoped store values added to `/ToUnicode`; existing CMap values are kept
+  unless `--replace-conflicts` is passed. The source PDF and store are unchanged.
+- Unknown-CID workflow: `census` → `review` → `commit` → `registry ingest`
+  → `repair`.
+- `cidmap review` exports neutral decisions; `derive` accepts them and legacy
+  `{cid, correct}` files. Shared harness: `kagaj_core/review/`,
+  contract in `docs/review-harness.md`.
 - Design notes: `redbook_parser/STRATEGY.md`.
 - `archive/budget/` is frozen legacy (v1/v2/v3) — do not edit.
 
@@ -146,6 +174,9 @@ Plan: `docs/plans/dda-drug-prices.md`. No shipped dataset yet.
 - **Scratch output** goes to `output/` (gitignored).
 - **Committed data** goes to `datasets/`; use `.gz` for large CSVs.
 - **Paths** are resolved relative to the package, never the CWD.
+- **Review crops:** pass text-space bboxes to
+  `kagaj_core.review.crops.render_review_crop`; it handles rotation, page
+  clipping, adaptive glyph zoom, and the word overlay.
 - **Provenance:** every emitted row needs `source_url`; source PDFs are hashed
   when they can change in place.
 - **Verification:** reconcile against printed totals; record mismatches rather

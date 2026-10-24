@@ -122,3 +122,21 @@ def test_aggregate_cids_counts_runs_and_keeps_best_value():
     assert len(rows) == 1
     assert rows[0].value == "a"
     assert rows[0].runs == 1
+
+
+def test_derived_assignment_removes_adjacent_known_matra():
+    from types import SimpleNamespace
+    from cidmap.infer import _derived_assignments
+
+    class FakeShaper:
+        def cluster_span(self, word, cluster):
+            return "\u0924\u094d\u0930\u093e"
+
+    observed = [
+        {"char": "\ufffd"},
+        {"char": "\u093e"},
+    ]
+    shaped = [SimpleNamespace(cluster=3), SimpleNamespace(cluster=3)]
+    derived = _derived_assignments(
+        observed, shaped, ((0, 0), (1, 1)), FakeShaper(), "x")
+    assert derived == {0: "\u0924\u094d\u0930"}

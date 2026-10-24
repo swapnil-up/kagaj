@@ -29,6 +29,7 @@ import sys
 from .decisions import apply_decisions
 from .decode import census, flatten, glyphs as extract_glyphs
 from .mappings import load, save, merge_derive_results
+from .reference_fonts import reference_font_arg
 from .registry import DEFAULT_REGISTRY
 from .review import build_review_html
 
@@ -41,6 +42,22 @@ def _doc(args):
         print(f"Error: {args.pdf} not found", file=sys.stderr)
         return None
     return fitz.open(args.pdf)
+
+
+def _reference_fonts_arg(values):
+    from .reference_fonts import ReferenceFontError, resolve_reference_fonts
+
+    paths = []
+    for value in values or []:
+        for item in str(value).split(","):
+            if not item.strip():
+                continue
+            try:
+                paths.extend(resolve_reference_fonts(item.strip()))
+            except ReferenceFontError as exc:
+                print(f"Error: {exc}", file=sys.stderr)
+                return None
+    return [str(path) for path in dict.fromkeys(paths)]
 
 
 def cmd_scan(args) -> int:
@@ -126,12 +143,17 @@ def cmd_probe(args) -> int:
     doc = _doc(args)
     if doc is None:
         return 1
+    reference_fonts = _reference_fonts_arg(
+        getattr(args, "reference_fonts", None))
+    if reference_fonts is None:
+        return 1
     if args.reference_font and not os.path.exists(args.reference_font):
         print(f"Error: {args.reference_font} not found", file=sys.stderr)
         return 1
     kwargs = {
         "max_pages": args.max_pages,
         "reference_font": args.reference_font,
+        "reference_fonts": reference_fonts or None,
     }
     registry_path = getattr(args, "registry", None)
     if registry_path:
@@ -353,21 +375,35 @@ def cmd_promote(args) -> int:
 
 
 def cmd_autoscope(args) -> int:
-    from .autoscope import apply_scope_plan, build_scope_plan, format_plan
+    from .autoscope import (
+        apply_scope_plan,
+        build_scope_plan,
+        format_plan,
+        rejected_jsonl,
+    )
 
     doc = _doc(args)
     if doc is None:
         return 1
-    if not os.path.exists(args.reference_font):
+    reference_fonts = _reference_fonts_arg(
+        getattr(args, "reference_fonts", None))
+    if reference_fonts is None:
+        return 1
+    if args.reference_font and not os.path.exists(args.reference_font):
         print(f"Error: {args.reference_font} not found", file=sys.stderr)
+        return 1
+    if not args.reference_font and not reference_fonts:
+        print("Error: pass --reference-font or --reference-fonts", file=sys.stderr)
         return 1
     store = load(args.store)
     plan = build_scope_plan(
         doc, store,
         reference_font=args.reference_font,
+        reference_fonts=reference_fonts or None,
         max_pages=args.max_pages,
         max_score=args.max_score,
         min_margin=args.min_margin,
+        lexicon=None if args.lexicon is True else args.lexicon,
     )
     print(format_plan(plan))
     if args.json:
@@ -375,6 +411,11 @@ def cmd_autoscope(args) -> int:
         with open(args.json, "w", encoding="utf-8") as f:
             json.dump(plan.to_dict(), f, ensure_ascii=False, indent=2)
         print(f"Wrote {args.json}", file=sys.stderr)
+    if args.rejected_out:
+        os.makedirs(os.path.dirname(args.rejected_out) or ".", exist_ok=True)
+        with open(args.rejected_out, "w", encoding="utf-8") as f:
+            f.write(rejected_jsonl(plan))
+        print(f"Wrote {args.rejected_out}", file=sys.stderr)
     if not args.apply:
         return 0
     if not plan.mappings:
@@ -417,6 +458,11 @@ def cmd_repair(args) -> int:
         with open(args.json, "w", encoding="utf-8") as f:
             json.dump(plan.to_dict(), f, ensure_ascii=False, indent=2)
         print(f"Wrote {args.json}", file=sys.stderr)
+    if args.rejected_out:
+        os.makedirs(os.path.dirname(args.rejected_out) or ".", exist_ok=True)
+        with open(args.rejected_out, "w", encoding="utf-8") as f:
+            f.write(rejected_jsonl(plan))
+        print(f"Wrote {args.rejected_out}", file=sys.stderr)
     if not output:
         return 0
     if not plan.changed:
@@ -555,7 +601,7 @@ def main(argv=None) -> int:
                     help="render samples per (font, CID) pair")
     gr.add_argument("--cids", type=lambda s: {int(x) for x in s.split(",")},
                     default=None, help="restrict to these CIDs (comma-separated)")
-    gr.add_argument("--reference-font", default=None,
+    gr.add_argument("--reference-font", default=None, type=reference_font_arg,
                     help="original TTF/OTF used to suggest glyph values")
     gr.add_argument("--shape-runs", action="store_true",
                     help="add shape-run candidates (requires --reference-font)")
@@ -567,8 +613,10 @@ def main(argv=None) -> int:
                         help="read-only font coverage/fingerprint report")
     pr.add_argument("pdf")
     pr.add_argument("--max-pages", type=int, default=None)
-    pr.add_argument("--reference-font", default=None,
+    pr.add_argument("--reference-font", default=None, type=reference_font_arg,
                     help="original TTF/OTF used to suggest unknown glyph values")
+    pr.add_argument("--reference-fonts", nargs="+", default=None,
+                    help="family aliases/paths; exact requires agreement")
     pr.add_argument("--registry", default=None,
                     help="annotate unknown CIDs with cross-document evidence")
     pr.add_argument("--json", default=None,
@@ -578,7 +626,7 @@ def main(argv=None) -> int:
     inf = sub.add_parser(
         "infer", help="read-only shape-run candidates for unknown CIDs")
     inf.add_argument("pdf")
-    inf.add_argument("--reference-font", required=True,
+    inf.add_argument("--reference-font", required=True, type=reference_font_arg,
                      help="original TTF/OTF used to shape candidate words")
     inf.add_argument("--lexicon", default=None,
                      help="lexicon text/gzip/SQLite (default: local or committed)")
@@ -607,7 +655,7 @@ def main(argv=None) -> int:
     pm.add_argument("pdf")
     pm.add_argument("--store", default=DEFAULT_STORE)
     pm.add_argument("--registry", default=str(DEFAULT_REGISTRY))
-    pm.add_argument("--reference-font", default=None,
+    pm.add_argument("--reference-font", default=None, type=reference_font_arg,
                     help="original TTF/OTF used to confirm shape runs")
     pm.add_argument("--lexicon", default=None,
                     help="lexicon text/gzip/SQLite for shape-run evidence")
@@ -629,19 +677,26 @@ def main(argv=None) -> int:
         "autoscope",
         help="bootstrap exact reference-outline matches into font-scoped mappings")
     au.add_argument("pdf")
-    au.add_argument("--reference-font", required=True)
+    au.add_argument("--reference-font", default=None, type=reference_font_arg)
+    au.add_argument("--reference-fonts", nargs="+", default=None,
+                    help="family aliases/paths; exact requires agreement")
     au.add_argument("--store", default=DEFAULT_STORE)
     au.add_argument("--max-pages", type=int, default=None)
     au.add_argument("--max-score", type=float, default=0.75,
-                    help="maximum outline distance for an exact match")
+                    help="maximum outline distance for a near match")
     au.add_argument("--min-margin", type=float, default=1.0,
                     help="minimum score gap to the next candidate value")
+    au.add_argument("--lexicon", nargs="?", const=True, default=False,
+                    help="enable lexicon/shape-run context for near and "
+                         "ambiguous exact matches (optional lexicon path)")
     mode = au.add_mutually_exclusive_group()
     mode.add_argument("--apply", action="store_true",
                       help="write mappings to the store")
     mode.add_argument("--dry-run", action="store_true",
                       help="report without writing (default)")
     au.add_argument("--json", default=None)
+    au.add_argument("--rejected-out", default=None,
+                    help="write rejected candidates as JSONL for review triage")
     au.set_defaults(fn=cmd_autoscope)
 
     rp = sub.add_parser(

@@ -11,6 +11,7 @@ the review sheet; a human still confirms every mapping.
 
 from __future__ import annotations
 
+import hashlib
 import re
 from collections import defaultdict
 from dataclasses import dataclass
@@ -20,6 +21,7 @@ from pathlib import Path
 from fontTools.ttLib import TTFont
 
 from .embedded import quiet_fonttools
+from .fingerprint import font_signature
 from .shape import GlyphShape, glyph_shape as _shape
 
 _UNI_NAME = re.compile(r"^(?:uni|u)([0-9A-Fa-f]{4,6})(?:\.|$)")
@@ -34,6 +36,8 @@ class ReferenceMatch:
     glyph: str
     score: float
     detail: str
+    exact: bool = False
+    references: int = 1
 
 
 def _subtables(lookup):
@@ -111,10 +115,108 @@ def _reference_roles(font: TTFont) -> dict[str, set[str]]:
     return roles
 
 
+class ReferenceEnsemble:
+    """Match a shape against every available copy of a reference family.
+
+    Exactness is intentionally strict: a value is exact only when every
+    reference returns a zero-distance outline. Single-reference use keeps the
+    historical ``ReferenceIndex`` behaviour.
+    """
+
+    def __init__(self, indexes):
+        self.indexes = tuple(index for index in indexes if index is not None)
+        if not self.indexes:
+            raise ValueError("reference ensemble needs at least one font")
+
+    @classmethod
+    def from_paths(cls, paths) -> "ReferenceEnsemble":
+        from .reference_fonts import resolve_reference_fonts
+
+        resolved = []
+        seen = set()
+        for value in paths:
+            for path in resolve_reference_fonts(value):
+                key = str(path.resolve())
+                if key not in seen:
+                    seen.add(key)
+                    resolved.append(path)
+        return cls(ReferenceIndex.from_path(path) for path in resolved)
+
+    @classmethod
+    def from_value(cls, value) -> "ReferenceEnsemble":
+        return cls.from_paths([value])
+
+    @property
+    def primary(self) -> ReferenceIndex:
+        return self.indexes[0]
+
+    @property
+    def path(self) -> str:
+        return self.primary.path
+
+    def metadata(self) -> dict:
+        meta = self.primary.metadata()
+        meta["references"] = [index.metadata() for index in self.indexes]
+        meta["reference_count"] = len(self.indexes)
+        return meta
+
+    def shape_for(self, name: str):
+        return self.primary.shape_for(name)
+
+    def values_for(self, name: str):
+        return self.primary.values_for(name)
+
+    def suggest(self, shape: GlyphShape | None,
+                limit: int = _MAX_CANDIDATES) -> list[ReferenceMatch]:
+        if shape is None:
+            return []
+        total = len(self.indexes)
+        evidence: dict[str, dict] = {}
+        for position, index in enumerate(self.indexes):
+            for match in index.suggest(shape, limit=max(limit * 3, 15)):
+                item = evidence.setdefault(match.value, {
+                    "scores": {},
+                    "glyphs": set(),
+                })
+                item["scores"][position] = match.score
+                item["glyphs"].add(match.glyph)
+        scored = []
+        for value, item in evidence.items():
+            scores = [item["scores"][i] for i in range(total)
+                      if i in item["scores"]]
+            exact = len(scores) == total and all(
+                item["scores"].get(i) == 0.0 for i in range(total))
+            score = max(scores)
+            scored.append((
+                score, value, "/".join(sorted(item["glyphs"])), exact,
+                len(scores),
+            ))
+        scored.sort(key=lambda entry: (entry[0], entry[1]))
+        matches = []
+        for score, value, glyph, exact, references in scored:
+            label = "exact" if exact else f"{glyph} \u00b7 score {score:.1f}"
+            if total > 1:
+                label += f" \u00b7 {references}/{total} refs"
+            matches.append(ReferenceMatch(
+                value=value,
+                glyph=glyph,
+                score=score,
+                detail=label,
+                exact=exact,
+                references=references,
+            ))
+            if len(matches) >= limit:
+                break
+        return matches
+
+
 class ReferenceIndex:
     """Glyph shapes plus Unicode roles from an original font and its GSUB."""
 
-    def __init__(self, font: TTFont):
+    def __init__(self, font: TTFont, path: str | Path | None = None):
+        self.path = str(path) if path else ""
+        self.sha256 = _file_sha256(path) if path else ""
+        self.signature = font_signature(font, Path(path).name if path else "")
         self.glyph_set = font.getGlyphSet()
         self.order = font.getGlyphOrder()
         self.hmtx = font["hmtx"]
@@ -132,11 +234,26 @@ class ReferenceIndex:
 
     @classmethod
     def from_path(cls, path: str | Path) -> "ReferenceIndex":
-        return _load_reference(str(Path(path).resolve()))
+        from .reference_fonts import resolve_reference_font
+
+        return _load_reference(str(resolve_reference_font(path).resolve()))
 
     @classmethod
     def from_font(cls, font: TTFont) -> "ReferenceIndex":
         return cls(font)
+
+    def metadata(self) -> dict:
+        """Provenance for diagnostics; log this with every match report."""
+        signature = self.signature
+        return {
+            "path": self.path,
+            "sha256": self.sha256,
+            "family": signature.family,
+            "style": signature.style,
+            "version": signature.version.strip(),
+            "created": signature.created,
+            "family_hash": signature.family_hash,
+        }
 
     def shape_for(self, name: str) -> GlyphShape | None:
         entry = self._by_name.get(name)
@@ -155,12 +272,13 @@ class ReferenceIndex:
             score = shape_distance(shape, reference)
             if score >= _NO_MATCH_SCORE:
                 continue
+            exact = score == 0.0
             for value in values:
-                scored.append((score, value, name))
+                scored.append((score, value, name, exact))
         scored.sort()
         seen = set()
         matches = []
-        for score, value, name in scored:
+        for score, value, name, exact in scored:
             if value in seen:
                 continue
             seen.add(value)
@@ -168,7 +286,9 @@ class ReferenceIndex:
                 value=value,
                 glyph=name,
                 score=score,
-                detail=f"{name} \u00b7 score {score:.1f}",
+                detail=(f"exact \u00b7 {name}" if exact
+                        else f"{name} \u00b7 score {score:.1f}"),
+                exact=exact,
             ))
             if len(matches) >= limit:
                 break
@@ -192,8 +312,16 @@ def shape_distance(left: GlyphShape | None,
     return bbox + advance + contour_penalty + bitmap * 0.25
 
 
+def _file_sha256(path) -> str:
+    digest = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 @lru_cache(maxsize=8)
 def _load_reference(path: str) -> ReferenceIndex:
     with quiet_fonttools():
         font = TTFont(path, fontNumber=0, lazy=False)
-        return ReferenceIndex(font)
+        return ReferenceIndex(font, path)

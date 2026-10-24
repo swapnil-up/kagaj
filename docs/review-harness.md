@@ -71,7 +71,8 @@ mappings from exact, unambiguous outline matches. It is dry-run by default.
 - `--apply` records `source=reference` with the glyph name, score, and first
   page. Registry ingestion can then record the same evidence.
 - This is a bootstrap. Ambiguous and high-distance candidates still need the
-  review harness.
+  review harness. `--rejected-out` writes them as JSONL; they stay unknown in
+  the store, so `cidmap review <pdf>` still queues them with crops.
 
 ## PDF ToUnicode repair
 

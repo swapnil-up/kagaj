@@ -50,15 +50,19 @@ def _candidates(reference, embedded, xref, cid):
     shape = embedded.shape(xref, cid)
     return [
         {"value": match.value, "glyph": match.glyph,
-         "score": round(match.score, 3), "detail": match.detail}
+         "score": round(match.score, 3), "exact": match.exact,
+         "detail": match.detail}
         for match in reference.suggest(shape)
     ]
 
 
 def probe_document(doc, *, max_pages=None, reference_font=None,
-                   registry=None) -> dict:
+                   reference_fonts=None, registry=None) -> dict:
     """Scan a PDF once and return per-font diagnostics."""
-    if reference_font:
+    if reference_fonts:
+        from .reference import ReferenceEnsemble
+        reference = ReferenceEnsemble.from_paths(reference_fonts)
+    elif reference_font:
         from .reference import ReferenceIndex
         reference = ReferenceIndex.from_path(reference_font)
     else:
@@ -173,12 +177,15 @@ def probe_document(doc, *, max_pages=None, reference_font=None,
             "candidates": candidates,
         })
 
-    return {
+    result = {
         "pdf": getattr(doc, "name", "") or "",
         "pages_scanned": scanned,
         "issues": issues,
         "fonts": out,
     }
+    if reference is not None:
+        result["reference"] = reference.metadata()
+    return result
 
 
 def format_probe(result: dict) -> str:
@@ -188,6 +195,20 @@ def format_probe(result: dict) -> str:
         f"Pages scanned: {result.get('pages_scanned', 0)} \u00b7 "
         f"fonts: {len(result.get('fonts', []))}",
     ]
+    reference = result.get("reference") or {}
+    if reference:
+        lines.append(
+            f"Reference: {reference.get('family') or '?'} "
+            f"{reference.get('style') or ''} "
+            f"{reference.get('version') or '?'} "
+            f"created={reference.get('created') or '?'} "
+            f"sha={reference.get('sha256', '')[:12]}")
+        if reference.get("reference_count", 1) > 1:
+            copies = ", ".join(
+                f"{item.get('style') or '?'}:{item.get('sha256', '')[:8]}"
+                for item in reference.get("references", [])
+            )
+            lines.append(f"Reference copies: {len(reference['references'])} ({copies})")
     if result.get("issues"):
         pages = ", ".join(f"p{issue['page']}" for issue in result["issues"])
         lines.append(f"Skipped pages: {pages}")
@@ -222,7 +243,9 @@ def format_probe(result: dict) -> str:
         for cid, matches in font.get("candidates", {}).items():
             values = ", ".join(
                 f"{match['value']} ({match['glyph']}, "
-                f"{match['score']:.1f})" for match in matches)
+                f"{match['score']:.1f}"
+                f"{', exact' if match.get('exact') else ''})"
+                for match in matches)
             lines.append(f"    cid {cid}: {values}")
         for row in font.get("unknown_cids", []):
             entry = row.get("registry")

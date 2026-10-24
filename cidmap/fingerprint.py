@@ -6,7 +6,8 @@ import hashlib
 import json
 from dataclasses import asdict, dataclass
 
-from fontTools.pens.recordingPen import RecordingPen
+from fontTools.misc.timeTools import timestampToString
+from fontTools.pens.recordingPen import DecomposingRecordingPen
 from fontTools.ttLib import TTFont
 
 from .shape import glyph_shape
@@ -46,6 +47,7 @@ class FontSignature:
     gsub_features: tuple[str, ...]
     gsub_lookups: int
     family_hash: str
+    created: str = ""
 
     def as_dict(self) -> dict:
         data = asdict(self)
@@ -61,7 +63,7 @@ def _digest(payload) -> str:
 
 
 def _outline_points(glyph_set, name, upm):
-    recording = RecordingPen()
+    recording = DecomposingRecordingPen(glyph_set)
     glyph_set[name].draw(recording)
     scale = 1000.0 / upm
     parts = []
@@ -151,6 +153,13 @@ def font_signature(font: TTFont, base_font: str = "") -> FontSignature:
     style = _name(font, _NAME_IDS["style"])
     full = _name(font, _NAME_IDS["full"])
     version = _name(font, _NAME_IDS["version"])
+    created_raw = getattr(font["head"], "created", None)
+    created = ""
+    if created_raw:
+        try:
+            created = timestampToString(int(created_raw))
+        except Exception:
+            created = str(created_raw)
     stable = {
         "base_font": (base_font or "").split("+")[-1],
         "family": family,
@@ -174,4 +183,5 @@ def font_signature(font: TTFont, base_font: str = "") -> FontSignature:
         gsub_features=gsub_features,
         gsub_lookups=gsub_lookups,
         family_hash=_digest(stable),
+        created=created,
     )

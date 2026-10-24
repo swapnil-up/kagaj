@@ -83,7 +83,7 @@ subset-specific; `family_hash` is not yet a canonical store key.
 ### 5. `cidmap/probe.py`
 
 ```python
-probe_document(doc, *, max_pages=None, reference_font=None) -> dict
+probe_document(doc, *, max_pages=None, reference_font=None, reference_fonts=None) -> dict
 format_probe(result) -> str
 ```
 

@@ -5,6 +5,8 @@ import json
 import os
 import sys
 
+from cidmap.reference_fonts import reference_font_arg
+
 from .census import build_unknown_census, census_to_rows
 from .db import read_rows, write_db
 from .review import build_review_html
@@ -200,7 +202,7 @@ def main(argv=None) -> int:
     rv.add_argument("--crop", type=int, default=3, help="render samples per CID")
     rv.add_argument("--cids", type=lambda s: {int(x) for x in s.split(",")},
                     default=None, help="restrict to these CIDs (comma-separated)")
-    rv.add_argument("--reference-font", default=None,
+    rv.add_argument("--reference-font", default=None, type=reference_font_arg,
                     help="original TTF/OTF used to suggest glyph values")
     rv.add_argument("--shape-runs", action="store_true",
                     help="add shape-run candidates (requires --reference-font)")

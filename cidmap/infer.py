@@ -48,6 +48,7 @@ class CidInference:
     value: str
     score: float
     runs: int
+    shape_score: float = 0.0
 
 
 _NO_MATCH = 120.0
@@ -121,13 +122,14 @@ def _align(observed, candidate_glyphs, shaper, word):
 
 def infer_runs(doc, *, reference_font, lexicon=None, max_pages=None,
                max_candidates=5, max_word_candidates=2000,
-               max_dp_candidates=200) -> list[RunInference]:
+               max_dp_candidates=200, cids=None) -> list[RunInference]:
     shaper = ReferenceShaper.from_path(reference_font)
     if isinstance(lexicon, (str, bytes)) or hasattr(lexicon, "__fspath__"):
         lexicon = NepaliLexicon.load(lexicon)
     lexicon = lexicon or NepaliLexicon.load()
     index = LexiconIndex(lexicon, shaper)
     embedded = EmbeddedFontCache(doc)
+    target_cids = {int(cid) for cid in cids} if cids else None
     pages = range(len(doc)) if max_pages is None else range(
         min(max_pages, len(doc)))
     out = []
@@ -140,6 +142,13 @@ def infer_runs(doc, *, reference_font, lexicon=None, max_pages=None,
         for run in runs_with_unknown(word_runs(page_glyphs, page=pn + 1)):
             if len(run.glyphs) < 2:
                 continue
+            if target_cids is not None:
+                run_cids = {
+                    glyph.get("cid") for glyph in run.glyphs
+                    if is_unknown(glyph.get("c") or "")
+                }
+                if not run_cids & target_cids:
+                    continue
             candidates = _infer_run(
                 run, shaper, index, lexicon, embedded,
                 max_candidates=max_candidates,
@@ -173,6 +182,44 @@ def _align_direct(observed, candidate_glyphs, shaper, word):
     return total, tuple(pairs)
 
 
+def _derived_assignments(observed, shaped, pairs, shaper, word):
+    """Recover ligature values whose GSUB components do not spell the cluster.
+
+    Kalimati's ``vatu`` maps ``ta + reph`` to the same glyph as ``tra``. The
+    reference roles therefore expose ``tar``/``-`` while the shaping cluster is
+    ``tra``. Attribute a cluster span to a single unknown only; clusters with
+    multiple unknowns stay unresolved.
+    """
+    unknown = defaultdict(list)
+    known = defaultdict(Counter)
+    for i, j in pairs:
+        cluster = shaped[j].cluster
+        char = observed[i]["char"]
+        if is_unknown(char):
+            unknown[cluster].append(i)
+        else:
+            known[cluster][char] += 1
+    out = {}
+    for cluster, indices in unknown.items():
+        if len(indices) != 1:
+            continue
+        index = indices[0]
+        span = shaper.cluster_span(word, cluster)
+        for char, count in known.get(cluster, {}).items():
+            span = span.replace(char, "", count)
+        for step in (1, -1):
+            neighbour = index + step
+            while 0 <= neighbour < len(observed):
+                char = observed[neighbour]["char"]
+                if not char or is_unknown(char) or char not in span:
+                    break
+                span = span.replace(char, "", 1)
+                neighbour += step
+        if span:
+            out[index] = span
+    return out
+
+
 def _infer_run(run, shaper, index, lexicon, embedded, *, max_candidates,
                max_word_candidates, max_dp_candidates=200):
     observed = []
@@ -202,11 +249,14 @@ def _infer_run(run, shaper, index, lexicon, embedded, *, max_candidates,
     ranked = []
     for _, word, shaped in fast[:max_dp_candidates]:
         cost, pairs = _align(observed, shaped, shaper, word)
+        derived = _derived_assignments(observed, shaped, pairs, shaper, word)
         assignments = []
         for i, j in pairs:
             if not is_unknown(observed[i]["char"]):
                 continue
             value = _candidate_value(shaper, word, shaped[j])
+            if not value:
+                value = derived.get(i)
             if not value:
                 continue
             assignments.append(GlyphAssignment(
@@ -232,7 +282,7 @@ def _infer_run(run, shaper, index, lexicon, embedded, *, max_candidates,
 
 
 def aggregate_cids(inferences) -> list[CidInference]:
-    votes = defaultdict(lambda: defaultdict(lambda: [0, 0.0, set()]))
+    votes = defaultdict(lambda: defaultdict(lambda: [0, 0.0, set(), 0.0]))
     for inference in inferences:
         for candidate in inference.candidates:
             for assignment in candidate.assignments:
@@ -241,9 +291,10 @@ def aggregate_cids(inferences) -> list[CidInference]:
                 bucket[0] += 1
                 bucket[1] += candidate.score
                 bucket[2].add(inference.page)
+                bucket[3] += assignment.score
     out = []
     for (font_id, cid), values in votes.items():
-        value, (count, total, pages) = min(
+        value, (count, total, pages, shape_total) = min(
             values.items(), key=lambda item: (item[1][1], -item[1][0]))
         out.append(CidInference(
             font_id=font_id,
@@ -251,6 +302,7 @@ def aggregate_cids(inferences) -> list[CidInference]:
             value=value,
             score=total / max(count, 1),
             runs=len(pages),
+            shape_score=shape_total / max(count, 1),
         ))
     out.sort(key=lambda item: (item.font_id, item.cid))
     return out

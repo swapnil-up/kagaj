@@ -21,3 +21,8 @@ datasets/labour-migration/*_normalized.csv
 # generated reconciled panels (rerun: python -m migration_parser.cli reconcile)
 datasets/labour-migration/panel_canonical.csv
 datasets/labour-migration/panel_rollup.csv
+# local reference fonts (licensing varies; never commit)
+reference-fonts/
+
+# local research corpus (PDFs, fonts, ground truth)
+corpus/

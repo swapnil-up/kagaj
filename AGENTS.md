@@ -116,7 +116,8 @@ python -m cidmap.cli review <pdf> [--reference-font Kalimati.ttf] [--shape-runs]
 python -m cidmap.cli registry ingest <pdf> --store cidmap/data/cid_mappings.json --registry cidmap/data/glyph_registry.json
 python -m cidmap.cli registry query <pdf> --cid 1
 python -m cidmap.cli promote <pdf> --reference-font Kalimati.ttf [--apply] [--json out.json]
-python -m cidmap.cli autoscope <pdf> --reference-font Kalimati.ttf [--apply] [--json out.json]
+python -m cidmap.cli autoscope <pdf> --reference-font Kalimati.ttf [--apply] [--json out.json] [--rejected-out rejected.jsonl]
+python -m cidmap.cli autoscope <pdf> --reference-fonts kalimati [--lexicon] [--apply]
 python -m cidmap.cli repair <pdf> -o repaired.pdf [--replace-conflicts] [--json out.json]
 python -m cidmap.build_lexicon   # rebuild cidmap/data/nepali_lexicon.txt.gz
 python -m redbook_parser.cli review <pdf>   # thin alias, adds legacy hints
@@ -133,10 +134,19 @@ python -m redbook_parser.cli derive <pdf> cid_corrections.json
   confirmed registry evidence; `commit` and `promote` share validation.
 - `cidmap autoscope` bootstraps font-scoped values from exact, unambiguous
   reference outlines. It is dry-run by default and never overwrites a differing
-  fallback.
+  fallback. `--reference-fonts` requires exact agreement across every available
+  copy; `--lexicon` adds shape-run context for near and ambiguous-exact roles.
+  `--rejected-out` writes rejected candidates as JSONL for review triage; they
+  remain unknown CIDs in the store.
 - `cidmap repair` is dry-run by default. `-o/--output` writes a copy with
   font-scoped store values added to `/ToUnicode`; existing CMap values are kept
   unless `--replace-conflicts` is passed. The source PDF and store are unchanged.
+- Local reference fonts live in gitignored `reference-fonts/` (or directories
+  listed in `CIDMAP_REFERENCE_FONTS`). Pass a path or a family alias such as
+  `kalimati`, `kokila`, `mangal`, `preeti`, or `kantipur`; never commit font
+  binaries. Proprietary fonts must come from a licensed local installation.
+  Legacy 8-bit fonts still need a separate byte→Unicode decoder; they are not
+  usable as Unicode reference outlines.
 - Unknown-CID workflow: `census` → `review` → `commit` → `registry ingest`
   → `repair`.
 - `cidmap review` exports neutral decisions; `derive` accepts them and legacy

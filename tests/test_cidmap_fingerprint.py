@@ -9,8 +9,8 @@ from cidmap.fingerprint import (
 )
 
 
-def _glyph(draw):
-    pen = TTGlyphPen(None)
+def _glyph(draw, glyph_set=None):
+    pen = TTGlyphPen(glyph_set)
     draw(pen)
     return pen.glyph()
 
@@ -31,7 +31,7 @@ def _build(path, glyphs, cmap=None, name=True):
     builder.setupGlyphOrder(order)
     builder.setupCharacterMap(cmap or {})
     builder.setupGlyf({
-        name: _glyph(draw) if draw else _glyph(lambda pen: None)
+        name: _glyph(draw, order) if draw else _glyph(lambda pen: None, order)
         for name, draw in glyphs.items()
     })
     builder.setupHorizontalMetrics({name: (100, 0) for name in order})
@@ -71,6 +71,19 @@ def test_glyph_fingerprint_distinguishes_outlines(tmp_path):
     })
     assert _fingerprint(font, "a").outline_hash != \
         _fingerprint(font, "b").outline_hash
+
+
+def test_glyph_fingerprint_decomposes_component_glyphs(tmp_path):
+    def component(pen):
+        pen.addComponent("a", (1, 0, 0, 1, 0, 0))
+
+    font = _build(tmp_path / "font.ttf", {
+        ".notdef": None,
+        "a": _box(0, 0, 100, 100),
+        "composite": component,
+    })
+    assert _fingerprint(font, "composite").outline_hash == \
+        _fingerprint(font, "a").outline_hash
 
 
 def test_subset_signature_changes_with_glyph_set(tmp_path):

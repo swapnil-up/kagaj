@@ -21,6 +21,7 @@ import logging
 import sys
 from pathlib import Path
 
+from .reference_fonts import reference_font_arg
 from .fonts import source_hash
 from .glyph_collection import collect_review_data
 from kagaj_core.review import (
@@ -233,7 +234,7 @@ def main(argv=None) -> int:
                    help="render samples per (font, CID) pair")
     p.add_argument("--cids", type=lambda s: {int(x) for x in s.split(",")},
                    default=None, help="restrict to these CIDs (comma-separated)")
-    p.add_argument("--reference-font", default=None,
+    p.add_argument("--reference-font", default=None, type=reference_font_arg,
                    help="original TTF/OTF used to suggest glyph values")
     p.add_argument("--shape-runs", action="store_true",
                    help="add shape-run candidates (requires --reference-font)")

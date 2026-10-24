@@ -66,7 +66,7 @@ def test_probe_candidates_use_reference_matches():
 
     found = probe_mod._candidates(Reference(), Embedded(), 7, 42)
     assert found == [{"value": "a", "glyph": "a.alt", "score": 1.5,
-                      "detail": "a.alt"}]
+                      "exact": False, "detail": "a.alt"}]
 
 
 def test_cmd_probe_writes_json(monkeypatch, tmp_path):
@@ -76,8 +76,8 @@ def test_cmd_probe_writes_json(monkeypatch, tmp_path):
     }
     monkeypatch.setattr(cli, "_doc", lambda args: object())
     monkeypatch.setattr(probe_mod, "probe_document",
-                        lambda doc, max_pages=None, reference_font=None:
-                        result)
+                        lambda doc, max_pages=None, reference_font=None,
+                        reference_fonts=None: result)
     out = tmp_path / "probe.json"
     args = SimpleNamespace(pdf="fake.pdf", max_pages=None,
                            reference_font=None, json=str(out))

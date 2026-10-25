@@ -25,6 +25,8 @@ adapter and call the shared crop renderer.
 `cidmap probe <pdf>` is a read-only preflight for review. Per font subset it
 reports the resolved identity, ToUnicode entry count, observed known/unknown
 CIDs, coverage, character-class counts, and unknown CIDs with their pages.
+Pages with duplicate BaseFont resources are still scanned for the unambiguous
+fonts; the ambiguous spans are reported as issues.
 `--reference-font` adds the same outline-match candidates the review sheet uses.
 `--registry` annotates unknown CIDs with cross-document evidence. `--json`
 writes the full report for tests or downstream tooling.

@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 from kagaj_core.devanagari import validate
 
-from .decode import glyphs as extract_glyphs, is_unknown
+from .decode import glyphs as extract_glyphs, is_unknown, is_unknown_glyph
 from .embedded import EmbeddedFontCache
 from .fonts import FontResolutionError
 from .lexicon import LexiconIndex, NepaliLexicon
@@ -58,7 +58,7 @@ _CLASS_PENALTY = 40.0
 
 def _observed_text(run):
     return "".join(
-        f"\u27e6{g['cid']}\u27e7" if is_unknown(g.get("c") or "")
+        f"\u27e6{g['cid']}\u27e7" if is_unknown_glyph(g)
         else (g.get("c") or "")
         for g in run.glyphs
     )
@@ -145,7 +145,7 @@ def infer_runs(doc, *, reference_font, lexicon=None, max_pages=None,
             if target_cids is not None:
                 run_cids = {
                     glyph.get("cid") for glyph in run.glyphs
-                    if is_unknown(glyph.get("c") or "")
+                    if is_unknown_glyph(glyph)
                 }
                 if not run_cids & target_cids:
                     continue

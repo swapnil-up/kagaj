@@ -122,10 +122,13 @@ python -m cidmap.cli repair <pdf> -o repaired.pdf [--replace-conflicts] [--json 
 python -m cidmap.build_lexicon   # rebuild cidmap/data/nepali_lexicon.txt.gz
 python -m redbook_parser.cli review <pdf>   # thin alias, adds legacy hints
 python -m redbook_parser.cli derive <pdf> cid_corrections.json
+python -m cidmap.cli legacy-import <codes.csv> [--catalog codes.csv] [--table cidmap/data/legacy_fonts.json] [--apply] [--json out.json]
 ```
 
 - `cidmap probe` is read-only: per-font ToUnicode coverage, character classes,
-  fingerprints, and unknown CIDs. Use it before review to spot hybrid fonts.
+  fingerprints, and unknown CIDs. It scans unambiguous fonts on pages with
+  duplicate BaseFont resources and reports ambiguous spans as issues. Use it
+  before review to spot hybrid fonts.
 - `cidmap infer` is read-only shape-run inference; `review --shape-runs` adds
   the same candidates to the review sheet. Both need a reference font.
 - `cidmap registry ingest` records glyph fingerprints from committed mappings;
@@ -138,6 +141,10 @@ python -m redbook_parser.cli derive <pdf> cid_corrections.json
   copy; `--lexicon` adds shape-run context for near and ambiguous-exact roles.
   `--rejected-out` writes rejected candidates as JSONL for review triage; they
   remain unknown CIDs in the store.
+- `cidmap legacy-import` validates externally labelled legacy glyph CSVs
+  against the original catalog and merges them into
+  `cidmap/data/legacy_fonts.json`. Dry-run by default; `--apply` writes the
+  table. It refuses files with no filled Unicode labels.
 - `cidmap repair` is dry-run by default. `-o/--output` writes a copy with
   font-scoped store values added to `/ToUnicode`; existing CMap values are kept
   unless `--replace-conflicts` is passed. The source PDF and store are unchanged.

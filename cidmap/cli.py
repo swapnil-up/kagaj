@@ -14,6 +14,8 @@
 ``repair``   write a copy with store-backed ToUnicode CMap additions,
 ``commit``   fold a neutral decisions.json into the canonical store (font-scoped
              only), ``seed`` fold a derive output into the store as fallbacks.
+``legacy-import`` validate externally labelled legacy glyph CSVs and optionally
+             merge them into the legacy font table.
 ``quorum``   OCR cross-check per unknown CID.
 
 Default store: ``cidmap/data/cid_mappings.json`` (tracked, the consumable map).
@@ -27,6 +29,7 @@ import os
 import sys
 
 from .decisions import apply_decisions
+from .legacy_tables import DEFAULT_TABLE
 from .decode import census, flatten, glyphs as extract_glyphs
 from .mappings import load, save, merge_derive_results
 from .reference_fonts import reference_font_arg
@@ -458,11 +461,6 @@ def cmd_repair(args) -> int:
         with open(args.json, "w", encoding="utf-8") as f:
             json.dump(plan.to_dict(), f, ensure_ascii=False, indent=2)
         print(f"Wrote {args.json}", file=sys.stderr)
-    if args.rejected_out:
-        os.makedirs(os.path.dirname(args.rejected_out) or ".", exist_ok=True)
-        with open(args.rejected_out, "w", encoding="utf-8") as f:
-            f.write(rejected_jsonl(plan))
-        print(f"Wrote {args.rejected_out}", file=sys.stderr)
     if not output:
         return 0
     if not plan.changed:
@@ -474,6 +472,69 @@ def cmd_repair(args) -> int:
         print(f"Error: {exc}", file=sys.stderr)
         return 1
     print(f"Wrote {output} ({count} font(s) repaired)", file=sys.stderr)
+    return 0
+
+
+def cmd_legacy_import(args) -> int:
+    from .legacy_tables import (
+        build_table, load_table, read_rows, save_table, validate_rows,
+    )
+
+    rows = []
+    for path in args.csv:
+        try:
+            rows.extend(read_rows(path))
+        except (OSError, ValueError) as exc:
+            print(f"Error: {exc}", file=sys.stderr)
+            return 1
+    catalog = None
+    if args.catalog:
+        try:
+            catalog = read_rows(args.catalog)
+        except (OSError, ValueError) as exc:
+            print(f"Error: {exc}", file=sys.stderr)
+            return 1
+
+    problems = validate_rows(rows, catalog)
+    if problems:
+        for problem in problems[:100]:
+            print(f"{problem.source}:{problem.line}: {problem.message}",
+                  file=sys.stderr)
+        if len(problems) > 100:
+            print(f"... {len(problems) - 100} more problem(s)",
+                  file=sys.stderr)
+        print(f"{len(problems)} validation problem(s)", file=sys.stderr)
+        return 1
+
+    existing = load_table(args.table) if args.apply else None
+    table = build_table(rows, existing=existing)
+    families = sorted(table.get("families", {}))
+    filled = sum(1 for row in rows if row.unicode)
+    if not filled:
+        print("Error: no Unicode labels found in the returned CSV",
+              file=sys.stderr)
+        return 1
+    print(f"{len(rows)} row(s), {filled} filled, "
+          f"{len(rows) - filled} blank, {len(families)} family/families")
+    print("families: " + ", ".join(families))
+    if args.json:
+        payload = {
+            "rows": len(rows),
+            "filled": filled,
+            "blank": len(rows) - filled,
+            "families": families,
+            "applied": bool(args.apply),
+            "table": table,
+        }
+        os.makedirs(os.path.dirname(args.json) or ".", exist_ok=True)
+        with open(args.json, "w", encoding="utf-8") as handle:
+            json.dump(payload, handle, ensure_ascii=False, indent=2)
+        print(f"Wrote {args.json}", file=sys.stderr)
+    if args.apply:
+        save_table(table, args.table)
+        print(f"Wrote {args.table}", file=sys.stderr)
+    else:
+        print("Dry run; pass --apply to write the table.", file=sys.stderr)
     return 0
 
 
@@ -723,6 +784,19 @@ def main(argv=None) -> int:
     sd.add_argument("derive", help="derive output JSON")
     sd.add_argument("--store", default=DEFAULT_STORE)
     sd.set_defaults(fn=cmd_seed)
+
+    li = sub.add_parser(
+        "legacy-import",
+        help="validate labelled legacy glyph CSVs and merge the font table")
+    li.add_argument("csv", nargs="+", help="filled codes.csv files")
+    li.add_argument("--catalog", default=None,
+                    help="original codes.csv/mapping-template.csv to match")
+    li.add_argument("--table", default=str(DEFAULT_TABLE))
+    li.add_argument("--apply", action="store_true",
+                    help="write the merged table (default: dry run)")
+    li.add_argument("--json", default=None,
+                    help="write a validation/import report as JSON")
+    li.set_defaults(fn=cmd_legacy_import)
 
     cp = sub.add_parser("compare",
                         help="HTML: decoder text vs OCR text, aligned diff")

@@ -32,7 +32,9 @@ class TestExtractGlyphs:
         assert out == [{
             "font": "CIDFont+F1", "base_font": "CIDFont+F1",
             "font_id": "CIDFont+F1", "font_xref": None,
-            "font_id_scheme": "unresolved", "cid": 148, "c": "प",
+            "font_id_scheme": "unresolved", "mapped": False,
+            "simple_font": False,
+            "cid": 148, "c": "प",
             "origin": (10.0, 20.0), "bbox": (10.0, 20.0, 15.0, 25.0),
         }]
 

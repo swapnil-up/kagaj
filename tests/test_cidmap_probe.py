@@ -29,8 +29,12 @@ def test_probe_reports_coverage_classes_and_unknown_cids(monkeypatch):
         {"font_id": "F@cmap:1", "base_font": "F", "font_xref": 10,
          "font_id_scheme": "cmap-hash", "cid": 3, "c": "\ue000"},
     ]
-    monkeypatch.setattr(probe_mod, "extract_glyphs",
-                        lambda page, dedup=True: glyphs)
+    def fake_extract(page, dedup=True, **kwargs):
+        assert kwargs.get("allow_ambiguous") is True
+        assert isinstance(kwargs.get("issues"), list)
+        return glyphs
+
+    monkeypatch.setattr(probe_mod, "extract_glyphs", fake_extract)
 
     result = probe_mod.probe_document(FakeDoc())
     assert result["pages_scanned"] == 1
@@ -51,6 +55,27 @@ def test_probe_reports_coverage_classes_and_unknown_cids(monkeypatch):
     ]
     assert font["cmap_entries"] == 0
     assert "unknown CIDs: 2\u00d72" in probe_mod.format_probe(result)
+
+
+def test_probe_scans_unambiguous_fonts_on_partial_pages(monkeypatch):
+    glyphs = [
+        {"font_id": "F@cmap:1", "base_font": "F", "font_xref": 10,
+         "font_id_scheme": "cmap-hash", "cid": 1, "c": "\u0915"},
+    ]
+
+    def fake_extract(page, dedup=True, **kwargs):
+        kwargs["issues"].append({
+            "kind": "FontAmbiguity",
+            "message": "ambiguous 'Kalimati' on page: xrefs [9, 14]",
+        })
+        return glyphs
+
+    monkeypatch.setattr(probe_mod, "extract_glyphs", fake_extract)
+    result = probe_mod.probe_document(FakeDoc())
+    assert result["pages_scanned"] == 1
+    assert result["fonts"][0]["observed"] == 1
+    assert result["issues"][0]["page"] == 1
+    assert result["issues"][0]["kind"] == "FontAmbiguity"
 
 
 def test_probe_candidates_use_reference_matches():

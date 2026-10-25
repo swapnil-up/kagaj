@@ -98,7 +98,8 @@ Per font:
 - unknown CIDs with occurrence counts and pages
 - optional reference-font candidates
 
-Scan each page once. Skip ambiguous-font pages and report issues. Extract and
+Scan each page once. On pages with duplicate BaseFont resources, scan the
+unambiguous fonts and report the ambiguous ones as issues. Extract and
 fingerprint only fonts that have unknown CIDs.
 
 ### 6. CLI
@@ -161,11 +162,12 @@ absent.
 ## Verification
 
 - Targeted cidmap/core review suite: 122 passed, 1 skipped.
-- `cidmap probe` over `redbook8283.pdf`: 555 pages scanned, 27 fonts, one
-  ambiguous Helvetica page skipped. Kalimati subsets share family hash
-  `456cb5e19b40...`; each subset has a distinct subset signature.
+- `cidmap probe` over `redbook8283.pdf`: 555 pages scanned, 27 fonts. The
+  ambiguous Helvetica page is reported while its unambiguous fonts are still
+  scanned. Kalimati subsets share family hash `456cb5e19b40...`; each subset
+  has a distinct subset signature.
 - `cidmap probe --reference-font Kalimati.ttf` returns the expected CID 1
   candidates (`व्` for xref 3059, `ि` for the narrow-matra subsets).
-- Full `pytest tests/ -q`: 1152 passed, 7 skipped, 4 failed, 8 errors. The
+- Full `pytest tests/ -q`: 1266 passed, 7 skipped, 3 failed, 8 errors. The
   failures/errors are the pre-existing missing redbook fixture, missing pandas,
   corpus source drift, and migration drift issues.

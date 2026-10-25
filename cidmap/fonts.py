@@ -150,11 +150,15 @@ def _collect_fonts(doc, resources_xref: int, contents: list[int],
             _collect_fonts(doc, form, [form], seen_forms, out)
 
 
-def page_fonts(page, wanted: set[str] | None = None) -> dict[str, FontIdentity]:
+def page_fonts(page, wanted: set[str] | None = None, *,
+               skip_ambiguous: bool = False,
+               ambiguous: dict[str, list[int]] | None = None
+               ) -> dict[str, FontIdentity]:
     """Return ``{base_font: identity}`` for the fonts this page can draw with.
 
     Raises :class:`FontAmbiguity` if one BaseFont has multiple resources; there
-    is no safe way to assign a span to one of them.
+    is no safe way to assign a span to one of them. With ``skip_ambiguous``,
+    those fonts are omitted and their xrefs are recorded in ``ambiguous``.
     """
     doc = getattr(page, "parent", None)
     page_xref = getattr(page, "xref", None)
@@ -185,6 +189,10 @@ def page_fonts(page, wanted: set[str] | None = None) -> dict[str, FontIdentity]:
         if wanted_bases is not None and base not in wanted_bases:
             continue
         if len(xrefs) > 1:
+            if skip_ambiguous:
+                if ambiguous is not None:
+                    ambiguous[base] = sorted(xrefs)
+                continue
             raise FontAmbiguity(base, xrefs)
         xref = next(iter(xrefs))
         out[base] = _identity(doc, base, xref)
@@ -192,7 +200,19 @@ def page_fonts(page, wanted: set[str] | None = None) -> dict[str, FontIdentity]:
 
 
 def _hex_codepoints(hex_string: str) -> tuple[int, ...]:
-    width = 4 if len(hex_string) <= 4 else 2
+    if not hex_string:
+        return ()
+    digits = hex_string if len(hex_string) % 2 == 0 else "0" + hex_string
+    try:
+        raw = bytes.fromhex(digits)
+    except ValueError:
+        return ()
+    if raw:
+        try:
+            return tuple(ord(char) for char in raw.decode("utf-16-be"))
+        except UnicodeDecodeError:
+            pass
+    width = 4 if len(hex_string) % 4 == 0 else 2
     return tuple(int(hex_string[i:i + width], 16)
                  for i in range(0, len(hex_string), width))
 
@@ -255,6 +275,21 @@ def cmap_mapping(doc, font_xref: int) -> dict[int, tuple[int, ...]] | None:
     if data is None:
         return None
     return _cmap_mapping_cached(data)
+
+
+def usable_cmap_mapping(
+        doc, font_xref: int) -> dict[int, tuple[int, ...]] | None:
+    """Return a non-identity ToUnicode map, or None if it is unusable."""
+    data = _raw_cmap(doc, font_xref)
+    if data is None:
+        return None
+    mappings = _cmap_mapping_cached(data)
+    if not mappings:
+        return None
+    if all(src == dst[0] and len(dst) == 1
+           for src, dst in mappings.items()):
+        return None
+    return mappings
 
 
 def _usable_cmap(doc, font_xref: int) -> bytes | None:

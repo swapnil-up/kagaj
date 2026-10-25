@@ -11,7 +11,7 @@ boxes are matched to glyph origins inside this module.
 
 from __future__ import annotations
 
-from .decode import is_unknown, glyphs, cluster_lines
+from .decode import is_unknown_glyph, glyphs, cluster_lines
 
 RENDER_SCALE = 300 / 72.0  # 300 dpi
 
@@ -112,7 +112,7 @@ def cross_check(doc, census_result, max_pages=None,
             log(f"  OCR p{pn + 1}: {len(words)} words")
         for line in cluster_lines(glyphs(page)):
             for g in line:
-                if not is_unknown(g["c"]):
+                if not is_unknown_glyph(g):
                     continue
                 font = g["font_id"] or ""
                 ox, oy = g["origin"][0], g["origin"][1]

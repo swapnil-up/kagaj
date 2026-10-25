@@ -97,7 +97,7 @@ def quorum(doc, store, engine, pages=None, log=None):
 def _cross_check_pages(doc, engine, pages, log):
     """OCR words per unknown glyph over an explicit page list."""
     from .ocr import render_page, ocr_words
-    from .decode import cluster_lines, glyphs, is_unknown
+    from .decode import cluster_lines, glyphs, is_unknown_glyph
     from .mappings import get_value
 
     counts = {}
@@ -109,7 +109,7 @@ def _cross_check_pages(doc, engine, pages, log):
         words = ocr_words(engine, render_page(page))
         for line in cluster_lines(glyphs(page)):
             for g in line:
-                if not is_unknown(g["c"]):
+                if not is_unknown_glyph(g):
                     continue
                 font = g["font_id"] or ""
                 ox, oy = g["origin"][0], g["origin"][1]

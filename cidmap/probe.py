@@ -10,7 +10,7 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 
 from .classify import char_class
-from .decode import glyphs as extract_glyphs, is_unknown
+from .decode import glyphs as extract_glyphs, is_unknown_glyph
 from .embedded import EmbeddedFontCache
 from .fingerprint import font_signature, subset_signature
 from .fonts import FontResolutionError, cmap_mapping
@@ -76,12 +76,16 @@ def probe_document(doc, *, max_pages=None, reference_font=None,
     scanned = 0
     for pn in pages:
         page = doc[pn]
+        page_issues = []
         try:
-            page_glyphs = extract_glyphs(page, dedup=True)
+            page_glyphs = extract_glyphs(
+                page, dedup=True, allow_ambiguous=True, issues=page_issues)
         except FontResolutionError as exc:
             issues.append({"page": pn + 1, "kind": type(exc).__name__,
                            "message": str(exc)})
             continue
+        for issue in page_issues:
+            issues.append({"page": pn + 1, **issue})
         scanned += 1
         for glyph in page_glyphs:
             font_id = (glyph.get("font_id") or glyph.get("font")
@@ -97,7 +101,7 @@ def probe_document(doc, *, max_pages=None, reference_font=None,
             char = glyph.get("c") or ""
             record["observed"] += 1
             record["classes"][char_class(char)] += 1
-            if is_unknown(char):
+            if is_unknown_glyph(glyph):
                 record["unknown"] += 1
                 cid = glyph.get("cid")
                 entry = record["unknown_cids"][cid]
@@ -210,8 +214,10 @@ def format_probe(result: dict) -> str:
             )
             lines.append(f"Reference copies: {len(reference['references'])} ({copies})")
     if result.get("issues"):
-        pages = ", ".join(f"p{issue['page']}" for issue in result["issues"])
-        lines.append(f"Skipped pages: {pages}")
+        pages = ", ".join(
+            f"p{page}" for page in sorted({
+                issue["page"] for issue in result["issues"]}))
+        lines.append(f"Pages with font issues: {pages}")
         lines.append(f"  {result['issues'][0]['message']}")
     for font in result.get("fonts", []):
         lines.append("")

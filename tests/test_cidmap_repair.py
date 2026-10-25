@@ -74,10 +74,11 @@ class FakeDoc:
 
 
 def test_cmap_bytes_round_trips_through_parser():
-    data = cmap_bytes({2: "\u093f", 1: "\u0915", 70000: "x"})
+    data = cmap_bytes({2: "\u093f", 1: "\u0915", 3: "\u0915\u094d", 70000: "x"})
     parsed = dict(_cmap_mappings(data))
     assert parsed[1] == (0x0915,)
     assert parsed[2] == (0x093F,)
+    assert parsed[3] == (0x0915, 0x094D)
     assert 70000 not in parsed
     assert b"beginbfchar" in data
 
@@ -176,6 +177,26 @@ def test_repair_replaces_wrong_cmap_and_preserves_source(tmp_path):
 
     assert fitz.open(output)[0].get_text().strip() == "A"
     assert fitz.open(source)[0].get_text().strip() == "A"
+
+
+def test_cmd_repair_dry_run_does_not_require_rejected_out(monkeypatch, capsys):
+    from types import SimpleNamespace
+
+    from cidmap import cli
+    from cidmap.repair import RepairPlan
+
+    args = SimpleNamespace(
+        pdf="fake.pdf", output=None, force=False, store="store.json",
+        replace_conflicts=False, max_pages=None, json=None,
+    )
+    monkeypatch.setattr(cli, "_doc", lambda _args: object())
+    monkeypatch.setattr(cli, "load", lambda _store: {})
+    monkeypatch.setattr(
+        "cidmap.repair.build_repair_plan",
+        lambda *args, **kwargs: RepairPlan(pdf="fake.pdf"),
+    )
+    assert cli.cmd_repair(args) == 0
+    assert "No patchable fonts" in capsys.readouterr().out
 
 
 def test_unchanged_plan_writes_nothing(tmp_path):

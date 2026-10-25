@@ -11,7 +11,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .decode import cluster_lines, is_unknown
+from .decode import cluster_lines, is_unknown_glyph
 
 _PUNCTUATION = frozenset("()[]{}<>.,;:!?\"'\u201c\u201d\u2018\u2019|/\\")
 
@@ -37,14 +37,13 @@ class WordRun:
 
     @property
     def has_unknown(self) -> bool:
-        return any(is_unknown(glyph.get("c") or "")
-                   for glyph in self.glyphs)
+        return any(is_unknown_glyph(glyph) for glyph in self.glyphs)
 
     @property
     def unknown_indices(self) -> tuple[int, ...]:
         return tuple(
             index for index, glyph in enumerate(self.glyphs)
-            if is_unknown(glyph.get("c") or "")
+            if is_unknown_glyph(glyph)
         )
 
 
@@ -97,7 +96,8 @@ def _split_words(glyphs):
     current = []
     for glyph in glyphs:
         char = glyph.get("c") or ""
-        if char.isspace() or (char in _PUNCTUATION and not is_unknown(char)):
+        if char.isspace() or (
+                char in _PUNCTUATION and not is_unknown_glyph(glyph)):
             if current:
                 words.append(current)
                 current = []
@@ -113,7 +113,7 @@ def word_runs(page_glyphs, *, page=0, y_tol=3.0, gap=2.0) -> list[WordRun]:
     glyphs = _dedup_visual(page_glyphs)
     out = []
     for line in cluster_lines(glyphs, y_gap=y_tol):
-        line = sorted(line, key=lambda glyph: glyph["origin"][0])
+        line = sorted(line, key=lambda glyph: round(glyph["origin"][0], 1))
         for run in _split_run(line, gap):
             for word in _split_words(run):
                 if not word:

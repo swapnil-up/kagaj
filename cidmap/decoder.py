@@ -16,7 +16,7 @@ The store is loaded once per document; ``decode_doc`` returns per-page text.
 from __future__ import annotations
 
 from . import legacy as legacy_fonts
-from .decode import cluster_lines, glyphs, is_unknown_glyph
+from .decode import cluster_lines, glyphs, is_unknown_glyph, layout_lines
 from .mappings import get_value
 
 
@@ -34,7 +34,7 @@ def decode_page(page, store, dedup=True, legacy=True,
     page_glyphs = glyphs(page, dedup=dedup, allow_ambiguous=True,
                          issues=issues)
     out = []
-    for line in cluster_lines(page_glyphs):
+    for line in layout_lines(cluster_lines(page_glyphs)):
         out.append(_decode_line(line, store, legacy))
     return "\n".join(out)
 

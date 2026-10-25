@@ -36,6 +36,7 @@ class TestExtractGlyphs:
             "simple_font": False,
             "cid": 148, "c": "प",
             "origin": (10.0, 20.0), "bbox": (10.0, 20.0, 15.0, 25.0),
+            "dir": None,
         }]
 
     def test_unmapped_cid_is_fffd_with_glyph_key(self):
@@ -62,6 +63,30 @@ class TestClusterLines:
         lines = cluster_lines(glyphs, y_gap=3.0)
         xs = [g["origin"][0] for g in lines[0]]
         assert xs == [0, 5, 20]
+
+    def test_preserves_source_order_for_zero_width_marks(self):
+        glyphs = [
+            {"c": "x", "cid": 52, "font": "F", "origin": (483.519, 100),
+             "bbox": (483.5, 95, 488.5, 105)},
+            {"c": "y", "cid": 36, "font": "F", "origin": (483.489, 100),
+             "bbox": (483.5, 95, 488.5, 105)},
+        ]
+        lines = cluster_lines(glyphs, y_gap=3.0)
+        assert [g["cid"] for g in lines[0]] == [52, 36]
+
+    def test_groups_vertical_text_by_x(self):
+        glyphs = [
+            {"c": "x", "cid": 0, "font": "F", "origin": (100, 0),
+             "bbox": (100, 0, 105, 5), "dir": (0.0, 1.0)},
+            {"c": "y", "cid": 0, "font": "F", "origin": (100, 10),
+             "bbox": (100, 10, 105, 15), "dir": (0.0, 1.0)},
+            {"c": "z", "cid": 0, "font": "F", "origin": (120, 0),
+             "bbox": (120, 0, 125, 5), "dir": (0.0, 1.0)},
+        ]
+        lines = cluster_lines(glyphs, y_gap=3.0)
+        assert len(lines) == 2
+        assert [g["c"] for g in lines[0]] == ["x", "y"]
+        assert [g["c"] for g in lines[1]] == ["z"]
 
     def test_empty(self):
         assert cluster_lines([], y_gap=3.0) == []

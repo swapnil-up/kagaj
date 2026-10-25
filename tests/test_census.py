@@ -1,5 +1,7 @@
 """Tests for the unknown-CID census (redbook_parser/census.py)."""
 
+from pathlib import Path
+
 import pytest
 
 from redbook_parser.census import build_unknown_census, census_to_rows
@@ -12,6 +14,8 @@ PDF = "redbook_parser/output/redbook8283.pdf"
 def census():
     import fitz
 
+    if not Path(PDF).exists():
+        pytest.skip(f"missing cached source PDF: {PDF}")
     doc = fitz.open(PDF)
     return build_unknown_census(doc)
 

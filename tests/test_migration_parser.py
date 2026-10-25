@@ -1054,7 +1054,7 @@ def test_build_fingerprint_is_verifiable():
 
 
 def test_period_merge_maps_dates_to_windows():
-    import pandas as pd
+    pd = pytest.importorskip("pandas")
     from migration_parser import analysis
     df = pd.DataFrame({"d": ["1990-01-01", "2025-10-20"]})
     out = analysis.merge_periods(df, "d").set_index("d")
@@ -1065,7 +1065,7 @@ def test_period_merge_maps_dates_to_windows():
 
 
 def test_fiscal_year_panel_avoids_month_year_double_count():
-    import pandas as pd
+    pd = pytest.importorskip("pandas")
     from migration_parser import analysis
     df = pd.DataFrame({
         "reconciled_fiscal_year": ["2082/83", "2082/83", "2081/82"],
@@ -1185,17 +1185,30 @@ def test_manifest_pdf_hashes_are_recorded():
         assert e.get("pdf_bytes", 0) > 1000
 
 
-def test_driftcheck_clean_when_cached_hashes_match():
-    from migration_parser.scripts import cmd_driftcheck
-    rc = cmd_driftcheck.main([])
-    assert rc == 0, "driftcheck reported drift on a freshly hashed manifest"
-    out = json.loads((mpaths.MIGRATION_OUTPUT_DIR / "drift.json").read_text())
-    if cmd_driftcheck.ARCHIVE_MANIFEST.exists():
-        fetched = [e for e in json.loads(cmd_driftcheck.ARCHIVE_MANIFEST.read_text())
-                   if e.get("status") == "fetched"]
-        # the archive PDFs get the same drift treatment as the live manifest
-        assert out["archive_checked"] == len(fetched) > 0
+def test_driftcheck_clean_when_cached_hashes_match(tmp_path, monkeypatch):
+    import hashlib
 
+    from migration_parser.scripts import cmd_driftcheck, cmd_process
+
+    cached = tmp_path / "001_123.pdf"
+    cached.write_bytes(b"%PDF-1.4\nfixture\n")
+    digest = hashlib.sha256(cached.read_bytes()).hexdigest()
+    entry = {
+        "serial": 1,
+        "title": "fixture",
+        "pdf_url": "https://example.test/123.pdf",
+        "pdf_sha256": digest,
+    }
+    monkeypatch.setattr(cmd_process, "load_manifest", lambda: [entry])
+    monkeypatch.setattr(cmd_process, "pdf_path", lambda entry: cached)
+    monkeypatch.setattr(cmd_driftcheck, "MIGRATION_OUTPUT_DIR", tmp_path)
+    monkeypatch.setattr(
+        cmd_driftcheck, "ARCHIVE_MANIFEST", tmp_path / "missing-archive.json")
+
+    assert cmd_driftcheck.main([]) == 0
+    out = json.loads((tmp_path / "drift.json").read_text())
+    assert out["checked"] == 1
+    assert out["drift"] == []
 
 
 # --- archive backfill: family (a) monthly country × period-scope M/F/T ---

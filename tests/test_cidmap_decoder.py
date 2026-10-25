@@ -1,4 +1,5 @@
 from cidmap import legacy
+from cidmap.decode import layout_lines
 from cidmap.decoder import decode_page
 from cidmap.legacy_tables import Row, build_table, save_table
 
@@ -27,6 +28,31 @@ def _span_cids(font, text, cids, start=0.0, y=10.0):
         x += 5
     return {"font": font, "text": text, "chars": chars,
             "bbox": (start, y - 10, x, y)}
+
+
+def _glyph(x, y, cid=0):
+    return {"c": "x", "cid": cid, "font": "F", "origin": (x, y),
+            "bbox": (x, y, x + 1, y + 1)}
+
+
+def test_layout_lines_reads_columns_by_column():
+    lines = [
+        [_glyph(0, 0, 1), _glyph(5, 0, 2), _glyph(20, 0, 3)],
+        [_glyph(0, 10, 4), _glyph(5, 10, 5),
+         _glyph(100, 10, 6), _glyph(105, 10, 7)],
+        [_glyph(0, 20, 8), _glyph(5, 20, 9),
+         _glyph(100, 20, 10), _glyph(105, 20, 11)],
+        [_glyph(100, 30, 12), _glyph(105, 30, 13)],
+    ]
+    out = layout_lines(lines)
+    assert [[glyph["cid"] for glyph in line] for line in out] == [
+        [1, 2, 3],
+        [4, 5],
+        [8, 9],
+        [6, 7],
+        [10, 11],
+        [12, 13],
+    ]
 
 
 def test_preeti_span_is_decoded_by_default():

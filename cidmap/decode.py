@@ -93,7 +93,7 @@ def _font_lookup(page, *, allow_ambiguous: bool = False):
 
 
 def _glyph_record(identity: FontIdentity, cid, char, origin, bbox,
-                  mapped=False, simple_font=False):
+                  mapped=False, simple_font=False, direction=None):
     return {
         "cid": cid,
         "c": char,
@@ -106,6 +106,7 @@ def _glyph_record(identity: FontIdentity, cid, char, origin, bbox,
         "simple_font": bool(simple_font),
         "origin": origin,
         "bbox": bbox,
+        "dir": direction,
     }
 
 
@@ -172,7 +173,8 @@ def glyphs(page, dedup=True, *, allow_ambiguous=False,
                 out.append(_glyph_record(
                     info, glyph, chr(u) if u else "", origin, bbox,
                     mapped=mapped(info.font_xref, glyph, chr(u) if u else ""),
-                    simple_font=simple(info.font_xref)))
+                    simple_font=simple(info.font_xref),
+                    direction=span.get("dir")))
         else:
             sb = span["bbox"]
             text = span.get("text", "")
@@ -184,7 +186,8 @@ def glyphs(page, dedup=True, *, allow_ambiguous=False,
                 char_x1 = char_x0 + span_w
                 out.append(_glyph_record(
                     info, 0, ch, origin,
-                    (char_x0, sb[1], char_x1, sb[3])))
+                    (char_x0, sb[1], char_x1, sb[3]),
+                    direction=span.get("dir")))
     if not dedup:
         return out
     seen = set()
@@ -199,18 +202,125 @@ def glyphs(page, dedup=True, *, allow_ambiguous=False,
     return deduped
 
 
+_ORDER_BUCKET = 2.0
+
+
+def _bucket(value: float) -> int:
+    return int(value / _ORDER_BUCKET)
+
+
+def _segments(line, x_gap: float) -> list[list[dict]]:
+    indexed = list(enumerate(line))
+    ordered = [
+        glyph for _, glyph in sorted(
+            indexed,
+            key=lambda item: (_bucket(item[1]["origin"][0]), item[0]))
+    ]
+    segments = [[ordered[0]]]
+    previous = ordered[0]["origin"][0]
+    for glyph in ordered[1:]:
+        current = glyph["origin"][0]
+        if current - previous > x_gap:
+            segments.append([])
+        segments[-1].append(glyph)
+        previous = current
+    return segments
+
+
+def layout_lines(lines, x_gap: float = 24.0,
+                 y_gap: float = 20.0) -> list[list[dict]]:
+    """Split lines into multi-column blocks, then read each block by column.
+
+    Consecutive lines sharing the same wide gap are treated as columns. Short
+    lines that fit entirely inside one column (such as a caption ending after
+    two lines) stay in that column. Lines without a wide gap are unchanged.
+    """
+    out = []
+    index = 0
+    while index < len(lines):
+        segments = _segments(lines[index], x_gap)
+        if len(segments) < 2:
+            out.append(lines[index])
+            index += 1
+            continue
+        boundaries = [
+            (left[-1]["origin"][0] + right[0]["origin"][0]) / 2
+            for left, right in zip(segments, segments[1:])
+        ]
+        block = [index]
+        cursor = index + 1
+        while cursor < len(lines):
+            previous_y = lines[cursor - 1][0]["origin"][1]
+            current_y = lines[cursor][0]["origin"][1]
+            if current_y - previous_y > y_gap:
+                break
+            current = _segments(lines[cursor], x_gap)
+            if len(current) > len(boundaries) + 1:
+                break
+            crosses = any(
+                any(g["origin"][0] < boundary for g in segment)
+                and any(g["origin"][0] >= boundary for g in segment)
+                for segment in current
+                for boundary in boundaries
+            )
+            if crosses:
+                break
+            block.append(cursor)
+            cursor += 1
+        if len(block) < 2:
+            out.append(lines[index])
+            index += 1
+            continue
+        columns = [[] for _ in range(len(boundaries) + 1)]
+        for line_index in block:
+            for segment in _segments(lines[line_index], x_gap):
+                midpoint = (segment[0]["origin"][0]
+                            + segment[-1]["origin"][0]) / 2
+                column = sum(midpoint >= boundary for boundary in boundaries)
+                columns[column].append(segment)
+        for column in columns:
+            out.extend(sorted(column, key=lambda seg: seg[0]["origin"][1]))
+        index = cursor
+    return out
+
+
+def _vertical(glyph) -> bool:
+    dx, dy = glyph.get("dir") or (1.0, 0.0)
+    return abs(dy) > abs(dx)
+
+
+def _cluster(glyphs, axis: int, gap: float) -> list[list[dict]]:
+    indexed = list(enumerate(glyphs))
+    order = {id(glyph): position for position, glyph in indexed}
+    ordered = [
+        glyph for _, glyph in sorted(
+            indexed,
+            key=lambda item: (round(item[1]["origin"][axis], 1), item[0]))
+    ]
+    lines = [[ordered[0]]]
+    previous = ordered[0]["origin"][axis]
+    for glyph in ordered[1:]:
+        current = glyph["origin"][axis]
+        if abs(current - previous) > gap:
+            lines.append([])
+        lines[-1].append(glyph)
+        previous = current
+    for line in lines:
+        line.sort(key=lambda glyph: (_bucket(glyph["origin"][1 - axis]),
+                                     order[id(glyph)]))
+    return lines
+
+
 def cluster_lines(glyphs, y_gap=3.0) -> list[list[dict]]:
     if not glyphs:
         return []
-    ordered = sorted(glyphs, key=lambda g: (round(g["origin"][1], 1),
-                                            round(g["origin"][0], 1)))
-    lines = [[ordered[0]]]
-    prev_y = ordered[0]["origin"][1]
-    for g in ordered[1:]:
-        if abs(g["origin"][1] - prev_y) > y_gap:
-            lines.append([])
-        lines[-1].append(g)
-        prev_y = g["origin"][1]
+    horizontal = [glyph for glyph in glyphs if not _vertical(glyph)]
+    vertical = [glyph for glyph in glyphs if _vertical(glyph)]
+    lines = []
+    if horizontal:
+        lines.extend(_cluster(horizontal, 1, y_gap))
+    if vertical:
+        lines.extend(_cluster(vertical, 0, y_gap))
     return lines
 
 

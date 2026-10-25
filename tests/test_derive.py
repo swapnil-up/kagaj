@@ -2,6 +2,8 @@
 
 import json
 
+from pathlib import Path
+
 import pytest
 
 from redbook_parser.derive import (collect_windows, derive, joint_match,
@@ -14,6 +16,8 @@ PDF = "redbook_parser/output/redbook8283.pdf"
 def doc():
     import fitz
 
+    if not Path(PDF).exists():
+        pytest.skip(f"missing cached source PDF: {PDF}")
     return fitz.open(PDF)
 
 

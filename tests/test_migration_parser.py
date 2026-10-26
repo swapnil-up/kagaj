@@ -1439,6 +1439,7 @@ def test_resolve_candidates_shape():
 # --- archive panel: dedup of mismatched Wayback captures + gz schema ---
 
 from migration_parser.scripts import cmd_archive_panel as apanel  # noqa: E402
+from migration_parser import historical_new as hnew  # noqa: E402
 from migration_parser import paths as mpaths  # noqa: E402
 
 
@@ -1475,10 +1476,14 @@ def test_archive_panel_gz_schema_and_dedup():
     assert {r["verified"] for r in rows} == {"True"}
     shas = {r["source_pdf_sha256"] for r in rows}
     assert len(shas) == len({r["doc_id"] for r in rows}), "duplicate content not deduped"
-    assert {r["scope"] for r in rows} == {"previous_cumulative", "month", "cumulative"}
-    assert {r["scope_class"] for r in rows} == {"prior_ytd", "window", "ytd"}
+    assert {r["scope"] for r in rows} == {
+        "previous_cumulative", "month", "cumulative",
+        "pre_permission", "final_approved"}
+    assert {r["scope_class"] for r in rows} == {
+        "prior_ytd", "window", "ytd", "pre_approval", "final_approval"}
     assert {r["granularity"] for r in rows} == {"month"}
     assert {r["approval_type"] for r in rows} == {"institutional", "individual"}
+    assert {r["entry_type"] for r in rows} == {"", "re_entry", "new", "legalization"}
     for r in rows:
         assert (r["analysis_safe"] == "True") == (
             r["verified"] == "True" and r["entity_resolved"] == "True")
@@ -1493,7 +1498,8 @@ def test_archive_panel_gz_schema_and_dedup():
 def test_scope_class_mapping():
     from migration_parser import historical
     assert historical.SCOPE_CLASS == {
-        "previous_cumulative": "prior_ytd", "month": "window", "cumulative": "ytd"}
+        "previous_cumulative": "prior_ytd", "month": "window", "cumulative": "ytd",
+        "pre_permission": "pre_approval", "final_approved": "final_approval"}
 
 
 def test_channels_channel_map_is_explicit_tbd():
@@ -1510,3 +1516,48 @@ def test_archive_panel_period_key_normalises_scripts():
     assert apanel._period_key("2070 मंसिर") == (2070, 8)
     assert apanel._period_key("") is None
     assert apanel._period_key("kartik") is None
+
+
+# --- newer-stage archive template (BS 2073-2075) ---
+
+def _new_doc():
+    from migration_parser.historical import HistDoc
+    return HistDoc(meta=DocMeta(filename="synthetic.pdf"))
+
+
+def test_new_template_entry_type_detection():
+    assert hnew._entry_type("k'gM >d :jLs[lt") == "re_entry"
+    assert hnew._entry_type("gof“ >d :jLs[lt") == "new"
+    assert hnew._entry_type("JolQmut ?kdf j}Bflgs/0f") == "legalization"
+    assert hnew.section_of("JolQmx?sf] ;+VofTds ljj/0f k'gM >d :jLs[lt") == (
+        "individual", "re_entry")
+
+
+def test_new_template_header_kinds():
+    five = [["SN", "Country", "Male", "Female", "Total"]]
+    eight = [["S.N.", "Country", "Men", "Women", "Total",
+              "Men", "Women", "Total"]]
+    fourteen = [["S. No.", "Country", "Renew Entry", "None", "None",
+                 "New Entry", "None", "None", "Legalized Entry", "None",
+                 "None", "Total Men", "Total Women", "Total"]]
+    assert hnew._header_kind(five) == "country_single"
+    assert hnew._header_kind(eight) == "country_two"
+    assert hnew._header_kind(fourteen) == "country_multi"
+
+
+def test_new_template_14col_groups_are_entry_types_not_scopes():
+    rows = [
+        ["S. No.", "Country", "Renew Entry", "None", "None",
+         "New Entry", "None", "None", "Legalized Entry", "None", "None",
+         "Total Men", "Total Women", "Total"],
+        ["1", "Nepal", "1", "2", "3", "4", "5", "9",
+         "6", "7", "13", "11", "14", "25"],
+    ]
+    out = _new_doc()
+    assert hnew._parse_country_table(out, rows, ("individual", ""), 1,
+                                     "country_multi")
+    assert {r.scope for r in out.rows} == {"final_approved"}
+    assert {r.entry_type for r in out.rows} == set(hnew.ENTRY_TYPES)
+    by_type = {r.entry_type: (r.male, r.female) for r in out.rows}
+    assert by_type == {"re_entry": (1, 2), "new": (4, 5),
+                       "legalization": (6, 7)}

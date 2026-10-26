@@ -32,7 +32,8 @@ MIGRATION_ARCHIVE_PANEL = MIGRATION_DIR / "panel_archive.csv.gz"
 MIGRATION_ARCHIVE_BUILD = MIGRATION_DIR / "panel_archive_build.json"
 ARCHIVE_PANEL_COLUMNS = [
     "source_kind", "doc_id", "period_bs", "doc_type", "section", "row_type",
-    "name", "sn", "approval_type", "gender", "count", "scope", "scope_class",
+    "name", "sn", "approval_type", "entry_type", "gender", "count", "scope",
+    "scope_class",
     "granularity", "source_page", "name_canonical", "iso3", "entity_resolved",
     "analysis_safe", "verified", "source_url", "source_pdf_sha256",
 ]

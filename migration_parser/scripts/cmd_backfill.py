@@ -14,6 +14,8 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -23,13 +25,19 @@ import requests
 import urllib3
 
 from ..historical import extract_monthly, melt
+from ..historical_new import extract_new, looks_new
 from ..model import DocMeta
 from ..paths import MIGRATION_ARCHIVE_MANIFEST, MIGRATION_OUTPUT_DIR, REPO_ROOT
 from ..periods import BS_MONTHS_EN, BS_MONTHS_NP, _norm_digits
 from . import cmd_process as process
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-HEADERS = {"User-Agent": "Mozilla/5.0"}
+# Wayback returns 429 to a bare "Mozilla/5.0" UA; send a full browser profile.
+HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"),
+    "Accept": "*/*",
+}
 
 BACKFILL_DIR = MIGRATION_OUTPUT_DIR / "backfill"
 ARCHIVE_INVENTORY = MIGRATION_OUTPUT_DIR / "archive_org.json"
@@ -167,46 +175,90 @@ def _sha256(path: Path) -> str:
     return process.sha256_file(path)
 
 
+def _cache_path(e: dict) -> Path:
+    """Where a manifest entry's downloaded PDF lives (local_path wins)."""
+    lp = e.get("local_path")
+    if lp:
+        return REPO_ROOT / lp
+    return ARCHIVE_PDFS / f"{e['serial']:03d}_{e['period_bs'].replace(' ', '_')}.pdf"
+
+
+def _download(url: str) -> bytes:
+    """Fetch a Wayback PDF over HTTP/2.
+
+    Wayback answers HTTP/1.1 clients (including ``requests``) with 429, so use
+    the system curl when available and fall back to requests only if it isn't.
+    """
+    curl = shutil.which("curl")
+    if curl:
+        proc = subprocess.run(
+            [curl, "-sS", "--http2", "--fail", "--location", "--max-time", "180",
+             "-A", HEADERS["User-Agent"], "-H", f"Accept: {HEADERS['Accept']}",
+             url],
+            capture_output=True, check=False)
+        if proc.returncode != 0:
+            detail = proc.stderr.decode("utf-8", "replace").strip()
+            raise RuntimeError(f"curl exit {proc.returncode}: {detail}")
+        return proc.stdout
+    r = requests.get(url, headers=HEADERS, timeout=180, verify=False)
+    r.raise_for_status()
+    return r.content
+
+
+def _save_archive_manifest(entries: list[dict]) -> None:
+    ARCHIVE_MANIFEST.write_text(
+        json.dumps(entries, indent=2, ensure_ascii=False) + "\n")
+
+
 def fetch_manifest(limit: int | None = None) -> int:
     ARCHIVE_PDFS.mkdir(parents=True, exist_ok=True)
     entries = json.loads(ARCHIVE_MANIFEST.read_text())
     done = 0
     for e in entries:
-        if e["status"] not in ("pending", "failed") or e.get("source_pdf_sha256"):
-            continue
-        # Reuse a cache file carried over from an earlier resolve (serials can
-        # change when the heuristic picks up new candidates).
-        lp = e.get("local_path")
-        if lp:
-            p = REPO_ROOT / lp
-            if p.exists() and p.stat().st_size > 1000:
-                e["source_pdf_sha256"] = _sha256(p)
-                e["pdf_bytes"] = p.stat().st_size
-                e["status"] = "fetched"
-                done += 1
-                continue
-        dest = ARCHIVE_PDFS / f"{e['serial']:03d}_{e['period_bs'].replace(' ', '_')}.pdf"
+        # Cache is gitignored, so a manifest can say "fetched" while the bytes
+        # are gone (fresh clone). Verify the file first, not the status.
+        dest = _cache_path(e)
         if dest.exists() and dest.stat().st_size > 1000:
             e["source_pdf_sha256"] = _sha256(dest)
             e["pdf_bytes"] = dest.stat().st_size
             e["status"] = "fetched"
             e["local_path"] = str(dest.relative_to(REPO_ROOT))
             done += 1
+            _save_archive_manifest(entries)
             continue
-        try:
-            time.sleep(1.0)
-            r = requests.get(e["wayback_url"], headers=HEADERS, timeout=180,
-                             verify=False)
-            r.raise_for_status()
-            if b"%PDF" not in r.content[:1024]:
-                e["status"] = "no_pdf"
-                print(f"  [no_pdf] #{e['serial']} {e['title']}", file=sys.stderr)
-                continue
-            dest.write_bytes(r.content)
-        except requests.exceptions.RequestException as ex:
+        if e["status"] not in ("pending", "failed", "fetched"):
+            continue
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if limit and done >= limit:
+            break
+        # Wayback throttles bursts (429 / connection resets); pace requests and
+        # back off hard when told to. Save after every entry so an interrupted
+        # run keeps its progress.
+        content = None
+        last_ex: Exception | None = None
+        for attempt in range(3):
+            try:
+                time.sleep(1.5)
+                content = _download(e["wayback_url"])
+                break
+            except Exception as ex:  # noqa: BLE001 - network/curl both retryable
+                last_ex = ex
+                wait = 15.0 * (attempt + 1)
+                print(f"  [retry] #{e['serial']} {e['title']}: {ex} "
+                      f"(sleeping {wait:.0f}s)", file=sys.stderr)
+                time.sleep(wait)
+        if content is None:
             e["status"] = "failed"
-            print(f"  [failed] #{e['serial']} {e['title']}: {ex}", file=sys.stderr)
+            print(f"  [failed] #{e['serial']} {e['title']}: {last_ex}",
+                  file=sys.stderr)
+            _save_archive_manifest(entries)
             continue
+        if b"%PDF" not in content[:1024]:
+            e["status"] = "no_pdf"
+            print(f"  [no_pdf] #{e['serial']} {e['title']}", file=sys.stderr)
+            _save_archive_manifest(entries)
+            continue
+        dest.write_bytes(content)
         e["source_pdf_sha256"] = _sha256(dest)
         e["pdf_bytes"] = dest.stat().st_size
         e["status"] = "fetched"
@@ -214,11 +266,11 @@ def fetch_manifest(limit: int | None = None) -> int:
         done += 1
         print(f"  [ok] #{e['serial']:03d} {e['period_bs']} "
               f"({e['pdf_bytes'] / 1024:.0f} KB)", file=sys.stderr)
+        _save_archive_manifest(entries)
         if limit and done >= limit:
             break
-    ARCHIVE_MANIFEST.write_text(json.dumps(entries, indent=2, ensure_ascii=False))
+    _save_archive_manifest(entries)
     return done
-
 
 def _pdfs(paths: list[Path]) -> list[Path]:
     out: list[Path] = []
@@ -243,7 +295,10 @@ def _period_from_filename(name: str) -> str:
 def extract_one(path: Path) -> dict:
     meta = DocMeta(doc_id=process.sha256_file(path)[:16], filename=path.name,
                    source_url="")
-    doc = extract_monthly(str(path), meta=meta)
+    if looks_new(str(path)):
+        doc = extract_new(str(path), meta=meta)
+    else:
+        doc = extract_monthly(str(path), meta=meta)
     # The cache filename ("NNN_<year>_<Month>.pdf") is the authoritative catalog
     # month; the printed header can mislabel the scope block. Keep the header
     # read too so a bad Wayback capture (content != filename) is auditable.

@@ -2,16 +2,18 @@
 
 Consumes the downloaded ``output/migration/archive_pdfs/`` cache + the tracked
 ``datasets/labour-migration/manifests/migration_archive_manifest.json`` and emits tidy-long rows for the
-**fully verified** family-(a) monthly country reports (BS 2067-2073).
+**fully verified** monthly country reports (BS 2067-2075).
 
 Family (a) is the 12-col *labour-approval* table ("कामदार गएको मुलुक" ×
 संस्थागत/व्यक्तिगत × three period-scopes), so each country contributes an
-``institutional`` and an ``individual`` **approval type**.
+``institutional`` and an ``individual`` **approval type**. The newer BS 2073-2075
+stage template adds ``pre_permission`` / ``final_approved`` scopes and
+``re_entry`` / ``new`` / ``legalization`` entry types.
 
-This is a *separate* artifact from ``panel.csv``: the archive reports carry three
-period-scopes (``previous_cumulative`` / ``month`` / ``cumulative``) that do not
-map onto the live monthly-detail schema, so they are kept out of the shipped
-panel and joined at analysis time via ``period_bs`` + ``scope``.
+This is a *separate* artifact from ``panel.csv``: the period-scopes
+(``previous_cumulative`` / ``month`` / ``cumulative`` and the newer stage scopes)
+do not map onto the live monthly-detail schema, so they are kept out of the
+shipped panel and joined at analysis time via ``period_bs`` + ``scope``.
 
 The ``approval_type`` axis is **not** the modern delivery-channel axis
 (``recruiting_agency`` / ``individual_new`` / ``g2g`` / ...). No verified mapping
@@ -121,6 +123,7 @@ def build(include_unverified: bool = False) -> tuple[list[dict], dict]:
                 "name": r["name"],
                 "sn": r["sn"],
                 "approval_type": r["approval_type"],
+                "entry_type": r.get("entry_type", ""),
                 "gender": r["gender"],
                 "count": r["count"],
                 "scope": r["scope"],
@@ -148,9 +151,10 @@ def build(include_unverified: bool = False) -> tuple[list[dict], dict]:
     meta = {
         "n_docs": len(docs),
         "n_rows": len(rows),
-        "scopes": ["previous_cumulative", "month", "cumulative"],
+        "scopes": sorted({r["scope"] for r in rows}),
         "scope_classes": dict(SCOPE_CLASS),
-        "approval_types": ["institutional", "individual"],
+        "approval_types": sorted({r["approval_type"] for r in rows}),
+        "entry_types": sorted({r["entry_type"] for r in rows if r["entry_type"]}),
         "n_analysis_safe": sum(1 for r in rows if r["analysis_safe"]),
         "n_unresolved": sum(1 for r in rows if not r["entity_resolved"]),
         "dropped_duplicates": dropped,
@@ -203,9 +207,11 @@ def main(argv: list[str] | None = None) -> int:
     meta["output"] = str(out.relative_to(REPO_ROOT))
     MIGRATION_ARCHIVE_BUILD.write_text(
         json.dumps(meta, indent=2, ensure_ascii=False) + "\n")
-    periods = sorted({d["period_bs"] for d in meta["docs"]})
+    periods = {d["period_bs"] for d in meta["docs"]}
+    first = min(periods, key=lambda p: _period_key(p) or (0, 0))
+    last = max(periods, key=lambda p: _period_key(p) or (0, 0))
     print(f"wrote {out} ({meta['n_docs']} docs, {meta['n_rows']} rows, "
-          f"{periods[0]}..{periods[-1]})")
+          f"{first}..{last})")
     return 0
 
 

@@ -4,6 +4,28 @@ Dated notes for deliberate changes to the shipped datasets, codebook and docs.
 Kept so that corrections are visible as corrections rather than quiet rewrites
 (e.g. if a reader remembers an earlier README claim about the Qatar 2022 window).
 
+## 2026-10-26
+
+### Added — newer-stage archive extractor (`historical_new.py`)
+
+- Parses the BS 2073–2075 monthly stage template: `pre_permission` /
+  `final_approved` scopes and `re_entry` / `new` / `legalization` entry types,
+  including 5-, 6-, 8-, and 14-column country tables.
+- `backfill --extract` sniffs the template from the first pages so the newer
+  reports no longer go through the family-(a) extractor first.
+- `fetch` now re-downloads missing cache files on a fresh clone, saves the
+  manifest incrementally, retries with backoff, and uses HTTP/2 (Wayback rejects
+  HTTP/1.1 with 429).
+
+### Changed — archive panel rebuilt
+
+- Rebuilt from 61 verified docs: **94,770 rows, 74,586 `analysis_safe`**, covering
+  **BS 2067–2075** (was 25 docs / 54,360 / 40,977, BS 2067–2073).
+- Added `entry_type` to the archive panel schema (`historical.py` `HistRow`,
+  `paths.ARCHIVE_PANEL_COLUMNS`, `archivepanel`).
+- The BS 2075 in-window monthly reports are now extracted; the 2080/81 and
+  2081/82 captures remain progress reports, not monthly country tables.
+
 ## 2026-10-17
 
 ### Corrected — archive-backfill event-study claim (`README.md`, `DATA_AVAILABILITY.md`)

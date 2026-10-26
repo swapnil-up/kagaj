@@ -15,7 +15,7 @@ composition and geographic origin of Nepali labour migration.
 | `panel_canonical.csv.gz` | **Primary analysis dataset, additive-only.** Gzipped CSV, one row per canonical `(granularity, fiscal year, window, section, entity, gender, channel, row_type)` with `row_type=detail` and `channel_class=component` only — summing it cannot double-count an aggregate. Filter `analysis_safe=true` (`entity_resolved AND verified AND channel_reviewed`) for the safe default; `analysis_safe_permissive` (`entity_resolved AND verified`) is for legalization-specific work only. |
 | `panel_rollup.csv.gz` | Non-additive companion: aggregates, distinct measures and printed total/grand-total rows. Compare against the primary; never add to it. |
 | `panel.csv` | Raw tidy-long extraction (one row per document cell), the provenance base for the canonical dataset. |
-| `panel_archive.csv.gz` | **Archive.org backfill panel (separate).** Gzipped CSV of verified older monthly country reports (BS 2067–2073) recovered from `web.archive.org`. This is the **labour-approval** table ("कामदार गएको मुलुक"), split by `approval_type` (`institutional` / `individual`) — an axis **distinct** from the modern delivery channels (`channel_map` is null/TBD in `channels.json`; do not join on channel string). `scope` (`previous_cumulative` / `month` / `cumulative`) + `scope_class` (`prior_ytd` / `window` / `ytd`) + `granularity` (`month`) do not map onto the live monthly schema, so it is kept out of `panel_canonical` and joined on `period_bs`. Carries canonical `name_canonical` + `iso3`, `entity_resolved`, and `analysis_safe = verified AND entity_resolved` (40,977 / 54,360 rows). `source_kind=archive_org`; every row `verified=True`. |
+| `panel_archive.csv.gz` | **Archive.org backfill panel (separate).** Gzipped CSV of verified older monthly country reports (BS 2067–2075) recovered from `web.archive.org`. This is the **labour-approval** table ("कामदार गएको मुलुक"), split by `approval_type` (`institutional` / `individual`) — an axis **distinct** from the modern delivery channels (`channel_map` is null/TBD in `channels.json`; do not join on channel string). The newer BS 2073–2075 stage template also carries `entry_type` (`re_entry` / `new` / `legalization`). `scope` (`previous_cumulative` / `month` / `cumulative`, plus `pre_permission` / `final_approved` on the newer template) + `scope_class` (`prior_ytd` / `window` / `ytd` / `pre_approval` / `final_approval`) + `granularity` (`month`) do not map onto the live monthly schema, so it is kept out of `panel_canonical` and joined on `period_bs`. Carries canonical `name_canonical` + `iso3`, `entity_resolved`, and `analysis_safe = verified AND entity_resolved` (74,586 / 94,770 rows). `source_kind=archive_org`; every row `verified=True`. |
 | `panel_archive_build.json` | Provenance for `panel_archive.csv.gz`: per-doc source SHA-256 + Wayback URL, and any duplicate-content captures dropped. |
 | `agencies.csv` | Agency-level recruiting-agency pre-approval and institutional permit detail. |
 | `series.csv` | Historical metric series (approvals, deaths, complaints, ...) from narrative DoFE reports. |
@@ -71,13 +71,12 @@ composition and geographic origin of Nepali labour migration.
   the PDFs.
 
 **Scope caveat for high-frequency designs.** Monthly windows in the primary panel
-cover only 2025-04 → 2026-09; the archive panel adds BS 2067–2073 (2010/11–2016/17).
-The Wayback Machine **does capture monthly country reports for BS 2075–2081
-(2018/19–2024/25)**, but they are a newer DoFE template that the current
-family-(a) extractor reads as **0 rows**. So the obvious population-scale
-experiments in that window (Qatar World Cup 2022, Malaysia 2018–20 reforms,
-Israel quota) cannot be studied at monthly frequency from this package as-is —
-closing the gap needs a new-template extractor (or a different source). Annual
+cover only 2025-04 → 2026-09; the archive panel adds BS 2067–2075
+(2010/11–2018/19), including the newer-stage BS 2073–2075 reports. The Wayback
+Machine's later BS 2080/81 and 2081/82 captures are progress reports rather than
+monthly country tables. So the obvious population-scale experiments after BS
+2075 (Malaysia 2018–20 reforms, Israel quota changes) still lack monthly
+coverage in this package; closing that gap needs another source. Annual
 data (through FY2081/82) is the best current input for those questions. See the
 research-design warning in `README.md`.
 

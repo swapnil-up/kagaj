@@ -258,8 +258,8 @@
     "wayback_url": "https://web.archive.org/web/20121119032723id_/http://www.dofe.gov.np:80/uploads/document/Monthly%20Reprot%20Of%20Aswin2069_20121101014311.pdf",
     "period_bs": "2069 Ashwin",
     "status": "fetched",
-    "source_pdf_sha256": "47c825045524f5495837c8278eacec9040d393be4c251c66b63d8aff325342e8",
-    "pdf_bytes": 1063424,
+    "source_pdf_sha256": "82f7e0940d769fe51ee4f385a2b530378b6d9b26c48040447c162ad98dbab022",
+    "pdf_bytes": 307071,
     "serial": 24,
     "local_path": "output/migration/archive_pdfs/014_2069_Ashwin.pdf"
   },

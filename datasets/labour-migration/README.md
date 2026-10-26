@@ -710,24 +710,22 @@ turned "Grand Total" into "Grand" and double-counted grand totals).
 > the Israel quota changes — sit in **BS 2075–2081 (2018/19–2024/25)**. The
 > Wayback archive **does capture monthly country reports inside that window**
 > (BS 2075 Baishakh/Jestha/Shrawan/Bhadra/Ashoj, plus BS 2080/81 and BS 2081/82
-> progress reports), but they are a **newer DoFE template that the current
-> family-(a) extractor reads as 0 rows** — the same limitation already noted for
-> BS 2080/2081 below. The window is therefore an **extractor gap, not a source
-> hole**: closing it needs a *new-template extractor* (or a different source —
-> DoFE directly, MoLESS reports), not more filename-resolving. The archive panel
-> that *does* extract covers **BS 2067–2073 (2010/11–2016/17)**. Annual data
-> (through FY2081/82) is the best input currently available for those questions.
-> Do not write "event study" or "high-frequency" into a design doc against the
-> current data without stating this. (Corrects an earlier README claim that the
-> archive held *no* in-window captures — see `datasets/labour-migration/CHANGELOG.md`,
-> 2026-10-17.)
+> progress reports). The BS 2075 monthly reports use a **newer DoFE stage
+> template** and are now parsed by `migration_parser/historical_new.py`; the
+> archive panel therefore covers **BS 2067–2075 (2010/11–2018/19)**. The BS
+> 2080/81 and 2081/82 captures are progress reports rather than monthly country
+> tables, so 2076–2081 monthly coverage is still incomplete. Annual data
+> (through FY2081/82) remains the best input for that later window. (Corrects the
+> earlier README claim that the archive held *no* in-window captures, and the
+> 2026-10-17 note that the newer template yielded 0 rows — see
+> `datasets/labour-migration/CHANGELOG.md`.)
 
 Assessed read-only via the Wayback Machine. **Family (a)** (monthly country-wise)
 is now extracted (`migration_parser/historical.py`) and shipped as a separate
-archive panel (BS 2067–2073); families (b)/(c) are still pending. The original
+archive panel (BS 2067–2075); families (b)/(c) are still pending. The original
 goal was to extend `panel.csv` backward from BS 2082 (2025/26) to ~BS 2065
-(2008/09). The BS 2075–2081 in-window captures are a newer template (unscoped,
-above); note also that the filename-based `resolve` skips family-(a) reports
+(2008/09). The BS 2080/81 and 2081/82 captures are progress reports, not monthly
+country tables; note also that the filename-based `resolve` skips family-(a) reports
 whose names carry no year token (e.g. the bare-month `ashoj.pdf`/`baisakh.pdf`
 set, which are actually **BS 2071/72** and extract fine) — so the manifest
 under-counts the pre-2074 archive by filename heuristics, separate from the
@@ -807,8 +805,8 @@ needs a flow/text parser, not the wide-table machinery. Budget the backfill as a
 - Older templates differ from the live ones (period-scope columns ×
   institutional/individual/total × M/F/T) **and from each other** (see the
    scope-check above), so dedicated per-family extractors are needed, not
-   `parser.py` and not a single `annex.py` clone. Confirmed on the full 52-doc
-   archive set: three distinct vintages (2067–68 / 2069–70 / 2073+), only the
+   `parser.py` and not a single `annex.py` clone. Confirmed on the full archive
+   set: three distinct vintages (2067–68 / 2069–70 / 2073+), only the
    middle one matching family (a).
 
 **Plan** (phased; each shippable)
@@ -829,35 +827,40 @@ needs a flow/text parser, not the wide-table machinery. Budget the backfill as a
    and, when absent, validation falls back to `M+F=T` + `previous+month=cumulative`
    + `Σ detail = printed total`. Header decode is Preeti-scoped; numerals are
    ASCII/PCSNEPALI and country names Latin, so they are **not** decoded.
-   `resolve`/`fetch` wired (`cli backfill --list|--resolve|--fetch`): 52 monthly
+   `resolve`/`fetch` wired (`cli backfill --list|--resolve|--fetch`): 77 monthly
    candidates resolved from the Wayback inventory into the tracked
    `datasets/labour-migration/manifests/migration_archive_manifest.json` (deduped by `(year, month)`,
-   `final`/`monthly`/`report` preferred) and all 52 downloaded to
+   `final`/`monthly`/`report` preferred) and all 77 downloaded to
    `output/migration/archive_pdfs/` with `source_pdf_sha256`/`source_pdf_bytes`.
-   **Extraction yield across the full set** (`--extract`): **25 docs fully
-   verified** (BS 2067–2073); the rest are unverified — duplicated/misaligned
-   captures (e.g. a spurious "Republic of Korea from EPS" row) or a printed total
-   that does not reconcile. In-window captures (BS 2075, 2080/81, 2081/82) still
-   yield 0 rows — a **newer template** the family-(a) extractor does not parse.
+   **Extraction yield across the full set** (`--extract`): **61 docs fully
+   verified** (BS 2067–2075). The BS 2073–2075 stage-template reports are parsed
+   by `migration_parser/historical_new.py` (`pre_permission` / `final_approved`
+   scopes and `re_entry` / `new` / `legalization` entry types); the older
+   family-(a) reports remain in `historical.py`. Remaining unverified captures are
+   duplicate content or image-only (BS 2080 Jestha, BS 2081 Asar).
 3. **Separate archive panel** (`datasets/labour-migration/panel_archive.csv.gz` +
    `panel_archive_build.json`) built by `cli archivepanel` from the verified
    backfill docs — kept out of `panel.csv` because the three period-scopes
    (`previous_cumulative`/`month`/`cumulative`) don't map onto the live monthly
-   schema. Ships BS 2067–2073 (25 docs, 54,360 rows), `source_kind=archive_org`,
+   schema. Ships BS 2067–2075 (61 docs, 94,770 rows), `source_kind=archive_org`,
    all `verified=True`. Columns beyond the live panel:
    - `approval_type` — `institutional` / `individual`, the printed श्रम स्वीकृतिको
      किसिम axis. This is **not** the modern delivery-channel axis; the
      correspondence is an open domain item documented as `channel_map: null/TBD`
      in `channels.json`. **Do not join to `panel_canonical.channel_canonical`.**
-   - `scope` (`previous_cumulative`/`month`/`cumulative`) plus `scope_class`
-     (`prior_ytd`/`window`/`ytd`) and `granularity` (`month`). Join to the live
-     panel on `period_bs` (+ `granularity`), not on scope.
+   - `entry_type` — `re_entry` / `new` / `legalization` on the newer-stage
+     reports, blank where the template does not print it.
+   - `scope` (`previous_cumulative`/`month`/`cumulative` on family (a);
+     `pre_permission`/`final_approved` on the newer stage template) plus
+     `scope_class` (`prior_ytd`/`window`/`ytd`/`pre_approval`/`final_approval`)
+     and `granularity` (`month`). Join to the live panel on `period_bs`
+     (+ `granularity`), not on scope.
    - `name_canonical` + `iso3` (from `countries.json`, same resolver as the main
      panel), `entity_resolved`, and `analysis_safe`
      (= `verified AND entity_resolved`), the same safe-default discipline as the
      main panel. `name_canonical` is kept — not just the boolean — so a
      `groupby(name_canonical)` on resolved rows can't split alias variants
-     (`UAE` vs `United Arab Emirates`) into separate buckets. 40,977 of 54,360
+     (`UAE` vs `United Arab Emirates`) into separate buckets. 74,586 of 94,770
      rows are `analysis_safe=true`; the rest carry unresolved printed names
      (misspellings, clipped labels, ambiguous groupings, the spurious "Republic
      of Korea from EPS" row) kept verbatim, `name_canonical` falling back to the

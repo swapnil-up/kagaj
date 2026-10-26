@@ -1,22 +1,31 @@
 {
-  "n_docs": 36,
-  "n_rows": 79236,
+  "n_docs": 61,
+  "n_rows": 94770,
   "scopes": [
-    "previous_cumulative",
+    "cumulative",
+    "final_approved",
     "month",
-    "cumulative"
+    "pre_permission",
+    "previous_cumulative"
   ],
   "scope_classes": {
     "previous_cumulative": "prior_ytd",
     "month": "window",
-    "cumulative": "ytd"
+    "cumulative": "ytd",
+    "pre_permission": "pre_approval",
+    "final_approved": "final_approval"
   },
   "approval_types": [
-    "institutional",
-    "individual"
+    "individual",
+    "institutional"
   ],
-  "n_analysis_safe": 59958,
-  "n_unresolved": 19278,
+  "entry_types": [
+    "legalization",
+    "new",
+    "re_entry"
+  ],
+  "n_analysis_safe": 74586,
+  "n_unresolved": 20184,
   "dropped_duplicates": [
     {
       "serial": 27,
@@ -211,6 +220,16 @@
       "n_rows": 2043
     },
     {
+      "serial": 24,
+      "period_bs": "2069 Ashwin",
+      "header_period_bs": "2069 आश्विन",
+      "doc_id": "82f7e0940d769fe5",
+      "source_pdf_sha256": "82f7e0940d769fe51ee4f385a2b530378b6d9b26c48040447c162ad98dbab022",
+      "wayback_url": "https://web.archive.org/web/20121119032723id_/http://www.dofe.gov.np:80/uploads/document/Monthly%20Reprot%20Of%20Aswin2069_20121101014311.pdf",
+      "verified": true,
+      "n_rows": 2106
+    },
+    {
       "serial": 25,
       "period_bs": "2069 Kartik",
       "header_period_bs": "2069 कार्तिक",
@@ -389,6 +408,246 @@
       "wayback_url": "https://web.archive.org/web/20160615210107id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A9_%E0%A4%B5%E0%A5%88%E0%A4%B6%E0%A4%BE%E0%A4%96_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
       "verified": true,
       "n_rows": 2493
+    },
+    {
+      "serial": 52,
+      "period_bs": "2073 Shrawan",
+      "header_period_bs": "",
+      "doc_id": "21883381bfa84dbf",
+      "source_pdf_sha256": "21883381bfa84dbf3d0c473ccb7246196915a0a164bd67e16f381c7efc1ba8cf",
+      "wayback_url": "https://web.archive.org/web/20161019125026id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A9_%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B5%E0%A4%A3_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 435
+    },
+    {
+      "serial": 53,
+      "period_bs": "2073 Bhadra",
+      "header_period_bs": "",
+      "doc_id": "d45f1449c880ca8a",
+      "source_pdf_sha256": "d45f1449c880ca8a752410f411c507a0ab4b8fa5d3cd85124f530b5209a5d835",
+      "wayback_url": "https://web.archive.org/web/20161108185858id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A9_%E0%A4%AD%E0%A4%BE%E0%A4%A6%E0%A5%8D%E0%A4%B0_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 336
+    },
+    {
+      "serial": 54,
+      "period_bs": "2073 Ashwin",
+      "header_period_bs": "",
+      "doc_id": "1d9aaefc302df3b9",
+      "source_pdf_sha256": "1d9aaefc302df3b9cbef1a737813185ecfddc654a4cf0bd3aa60d5363c5f0d5a",
+      "wayback_url": "https://web.archive.org/web/20170516232429id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A9_%E0%A4%86%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%BF%E0%A4%A8_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 366
+    },
+    {
+      "serial": 55,
+      "period_bs": "2073 Kartik",
+      "header_period_bs": "",
+      "doc_id": "22787b8c4900c12c",
+      "source_pdf_sha256": "22787b8c4900c12c774984dce891229de3145e0dc9eeb3e02a14153d2c7ba797",
+      "wayback_url": "https://web.archive.org/web/20170702072049id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A9_%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%BF%E0%A4%95_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 477
+    },
+    {
+      "serial": 56,
+      "period_bs": "2073 Mangsir",
+      "header_period_bs": "",
+      "doc_id": "4535150b6631f6c8",
+      "source_pdf_sha256": "4535150b6631f6c8c4658818e1dc641d29cc7b0e3a5bd33e0ece73035e07909e",
+      "wayback_url": "https://web.archive.org/web/20170516232512id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A9_%E0%A4%AE%E0%A4%82%E0%A4%B8%E0%A4%BF%E0%A4%B0_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 423
+    },
+    {
+      "serial": 57,
+      "period_bs": "2073 Poush",
+      "header_period_bs": "",
+      "doc_id": "4a93dc447f00840e",
+      "source_pdf_sha256": "4a93dc447f00840ec55f8e0c949822c04f4b5bc81b93a2a92c50b67edbf289b0",
+      "wayback_url": "https://web.archive.org/web/20170517075752id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A9_%E0%A4%AA%E0%A5%8C%E0%A4%B7_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 393
+    },
+    {
+      "serial": 58,
+      "period_bs": "2073 Magh",
+      "header_period_bs": "",
+      "doc_id": "11524e28f258da7e",
+      "source_pdf_sha256": "11524e28f258da7efdfaeccb83a27806ad088e6a2b0258f25c71a1b269695b85",
+      "wayback_url": "https://web.archive.org/web/20170807202714id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A9_%E0%A4%AE%E0%A4%BE%E0%A4%98_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 621
+    },
+    {
+      "serial": 59,
+      "period_bs": "2073 Chaitra",
+      "header_period_bs": "",
+      "doc_id": "d1622af04924bc20",
+      "source_pdf_sha256": "d1622af04924bc20b603ae980739e9976f2a7213375708bf1380cec62b1ca59c",
+      "wayback_url": "https://web.archive.org/web/20170807200229id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A9_%E0%A4%9A%E0%A5%88%E0%A4%A4%E0%A5%8D%E0%A4%B0_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 774
+    },
+    {
+      "serial": 60,
+      "period_bs": "2074 Baishakh",
+      "header_period_bs": "",
+      "doc_id": "e1d288fc2614ed65",
+      "source_pdf_sha256": "e1d288fc2614ed6599ca13d1808f24d12e13673549c3cfc67b284dfd9aec741a",
+      "wayback_url": "https://web.archive.org/web/20170809050053id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AA_%E0%A4%B5%E0%A5%88%E0%A4%B6%E0%A4%BE%E0%A4%96_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 648
+    },
+    {
+      "serial": 61,
+      "period_bs": "2074 Shrawan",
+      "header_period_bs": "",
+      "doc_id": "6c8f3ebe3ce15465",
+      "source_pdf_sha256": "6c8f3ebe3ce154654a6667b6f06851b3cfdf800e5b3fbf1bb6dbd5d7d43974f7",
+      "wayback_url": "https://web.archive.org/web/20170918091838id_/http://dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AA_%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B5%E0%A4%A3_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3v4.pdf",
+      "verified": true,
+      "n_rows": 657
+    },
+    {
+      "serial": 62,
+      "period_bs": "2074 Bhadra",
+      "header_period_bs": "",
+      "doc_id": "8fbfb5d7277fc584",
+      "source_pdf_sha256": "8fbfb5d7277fc584951bed25d25115b761cad4ec9fb2d3e2e98f293e37869f2b",
+      "wayback_url": "https://web.archive.org/web/20171013081705id_/http://dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AA_%E0%A4%AD%E0%A4%BE%E0%A4%A6%E0%A5%8D%E0%A4%B0_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A31.pdf",
+      "verified": true,
+      "n_rows": 756
+    },
+    {
+      "serial": 63,
+      "period_bs": "2074 Ashwin",
+      "header_period_bs": "",
+      "doc_id": "62601cd2fc8dcf2b",
+      "source_pdf_sha256": "62601cd2fc8dcf2bb5c468862d32d712950d9d1b89f8220a86373647ed36c4d4",
+      "wayback_url": "https://web.archive.org/web/20171215232813id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AA_%E0%A4%86%E0%A4%B6%E0%A5%8D%E0%A4%B5%E0%A4%BF%E0%A4%A8_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3v1.pdf",
+      "verified": true,
+      "n_rows": 801
+    },
+    {
+      "serial": 64,
+      "period_bs": "2074 Kartik",
+      "header_period_bs": "",
+      "doc_id": "80a05c076ae283a4",
+      "source_pdf_sha256": "80a05c076ae283a4123942546919bc9e77a1c16c09245a37393efc78a9ff85bf",
+      "wayback_url": "https://web.archive.org/web/20180127174250id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AA_%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%BF%E0%A4%95_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A33.pdf",
+      "verified": true,
+      "n_rows": 747
+    },
+    {
+      "serial": 65,
+      "period_bs": "2074 Mangsir",
+      "header_period_bs": "",
+      "doc_id": "4e68f97e05a6d352",
+      "source_pdf_sha256": "4e68f97e05a6d352543b87a5c10cc262be3b1265d9e742fb7c7fcf5b9eed7f54",
+      "wayback_url": "https://web.archive.org/web/20180127170128id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AA_%E0%A4%AE%E0%A4%82%E0%A4%B8%E0%A4%BF%E0%A4%B0_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 402
+    },
+    {
+      "serial": 66,
+      "period_bs": "2074 Poush",
+      "header_period_bs": "",
+      "doc_id": "86b90eabe5520b75",
+      "source_pdf_sha256": "86b90eabe5520b7580efe967a1cceb359147010d0a5949f38c88c28e8eb31953",
+      "wayback_url": "https://web.archive.org/web/20180127134326id_/http://www.dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AA_%E0%A4%AA%E0%A5%81%E0%A4%B7_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
+      "verified": true,
+      "n_rows": 603
+    },
+    {
+      "serial": 67,
+      "period_bs": "2074 Magh",
+      "header_period_bs": "",
+      "doc_id": "61722666b41a3914",
+      "source_pdf_sha256": "61722666b41a3914ced67c6ea0255f2654f3f8b3f5d72cdaf6ffe1127541e71b",
+      "wayback_url": "https://web.archive.org/web/20180328171544id_/http://dofe.gov.np:80/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%AA_%E0%A4%AE%E0%A4%BE%E0%A4%98_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%BE%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A31.pdf",
+      "verified": true,
+      "n_rows": 609
+    },
+    {
+      "serial": 68,
+      "period_bs": "2074 Falgun",
+      "header_period_bs": "",
+      "doc_id": "335beb4d036f0dd3",
+      "source_pdf_sha256": "335beb4d036f0dd3ba230814d0fbc5b778b0c4b993eeb81e11efcdc54aed5171",
+      "wayback_url": "https://web.archive.org/web/20180329040648id_/http://www.dofe.gov.np:80/new/uploads/article/falgun2074.pdf",
+      "verified": true,
+      "n_rows": 579
+    },
+    {
+      "serial": 69,
+      "period_bs": "2074 Chaitra",
+      "header_period_bs": "",
+      "doc_id": "4a81517c1554df6b",
+      "source_pdf_sha256": "4a81517c1554df6b8d8be076f152c37ba85415822647acb50134aa734bb89cde",
+      "wayback_url": "https://web.archive.org/web/20180619054703id_/http://www.dofe.gov.np:80/new/uploads/article/Chaitra2074.pdf",
+      "verified": true,
+      "n_rows": 549
+    },
+    {
+      "serial": 70,
+      "period_bs": "2075 Baishakh",
+      "header_period_bs": "",
+      "doc_id": "c9e19e2edb2e9091",
+      "source_pdf_sha256": "c9e19e2edb2e9091cb283d1b9ff957ab3ab77f5e2c782f51251d9d0e44efcb27",
+      "wayback_url": "https://web.archive.org/web/20180712185831id_/http://www.dofe.gov.np:80/new/uploads/article/Baishak2075PR.pdf",
+      "verified": true,
+      "n_rows": 537
+    },
+    {
+      "serial": 71,
+      "period_bs": "2075 Jestha",
+      "header_period_bs": "",
+      "doc_id": "0532eae58a684db6",
+      "source_pdf_sha256": "0532eae58a684db6beb908fc252611ad2a5bee0916a4c5373bf85c2a8568c705",
+      "wayback_url": "https://web.archive.org/web/20180826233939id_/http://www.dofe.gov.np:80/new/uploads/article/2075Jestha.pdf",
+      "verified": true,
+      "n_rows": 591
+    },
+    {
+      "serial": 72,
+      "period_bs": "2075 Asar",
+      "header_period_bs": "",
+      "doc_id": "a0c8074094387f44",
+      "source_pdf_sha256": "a0c8074094387f4439cbf168f89ba3d82cc0ec3910ad1b5cee5bb586122499fe",
+      "wayback_url": "https://web.archive.org/web/20180826163803id_/http://www.dofe.gov.np:80/new/uploads/article/Ashad2075.pdf",
+      "verified": true,
+      "n_rows": 504
+    },
+    {
+      "serial": 73,
+      "period_bs": "2075 Shrawan",
+      "header_period_bs": "",
+      "doc_id": "5085ad0ef465f7df",
+      "source_pdf_sha256": "5085ad0ef465f7dfbb3fbeb18cb009280657c9e962c6ca1b408a5431bdb98273",
+      "wayback_url": "https://web.archive.org/web/20180827034951id_/http://www.dofe.gov.np:80/new/uploads/article/2075Shrawan.pdf",
+      "verified": true,
+      "n_rows": 516
+    },
+    {
+      "serial": 74,
+      "period_bs": "2075 Bhadra",
+      "header_period_bs": "",
+      "doc_id": "ba0a494da151a217",
+      "source_pdf_sha256": "ba0a494da151a2179ff15b47ab312397701fdd1f9f1d1dd225df3398155aa6f9",
+      "wayback_url": "https://web.archive.org/web/20181123154738id_/http://dofe.gov.np:80/new/uploads/article/2075bhadra.pdf",
+      "verified": true,
+      "n_rows": 522
+    },
+    {
+      "serial": 75,
+      "period_bs": "2075 Ashwin",
+      "header_period_bs": "",
+      "doc_id": "561969e17250019f",
+      "source_pdf_sha256": "561969e17250019fb6c5931b180d84767cbbf14f67706ec65337e98323ef33e8",
+      "wayback_url": "https://web.archive.org/web/20181123120807id_/http://www.dofe.gov.np:80/new/uploads/article/Ashoj2075.pdf",
+      "verified": true,
+      "n_rows": 582
     }
   ],
   "output": "datasets/labour-migration/panel_archive.csv.gz"

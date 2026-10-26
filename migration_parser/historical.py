@@ -36,6 +36,8 @@ SCOPE_CLASS = {
     "previous_cumulative": "prior_ytd",
     "month": "window",
     "cumulative": "ytd",
+    "pre_permission": "pre_approval",
+    "final_approved": "final_approval",
 }
 GENDERS = ("male", "female", "total")
 BLOCKS = len(SCOPES)
@@ -53,6 +55,7 @@ class HistRow:
     total: int
     sn: str = ""
     approval_type: str = ""
+    entry_type: str = ""
     is_total: bool = False
     page: int = 0
 
@@ -412,6 +415,7 @@ def melt(doc: HistDoc) -> list[dict]:
                 "name": r.country,
                 "sn": r.sn,
                 "approval_type": r.approval_type or "all",
+                "entry_type": r.entry_type,
                 "scope": r.scope,
                 "scope_class": SCOPE_CLASS.get(r.scope, ""),
                 "gender": gender,

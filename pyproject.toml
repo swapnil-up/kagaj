@@ -55,12 +55,21 @@ test = [
     "pandas",
 ]
 
+# Exploratory migration analysis workbench
+analysis = [
+    "pandas>=2.1",
+    "matplotlib>=3.8",
+    "scipy>=1.11",
+    "pymupdf",
+    "jupyterlab>=4.2",
+]
+
 # Everything needed for CLI/CI work
 dev = [
-    "kagaj[redbook,billtracker,ocr,water,test]",
+    "kagaj[redbook,billtracker,ocr,water,test,analysis]",
 ]
 
 # Full install (all components)
 all = [
-    "kagaj[redbook,billtracker,ocr,water,test]",
+    "kagaj[redbook,billtracker,ocr,water,test,analysis]",
 ]

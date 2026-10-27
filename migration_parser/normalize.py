@@ -76,11 +76,90 @@ def _fiscal_data():
     return _load_json("fiscal_years.json")
 
 
+def _compact_key(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", (s or "").casefold())
+
+
+@lru_cache(maxsize=None)
+def _country_compact_index():
+    """Map punctuation/space-stripped names to entities, dropping collisions.
+
+    Some PDF table extractors return a country cell with the spaces removed
+    (``SaudiArabia``); the exact-fold index cannot resolve those. Ambiguous
+    compact keys are omitted rather than guessed.
+    """
+    idx: dict[str, dict] = {}
+    ambiguous: set[str] = set()
+    for e in _load_json("countries.json"):
+        for label in (e["name"], *e.get("aliases", [])):
+            key = _compact_key(label)
+            if not key:
+                continue
+            prev = idx.get(key)
+            if prev is not None and prev["name"] != e["name"]:
+                ambiguous.add(key)
+            else:
+                idx[key] = e
+    for key in ambiguous:
+        idx.pop(key, None)
+    return idx
+
+
 def canonical_country(raw: str) -> dict | None:
     """Return the canonical country record for ``raw`` (or None if unknown)."""
     if not raw:
         return None
-    return _country_index().get(_fold(raw))
+    e = _country_index().get(_fold(raw))
+    return e or _country_compact_index().get(_compact_key(raw))
+
+
+@lru_cache(maxsize=None)
+def _country_word_vocab():
+    words: set[str] = set()
+    for e in _load_json("countries.json"):
+        for label in (e["name"], *e.get("aliases", [])):
+            words.update(w.lower() for w in re.findall(r"[A-Za-z]+", label))
+    words.update({"and", "of", "the", "from", "eps", "pdr"})
+    words = {w for w in words if len(w) >= 2}
+    by_first: dict[str, tuple[str, ...]] = {}
+    for w in words:
+        by_first.setdefault(w[0], []).append(w)
+    return {k: tuple(sorted(v, key=len, reverse=True))
+            for k, v in by_first.items()}
+
+
+def restore_country_spacing(raw: str) -> str:
+    """Re-insert spaces lost by PDF table-cell extraction.
+
+    PyMuPDF's table extractor can concatenate multi-word Latin cells
+    (``BruneiDarussalam``). Split against the country-name/alias vocabulary;
+    fall back to camel-case boundaries for labels outside that vocabulary.
+    Never invents characters: unmatched values are returned unchanged.
+    """
+    if not raw or not re.fullmatch(r"[A-Za-z ]+", raw):
+        return raw
+    compact = raw.replace(" ", "")
+    lower = compact.lower()
+    vocab = _country_word_vocab()
+    best: list[tuple[int, int, tuple[str, ...]] | None] = [None] * (len(lower) + 1)
+    best[0] = (0, 0, ())
+    for i in range(len(lower)):
+        prev = best[i]
+        if prev is None:
+            continue
+        for word in vocab.get(lower[i], ()):
+            if not lower.startswith(word, i):
+                continue
+            j = i + len(word)
+            cand = (prev[0] + len(word) ** 2, prev[1] + 1,
+                    prev[2] + (compact[i:j],))
+            cur = best[j]
+            if cur is None or cand[:2] > cur[:2]:
+                best[j] = cand
+    if best[-1] is not None and best[-1][1] > 1:
+        return " ".join(best[-1][2])
+    camel = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", compact)
+    return camel
 
 
 def canonical_district(raw: str) -> dict | None:
@@ -176,13 +255,46 @@ def fiscal_year_for_ad(label: str) -> str | None:
     return None
 
 
-def normalize_name(section: str, name: str) -> dict:
+# Doc 332 clips the country column to ~22 pt. ``get_texttrace`` still exposes
+# the full drawn strings, so these serial-scoped overrides recover the five
+# clipped labels without guessing from counts. Serial 55 is a second Seychelles
+# row in the source; reconcile sums it with SN 34 under the intra-doc merge rule.
+CLIPPED_COUNTRY_OVERRIDES = {
+    ("332", "9"): ("South Korea", ""),
+    ("332", "14"): ("Bulgaria", ""),
+    ("332", "30"): ("North Macedonia", ""),
+    ("332", "55"): ("Seychelles", "source also prints a separate Seychelles row (SN 34); "
+                    "the two rows are summed under the intra-document merge rule"),
+    ("332", "76"): ("Republic of the Congo", ""),
+}
+
+
+def _serial_key(sn) -> str:
+    try:
+        return str(int(float(sn)))
+    except (TypeError, ValueError):
+        return str(sn or "").strip()
+
+
+def normalize_name(section: str, name: str, doc_id: str | None = None,
+                   sn=None) -> dict:
     """Resolve a panel ``name`` given its ``section``.
 
     Returns a dict with ``canonical``, ``resolved``, and optional ``iso3`` /
     ``province`` / ``note`` / ``kind``.
     """
     if section == "country":
+        override = CLIPPED_COUNTRY_OVERRIDES.get(
+            (str(doc_id or ""), _serial_key(sn)))
+        if override and _fold(name) in {"republic o", "republi"}:
+            canonical, note = override
+            e = canonical_country(canonical)
+            if e is not None:
+                out = {"canonical": e["name"], "resolved": True,
+                       "note": note or "clipped label resolved from PDF text trace"}
+                if e.get("iso3"):
+                    out["iso3"] = e["iso3"]
+                return out
         e = canonical_country(name)
         if e is None:
             return {"canonical": name, "resolved": False, "kind": "unknown"}

@@ -28,6 +28,7 @@ from __future__ import annotations
 import argparse
 import csv
 import gzip
+import io
 import json
 import re
 import sys
@@ -39,6 +40,7 @@ from ..paths import (
     MIGRATION_ARCHIVE_BUILD,
     MIGRATION_ARCHIVE_MANIFEST,
     MIGRATION_ARCHIVE_PANEL,
+    MIGRATION_ARCHIVE_UNRESOLVED,
     REPO_ROOT,
 )
 from ..periods import BS_MONTHS_EN, BS_MONTHS_NP, _norm_digits
@@ -60,6 +62,21 @@ def _period_key(period_bs: str) -> tuple[int, int] | None:
     for name, num in BS_MONTHS_EN.items():
         if re.search(rf"\b{name}\b", low):
             return int(ym.group(1)), num
+    return None
+
+
+def _period_month(period_bs: str) -> int | None:
+    """Return the month number even when the catalog year is ``unknown``."""
+    if not period_bs:
+        return None
+    t = _norm_digits(period_bs)
+    low = t.lower()
+    for name, num in BS_MONTHS_NP.items():
+        if name in t:
+            return num
+    for name, num in BS_MONTHS_EN.items():
+        if re.search(rf"\b{name}\b", low):
+            return num
     return None
 
 
@@ -95,10 +112,45 @@ def build(include_unverified: bool = False) -> tuple[list[dict], dict]:
         if other is prev:
             seen_sha[e["source_pdf_sha256"]] = (e, res)
 
+    # Distinct captures can resolve to the same printed month (misfiled
+    # filenames, stale captures). Keep one row-set per period, preferring the
+    # capture whose header agrees with its catalog month. If neither capture
+    # agrees, drop both rather than relabel a month on a guess.
+    groups: dict[tuple[int, int], list[tuple[dict, dict]]] = {}
+    unkeyed: list[tuple[dict, dict]] = []
+    for pair in seen_sha.values():
+        key = _period_key(pair[1]["period_bs"])
+        if key is None:
+            unkeyed.append(pair)
+        else:
+            groups.setdefault(key, []).append(pair)
+    kept = list(unkeyed)
+    for pairs in groups.values():
+        agreeing = [pair for pair in pairs if _agrees(pair)]
+        if not agreeing:
+            if len(pairs) == 1:
+                # Sole capture for the month: keep it and let the mismatch
+                # surface in provenance rather than silently dropping a month.
+                kept.append(pairs[0])
+            else:
+                for pair in pairs:
+                    dropped.append({"serial": pair[0]["serial"],
+                                    "period_bs": pair[0]["period_bs"],
+                                    "reason": "no_catalog_agreement"})
+            continue
+        best = min(agreeing, key=lambda pair: pair[0]["serial"])
+        for pair in pairs:
+            if pair is not best:
+                dropped.append({"serial": pair[0]["serial"],
+                                "period_bs": pair[0]["period_bs"],
+                                "duplicate_of": best[0]["serial"],
+                                "reason": "same_period"})
+        kept.append(best)
+
     rows: list[dict] = []
     docs: list[dict] = []
     entity_cache: dict[str, dict] = {}
-    for e, res in sorted(seen_sha.values(), key=lambda t: t[0]["serial"]):
+    for e, res in sorted(kept, key=lambda t: t[0]["serial"]):
         granularity = normalize.doc_granularity(res["doc_type"])
         for r in res["data"]:
             if r["row_type"] == "detail":
@@ -163,6 +215,21 @@ def build(include_unverified: bool = False) -> tuple[list[dict], dict]:
     return rows, meta
 
 
+def _agrees(pair: tuple[dict, dict]) -> bool:
+    """True when the printed header does not contradict the catalog month."""
+    res, entry = pair[1], pair[0]
+    h = _period_key(res.get("header_period_bs", ""))
+    if h is None:
+        return True
+    cat = _period_key(entry.get("period_bs", ""))
+    if cat is not None:
+        return h == cat
+    # Catalog year is unknown (``"unknown Kartik"``): the month is still
+    # comparable, and a mismatch means the downloaded bytes are mislabeled.
+    cm = _period_month(entry.get("period_bs", ""))
+    return cm is None or h[1] == cm
+
+
 def _pick(a: tuple[dict, dict], b: tuple[dict, dict]
           ) -> tuple[tuple[dict, dict], tuple[dict, dict]]:
     """Return ``(keeper, dropped)`` ``(entry, result)`` pairs.
@@ -172,22 +239,19 @@ def _pick(a: tuple[dict, dict], b: tuple[dict, dict]
     """
     if a[0]["serial"] > b[0]["serial"]:
         a, b = b, a
-
-    def agrees(pair: tuple[dict, dict]) -> bool:
-        res = pair[1]
-        h, p = _period_key(res["header_period_bs"]), _period_key(res["period_bs"])
-        return h is None or h == p
-
-    keep_a = agrees(a) or not agrees(b)
+    keep_a = _agrees(a) or not _agrees(b)
     return (a, b) if keep_a else (b, a)
 
 
 def _write_gz(rows: list[dict], path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with gzip.open(path, "wt", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=ARCHIVE_PANEL_COLUMNS)
-        w.writeheader()
-        w.writerows(rows)
+    with path.open("wb") as raw:
+        with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as gz:
+            text = io.TextIOWrapper(gz, encoding="utf-8", newline="")
+            w = csv.DictWriter(text, fieldnames=ARCHIVE_PANEL_COLUMNS)
+            w.writeheader()
+            w.writerows(rows)
+            text.detach()
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -202,16 +266,23 @@ def main(argv: list[str] | None = None) -> int:
         print("no verified archive rows (run `backfill --fetch` first)",
               file=sys.stderr)
         return 1
+    resolved = [r for r in rows if r["entity_resolved"]]
+    unresolved = [r for r in rows if not r["entity_resolved"]]
     out = MIGRATION_ARCHIVE_PANEL if args.out is None else args.out
-    _write_gz(rows, out)
+    _write_gz(resolved, out)
+    _write_gz(unresolved, MIGRATION_ARCHIVE_UNRESOLVED)
+    meta["n_rows_all"] = len(rows)
+    meta["n_rows"] = len(resolved)
     meta["output"] = str(out.relative_to(REPO_ROOT))
+    meta["n_unresolved"] = len(unresolved)
+    meta["output_unresolved"] = str(MIGRATION_ARCHIVE_UNRESOLVED.relative_to(REPO_ROOT))
     MIGRATION_ARCHIVE_BUILD.write_text(
         json.dumps(meta, indent=2, ensure_ascii=False) + "\n")
     periods = {d["period_bs"] for d in meta["docs"]}
     first = min(periods, key=lambda p: _period_key(p) or (0, 0))
     last = max(periods, key=lambda p: _period_key(p) or (0, 0))
-    print(f"wrote {out} ({meta['n_docs']} docs, {meta['n_rows']} rows, "
-          f"{first}..{last})")
+    print(f"wrote {out} ({meta['n_docs']} docs, {len(resolved)} resolved rows, "
+          f"{len(unresolved)} quarantined, {first}..{last})")
     return 0
 
 

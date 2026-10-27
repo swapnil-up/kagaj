@@ -706,6 +706,20 @@ def test_normalize_country_variants():
     assert normalize.canonical_country("Republic of Korea")["name"] == "South Korea"
     assert normalize.canonical_country("Ivory Coast")["name"] == "Cote d'Ivoire"
     assert normalize.canonical_country("AZERBAI")["name"] == "Azerbaijan"
+    # Table-cell extraction can drop or split spaces.
+    assert normalize.canonical_country("SaudiArabia")["name"] == "Saudi Arabia"
+    assert normalize.canonical_country("BruneiDarussalam")["name"] == "Brunei Darussalam"
+    assert normalize.canonical_country("UnitedStatesof America")["name"] == \
+        "United States of America"
+    assert normalize.canonical_country("Hongkong")["name"] == "Hong Kong"
+
+
+def test_restore_country_spacing():
+    assert normalize.restore_country_spacing("SaudiArabia") == "Saudi Arabia"
+    assert normalize.restore_country_spacing("Republicof Korea") == "Republic of Korea"
+    assert normalize.restore_country_spacing("FromEPS Angola") == "From EPS Angola"
+    assert normalize.restore_country_spacing("BosniaHerzGovina") == "Bosnia Herz Govina"
+    assert normalize.restore_country_spacing("Afghanistan") == "Afghanistan"
 
 
 def test_normalize_country_flagged_and_unknown():
@@ -1006,12 +1020,44 @@ def test_canonical_unique_on_dedup_key():
     assert not dups, f"{len(dups)} duplicate dedup-key groups, e.g. {dups[0]}"
 
 
-def test_clipped_entities_are_disambiguated_and_flagged():
+def test_clipped_entities_are_resolved_from_pdf_text_trace():
     rows = _read_shipped("panel_canonical.csv.gz")
-    repub = {r["name_canonical"] for r in rows if r["name_canonical"].startswith("Republic o (")}
-    assert len(repub) == 4, sorted(repub)          # four distinct countries, no merge
-    assert {r["entity_resolved"] for r in rows
-            if r["name_canonical"].startswith(("Republic o (", "REPUBLI ("))} == {"false"}
+    doc332 = [r for r in rows if r["doc_id"] == "332"]
+    assert not [r for r in doc332 if r["name_canonical"].startswith(
+        ("Republic o (", "REPUBLI ("))]
+    expected = {
+        "South Korea": (9, 903),
+        "Bulgaria": (14, 540),
+        "North Macedonia": (30, 68),
+        "Seychelles": (34, 64),
+        "Republic of the Congo": (76, 2),
+    }
+    for name, (sn, total) in expected.items():
+        block = [r for r in doc332
+                 if r["name_canonical"] == name and r["gender"] == "total"]
+        assert block, name
+        assert {r["entity_resolved"] for r in block} == {"true"}
+        if name == "Seychelles":
+            assert block[0]["merged_rows"] == "2"
+            assert block[0]["raw_names"] == "REPUBLI;Seychelles"
+        else:
+            assert {r["sn"] for r in block} == {str(sn)}
+        assert sum(int(r["count"]) for r in block) == total
+
+
+def test_normalize_name_resolves_doc332_serials():
+    cases = {
+        "9": ("South Korea", "KOR"),
+        "14": ("Bulgaria", "BGR"),
+        "30": ("North Macedonia", "MKD"),
+        "55": ("Seychelles", "SYC"),
+        "76": ("Republic of the Congo", "COG"),
+    }
+    for sn, (name, iso3) in cases.items():
+        info = normalize.normalize_name("country", "Republic o", "332", sn)
+        assert info["canonical"] == name
+        assert info["resolved"] is True
+        assert info["iso3"] == iso3
 
 
 def test_analysis_safe_flag_definition():
@@ -1466,14 +1512,24 @@ def test_archive_panel_pick_header_disagreement_overrides_serial():
 def test_archive_panel_gz_schema_and_dedup():
     if not mpaths.MIGRATION_ARCHIVE_PANEL.exists():
         pytest.skip("archive panel not built")
+    if not mpaths.MIGRATION_ARCHIVE_UNRESOLVED.exists():
+        pytest.skip("archive unresolved panel not built")
     import gzip as _gz
     import csv as _csv
+    import json as _json
     with _gz.open(mpaths.MIGRATION_ARCHIVE_PANEL, "rt") as f:
         rows = list(_csv.DictReader(f))
-    assert rows
+    with _gz.open(mpaths.MIGRATION_ARCHIVE_UNRESOLVED, "rt") as f:
+        unresolved = list(_csv.DictReader(f))
+    assert rows and unresolved
     assert list(rows[0].keys()) == mpaths.ARCHIVE_PANEL_COLUMNS
+    assert list(unresolved[0].keys()) == mpaths.ARCHIVE_PANEL_COLUMNS
     assert {r["source_kind"] for r in rows} == {"archive_org"}
     assert {r["verified"] for r in rows} == {"True"}
+    assert {r["entity_resolved"] for r in rows} == {"True"}
+    assert {r["analysis_safe"] for r in rows} == {"True"}
+    assert {r["entity_resolved"] for r in unresolved} == {"False"}
+    assert {r["analysis_safe"] for r in unresolved} == {"False"}
     shas = {r["source_pdf_sha256"] for r in rows}
     assert len(shas) == len({r["doc_id"] for r in rows}), "duplicate content not deduped"
     assert {r["scope"] for r in rows} == {
@@ -1484,15 +1540,13 @@ def test_archive_panel_gz_schema_and_dedup():
     assert {r["granularity"] for r in rows} == {"month"}
     assert {r["approval_type"] for r in rows} == {"institutional", "individual"}
     assert {r["entry_type"] for r in rows} == {"", "re_entry", "new", "legalization"}
-    for r in rows:
-        assert (r["analysis_safe"] == "True") == (
-            r["verified"] == "True" and r["entity_resolved"] == "True")
-    # Every row carries a canonical name (so groupby(name_canonical) never
-    # splits a resolved entity across alias variants); resolved rows also carry
-    # an ISO-3 code.
     assert all(r["name_canonical"] for r in rows)
-    resolved = [r for r in rows if r["entity_resolved"] == "True"]
-    assert resolved and all(r["iso3"] for r in resolved)
+    assert all(r["iso3"] for r in rows)
+    meta = _json.loads(mpaths.MIGRATION_ARCHIVE_BUILD.read_text())
+    assert meta["n_rows"] == len(rows)
+    assert meta["n_unresolved"] == len(unresolved)
+    assert meta["n_rows_all"] == len(rows) + len(unresolved)
+    assert meta["n_analysis_safe"] == len(rows)
 
 
 def test_scope_class_mapping():
@@ -1508,6 +1562,13 @@ def test_channels_channel_map_is_explicit_tbd():
     assert cm.get("status") == "TBD"
     assert "individual" in cm and "institutional" in cm
     assert cm["institutional"] is None and cm["individual"] is None
+
+
+def test_archive_panel_catalog_agreement_and_month_parser():
+    mismatched = _pair(7, "2070 मंसिर", "unknown Poush")
+    assert apanel._period_month("unknown Poush") == 9
+    assert apanel._agrees(mismatched) is False
+    assert apanel._agrees(_pair(22, "", "2070 Bhadra")) is True
 
 
 def test_archive_panel_period_key_normalises_scripts():

@@ -15,6 +15,8 @@ Commands:
   crosscheck cross-check against opendatanepal -> crosscheck.json
   driftcheck detect source-PDF revision drift vs recorded hashes
   provenance freeze/verify per-page source fingerprints (offline check)
+  audit      Phase 0 research data audit -> output/migration/research/
+  patterns   Phase 1 pattern scan -> output/migration/research/
   build      one-command reproducible build + packaging
 """
 
@@ -55,6 +57,10 @@ def _dispatch(stage: str) -> callable:
         from .scripts import cmd_driftcheck as m
     elif stage == "provenance":
         from .scripts import cmd_provenance as m
+    elif stage == "audit":
+        from .scripts import cmd_audit as m
+    elif stage == "patterns":
+        from .scripts import cmd_patterns as m
     elif stage == "build":
         from .scripts import cmd_build as m
     else:  # pragma: no cover - guarded by argparse choices
@@ -107,7 +113,7 @@ def _write_csv(rows: list[dict], path: str) -> None:
 STAGES = ("scrape", "process", "annex", "backfill", "archivepanel",
           "agencies", "series",
           "normalize", "reconcile", "verify", "crosscheck", "driftcheck",
-          "provenance", "build")
+          "provenance", "audit", "patterns", "build")
 
 
 def main(argv=None) -> int:

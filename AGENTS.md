@@ -52,7 +52,7 @@ uv pip install --python .venv/bin/python -e ".[dev]"   # all CLI pipelines + tes
 ```
 
 Available extras: `redbook`, `ocr`, `billtracker`, `water`, `test`,
-`dev`, `all`. `.env` lives at the **repo root** (gitignored); copy
+`analysis`, `dev`, `all`. `.env` lives at the **repo root** (gitignored); copy
 `.env.example`. `GEMINI_API_KEY` and `DATABASE_URL` are read from there.
 
 ## Testing
@@ -95,6 +95,8 @@ python -m migration_parser.cli scrape
 python -m migration_parser.cli process
 python -m migration_parser.cli build
 python -m migration_parser.cli verify
+python -m migration_parser.cli audit
+python -m migration_parser.cli patterns
 ```
 
 - Manifests: `datasets/labour-migration/manifests/`.
@@ -103,6 +105,8 @@ python -m migration_parser.cli verify
   aggregates and printed totals.
 - `build.json` records git revision + SHA-256 per artifact. Rebuild it after
   data changes.
+- Research outputs land in `output/migration/research/`; known data caveats are
+  tracked in `docs/migration-data-issues.md`.
 
 ## Budget pipeline (`redbook_parser/`)
 

@@ -1011,13 +1011,13 @@
     "iso3": null,
     "resolved": false,
     "kind": "clipped",
-    "note": "A 'Republic of ...' name clipped in source (content 332) at S.N. 9/14/30/76; 4 distinct countries, unrecoverable from the PDF text layer. name_canonical is suffixed with the source serial (e.g. 'Republic o (sn 9)') so the four never merge under a groupby."
+    "note": "Generic fallback for a 'Republic of ...' label clipped in source. Doc 332 is resolved by document+serial overrides in normalize.CLIPPED_COUNTRY_OVERRIDES (SN 9 Korea, 14 Bulgaria, 30 North Macedonia, 76 Republic of the Congo). Without doc_id+serial this raw string remains unresolved."
   },
   {
     "name": "REPUBLI",
     "iso3": null,
     "resolved": false,
     "kind": "clipped",
-    "note": "'Republic of ...' name clipped in source (content 332) at S.N. 55; unrecoverable from the PDF text layer. name_canonical is suffixed with the source serial ('REPUBLI (sn 55)')."
+    "note": "Generic fallback for a clipped 'REPUBLIC OF ...' label. Doc 332 SN 55 resolves to Seychelles under normalize.CLIPPED_COUNTRY_OVERRIDES; it is a second Seychelles row in the source and is summed with SN 34. Without doc_id+serial this raw string remains unresolved."
   }
 ]

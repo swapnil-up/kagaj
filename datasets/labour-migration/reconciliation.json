@@ -7,7 +7,7 @@
   },
   "entity_uniqueness": {
     "resolved": "name_canonical is the canonical entity name (countries.json / districts.json).",
-    "unresolved": "Unresolved entities carry entity_resolved=false. Source-clipped names (doc 332 'Republic o' x4, 'REPUBLI') are suffixed with their source serial, e.g. 'Republic o (sn 9)', so name_canonical is unique and a groupby never silently merges different countries. The four clipped Republics are unrecoverable from the PDF text layer (verified).",
+    "unresolved": "Unresolved entities carry entity_resolved=false. Doc 332's clipped 'Republic o' (SN 9/14/30/76) and 'REPUBLI' (SN 55) labels are resolved at normalisation time from document+serial overrides backed by the PDF text trace: Korea, Bulgaria, North Macedonia, Republic of the Congo, and a second Seychelles row (SN 55) summed with SN 34. Unresolved rows elsewhere keep the raw name and are additionally keyed by (doc_id, sn) at reconcile time.",
     "key_note": "dedup_key alone is sufficient for resolved rows; unresolved rows are additionally keyed by (doc_id, sn) at reconcile time as a belt-and-suspenders guard."
   },
   "granularity": {

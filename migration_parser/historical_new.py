@@ -26,7 +26,7 @@ import re
 
 import fitz
 
-from . import preeti
+from . import normalize, preeti
 from .historical import HistDoc, HistRow, SCOPE_CLASS
 from .model import DocMeta
 
@@ -186,7 +186,8 @@ def _parse_country_table(out: HistDoc, rows: list[list], section: tuple[str, str
         row = _data_row(cells)
         if row is not None:
             sn, name, base = row
-            name = re.sub(r"\s+total$", "", name, flags=re.IGNORECASE)
+            name = re.sub(r"\s*total\b.*$", "", name, flags=re.IGNORECASE)
+            name = normalize.restore_country_spacing(name.strip(" ,;"))
             if name and not _TOTAL_RE.match(name):
                 off = base - 2
                 for bi, (scope, idx) in enumerate(blocks):
@@ -222,7 +223,7 @@ def _parse_eps(out: HistDoc, rows: list[list], page: int) -> bool:
         cells = [_cell(c) for c in r]
         if len(cells) < 4:
             continue
-        name = cells[0]
+        name = normalize.restore_country_spacing(cells[0])
         if not name or _TOTAL_RE.match(name) or name.lower() == "country":
             continue
         m, f, t = _num(cells[1]), _num(cells[2]), _num(cells[3])
@@ -272,6 +273,39 @@ def _validate(out: HistDoc) -> list[str]:
     return problems
 
 
+def _word_rows(page, ncol: int) -> list[list[str]]:
+    """Recover a continuation table that ``find_tables`` failed to detect.
+
+    Some captures put the final 1-3 country rows on a table-less page. The
+    word stream is still a clean left-to-right row: serial, country, then the
+    numeric cells. Only accept lines with the exact numeric arity expected by
+    the preceding table shape.
+    """
+    expected = {5: 3, 6: 4, 8: 6, 14: 12}.get(ncol)
+    if expected is None:
+        return []
+    lines: dict[int, list[tuple[float, str]]] = {}
+    for w in page.get_text("words"):
+        x0, y0, _x1, y1, text = w[:5]
+        key = round((y0 + y1) / 2)
+        lines.setdefault(key, []).append((x0, text))
+    out: list[list[str]] = []
+    for key in sorted(lines):
+        words = [text for _x, text in sorted(lines[key])]
+        if len(words) < 2 or not _INT_RE.match(words[0]):
+            continue
+        i = 1
+        while i < len(words) and not _INT_RE.match(words[i]):
+            i += 1
+        name = " ".join(words[1:i]).strip()
+        nums = words[i:]
+        if (not name or len(nums) != expected
+                or not all(_INT_RE.match(v) for v in nums)):
+            continue
+        out.append([words[0], name, *nums])
+    return out
+
+
 def extract_new(path: str, meta: DocMeta | None = None) -> HistDoc:
     doc = fitz.open(path)
     meta = meta or DocMeta(filename=str(path))
@@ -281,6 +315,7 @@ def extract_new(path: str, meta: DocMeta | None = None) -> HistDoc:
     seen = False
     multi_rows: list[HistRow] = []
     multi_mode = False
+    last_country_ncol: int | None = None
     for pi in range(doc.page_count):
         page = doc[pi]
         try:
@@ -311,6 +346,7 @@ def extract_new(path: str, meta: DocMeta | None = None) -> HistDoc:
                 continue
             if kind in ("country_single", "country_two", "country_multi"):
                 before_table = len(out.rows)
+                last_country_ncol = len(rows[0])
                 _parse_country_table(out, rows, current, pi + 1, kind)
                 if kind == "country_multi":
                     multi_mode = True
@@ -329,6 +365,14 @@ def extract_new(path: str, meta: DocMeta | None = None) -> HistDoc:
                 # Continuation page: no repeated header, same section.
                 before_table = len(out.rows)
                 _parse_country_table(out, rows, current, pi + 1)
+                if multi_mode:
+                    multi_rows.extend(out.rows[before_table:])
+        if (len(out.rows) == before and not stop and seen
+                and last_country_ncol is not None):
+            word_rows = _word_rows(page, last_country_ncol)
+            if word_rows:
+                before_table = len(out.rows)
+                _parse_country_table(out, word_rows, current, pi + 1)
                 if multi_mode:
                     multi_rows.extend(out.rows[before_table:])
         if len(out.rows) > before:

@@ -24,7 +24,7 @@ from dataclasses import dataclass, field
 
 import fitz
 
-from . import preeti
+from . import normalize, preeti
 from .model import DocMeta
 from .periods import BS_MONTHS_NP, _norm_digits
 
@@ -151,6 +151,7 @@ def _table_layout(rows: list[list]) -> tuple[int, int, list[str]] | None:
     (``col 2/5/8``), which distinguishes this table from the many other layouts
     in the same report.
     """
+    fallback = None
     for gidx, row in enumerate(rows[:4]):
         idx = [i for i, c in enumerate(row) if _is_gender_cell(_cell(c))]
         if len(idx) < 3 * BLOCKS or len(idx) % 3:
@@ -168,10 +169,14 @@ def _table_layout(rows: list[list]) -> tuple[int, int, list[str]] | None:
             if not _is_scope_word(raw):
                 break
             labels.append(_decode(raw))
-        if len(labels) != BLOCKS:
-            continue
-        return gidx + 1, b0, labels
-    return None
+        if len(labels) == BLOCKS:
+            return gidx + 1, b0, labels
+        # Some scans split the Preeti scope label into glyph-order fragments
+        # that no longer decode. The M/F/T structure at b0 is still diagnostic;
+        # keep it as a fallback and use the catalog month for the period.
+        if fallback is None:
+            fallback = (gidx + 1, b0, [])
+    return fallback
 
 
 # Broken Preeti renderings seen in the scope headers (space-stripped before lookup).
@@ -222,7 +227,8 @@ def parse_report_month(labels: list[str]) -> tuple[str, str]:
 def _country_name(c0: str, c1: str) -> tuple[str, str]:
     """Return ``(sn, name)`` for a data row, or ``("", "")`` if not a country."""
     if c1 and re.match(r"^[A-Za-z]", c1):
-        return (c0 if _INT_RE.match(c0) else ""), c1
+        return ((c0 if _INT_RE.match(c0) else ""),
+                normalize.restore_country_spacing(c1))
     if c1 and not _INT_RE.match(c1):
         return (c0 if _INT_RE.match(c0) else ""), _decode(c1)
     if c0 and not _INT_RE.match(c0):
@@ -293,7 +299,7 @@ def extract_monthly(path: str, meta: DocMeta | None = None) -> HistDoc:
                 if approval_type == "subtotal":  # per-country जम्मा (redundant)
                     continue
                 if c1 and re.match(r"^[A-Za-z]", c1):
-                    country = c1
+                    country = normalize.restore_country_spacing(c1)
                 if _INT_RE.match(c0):
                     sn = c0
                 if not country or approval_type not in ("institutional", "individual"):

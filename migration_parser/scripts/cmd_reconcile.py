@@ -13,8 +13,9 @@ Applies the documented rule in ``datasets/labour-migration/reconciliation.json``
 Key = (granularity, reconciled_fiscal_year, period_ad_start, section,
        name_canonical, gender, channel_canonical, row_type). Rows whose entity
 could not be resolved are keyed additionally by (doc_id, sn) so they stay
-distinct; source-clipped names are also suffixed at normalisation time so
-``name_canonical`` itself never collides across entities.
+distinct. Doc 332's clipped labels are resolved by document+serial overrides;
+any future unresolved clipped label is still suffixed at normalisation time so
+``name_canonical`` never collides across entities.
 
     python -m migration_parser reconcile
 """

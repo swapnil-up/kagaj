@@ -363,14 +363,12 @@ content-id map in `normalize.py`.
 
 **Caveats**
 
-- 480 detail rows are `entity_resolved=false`: flagged groupings
+- 252 detail rows are `entity_resolved=false`: flagged groupings
   (`Africa`, `West-Indies`), the ambiguous printed `MALABO`/`Kango`/`Saipan`/
-  `East Africa Djibouti`, and the source-clipped `Republic o`/`REPUBLI` names
-  (content 332's country column clips labels to ~22 pt, losing which "Republic
-  of…"). They are kept verbatim, never force-mapped. The clipped names are
-  additionally suffixed with their source serial (`Republic o (sn 9)`,
-  `REPUBLI (sn 55)`) so they are unique in `name_canonical` and never merge under
-  a groupby — see *Cross-document reconciliation*.
+  `East Africa Djibouti`, and archive spelling variants. They are kept verbatim,
+  never force-mapped. Content 332's clipped `Republic o`/`REPUBLI` labels are no
+  longer in this set: they are recovered by document+serial overrides from the
+  PDF text trace — see *Cross-document reconciliation*.
 - Province values are lowercase keys and always one of the seven modern
   provinces (`koshi`, `madhesh`, `bagmati`, `gandaki`, `lumbini`, `karnali`,
   `sudurpashchim`) — never a compound. The two pre-2018 unified districts are
@@ -428,15 +426,18 @@ document** (currently 0 conflicts; 1599 intra-doc merges), that the primary is
 unique on the dedup key, and that the annual doc reconciles to the sum of its
 months.
 
-**Source-clipped entities never merge.** Content 332's country column clips
-labels to ~22 pt, turning four different countries into the literal string
-`Republic o` (S.N. 9/14/30/76) and one more into `REPUBLI` (S.N. 55). The full
-names are unrecoverable from the PDF text layer (verified). Normalisation
-therefore suffixes the source serial — `Republic o (sn 9)` … — and keeps
-`entity_resolved=false`, so a downstream `groupby(name_canonical)` can never
-silently merge them. The `dedup_key` alone is now sufficient for resolved rows;
-unresolved rows are additionally keyed by `(doc_id, sn)` as a belt-and-suspenders
-guard.
+**Source-clipped entities are recovered by serial.** Content 332's country
+column clips labels to ~22 pt, turning four different countries into the literal
+string `Republic o` (S.N. 9/14/30/76) and one more into `REPUBLI` (S.N. 55).
+`PyMuPDF.get_texttrace()` still exposes the full drawn strings, so
+`normalize.CLIPPED_COUNTRY_OVERRIDES` resolves them as
+Korea / Bulgaria / North Macedonia / Republic of the Congo, plus a second
+Seychelles row at S.N. 55 (the source prints both `Seychelles` and
+`REPUBLIC OF SEYCHELLES`; reconcile sums them under the intra-document merge
+rule). The overrides are scoped to `(doc_id, serial, raw clipped name)` so they
+cannot leak into another document. Unresolved rows still carry
+`entity_resolved=false` and are keyed by `(doc_id, sn)` at reconcile time as a
+belt-and-suspenders guard.
 
 ```bash
 redbook-env/bin/python -m migration_parser.cli normalize
@@ -531,6 +532,38 @@ hard to fall into: `merge_periods(df, "date")` joins an external series on the
 exact `period_ad_start`/`period_ad_end` window (~4 weeks, not a calendar month),
 and `fiscal_year_panel(df, prefer="annual")` returns a single per-fiscal-year
 basis so monthly and annual rows are never summed together.
+
+**Research workbench (Phase 0).** `migration_parser/research/datasets.py`
+provides safe, single-basis builders for destination-year, destination-gender-year,
+destination-channel-year, district-year and district-gender-year tables, plus the
+separate archive and historical-series loaders. All default to
+`analysis_safe=true`; no builder returns aggregate or printed-total rows. Run the
+data audit with:
+
+```bash
+.venv/bin/python -m migration_parser.cli audit
+```
+
+It writes `output/migration/research/data_audit.html`, `data_audit.json` and
+`data_issues.md`. The audit checks dedup keys, arithmetic, annual-vs-monthly
+overlap, template breaks, missing country coverage, archive reconciliation and
+series-key consistency. `migration_parser/report.py` now uses the same safe gzip
+panel; its narrative is exploratory.
+
+**Research workbench (Phase 1).** Build the descriptive pattern book with:
+
+```bash
+.venv/bin/python -m migration_parser.cli patterns
+```
+
+It writes `output/migration/research/pattern_book.html`, `patterns.json` and
+`findings.md`: annual volume and destination concentration, destination
+trajectories and COVID recovery, entries/exits, female shares, channel mix and
+re-entry, district concentration/convergence, modern and archive monthly
+series, the reported-deaths series, and a ranked candidate-hypothesis watchlist.
+The pattern book is descriptive; it is designed to hand leads to an
+econometrician, not to stand in for formal identification. Data caveats are
+tracked in [`docs/migration-data-issues.md`](../../docs/migration-data-issues.md).
 
 The near-duplicate `panel_normalized.csv` / `agencies_normalized.csv` and the
 uncompressed `panel_canonical.csv` are **generated** and gitignored.
@@ -842,8 +875,11 @@ needs a flow/text parser, not the wide-table machinery. Budget the backfill as a
    `panel_archive_build.json`) built by `cli archivepanel` from the verified
    backfill docs — kept out of `panel.csv` because the three period-scopes
    (`previous_cumulative`/`month`/`cumulative`) don't map onto the live monthly
-   schema. Ships BS 2067–2075 (61 docs, 94,770 rows), `source_kind=archive_org`,
-   all `verified=True`. Columns beyond the live panel:
+   schema. Ships BS 2067–2075 (61 docs), `source_kind=archive_org`, all
+   `verified=True`: **75,261 resolved rows** in `panel_archive.csv.gz` and
+   **19,509 unresolved rows quarantined** in
+   `panel_archive_unresolved.csv.gz` (kept for provenance, never in the safe
+   default). Columns beyond the live panel:
    - `approval_type` — `institutional` / `individual`, the printed श्रम स्वीकृतिको
      किसिम axis. This is **not** the modern delivery-channel axis; the
      correspondence is an open domain item documented as `channel_map: null/TBD`
@@ -860,11 +896,11 @@ needs a flow/text parser, not the wide-table machinery. Budget the backfill as a
      (= `verified AND entity_resolved`), the same safe-default discipline as the
      main panel. `name_canonical` is kept — not just the boolean — so a
      `groupby(name_canonical)` on resolved rows can't split alias variants
-     (`UAE` vs `United Arab Emirates`) into separate buckets. 74,586 of 94,770
-     rows are `analysis_safe=true`; the rest carry unresolved printed names
-     (misspellings, clipped labels, ambiguous groupings, the spurious "Republic
-     of Korea from EPS" row) kept verbatim, `name_canonical` falling back to the
-     raw name.
+     (`UAE` vs `United Arab Emirates`) into separate buckets. All 75,261 shipped
+     archive rows are `analysis_safe=true`; the 19,509 rows with unresolved
+     printed names (misspellings, ambiguous groupings, the spurious "Republic of
+     Korea from EPS" row) are in the quarantined companion, `name_canonical`
+     falling back to the raw name.
    Supersedes the earlier pre-approval-table panel (that read the wrong sibling
    table). Note the main panel's `individual` channel is the *aggregate* "Individual
    (all modes)"; the archive's `individual` is a raw approval type — the string

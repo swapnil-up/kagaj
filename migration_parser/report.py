@@ -24,6 +24,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from .paths import MIGRATION_DIR, MIGRATION_OUTPUT_DIR
+from .research.datasets import load_panel, series as load_series
 
 OUT = MIGRATION_OUTPUT_DIR / "report.html"
 
@@ -80,10 +81,8 @@ def _kfmt(x, _pos=None):
 # --- data prep ---------------------------------------------------------------
 
 def load():
-    p = pd.read_csv(MIGRATION_DIR / "panel_canonical.csv", dtype=str)
-    p["count"] = pd.to_numeric(p["count"], errors="coerce")
-    s = pd.read_csv(MIGRATION_DIR / "series.csv", dtype=str)
-    s["count"] = pd.to_numeric(s["count"], errors="coerce")
+    p = load_panel(safe=True)
+    s = load_series()
     return p, s
 
 
@@ -306,10 +305,14 @@ def fig_province(p) -> str:
     return _fig_base64(fig)
 
 
-def fig_reentry(p) -> str:
-    t = p[(p.section == "country") & (p.gender == "total") & (p.row_type == "total")
-          & (p.granularity == "year")
-          & (p.channel.isin(["total_with_reentry", "total_without_reentry"]))]
+def fig_reentry() -> str:
+    from .analysis import load_rollup
+
+    r = load_rollup()
+    safe = r["analysis_safe"].astype(str).str.lower().isin({"true", "1"})
+    t = r[safe & (r.section == "country") & (r.gender == "total")
+          & (r.row_type == "total") & (r.granularity == "year")
+          & (r.channel.isin(["total_with_reentry", "total_without_reentry"]))]
     w = t.pivot_table(index="reconciled_fiscal_year", columns="channel",
                       values="count", aggfunc="sum")
     w = w.dropna()
@@ -402,7 +405,7 @@ def main(argv=None) -> int:
         "gender": fig_gender(p),
         "fdup": fig_female_by_dest(p),
         "chan": fig_channels(c),
-        "reentry": fig_reentry(p),
+        "reentry": fig_reentry(),
         "prov": fig_province(p),
         "dist": fig_top_districts(p),
         "death": fig_deaths(s),
@@ -482,9 +485,9 @@ def main(argv=None) -> int:
   <img src="data:image/png;base64,{figs['coverage']}" alt="coverage">
   <img src="data:image/png;base64,{figs['annual']}" alt="annual approvals">
   <div class="finding"><b>The COVID collapse and rebound.</b> Approvals fell from
-     ~630k (FY2078/79, 2021/22) to <b>166,698 in FY2077/78 (2020/21)</b> — a ~74% drop — as
-     Gulf/Malaysia borders shut, then recovered to ~790k by FY2082/83. This is the cleanest
-     natural experiment in the panel.</div>
+     593,636 in FY2078/79 (2021/22) to <b>156,045 in FY2077/78 (2020/21)</b> — a ~74%
+     drop — as Gulf/Malaysia borders shut, then recovered to 839,263 in FY2081/82 and
+     791,489 in FY2082/83. This is the cleanest natural experiment in the panel.</div>
 </section>
 
 <section>
@@ -493,10 +496,10 @@ def main(argv=None) -> int:
      detail begins only at BS 2081/82, so the seasonal signal rests on recent years.</p>
   <img src="data:image/png;base64,{figs['season']}" alt="seasonality">
   <div class="finding"><b>A spring/summer peak, a winter trough.</b> Approval windows run
-     high in the Baisakh–Ashar period (Apr–Jun, ~74–79k) and again mid-monsoon, and are
-     lowest in the Magh–Falgun windows (Jan–Feb, ~53–63k) — consistent with pre-monsoon
-     recruitment cycles and a quiet winter. Note the 12 monthly documents for 2082/83 sum
-     to 792,203 vs the annual statement's 792,187 — a 0.002% gap that independently
+     high in the Baisakh–Ashar period (Apr–Jun) and again mid-monsoon, and are lowest
+     in the Magh–Falgun windows (Jan–Feb) — consistent with pre-monsoon recruitment
+     cycles and a quiet winter. Note the 12 monthly documents for 2082/83 sum to
+     791,507 vs the annual statement's 791,489 — a 0.002% gap that independently
      validates the extraction.</div>
 </section>
 
@@ -506,11 +509,11 @@ def main(argv=None) -> int:
      dominate, but the composition has shifted sharply.</p>
   <img src="data:image/png;base64,{figs['dest']}" alt="top destinations">
   <img src="data:image/png;base64,{figs['destmix']}" alt="destination mix">
-  <div class="finding"><b>Malaysia's boom-bust and the European turn.</b> Malaysia fell from
-     ~34% of approvals (FY2079/80) to ~6–7% (FY2081/82), while "emerging" destinations
-     (Romania, Croatia, Japan, South Korea, Malta, Poland, …) rose from ~1.3%
-     (FY2073/74) to <b>~14% (FY2082/83)</b>. Gulf shares (Qatar, UAE, Saudi) have drifted
-     down as the destination set diversifies.</div>
+  <div class="finding"><b>Malaysia's boom-bust and the European turn.</b> Malaysia rose to
+     38% of approvals in FY2079/80, collapsed to 6% in FY2081/82, then recovered to 17%
+     in FY2082/83. UAE rose to 23%, and European/East Asian destinations (Romania,
+     Croatia, Japan, South Korea, Malta, Poland, …) expanded rapidly. Gulf shares have
+     drifted down as the destination set diversifies.</div>
 </section>
 
 <section>
@@ -583,8 +586,8 @@ def main(argv=None) -> int:
     <tr><td><code>series.csv</code> mixes people-counts and a few share (%) tables</td>
         <td>Filter on <code>unit</code> (<code>count</code> vs <code>percent</code>) and
             <code>metric</code>/<code>caption</code> before summing.</td></tr>
-    <tr><td>480 unresolved entity names + clipped <code>Republic o</code></td>
-        <td>Small undercount/aggregation risk; kept verbatim, never force-mapped.</td></tr>
+    <tr><td>252 unresolved entity names; doc 332 clipped labels resolved</td>
+        <td>Small aggregation risk elsewhere; unresolved names kept verbatim, never force-mapped.</td></tr>
     <tr><td>Monthly coverage only from BS 2081/82</td>
         <td>Seasonal analysis limited to recent years; annual panel spans 2073/74+.</td></tr>
   </table>

@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-17T22:48:39+0545",
+  "generated_at": "2026-10-27T04:48:44+0545",
   "build": {
-    "commit": "78d153d793d69bbd94633368a4fb74d6675aefd2",
-    "describe": "78d153d"
+    "commit": "1a48469ed584308c9b2c25b0920e08b57d01afb5",
+    "describe": "1a48469-dirty"
   },
   "datasets": {
     "panel.csv": {
@@ -34,8 +34,8 @@
       "primary": true,
       "role": "canonical",
       "description": "Primary analysis dataset. Additive-only: component detail rows with canonical entities/channels/fiscal years and within-document typo-row merges applied. Aggregate rows, printed totals and distinct measures are NOT here — they live in panel_rollup.csv.gz, so summing this file can never double-count an aggregate against its components. Gzipped CSV.",
-      "rows": 70104,
-      "sha256": "5733821db3fa1d7eefa4ed26859c457c13150736dc728187901eea816b78ca1d",
+      "rows": 70089,
+      "sha256": "3ce380cec24716672fafe0a494eac6e400be499c26fedcbc8bd483823ba0b25b",
       "columns": {
         "doc_id": "Source document id.",
         "period_bs": "Printed BS period (raw).",
@@ -75,8 +75,8 @@
       "primary": false,
       "role": "rollup",
       "description": "Non-additive companion to panel_canonical.csv.gz: channel_class=aggregate rows, printed total/grand_total rows and separate measures (pre-approval). Compare against, never sum with, the primary file.",
-      "rows": 31041,
-      "sha256": "29013e47ed797f75277258f1686da73b33cf9b20ac439416115146fa51a727ea",
+      "rows": 31035,
+      "sha256": "833a7ac909321662ba6e9309693bc4363812719c7244b01d93e93c357a26f494",
       "columns": {
         "doc_id": "Source document id.",
         "period_bs": "Printed BS period (raw).",

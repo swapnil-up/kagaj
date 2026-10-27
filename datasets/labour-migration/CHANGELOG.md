@@ -4,6 +4,56 @@ Dated notes for deliberate changes to the shipped datasets, codebook and docs.
 Kept so that corrections are visible as corrections rather than quiet rewrites
 (e.g. if a reader remembers an earlier README claim about the Qatar 2022 window).
 
+## 2026-10-27
+
+### Fixed — clipped country labels in doc 332
+
+- `PyMuPDF.get_texttrace()` exposes the full strings hidden behind content 332's
+  ~22 pt country column. Added document+serial overrides in
+  `normalize.CLIPPED_COUNTRY_OVERRIDES`: S.N. 9 Korea, 14 Bulgaria, 30 North
+  Macedonia, 76 Republic of the Congo, 55 a second Seychelles row.
+- SN 55 is summed with SN 34 under the documented intra-document merge rule, so
+  doc 332 Seychelles totals 64. The safe panel gains 3,042 resolved approvals
+  and drops from 327 to 252 unresolved detail rows.
+
+### Changed — archive unresolved rows quarantined
+
+- `panel_archive.csv.gz` now ships only resolved rows (75,261; all
+  `analysis_safe=True`). The 19,509 unresolved rows moved to
+  `panel_archive_unresolved.csv.gz` with the same schema and
+  `entity_resolved=False`.
+- `panel_archive_build.json` records `n_rows_all`, `n_rows`, `n_unresolved`, and
+  both output paths.
+
+### Fixed — archive panel reproduces from the cached PDFs
+
+- `historical.py` and `historical_new.py` now repair country names whose spaces
+  were dropped by `find_tables()` (e.g. `BruneiDarussalam`, `SaudiArabia`) using
+  the country/alias vocabulary, with a camel-case fallback for unmatched labels.
+- `normalize.canonical_country()` accepts punctuation/space-stripped names via a
+  collision-safe compact index, so `Hongkong`, `Macedonia` spacing variants and
+  `Replic of congo` resolve without inventing new aliases.
+- `historical._table_layout()` keeps a structural fallback when a scanned scope
+  header no longer decodes; this restores BS 2071 Jestha (2,403 rows) instead of
+  silently dropping it.
+- `historical_new._word_rows()` recovers the final 1–3 country rows on a
+  table-less continuation page (restores BS 2074 Shrawan and 2075 Shrawan).
+- `archivepanel` keeps one row-set per printed month and drops ambiguous
+  captures only when no capture agrees with its catalog month. It also strips
+  `Total` contamination from newer-template country cells.
+- Net effect: **75,261 resolved rows** and **19,509 quarantined rows** from the
+  same 61 docs and 94,770 total rows. The 675 newly resolved rows are spacing /
+  punctuation variants of names that were already in `countries.json`.
+
+### Added — denominator and gap-fill reporting
+
+- Pattern book now reports an explicit FY2075/76 gap-fill from
+  `report2020_annex_X` (508,824 total; 490,117 deployment), with its two known
+  Qatar ±1 errors flagged. It is never pooled with verified years.
+- Documented the legacy-channel policy: old-template `new_entry` stays in
+  deployment totals but is never allocated to a modern channel; `legalization`
+  remains a separate policy series.
+
 ## 2026-10-26
 
 ### Added — newer-stage archive extractor (`historical_new.py`)

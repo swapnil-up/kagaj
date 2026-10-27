@@ -42,11 +42,12 @@ def normalize_panel() -> int:
             section = row["section"]
             row = dict(row)
             if row.get("row_type") == "detail":
-                info = normalize.normalize_name(section, row["name"])
+                info = normalize.normalize_name(section, row["name"],
+                                                row.get("doc_id"), row.get("sn"))
                 canonical = info.get("canonical", row["name"])
-                # Source-clipped names (e.g. "Republic o") collide across distinct
-                # entities; suffix the source serial so name_canonical is unique and
-                # a groupby can never silently merge different countries.
+                # Unresolved clipped names collide across distinct entities. Doc 332
+                # is resolved by serial override; any remaining clipped fallback is
+                # suffixed so name_canonical stays unique.
                 if info.get("kind") == "clipped":
                     canonical = f'{canonical} (sn {row["sn"]})'
                 row["entity_type"] = section if section in ("country", "district") else ""

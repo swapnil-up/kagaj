@@ -1,6 +1,6 @@
 {
   "n_docs": 61,
-  "n_rows": 94770,
+  "n_rows": 75261,
   "scopes": [
     "cumulative",
     "final_approved",
@@ -24,8 +24,8 @@
     "new",
     "re_entry"
   ],
-  "n_analysis_safe": 74586,
-  "n_unresolved": 20184,
+  "n_analysis_safe": 75261,
+  "n_unresolved": 19509,
   "dropped_duplicates": [
     {
       "serial": 27,
@@ -36,6 +36,32 @@
       "serial": 32,
       "period_bs": "2070 Bhadra",
       "duplicate_of": 29
+    },
+    {
+      "serial": 34,
+      "period_bs": "2070 Kartik",
+      "duplicate_of": 5
+    },
+    {
+      "serial": 36,
+      "period_bs": "2070 Poush",
+      "duplicate_of": 7
+    },
+    {
+      "serial": 5,
+      "period_bs": "unknown Kartik",
+      "duplicate_of": 33,
+      "reason": "same_period"
+    },
+    {
+      "serial": 7,
+      "period_bs": "unknown Poush",
+      "reason": "no_catalog_agreement"
+    },
+    {
+      "serial": 35,
+      "period_bs": "2070 Mangsir",
+      "reason": "no_catalog_agreement"
     }
   ],
   "docs": [
@@ -312,7 +338,7 @@
     {
       "serial": 38,
       "period_bs": "2070 Falgun",
-      "header_period_bs": "2070 फागुन",
+      "header_period_bs": "2070 माघ",
       "doc_id": "90e151f065e5a9ca",
       "source_pdf_sha256": "90e151f065e5a9ca0390b57cf79d3fd3ce6bc61054faba495c4d3464b80b09c1",
       "wayback_url": "https://web.archive.org/web/20140801180250id_/http://dofe.gov.np/new/uploads/article/%E0%A5%A8%E0%A5%A6%E0%A5%AD%E0%A5%A6_%E0%A4%AB%E0%A4%BE%E0%A4%B2%E0%A5%8D%E0%A4%97%E0%A5%81%E0%A4%A8_%E0%A4%AE%E0%A4%B9%E0%A4%BF%E0%A4%A8%E0%A4%95%E0%A5%8B_%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%97%E0%A4%A4%E0%A4%BF_%E0%A4%AC%E0%A4%BF%E0%A4%B5%E0%A4%B0%E0%A4%A3.pdf",
@@ -342,7 +368,7 @@
     {
       "serial": 41,
       "period_bs": "2071 Jestha",
-      "header_period_bs": "2071 जेठ",
+      "header_period_bs": "",
       "doc_id": "687ed145f8599388",
       "source_pdf_sha256": "687ed145f85993885718c8b37c68b5c79cf70bfe97651c8b8e82adde87997867",
       "wayback_url": "https://web.archive.org/web/20140801182307id_/http://dofe.gov.np/new/uploads/article/jestha2071.pdf",
@@ -650,5 +676,7 @@
       "n_rows": 582
     }
   ],
-  "output": "datasets/labour-migration/panel_archive.csv.gz"
+  "n_rows_all": 94770,
+  "output": "datasets/labour-migration/panel_archive.csv.gz",
+  "output_unresolved": "datasets/labour-migration/panel_archive_unresolved.csv.gz"
 }

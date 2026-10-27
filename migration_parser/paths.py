@@ -29,6 +29,7 @@ MIGRATION_MANIFEST = MIGRATION_DIR / "manifests" / "migration_manifest.json"
 # --- Archive.org backfill (separate tracked panel; see cmd_archive_panel) ---
 MIGRATION_ARCHIVE_MANIFEST = MIGRATION_DIR / "manifests" / "migration_archive_manifest.json"
 MIGRATION_ARCHIVE_PANEL = MIGRATION_DIR / "panel_archive.csv.gz"
+MIGRATION_ARCHIVE_UNRESOLVED = MIGRATION_DIR / "panel_archive_unresolved.csv.gz"
 MIGRATION_ARCHIVE_BUILD = MIGRATION_DIR / "panel_archive_build.json"
 ARCHIVE_PANEL_COLUMNS = [
     "source_kind", "doc_id", "period_bs", "doc_type", "section", "row_type",

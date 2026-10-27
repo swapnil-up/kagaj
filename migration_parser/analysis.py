@@ -29,7 +29,8 @@ def load_panel(path: str | Path | None = None):
     import pandas as pd
 
     path = Path(path) if path else MIGRATION_DIR / "panel_canonical.csv.gz"
-    df = pd.read_csv(path, dtype={"count": "Int64", "sn": "string"})
+    df = pd.read_csv(path, dtype={"count": "Int64", "sn": "string"},
+                     low_memory=False)
     return df
 
 
@@ -38,7 +39,8 @@ def load_rollup(path: str | Path | None = None):
     import pandas as pd
 
     path = Path(path) if path else MIGRATION_DIR / "panel_rollup.csv.gz"
-    return pd.read_csv(path, dtype={"count": "Int64", "sn": "string"})
+    return pd.read_csv(path, dtype={"count": "Int64", "sn": "string"},
+                       low_memory=False)
 
 
 def period_windows(path: str | Path | None = None):

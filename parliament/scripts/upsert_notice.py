@@ -166,14 +166,14 @@ def upsert_notice(structured: dict, api_key: str, db_url: str, dry_run: bool = F
             print(f"[embed] done", file=sys.stderr)
         except EmbeddingQuotaError as e:
             print(f"[embed] quota exhausted: {e}", file=sys.stderr)
-            conn.commit()
+            conn.rollback()
             cur.close()
             conn.close()
             return "quota"
         except Exception as e:
             print(f"[embed] failed: {e}", file=sys.stderr)
-            print(f"[embed] notice '{title}' saved without embeddings (retry later)", file=sys.stderr)
-            conn.commit()
+            print(f"[embed] notice '{title}' left unchanged (retry later)", file=sys.stderr)
+            conn.rollback()
             cur.close()
             conn.close()
             return "no_embeddings"

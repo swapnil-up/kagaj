@@ -33,7 +33,7 @@ def ensure_report() -> Path:
     if path.exists() and path.stat().st_size > 1000:
         return path
     url = MIGRATION_REPORTS[REPORT]
-    r = requests.get(url, headers=HEADERS, timeout=180, verify=False)
+    r = requests.get(url, headers=HEADERS, timeout=180, verify=True)
     r.raise_for_status()
     path.write_bytes(r.content)
     print(f"downloaded {REPORT}: {len(r.content) / 1024:.0f} KB", file=sys.stderr)

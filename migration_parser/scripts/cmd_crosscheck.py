@@ -18,21 +18,42 @@ Checks (entity is country unless noted):
 Writes ``datasets/labour-migration/crosscheck.json``. Exits non-zero if any *comparable* check
 misses the tolerance.
 
-    python -m migration_parser crosscheck
+    python -m migration_parser crosscheck [--download]
 """
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import re
 import sys
 from collections import defaultdict
 
+import requests
+
 from .. import normalize
 from ..paths import MIGRATION_DIR, MIGRATION_OPENDATA_DIR
 
 OPENDATA = MIGRATION_OPENDATA_DIR
+OPENDATA_RESOURCES = {
+    "nepal-labor-migratio__labour-approvals-issued-through-recruitment-agencies-by-country-of-destination.csv":
+        "https://api.opendatanepal.com/dataset/7aa9ebbd-2520-4dbd-9d15-96f68af013cc/resource/"
+        "43226422-f414-4306-8c4b-68d39d51abce/download/"
+        "labour-approvals-issued-through-recruitment-agencies-by-country-of-destination.csv",
+    "nepal-labor-migratio__women-migrant-workers-renewing-labor-approvals.csv":
+        "https://api.opendatanepal.com/dataset/7aa9ebbd-2520-4dbd-9d15-96f68af013cc/resource/"
+        "e10f0162-94d8-48c1-a75e-f79b69663dd7/download/"
+        "women-migrant-workers-renewing-labor-approvals.csv",
+    "nepal-labor-migratio__labour-approvals-issued-by-skills-profile-and-destination.csv":
+        "https://api.opendatanepal.com/dataset/7aa9ebbd-2520-4dbd-9d15-96f68af013cc/resource/"
+        "5433911f-bc2a-484a-95b8-ce423c9986e5/download/"
+        "labour-approvals-issued-by-skills-profile-and-destination.csv",
+    "nepal-labor-migratio__new-individual-labour-approvals-issued-by-country-of-destination.csv":
+        "https://api.opendatanepal.com/dataset/7aa9ebbd-2520-4dbd-9d15-96f68af013cc/resource/"
+        "b85f142e-14b9-4c2c-a7d9-aa9d71bb9e68/download/"
+        "new-individual-labour-approvals-issued-by-country-of-destination.csv",
+}
 TOL = 0.005  # aggregate tolerance (0.5%)
 AGG_LABELS = {"others", "other", "other countries", "gcc countries", "gcc", "total"}
 
@@ -134,7 +155,30 @@ def run_check(chk: dict, panel: dict[tuple, int]) -> dict:
     }
 
 
+def download_opendata(log=print) -> None:
+    OPENDATA.mkdir(parents=True, exist_ok=True)
+    for name, url in OPENDATA_RESOURCES.items():
+        dest = OPENDATA / name
+        if dest.exists():
+            continue
+        r = requests.get(url, timeout=60, verify=True)
+        r.raise_for_status()
+        dest.write_bytes(r.content)
+        log(f"downloaded {dest.name} ({len(r.content) / 1e3:.1f} kB)")
+
+
 def main(argv: list[str] | None = None) -> int:
+    p = argparse.ArgumentParser(prog="migration crosscheck")
+    p.add_argument("--download", action="store_true",
+                   help="fetch the opendatanepal CSVs before checking")
+    args = p.parse_args(sys.argv[1:] if argv is None else argv)
+    if args.download:
+        download_opendata()
+    missing = [name for name in OPENDATA_RESOURCES if not (OPENDATA / name).exists()]
+    if missing:
+        print(f"error: missing opendatanepal CSVs in {OPENDATA}: {', '.join(missing)}; "
+              "rerun with --download", file=sys.stderr)
+        return 2
     panel = _panel_index()
     results = [run_check(c, panel) for c in CHECKS]
     fails = [r for r in results if r["comparable"] and r["status"] != "match"]

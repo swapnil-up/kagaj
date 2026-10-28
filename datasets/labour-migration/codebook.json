@@ -1,17 +1,17 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-28T07:01:47+0545",
+  "generated_at": "2026-10-28T10:03:30+0545",
   "build": {
-    "commit": "6d1e5ea5671acd8b9372b6f0f7711d553bd66ed0",
-    "describe": "6d1e5ea"
+    "commit": "55af9f60750a973e428bdeb732604d9a7a5180a4",
+    "describe": "55af9f6"
   },
   "datasets": {
-    "panel.csv": {
+    "panel.csv.gz": {
       "primary": false,
       "role": "raw",
-      "description": "Raw tidy-long panel exactly as extracted from the live DoFE wide tables and report annex tables.",
+      "description": "Raw tidy-long panel exactly as extracted from the live DoFE wide tables and report annex tables. Gzipped CSV.",
       "rows": 102744,
-      "sha256": "19ec22e7942597160e272a0fb18ae4644ddf72b7dfdd2ee086267ddfa283f7f3",
+      "sha256": "d25653ca4033e903c0c7f495f8d46b24ba28707d6d9c99a8266ecdcc0f3f8bb4",
       "columns": {
         "doc_id": "Source document id (DoFE content id, or report2020_annex_*, preapproval_0NN).",
         "period_bs": "Printed BS period as printed (year, or 'year month' for monthly reports).",

@@ -11,7 +11,7 @@ SCHEMA_VERSION = "1.0"
 # Column descriptions per dataset. Keys must match the actual header rows; the
 # build verifies this and fails loudly on drift.
 COLUMNS: dict[str, dict[str, str]] = {
-    "panel.csv": {
+    "panel.csv.gz": {
         "doc_id": "Source document id (DoFE content id, or report2020_annex_*, preapproval_0NN).",
         "period_bs": "Printed BS period as printed (year, or 'year month' for monthly reports).",
         "period_ad_start": "AD start date of the reporting window (ISO), when printed.",
@@ -154,8 +154,8 @@ COLUMNS: dict[str, dict[str, str]] = {
 
 # Dataset -> shipped filename, primary flag, description.
 DATASETS = {
-    "panel.csv": {"primary": False, "role": "raw", "description":
-        "Raw tidy-long panel exactly as extracted from the live DoFE wide tables and report annex tables."},
+    "panel.csv.gz": {"primary": False, "role": "raw", "description":
+        "Raw tidy-long panel exactly as extracted from the live DoFE wide tables and report annex tables. Gzipped CSV."},
     "panel_canonical.csv.gz": {"primary": True, "role": "canonical", "description":
         "Primary analysis dataset. Additive-only: component detail rows with canonical "
         "entities/channels/fiscal years and within-document typo-row merges applied. "

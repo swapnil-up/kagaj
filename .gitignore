@@ -17,6 +17,8 @@ parliament/.venv
 MIGRATION_NOTES.md
 .water-handoff.md
 
+# uncompressed working copy; the shipped artifact is panel.csv.gz
+datasets/labour-migration/panel.csv
 # generated normalised companions (rerun: python -m migration_parser.cli normalize)
 datasets/labour-migration/*_normalized.csv
 # generated reconciled panels (rerun: python -m migration_parser.cli reconcile)

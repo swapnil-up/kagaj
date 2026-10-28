@@ -19,6 +19,7 @@ Selection: ``--month``, ``--branch``, ``--limit``, ``--force`` (reprocess done).
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from datetime import datetime, timezone
@@ -45,12 +46,18 @@ def _download(url: str, dest: Path) -> Path:
         return dest
     dest.parent.mkdir(parents=True, exist_ok=True)
     resp = requests.get(
-        url, timeout=120, verify=False,
+        url, timeout=120, verify=True,
         headers={"User-Agent": "Mozilla/5.0 (compatible; water-parser/0.1)"},
     )
     resp.raise_for_status()
     dest.write_bytes(resp.content)
     return dest
+
+
+def _raw_path(entry: dict) -> Path:
+    source = Path(unquote(entry["filename"]))
+    url_tag = hashlib.sha1(entry["url"].encode()).hexdigest()[:8]
+    return paths.RAW_DIR / f"{_slug(source.stem)}-{url_tag}{source.suffix.lower()}"
 
 
 def _select(entries: list[dict], args) -> list[dict]:
@@ -104,11 +111,14 @@ def run(args) -> int:
 
 def _process_one(entry: dict, force: bool = False) -> None:
     filename = unquote(entry["filename"])
-    raw_path = paths.RAW_DIR / _slug(filename)
+    raw_path = _raw_path(entry)
     text_path = paths.TEXT_DIR / (_slug(raw_path.stem) + ".txt")
 
     regions = colmod.load_regions(paths.COLUMN_REGIONS)
     use_spatial = entry["kind"] == "pdf" and colmod.regions_for(regions, entry["branch"])
+
+    if force:
+        _invalidate_caches(entry, raw_path, text_path)
 
     if use_spatial:
         result = _extract_spatial(entry, raw_path, regions)
@@ -136,6 +146,18 @@ def _process_one(entry: dict, force: bool = False) -> None:
     flags = sum(len(z.get("review_flags") or []) for r in reservoirs for z in r.get("zones", []))
     print(f"[process]   → {len(reservoirs)} reservoirs, {zones} zones"
           + (f", {flags} flags" if flags else "") + f" → {out_path.name}")
+
+
+def _invalidate_caches(entry: dict, raw_path: Path, text_path: Path) -> None:
+    """Drop every downstream cache for one source, including the download."""
+    raw_path.unlink(missing_ok=True)
+    text_path.unlink(missing_ok=True)
+    paths.OCR_DIR.mkdir(parents=True, exist_ok=True)
+    (paths.OCR_DIR / f"{raw_path.stem}.ocr.json").unlink(missing_ok=True)
+    render_dir = paths.RENDER_DIR / _slug(entry["branch"])
+    if render_dir.exists():
+        for page in render_dir.glob(f"{raw_path.stem}_page*.png"):
+            page.unlink(missing_ok=True)
 
 
 def _extract_spatial(entry: dict, raw_path: Path, regions: dict) -> dict:

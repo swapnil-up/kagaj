@@ -8,10 +8,8 @@ Renders each selected PDF manifest entry at 300 dpi into
 from __future__ import annotations
 
 import json
-from urllib.parse import unquote
-
 from .. import paths, render
-from .cmd_process import _download, _slug
+from .cmd_process import _download, _raw_path
 
 
 def run(args) -> int:
@@ -39,7 +37,7 @@ def run(args) -> int:
         if existing and not args.force:
             print(f"[render] {entry['branch']}: {len(existing)} pages cached")
             continue
-        raw_path = paths.RAW_DIR / _slug(unquote(entry["filename"]))
+        raw_path = _raw_path(entry)
         if not raw_path.exists():
             _download(entry["url"], raw_path)
         print(f"[render] {entry['branch']} → {out_dir.relative_to(paths.REPO_ROOT)}")

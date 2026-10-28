@@ -20,8 +20,14 @@ def flag_zone(zone: dict, columns: set[str] | None = None) -> list[str]:
         flags.append("days_missing")
     if want("dma") and not zone.get("dma"):
         flags.append("dma_missing")
-    if want("areas") and len(zone.get("areas_np") or []) < MIN_AREAS and len(zone.get("areas_en") or []) < MIN_AREAS:
+    areas_np = zone.get("areas_np") or []
+    areas_en = zone.get("areas_en") or []
+    if want("areas") and len(areas_np) < MIN_AREAS and len(areas_en) < MIN_AREAS:
         flags.append("areas_missing")
+    if want("areas") and areas_np and (
+            len(areas_en) != len(areas_np)
+            or any(not str(a).strip() for a in areas_en)):
+        flags.append("areas_translation_missing")
     if want("time", "time_from", "time_to") and zone.get("crosses_midnight") is None and not zone.get("time_from"):
         flags.append("time_missing")
     return sorted(set(flags))

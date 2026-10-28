@@ -36,8 +36,8 @@ def get_embeddings(texts: list[str], api_key: str) -> list[list[float]]:
     for i, text in enumerate(texts):
         resp = requests.post(
             f"{GEMINI_API}/{EMBED_MODEL}:embedContent",
-            headers={"Content-Type": "application/json"},
-            params={"key": api_key},
+            headers={"Content-Type": "application/json",
+                     "x-goog-api-key": api_key},
             json={
                 "model": f"models/{EMBED_MODEL}",
                 "content": {"parts": [{"text": text}]},

@@ -44,10 +44,12 @@ from config import (
     REQUEST_TIMEOUT,
     RETRY_DELAY,
     VERBATIMS_MANIFEST,
+    tls_verify,
     load_env,
 )
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+if not tls_verify():
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 LIST_URL = NA_LIST_URL
 ATTACH_BASE = NA_ATTACH_BASE
@@ -83,7 +85,7 @@ def load_manifest() -> list:
 def save_manifest(verbatims: list):
     for i, v in enumerate(verbatims, 1):
         v["serial"] = f"{i}."
-    MANIFEST.write_text(json.dumps(verbatims, indent=2, ensure_ascii=False))
+    MANIFEST.write_text(json.dumps(verbatims, indent=2, ensure_ascii=False) + "\n")
     print(f"[manifest] wrote {len(verbatims)} entries", file=sys.stderr)
 
 
@@ -91,7 +93,7 @@ def fetch_with_retry(url: str) -> requests.Response | None:
     last_err = None
     for attempt in range(MAX_RETRIES):
         try:
-            resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=False)
+            resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=tls_verify())
             resp.raise_for_status()
             return resp
         except requests.exceptions.RequestException as e:

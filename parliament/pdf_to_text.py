@@ -131,8 +131,8 @@ def translate_lines(lines: list, api_key: str) -> list:
 
     resp = requests.post(
         f"{GEMINI_API}/{GEMINI_MODEL}:generateContent",
-        headers={"Content-Type": "application/json"},
-        params={"key": api_key},
+        headers={"Content-Type": "application/json",
+                 "x-goog-api-key": api_key},
         json={
             "system_instruction": {"parts": [{"text": "You are an expert bilingual administrative translator. Output plain English in natural SVO order."}]},
             "contents": [{"parts": [{"text": prompt}]}],

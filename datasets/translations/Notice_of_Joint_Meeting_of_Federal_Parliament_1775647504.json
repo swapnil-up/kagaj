@@ -1,0 +1,59 @@
+{
+  "full_translation_en": "Federal Parliament\nNotice Paper - 4\nNepal\nWednesday, Chaitra 25, 2082\nJoint Meeting\nInformation regarding the convening of a joint meeting\nAs per Article 94 of the Constitution of Nepal, the Right Honourable Ram Chandra Paudel, President, has convened a joint meeting of both houses of the Federal Parliament on Chaitra 27, 2082, at 3:00 PM for the purpose of addressing the Federal Parliament. This notice is published for the information of the members of the Federal Parliament.\nFurthermore, all members of the House of Representatives and the National Assembly are requested to be present in their respective seats in the Parliament House, Singha Durbar, by 2:45 PM on the said day for the joint meeting.\nPadma Prasad Pandey\nSecretary-General",
+  "session": {
+    "date_bs": "2082-04-12",
+    "date_ad": "2025-04-09",
+    "meeting_type": "Joint Meeting",
+    "meeting_number": null,
+    "chairperson": "Ram Chandra Paudel"
+  },
+  "sections": [
+    {
+      "name": "Convening of Joint Meeting",
+      "summary_en": "A joint meeting of both houses of the Federal Parliament has been convened by the President as per Article 94 of the Constitution. Members are informed of this upcoming address.",
+      "speakers": [],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Joint session of Federal Parliament",
+        "Presidential address"
+      ]
+    },
+    {
+      "name": "Request for Attendance",
+      "summary_en": "Members of the House of Representatives and the National Assembly are requested to be present in their seats by 2:45 PM on the day of the joint meeting.",
+      "speakers": [],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Attendance requirement",
+        "Parliamentary procedure"
+      ]
+    }
+  ],
+  "agenda_tags": [
+    "Federal Parliament",
+    "Joint Meeting",
+    "Presidential Address",
+    "Constitution of Nepal",
+    "Parliamentary Convening",
+    "House of Representatives",
+    "National Assembly",
+    "Meeting Notice"
+  ],
+  "ministries_mentioned": [],
+  "all_speakers_mentioned": [
+    {
+      "name": "Ram Chandra Paudel",
+      "party": null,
+      "section": "Convening of Joint Meeting"
+    },
+    {
+      "name": "Padma Prasad Pandey",
+      "party": null,
+      "section": "Request for Attendance"
+    }
+  ],
+  "adjournment_time": null,
+  "next_meeting_date": null
+}

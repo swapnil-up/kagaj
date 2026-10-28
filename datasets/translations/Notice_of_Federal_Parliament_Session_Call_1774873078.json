@@ -1,0 +1,58 @@
+{
+  "full_translation_en": "House of Representatives Secretariat, Parliament, Kathmandu, Singhdarbar. Urgent notice regarding the convening of the session of the Federal Parliament. His Excellency the President, Ram Chandra Paudel, in accordance with Article 93, Sub-section (1) of the Constitution of Nepal, has convened the session of the Federal Parliament on Thursday, Chaitra 9, 2081 BS, at 2:00 PM. I hereby request the honorable members to attend the session. Venue: National Assembly, Parliament Secretariat Building, Singhdarbar. Venue: Multi-purpose Hall, National Assembly, Singhdarbar. (Padma Prasad Pandey) Secretary-General.",
+  "session": {
+    "date_bs": "2081-09-09",
+    "date_ad": "2024-03-21",
+    "meeting_type": "House of Representatives",
+    "meeting_number": null,
+    "chairperson": null
+  },
+  "sections": [
+    {
+      "name": "Opening",
+      "summary_en": "An urgent notice is issued by the Secretariat of the Federal Parliament, Kathmandu, Singhdarbar. His Excellency the President, Ram Chandra Paudel, has convened the session of the Federal Parliament on Thursday, Chaitra 9, 2081 BS, at 2:00 PM, as per the Constitution of Nepal.",
+      "speakers": [],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Convening of Parliament Session"
+      ]
+    },
+    {
+      "name": "Main Business",
+      "summary_en": "The notice requests the honorable members to attend the convened session. The venue for the session is specified as the National Assembly, Parliament Secretariat Building, Singhdarbar, and also the Multi-purpose Hall, National Assembly, Singhdarbar.",
+      "speakers": [],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Parliament Session Attendance",
+        "Venue Information"
+      ]
+    }
+  ],
+  "agenda_tags": [
+    "Parliament Session",
+    "Convening Notice",
+    "Presidential Order",
+    "Constitution of Nepal",
+    "Legislative Business",
+    "Parliament Secretariat",
+    "Singhdarbar",
+    "Meeting Schedule"
+  ],
+  "ministries_mentioned": [],
+  "all_speakers_mentioned": [
+    {
+      "name": "Ram Chandra Paudel",
+      "party": null,
+      "section": "Opening"
+    },
+    {
+      "name": "Padma Prasad Pandey",
+      "party": null,
+      "section": "Main Business"
+    }
+  ],
+  "adjournment_time": null,
+  "next_meeting_date": null
+}

@@ -1645,9 +1645,9 @@
     "pdf_url": "https://hr.parliament.gov.np/uploads/attachments/negszcmzmddzecwe.pdf",
     "status": "done",
     "scraped_at": "2026-07-25",
-    "ocr_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament-ocr.txt",
-    "translated_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament.txt",
-    "structured_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament.json"
+    "ocr_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament_1778223048-ocr.txt",
+    "translated_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament_1778223048.txt",
+    "structured_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament_1778223048.json"
   },
   {
     "serial": "153.",
@@ -1656,9 +1656,9 @@
     "pdf_url": "https://hr.parliament.gov.np/uploads/attachments/hosjls71sskosnyh.pdf",
     "status": "done",
     "scraped_at": "2026-07-25",
-    "ocr_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call-ocr.txt",
-    "translated_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call.txt",
-    "structured_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call.json"
+    "ocr_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call_1777975645-ocr.txt",
+    "translated_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call_1777975645.txt",
+    "structured_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call_1777975645.json"
   },
   {
     "serial": "154.",
@@ -1810,9 +1810,9 @@
     "pdf_url": "https://hr.parliament.gov.np/uploads/attachments/atzvilvxqqptdyln.pdf",
     "status": "done",
     "scraped_at": "2026-07-25",
-    "ocr_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament-ocr.txt",
-    "translated_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament.txt",
-    "structured_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament.json"
+    "ocr_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament_1775647504-ocr.txt",
+    "translated_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament_1775647504.txt",
+    "structured_path": "datasets/translations/Notice_of_Joint_Meeting_of_Federal_Parliament_1775647504.json"
   },
   {
     "serial": "168.",
@@ -1953,9 +1953,9 @@
     "pdf_url": "https://hr.parliament.gov.np/uploads/attachments/tmey6lfgg5tlkdzy.pdf",
     "status": "done",
     "scraped_at": "2026-07-25",
-    "ocr_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call-ocr.txt",
-    "translated_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call.txt",
-    "structured_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call.json"
+    "ocr_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call_1774873078-ocr.txt",
+    "translated_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call_1774873078.txt",
+    "structured_path": "datasets/translations/Notice_of_Federal_Parliament_Session_Call_1774873078.json"
   },
   {
     "serial": "181.",

@@ -104,12 +104,16 @@ def extract_pdf(pdf_path: str, max_pages: int | None = None,
 
     # Populate font-scoped CID maps if store provided.
     if cid_map is not None:
-        FONT_CID_MAPS["Kalimati"] = cid_map
-        decode = lambda text: decode_text(text, font="Kalimati")
+        # The store loader only admits values that every observed font subset
+        # agrees on, so this is a font-agnostic fallback — not a claim that the
+        # document uses Kalimati.
+        FONT_CID_MAPS[""] = cid_map
+        decode = lambda text: decode_text(text, font="")
     else:
         decode = fix_text
 
     all_rows: list[BudgetRow] = []
+    unknown_glyphs = 0
     # Continuation pages inherit scale from first detail page.
     current_scale = 1
     first_detail_page = None
@@ -122,6 +126,7 @@ def extract_pdf(pdf_path: str, max_pages: int | None = None,
         raw_text = extract_page_text(doc, pno)
         fixed_text = decode(raw_text)
         fixed_text = sanitize_devanagari(fixed_text)
+        unknown_glyphs += fixed_text.count("⟦")
 
         page_scale = detect_scale(fixed_text)
         if page_scale != 1 or first_detail_page is None:
@@ -135,6 +140,11 @@ def extract_pdf(pdf_path: str, max_pages: int | None = None,
 
     if progress:
         sys.stderr.write("\n")
+    if unknown_glyphs:
+        sys.stderr.write(
+            f"[warning] {unknown_glyphs} unmapped glyph marker(s) kept in output; "
+            "run `cidmap census`/`review` to resolve them\n")
+        sys.stderr.flush()
 
     infer_sections(all_rows)
 

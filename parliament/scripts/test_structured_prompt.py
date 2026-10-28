@@ -41,8 +41,8 @@ def call_gemini_structured(ocr_text: str, api_key: str) -> dict:
 
     resp = requests.post(
         f"{GEMINI_API}/{GEMINI_MODEL}:generateContent",
-        headers={"Content-Type": "application/json"},
-        params={"key": api_key},
+        headers={"Content-Type": "application/json",
+                 "x-goog-api-key": api_key},
         json={
                 "system_instruction": {
                     "parts": [{"text": GEMINI_SYSTEM_INSTRUCTION}]

@@ -60,7 +60,7 @@ CREATE INDEX IF NOT EXISTS idx_chunks_embedding ON chunks
 CREATE TABLE IF NOT EXISTS verbatims (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     na_id INT UNIQUE,
-    title TEXT UNIQUE,
+    title TEXT,
     title_np TEXT,
     published_at DATE,
     date_bs TEXT,
@@ -117,6 +117,9 @@ CREATE TABLE IF NOT EXISTS dda_medicines (
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+ALTER TABLE IF EXISTS verbatims DROP CONSTRAINT IF EXISTS verbatims_title_key;
+CREATE INDEX IF NOT EXISTS idx_verbatims_source_pdf ON verbatims(source_pdf);
 
 CREATE INDEX IF NOT EXISTS idx_dda_medicines_drug_name ON dda_medicines(drug_name_en);
 CREATE INDEX IF NOT EXISTS idx_dda_medicines_strength ON dda_medicines(strength);

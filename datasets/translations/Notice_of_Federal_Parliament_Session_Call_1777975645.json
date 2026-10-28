@@ -1,0 +1,66 @@
+{
+  "full_translation_en": "Parliamentary Secretariat\nFederal Parliament\nKathmandu, Singhdarbar\nUrgent Notice Regarding the Convening of the Session of the Federal Parliament\n\nAs per the request of the Right Honourable President, Ram Chandra Paudel, in accordance with Article 93, Sub-section (1) of the Constitution of Nepal, I hereby convene the session of the Federal Parliament on Monday, Baishakh 28, 2081 BS at 9:00 AM.\n\nDetails:\n\nPlace: House of Representatives Hall (Multipurpose Hall), Federal Parliament Building, Singhdarbar.\n\nDate: Monday, Baishakh 28, 2081 BS\n\nTime: 9:00 AM\n\n\n\n(Pang Prasad Pandey)\nSecretary-General\nFederal Parliament Secretariat\nFederal Parliament",
+  "session": {
+    "date_bs": "2081-02-28",
+    "date_ad": "2024-05-13",
+    "meeting_type": "House of Representatives",
+    "meeting_number": null,
+    "chairperson": "Ram Chandra Paudel"
+  },
+  "sections": [
+    {
+      "name": "Opening",
+      "summary_en": "An urgent notice is issued by the Federal Parliament Secretariat, Kathmandu, Singhdarbar, announcing the convening of the Federal Parliament session. The session is called by the Right Honourable President, Ram Chandra Paudel, as per Article 93, Sub-section (1) of the Constitution of Nepal.",
+      "speakers": [],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Convening of Federal Parliament Session"
+      ]
+    },
+    {
+      "name": "Details",
+      "summary_en": "The notice specifies the location as the House of Representatives Hall (Multipurpose Hall) in the Federal Parliament Building, Singhdarbar. The session is scheduled for Monday, Baishakh 28, 2081 BS, at 9:00 AM.",
+      "speakers": [],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Session Date",
+        "Session Time",
+        "Session Location"
+      ]
+    },
+    {
+      "name": "Closing",
+      "summary_en": "The notice is signed by Pang Prasad Pandey, Secretary-General of the Federal Parliament Secretariat.",
+      "speakers": [],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": []
+    }
+  ],
+  "agenda_tags": [
+    "Parliament Session",
+    "Convening Notice",
+    "House of Representatives",
+    "Constitution of Nepal",
+    "Presidential Order",
+    "Parliamentary Secretariat",
+    "Meeting Schedule"
+  ],
+  "ministries_mentioned": [],
+  "all_speakers_mentioned": [
+    {
+      "name": "Ram Chandra Paudel",
+      "party": null,
+      "section": "Opening"
+    },
+    {
+      "name": "Pang Prasad Pandey",
+      "party": null,
+      "section": "Closing"
+    }
+  ],
+  "adjournment_time": null,
+  "next_meeting_date": null
+}

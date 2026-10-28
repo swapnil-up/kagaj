@@ -796,9 +796,9 @@ def test_normalize_name_dispatch():
 
 def test_every_panel_name_is_covered_by_reference_data():
     """Guard: any raw name in the shipped panel must resolve to an entity."""
-    panel = Path(__file__).resolve().parents[1] / "datasets" / "labour-migration" / "panel.csv"
+    from migration_parser.paths import open_csv, panel_source
     missing = []
-    with panel.open(newline="", encoding="utf-8") as f:
+    with open_csv(panel_source(), newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             if row["row_type"] != "detail":
                 continue
@@ -847,9 +847,9 @@ def test_canonical_channel_unknown_is_passthrough():
 
 
 def test_every_panel_channel_is_mapped():
-    panel = Path(__file__).resolve().parents[1] / "datasets" / "labour-migration" / "panel.csv"
+    from migration_parser.paths import open_csv, panel_source
     unknown = set()
-    with panel.open(newline="", encoding="utf-8") as f:
+    with open_csv(panel_source(), newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             if normalize.canonical_channel(row["channel"])["class"] == "unknown":
                 unknown.add(row["channel"])
@@ -952,6 +952,48 @@ def test_opendata_country_aliases():
     assert normalize.canonical_country("UAE")["name"] == "United Arab Emirates"
 
 
+def test_crosscheck_without_inputs_reports_download_hint(tmp_path, monkeypatch, capsys):
+    from migration_parser.scripts import cmd_crosscheck as cc
+    monkeypatch.setattr(cc, "OPENDATA", tmp_path / "opendatanepal")
+    assert cc.main([]) == 2
+    assert "--download" in capsys.readouterr().err
+
+
+def test_crosscheck_download_fetches_all_resources(tmp_path, monkeypatch):
+    from migration_parser.scripts import cmd_crosscheck as cc
+
+    class Resp:
+        content = b"a,b\n1,2\n"
+        def raise_for_status(self):
+            pass
+
+    urls = []
+    def fake_get(url, **kwargs):
+        urls.append(url)
+        assert kwargs["verify"] is True
+        return Resp()
+
+    monkeypatch.setattr(cc, "OPENDATA", tmp_path / "opendatanepal")
+    monkeypatch.setattr(cc.requests, "get", fake_get)
+    cc.download_opendata(log=lambda *_: None)
+    assert set(urls) == set(cc.OPENDATA_RESOURCES.values())
+    for name in cc.OPENDATA_RESOURCES:
+        assert (tmp_path / "opendatanepal" / name).read_bytes() == Resp.content
+
+
+def test_provenance_keeps_existing_attestation_without_cached_pdfs(tmp_path, monkeypatch):
+    from migration_parser.scripts import cmd_provenance as prov
+    att = tmp_path / "source_attestation.json"
+    original = '{"docs": [{"serial": 1, "text_sha256": "x"}]}\n'
+    att.write_text(original)
+    monkeypatch.setattr(prov, "ATTESTATION", att)
+    monkeypatch.setattr(prov, "MIGRATION_DIR", tmp_path)
+    monkeypatch.setattr(prov.process, "load_manifest", lambda: [{"serial": 1, "doc_id": "1"}])
+    monkeypatch.setattr(prov.process, "pdf_path", lambda e: tmp_path / "missing.pdf")
+    assert prov.main([]) == 0
+    assert att.read_text() == original
+
+
 # ---- packaging / build -----------------------------------------------------
 
 def test_codebook_columns_match_shipped_headers():
@@ -976,6 +1018,31 @@ def test_build_gunzip_is_deterministic(tmp_path, monkeypatch):
     first = out.read_bytes()
     assert gzip.decompress(first) == payload
     assert cmd_build.gunzip_panel().read_bytes() == first  # mtime=0 -> stable
+
+
+def test_build_keeps_existing_gzip_without_source(tmp_path, monkeypatch):
+    import gzip
+    from migration_parser.scripts import cmd_build
+    monkeypatch.setattr(cmd_build, "MIGRATION_DIR", tmp_path)
+    dst = tmp_path / "panel.csv.gz"
+    with gzip.open(dst, "wb") as f:
+        f.write(b"a,b\n1,2\n")
+
+    assert cmd_build.gunzip_panel("panel.csv", "panel.csv.gz") == dst
+    with gzip.open(dst, "rt", encoding="utf-8") as f:
+        assert f.read() == "a,b\n1,2\n"
+
+
+def test_panel_source_prefers_working_csv(tmp_path, monkeypatch):
+    import gzip
+    from migration_parser import paths
+    monkeypatch.setattr(paths, "MIGRATION_DIR", tmp_path)
+    gz = tmp_path / "panel.csv.gz"
+    with gzip.open(gz, "wt", encoding="utf-8") as f:
+        f.write("a\n1\n")
+    assert paths.panel_source() == gz
+    (tmp_path / "panel.csv").write_text("a\n2\n")
+    assert paths.panel_source() == tmp_path / "panel.csv"
 
 
 # ---- canonical safety / packaging invariants -------------------------------

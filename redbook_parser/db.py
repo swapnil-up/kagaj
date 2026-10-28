@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS budget (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     page INTEGER,
     code TEXT,
+    section TEXT,
     description TEXT,
     source TEXT,
     nikasa_vidhi TEXT,
@@ -41,6 +42,8 @@ def write_db(rows: list[BudgetRow], page_texts: list[str] | None,
     """Write rows (and optional per-page raw text) to a fresh SQLite DB."""
     if os.path.exists(db_path):
         os.remove(db_path)
+    parent = os.path.dirname(os.path.abspath(db_path))
+    os.makedirs(parent, exist_ok=True)
 
     conn = sqlite3.connect(db_path)
     cur = conn.cursor()
@@ -50,13 +53,13 @@ def write_db(rows: list[BudgetRow], page_texts: list[str] | None,
         cur.execute(
             f"""
             INSERT INTO budget (
-                page, code, description, source, nikasa_vidhi,
+                page, code, section, description, source, nikasa_vidhi,
                 {", ".join(AMOUNT_FIELDS)},
                 {", ".join(CODE_FIELDS)},
                 is_total, row_type
-            ) VALUES ({", ".join(["?"] * (5 + len(AMOUNT_FIELDS) + len(CODE_FIELDS) + 2))})
+            ) VALUES ({", ".join(["?"] * (6 + len(AMOUNT_FIELDS) + len(CODE_FIELDS) + 2))})
             """,
-            (row.page, row.code, row.description, row.source, row.nikasa_vidhi,
+            (row.page, row.code, row.section, row.description, row.source, row.nikasa_vidhi,
              *(row.amount(c) for c in AMOUNT_FIELDS),
              *(getattr(row, c) for c in CODE_FIELDS),
              1 if row.is_total else 0, row.row_type),
@@ -78,7 +81,7 @@ def read_rows(db_path: str) -> list[BudgetRow]:
     cur = conn.cursor()
     cur.execute(
         f"""
-        SELECT page, code, description, source, nikasa_vidhi,
+        SELECT page, code, section, description, source, nikasa_vidhi,
                {", ".join(AMOUNT_FIELDS)},
                {", ".join(CODE_FIELDS)},
                is_total, row_type
@@ -87,7 +90,8 @@ def read_rows(db_path: str) -> list[BudgetRow]:
     )
     rows = []
     for r in cur.fetchall():
-        row = BudgetRow(page=r["page"], code=r["code"], description=r["description"],
+        row = BudgetRow(page=r["page"], code=r["code"], section=r["section"] or "",
+                        description=r["description"],
                         source=r["source"], nikasa_vidhi=r["nikasa_vidhi"],
                         is_total=bool(r["is_total"]), row_type=r["row_type"])
         for c in AMOUNT_FIELDS:

@@ -19,6 +19,10 @@ from config import load_env
 
 
 def upsert_medicines(structured: dict, db_url: str, dry_run: bool = False):
+    if "drugs" not in structured:
+        print(f"[skip] not a DDA document: {structured.get('_source_file', '?')}",
+              file=sys.stderr)
+        return
     source = structured.get("source", {})
     source_title = source.get("title", "unknown")
     source_type = source.get("document_type", "unknown")
@@ -37,7 +41,10 @@ def upsert_medicines(structured: dict, db_url: str, dry_run: bool = False):
     
     conn = psycopg.connect(db_url)
     cur = conn.cursor()
-    
+
+    # Reprocessing a document must replace its rows, not append duplicates.
+    cur.execute("DELETE FROM dda_medicines WHERE source_file = %s", (source_file,))
+
     upserted = 0
     for drug in drugs:
         drug_name_en = drug.get("drug_name_en")

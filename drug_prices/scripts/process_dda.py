@@ -67,7 +67,7 @@ def download_file(url: str, dest: Path) -> bool:
     for attempt in range(MAX_RETRIES):
         try:
             resp = requests.get(
-                url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=False, stream=True
+                url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=True, stream=True
             )
             resp.raise_for_status()
             dest.parent.mkdir(parents=True, exist_ok=True)
@@ -113,8 +113,8 @@ def call_gemini(ocr_text: str, api_key: str, budget: int | None = None) -> dict:
 
     resp = requests.post(
         f"{GEMINI_API}/{GEMINI_MODEL}:generateContent",
-        headers={"Content-Type": "application/json"},
-        params={"key": api_key},
+        headers={"Content-Type": "application/json",
+                 "x-goog-api-key": api_key},
         json=payload,
         timeout=120,
     )
@@ -142,13 +142,13 @@ def ocr_entry(dest: Path, source_type: str) -> str:
     if source_type == "pdf":
         png_paths = render_pdf(dest, outdir=DDA_OUTPUT_DIR)
         print(f"  rendered {len(png_paths)} pages", file=sys.stderr)
-        for png_path in png_paths:
-            lines = ocr_image(png_path)
+        for page, png_path in enumerate(png_paths, 1):
+            lines = ocr_image(png_path, page=page)
             ocr_lines.extend(lines)
             print(f"  OCR {png_path.name}: {len(lines)} lines", file=sys.stderr)
     else:
         # JPG/PNG — OCR directly
-        lines = ocr_image(dest)
+        lines = ocr_image(dest, page=1)
         ocr_lines.extend(lines)
         print(f"  OCR {dest.name}: {len(lines)} lines", file=sys.stderr)
 
@@ -201,7 +201,7 @@ def process_one(entries: list, index: int, api_key: str) -> bool:
         try:
             result = call_gemini(ocr_text, api_key, budget=budget)
             break
-        except RuntimeError as e:
+        except (RuntimeError, requests.exceptions.RequestException) as e:
             err_type = _classify_gemini_error(e)
             if err_type == "rpd":
                 print("  [quota] daily limit reached, stopping", file=sys.stderr)

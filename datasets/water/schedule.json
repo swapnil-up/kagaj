@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T15:18:22+00:00",
+  "generated_at": "2026-10-28T03:13:50+00:00",
   "source": "https://kukl.org.np/downloads/water-distribution-schedule",
   "branches": [
     {
@@ -35,11 +35,11 @@
                 "जञान धारा आसपासका कषे्रहर"
               ],
               "areas_en": [
-                "जानेस्वोर",
-                "भैरब मन्दर",
-                "कालोपुल",
-                "शहिद मार्ग",
-                "जञान धारा आसपासका कषे्रहर"
+                "Janeswor",
+                "Bhairab Mandar",
+                "Kalopul",
+                "Shahid Marg",
+                "Gyan Dhara Aaspasaka Kshetrahru"
               ],
               "contacts": [
                 "धन",
@@ -54,7 +54,12 @@
                 "भैरब मन्दर",
                 "कालोपुल",
                 "शहिद मार्ग",
-                "जञान धारा आसपासका कषे्रहर"
+                "जञान धारा आसपासका कषे्रहर",
+                "Janeswor",
+                "Bhairab Mandar",
+                "Kalopul",
+                "Shahid Marg",
+                "Gyan Dhara Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -83,17 +88,17 @@
                 "रुद्मती मार्ग आसपासका क्ेत्रहर"
               ],
               "areas_en": [
-                "गौशाला चोक - रातोपुल पशुपति सडकको दक्षिण",
-                "रातोपुल - सेतोपुल",
-                "बागमती कोरिडोर पुर्व",
-                "सेतोपुल - पुरानो बानेश्वर चोक बाबुराम आचार्य",
-                "सडक उत्तर",
-                "बत्तीसपुतली सडकको पश्चिम -रातोपुल",
-                "रुद्नगर",
-                "ज्योत मार्ग",
-                "बम मार्ग",
-                "रामचन्द्र मार्ग",
-                "रुद्मती मार्ग आसपासका क्ेत्रहर"
+                "Gaushala Chok - Rato Pul Pashupati Sadak ko Dakshin",
+                "Rato Pul - Seto Pul",
+                "Bagmati Corridor Purva",
+                "Seto Pul - Purano Baneshwor Chok Baburam Acharya",
+                "Sadak Uttar",
+                "Battisputali Sadak ko Pashchim - Rato Pul",
+                "Rudranagar",
+                "Jyot Marg",
+                "Bam Marg",
+                "Ramchandra Marg",
+                "Rudramati Marg Aaspasaka Kshetrahru"
               ],
               "contacts": [
                 "बिमला भट्टराई घिमिरे: 9843670844",
@@ -113,7 +118,18 @@
                 "ज्योत मार्ग",
                 "बम मार्ग",
                 "रामचन्द्र मार्ग",
-                "रुद्मती मार्ग आसपासका क्ेत्रहर"
+                "रुद्मती मार्ग आसपासका क्ेत्रहर",
+                "Gaushala Chok - Rato Pul Pashupati Sadak ko Dakshin",
+                "Rato Pul - Seto Pul",
+                "Bagmati Corridor Purva",
+                "Seto Pul - Purano Baneshwor Chok Baburam Acharya",
+                "Sadak Uttar",
+                "Battisputali Sadak ko Pashchim - Rato Pul",
+                "Rudranagar",
+                "Jyot Marg",
+                "Bam Marg",
+                "Ramchandra Marg",
+                "Rudramati Marg Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -154,29 +170,29 @@
                 "बिजुली बजार आसपासका क्षत्रहर"
               ],
               "areas_en": [
-                "सहभागिता मार्ग दक्षिणका क्षत्रहरु",
-                "लाखे चौर मार्ग",
-                "फुल चोकी माइमार्ग",
-                "नब",
-                "सिर्जना मार्ग",
-                "सन्तोष मार्ग",
-                "थापा गाउँ",
-                "सि.डी.ओ. टोल",
-                "पुस्पनगर",
-                "मार्ग",
-                "विनायक मार्ग",
-                "बुलबुले मार्ग",
-                "भक्त थापा सडक दायाँ बायाँ",
-                "आदर्श",
-                "सरस्वती मार्ग",
-                "बोगटी मार्ग",
-                "कान्त गल्ल",
-                "ओखरबोट मार्ग",
-                "मनकामना",
-                "माई मार्ग",
-                "नया मार्ग",
-                "छक्कु बक्कु मार्ग",
-                "बिजुली बजार आसपासका क्षत्रहर"
+                "Sahabhagita Marg Dakshin ka Kshetrahru",
+                "Lakhe Chaur Marg",
+                "Phul Choki Mai Marg",
+                "Nab",
+                "Sirjana Marg",
+                "Santosh Marg",
+                "Thapa Gaun",
+                "C.D.O. Tol",
+                "Pushpanagar",
+                "Marg",
+                "Binayak Marg",
+                "Bulbule Marg",
+                "Bhakt Thapa Sadak Daya Baya",
+                "Adarsha",
+                "Saraswati Marg",
+                "Bogati Marg",
+                "Kanta Galli",
+                "Okhrebot Marg",
+                "Manakamana",
+                "Mai Marg",
+                "Naya Marg",
+                "Chhakku Bakku Marg",
+                "Bijuli Bazar Aaspasaka Kshetrahru"
               ],
               "contacts": [
                 "बिमला भट्टराई घिमिरे: 9843670844"
@@ -207,7 +223,30 @@
                 "माई मार्ग",
                 "नया मार्ग",
                 "छक्कु बक्कु मार्ग",
-                "बिजुली बजार आसपासका क्षत्रहर"
+                "बिजुली बजार आसपासका क्षत्रहर",
+                "Sahabhagita Marg Dakshin ka Kshetrahru",
+                "Lakhe Chaur Marg",
+                "Phul Choki Mai Marg",
+                "Nab",
+                "Sirjana Marg",
+                "Santosh Marg",
+                "Thapa Gaun",
+                "C.D.O. Tol",
+                "Pushpanagar",
+                "Marg",
+                "Binayak Marg",
+                "Bulbule Marg",
+                "Bhakt Thapa Sadak Daya Baya",
+                "Adarsha",
+                "Saraswati Marg",
+                "Bogati Marg",
+                "Kanta Galli",
+                "Okhrebot Marg",
+                "Manakamana",
+                "Mai Marg",
+                "Naya Marg",
+                "Chhakku Bakku Marg",
+                "Bijuli Bazar Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -241,22 +280,22 @@
                 "आसपासका क्षेत्रहरु"
               ],
               "areas_en": [
-                "पुरानो बानेश्र चोक -सेतो पुल दक्षण",
-                "टंकप्रसाद मार्ग",
-                "रोहिणी मार्ग",
-                "हात्तीगौडा मार्ग",
-                "बानेश्र हाईट",
-                "नारायनेश्वर मार्ग",
-                "पिपलबोट मार्ग",
-                "पुजा",
-                "प्रतिष्ठान मार्ग",
-                "देवीनगर",
-                "मदन भण्डारी कलेजका क्षे्रहरु",
-                "ओम शाही मार्ग",
-                "भेनश हस्पटल पछाडी",
-                "महादेवस्थान मार्ग",
-                "सहभागिता मार्गको उत्तर तर्फ",
-                "आसपासका क्षेत्रहरु"
+                "Purano Baneshwor Chok - Seto Pul Dakshin",
+                "Tankaprasad Marg",
+                "Rohini Marg",
+                "Hattigaunda Marg",
+                "Baneshwor Height",
+                "Narayaneshwor Marg",
+                "Pipalbot Marg",
+                "Puja",
+                "Pratishthan Marg",
+                "Devinagar",
+                "Madan Bhandari College ka Kshetrahru",
+                "Om Shahi Marg",
+                "Venus Hospital Pachadi",
+                "Mahadevsthan Marg",
+                "Sahabhagita Marg ko Uttar Taraf",
+                "Aaspasaka Kshetrahru"
               ],
               "contacts": [
                 "गोबिन्द कार्ी: 9813322013"
@@ -280,7 +319,23 @@
                 "भेनश हस्पटल पछाडी",
                 "महादेवस्थान मार्ग",
                 "सहभागिता मार्गको उत्तर तर्फ",
-                "आसपासका क्षेत्रहरु"
+                "आसपासका क्षेत्रहरु",
+                "Purano Baneshwor Chok - Seto Pul Dakshin",
+                "Tankaprasad Marg",
+                "Rohini Marg",
+                "Hattigaunda Marg",
+                "Baneshwor Height",
+                "Narayaneshwor Marg",
+                "Pipalbot Marg",
+                "Puja",
+                "Pratishthan Marg",
+                "Devinagar",
+                "Madan Bhandari College ka Kshetrahru",
+                "Om Shahi Marg",
+                "Venus Hospital Pachadi",
+                "Mahadevsthan Marg",
+                "Sahabhagita Marg ko Uttar Taraf",
+                "Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -317,25 +372,25 @@
                 "डिल्लीबजार"
               ],
               "areas_en": [
-                "एयरपोर्ट हाइट",
-                "ओम नगर",
-                "कालिमाटी डोल",
-                "घन्टी गल्ल",
-                "कलाकार गल्ल",
-                "अरुण गल्ल",
-                "पन्चकुमारी मार्ग",
-                "सुनीति मार्ग आसपासका क्षत्रहर",
-                "सिनामंगल भत्केको पुल - सिनामंगल चोक बाबुराम आचा्य सडकको",
-                "उत्तरतर्फ",
-                "सिनामंगल चोक- तिलगंगा चक्रपथ भित्र",
-                "शम्भु",
-                "मार्ग",
-                "तिलगंगा मार्ग",
-                "सुनीति मार्ग आसपासका क्षे्रहरु",
-                "रातोपुल- जानेस्वोर",
-                "जैन मन्दर - मैतीदेवी",
-                "जनता मार्ग",
-                "डिल्लीबजार"
+                "Airport Height",
+                "Om Nagar",
+                "Kalimati Dol",
+                "Ghanti Galli",
+                "Kalakar Galli",
+                "Arun Galli",
+                "Panchakumari Marg",
+                "Suniti Marg Aaspasaka Kshetrahru",
+                "Sinamangal Bhateko Pul - Sinamangal Chok Baburam Acharya Sadak ko",
+                "Uttartarf",
+                "Sinamangal Chok - Tilganga Chakrapth Bhitra",
+                "Shambhu",
+                "Marg",
+                "Tilganga Marg",
+                "Suniti Marg Aaspasaka Kshetrahru",
+                "Rato Pul - Janeswor",
+                "Jain Mandar - Maiti Devi",
+                "Janata Marg",
+                "Dillibazar"
               ],
               "contacts": [
                 "बिमला भट्टराई घिमिरे: 9843६708४4",
@@ -364,7 +419,25 @@
                 "रातोपुल- जानेस्वोर",
                 "जैन मन्दर - मैतीदेवी",
                 "जनता मार्ग",
-                "डिल्लीबजार"
+                "डिल्लीबजार",
+                "Airport Height",
+                "Om Nagar",
+                "Kalimati Dol",
+                "Ghanti Galli",
+                "Kalakar Galli",
+                "Arun Galli",
+                "Panchakumari Marg",
+                "Suniti Marg Aaspasaka Kshetrahru",
+                "Sinamangal Bhateko Pul - Sinamangal Chok Baburam Acharya Sadak ko",
+                "Uttartarf",
+                "Sinamangal Chok - Tilganga Chakrapth Bhitra",
+                "Shambhu",
+                "Marg",
+                "Tilganga Marg",
+                "Rato Pul - Janeswor",
+                "Jain Mandar - Maiti Devi",
+                "Janata Marg",
+                "Dillibazar"
               ]
             },
             {
@@ -397,21 +470,21 @@
                 "साइड (वडा नं. २९)"
               ],
               "areas_en": [
-                "पिपलबोट मार्ग",
-                "राधे मार्ग",
-                "सेतोपुल- डिल्ली बजार दायाँ साइड (वडा नं",
-                "३० ) आसपासका क्षत्रहर",
-                "न्य प्लाजा",
-                "पुतलीसडक ( वडा नं- २९)",
-                "अमृत्भोग मा्ग",
-                "ट्रिनिटी हाइट",
-                "सिप्रिक गल्ली आसपासका क्षत्रहरु",
-                "सेतोपुल - धोबीखोला कोरिडोर - सामुदायिक - अनामनगर - घट्टकुलो",
-                "कुमारी मार्ग",
-                "कालिका मार्ग",
-                "कालिकास्थान",
-                "सेतोपुल- डिल्ली बजार बायाँ",
-                "साइड (वडा नं. २९)"
+                "Pipalbot Marg",
+                "Radhe Marg",
+                "Seto Pul - Dillibazar Daya Side (Woda No",
+                "30) Aaspasaka Kshetrahru",
+                "New Plaza",
+                "Putalisadak (Woda No- 29)",
+                "Amritbhog Marg",
+                "Trinity Height",
+                "Siprik Galli Aaspasaka Kshetrahru",
+                "Seto Pul - Dhobikhola Corridor - Samudayik - Anamnagar - Ghattakulo",
+                "Kumari Marg",
+                "Kalika Marg",
+                "Kalikasthan",
+                "Seto Pul - Dillibazar Baya",
+                "Side (Woda No. 29)"
               ],
               "contacts": [
                 "धन",
@@ -436,7 +509,22 @@
                 "कालिका मार्ग",
                 "कालिकास्थान",
                 "सेतोपुल- डिल्ली बजार बायाँ",
-                "साइड (वडा नं. २९)"
+                "साइड (वडा नं. २९)",
+                "Pipalbot Marg",
+                "Radhe Marg",
+                "Seto Pul - Dillibazar Daya Side (Woda No",
+                "30) Aaspasaka Kshetrahru",
+                "New Plaza",
+                "Putalisadak (Woda No- 29)",
+                "Amritbhog Marg",
+                "Trinity Height",
+                "Siprik Galli Aaspasaka Kshetrahru",
+                "Seto Pul - Dhobikhola Corridor - Samudayik - Anamnagar - Ghattakulo",
+                "Kumari Marg",
+                "Kalika Marg",
+                "Kalikasthan",
+                "Seto Pul - Dillibazar Baya",
+                "Side (Woda No. 29)"
               ]
             },
             {
@@ -482,33 +570,33 @@
                 "घुम्ती कुमारी मार्ग"
               ],
               "areas_en": [
-                "भीमसेनगोला मार्ग - कात्यायनी मन्दर - ठुलो खरिबोट -सडक बोर्डको",
-                "पश्चिमतर्फ",
-                "सडक बोर्ड - नयाँ बानेश्षोर चोकसम्म उत्तरतर्फ",
-                "नयाँ बानेश्षोर",
-                "चोक - पुरानो बानेश्वर चोक सम्म पु्व तर्फ",
-                "पुरानो बानेश्र चोक",
-                "भीमसेनगोला चोक मार्गको दक्षण तर्फ - सुर्यविक्रम जवाली मार्ग दायाबाया",
-                "कस्तुरी मार्ग",
-                "पन्चकुमारी मार्ग",
-                "बलभद्रमार्ग",
-                "मितेरी मार्ग",
-                "मिलनचोक",
-                "संगम",
-                "चोक",
-                "सचेतन मार्ग",
-                "राधा मोहन मार्ग",
-                "निराजनबिक्रम मार्ग",
-                "काली मार्ग",
-                "पासाडलामु मार्ग",
-                "जनसहयोग मार्ग",
-                "एकता मार्ग",
-                "बासुकी मार्ग",
-                "अम्बका",
-                "मार्ग",
-                "साझा बस्त",
-                "बाडग़गा मार्ग भूपीशेरचन मार्ग",
-                "घुम्ती कुमारी मार्ग"
+                "Bhimsen Gola Marg - Katyayani Mandar - Thulo Kharibot - Sadak Board ko",
+                "Pashchimtarf",
+                "Sadak Board - Naya Baneshwor Chok samma Uttartarf",
+                "Naya Baneshwor",
+                "Chok - Purano Baneshwor Chok samma Purva Taraf",
+                "Purano Baneshwor Chok",
+                "Bhimsen Gola Chok Marg ko Dakshin Taraf - Suryabikram Jawali Marg Dayabaya",
+                "Kasturi Marg",
+                "Panchakumari Marg",
+                "Balabhadra Marg",
+                "Miteri Marg",
+                "Milan Chok",
+                "Sangam",
+                "Chok",
+                "Sachetan Marg",
+                "Radha Mohan Marg",
+                "Niranjan Bikram Marg",
+                "Kali Marg",
+                "Pasadalamu Marg",
+                "Janasahayog Marg",
+                "Ekata Marg",
+                "Basuki Marg",
+                "Ambika",
+                "Marg",
+                "Sajha Basti",
+                "Badgaga Marg Bhupishcherchan Marg",
+                "Ghumti Kumari Marg"
               ],
               "contacts": [
                 "सुमन थापा 9841391400",
@@ -544,7 +632,34 @@
                 "मार्ग",
                 "साझा बस्त",
                 "बाडग़गा मार्ग भूपीशेरचन मार्ग",
-                "घुम्ती कुमारी मार्ग"
+                "घुम्ती कुमारी मार्ग",
+                "Bhimsen Gola Marg - Katyayani Mandar - Thulo Kharibot - Sadak Board ko",
+                "Pashchimtarf",
+                "Sadak Board - Naya Baneshwor Chok samma Uttartarf",
+                "Naya Baneshwor",
+                "Chok - Purano Baneshwor Chok samma Purva Taraf",
+                "Purano Baneshwor Chok",
+                "Bhimsen Gola Chok Marg ko Dakshin Taraf - Suryabikram Jawali Marg Dayabaya",
+                "Kasturi Marg",
+                "Panchakumari Marg",
+                "Balabhadra Marg",
+                "Miteri Marg",
+                "Milan Chok",
+                "Sangam",
+                "Chok",
+                "Sachetan Marg",
+                "Radha Mohan Marg",
+                "Niranjan Bikram Marg",
+                "Kali Marg",
+                "Pasadalamu Marg",
+                "Janasahayog Marg",
+                "Ekata Marg",
+                "Basuki Marg",
+                "Ambika",
+                "Marg",
+                "Sajha Basti",
+                "Badgaga Marg Bhupishcherchan Marg",
+                "Ghumti Kumari Marg"
               ]
             },
             {
@@ -577,20 +692,20 @@
                 "गेट भित्र कुमुद देवकोटा मार्ग आसपासका क्ेत्रहर"
               ],
               "areas_en": [
-                "आसपासका क्षेत्रहरु",
-                "भीमसेनगोला मार्ग - कात्यायनी मन्दर - ठुलो खरिबोट - सडक बोर्डको पर्व",
-                "तर्फ",
-                "सडक बोर्ड - बागमती तिनकुने पुलको उत्तर तर्फ",
-                "बाबुराम आचार्य",
-                "सडकको दक्षिण तर्फ -जागृति नगर",
-                "ओम शान्त चोक",
-                "सानो खरीबोट",
-                "प्रयाग मार्ग",
-                "नग्रे्द्रकान्छा चोक",
-                "कारेश्वर मार्ग",
-                "भीमसेनगोला मार्ग",
-                "शान्तनगर",
-                "गेट भित्र कुमुद देवकोटा मार्ग आसपासका क्ेत्रहर"
+                "Aaspasaka Kshetrahru",
+                "Bhimsen Gola Marg - Katyayani Mandar - Thulo Kharibot - Sadak Board ko Purva",
+                "Tarf",
+                "Sadak Board - Bagmati Tinkune Pul ko Uttar Taraf",
+                "Baburam Acharya",
+                "Sadak ko Dakshin Taraf - Jagriti Nagar",
+                "Om Shanta Chok",
+                "Sano Kharibot",
+                "Prayag Marg",
+                "Nagendra Kanchha Chok",
+                "Kareswor Marg",
+                "Bhimsen Gola Marg",
+                "Shantinagar",
+                "Gate Bhitra Kumud Devkota Marg Aaspasaka Kshetrahru"
               ],
               "contacts": [
                 "सुमन थापा 9841391400",
@@ -613,7 +728,21 @@
                 "कारेश्वर मार्ग",
                 "भीमसेनगोला मार्ग",
                 "शान्तनगर",
-                "गेट भित्र कुमुद देवकोटा मार्ग आसपासका क्ेत्रहर"
+                "गेट भित्र कुमुद देवकोटा मार्ग आसपासका क्ेत्रहर",
+                "Aaspasaka Kshetrahru",
+                "Bhimsen Gola Marg - Katyayani Mandar - Thulo Kharibot - Sadak Board ko Purva",
+                "Tarf",
+                "Sadak Board - Bagmati Tinkune Pul ko Uttar Taraf",
+                "Baburam Acharya",
+                "Sadak ko Dakshin Taraf - Jagriti Nagar",
+                "Om Shanta Chok",
+                "Sano Kharibot",
+                "Prayag Marg",
+                "Nagendra Kanchha Chok",
+                "Kareswor Marg",
+                "Bhimsen Gola Marg",
+                "Shantinagar",
+                "Gate Bhitra Kumud Devkota Marg Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -643,18 +772,18 @@
                 "आसपासका क्षेत्रहरु"
               ],
               "areas_en": [
-                "बत्तीसपुतली सडक पुर्व",
-                "गौशाला चोक- द्वारिका होटेल पूर्व",
-                "सु् बिक्रम",
-                "जवाली मार्ग",
-                "अरनिको मार्ग",
-                "साहित्य मार्ग",
-                "कुमारी मन्दर",
-                "जयन्ति मार्ग",
-                "नारायणगोपाल मार्ग",
-                "बाबुराम आचार्य सडकको उत्तर तर्फ",
-                "चन्दरागिरी मार्ग",
-                "आसपासका क्षेत्रहरु"
+                "Battisputali Sadak Purva",
+                "Gaushala Chok - Dwarika Hotel Purva",
+                "Su Bikram",
+                "Jawali Marg",
+                "Arniko Marg",
+                "Sahitya Marg",
+                "Kumari Mandar",
+                "Jayanti Marg",
+                "Narayan Gopal Marg",
+                "Baburam Acharya Sadak ko Uttar Taraf",
+                "Chandragiri Marg",
+                "Aaspasaka Kshetrahru"
               ],
               "contacts": [
                 "बिमला भट्टराई घिमिरे: 9843670844",
@@ -675,7 +804,19 @@
                 "नारायणगोपाल मार्ग",
                 "बाबुराम आचार्य सडकको उत्तर तर्फ",
                 "चन्दरागिरी मार्ग",
-                "आसपासका क्षेत्रहरु"
+                "आसपासका क्षेत्रहरु",
+                "Battisputali Sadak Purva",
+                "Gaushala Chok - Dwarika Hotel Purva",
+                "Su Bikram",
+                "Jawali Marg",
+                "Arniko Marg",
+                "Sahitya Marg",
+                "Kumari Mandar",
+                "Jayanti Marg",
+                "Narayan Gopal Marg",
+                "Baburam Acharya Sadak ko Uttar Taraf",
+                "Chandragiri Marg",
+                "Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -705,18 +846,18 @@
                 "आसपासका क्षेत्रहर"
               ],
               "areas_en": [
-                "सिनामंगल भत्केको पुल - पशुपति बागमती पुल सम्मको बागमती कोरिडोर",
-                "पश्चिम",
-                "गौशाला चोक -बिजय चोक",
-                "पिंगलास्थान",
-                "माईति नेपाल",
-                "गंगा",
-                "लक्षमी मार्ग",
-                "चण्डी मार्ग",
-                "सुर्योदय मार्ग",
-                "प्रयाग मार्ग",
-                "प्रयाग घाट",
-                "आसपासका क्षेत्रहर"
+                "Sinamangal Bhateko Pul - Pashupati Bagmati Pul sammako Bagmati Corridor",
+                "Pashchim",
+                "Gaushala Chok - Bijaya Chok",
+                "Pingalasthan",
+                "Maiti Nepal",
+                "Ganga",
+                "Lakshmi Marg",
+                "Chandi Marg",
+                "Suryodaya Marg",
+                "Prayag Marg",
+                "Prayag Ghat",
+                "Aaspasaka Kshetrahru"
               ],
               "contacts": [
                 "बहादुर तामाड् 9841864891"
@@ -736,7 +877,19 @@
                 "सुर्योदय मार्ग",
                 "प्रयाग मार्ग",
                 "प्रयाग घाट",
-                "आसपासका क्षेत्रहर"
+                "आसपासका क्षेत्रहर",
+                "Sinamangal Bhateko Pul - Pashupati Bagmati Pul sammako Bagmati Corridor",
+                "Pashchim",
+                "Gaushala Chok - Bijaya Chok",
+                "Pingalasthan",
+                "Maiti Nepal",
+                "Ganga",
+                "Lakshmi Marg",
+                "Chandi Marg",
+                "Suryodaya Marg",
+                "Prayag Marg",
+                "Prayag Ghat",
+                "Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -764,16 +917,16 @@
                 "नासा कलेज एरिया आसपासका"
               ],
               "areas_en": [
-                "सिनामंगल भत्केको पुल - सिनामंगल चोक बाबुराम आचार्य सडक दक्षिण",
-                "सिनामंगल चोक - तिनकुने - बागमती पुल सम्म चक्रपथ भित्र",
-                "बागमती",
-                "कोरिडोर हुदै सिनामंगल भत्केको पुल उत्तर पुर्व -गैरिगाउँ",
-                "गण्डकी मार्ग",
-                "तारा",
-                "मार्ग",
-                "विनायक मार्ग",
-                "शक्तिबिनायक मार्ग",
-                "नासा कलेज एरिया आसपासका"
+                "Sinamangal Bhateko Pul - Sinamangal Chok Baburam Acharya Sadak Dakshin",
+                "Sinamangal Chok - Tinkune - Bagmati Pul sammako Chakrapth Bhitra",
+                "Bagmati",
+                "Corridor Hudai Sinamangal Bhateko Pul Uttar Purva -Gairigaun",
+                "Gandaki Marg",
+                "Tara",
+                "Marg",
+                "Binayak Marg",
+                "Shakti Binayak Marg",
+                "NASA College Area Aaspasaka"
               ],
               "contacts": [
                 "बिमला भट्टराई घिमिरे: 98436708४४",
@@ -792,7 +945,17 @@
                 "मार्ग",
                 "विनायक मार्ग",
                 "शक्तिबिनायक मार्ग",
-                "नासा कलेज एरिया आसपासका"
+                "नासा कलेज एरिया आसपासका",
+                "Sinamangal Bhateko Pul - Sinamangal Chok Baburam Acharya Sadak Dakshin",
+                "Sinamangal Chok - Tinkune - Bagmati Pul sammako Chakrapth Bhitra",
+                "Bagmati",
+                "Corridor Hudai Sinamangal Bhateko Pul Uttar Purva -Gairigaun",
+                "Gandaki Marg",
+                "Tara",
+                "Marg",
+                "Binayak Marg",
+                "Shakti Binayak Marg",
+                "NASA College Area Aaspasaka"
               ]
             },
             {
@@ -812,7 +975,7 @@
                 "TIA"
               ],
               "areas_en": [
-                "क्षे्रहर",
+                "Kshetrahru",
                 "TIA"
               ],
               "contacts": [],
@@ -821,7 +984,8 @@
               "review_flags": [],
               "search_terms": [
                 "क्षे्रहर",
-                "TIA"
+                "TIA",
+                "Kshetrahru"
               ]
             },
             {
@@ -841,14 +1005,15 @@
                 "अनामनगर क्षत्र आसपासका ्षत्रहर - अनामनगर पानी टयांकीबाट वितरण हुने"
               ],
               "areas_en": [
-                "अनामनगर क्षत्र आसपासका ्षत्रहर - अनामनगर पानी टयांकीबाट वितरण हुने"
+                "Anamnagar Kshetra Aaspasaka Kshetrahru - Anamnagar Pani Tanki bata Vitran Hune"
               ],
               "contacts": [],
               "notes": null,
               "time_tags": [],
               "review_flags": [],
               "search_terms": [
-                "अनामनगर क्षत्र आसपासका ्षत्रहर - अनामनगर पानी टयांकीबाट वितरण हुने"
+                "अनामनगर क्षत्र आसपासका ्षत्रहर - अनामनगर पानी टयांकीबाट वितरण हुने",
+                "Anamnagar Kshetra Aaspasaka Kshetrahru - Anamnagar Pani Tanki bata Vitran Hune"
               ]
             },
             {
@@ -869,9 +1034,9 @@
                 "धोबिधरा र स्टारमल आसपासका क्षत्रहर"
               ],
               "areas_en": [
-                "पन्च कुमार",
-                "वडा-३०",
-                "धोबिधरा र स्टारमल आसपासका क्षत्रहर"
+                "Panch Kumar",
+                "Woda-30",
+                "Dhobidhara ra Star Mall Aaspasaka Kshetrahru"
               ],
               "contacts": [
                 "Mr. Suman Thapa 9841391400",
@@ -888,7 +1053,10 @@
               "search_terms": [
                 "पन्च कुमार",
                 "वडा-३०",
-                "धोबिधरा र स्टारमल आसपासका क्षत्रहर"
+                "धोबिधरा र स्टारमल आसपासका क्षत्रहर",
+                "Panch Kumar",
+                "Woda-30",
+                "Dhobidhara ra Star Mall Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -909,9 +1077,9 @@
                 "धोबिधराका क्षेत्रहरु"
               ],
               "areas_en": [
-                "के. सी. टोल",
-                "कमल मार्ग",
-                "धोबिधराका क्षेत्रहरु"
+                "K. C. Tol",
+                "Kamal Marg",
+                "Dhobidhara ka Kshetrahru"
               ],
               "contacts": [],
               "notes": null,
@@ -920,7 +1088,10 @@
               "search_terms": [
                 "के. सी. टोल",
                 "कमल मार्ग",
-                "धोबिधराका क्षेत्रहरु"
+                "धोबिधराका क्षेत्रहरु",
+                "K. C. Tol",
+                "Kamal Marg",
+                "Dhobidhara ka Kshetrahru"
               ]
             },
             {
@@ -942,10 +1113,10 @@
                 "तिवारी गल्ली आसपासका ्ेत्रहर"
               ],
               "areas_en": [
-                "चारखाल",
-                "गु्ज मार्ग के.सी. कोलोनी",
-                "अमर गल्ली",
-                "तिवारी गल्ली आसपासका ्ेत्रहर"
+                "Charkhal",
+                "Guj Marg K.C. Colony",
+                "Amar Galli",
+                "Tiwari Galli Aaspasaka Kshetrahru"
               ],
               "contacts": [
                 "पानी पोखरी पानी टयांकीबाट वितरण हुने"
@@ -957,7 +1128,11 @@
                 "चारखाल",
                 "गु्ज मार्ग के.सी. कोलोनी",
                 "अमर गल्ली",
-                "तिवारी गल्ली आसपासका ्ेत्रहर"
+                "तिवारी गल्ली आसपासका ्ेत्रहर",
+                "Charkhal",
+                "Guj Marg K.C. Colony",
+                "Amar Galli",
+                "Tiwari Galli Aaspasaka Kshetrahru"
               ]
             }
           ]
@@ -1003,27 +1178,27 @@
                 "जोशी चोक तल्लो भाग)"
               ],
               "areas_en": [
-                "नरेफॉँट(पुष्पान्जली हल तरकारी बजार",
-                "निखिलेश्वोर मार्ग",
-                "भाटभटेनी",
-                "सुमन",
-                "मेडिकल",
-                "गणनायक मार्ग",
-                "चन्द्र सुर्य मार्ग",
-                "नौलो मार्ग",
-                "कोटदेवी वरपर",
-                "सुर्यकोट",
-                "हाइट आदि)",
-                "नरेफॉँट",
-                "(सुर्यकोट CCRC कलेज वरपर",
-                "बुद्द मार्ग",
-                "बिघनगर",
-                "छत्रे्वारी",
-                "मन्दर",
-                "विश्राम मार्ग",
-                "नहर मार्ग",
-                "सुनौलो मार्ग",
-                "जोशी चोक तल्लो भाग)"
+                "Narephat (Pushpanjali Hall Tarkari Bazar",
+                "Nikhileswor Marg",
+                "Bhatbhateni",
+                "Suman",
+                "Medical",
+                "Gananayak Marg",
+                "Chandra Surya Marg",
+                "Naulo Marg",
+                "Kotdevi Varapar",
+                "Suryakot",
+                "Height Adi)",
+                "Narephat",
+                "(Suryakot CCRC College Varapar",
+                "Buddha Marg",
+                "Bighanagar",
+                "Chhatreshwari",
+                "Mandar",
+                "Bishram Marg",
+                "Nahar Marg",
+                "Sunaulo Marg",
+                "Joshi Chok Tallo Bhag)"
               ],
               "contacts": [
                 "सोमहरी हुमागई(९८४१६४०९१६)",
@@ -1053,7 +1228,28 @@
                 "विश्राम मार्ग",
                 "नहर मार्ग",
                 "सुनौलो मार्ग",
-                "जोशी चोक तल्लो भाग)"
+                "जोशी चोक तल्लो भाग)",
+                "Narephat (Pushpanjali Hall Tarkari Bazar",
+                "Nikhileswor Marg",
+                "Bhatbhateni",
+                "Suman",
+                "Medical",
+                "Gananayak Marg",
+                "Chandra Surya Marg",
+                "Naulo Marg",
+                "Kotdevi Varapar",
+                "Suryakot",
+                "Height Adi)",
+                "Narephat",
+                "(Suryakot CCRC College Varapar",
+                "Buddha Marg",
+                "Bighanagar",
+                "Chhatreshwari",
+                "Mandar",
+                "Bishram Marg",
+                "Nahar Marg",
+                "Sunaulo Marg",
+                "Joshi Chok Tallo Bhag)"
               ]
             },
             {
@@ -1088,23 +1284,23 @@
                 "धर्मस्थल मार्ग आदि"
               ],
               "areas_en": [
-                "कान्तिपुर हस्पटल",
-                "सुविधानगर",
-                "बालकुमारी पुल",
-                "मुनिभैरव मार्ग",
-                "सिग्रिक",
-                "एयर",
-                "बासुकी नगर मार्ग",
-                "नव आदर्श मार्ग",
-                "मदन भण्डारी पार्क तल्लो भाग",
-                "अमरावती मार्ग",
-                "कृति मार्ग",
-                "सुभेच्छा मार्ग दायाबाँया (झुलुंगे पुल देखि",
-                "नेपालीको रडियो स्टेशन सम्म)",
-                "शृखला दोभान",
-                "सहयोगीनगर",
-                "ओमकृष्ण मार्ग",
-                "धर्मस्थल मार्ग आदि"
+                "Kantipur Hospital",
+                "Subidhanagar",
+                "Balakumari Pul",
+                "Munibhairav Marg",
+                "Sigrik",
+                "Air",
+                "Basuki Nagar Marg",
+                "Nava Adarsha Marg",
+                "Madan Bhandari Park Tallo Bhag",
+                "Amarawati Marg",
+                "Kriti Marg",
+                "Subhechha Marg Dayabaya (Jhulunge Pul Dekhi",
+                "Nepali ko Radio Station Samm)",
+                "Shrinkhala Dobhan",
+                "Sahayoginagar",
+                "Om Krishna Marg",
+                "Dharmasthal Marg Adi"
               ],
               "contacts": [],
               "notes": null,
@@ -1127,7 +1323,24 @@
                 "शृखला दोभान",
                 "सहयोगीनगर",
                 "ओमकृष्ण मार्ग",
-                "धर्मस्थल मार्ग आदि"
+                "धर्मस्थल मार्ग आदि",
+                "Kantipur Hospital",
+                "Subidhanagar",
+                "Balakumari Pul",
+                "Munibhairav Marg",
+                "Sigrik",
+                "Air",
+                "Basuki Nagar Marg",
+                "Nava Adarsha Marg",
+                "Madan Bhandari Park Tallo Bhag",
+                "Amarawati Marg",
+                "Kriti Marg",
+                "Subhechha Marg Dayabaya (Jhulunge Pul Dekhi",
+                "Nepali ko Radio Station Samm)",
+                "Shrinkhala Dobhan",
+                "Sahayoginagar",
+                "Om Krishna Marg",
+                "Dharmasthal Marg Adi"
               ]
             },
             {
@@ -1164,25 +1377,25 @@
                 "सेती ओपी मार्ग दायाबॉया(कोटेश्वर चोक देखि नेपालीको रेडियो स्टेशन आदि )"
               ],
               "areas_en": [
-                "पेरिस डाँडा मार्ग",
-                "पुष्पा मार्ग",
-                "पंचेश्र मार्ग",
-                "दिपिका स्कुल मार्ग",
-                "महादेवस्थान",
-                "मार्ग वरपर",
-                "मदन भण्डारी पार्क",
-                "महादेवस्थान मार्ग दायाबॉया पेरिस",
-                "डॉँडासम्म",
-                "जनता सडक",
-                "ईश्वरकृपा मार्ग",
-                "रतन मार्ग",
-                "फुलवारी मार्ग",
-                "S०S",
-                "मार्ग",
-                "सेतीओपी मार्ग",
-                "सरस्वति मार्ग उत्तर तर्फ तरकारी बजार",
-                "श्री शान्त मार्ग",
-                "सेती ओपी मार्ग दायाबॉया(कोटेश्वर चोक देखि नेपालीको रेडियो स्टेशन आदि )"
+                "Paris Danda Marg",
+                "Pushpa Marg",
+                "Pancheswor Marg",
+                "Deepika School Marg",
+                "Mahadevsthan",
+                "Marg Varapar",
+                "Madan Bhandari Park",
+                "Mahadevsthan Marg Dayabaya Paris",
+                "Danda Samm",
+                "Janata Sadak",
+                "Ishwar Kripa Marg",
+                "Ratan Marg",
+                "Phulwari Marg",
+                "SOS",
+                "Marg",
+                "SetiOP Marg",
+                "Saraswati Marg Uttar Taraf Tarkari Bazar",
+                "Shree Shanta Marg",
+                "Seti OP Marg Dayabaya (Koteswor Chok Dekhi Nepali ko Radio Station Adi )"
               ],
               "contacts": [
                 "सुरेन्रके.सी.(९८४०१७१४१५)"
@@ -1209,7 +1422,26 @@
                 "सेतीओपी मार्ग",
                 "सरस्वति मार्ग उत्तर तर्फ तरकारी बजार",
                 "श्री शान्त मार्ग",
-                "सेती ओपी मार्ग दायाबॉया(कोटेश्वर चोक देखि नेपालीको रेडियो स्टेशन आदि )"
+                "सेती ओपी मार्ग दायाबॉया(कोटेश्वर चोक देखि नेपालीको रेडियो स्टेशन आदि )",
+                "Paris Danda Marg",
+                "Pushpa Marg",
+                "Pancheswor Marg",
+                "Deepika School Marg",
+                "Mahadevsthan",
+                "Marg Varapar",
+                "Madan Bhandari Park",
+                "Mahadevsthan Marg Dayabaya Paris",
+                "Danda Samm",
+                "Janata Sadak",
+                "Ishwar Kripa Marg",
+                "Ratan Marg",
+                "Phulwari Marg",
+                "SOS",
+                "Marg",
+                "SetiOP Marg",
+                "Saraswati Marg Uttar Taraf Tarkari Bazar",
+                "Shree Shanta Marg",
+                "Seti OP Marg Dayabaya (Koteswor Chok Dekhi Nepali ko Radio Station Adi )"
               ]
             }
           ]
@@ -1239,11 +1471,11 @@
                 "आसपासका क्षेत्रहर"
               ],
               "areas_en": [
-                "बुद्धनगर",
-                "पवित्राटोल",
-                "सिद्वर्थमार्ग",
-                "बुटवल पावर कम्पनी",
-                "आसपासका क्षेत्रहर"
+                "Buddhanagar",
+                "Pavitra Tol",
+                "Siddhartha Marg",
+                "Butwal Power Company",
+                "Aaspasaka Kshetrahru"
               ],
               "contacts": [],
               "notes": null,
@@ -1254,7 +1486,12 @@
                 "पवित्राटोल",
                 "सिद्वर्थमार्ग",
                 "बुटवल पावर कम्पनी",
-                "आसपासका क्षेत्रहर"
+                "आसपासका क्षेत्रहर",
+                "Buddhanagar",
+                "Pavitra Tol",
+                "Siddhartha Marg",
+                "Butwal Power Company",
+                "Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -1279,12 +1516,12 @@
                 "पेट्रोलपम्प र पुष्पनगर आसपासका क्ेत्रहर"
               ],
               "areas_en": [
-                "सुरुचिटोल",
-                "प्रगतिनगर",
-                "गणेशमार्ग",
-                "राधामार्ग",
-                "श्रीब्रदर्स",
-                "पेट्रोलपम्प र पुष्पनगर आसपासका क्ेत्रहर"
+                "Suruchi Tol",
+                "Pragatnagar",
+                "Ganesh Marg",
+                "Radha Marg",
+                "Shree Brothers",
+                "Petrol Pump ra Pushpanagar Aaspasaka Kshetrahru"
               ],
               "contacts": [],
               "notes": null,
@@ -1296,7 +1533,13 @@
                 "गणेशमार्ग",
                 "राधामार्ग",
                 "श्रीब्रदर्स",
-                "पेट्रोलपम्प र पुष्पनगर आसपासका क्ेत्रहर"
+                "पेट्रोलपम्प र पुष्पनगर आसपासका क्ेत्रहर",
+                "Suruchi Tol",
+                "Pragatnagar",
+                "Ganesh Marg",
+                "Radha Marg",
+                "Shree Brothers",
+                "Petrol Pump ra Pushpanagar Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -1323,15 +1566,15 @@
                 "बागमती अपार्टमेन्ट आसपासका क्षेत्रहरु"
               ],
               "areas_en": [
-                "शंखमुलारोड पुर्व",
-                "गणेशमार्ग",
-                "शारदा मार्ग",
-                "बिज्ञानमार्ग",
-                "क्शितिजमार्ग",
-                "डॉफेचरिमार्ग",
-                "पधेरोमार्ग",
-                "श्री शान्तमार्ग र",
-                "बागमती अपार्टमेन्ट आसपासका क्षेत्रहरु"
+                "Shankhamul Road Purva",
+                "Ganesh Marg",
+                "Sharda Marg",
+                "Bigyan Marg",
+                "Kshitij Marg",
+                "Dofacheri Marg",
+                "Padhero Marg",
+                "Shree Shanta Marg ra",
+                "Bagmati Apartment Aaspasaka Kshetrahru"
               ],
               "contacts": [],
               "notes": null,
@@ -1346,7 +1589,16 @@
                 "डॉफेचरिमार्ग",
                 "पधेरोमार्ग",
                 "श्री शान्तमार्ग र",
-                "बागमती अपार्टमेन्ट आसपासका क्षेत्रहरु"
+                "बागमती अपार्टमेन्ट आसपासका क्षेत्रहरु",
+                "Shankhamul Road Purva",
+                "Ganesh Marg",
+                "Sharda Marg",
+                "Bigyan Marg",
+                "Kshitij Marg",
+                "Dofacheri Marg",
+                "Padhero Marg",
+                "Shree Shanta Marg ra",
+                "Bagmati Apartment Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -1375,17 +1627,17 @@
                 "तथा पुरानो हेम्स अस्पताल आसपासका क्षेत्रहरु"
               ],
               "areas_en": [
-                "भावनामार्ग",
-                "शान्तिमा्ग",
-                "श्ितिजमार्ग",
-                "हनुमानामार्ग",
-                "यातपौमार्ग",
-                "मध्यमार्ग",
-                "विजयकोलोनी",
-                "मिनभवन",
-                "श्रीनगर",
-                "साहारा स्कुल",
-                "तथा पुरानो हेम्स अस्पताल आसपासका क्षेत्रहरु"
+                "Bhavana Marg",
+                "Shanti Marg",
+                "Shitij Marg",
+                "Hanuman Marg",
+                "Yatpau Marg",
+                "Madhyamarg",
+                "Vijay Colony",
+                "Minbhawan",
+                "Shreenagar",
+                "Sahara School",
+                "Tatha Purano HEMS Hospital Aaspasaka Kshetrahru"
               ],
               "contacts": [],
               "notes": null,
@@ -1402,7 +1654,18 @@
                 "मिनभवन",
                 "श्रीनगर",
                 "साहारा स्कुल",
-                "तथा पुरानो हेम्स अस्पताल आसपासका क्षेत्रहरु"
+                "तथा पुरानो हेम्स अस्पताल आसपासका क्षेत्रहरु",
+                "Bhavana Marg",
+                "Shanti Marg",
+                "Shitij Marg",
+                "Hanuman Marg",
+                "Yatpau Marg",
+                "Madhyamarg",
+                "Vijay Colony",
+                "Minbhawan",
+                "Shreenagar",
+                "Sahara School",
+                "Tatha Purano HEMS Hospital Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -1423,9 +1686,9 @@
                 "चर्च आसपासका ्षेत्रहरु"
               ],
               "areas_en": [
-                "आलोकनगर",
-                "नापी हाईट",
-                "चर्च आसपासका ्षेत्रहरु"
+                "Aloknagar",
+                "Napi Height",
+                "Church Aaspasaka Kshetrahru"
               ],
               "contacts": [],
               "notes": null,
@@ -1434,7 +1697,10 @@
               "search_terms": [
                 "आलोकनगर",
                 "नापी हाईट",
-                "चर्च आसपासका ्षेत्रहरु"
+                "चर्च आसपासका ्षेत्रहरु",
+                "Aloknagar",
+                "Napi Height",
+                "Church Aaspasaka Kshetrahru"
               ]
             },
             {
@@ -1457,11 +1723,11 @@
                 "आसपासका क्षेत्रहर"
               ],
               "areas_en": [
-                "गड्गाल्ष्मी मार्ग",
-                "रोज बर्ड स्कुल",
-                "चुचौल गल्ली",
-                "भिगु मार्ग",
-                "आसपासका क्षेत्रहर"
+                "Ganga Lakshmi Marg",
+                "Rose Bird School",
+                "Chuchaul Galli",
+                "Bhigu Marg",
+                "Aaspasaka Kshetrahru"
               ],
               "contacts": [],
               "notes": null,
@@ -1472,7 +1738,12 @@
                 "रोज बर्ड स्कुल",
                 "चुचौल गल्ली",
                 "भिगु मार्ग",
-                "आसपासका क्षेत्रहर"
+                "आसपासका क्षेत्रहर",
+                "Ganga Lakshmi Marg",
+                "Rose Bird School",
+                "Chuchaul Galli",
+                "Bhigu Marg",
+                "Aaspasaka Kshetrahru"
               ]
             }
           ]
@@ -1518,16 +1789,16 @@
                 "के.एम.सि. लाईन"
               ],
               "areas_en": [
-                "क्वैत्र",
-                "अरनिको हाईवे क्षत्र",
-                "भुलांचा टुरिजम मार्ेट",
-                "आदर्श चोक",
-                "बाराही",
-                "पीठ लाईन",
-                "गपली",
-                "राम मन्दिर",
-                "दुवाकोट ३ ईन्च लाईन पुरानो (मिलृन टोल",
-                "के.एम.सि. लाईन"
+                "Kwaitra",
+                "Arniko Highway Kshetra",
+                "Bhulancha Tourism Market",
+                "Adarsha Chok",
+                "Barahi",
+                "Pith Line",
+                "Gapali",
+                "Ram Mandir",
+                "Duvakot 3 Inch Line Purano (Milun Tol",
+                "K.M.C. Line"
               ],
               "contacts": [
                 "भाईकाजी शाही"
@@ -1549,7 +1820,17 @@
                 "गपली",
                 "राम मन्दिर",
                 "दुवाकोट ३ ईन्च लाईन पुरानो (मिलृन टोल",
-                "के.एम.सि. लाईन"
+                "के.एम.सि. लाईन",
+                "Kwaitra",
+                "Arniko Highway Kshetra",
+                "Bhulancha Tourism Market",
+                "Adarsha Chok",
+                "Barahi",
+                "Pith Line",
+                "Gapali",
+                "Ram Mandir",
+                "Duvakot 3 Inch Line Purano (Milun Tol",
+                "K.M.C. Line"
               ]
             },
             {
@@ -1579,18 +1860,18 @@
                 "सोमला"
               ],
               "areas_en": [
-                "सल्लाघारी कोलोनी)",
-                "दुवाकोट लाईन नंया",
-                "बंसगोपल ओरालो",
-                "भवाचो",
-                "नासमना",
-                "बुल्चा",
-                "मंगलाछें",
-                "तहमला",
-                "पोटरी स्कायर",
-                "राम मन्देर अरालो",
-                "पाच तले मन्देर",
-                "सोमला"
+                "Sallaghari Colony)",
+                "Duvakot Line Naya",
+                "Bansgopal Oralo",
+                "Bhavacho",
+                "Nasmana",
+                "Bulcha",
+                "Mangalachen",
+                "Tahimala",
+                "Potary Square",
+                "Ram Mandir Aralo",
+                "Pach Tale Mandir",
+                "Somala"
               ],
               "contacts": [
                 "चन्द्र पुतुवार ९८४९१७२७१८"
@@ -1614,7 +1895,19 @@
                 "पोटरी स्कायर",
                 "राम मन्देर अरालो",
                 "पाच तले मन्देर",
-                "सोमला"
+                "सोमला",
+                "Sallaghari Colony)",
+                "Duvakot Line Naya",
+                "Bansgopal Oralo",
+                "Bhavacho",
+                "Nasmana",
+                "Bulcha",
+                "Mangalachen",
+                "Tahimala",
+                "Potary Square",
+                "Ram Mandir Aralo",
+                "Pach Tale Mandir",
+                "Somala"
               ]
             },
             {
@@ -1639,13 +1932,13 @@
                 "जगाती एरिया"
               ],
               "areas_en": [
-                "गल्ली",
-                "पुरानो जगाती",
-                "आदर्श",
-                "वसिकचा",
-                "सिद्ध हस्पटल",
-                "नबिन स्कृल",
-                "जगाती एरिया"
+                "Galli",
+                "Purano Jagati",
+                "Adarsha",
+                "Basikcha",
+                "Siddha Hospital",
+                "Nabin School",
+                "Jagati Area"
               ],
               "contacts": [
                 "ओम साखकर्मी ९८४१७०८00"
@@ -1664,7 +1957,14 @@
                 "वसिकचा",
                 "सिद्ध हस्पटल",
                 "नबिन स्कृल",
-                "जगाती एरिया"
+                "जगाती एरिया",
+                "Galli",
+                "Purano Jagati",
+                "Adarsha",
+                "Basikcha",
+                "Siddha Hospital",
+                "Nabin School",
+                "Jagati Area"
               ]
             },
             {
@@ -1692,16 +1992,16 @@
                 "लाईन"
               ],
               "areas_en": [
-                "पुरान बस पाक एरया",
-                "हाकु फल्चा",
-                "दमकल",
-                "भवोचा",
-                "गणेश स्कूल",
-                "खेल मैदान",
-                "सहिद स्मृति उदधान",
-                "क्याम्पस लाईन",
-                "दमकल २ ईन्च",
-                "लाईन"
+                "Puran Bus Park Area",
+                "Haku Falcha",
+                "Damkal",
+                "Bhavocha",
+                "Ganesh School",
+                "Khel Maidan",
+                "Sahid Smriti Udyan",
+                "Campus Line",
+                "Damkal 2 Inch",
+                "Line"
               ],
               "contacts": [
                 "भाईकाजी शाही"
@@ -1723,7 +2023,17 @@
                 "सहिद स्मृति उदधान",
                 "क्याम्पस लाईन",
                 "दमकल २ ईन्च",
-                "लाईन"
+                "लाईन",
+                "Puran Bus Park Area",
+                "Haku Falcha",
+                "Damkal",
+                "Bhavocha",
+                "Ganesh School",
+                "Khel Maidan",
+                "Sahid Smriti Udyan",
+                "Campus Line",
+                "Damkal 2 Inch",
+                "Line"
               ]
             },
             {
@@ -1752,17 +2062,17 @@
                 "दोक्छे"
               ],
               "areas_en": [
-                "लकुलाछे",
-                "मलाचा",
-                "खंला",
-                "डोगन",
-                "भेलुखेल",
-                "काछें",
-                "भद्रकाली",
-                "बेताल",
-                "इत्ताछे",
-                "कुसके",
-                "दोक्छे"
+                "Lakulachhe",
+                "Malacha",
+                "Khola",
+                "Dogan",
+                "Bhelukhel",
+                "Kachhen",
+                "Bhadrakali",
+                "Betal",
+                "Ittachhe",
+                "Kusake",
+                "Dokchhe"
               ],
               "contacts": [
                 "चन्द्र पुतुवार ९८४९१७२७१८"
@@ -1785,7 +2095,18 @@
                 "बेताल",
                 "इत्ताछे",
                 "कुसके",
-                "दोक्छे"
+                "दोक्छे",
+                "Lakulachhe",
+                "Malacha",
+                "Khola",
+                "Dogan",
+                "Bhelukhel",
+                "Kachhen",
+                "Bhadrakali",
+                "Betal",
+                "Ittachhe",
+                "Kusake",
+                "Dokchhe"
               ]
             }
           ]
@@ -1813,8 +2134,8 @@
                 "तुछीमला"
               ],
               "areas_en": [
-                "चोछें",
-                "तुछीमला"
+                "Chochhen",
+                "Tuchhimla"
               ],
               "contacts": [],
               "notes": null,
@@ -1826,7 +2147,9 @@
               ],
               "search_terms": [
                 "चोछें",
-                "तुछीमला"
+                "तुछीमला",
+                "Chochhen",
+                "Tuchhimla"
               ]
             },
             {
@@ -1854,14 +2177,14 @@
                 "कुटु पाॅली"
               ],
               "areas_en": [
-                "कुमारी क्लब",
-                "हनुमानघाट",
-                "सुकुलढोका",
-                "पालिखेल",
-                "गलासी पुखु",
-                "गोलमध",
-                "चंदेस्वारी",
-                "कुटु पाॅली"
+                "Kumari Club",
+                "Hanumanghat",
+                "Sukuldhoka",
+                "Palikhel",
+                "Galasi Pokhu",
+                "Golmadh",
+                "Chandeshwari",
+                "Kutu Pali"
               ],
               "contacts": [
                 "सुनिल मास्के ९८६१२८७७५६"
@@ -1881,7 +2204,15 @@
                 "गलासी पुखु",
                 "गोलमध",
                 "चंदेस्वारी",
-                "कुटु पाॅली"
+                "कुटु पाॅली",
+                "Kumari Club",
+                "Hanumanghat",
+                "Sukuldhoka",
+                "Palikhel",
+                "Galasi Pokhu",
+                "Golmadh",
+                "Chandeshwari",
+                "Kutu Pali"
               ]
             },
             {
@@ -1904,10 +2235,10 @@
                 "कमिचा गल्ली"
               ],
               "areas_en": [
-                "सुर्यमाढी",
-                "समाज सुधार",
-                "महेस्वारी",
-                "कमिचा गल्ली"
+                "Suryamadi",
+                "Samaj Sudhar",
+                "Maheshwari",
+                "Kamicha Galli"
               ],
               "contacts": [
                 "सिसन थामी ९८६३८६०२४१"
@@ -1923,7 +2254,11 @@
                 "सुर्यमाढी",
                 "समाज सुधार",
                 "महेस्वारी",
-                "कमिचा गल्ली"
+                "कमिचा गल्ली",
+                "Suryamadi",
+                "Samaj Sudhar",
+                "Maheshwari",
+                "Kamicha Galli"
               ]
             },
             {
@@ -1947,11 +2282,11 @@
                 "ईनाचो"
               ],
               "areas_en": [
-                "मकव गली",
-                "वान्चु टोल",
-                "खंचा",
-                "मुनिबिहर",
-                "ईनाचो"
+                "Makav Galli",
+                "Wanchu Tol",
+                "Khancha",
+                "Munibihar",
+                "Inacho"
               ],
               "contacts": [
                 "दिनेश महत ९८४१३८९३६६"
@@ -1968,7 +2303,12 @@
                 "वान्चु टोल",
                 "खंचा",
                 "मुनिबिहर",
-                "ईनाचो"
+                "ईनाचो",
+                "Makav Galli",
+                "Wanchu Tol",
+                "Khancha",
+                "Munibihar",
+                "Inacho"
               ]
             },
             {
@@ -1992,11 +2332,11 @@
                 "बलाखु"
               ],
               "areas_en": [
-                "यालाछे",
-                "तुलाछे",
-                "सानो ब्यासी",
-                "शारदा स्कूल",
-                "बलाखु"
+                "Yalachhe",
+                "Tulachhe",
+                "Sano Byasi",
+                "Sharda School",
+                "Balakhu"
               ],
               "contacts": [],
               "notes": null,
@@ -2011,7 +2351,12 @@
                 "तुलाछे",
                 "सानो ब्यासी",
                 "शारदा स्कूल",
-                "बलाखु"
+                "बलाखु",
+                "Yalachhe",
+                "Tulachhe",
+                "Sano Byasi",
+                "Sharda School",
+                "Balakhu"
               ]
             },
             {
@@ -2034,10 +2379,10 @@
                 "लामाचौर"
               ],
               "areas_en": [
-                "खौमा",
-                "साकोठा",
-                "सि.डी.ओ कार्यालय",
-                "लामाचौर"
+                "Khauma",
+                "Sakotha",
+                "C.D.O. Karyalaya",
+                "Lamachaur"
               ],
               "contacts": [
                 "सुनिल मास्के ९८६१२८७७५६"
@@ -2053,7 +2398,11 @@
                 "खौमा",
                 "साकोठा",
                 "सि.डी.ओ कार्यालय",
-                "लामाचौर"
+                "लामाचौर",
+                "Khauma",
+                "Sakotha",
+                "C.D.O. Karyalaya",
+                "Lamachaur"
               ]
             },
             {
@@ -2077,11 +2426,11 @@
                 "सुकुनाफांट"
               ],
               "areas_en": [
-                "बॉसबारी",
-                "यातु महादेव",
-                "पुष्प बस्ती",
-                "सैंजु डेरी",
-                "सुकुनाफांट"
+                "Basbari",
+                "Yatu Mahadev",
+                "Pushpa Basti",
+                "Sainju Dairy",
+                "Sukuna Phant"
               ],
               "contacts": [],
               "notes": null,
@@ -2096,7 +2445,12 @@
                 "यातु महादेव",
                 "पुष्प बस्ती",
                 "सैंजु डेरी",
-                "सुकुनाफांट"
+                "सुकुनाफांट",
+                "Basbari",
+                "Yatu Mahadev",
+                "Pushpa Basti",
+                "Sainju Dairy",
+                "Sukuna Phant"
               ]
             },
             {
@@ -2122,13 +2476,13 @@
                 "मूलढोका"
               ],
               "areas_en": [
-                "कमल विनायक प्लानिंग",
-                "कमलपोखरी लाईन",
-                "कमलविनायक हल लाईन",
-                "वन्ति",
-                "लाईन",
-                "जेनुईन् लाईन",
-                "मूलढोका"
+                "Kamal Binayak Planning",
+                "Kamalpokhari Line",
+                "Kamalvinayak Hal Line",
+                "Vanti",
+                "Line",
+                "Jenwin Line",
+                "Muladhoka"
               ],
               "contacts": [
                 "सिसन थामी ९८६३८६०२४१"
@@ -2147,7 +2501,14 @@
                 "वन्ति",
                 "लाईन",
                 "जेनुईन् लाईन",
-                "मूलढोका"
+                "मूलढोका",
+                "Kamal Binayak Planning",
+                "Kamalpokhari Line",
+                "Kamalvinayak Hal Line",
+                "Vanti",
+                "Line",
+                "Jenwin Line",
+                "Muladhoka"
               ]
             },
             {
@@ -2167,7 +2528,7 @@
                 "चोखा विनायक ८ ईन्च बाट चल्े लाईन"
               ],
               "areas_en": [
-                "चोखा विनायक ८ ईन्च बाट चल्े लाईन"
+                "Chokha Vinayak 8 Inch Bat Chale Line"
               ],
               "contacts": [
                 "दिनेश महत ९८४१३८९३६६"
@@ -2180,7 +2541,8 @@
                 "period_inferred"
               ],
               "search_terms": [
-                "चोखा विनायक ८ ईन्च बाट चल्े लाईन"
+                "चोखा विनायक ८ ईन्च बाट चल्े लाईन",
+                "Chokha Vinayak 8 Inch Bat Chale Line"
               ]
             },
             {
@@ -2202,9 +2564,9 @@
                 "राष्टिय बाणिज्य बैंक लाईन"
               ],
               "areas_en": [
-                "लिवाली प्लानिंग",
-                "धारा चोक",
-                "राष्टिय बाणिज्य बैंक लाईन"
+                "Liwali Planning",
+                "Dhara Chok",
+                "Rashtriya Banijya Bank Line"
               ],
               "contacts": [],
               "notes": null,
@@ -2217,7 +2579,10 @@
               "search_terms": [
                 "लिवाली प्लानिंग",
                 "धारा चोक",
-                "राष्टिय बाणिज्य बैंक लाईन"
+                "राष्टिय बाणिज्य बैंक लाईन",
+                "Liwali Planning",
+                "Dhara Chok",
+                "Rashtriya Banijya Bank Line"
               ]
             },
             {
@@ -2240,10 +2605,10 @@
                 "चोर्चा"
               ],
               "areas_en": [
-                "बेखाल",
-                "महालक्ष्मी",
-                "नागपोखरी",
-                "चोर्चा"
+                "Bekhal",
+                "Mahalaxmi",
+                "Nagpokhari",
+                "Chorcha"
               ],
               "contacts": [],
               "notes": null,
@@ -2257,7 +2622,11 @@
                 "बेखाल",
                 "महालक्ष्मी",
                 "नागपोखरी",
-                "चोर्चा"
+                "चोर्चा",
+                "Bekhal",
+                "Mahalaxmi",
+                "Nagpokhari",
+                "Chorcha"
               ]
             },
             {
@@ -2279,9 +2648,9 @@
                 "भोलाछे"
               ],
               "areas_en": [
-                "याछें",
-                "लालाछें",
-                "भोलाछे"
+                "Yachhen",
+                "Lalachhen",
+                "Bholachhe"
               ],
               "contacts": [
                 "भरत प्रजापति ९८४१०४९४४६"
@@ -2296,7 +2665,10 @@
               "search_terms": [
                 "याछें",
                 "लालाछें",
-                "भोलाछे"
+                "भोलाछे",
+                "Yachhen",
+                "Lalachhen",
+                "Bholachhe"
               ]
             },
             {
@@ -2320,11 +2692,11 @@
                 "सरस्वती स्कूल लाईन"
               ],
               "areas_en": [
-                "गछे",
-                "काथांदु",
-                "नागांचा",
-                "याता पोखरी",
-                "सरस्वती स्कूल लाईन"
+                "Gachhe",
+                "Kathandu",
+                "Nagancha",
+                "Yata Pokhari",
+                "Saraswati School Line"
               ],
               "contacts": [],
               "notes": null,
@@ -2339,7 +2711,12 @@
                 "काथांदु",
                 "नागांचा",
                 "याता पोखरी",
-                "सरस्वती स्कूल लाईन"
+                "सरस्वती स्कूल लाईन",
+                "Gachhe",
+                "Kathandu",
+                "Nagancha",
+                "Yata Pokhari",
+                "Saraswati School Line"
               ]
             },
             {
@@ -2364,12 +2741,12 @@
                 "नवदुर्गा लाईन"
               ],
               "areas_en": [
-                "पाग्राचा गली",
-                "तलाका",
-                "मयुर इयाल",
-                "जेंला",
-                "कार्चा",
-                "नवदुर्गा लाईन"
+                "Pagraha Galli",
+                "Talaka",
+                "Mayur Iyal",
+                "Jenla",
+                "Karcha",
+                "Navadurga Line"
               ],
               "contacts": [
                 "सिसन थामी ९८६३८६०२४१"
@@ -2387,7 +2764,13 @@
                 "मयुर इयाल",
                 "जेंला",
                 "कार्चा",
-                "नवदुर्गा लाईन"
+                "नवदुर्गा लाईन",
+                "Pagraha Galli",
+                "Talaka",
+                "Mayur Iyal",
+                "Jenla",
+                "Karcha",
+                "Navadurga Line"
               ]
             },
             {
@@ -2410,10 +2793,10 @@
                 "तुमचो"
               ],
               "areas_en": [
-                "लांचा फल्चा जीतपुर रोड",
-                "ब्र्यानी रोड दाया",
-                "बॉया",
-                "तुमचो"
+                "Lancha Falcha Jitpur Road",
+                "Bryani Road Daya",
+                "Boya",
+                "Tumacho"
               ],
               "contacts": [
                 "सिसन थामी ९८६३८६०२४१"
@@ -2429,7 +2812,11 @@
                 "लांचा फल्चा जीतपुर रोड",
                 "ब्र्यानी रोड दाया",
                 "बॉया",
-                "तुमचो"
+                "तुमचो",
+                "Lancha Falcha Jitpur Road",
+                "Bryani Road Daya",
+                "Boya",
+                "Tumacho"
               ]
             },
             {
@@ -2450,8 +2837,8 @@
                 "धारा लाईन"
               ],
               "areas_en": [
-                "ब्रहयानी",
-                "धारा लाईन"
+                "Brahayani",
+                "Dhara Line"
               ],
               "contacts": [
                 "दिनेश महत ९८४१३८९३६६"
@@ -2465,7 +2852,9 @@
               ],
               "search_terms": [
                 "ब्रहयानी",
-                "धारा लाईन"
+                "धारा लाईन",
+                "Brahayani",
+                "Dhara Line"
               ]
             },
             {
@@ -2489,11 +2878,11 @@
                 "कासन लाईन"
               ],
               "areas_en": [
-                "डेकोचा",
-                "खवप कलेज एरिया",
-                "चॉँगु वन्त रोड",
-                "महाकाली गेट",
-                "कासन लाईन"
+                "Dekochha",
+                "Khwopa College Area",
+                "Changu Vant Road",
+                "Mahakali Gate",
+                "Kasan Line"
               ],
               "contacts": [
                 "भरत प्रजापति ९८४१०४९४४६"
@@ -2510,7 +2899,12 @@
                 "खवप कलेज एरिया",
                 "चॉँगु वन्त रोड",
                 "महाकाली गेट",
-                "कासन लाईन"
+                "कासन लाईन",
+                "Dekochha",
+                "Khwopa College Area",
+                "Changu Vant Road",
+                "Mahakali Gate",
+                "Kasan Line"
               ]
             },
             {
@@ -2535,12 +2929,12 @@
                 "नोट :माथि उल्लेखित समय तालिकामा बॉसबारीबा्ट प्रत्यक दिन पानी आएमा मात्र पानी वितरण गने सकिने व्यहोरा अनुरोध छ"
               ],
               "areas_en": [
-                "ठुलो ब्यासी",
-                "एभरेस्ट स्कूल",
-                "मिबाछे",
-                "शिक्षा कायोलय",
-                "औध्योगिक क्षेत्र",
-                "नोट :माथि उल्लेखित समय तालिकामा बॉसबारीबा्ट प्रत्यक दिन पानी आएमा मात्र पानी वितरण गने सकिने व्यहोरा अनुरोध छ"
+                "Thulo Byasi",
+                "Everest School",
+                "Mibachhe",
+                "Shiksha Karyalaya",
+                "Audhyogik Kshetra",
+                "Note: It is requested that water will be distributed only if water comes daily from Basbari in the time schedule mentioned above."
               ],
               "contacts": [],
               "notes": null,
@@ -2556,7 +2950,13 @@
                 "मिबाछे",
                 "शिक्षा कायोलय",
                 "औध्योगिक क्षेत्र",
-                "नोट :माथि उल्लेखित समय तालिकामा बॉसबारीबा्ट प्रत्यक दिन पानी आएमा मात्र पानी वितरण गने सकिने व्यहोरा अनुरोध छ"
+                "नोट :माथि उल्लेखित समय तालिकामा बॉसबारीबा्ट प्रत्यक दिन पानी आएमा मात्र पानी वितरण गने सकिने व्यहोरा अनुरोध छ",
+                "Thulo Byasi",
+                "Everest School",
+                "Mibachhe",
+                "Shiksha Karyalaya",
+                "Audhyogik Kshetra",
+                "Note: It is requested that water will be distributed only if water comes daily from Basbari in the time schedule mentioned above"
               ]
             }
           ]

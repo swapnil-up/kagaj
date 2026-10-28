@@ -4,6 +4,19 @@ Dated notes for deliberate changes to the shipped datasets, codebook and docs.
 Kept so that corrections are visible as corrections rather than quiet rewrites
 (e.g. if a reader remembers an earlier README claim about the Qatar 2022 window).
 
+## 2026-10-28
+
+### Changed — raw panel is shipped gzipped
+
+- `panel.csv` (22 MB) is now shipped as `panel.csv.gz` (0.6 MB). The
+  uncompressed file remains a gitignored build intermediate; readers and
+  pipeline stages transparently fall back to the gzipped copy.
+
+### Added — reproducible opendata cross-check
+
+- `crosscheck --download` fetches the four Open Data Nepal CSVs from the CKAN
+  API; `build --allow-download` does the same when the inputs are absent.
+
 ## 2026-10-27
 
 ### Fixed — clipped country labels in doc 332

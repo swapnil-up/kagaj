@@ -249,9 +249,13 @@ def extract_pdf(raw_path: str | Path, regions: dict, branch: str,
 
     all_areas = [a for r in reservoirs for z in r["zones"] for a in z["areas_np"]]
     area_map = translate_areas(all_areas, log=log) if all_areas else {}
+    missing = sorted({a for a in all_areas if not area_map.get(a)})
+    if missing and log:
+        log(f"[extract]   {len(missing)} area name(s) left untranslated: "
+            + ", ".join(missing[:8]) + ("…" if len(missing) > 8 else ""))
     for r in reservoirs:
         for z in r["zones"]:
-            z["areas_en"] = [area_map.get(a, a) for a in z["areas_np"]]
+            z["areas_en"] = [area_map.get(a, "") for a in z["areas_np"]]
             z["review_flags"] = validate.flag_zone(z, set(z.get("source_columns") or []) or None)
 
     return {

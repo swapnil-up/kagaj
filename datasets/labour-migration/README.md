@@ -3,7 +3,7 @@
 Tidy, verified extraction of labour-approval tables published by the
 Department of Foreign Employment (DoFE), `dofe.gov.np`.
 
-The **analysis dataset is `panel_canonical.csv.gz`** — `panel.csv` with canonical
+The **analysis dataset is `panel_canonical.csv.gz`** — `panel.csv.gz` with canonical
 entities/channels/fiscal-years and within-document merges applied (see
 *Cross-document reconciliation*). It is **additive-only**: it contains only
 `row_type=detail` rows whose `channel_class=component`, so summing it (e.g.
@@ -12,7 +12,7 @@ components. Printed totals, `channel_class=aggregate` rows and distinct measures
 live in the companion `panel_rollup.csv.gz`, which you compare against but never
 add to the primary. Filter `analysis_safe=true` for the safe default set of rows
 (it also drops the unreviewed `channel_reviewed=false` channels — see below).
-`panel.csv` is the raw extraction; `agencies.csv` holds agency-level detail and
+`panel.csv.gz` is the raw extraction; `agencies.csv` holds agency-level detail and
 `series.csv` the historical metric series. A machine-readable data dictionary
 ships as `codebook.json`; the build is fingerprinted in `build.json`.
 
@@ -36,7 +36,7 @@ the live manifest, `source_pdf_sha256` on the archive manifest. Run
 place before trusting a rebuild; it checks **both** manifests (the archive PDFs
 are the ones least likely to be re-examined by anyone else).
 
-`panel.csv` is **one row per (document × section × name × channel × gender)**.
+`panel.csv.gz` is **one row per (document × section × name × channel × gender)**.
 Almost every row is `verified=True`: the printed male/female totals, channel
 subtotals, and section grand totals all reconcile exactly against the extracted
 cells (see `migration_parser/verify.py`). The sole exception is one document
@@ -216,7 +216,7 @@ It finishes non-zero if any audit fails.
 
 Per-document CSVs are written to `output/migration/docs/` (manifest docs as
 `{serial}_{id}.csv`, Annex tables as `annex_{IX..XIII}.csv`, pre-approval
-summaries as `preapproval_0{30,31,32}.csv`) and the combined `datasets/labour-migration/panel.csv`
+summaries as `preapproval_0{30,31,32}.csv`) and the combined `datasets/labour-migration/panel.csv.gz`
 is rebuilt from **all** of them (idempotent). `agencies.csv` is written directly.
 
 ## Historical series (`series.csv`)
@@ -224,7 +224,7 @@ is rebuilt from **all** of them (idempotent). `agencies.csv` is written directly
 The five narrative DoFE reports (not the tabular monthly/yearly statements)
 print many "name × fiscal-year" matrices measuring **different metrics**. These
 are extracted separately into `series.csv` — one row per
-`(report × table × name × fiscal_year)` — because mixing them into `panel.csv`
+`(report × table × name × fiscal_year)` — because mixing them into `panel.csv.gz`
 would conflate incompatible measures.
 
 | Field | Meaning |
@@ -458,7 +458,7 @@ Total with Re-Entry − Re-entry      = Total without Re-Entry
 ```
 
 `migration_parser/scripts/cmd_verify.py` (the `verify` stage) runs it over
-`datasets/labour-migration/panel.csv` and writes the tracked `datasets/labour-migration/verification.json`.
+`datasets/labour-migration/panel.csv.gz` and writes the tracked `datasets/labour-migration/verification.json`.
 Failures listed in `reconciliation.json` → `known_arithmetic_errors` (currently
 the two Qatar 1-worker mismatches in `report2020_annex_X`) are tolerated; any
 other failure exits non-zero.
@@ -498,8 +498,12 @@ excluded from pass/fail. opendata covers FY 2018/19 → 2021/22 only; its
 `Others`/`GCC countries` aggregate rows are skipped.
 
 ```bash
-redbook-env/bin/python -m migration_parser.cli crosscheck
+redbook-env/bin/python -m migration_parser.cli crosscheck --download
 ```
+
+`--download` fetches the four CSVs from the Open Data Nepal CKAN API into
+`output/migration/opendatanepal/`; `build --allow-download` does the same when
+the cross-check inputs are absent.
 
 ## Packaging & data availability
 
@@ -510,7 +514,7 @@ canonical way to reproduce them:
 |--------------|------|------|
 | `panel_canonical.csv.gz` | 70,089 | **primary analysis dataset** — additive-only (gzipped) |
 | `panel_rollup.csv.gz` | 31,035 | aggregates + measures + printed totals (gzipped; never sum with the primary) |
-| `panel.csv` | 102,744 | raw tidy-long extraction (provenance) |
+| `panel.csv.gz` | 102,744 | raw tidy-long extraction (provenance) |
 | `agencies.csv` | 26,224 | agency-level pre-approval / institutional detail |
 | `series.csv` | 9,748 | historical metric series from narrative reports |
 | `period_windows.csv` | 28 | reporting-window lookup (`period_bs` → AD start/end) for date merges |
@@ -586,9 +590,9 @@ uncompressed `panel_canonical.csv` are **generated** and gitignored.
 | `migration_parser/codebook.py` | column dictionary → `codebook.json` |
 | `migration_parser/cli.py` | `python -m migration_parser.cli <stage>` dispatcher |
 | `migration_parser/scripts/cmd_scrape.py` | build `migration_manifest.json` (35 live docs) |
-| `migration_parser/scripts/cmd_process.py` | download → extract → verify → `panel.csv` |
-| `migration_parser/scripts/cmd_annex.py` | `migration_2020` Annex tables → `panel.csv` |
-| `migration_parser/scripts/cmd_agencies.py` | pre-approval/institutional → `panel.csv` + `agencies.csv` |
+| `migration_parser/scripts/cmd_process.py` | download → extract → verify → `panel.csv.gz` |
+| `migration_parser/scripts/cmd_annex.py` | `migration_2020` Annex tables → `panel.csv.gz` |
+| `migration_parser/scripts/cmd_agencies.py` | pre-approval/institutional → `panel.csv.gz` + `agencies.csv` |
 | `migration_parser/scripts/cmd_series.py` | reports → `series.csv` |
 | `migration_parser/scripts/cmd_normalize.py` | append canonical entity/period/channel columns |
 | `migration_parser/scripts/cmd_reconcile.py` | apply + audit cross-document reconciliation |
@@ -636,7 +640,7 @@ gitignored `output/migration/`.
 A full sweep (every `find_tables()` block + every printed `Table/Figure/Annex`
 label, newest report → oldest) confirmed what the pipeline captures and what it
 still drops. We currently extract **two shapes only**: name × *fiscal-year*
-matrices (`series.csv`) and the live DoFE wide templates (`panel.csv` /
+matrices (`series.csv`) and the live DoFE wide templates (`panel.csv.gz` /
 `agencies.csv`). Everything else is skipped.
 
 ### Per-source status
@@ -756,7 +760,7 @@ turned "Grand Total" into "Grand" and double-counted grand totals).
 Assessed read-only via the Wayback Machine. **Family (a)** (monthly country-wise)
 is now extracted (`migration_parser/historical.py`) and shipped as a separate
 archive panel (BS 2067–2075); families (b)/(c) are still pending. The original
-goal was to extend `panel.csv` backward from BS 2082 (2025/26) to ~BS 2065
+goal was to extend `panel.csv.gz` backward from BS 2082 (2025/26) to ~BS 2065
 (2008/09). The BS 2080/81 and 2081/82 captures are progress reports, not monthly
 country tables; note also that the filename-based `resolve` skips family-(a) reports
 whose names carry no year token (e.g. the bare-month `ashoj.pdf`/`baisakh.pdf`
@@ -829,7 +833,7 @@ needs a flow/text parser, not the wide-table machinery. Budget the backfill as a
 **Decisions**
 
 - Scope: **monthly + quarterly + yearly + pre-approval**.
-- Storage: recovered rows go **into `panel.csv` via a new `source_kind` column**
+- Storage: recovered rows go **into `panel.csv.gz` via a new `source_kind` column**
   (`live` default / `archive_org`); pre-approval → `agencies.csv`; FY-month
   totals → `series.csv`.
 - **Genre triage required**: filenames mix Final Approval, Purba Swikriti
@@ -873,7 +877,7 @@ needs a flow/text parser, not the wide-table machinery. Budget the backfill as a
    duplicate content or image-only (BS 2080 Jestha, BS 2081 Asar).
 3. **Separate archive panel** (`datasets/labour-migration/panel_archive.csv.gz` +
    `panel_archive_build.json`) built by `cli archivepanel` from the verified
-   backfill docs — kept out of `panel.csv` because the three period-scopes
+   backfill docs — kept out of `panel.csv.gz` because the three period-scopes
    (`previous_cumulative`/`month`/`cumulative`) don't map onto the live monthly
    schema. Ships BS 2067–2075 (61 docs), `source_kind=archive_org`, all
    `verified=True`: **75,261 resolved rows** in `panel_archive.csv.gz` and
@@ -919,7 +923,7 @@ incomplete (fall back to manifest metadata).
   fill gaps from them; it muddies provenance)~~ **done** (see *Cross-check
   against opendatanepal*).
 - ~~Final packaging: tidy CSV(s) + codebook~~ **done** — `panel_canonical.csv.gz`
-  (primary), `panel.csv`, `agencies.csv`, `series.csv`; machine-readable
+  (primary), `panel.csv.gz`, `agencies.csv`, `series.csv`; machine-readable
   `codebook.json`; build manifest `build.json`; and `DATA_AVAILABILITY.md`.
   Parquet/wide convenience view deferred (would need `pyarrow`).
 

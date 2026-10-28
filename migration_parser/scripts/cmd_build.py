@@ -6,8 +6,8 @@ artifacts and a manifest:
   extract (process/annex/agencies/series) → normalize → reconcile → verify →
   crosscheck → package
 
-Packaging gzips ``datasets/labour-migration/panel_canonical.csv`` to ``panel_canonical.csv.gz``
-(deterministic, mtime=0) and writes ``datasets/labour-migration/build.json`` (git revision,
+Packaging gzips the raw and reconciled panels (deterministic, mtime=0) and writes
+``datasets/labour-migration/build.json`` (git revision,
 timestamps, row counts, SHA-256 checksums, audit results) plus the
 machine-readable ``datasets/labour-migration/codebook.json``.
 
@@ -43,7 +43,7 @@ from . import (
     cmd_verify,
 )
 
-SHIPPED = ["panel.csv", "panel_canonical.csv.gz", "panel_rollup.csv.gz",
+SHIPPED = ["panel.csv.gz", "panel_canonical.csv.gz", "panel_rollup.csv.gz",
            "agencies.csv", "series.csv", "period_windows.csv"]
 
 
@@ -87,6 +87,10 @@ def gunzip_panel(src_name: str = "panel_canonical.csv",
     """Deterministically gzip a shipped CSV (mtime=0 -> stable bytes)."""
     src = MIGRATION_DIR / src_name
     dst = MIGRATION_DIR / dst_name
+    if not src.exists():
+        if dst.exists():
+            return dst
+        raise FileNotFoundError(src)
     data = src.read_bytes()
     with dst.open("wb") as raw:
         with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as gz:
@@ -99,7 +103,7 @@ def _verify_columns() -> None:
     """Fail loudly if the codebook columns drift from the shipped headers."""
     canonical_cols = cmd_process.PANEL_COLUMNS + cmd_normalize.PANEL_EXTRA + cmd_reconcile.EXTRA
     expected = {
-        "panel.csv": list(cmd_process.PANEL_COLUMNS),
+        "panel.csv.gz": list(cmd_process.PANEL_COLUMNS),
         "panel_canonical.csv.gz": canonical_cols,
         "panel_rollup.csv.gz": canonical_cols,
         "agencies.csv": list(cmd_agencies.AGENCY_COLUMNS),
@@ -265,13 +269,20 @@ def main(argv: list[str] | None = None) -> int:
     rc = cmd_verify.main([])
     audits["verify"] = {"exit": rc, "ok": rc == 0}
 
-    if args.skip_crosscheck or not MIGRATION_OPENDATA_DIR.exists():
-        if not MIGRATION_OPENDATA_DIR.exists():
-            print(f"skip crosscheck: {MIGRATION_OPENDATA_DIR} not present", file=sys.stderr)
+    if args.skip_crosscheck:
         audits["crosscheck"] = {"exit": None, "ok": None, "skipped": True}
     else:
-        rc = cmd_crosscheck.main([])
-        audits["crosscheck"] = {"exit": rc, "ok": rc == 0}
+        if online and not MIGRATION_OPENDATA_DIR.exists():
+            try:
+                cmd_crosscheck.download_opendata()
+            except Exception as e:  # noqa: BLE001 - crosscheck is optional
+                print(f"warn: opendata download failed: {e}", file=sys.stderr)
+        if not MIGRATION_OPENDATA_DIR.exists():
+            print(f"skip crosscheck: {MIGRATION_OPENDATA_DIR} not present", file=sys.stderr)
+            audits["crosscheck"] = {"exit": None, "ok": None, "skipped": True}
+        else:
+            rc = cmd_crosscheck.main([])
+            audits["crosscheck"] = {"exit": rc, "ok": rc == 0}
 
     try:
         _verify_columns()
@@ -279,6 +290,7 @@ def main(argv: list[str] | None = None) -> int:
         print(e, file=sys.stderr)
         return 1
 
+    gunzip_panel("panel.csv", "panel.csv.gz")
     gunzip_panel()
     gunzip_panel("panel_rollup.csv", "panel_rollup.csv.gz")
     write_period_windows()

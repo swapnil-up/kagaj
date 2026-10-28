@@ -57,6 +57,7 @@ test = [
     "urllib3",
     "beautifulsoup4>=4.12.0",
     "lxml>=4.9.0",
+    "openpyxl",
     "matplotlib>=3.8",
     "scipy>=1.11",
 ]

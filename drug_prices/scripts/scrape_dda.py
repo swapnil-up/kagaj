@@ -48,7 +48,7 @@ def fetch_with_retry(url: str) -> requests.Response | None:
     for attempt in range(MAX_RETRIES):
         try:
             resp = requests.get(
-                url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=False
+                url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=True
             )
             resp.raise_for_status()
             return resp

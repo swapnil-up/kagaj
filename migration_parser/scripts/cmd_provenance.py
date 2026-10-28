@@ -129,9 +129,12 @@ def main(argv: list[str] | None = None) -> int:
         return verify(pdf_dir)
 
     att = build_attestation()
+    n = sum(1 for d in att["docs"] if "page_count" in d)
+    if n == 0 and ATTESTATION.exists():
+        print(f"skip {ATTESTATION.name}: no cached PDFs to attest; kept existing file")
+        return 0
     MIGRATION_DIR.mkdir(parents=True, exist_ok=True)
     ATTESTATION.write_text(json.dumps(att, indent=2, ensure_ascii=False) + "\n")
-    n = sum(1 for d in att["docs"] if "page_count" in d)
     print(f"wrote {ATTESTATION.name}: {n} docs attested")
     return 0
 

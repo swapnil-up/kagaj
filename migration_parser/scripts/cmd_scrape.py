@@ -40,7 +40,7 @@ MAX_PAGES = 15
 
 def fetch(url: str) -> str | None:
     try:
-        r = requests.get(url, headers=HEADERS, timeout=40, verify=False)
+        r = requests.get(url, headers=HEADERS, timeout=40, verify=True)
         if r.status_code != 200:
             return None
         return r.text

@@ -39,7 +39,7 @@ def ensure_reports(download: bool = True) -> list[tuple[str, Path]]:
         path = MIGRATION_REPORTS_DIR / f"{report}.pdf"
         if (not path.exists() or path.stat().st_size <= 1000) and download:
             url = MIGRATION_REPORTS[report]
-            r = requests.get(url, headers=HEADERS, timeout=180, verify=False)
+            r = requests.get(url, headers=HEADERS, timeout=180, verify=True)
             r.raise_for_status()
             path.write_bytes(r.content)
             print(f"downloaded {report}: {len(r.content) / 1024:.0f} KB", file=sys.stderr)

@@ -200,7 +200,7 @@ def _download(url: str) -> bytes:
             detail = proc.stderr.decode("utf-8", "replace").strip()
             raise RuntimeError(f"curl exit {proc.returncode}: {detail}")
         return proc.stdout
-    r = requests.get(url, headers=HEADERS, timeout=180, verify=False)
+    r = requests.get(url, headers=HEADERS, timeout=180, verify=True)
     r.raise_for_status()
     return r.content
 

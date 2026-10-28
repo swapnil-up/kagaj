@@ -1,6 +1,6 @@
 """Panel-wide verification pass.
 
-Re-checks the math invariants of ``datasets/labour-migration/panel.csv`` independently of
+Re-checks the math invariants of ``datasets/labour-migration/panel.csv.gz`` independently of
 extraction (see ``migration_parser.panel_verify``) and writes a tracked
 ``datasets/labour-migration/verification.json`` summary. Failures listed in
 ``datasets/labour-migration/reconciliation.json`` → ``known_arithmetic_errors`` are counted but
@@ -18,7 +18,7 @@ from collections import Counter
 
 from .. import normalize
 from ..panel_verify import verify_panel
-from ..paths import MIGRATION_DIR
+from ..paths import MIGRATION_DIR, open_csv, panel_source
 
 FIELDS = ("doc_id", "section", "name", "channel", "gender", "kind")
 
@@ -28,7 +28,7 @@ def _key(f) -> tuple:
 
 
 def main(argv: list[str] | None = None) -> int:
-    with (MIGRATION_DIR / "panel.csv").open(newline="", encoding="utf-8") as f:
+    with open_csv(panel_source(), newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
 
     fails = verify_panel(rows)

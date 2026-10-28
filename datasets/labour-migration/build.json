@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-28T07:01:47+0545",
-  "duration_s": 118.5,
+  "generated_at": "2026-10-28T10:03:30+0545",
+  "duration_s": 160.9,
   "git": {
-    "commit": "6d1e5ea5671acd8b9372b6f0f7711d553bd66ed0",
-    "describe": "6d1e5ea",
+    "commit": "55af9f60750a973e428bdeb732604d9a7a5180a4",
+    "describe": "55af9f6",
     "dirty": false,
     "clean": true
   },
@@ -18,16 +18,15 @@
       "ok": true
     },
     "crosscheck": {
-      "exit": null,
-      "ok": null,
-      "skipped": true
+      "exit": 0,
+      "ok": true
     }
   },
   "files": {
-    "panel.csv": {
+    "panel.csv.gz": {
       "rows": 102744,
-      "bytes": 22054975,
-      "sha256": "19ec22e7942597160e272a0fb18ae4644ddf72b7dfdd2ee086267ddfa283f7f3"
+      "bytes": 561705,
+      "sha256": "d25653ca4033e903c0c7f495f8d46b24ba28707d6d9c99a8266ecdcc0f3f8bb4"
     },
     "panel_canonical.csv.gz": {
       "rows": 70089,

@@ -72,3 +72,8 @@ def load_env():
             if line and not line.startswith("#") and "=" in line:
                 key, _, val = line.partition("=")
                 os.environ.setdefault(key.strip(), val.strip())
+
+
+def tls_verify() -> bool:
+    load_env()
+    return os.getenv("PARLIAMENT_VERIFY_TLS", "").strip().lower() in ("1", "true", "yes")

@@ -86,7 +86,7 @@ def download(url: str, dest: Path) -> bool:
     if dest.exists() and dest.stat().st_size > 1000:
         return True
     try:
-        r = requests.get(url, headers=HEADERS, timeout=120, verify=False)
+        r = requests.get(url, headers=HEADERS, timeout=120, verify=True)
         r.raise_for_status()
         dest.write_bytes(r.content)
         return True

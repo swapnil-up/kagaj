@@ -30,7 +30,7 @@ keeps the tools open so anyone can extend them to a new office or document type.
 | Dataset | What it is | Coverage | Format | Link |
 |---|---|---|---|---|
 | **Labour-migration panel** | DoFE labour approvals, deaths, return migration, remittances, agency detail | FY2074/75–2082/83 · 70,089 canonical rows | CSV.GZ + codebook | [`datasets/labour-migration/`](datasets/labour-migration/) |
-| **Parliament translations** | HoR notices + National Assembly verbatims, English + structured JSON | 7th HoR · NA sessions 19+ · 218 structured docs | TXT / JSON | [`datasets/translations/`](datasets/translations/) |
+| **Parliament translations** | HoR notices + National Assembly verbatims, English + structured JSON | 7th HoR · NA sessions 19+ · 220 structured docs | TXT / JSON | [`datasets/translations/`](datasets/translations/) |
 | **KUKL water schedules** | Branch → reservoir → zone/DMA/day/time/areas | 2083 Ashoj · 7 branches · 231 source entries | JSON | [`datasets/water/schedule.json`](datasets/water/schedule.json) |
 | **Budget (redbook)** | Ministry/program budget rows with a math audit against printed totals | 2082/83 redbook | SQLite / CSV / Excel | [`redbook_parser/`](redbook_parser/) |
 

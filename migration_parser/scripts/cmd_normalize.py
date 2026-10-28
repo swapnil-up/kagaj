@@ -1,6 +1,6 @@
 """Apply canonical entity + fiscal-year normalisation to the migration outputs.
 
-Reads the raw tracked outputs (``datasets/labour-migration/panel.csv``, ``datasets/labour-migration/agencies.csv``)
+Reads the raw tracked outputs (``datasets/labour-migration/panel.csv.gz``, ``datasets/labour-migration/agencies.csv``)
 and writes normalised companions with added canonical columns. Raw columns are
 kept intact; normalisation only appends.
 
@@ -13,7 +13,7 @@ import csv
 import sys
 
 from .. import normalize
-from ..paths import MIGRATION_DIR
+from ..paths import MIGRATION_DIR, open_csv, panel_source
 
 PANEL_EXTRA = ["entity_type", "name_canonical", "iso3", "province", "entity_note",
                "entity_resolved", "fiscal_year", "channel_canonical", "channel_class",
@@ -31,10 +31,10 @@ def _truthy(x) -> bool:
 
 
 def normalize_panel() -> int:
-    src = MIGRATION_DIR / "panel.csv"
+    src = panel_source()
     dst = MIGRATION_DIR / "panel_normalized.csv"
     n = 0
-    with src.open(newline="", encoding="utf-8") as f, dst.open("w", newline="", encoding="utf-8") as g:
+    with open_csv(src, newline="", encoding="utf-8") as f, dst.open("w", newline="", encoding="utf-8") as g:
         r = csv.DictReader(f)
         w = csv.DictWriter(g, fieldnames=r.fieldnames + PANEL_EXTRA)
         w.writeheader()

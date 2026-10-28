@@ -38,7 +38,7 @@ kagaj/
 | Dataset | Path | Notes |
 |---|---|---|
 | Labour-migration panel | `datasets/labour-migration/` | 70,089 canonical rows; `analysis_safe` filter; `build.json` hashes |
-| Parliament translations | `datasets/translations/` | 595 files; indexed in `INDEX.md` |
+| Parliament translations | `datasets/translations/` | 601 files; indexed in `INDEX.md` |
 | KUKL water schedules | `datasets/water/` | `schedule.json` is the website artifact |
 
 ## Setup
@@ -101,10 +101,13 @@ python -m migration_parser.cli patterns
 
 - Manifests: `datasets/labour-migration/manifests/`.
 - Tracked outputs: `datasets/labour-migration/`.
-- `panel_canonical.csv.gz` is additive-only; `panel_rollup.csv.gz` holds
-  aggregates and printed totals.
+- `panel.csv.gz` is the shipped raw extraction; uncompressed `panel.csv` is a
+  gitignored build intermediate. `panel_canonical.csv.gz` is additive-only;
+  `panel_rollup.csv.gz` holds aggregates and printed totals.
 - `build.json` records git revision + SHA-256 per artifact. Rebuild it after
   data changes.
+- `crosscheck --download` fetches the opendatanepal CSVs; without them the
+  cross-check is recorded as skipped.
 - Research outputs land in `output/migration/research/`; known data caveats are
   tracked in `docs/migration-data-issues.md`.
 
@@ -219,6 +222,8 @@ Required secrets: `GEMINI_API_KEY`, `DATABASE_URL`.
 ## Known issues
 
 - 34 of 70 tracked verbatims are still `failed`, plus 3 pending notices.
+- `hr.parliament.gov.np` has an incomplete TLS chain, so parliament scripts verify
+  off by default. Set `PARLIAMENT_VERIFY_TLS=1` once the host chain is fixed.
 - Some legacy-font conjuncts and rephas are still misrecognised by OCR.
 - Summary pages in the redbook have a different column layout from detail pages.
 - `drug_prices/` is not complete and has no verified output.

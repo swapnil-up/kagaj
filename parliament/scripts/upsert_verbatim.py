@@ -36,8 +36,8 @@ def get_embeddings(texts: list[str], api_key: str) -> list[list[float]]:
     for i, text in enumerate(texts):
         resp = requests.post(
             f"{GEMINI_API}/{EMBED_MODEL}:embedContent",
-            headers={"Content-Type": "application/json"},
-            params={"key": api_key},
+            headers={"Content-Type": "application/json",
+                     "x-goog-api-key": api_key},
             json={
                 "model": f"models/{EMBED_MODEL}",
                 "content": {"parts": [{"text": text}]},
@@ -108,14 +108,23 @@ def upsert_verbatim(structured: dict, api_key: str, db_url: str, dry_run: bool =
     conn = psycopg.connect(db_url)
     cur = conn.cursor()
 
+    if na_id:
+        identity_where = "na_id = %(na_id)s"
+        identity_args = {"na_id": na_id}
+    elif verbatim_data["source_pdf"]:
+        identity_where = "source_pdf = %(source_pdf)s"
+        identity_args = {"source_pdf": verbatim_data["source_pdf"]}
+    else:
+        identity_where = "title = %(title)s"
+        identity_args = {"title": title}
+
     cur.execute(
-        """SELECT id, full_translation_en,
+        f"""SELECT id, full_translation_en,
            (SELECT count(*) FROM verbatim_chunks c WHERE c.verbatim_id = v.id),
            (SELECT count(*) FROM verbatim_chunks c WHERE c.verbatim_id = v.id AND c.embedding IS NOT NULL)
-           FROM verbatims v WHERE (na_id = %(na_id)s OR title = %(title)s)
-           ORDER BY (na_id = %(na_id)s) DESC
+           FROM verbatims v WHERE {identity_where}
            LIMIT 1""",
-        {"na_id": na_id, "title": title},
+        identity_args,
     )
     existing = cur.fetchone()
     if (existing and existing[1] == verbatim_data["full_translation_en"]
@@ -125,21 +134,7 @@ def upsert_verbatim(structured: dict, api_key: str, db_url: str, dry_run: bool =
         conn.close()
         return "skipped"
 
-    # Dedup on na_id first, then title. A title collision with a different
-    # na_id must update the existing row instead of raising a unique violation.
-    existing_id = None
-    matched_by_title = False
-    if na_id:
-        cur.execute("SELECT id FROM verbatims WHERE na_id = %s", (na_id,))
-        row = cur.fetchone()
-        if row:
-            existing_id = row[0]
-    if existing_id is None:
-        cur.execute("SELECT id FROM verbatims WHERE title = %s", (title,))
-        row = cur.fetchone()
-        if row:
-            existing_id = row[0]
-            matched_by_title = True
+    existing_id = existing[0] if existing else None
 
     update_cols = """title=%(title)s, title_np=%(title_np)s,
        published_at=%(published_at)s::date,
@@ -152,7 +147,7 @@ def upsert_verbatim(structured: dict, api_key: str, db_url: str, dry_run: bool =
 
     if existing_id is not None:
         verbatim_data["id"] = existing_id
-        if na_id and not matched_by_title:
+        if na_id:
             update_cols = "na_id=%(na_id)s, " + update_cols
         cur.execute(
             "UPDATE verbatims SET " + update_cols + " WHERE id=%(id)s",

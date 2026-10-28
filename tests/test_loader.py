@@ -53,8 +53,15 @@ class TestLoadStore:
 
     def test_approved_count(self, store_path):
         approved, _ = load_store(store_path)
-        # 10 single-char entries approved; CID 1 is font-scoped, not a fallback.
-        assert len(approved) == 10
+        # Only CIDs whose font scopes agree are safe for the flat-text fallback.
+        assert len(approved) == 16
+
+    def test_conflicting_font_scopes_rejected(self, store_path):
+        _, rejections = load_store(store_path)
+        conflicts = {e["cid"] for e in rejections.get("conflicting_font_scopes", [])}
+        assert conflicts
+        approved, _ = load_store(store_path)
+        assert not (conflicts & set(approved))
 
     def test_rejection_report_structure(self, store_path):
         _, rejections = load_store(store_path)

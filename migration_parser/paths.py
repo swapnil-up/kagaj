@@ -8,6 +8,7 @@ installed package, not the CWD).
 
 from __future__ import annotations
 
+import gzip
 import os
 from pathlib import Path
 
@@ -22,6 +23,19 @@ OUTPUT_DIR = REPO_ROOT / "output"
 MIGRATION_OUTPUT_DIR = OUTPUT_DIR / "migration"
 MIGRATION_REPORTS_DIR = MIGRATION_OUTPUT_DIR / "reports"
 MIGRATION_OPENDATA_DIR = MIGRATION_OUTPUT_DIR / "opendatanepal"
+
+def panel_source() -> Path:
+    """Return the raw panel, preferring an uncompressed working copy."""
+    path = MIGRATION_DIR / "panel.csv"
+    if path.exists():
+        return path
+    return path.with_name(path.name + ".gz")
+
+
+def open_csv(path: Path, mode: str = "rt", **kwargs):
+    opener = gzip.open if path.suffix == ".gz" else open
+    return opener(path, mode, **kwargs)
+
 
 # --- Manifest (scraper's working state, kept with the dataset) ---
 MIGRATION_MANIFEST = MIGRATION_DIR / "manifests" / "migration_manifest.json"

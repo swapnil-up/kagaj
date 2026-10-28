@@ -63,8 +63,8 @@ def call_structured(prompt: str, api_key: str | None = None) -> dict:
         try:
             resp = requests.post(
                 f"{API}/{MODEL}:generateContent",
-                headers={"Content-Type": "application/json"},
-                params={"key": key},
+                headers={"Content-Type": "application/json",
+                         "x-goog-api-key": key},
                 json=body,
                 timeout=300,
             )

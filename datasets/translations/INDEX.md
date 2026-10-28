@@ -158,8 +158,8 @@ Do not edit by hand.
 | Report of the House of Representatives Rules Drafting Committee, 2083 | `done` | [ocr](Report_of_the_House_of_Representatives_Rules_Drafting_Committee%2C_2083-ocr.txt) [en](Report_of_the_House_of_Representatives_Rules_Drafting_Committee%2C_2083.txt) [json](Report_of_the_House_of_Representatives_Rules_Drafting_Committee%2C_2083.json) |
 | Daily Agenda 2083-01-28 | `done` | [ocr](Daily_Agenda_2083-01-28-ocr.txt) [en](Daily_Agenda_2083-01-28.txt) [json](Daily_Agenda_2083-01-28.json) |
 | Joint Meeting Agenda 2083-01-28 | `done` | [ocr](Joint_Meeting_Agenda_2083-01-28-ocr.txt) [en](Joint_Meeting_Agenda_2083-01-28.txt) [json](Joint_Meeting_Agenda_2083-01-28.json) |
-| Notice of Joint Meeting of Federal Parliament | `done` | [ocr](Notice_of_Joint_Meeting_of_Federal_Parliament-ocr.txt) [en](Notice_of_Joint_Meeting_of_Federal_Parliament.txt) [json](Notice_of_Joint_Meeting_of_Federal_Parliament.json) |
-| Notice of Federal Parliament Session Call | `done` | [ocr](Notice_of_Federal_Parliament_Session_Call-ocr.txt) [en](Notice_of_Federal_Parliament_Session_Call.txt) [json](Notice_of_Federal_Parliament_Session_Call.json) |
+| Notice of Joint Meeting of Federal Parliament | `done` | [ocr](Notice_of_Joint_Meeting_of_Federal_Parliament_1778223048-ocr.txt) [en](Notice_of_Joint_Meeting_of_Federal_Parliament_1778223048.txt) [json](Notice_of_Joint_Meeting_of_Federal_Parliament_1778223048.json) |
+| Notice of Federal Parliament Session Call | `done` | [ocr](Notice_of_Federal_Parliament_Session_Call_1777975645-ocr.txt) [en](Notice_of_Federal_Parliament_Session_Call_1777975645.txt) [json](Notice_of_Federal_Parliament_Session_Call_1777975645.json) |
 | Notice 2082-12-25 | `done` | [ocr](Notice_2082-12-25-ocr.txt) [en](Notice_2082-12-25.txt) [json](Notice_2082-12-25.json) |
 | Notice of Joint Meeting 2082-12-27 | `done` | [ocr](Notice_of_Joint_Meeting_2082-12-27-ocr.txt) [en](Notice_of_Joint_Meeting_2082-12-27.txt) [json](Notice_of_Joint_Meeting_2082-12-27.json) |
 | Notice 2082-12-27 | `done` | [ocr](Notice_2082-12-27-ocr.txt) [en](Notice_2082-12-27.txt) [json](Notice_2082-12-27.json) |
@@ -173,7 +173,7 @@ Do not edit by hand.
 | Daily Agenda 2082-12-27 | `done` | [ocr](Daily_Agenda_2082-12-27-ocr.txt) [en](Daily_Agenda_2082-12-27.txt) [json](Daily_Agenda_2082-12-27.json) |
 | Daily Program of JoInt Meeting of Federal Parliament 2082-12-27 | `done` | [ocr](Daily_Program_of_JoInt_Meeting_of_Federal_Parliament_2082-12-27-ocr.txt) [en](Daily_Program_of_JoInt_Meeting_of_Federal_Parliament_2082-12-27.txt) [json](Daily_Program_of_JoInt_Meeting_of_Federal_Parliament_2082-12-27.json) |
 | Final List of Candidates for the House of the Deputy Speaker | `done` | [ocr](Final_List_of_Candidates_for_the_House_of_the_Deputy_Speaker-ocr.txt) [en](Final_List_of_Candidates_for_the_House_of_the_Deputy_Speaker.txt) [json](Final_List_of_Candidates_for_the_House_of_the_Deputy_Speaker.json) |
-| Notice of Joint Meeting of Federal Parliament | `done` | [ocr](Notice_of_Joint_Meeting_of_Federal_Parliament-ocr.txt) [en](Notice_of_Joint_Meeting_of_Federal_Parliament.txt) [json](Notice_of_Joint_Meeting_of_Federal_Parliament.json) |
+| Notice of Joint Meeting of Federal Parliament | `done` | [ocr](Notice_of_Joint_Meeting_of_Federal_Parliament_1775647504-ocr.txt) [en](Notice_of_Joint_Meeting_of_Federal_Parliament_1775647504.txt) [json](Notice_of_Joint_Meeting_of_Federal_Parliament_1775647504.json) |
 | Notice of Election for the Vice Speker of the House of Representatives | `done` | [ocr](Notice_of_Election_for_the_Vice_Speker_of_the_House_of_Representatives-ocr.txt) [en](Notice_of_Election_for_the_Vice_Speker_of_the_House_of_Representatives.txt) [json](Notice_of_Election_for_the_Vice_Speker_of_the_House_of_Representatives.json) |
 | Daily Agenda 2082-12-25 | `done` | [ocr](Daily_Agenda_2082-12-25-ocr.txt) [en](Daily_Agenda_2082-12-25.txt) [json](Daily_Agenda_2082-12-25.json) |
 | Notice 2082-12-24 | `done` | [ocr](Notice_2082-12-24-ocr.txt) [en](Notice_2082-12-24.txt) [json](Notice_2082-12-24.json) |
@@ -186,7 +186,7 @@ Do not edit by hand.
 | Final List of Candidates for the House of the Speaker | `done` | [ocr](Final_List_of_Candidates_for_the_House_of_the_Speaker-ocr.txt) [en](Final_List_of_Candidates_for_the_House_of_the_Speaker.txt) [json](Final_List_of_Candidates_for_the_House_of_the_Speaker.json) |
 | Notice of Election for the Speaker of the House | `done` | [ocr](Notice_of_Election_for_the_Speaker_of_the_House-ocr.txt) [en](Notice_of_Election_for_the_Speaker_of_the_House.txt) [json](Notice_of_Election_for_the_Speaker_of_the_House.json) |
 | Daily Agenda 2082-12-19 | `done` | [ocr](Daily_Agenda_2082-12-19-ocr.txt) [en](Daily_Agenda_2082-12-19.txt) [json](Daily_Agenda_2082-12-19.json) |
-| Notice of Federal Parliament Session Call | `done` | [ocr](Notice_of_Federal_Parliament_Session_Call-ocr.txt) [en](Notice_of_Federal_Parliament_Session_Call.txt) [json](Notice_of_Federal_Parliament_Session_Call.json) |
+| Notice of Federal Parliament Session Call | `done` | [ocr](Notice_of_Federal_Parliament_Session_Call_1774873078-ocr.txt) [en](Notice_of_Federal_Parliament_Session_Call_1774873078.txt) [json](Notice_of_Federal_Parliament_Session_Call_1774873078.json) |
 | Question and Answers of sixth Session | `skipped` | — |
 | All works of 6th sessions | `done` | [ocr](All_works_of_6th_sessions-ocr.txt) [en](All_works_of_6th_sessions.txt) [json](All_works_of_6th_sessions.json) |
 

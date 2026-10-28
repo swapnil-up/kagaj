@@ -257,15 +257,15 @@ def fix_text(text: str) -> str:
     for old, new in _sorted_fixes():
         result = result.replace(old, new)
 
-    # 4. Clean up remaining [CID] placeholders (silent glyph loss — Step 2).
-    result = re.sub(r"\[\d+\]", "", result)
+    # 4. Make unresolved CIDs visible instead of deleting them.
+    result = re.sub(r"\[(\d+)\]", r"⟦cid:\1⟧", result)
 
     return result
 
 
 def sanitize_devanagari(text: str) -> str:
     """Clean basic extraction artifacts. Preserves newlines."""
-    text = text.replace("\ufffd", "")
+    text = text.replace("\ufffd", "⟦?⟧")
     lines = []
     for line in text.split("\n"):
         line = re.sub(r"\s+", " ", line).strip()

@@ -1,4 +1,4 @@
-"""Panel-wide verification — independent math audit of ``datasets/labour-migration/panel.csv``.
+"""Panel-wide verification — independent math audit of ``datasets/labour-migration/panel.csv.gz``.
 
 ``verify.py`` checks the tables at extraction time (on the in-memory wide rows).
 This module re-checks the *melted* panel, so it also guards against melt/

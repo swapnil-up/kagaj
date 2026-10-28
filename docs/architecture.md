@@ -85,7 +85,7 @@ datasets/labour-migration/manifests/migration_manifest.json
    ↓ download + extract + verify
 output/migration/docs/*.csv (scratch)
    ↓ melt + normalize + reconcile
-datasets/labour-migration/panel.csv
+datasets/labour-migration/panel.csv.gz
 datasets/labour-migration/panel_canonical.csv.gz
 datasets/labour-migration/panel_rollup.csv.gz
    ↓ build

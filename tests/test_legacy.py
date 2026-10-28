@@ -23,9 +23,9 @@ class TestCIDCharMap:
     def test_control_char_only(self):
         assert fix_text(chr(4)) == "\u0930\u094D"
 
-    def test_unknown_control_char_stripped_silently(self):
-        # Current behaviour: unknown CID -> [N] -> regex-stripped (Step-2 fix).
-        assert fix_text("अ\x00ज्ञ") == "अज्ञ"
+    def test_unknown_control_char_kept_visible(self):
+        # Unknown CIDs must remain visible so data loss is detectable.
+        assert fix_text("अ\x00ज्ञ") == "अ⟦cid:0⟧ज्ञ"
 
 
 class TestExactFixes:
@@ -51,8 +51,8 @@ class TestExactFixes:
 
 
 class TestSanitize:
-    def test_removes_replacement_char(self):
-        assert sanitize_devanagari("अ\uFFFDb") == "अb"
+    def test_replacement_char_becomes_visible_marker(self):
+        assert sanitize_devanagari("अ\uFFFDb") == "अ⟦?⟧b"
 
     def test_collapses_whitespace_and_preserves_lines(self):
         text = "अर्थ\tमन्त्रालय\n\n  कार्यालय   खर्च \n"

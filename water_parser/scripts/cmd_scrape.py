@@ -31,7 +31,7 @@ def run(args) -> int:
     resp = requests.get(
         paths.KUKL_SCHEDULE_URL,
         timeout=60,
-        verify=False,
+        verify=True,
         headers={"User-Agent": "Mozilla/5.0 (compatible; water-parser/0.1)"},
     )
     resp.raise_for_status()

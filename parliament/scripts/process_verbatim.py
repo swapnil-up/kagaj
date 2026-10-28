@@ -53,18 +53,19 @@ from config import (
     HEADERS,
     MAX_OUTPUT_TOKENS,
     MAX_RETRIES,
-    OUTPUT_DIR,
     RETRY_DELAY,
     SEGMENT_CHARS,
     TRANSLATIONS_DIR,
     VERBATIM_TIMEOUT,
     VERBATIMS_MANIFEST,
     VERBATIMS_OUTPUT_DIR,
+    tls_verify,
     load_env,
 )
 from schema import VERBATIM_PROMPT, build_schema
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+if not tls_verify():
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 MANIFEST = VERBATIMS_MANIFEST
 DEFAULT_MAX_ATTEMPTS = 3
@@ -142,7 +143,7 @@ def fetch_with_retry(url: str, **kwargs) -> tuple[requests.Response | None, str]
     last_err = None
     for attempt in range(MAX_RETRIES):
         try:
-            resp = requests.get(url, headers=HEADERS, timeout=VERBATIM_TIMEOUT, verify=False, **kwargs)
+            resp = requests.get(url, headers=HEADERS, timeout=VERBATIM_TIMEOUT, verify=tls_verify(), **kwargs)
             resp.raise_for_status()
             return resp, ""
         except requests.exceptions.RequestException as e:
@@ -183,7 +184,7 @@ def run_ocr(pdf_path: Path) -> str:
     """Extract Devanagari text. Reuses an existing {stem}-ocr.txt so
     segment inputs stay deterministic across runs (the resume anchor)."""
     stem = pdf_path.stem
-    ocr_txt = OUTPUT_DIR / f"{stem}-ocr.txt"
+    ocr_txt = VERBATIMS_OUTPUT_DIR / f"{stem}-ocr.txt"
 
     if ocr_txt.exists():
         text = ocr_txt.read_text(encoding="utf-8")
@@ -197,7 +198,7 @@ def run_ocr(pdf_path: Path) -> str:
         "-o", str(ocr_txt),
     ]
     print(f"[ocr] OCR only -> {ocr_txt}", file=sys.stderr)
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    VERBATIMS_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
         err = (result.stderr or "") + (result.stdout or "")
@@ -235,7 +236,7 @@ def compute_segment_hash(text: str) -> str:
 
 def get_segment_cache_path(stem: str, idx: int, text: str) -> Path:
     """Path to output/verbatims/{stem}.segments/{idx:03d}-{hash}.json."""
-    cache_dir = OUTPUT_DIR / f"{stem}.segments"
+    cache_dir = VERBATIMS_OUTPUT_DIR / f"{stem}.segments"
     cache_dir.mkdir(parents=True, exist_ok=True)
     return cache_dir / f"{idx:03d}-{compute_segment_hash(text)}.json"
 
@@ -273,7 +274,7 @@ def save_cached_segment(cache_path: Path, data: dict):
 
 def cleanup_segment_cache(stem: str):
     """Delete the segment checkpoint dir after a full successful merge."""
-    cache_dir = OUTPUT_DIR / f"{stem}.segments"
+    cache_dir = VERBATIMS_OUTPUT_DIR / f"{stem}.segments"
     if not cache_dir.exists():
         return
     for f in cache_dir.iterdir():
@@ -314,8 +315,8 @@ def call_gemini_segment(segment_text: str, idx: int, total: int, api_key: str) -
     for attempt in range(ADAPTIVE_BUDGET_RETRIES):
         resp = requests.post(
             f"{GEMINI_API}/{GEMINI_MODEL}:generateContent",
-            headers={"Content-Type": "application/json"},
-            params={"key": api_key},
+            headers={"Content-Type": "application/json",
+                     "x-goog-api-key": api_key},
             json={
                 "system_instruction": {
                     "parts": [{"text": GEMINI_SYSTEM_INSTRUCTION}]
@@ -448,7 +449,7 @@ def process_one(verbatim: dict, index: int, verbatims: list) -> bool:
         save_manifest(verbatims)
         return False
 
-    pdf_dest = OUTPUT_DIR / f"{stem}.pdf"
+    pdf_dest = VERBATIMS_OUTPUT_DIR / f"{stem}.pdf"
 
     downloaded, download_error = download_pdf(pdf_url, pdf_dest)
     if not downloaded:
@@ -467,7 +468,7 @@ def process_one(verbatim: dict, index: int, verbatims: list) -> bool:
 
             if not api_key:
                 print("[warn] GEMINI_API_KEY not set — OCR only, no translation", file=sys.stderr)
-                result = {"ocr_path": str(OUTPUT_DIR / f"{stem}-ocr.txt")}
+                result = {"ocr_path": str(VERBATIMS_OUTPUT_DIR / f"{stem}-ocr.txt")}
             else:
                 segments = segment_text(ocr_text)
                 print(f"[translate] {len(segments)} segments ({SEGMENT_CHARS} chars each)...", file=sys.stderr)
@@ -498,7 +499,7 @@ def process_one(verbatim: dict, index: int, verbatims: list) -> bool:
 
                 phase = "output"
                 translation = structured.get("full_translation_en", "")
-                trans_txt = OUTPUT_DIR / f"{stem}.txt"
+                trans_txt = VERBATIMS_OUTPUT_DIR / f"{stem}.txt"
                 trans_txt.parent.mkdir(parents=True, exist_ok=True)
                 trans_txt.write_text(translation, encoding="utf-8")
                 print(f"[translate] full translation -> {trans_txt} ({len(translation):,} chars)", file=sys.stderr)
@@ -509,7 +510,7 @@ def process_one(verbatim: dict, index: int, verbatims: list) -> bool:
                 print(f"[translate] structured JSON -> {out_json}", file=sys.stderr)
 
                 result = {
-                    "ocr_path": str(OUTPUT_DIR / f"{stem}-ocr.txt"),
+                    "ocr_path": str(VERBATIMS_OUTPUT_DIR / f"{stem}-ocr.txt"),
                     "translated_path": str(trans_txt),
                     "structured_path": str(out_json),
                 }

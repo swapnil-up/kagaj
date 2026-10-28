@@ -13,8 +13,8 @@ does **not** define a spelling corrector or a legacy-font transcoder.
 
 Every pipeline currently cleans strings locally. Parliament OCR, redbook CID
 decoding, and water-schedule extraction can therefore disagree about whether two
-strings are "the same word". The corpus makes that disagreement explicit before
-normalizer code exists.
+strings are "the same word". The corpus makes that disagreement explicit and is
+enforced against the normalizer in `kagaj_core/devanagari.py`.
 
 The central rule:
 

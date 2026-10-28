@@ -81,3 +81,52 @@ def test_xlsx_to_text_flattens_sheets(tmp_path):
     assert out["sheets"] == ["tank A"]
     assert "### sheet: tank A" in out["text"]
     assert "8.1 | Patan" in out["text"]
+
+
+def test_flag_zone_marks_untranslated_areas():
+    from water_parser.validate import flag_zone
+
+    zone = {"areas_np": ["बानेश्वर"], "areas_en": [""], "source_columns": ["areas"]}
+    assert "areas_translation_missing" in flag_zone(zone)
+
+
+def test_flag_zone_does_not_require_english_when_nepali_present():
+    from water_parser.validate import flag_zone
+
+    zone = {"areas_np": ["बानेश्वर"], "areas_en": ["Baneshwor"],
+            "source_columns": ["areas"]}
+    assert "areas_translation_missing" not in flag_zone(zone)
+
+
+def test_force_invalidates_raw_ocr_and_rendered_caches(tmp_path, monkeypatch):
+    from water_parser import paths
+    from water_parser.scripts import cmd_process
+
+    monkeypatch.setattr(paths, "OCR_DIR", tmp_path / "ocr")
+    monkeypatch.setattr(paths, "RENDER_DIR", tmp_path / "rendered")
+    raw = tmp_path / "raw" / "branch.pdf"
+    text = tmp_path / "text" / "branch.txt"
+    ocr = tmp_path / "ocr" / "branch.ocr.json"
+    rendered = tmp_path / "rendered" / "Branch" / "branch_page1.png"
+    for path in (raw, text, ocr, rendered):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("x")
+
+    cmd_process._invalidate_caches({"branch": "Branch"}, raw, text)
+
+    assert not raw.exists()
+    assert not text.exists()
+    assert not ocr.exists()
+    assert not rendered.exists()
+
+
+def test_raw_path_is_url_scoped_and_keeps_suffix(monkeypatch, tmp_path):
+    from water_parser import paths
+    from water_parser.scripts.cmd_process import _raw_path
+
+    monkeypatch.setattr(paths, "RAW_DIR", tmp_path)
+    a = {"filename": "same file.pdf", "url": "https://example.test/a"}
+    b = {"filename": "same file.pdf", "url": "https://example.test/b"}
+    assert _raw_path(a) != _raw_path(b)
+    assert _raw_path(a).suffix == ".pdf"
+    assert _raw_path(a) == _raw_path(dict(a))

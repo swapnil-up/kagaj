@@ -19,10 +19,12 @@ from config import (
     REQUEST_TIMEOUT,
     RETRY_DELAY,
     SCRAPE_DELAY,
+    tls_verify,
     load_env,
 )
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+if not tls_verify():
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 BASE = HR_BASE
 LIST_URL = HR_LIST_URL
@@ -38,7 +40,7 @@ def load_manifest() -> list:
 def save_manifest(notices: list):
     for i, n in enumerate(notices, 1):
         n["serial"] = f"{i}."
-    MANIFEST.write_text(json.dumps(notices, indent=2, ensure_ascii=False))
+    MANIFEST.write_text(json.dumps(notices, indent=2, ensure_ascii=False) + "\n")
     print(f"[manifest] wrote {len(notices)} entries", file=sys.stderr)
 
 
@@ -46,7 +48,7 @@ def fetch_with_retry(url: str) -> requests.Response | None:
     last_err = None
     for attempt in range(MAX_RETRIES):
         try:
-            resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=False)
+            resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=tls_verify())
             resp.raise_for_status()
             return resp
         except requests.exceptions.RequestException as e:

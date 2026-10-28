@@ -36,7 +36,7 @@ def load_store(
 ) -> tuple[dict[int, str], dict[str, list[dict]]]:
     """Load the cidmap store and return (approved_map, rejection_report).
 
-    approved_map:   {cid → Devanagari} ready for FONT_CID_MAPS["Kalimati"].
+    approved_map:   {cid → Devanagari} approved for the font-agnostic fallback.
     rejection_report: {reason_string → [list of rejected CID dicts]}.
     """
     from .legacy import CID_CHAR_MAP, EXACT_FIXES
@@ -59,10 +59,16 @@ def load_store(
 
     for cid_str, entry in cids.items():
         cid = int(cid_str)
-        value = entry.get("", "")
+        values = {v for key, v in entry.items() if key != "_meta"}
+        # A CID may be scoped to several font subsets. Only apply it globally
+        # when every observed subset agrees; otherwise the flat-text decode
+        # cannot know which glyph the CID really is.
+        value = next(iter(values)) if len(values) == 1 else ""
         reject: str | None = None
 
-        if not _is_single_devanagari(value):
+        if len(values) > 1:
+            reject = "conflicting_font_scopes"
+        elif not _is_single_devanagari(value):
             reject = "not_single_devanagari"
         elif cid in CID_CHAR_MAP:
             # Hand-verified legacy map wins.  If values agree it's redundant;

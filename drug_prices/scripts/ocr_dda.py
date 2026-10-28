@@ -36,7 +36,7 @@ def get_ocr():
     return _ocr_instance
 
 
-def ocr_image(image_path: Path) -> list[dict]:
+def ocr_image(image_path: Path, page: int = 0) -> list[dict]:
     """Run PaddleOCR on a single PNG image.
 
     Returns list of dicts: {text, x, y, w, h, confidence, page}
@@ -70,7 +70,7 @@ def ocr_image(image_path: Path) -> list[dict]:
                 "w": max(x2 - x1, 60),
                 "h": max(y2 - y1, 14),
                 "confidence": round(s, 3),
-                "page": 0,
+                "page": page,
             })
 
     lines.sort(key=lambda r: (r["y"], r["x"]))
@@ -84,10 +84,10 @@ def ocr_images(image_paths: list[Path], outdir: Path = DEFAULT_OUTDIR) -> dict:
     """
     outdir.mkdir(parents=True, exist_ok=True)
     all_results = {}
-    for img_path in image_paths:
+    for page, img_path in enumerate(image_paths, 1):
         stem = img_path.stem
         print(f"[ocr] processing {img_path.name}...", file=sys.stderr)
-        lines = ocr_image(img_path)
+        lines = ocr_image(img_path, page=page)
         print(f"  -> {len(lines)} lines", file=sys.stderr)
         all_results[stem] = {
             "image": str(img_path),

@@ -33,16 +33,16 @@
             "के.एम.सि. लाईन"
           ],
           "areas_en": [
-            "क्वैत्र",
-            "अरनिको हाईवे क्षत्र",
-            "भुलांचा टुरिजम मार्ेट",
-            "आदर्श चोक",
-            "बाराही",
-            "पीठ लाईन",
-            "गपली",
-            "राम मन्दिर",
-            "दुवाकोट ३ ईन्च लाईन पुरानो (मिलृन टोल",
-            "के.एम.सि. लाईन"
+            "Kwaitra",
+            "Arniko Highway Kshetra",
+            "Bhulancha Tourism Market",
+            "Adarsha Chok",
+            "Barahi",
+            "Pith Line",
+            "Gapali",
+            "Ram Mandir",
+            "Duvakot 3 Inch Line Purano (Milun Tol",
+            "K.M.C. Line"
           ],
           "contacts": [
             "भाईकाजी शाही"
@@ -90,18 +90,18 @@
             "सोमला"
           ],
           "areas_en": [
-            "सल्लाघारी कोलोनी)",
-            "दुवाकोट लाईन नंया",
-            "बंसगोपल ओरालो",
-            "भवाचो",
-            "नासमना",
-            "बुल्चा",
-            "मंगलाछें",
-            "तहमला",
-            "पोटरी स्कायर",
-            "राम मन्देर अरालो",
-            "पाच तले मन्देर",
-            "सोमला"
+            "Sallaghari Colony)",
+            "Duvakot Line Naya",
+            "Bansgopal Oralo",
+            "Bhavacho",
+            "Nasmana",
+            "Bulcha",
+            "Mangalachen",
+            "Tahimala",
+            "Potary Square",
+            "Ram Mandir Aralo",
+            "Pach Tale Mandir",
+            "Somala"
           ],
           "contacts": [
             "चन्द्र पुतुवार ९८४९१७२७१८"
@@ -144,13 +144,13 @@
             "जगाती एरिया"
           ],
           "areas_en": [
-            "गल्ली",
-            "पुरानो जगाती",
-            "आदर्श",
-            "वसिकचा",
-            "सिद्ध हस्पटल",
-            "नबिन स्कृल",
-            "जगाती एरिया"
+            "Galli",
+            "Purano Jagati",
+            "Adarsha",
+            "Basikcha",
+            "Siddha Hospital",
+            "Nabin School",
+            "Jagati Area"
           ],
           "contacts": [
             "ओम साखकर्मी ९८४१७०८00"
@@ -196,16 +196,16 @@
             "लाईन"
           ],
           "areas_en": [
-            "पुरान बस पाक एरया",
-            "हाकु फल्चा",
-            "दमकल",
-            "भवोचा",
-            "गणेश स्कूल",
-            "खेल मैदान",
-            "सहिद स्मृति उदधान",
-            "क्याम्पस लाईन",
-            "दमकल २ ईन्च",
-            "लाईन"
+            "Puran Bus Park Area",
+            "Haku Falcha",
+            "Damkal",
+            "Bhavocha",
+            "Ganesh School",
+            "Khel Maidan",
+            "Sahid Smriti Udyan",
+            "Campus Line",
+            "Damkal 2 Inch",
+            "Line"
           ],
           "contacts": [
             "भाईकाजी शाही"
@@ -252,17 +252,17 @@
             "दोक्छे"
           ],
           "areas_en": [
-            "लकुलाछे",
-            "मलाचा",
-            "खंला",
-            "डोगन",
-            "भेलुखेल",
-            "काछें",
-            "भद्रकाली",
-            "बेताल",
-            "इत्ताछे",
-            "कुसके",
-            "दोक्छे"
+            "Lakulachhe",
+            "Malacha",
+            "Khola",
+            "Dogan",
+            "Bhelukhel",
+            "Kachhen",
+            "Bhadrakali",
+            "Betal",
+            "Ittachhe",
+            "Kusake",
+            "Dokchhe"
           ],
           "contacts": [
             "चन्द्र पुतुवार ९८४९१७२७१८"
@@ -308,8 +308,8 @@
             "तुछीमला"
           ],
           "areas_en": [
-            "चोछें",
-            "तुछीमला"
+            "Chochhen",
+            "Tuchhimla"
           ],
           "contacts": [],
           "notes": null,
@@ -352,14 +352,14 @@
             "कुटु पाॅली"
           ],
           "areas_en": [
-            "कुमारी क्लब",
-            "हनुमानघाट",
-            "सुकुलढोका",
-            "पालिखेल",
-            "गलासी पुखु",
-            "गोलमध",
-            "चंदेस्वारी",
-            "कुटु पाॅली"
+            "Kumari Club",
+            "Hanumanghat",
+            "Sukuldhoka",
+            "Palikhel",
+            "Galasi Pokhu",
+            "Golmadh",
+            "Chandeshwari",
+            "Kutu Pali"
           ],
           "contacts": [
             "सुनिल मास्के ९८६१२८७७५६"
@@ -399,10 +399,10 @@
             "कमिचा गल्ली"
           ],
           "areas_en": [
-            "सुर्यमाढी",
-            "समाज सुधार",
-            "महेस्वारी",
-            "कमिचा गल्ली"
+            "Suryamadi",
+            "Samaj Sudhar",
+            "Maheshwari",
+            "Kamicha Galli"
           ],
           "contacts": [
             "सिसन थामी ९८६३८६०२४१"
@@ -443,11 +443,11 @@
             "ईनाचो"
           ],
           "areas_en": [
-            "मकव गली",
-            "वान्चु टोल",
-            "खंचा",
-            "मुनिबिहर",
-            "ईनाचो"
+            "Makav Galli",
+            "Wanchu Tol",
+            "Khancha",
+            "Munibihar",
+            "Inacho"
           ],
           "contacts": [
             "दिनेश महत ९८४१३८९३६६"
@@ -488,11 +488,11 @@
             "बलाखु"
           ],
           "areas_en": [
-            "यालाछे",
-            "तुलाछे",
-            "सानो ब्यासी",
-            "शारदा स्कूल",
-            "बलाखु"
+            "Yalachhe",
+            "Tulachhe",
+            "Sano Byasi",
+            "Sharda School",
+            "Balakhu"
           ],
           "contacts": [],
           "notes": null,
@@ -530,10 +530,10 @@
             "लामाचौर"
           ],
           "areas_en": [
-            "खौमा",
-            "साकोठा",
-            "सि.डी.ओ कार्यालय",
-            "लामाचौर"
+            "Khauma",
+            "Sakotha",
+            "C.D.O. Karyalaya",
+            "Lamachaur"
           ],
           "contacts": [
             "सुनिल मास्के ९८६१२८७७५६"
@@ -574,11 +574,11 @@
             "सुकुनाफांट"
           ],
           "areas_en": [
-            "बॉसबारी",
-            "यातु महादेव",
-            "पुष्प बस्ती",
-            "सैंजु डेरी",
-            "सुकुनाफांट"
+            "Basbari",
+            "Yatu Mahadev",
+            "Pushpa Basti",
+            "Sainju Dairy",
+            "Sukuna Phant"
           ],
           "contacts": [],
           "notes": null,
@@ -619,13 +619,13 @@
             "मूलढोका"
           ],
           "areas_en": [
-            "कमल विनायक प्लानिंग",
-            "कमलपोखरी लाईन",
-            "कमलविनायक हल लाईन",
-            "वन्ति",
-            "लाईन",
-            "जेनुईन् लाईन",
-            "मूलढोका"
+            "Kamal Binayak Planning",
+            "Kamalpokhari Line",
+            "Kamalvinayak Hal Line",
+            "Vanti",
+            "Line",
+            "Jenwin Line",
+            "Muladhoka"
           ],
           "contacts": [
             "सिसन थामी ९८६३८६०२४१"
@@ -662,7 +662,7 @@
             "चोखा विनायक ८ ईन्च बाट चल्े लाईन"
           ],
           "areas_en": [
-            "चोखा विनायक ८ ईन्च बाट चल्े लाईन"
+            "Chokha Vinayak 8 Inch Bat Chale Line"
           ],
           "contacts": [
             "दिनेश महत ९८४१३८९३६६"
@@ -701,9 +701,9 @@
             "राष्टिय बाणिज्य बैंक लाईन"
           ],
           "areas_en": [
-            "लिवाली प्लानिंग",
-            "धारा चोक",
-            "राष्टिय बाणिज्य बैंक लाईन"
+            "Liwali Planning",
+            "Dhara Chok",
+            "Rashtriya Banijya Bank Line"
           ],
           "contacts": [],
           "notes": null,
@@ -741,10 +741,10 @@
             "चोर्चा"
           ],
           "areas_en": [
-            "बेखाल",
-            "महालक्ष्मी",
-            "नागपोखरी",
-            "चोर्चा"
+            "Bekhal",
+            "Mahalaxmi",
+            "Nagpokhari",
+            "Chorcha"
           ],
           "contacts": [],
           "notes": null,
@@ -781,9 +781,9 @@
             "भोलाछे"
           ],
           "areas_en": [
-            "याछें",
-            "लालाछें",
-            "भोलाछे"
+            "Yachhen",
+            "Lalachhen",
+            "Bholachhe"
           ],
           "contacts": [
             "भरत प्रजापति ९८४१०४९४४६"
@@ -824,11 +824,11 @@
             "सरस्वती स्कूल लाईन"
           ],
           "areas_en": [
-            "गछे",
-            "काथांदु",
-            "नागांचा",
-            "याता पोखरी",
-            "सरस्वती स्कूल लाईन"
+            "Gachhe",
+            "Kathandu",
+            "Nagancha",
+            "Yata Pokhari",
+            "Saraswati School Line"
           ],
           "contacts": [],
           "notes": null,
@@ -868,12 +868,12 @@
             "नवदुर्गा लाईन"
           ],
           "areas_en": [
-            "पाग्राचा गली",
-            "तलाका",
-            "मयुर इयाल",
-            "जेंला",
-            "कार्चा",
-            "नवदुर्गा लाईन"
+            "Pagraha Galli",
+            "Talaka",
+            "Mayur Iyal",
+            "Jenla",
+            "Karcha",
+            "Navadurga Line"
           ],
           "contacts": [
             "सिसन थामी ९८६३८६०२४१"
@@ -913,10 +913,10 @@
             "तुमचो"
           ],
           "areas_en": [
-            "लांचा फल्चा जीतपुर रोड",
-            "ब्र्यानी रोड दाया",
-            "बॉया",
-            "तुमचो"
+            "Lancha Falcha Jitpur Road",
+            "Bryani Road Daya",
+            "Boya",
+            "Tumacho"
           ],
           "contacts": [
             "सिसन थामी ९८६३८६०२४१"
@@ -954,8 +954,8 @@
             "धारा लाईन"
           ],
           "areas_en": [
-            "ब्रहयानी",
-            "धारा लाईन"
+            "Brahayani",
+            "Dhara Line"
           ],
           "contacts": [
             "दिनेश महत ९८४१३८९३६६"
@@ -996,11 +996,11 @@
             "कासन लाईन"
           ],
           "areas_en": [
-            "डेकोचा",
-            "खवप कलेज एरिया",
-            "चॉँगु वन्त रोड",
-            "महाकाली गेट",
-            "कासन लाईन"
+            "Dekochha",
+            "Khwopa College Area",
+            "Changu Vant Road",
+            "Mahakali Gate",
+            "Kasan Line"
           ],
           "contacts": [
             "भरत प्रजापति ९८४१०४९४४६"
@@ -1042,12 +1042,12 @@
             "नोट :माथि उल्लेखित समय तालिकामा बॉसबारीबा्ट प्रत्यक दिन पानी आएमा मात्र पानी वितरण गने सकिने व्यहोरा अनुरोध छ"
           ],
           "areas_en": [
-            "ठुलो ब्यासी",
-            "एभरेस्ट स्कूल",
-            "मिबाछे",
-            "शिक्षा कायोलय",
-            "औध्योगिक क्षेत्र",
-            "नोट :माथि उल्लेखित समय तालिकामा बॉसबारीबा्ट प्रत्यक दिन पानी आएमा मात्र पानी वितरण गने सकिने व्यहोरा अनुरोध छ"
+            "Thulo Byasi",
+            "Everest School",
+            "Mibachhe",
+            "Shiksha Karyalaya",
+            "Audhyogik Kshetra",
+            "Note: It is requested that water will be distributed only if water comes daily from Basbari in the time schedule mentioned above."
           ],
           "contacts": [],
           "notes": null,

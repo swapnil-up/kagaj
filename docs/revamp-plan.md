@@ -143,7 +143,7 @@ Keep `docker-compose.yml` (pgvector), rename DB to `kagaj`.
 - verbatims archive: 379
 - migration manifest: 35 (30 done, 3 no_table, 2 skipped)
 - water manifest: 231 entries
-- translations: 595 files / ~13 MB
+- translations: 601 files / ~13 MB
 
 ## Execution phases
 

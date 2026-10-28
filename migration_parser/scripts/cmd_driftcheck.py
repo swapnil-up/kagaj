@@ -45,7 +45,7 @@ def _sha256_bytes(data: bytes) -> str:
 
 def _upstream_sha256(url: str) -> str | None:
     try:
-        r = requests.get(url, headers=process.HEADERS, timeout=120, verify=False)
+        r = requests.get(url, headers=process.HEADERS, timeout=120, verify=True)
         r.raise_for_status()
         return _sha256_bytes(r.content)
     except requests.exceptions.RequestException as e:

@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -25,13 +26,16 @@ from config import (
     NOTICES_MANIFEST,
     OUTPUT_DIR,
     REQUEST_TIMEOUT,
+    REPO_ROOT,
     RETRY_DELAY,
     TRANSLATIONS_DIR,
+    tls_verify,
     load_env,
 )
 from schema import NOTICE_PROMPT, build_schema
 
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+if not tls_verify():
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 MANIFEST = NOTICES_MANIFEST
 BASE = HR_BASE
@@ -47,11 +51,63 @@ def load_manifest() -> list:
 
 
 def save_manifest(notices: list):
-    MANIFEST.write_text(json.dumps(notices, indent=2, ensure_ascii=False))
+    MANIFEST.write_text(json.dumps(notices, indent=2, ensure_ascii=False) + "\n")
     print(f"[manifest] saved {len(notices)} entries", file=sys.stderr)
 
 
 IMAGE_EXTS = (".jpg", ".jpeg", ".png", ".webp")
+
+
+def _url_key(notice: dict) -> str:
+    """Stable short id from a detail URL (the trailing numeric id)."""
+    url = notice.get("url") or notice.get("pdf_url") or ""
+    match = re.search(r"/(\d+)/?(?:[?#].*)?$", url)
+    if match:
+        return match.group(1)
+    return hashlib.sha1(url.encode()).hexdigest()[:10]
+
+
+def _title_slug(title: str) -> str:
+    return (title or "").replace(" ", "_").replace("/", "_")[:80]
+
+
+def notice_stem(notice: dict, index: int, notices: list) -> str:
+    """Return a stable, collision-free output stem for one notice."""
+    title = notice.get("title") or ""
+    slug = _title_slug(title)
+    if not slug or title == "(no title)":
+        slug = "notice"
+    same_title = [n for n in notices
+                  if (n.get("title") or "") == title and title not in ("", "(no title)")]
+    if len(same_title) > 1 or title in ("", "(no title)"):
+        slug = f"{slug}_{_url_key(notice)}"
+    return slug
+
+
+def _repair_collisions(notices: list) -> bool:
+    """Requeue done notices that share an output path (one overwrote another)."""
+    groups: dict[str, list[int]] = {}
+    for i, n in enumerate(notices):
+        path = n.get("structured_path")
+        if n.get("status") == "done" and path:
+            groups.setdefault(path, []).append(i)
+    changed = False
+    for path, idxs in groups.items():
+        if len(idxs) < 2:
+            continue
+        for i in idxs:
+            notices[i]["status"] = "pending"
+            notices[i]["last_error"] = f"output path collision: {path}"
+            notices[i]["attempts"] = 0
+            notices[i].pop("structured_path", None)
+            notices[i].pop("translated_path", None)
+            notices[i].pop("ocr_path", None)
+            print(f"[repair] requeueing {notices[i].get('url')} (shared {path})",
+                  file=sys.stderr)
+        changed = True
+    if changed:
+        save_manifest(notices)
+    return changed
 
 
 def _attempts(notice: dict) -> int:
@@ -63,6 +119,23 @@ def _attempts(notice: dict) -> int:
 
 def _supported_attachment(url: str) -> bool:
     return url.lower().split("?")[0].endswith((".pdf",) + IMAGE_EXTS)
+
+
+FAILURE_FIELDS = ("last_error", "failure_kind", "failed_at", "attempts")
+
+
+def _record_success(notice: dict, result: dict) -> None:
+    for key, value in result.items():
+        path = Path(value) if key.endswith("_path") else None
+        if path is not None:
+            try:
+                value = str(path.relative_to(REPO_ROOT))
+            except ValueError:
+                value = str(path)
+        notice[key] = value
+    notice["status"] = "done"
+    for field in FAILURE_FIELDS:
+        notice.pop(field, None)
 
 
 def _record_failure(notice: dict, kind: str, message: str,
@@ -100,7 +173,7 @@ def fetch_with_retry(url: str, **kwargs) -> requests.Response | None:
     last_err = None
     for attempt in range(MAX_RETRIES):
         try:
-            resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=False, **kwargs)
+            resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT, verify=tls_verify(), **kwargs)
             resp.raise_for_status()
             return resp
         except requests.exceptions.RequestException as e:
@@ -262,8 +335,8 @@ def call_gemini_structured(ocr_text: str, api_key: str) -> dict:
     for attempt in range(ADAPTIVE_BUDGET_RETRIES):
         resp = requests.post(
             f"{GEMINI_API}/{GEMINI_MODEL}:generateContent",
-            headers={"Content-Type": "application/json"},
-            params={"key": api_key},
+            headers={"Content-Type": "application/json",
+                     "x-goog-api-key": api_key},
             json={
                 "system_instruction": {
                     "parts": [{"text": GEMINI_SYSTEM_INSTRUCTION}]
@@ -325,7 +398,7 @@ def process_one(notice: dict, index: int, notices: list) -> bool:
             notice = notices[index]
             save_manifest(notices)
             title = recovered
-    title_slug = (title or f"notice_{index}").replace(" ", "_").replace("/", "_")[:80]
+    title_slug = notice_stem(notice, index, notices)
 
     pdf_url = notice.get("pdf_url")
     if not pdf_url:
@@ -361,8 +434,7 @@ def process_one(notice: dict, index: int, notices: list) -> bool:
     for attempt in range(max_rpm_retries + 1):
         try:
             result = run_ocr(pdf_dest)
-            notices[index].update(result)
-            notices[index]["status"] = "done"
+            _record_success(notices[index], result)
             save_manifest(notices)
             print(f"[done] {notice['title']}")
             return True
@@ -415,6 +487,8 @@ def main():
     if not notices:
         print("[error] notices.json empty — run scrape first", file=sys.stderr)
         return
+
+    _repair_collisions(notices)
 
     processed = 0
     attempted = set()

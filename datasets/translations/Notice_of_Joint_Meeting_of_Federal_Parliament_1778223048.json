@@ -1,0 +1,59 @@
+{
+  "full_translation_en": "Federal Parliament\nNotice Paper-4\n2083 Baisakh 25, Friday\nNotice regarding the convening of a joint meeting\nAs per Article 94 of the Constitution of Nepal, the Right Honorable President Ramchandra Poudel will address the joint meeting of both houses of the Federal Parliament on Baisakh 28, 2083, Monday, at 16:00 hrs. This notice is published for the information of the members of the Federal Parliament. Furthermore, all members are requested to be present in the House of Representatives (Multipurpose Hall, Singhdarbar) by 15:45 hrs on the said day and take their respective seats for the joint meeting.\nPadma Prasad Pandey\nSecretary-General",
+  "session": {
+    "date_bs": "2083-02-25",
+    "date_ad": "2026-06-06",
+    "meeting_type": "Joint Meeting of Both Houses",
+    "meeting_number": null,
+    "chairperson": null
+  },
+  "sections": [
+    {
+      "name": "Notice of Joint Meeting",
+      "summary_en": "A notice is published informing members of the Federal Parliament about a joint meeting of both houses. The Right Honorable President Ramchandra Poudel will address the joint session on Baisakh 28, 2083, Monday, at 16:00 hrs.",
+      "speakers": [],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Presidential address",
+        "Joint session of parliament"
+      ]
+    },
+    {
+      "name": "Instructions for Members",
+      "summary_en": "Members are requested to be present in the House of Representatives by 15:45 hrs on the day of the joint meeting and to take their seats. This is to ensure the smooth commencement of the session.",
+      "speakers": [],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Attendance requirement",
+        "Seating arrangement"
+      ]
+    }
+  ],
+  "agenda_tags": [
+    "Parliamentary notice",
+    "Joint session",
+    "Presidential address",
+    "Federal Parliament",
+    "House of Representatives",
+    "Constitution of Nepal",
+    "Meeting schedule",
+    "Member attendance"
+  ],
+  "ministries_mentioned": [],
+  "all_speakers_mentioned": [
+    {
+      "name": "Ramchandra Poudel",
+      "party": null,
+      "section": "Notice of Joint Meeting"
+    },
+    {
+      "name": "Padma Prasad Pandey",
+      "party": null,
+      "section": "Instructions for Members"
+    }
+  ],
+  "adjournment_time": null,
+  "next_meeting_date": null
+}

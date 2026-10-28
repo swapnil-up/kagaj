@@ -7,22 +7,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      TEST_PATHS: >-
-        tests/test_decode_text.py
-        tests/test_fonts.py
-        tests/test_numbers.py
-        tests/test_water_fields.py
-        tests/test_cidmap_compare.py
-        tests/test_cidmap_conflicts.py
-        tests/test_cidmap_review.py
-        tests/devanagari
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install deps
-        run: pip install -e ".[test]"
-      - name: Run focused tests
-        run: python -m pytest $TEST_PATHS -q
+        run: pip install -e ".[redbook,test]"
+      - name: Run tests
+        run: python -m pytest tests/ -q

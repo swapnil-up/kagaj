@@ -50,7 +50,7 @@ jobs:
         if: env.DATABASE_URL != ''
         run: python parliament/scripts/init_db.py
       - name: Process verbatims until quota exhausted
-        run: python parliament/scripts/process_verbatim.py --max-count ${{ github.event.inputs.count || '0' }}
+        run: python parliament/scripts/process_verbatim.py --retry-failed --max-count ${{ github.event.inputs.count || '0' }}
       - name: Save partial verbatim segment cache
         if: always()
         continue-on-error: true

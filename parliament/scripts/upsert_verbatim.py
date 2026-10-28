@@ -27,6 +27,10 @@ import requests
 from config import EMBED_MODEL, GEMINI_API, load_env
 
 
+class EmbeddingQuotaError(RuntimeError):
+    pass
+
+
 def get_embeddings(texts: list[str], api_key: str) -> list[list[float]]:
     results = []
     for i, text in enumerate(texts):
@@ -42,6 +46,8 @@ def get_embeddings(texts: list[str], api_key: str) -> list[list[float]]:
         )
         if not resp.ok:
             err = resp.json().get("error", {}).get("message", resp.text[:300])
+            if resp.status_code == 429 or "quota" in err.lower() or "RESOURCE_EXHAUSTED" in err:
+                raise EmbeddingQuotaError(f"Embedding API error: {err}")
             raise RuntimeError(f"Embedding API error: {err}")
         data = resp.json()
         embedding = data.get("embedding", {}).get("values", [])
@@ -96,35 +102,64 @@ def upsert_verbatim(structured: dict, api_key: str, db_url: str, dry_run: bool =
 
     if dry_run:
         print(f"[dry-run] would upsert verbatim: {title}", file=sys.stderr)
+        return None
+
+    sections = structured.get("sections", [])
+    conn = psycopg.connect(db_url)
+    cur = conn.cursor()
+
+    cur.execute(
+        """SELECT id, full_translation_en,
+           (SELECT count(*) FROM verbatim_chunks c WHERE c.verbatim_id = v.id),
+           (SELECT count(*) FROM verbatim_chunks c WHERE c.verbatim_id = v.id AND c.embedding IS NOT NULL)
+           FROM verbatims v WHERE (na_id = %(na_id)s OR title = %(title)s)
+           ORDER BY (na_id = %(na_id)s) DESC
+           LIMIT 1""",
+        {"na_id": na_id, "title": title},
+    )
+    existing = cur.fetchone()
+    if (existing and existing[1] == verbatim_data["full_translation_en"]
+            and existing[2] == existing[3] == len(sections)):
+        print(f"[db] unchanged, skipping '{title}'", file=sys.stderr)
+        cur.close()
+        conn.close()
+        return "skipped"
+
+    # Dedup on na_id first, then title. A title collision with a different
+    # na_id must update the existing row instead of raising a unique violation.
+    existing_id = None
+    matched_by_title = False
+    if na_id:
+        cur.execute("SELECT id FROM verbatims WHERE na_id = %s", (na_id,))
+        row = cur.fetchone()
+        if row:
+            existing_id = row[0]
+    if existing_id is None:
+        cur.execute("SELECT id FROM verbatims WHERE title = %s", (title,))
+        row = cur.fetchone()
+        if row:
+            existing_id = row[0]
+            matched_by_title = True
+
+    update_cols = """title=%(title)s, title_np=%(title_np)s,
+       published_at=%(published_at)s::date,
+       date_bs=%(date_bs)s, date_ad=%(date_ad)s::date,
+       meeting_type=%(meeting_type)s, meeting_number=%(meeting_number)s,
+       chairperson=%(chairperson)s, adjournment_time=%(adjournment_time)s,
+       next_meeting_date=%(next_meeting_date)s, source_pdf=%(source_pdf)s,
+       agenda_tags=%(agenda_tags)s, ministries_mentioned=%(ministries_mentioned)s,
+       full_translation_en=%(full_translation_en)s, updated_at=NOW()"""
+
+    if existing_id is not None:
+        verbatim_data["id"] = existing_id
+        if na_id and not matched_by_title:
+            update_cols = "na_id=%(na_id)s, " + update_cols
+        cur.execute(
+            "UPDATE verbatims SET " + update_cols + " WHERE id=%(id)s",
+            verbatim_data,
+        )
+        verbatim_id = existing_id
     else:
-        conn = psycopg.connect(db_url)
-        cur = conn.cursor()
-
-        # Dedup key: na_id when present (verbatims from the NA API), else title.
-        if na_id:
-            on_conflict = """ON CONFLICT (na_id) DO UPDATE SET
-               title=EXCLUDED.title, title_np=EXCLUDED.title_np,
-               published_at=EXCLUDED.published_at,
-               date_bs=EXCLUDED.date_bs, date_ad=EXCLUDED.date_ad,
-               meeting_type=EXCLUDED.meeting_type, meeting_number=EXCLUDED.meeting_number,
-               chairperson=EXCLUDED.chairperson, adjournment_time=EXCLUDED.adjournment_time,
-               next_meeting_date=EXCLUDED.next_meeting_date,
-               source_pdf=EXCLUDED.source_pdf,
-               agenda_tags=EXCLUDED.agenda_tags, ministries_mentioned=EXCLUDED.ministries_mentioned,
-               full_translation_en=EXCLUDED.full_translation_en,
-               updated_at=NOW()"""
-        else:
-            on_conflict = """ON CONFLICT (title) DO UPDATE SET
-               title_np=EXCLUDED.title_np, published_at=EXCLUDED.published_at,
-               date_bs=EXCLUDED.date_bs, date_ad=EXCLUDED.date_ad,
-               meeting_type=EXCLUDED.meeting_type, meeting_number=EXCLUDED.meeting_number,
-               chairperson=EXCLUDED.chairperson, adjournment_time=EXCLUDED.adjournment_time,
-               next_meeting_date=EXCLUDED.next_meeting_date,
-               source_pdf=EXCLUDED.source_pdf,
-               agenda_tags=EXCLUDED.agenda_tags, ministries_mentioned=EXCLUDED.ministries_mentioned,
-               full_translation_en=EXCLUDED.full_translation_en,
-               updated_at=NOW()"""
-
         cur.execute(
             """INSERT INTO verbatims (na_id, title, title_np, published_at,
                date_bs, date_ad, meeting_type, meeting_number, chairperson,
@@ -134,65 +169,68 @@ def upsert_verbatim(structured: dict, api_key: str, db_url: str, dry_run: bool =
                %(date_bs)s, %(date_ad)s::date, %(meeting_type)s,
                %(meeting_number)s, %(chairperson)s, %(adjournment_time)s, %(next_meeting_date)s,
                %(source_pdf)s, %(agenda_tags)s, %(ministries_mentioned)s, %(full_translation_en)s)
-               """ + on_conflict + """
                RETURNING id""",
             verbatim_data,
         )
         verbatim_id = cur.fetchone()[0]
 
-        # Delete old chunks for this verbatim, re-insert
-        cur.execute("DELETE FROM verbatim_chunks WHERE verbatim_id = %s", (verbatim_id,))
+    chunk_texts = []
+    chunk_rows = []
 
-        sections = structured.get("sections", [])
-        chunk_texts = []
-        chunk_rows = []
+    for idx, section in enumerate(sections):
+        chunk_text = build_chunk_text(section, session, title)
+        chunk_texts.append(chunk_text)
 
-        for idx, section in enumerate(sections):
-            chunk_text = build_chunk_text(section, session, title)
-            chunk_texts.append(chunk_text)
+        speakers = section.get("speakers", [])
+        speaker_names = [s["name"] for s in speakers if s.get("name")]
+        speaker_parties = list(set(s["party"] for s in speakers if s.get("party")))
+        bills = section.get("bills_discussed", [])
+        reports = section.get("reports_presented", [])
 
-            speakers = section.get("speakers", [])
-            speaker_names = [s["name"] for s in speakers if s.get("name")]
-            speaker_parties = list(set(s["party"] for s in speakers if s.get("party")))
-            bills = section.get("bills_discussed", [])
-            reports = section.get("reports_presented", [])
+        chunk_rows.append((
+            verbatim_id, idx, section.get("name"), chunk_text,
+            section.get("summary_en"),
+            speaker_names, speaker_parties if speaker_parties else None,
+            section.get("key_issues", []),
+            [b["name"] for b in bills if b.get("name")],
+            reports,
+        ))
 
-            chunk_rows.append((
-                verbatim_id, idx, section.get("name"), chunk_text,
-                section.get("summary_en"),
-                speaker_names, speaker_parties if speaker_parties else None,
-                section.get("key_issues", []),
-                [b["name"] for b in bills if b.get("name")],
-                reports,
-            ))
-
-        # Generate embeddings
-        try:
-            print(f"[embed] {len(chunk_texts)} chunks...", file=sys.stderr)
-            embeddings = get_embeddings(chunk_texts, api_key)
-            print(f"[embed] done", file=sys.stderr)
-        except Exception as e:
-            print(f"[embed] failed: {e}", file=sys.stderr)
-            print(f"[embed] verbatim '{title}' saved without embeddings (retry later)", file=sys.stderr)
-            conn.commit()
-            cur.close()
-            conn.close()
-            return
-
-        for row, emb in zip(chunk_rows, embeddings):
-            cur.execute(
-                """INSERT INTO verbatim_chunks
-                   (verbatim_id, chunk_index, section_name, chunk_text, embedding,
-                    summary_en, speaker_names, speaker_parties, key_issues,
-                    bills_discussed, reports_presented)
-                   VALUES (%s, %s, %s, %s, %s::vector, %s, %s, %s, %s, %s, %s)""",
-                (row[0], row[1], row[2], row[3], emb, row[4], row[5], row[6], row[7], row[8], row[9]),
-            )
-
+    # Embed before deleting the old chunks so a quota failure cannot wipe them.
+    try:
+        print(f"[embed] {len(chunk_texts)} chunks...", file=sys.stderr)
+        embeddings = get_embeddings(chunk_texts, api_key)
+        print(f"[embed] done", file=sys.stderr)
+    except EmbeddingQuotaError as e:
+        print(f"[embed] quota exhausted: {e}", file=sys.stderr)
         conn.commit()
         cur.close()
         conn.close()
-        print(f"[db] upserted verbatim '{title}' with {len(sections)} chunks", file=sys.stderr)
+        return "quota"
+    except Exception as e:
+        print(f"[embed] failed: {e}", file=sys.stderr)
+        print(f"[embed] verbatim '{title}' saved without embeddings (retry later)", file=sys.stderr)
+        conn.commit()
+        cur.close()
+        conn.close()
+        return "no_embeddings"
+
+    cur.execute("DELETE FROM verbatim_chunks WHERE verbatim_id = %s", (verbatim_id,))
+    for row, emb in zip(chunk_rows, embeddings):
+        cur.execute(
+            """INSERT INTO verbatim_chunks
+               (verbatim_id, chunk_index, section_name, chunk_text, embedding,
+                summary_en, speaker_names, speaker_parties, key_issues,
+                bills_discussed, reports_presented)
+               VALUES (%s, %s, %s, %s, %s::vector, %s, %s, %s, %s, %s, %s)""",
+            (row[0], row[1], row[2], row[3], emb, row[4], row[5], row[6], row[7], row[8], row[9]),
+        )
+
+    conn.commit()
+    cur.close()
+    conn.close()
+    print(f"[db] upserted verbatim '{title}' with {len(sections)} chunks", file=sys.stderr)
+    return "ok"
 
 
 def main():
@@ -227,7 +265,10 @@ def main():
         print(f"\n=== {jp.name} ===", file=sys.stderr)
         structured = json.loads(jp.read_text())
         structured["_source_file"] = jp.name
-        upsert_verbatim(structured, api_key, db_url, dry_run=args.dry_run)
+        outcome = upsert_verbatim(structured, api_key, db_url, dry_run=args.dry_run)
+        if outcome == "quota":
+            print("[embed] quota exhausted; stopping remaining files", file=sys.stderr)
+            break
 
 
 if __name__ == "__main__":

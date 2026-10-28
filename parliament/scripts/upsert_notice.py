@@ -27,6 +27,10 @@ import requests
 from config import EMBED_MODEL, GEMINI_API, load_env
 
 
+class EmbeddingQuotaError(RuntimeError):
+    pass
+
+
 def get_embeddings(texts: list[str], api_key: str) -> list[list[float]]:
     results = []
     for i, text in enumerate(texts):
@@ -42,6 +46,8 @@ def get_embeddings(texts: list[str], api_key: str) -> list[list[float]]:
         )
         if not resp.ok:
             err = resp.json().get("error", {}).get("message", resp.text[:300])
+            if resp.status_code == 429 or "quota" in err.lower() or "RESOURCE_EXHAUSTED" in err:
+                raise EmbeddingQuotaError(f"Embedding API error: {err}")
             raise RuntimeError(f"Embedding API error: {err}")
         data = resp.json()
         embedding = data.get("embedding", {}).get("values", [])
@@ -92,8 +98,24 @@ def upsert_notice(structured: dict, api_key: str, db_url: str, dry_run: bool = F
     if dry_run:
         print(f"[dry-run] would upsert notice: {title}", file=sys.stderr)
     else:
+        sections = structured.get("sections", [])
         conn = psycopg.connect(db_url)
         cur = conn.cursor()
+
+        cur.execute(
+            """SELECT id, full_translation_en,
+               (SELECT count(*) FROM chunks c WHERE c.notice_id = n.id),
+               (SELECT count(*) FROM chunks c WHERE c.notice_id = n.id AND c.embedding IS NOT NULL)
+               FROM notices n WHERE title = %s""",
+            (title,),
+        )
+        existing = cur.fetchone()
+        if (existing and existing[1] == notice_data["full_translation_en"]
+                and existing[2] == existing[3] == len(sections)):
+            print(f"[db] unchanged, skipping '{title}'", file=sys.stderr)
+            cur.close()
+            conn.close()
+            return "skipped"
 
         cur.execute(
             """INSERT INTO notices (title, date_bs, date_ad, meeting_type, meeting_number,
@@ -115,10 +137,6 @@ def upsert_notice(structured: dict, api_key: str, db_url: str, dry_run: bool = F
         )
         notice_id = cur.fetchone()[0]
 
-        # Delete old chunks for this notice, re-insert
-        cur.execute("DELETE FROM chunks WHERE notice_id = %s", (notice_id,))
-
-        sections = structured.get("sections", [])
         chunk_texts = []
         chunk_rows = []
 
@@ -141,19 +159,26 @@ def upsert_notice(structured: dict, api_key: str, db_url: str, dry_run: bool = F
                 reports,
             ))
 
-        # Generate embeddings
+        # Embed before deleting the old chunks so a quota failure cannot wipe them.
         try:
             print(f"[embed] {len(chunk_texts)} chunks...", file=sys.stderr)
             embeddings = get_embeddings(chunk_texts, api_key)
             print(f"[embed] done", file=sys.stderr)
+        except EmbeddingQuotaError as e:
+            print(f"[embed] quota exhausted: {e}", file=sys.stderr)
+            conn.commit()
+            cur.close()
+            conn.close()
+            return "quota"
         except Exception as e:
             print(f"[embed] failed: {e}", file=sys.stderr)
             print(f"[embed] notice '{title}' saved without embeddings (retry later)", file=sys.stderr)
             conn.commit()
             cur.close()
             conn.close()
-            return
+            return "no_embeddings"
 
+        cur.execute("DELETE FROM chunks WHERE notice_id = %s", (notice_id,))
         for row, emb in zip(chunk_rows, embeddings):
             cur.execute(
                 """INSERT INTO chunks
@@ -168,6 +193,7 @@ def upsert_notice(structured: dict, api_key: str, db_url: str, dry_run: bool = F
         cur.close()
         conn.close()
         print(f"[db] upserted notice '{title}' with {len(sections)} chunks", file=sys.stderr)
+        return "ok"
 
 
 def main():
@@ -202,7 +228,10 @@ def main():
         print(f"\n=== {jp.name} ===", file=sys.stderr)
         structured = json.loads(jp.read_text())
         structured["_source_file"] = jp.name
-        upsert_notice(structured, api_key, db_url, dry_run=args.dry_run)
+        outcome = upsert_notice(structured, api_key, db_url, dry_run=args.dry_run)
+        if outcome == "quota":
+            print("[embed] quota exhausted; stopping remaining files", file=sys.stderr)
+            break
 
 
 if __name__ == "__main__":

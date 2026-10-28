@@ -109,6 +109,35 @@ def extract_notices(soup: BeautifulSoup) -> list[dict]:
     return notices
 
 
+def fetch_detail_title(detail_url: str) -> str | None:
+    soup = fetch_page(detail_url)
+    if not soup:
+        return None
+    for selector in ("h1", "h2", ".page-title", ".card-title"):
+        el = soup.select_one(selector)
+        if el:
+            text = el.get_text(" ", strip=True)
+            if text and text != "(no title)":
+                return text
+    if soup.title:
+        text = re.split(r"\s+[|\u2013-]\s+", soup.title.get_text(" ", strip=True))[0].strip()
+        if text and text.lower() not in ("parliament", "hr.parliament.gov.np"):
+            return text
+    return None
+
+
+def refresh_missing_titles(notices: list) -> bool:
+    changed = False
+    for n in notices:
+        if n.get("title") in ("", "(no title)") and n.get("url"):
+            title = fetch_detail_title(n["url"])
+            if title:
+                n["title"] = title
+                changed = True
+                print(f"  [title] {title}", file=sys.stderr)
+    return changed
+
+
 def get_total_pages(soup: BeautifulSoup) -> int:
     pagination = soup.select_one("ul.pagination")
     if not pagination:
@@ -143,6 +172,10 @@ def scrape_list_only():
                 seen_old = True
                 break
             if n["url"] not in existing_urls:
+                if n["title"] == "(no title)":
+                    title = fetch_detail_title(n["url"])
+                    if title:
+                        n["title"] = title
                 kept.append(n)
         new_notices.extend(kept)
         print(
@@ -161,7 +194,8 @@ def scrape_list_only():
             break
         page += 1
         time.sleep(SCRAPE_DELAY)
-    if new_notices:
+    titled = refresh_missing_titles(existing)
+    if new_notices or titled:
         existing[0:0] = new_notices
         save_manifest(existing)
     print(f"[done] {len(new_notices)} new, {len(existing)} total", file=sys.stderr)

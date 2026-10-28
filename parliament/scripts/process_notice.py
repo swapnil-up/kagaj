@@ -6,6 +6,7 @@ import subprocess
 import sys
 import time
 import urllib3
+from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
@@ -50,15 +51,46 @@ def save_manifest(notices: list):
     print(f"[manifest] saved {len(notices)} entries", file=sys.stderr)
 
 
-def pick_pending(notices: list) -> int | None:
+IMAGE_EXTS = (".jpg", ".jpeg", ".png", ".webp")
+
+
+def _attempts(notice: dict) -> int:
+    try:
+        return int(notice.get("attempts") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _supported_attachment(url: str) -> bool:
+    return url.lower().split("?")[0].endswith((".pdf",) + IMAGE_EXTS)
+
+
+def _record_failure(notice: dict, kind: str, message: str,
+                    *, status: str = "failed") -> None:
+    notice["status"] = status
+    notice["failure_kind"] = kind
+    notice["last_error"] = str(message)[:500]
+    notice["failed_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    notice["attempts"] = _attempts(notice) + 1
+
+
+def pick_pending(notices: list, *, retry_failed: bool = False,
+                 max_attempts: int = 3, skip: set[int] | None = None) -> int | None:
+    skip = skip or set()
     for i, n in enumerate(notices):
-        title = n.get("title", "")
-        if title in ("", "(no title)"):
+        if i in skip:
             continue
-        if n.get("status") != "pending":
+        status = n.get("status")
+        if status == "pending":
+            pass
+        elif retry_failed and status == "failed" and _attempts(n) < max_attempts:
+            pass
+        else:
             continue
         pdf = n.get("pdf_url", "")
-        if pdf and not pdf.endswith(".pdf"):
+        if pdf and not _supported_attachment(pdf):
+            continue
+        if not pdf and not n.get("url"):
             continue
         return i
     return None
@@ -107,6 +139,39 @@ def backfill_pdf_url(notice: dict) -> str | None:
             href = BASE + href
         return href
     return None
+
+
+def backfill_title(notice: dict) -> str | None:
+    url = notice.get("url")
+    if not url:
+        return None
+    soup = fetch_page(url)
+    if not soup:
+        return None
+    for selector in ("h1", "h2", ".page-title", ".card-title"):
+        el = soup.select_one(selector)
+        if el:
+            text = el.get_text(" ", strip=True)
+            if text and text != "(no title)":
+                return text
+    if soup.title:
+        text = re.split(r"\s+[|\u2013-]\s+", soup.title.get_text(" ", strip=True))[0].strip()
+        if text and text.lower() not in ("parliament", "hr.parliament.gov.np"):
+            return text
+    return None
+
+
+def _image_to_pdf(src: Path, dest: Path) -> bool:
+    try:
+        from PIL import Image
+        with Image.open(src) as img:
+            if img.mode not in ("RGB", "L"):
+                img = img.convert("RGB")
+            img.save(dest, "PDF", resolution=150)
+        return True
+    except Exception as e:
+        print(f"[error] image conversion: {e}", file=sys.stderr)
+        return False
 
 
 def download_pdf(pdf_url: str, dest: Path) -> bool:
@@ -252,9 +317,15 @@ def call_gemini_structured(ocr_text: str, api_key: str) -> dict:
 
 
 def process_one(notice: dict, index: int, notices: list) -> bool:
-    title_slug = (notice.get("title") or "untitled").replace(" ", "_").replace("/", "_")[:80]
-    if not title_slug:
-        title_slug = f"notice_{index}"
+    title = notice.get("title") or ""
+    if title in ("", "(no title)"):
+        recovered = backfill_title(notice)
+        if recovered:
+            notices[index]["title"] = recovered
+            notice = notices[index]
+            save_manifest(notices)
+            title = recovered
+    title_slug = (title or f"notice_{index}").replace(" ", "_").replace("/", "_")[:80]
 
     pdf_url = notice.get("pdf_url")
     if not pdf_url:
@@ -269,12 +340,22 @@ def process_one(notice: dict, index: int, notices: list) -> bool:
             save_manifest(notices)
             return False
 
+    suffix = Path(pdf_url.split("?")[0]).suffix.lower()
+    if suffix not in (".pdf",) + IMAGE_EXTS:
+        suffix = ".pdf"
+    download_dest = OUTPUT_DIR / f"{title_slug}{suffix}"
     pdf_dest = OUTPUT_DIR / f"{title_slug}.pdf"
 
-    if not download_pdf(pdf_url, pdf_dest):
-        notices[index]["status"] = "failed"
+    if not download_pdf(pdf_url, download_dest):
+        _record_failure(notices[index], "download", "download failed")
         save_manifest(notices)
         return False
+
+    if suffix in IMAGE_EXTS:
+        if not _image_to_pdf(download_dest, pdf_dest):
+            _record_failure(notices[index], "convert", "image to PDF conversion failed")
+            save_manifest(notices)
+            return False
 
     max_rpm_retries = 5
     for attempt in range(max_rpm_retries + 1):
@@ -294,20 +375,22 @@ def process_one(notice: dict, index: int, notices: list) -> bool:
                     time.sleep(wait)
                     continue
                 print(f"[retry] max retries exceeded — marking '{notice['title']}' as skipped", file=sys.stderr)
-                notices[index]["status"] = "skipped"
+                _record_failure(notices[index], "rpm", msg, status="skipped")
                 save_manifest(notices)
                 return False
             if msg.startswith("RPD"):
                 print(f"[quota] daily Gemini quota exhausted — keeping '{notice['title']}' as pending", file=sys.stderr)
+                notices[index]["status"] = "pending"
+                notices[index]["last_error"] = msg[:500]
                 save_manifest(notices)
                 return False
             print(f"[error] processing: {msg}", file=sys.stderr)
-            notices[index]["status"] = "failed"
+            _record_failure(notices[index], "process", msg)
             save_manifest(notices)
             return False
         except Exception as e:
             print(f"[error] processing: unexpected {type(e).__name__}: {e}", file=sys.stderr)
-            notices[index]["status"] = "failed"
+            _record_failure(notices[index], "unexpected", f"{type(e).__name__}: {e}")
             save_manifest(notices)
             return False
 
@@ -318,6 +401,10 @@ def main():
     parser = argparse.ArgumentParser(description="Process pending notices through OCR + Gemini translation")
     parser.add_argument("--max-count", "-n", type=int, default=0,
                         help="Max notices to process per run (0 = unlimited)")
+    parser.add_argument("--retry-failed", action="store_true",
+                        help="Also retry failed notices below --max-attempts")
+    parser.add_argument("--max-attempts", type=int, default=3,
+                        help="Max recorded failures before a failed notice is not retried")
     args = parser.parse_args()
 
     api_key = os.environ.get("GEMINI_API_KEY", "")
@@ -330,6 +417,7 @@ def main():
         return
 
     processed = 0
+    attempted = set()
     max_count = args.max_count
 
     while True:
@@ -337,15 +425,21 @@ def main():
             print(f"[limit] reached max-count ({max_count})", file=sys.stderr)
             break
 
-        idx = pick_pending(notices)
+        idx = pick_pending(notices, retry_failed=args.retry_failed,
+                           max_attempts=args.max_attempts, skip=attempted)
         if idx is None:
-            print("[done] no pending notices")
+            if args.retry_failed:
+                print("[done] no pending or retryable failed notices")
+            else:
+                print("[done] no pending notices")
             break
 
+        attempted.add(idx)
         ok = process_one(notices[idx], idx, notices)
         processed += 1
 
-        if not ok and notices[idx].get("status") == "pending":
+        if not ok and (notices[idx].get("status") == "pending"
+                       or notices[idx].get("failure_kind") == "quota"):
             print(f"[quota] stopping — {processed} notice(s) processed this run", file=sys.stderr)
             break
 

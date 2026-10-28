@@ -262,13 +262,12 @@
     "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_२८ जेठ २०८३ बिहीवार (बैठक सङ्ख्या- १६)",
     "published_at": "2026-06-23",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/splby63xhhktqvzf.pdf",
-    "status": "failed",
+    "status": "done",
     "scraped_at": "2026-08-10",
     "serial": "21.",
-    "failure_kind": "download",
-    "last_error": "download failed: connection to na.parliament.gov.np timed out after 3 attempts",
-    "failed_at": "2026-10-21T23:15:14+00:00",
-    "attempts": 2
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2961-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2961.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2961.json"
   },
   {
     "id": 2960,
@@ -276,9 +275,12 @@
     "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_२६  जेठ २०८३ मङ्गलवार (बैठक सङ्ख्या- १५)",
     "published_at": "2026-06-09",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/8wrcc4ojprg1vq5q.pdf",
-    "status": "failed",
+    "status": "done",
     "scraped_at": "2026-08-10",
-    "serial": "22."
+    "serial": "22.",
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2960-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2960.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2960.json"
   },
   {
     "id": 2959,
@@ -286,9 +288,12 @@
     "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_२० जेठ २०८३ बुधवार (बैठक सङ्ख्या- १४)",
     "published_at": "2026-06-08",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/9xoezdnrhyse5oqf.pdf",
-    "status": "failed",
+    "status": "done",
     "scraped_at": "2026-08-10",
-    "serial": "23."
+    "serial": "23.",
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2959-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2959.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2959.json"
   },
   {
     "id": 2958,
@@ -296,9 +301,12 @@
     "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_१९ जेठ २०८३ मङ्गलवार (बैठक सङ्ख्या- १३)",
     "published_at": "2026-06-08",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/v16wmhndljaaqq4i.pdf",
-    "status": "failed",
+    "status": "done",
     "scraped_at": "2026-08-10",
-    "serial": "24."
+    "serial": "24.",
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2958-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2958.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2958.json"
   },
   {
     "id": 2954,
@@ -306,9 +314,13 @@
     "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_१८ जेठ २०८३ सोमवार (बैठक सङ्ख्या- १२)",
     "published_at": "2026-06-04",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/bxqf9yr1tsl31gmq.pdf",
-    "status": "failed",
+    "status": "pending",
     "scraped_at": "2026-08-10",
-    "serial": "25."
+    "serial": "25.",
+    "failure_kind": "quota",
+    "last_error": "RPD: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 20h8m44.572662884s.",
+    "failed_at": "2026-10-28T10:51:15+00:00",
+    "attempts": 1
   },
   {
     "id": 2953,

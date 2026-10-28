@@ -314,13 +314,12 @@
     "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_१८ जेठ २०८३ सोमवार (बैठक सङ्ख्या- १२)",
     "published_at": "2026-06-04",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/bxqf9yr1tsl31gmq.pdf",
-    "status": "pending",
+    "status": "done",
     "scraped_at": "2026-08-10",
     "serial": "25.",
-    "failure_kind": "quota",
-    "last_error": "RPD: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 20h8m44.572662884s.",
-    "failed_at": "2026-10-28T10:51:15+00:00",
-    "attempts": 1
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2954-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2954.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2954.json"
   },
   {
     "id": 2953,
@@ -328,9 +327,13 @@
     "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_१७ जेठ २०८३ आइतवार (बैठक सङ्ख्या- ११)",
     "published_at": "2026-06-04",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/g8x2xf4amptcljl0.pdf",
-    "status": "failed",
+    "status": "pending",
     "scraped_at": "2026-08-10",
-    "serial": "26."
+    "serial": "26.",
+    "failure_kind": "quota",
+    "last_error": "RPD: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free Tier. See https://ai.google.dev/gemini-api/docs/rate-limits.\nPlease retry in 9h41m50.67826041s.",
+    "failed_at": "2026-10-28T21:18:09+00:00",
+    "attempts": 1
   },
   {
     "id": 2952,

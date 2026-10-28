@@ -177,8 +177,11 @@
     "title": "Revised Possible Calender of HoRs since Ashoj 7-16, 2083",
     "url": "https://hr.parliament.gov.np/en/notices/1790138816",
     "pdf_url": "https://hr.parliament.gov.np/uploads/attachments/vhkt9x0c1zppsvmo.pdf",
-    "status": "failed",
-    "scraped_at": "2026-09-28"
+    "status": "done",
+    "scraped_at": "2026-09-28",
+    "ocr_path": "datasets/translations/Revised_Possible_Calender_of_HoRs_since_Ashoj_7-16,_2083-ocr.txt",
+    "translated_path": "datasets/translations/Revised_Possible_Calender_of_HoRs_since_Ashoj_7-16,_2083.txt",
+    "structured_path": "datasets/translations/Revised_Possible_Calender_of_HoRs_since_Ashoj_7-16,_2083.json"
   },
   {
     "serial": "18.",
@@ -600,11 +603,14 @@
   },
   {
     "serial": "56.",
-    "title": "(no title)",
+    "title": "Federal Parliament Secretariat",
     "url": "https://hr.parliament.gov.np/en/notices/1786618253",
-    "pdf_url": null,
-    "status": "pending",
-    "scraped_at": "2026-08-17"
+    "pdf_url": "https://hr.parliament.gov.np/uploads/attachments/we7ntzfwaey166ay.pdf",
+    "status": "done",
+    "scraped_at": "2026-08-17",
+    "ocr_path": "datasets/translations/Federal_Parliament_Secretariat-ocr.txt",
+    "translated_path": "datasets/translations/Federal_Parliament_Secretariat.txt",
+    "structured_path": "datasets/translations/Federal_Parliament_Secretariat.json"
   },
   {
     "serial": "57.",
@@ -707,11 +713,14 @@
   },
   {
     "serial": "66.",
-    "title": "(no title)",
+    "title": "Federal Parliament Secretariat",
     "url": "https://hr.parliament.gov.np/en/notices/1784708370",
     "pdf_url": "https://hr.parliament.gov.np/uploads/attachments/fuutzepl3latga3m.jpeg",
-    "status": "pending",
-    "scraped_at": "2026-07-25"
+    "status": "done",
+    "scraped_at": "2026-07-25",
+    "ocr_path": "datasets/translations/Federal_Parliament_Secretariat_1784708370-ocr.txt",
+    "translated_path": "datasets/translations/Federal_Parliament_Secretariat_1784708370.txt",
+    "structured_path": "datasets/translations/Federal_Parliament_Secretariat_1784708370.json"
   },
   {
     "serial": "67.",
@@ -1566,11 +1575,14 @@
   },
   {
     "serial": "145.",
-    "title": "(no title)",
+    "title": "Federal Parliament Secretariat",
     "url": "https://hr.parliament.gov.np/en/notices/1778554830",
     "pdf_url": "https://hr.parliament.gov.np/uploads/attachments/tb6dcbvud6dzgrj5.pdf",
-    "status": "pending",
-    "scraped_at": "2026-07-25"
+    "status": "done",
+    "scraped_at": "2026-07-25",
+    "ocr_path": "datasets/translations/Federal_Parliament_Secretariat_1778554830-ocr.txt",
+    "translated_path": "datasets/translations/Federal_Parliament_Secretariat_1778554830.txt",
+    "structured_path": "datasets/translations/Federal_Parliament_Secretariat_1778554830.json"
   },
   {
     "serial": "146.",

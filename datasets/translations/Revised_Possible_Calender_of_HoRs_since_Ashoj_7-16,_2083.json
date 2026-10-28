@@ -1,0 +1,240 @@
+{
+  "full_translation_en": "Federal Parliament\nHouse of Representatives, 2082\nFortnightly Tentative Schedule (Revised) for October 7 to 16, 2085\n(As per Rule 244 of the House of Representatives Regulations, 2083)\nTentative Agenda for the House of Representatives Meeting\nDate\nS.N.\nOctober 7, 2085\nThursday\nSaturday\nSunday\nMonday\nWednesday\nFriday\nSunday\nTuesday\n1.\nZero Hour, Solid Waste Management Bill, 2083, Payment and Settlement (First Amendment) Bill, 2083, Citizen Investment Fund (Second Amendment) Bill, 2083, and Infectious Animal Disease (Control) Bill, 2083 originating in the National Assembly - Motion to consider presented.\n2.\nZero Hour, Special Time, Free Legal Aid Bill, 2083 presented, Motion to consider Solid Waste Management Bill, 2083 presented.\nOctober 9, 2085\n4\n3\n2\n1\n10\n12\n14\n16\n17\n92\n94\n95\n13\n97\n(Second Meeting)\nMotion to consider Free Legal Aid Bill, 2083 presented.\nZero Hour, Objects Replacing Mother's Milk (Sales and Distribution Control) (First Amendment) Bill, 2083, Safe Motherhood and Reproductive Health Rights (First Amendment) Bill, 2083, Health Worker and Health Institution Security (Second Amendment) Bill, 2083, Women, Children, Gender and Sexual Minorities and Social Security Related Some Nepal Laws Amendment Bill, 2083, Some Nepal Laws Arrangement Bill, 2083, and Ramraja Prasad Singh Health Science Academy Bill, 2083 presented.\nOctober 12, 2085\n23\n25\n27\n29\n20\n22\n24\n26\n28\n30\n31\n(Second Meeting)\nObjects Replacing Mother's Milk (Sales and Distribution Control) (First Amendment) Bill, 2083, Safe Motherhood and Reproductive Health Rights (First Amendment) Bill, 2083, Health Worker and Health Institution Security (Second Amendment) Bill, 2083, and Women, Children, Gender and Sexual Minorities and Social Security Related Some Nepal Laws Amendment Bill, 2083 - Motion to consider presented.\nMeeting Day\nPublic Holiday\nJoint Meeting\nCommittee Meeting etc.\nNote:\n1. At the beginning of each meeting, depending on the gravity of the subject matter, there may be an 'Accidental Time'.\n2. Matters not included in the schedule but urgently required (e.g., presentation of new bills, submission of committee reports on bills, discussion on motions) may be included in the agenda or removed.\n3. If the Honorable Minister requests time for a statement of public importance, it may be provided at the beginning of the meeting, and for a response to Zero Hour/Special Time/Accidental Time, it may be provided after Zero Hour.\n4. Time may be provided to the Leader of the Opposition, former Prime Ministers, former Speakers, etc., as per parliamentary practice.\n5. Days when the House does not meet are reserved for committee meetings etc. Committee meetings may also be held before or after the House meeting on days when the House meets.\n6. Provisions of Chapter 24, 27, and 30 of the Regulations, and other matters as needed, may be included in the agenda.\nOctober 13, 2085\n4.\nZero Hour, Diploma Engineer Council Bill, 2083 presented, National Defence University Bill, 2083 presented, Some Nepal Laws Arrangement Bill, 2083 and Ramraja Prasad Singh Health Science Academy Bill, 2083 - Motion to consider presented.\n(Second Meeting)\nMotion to consider Diploma Engineer Council Bill, 2083 and National Defence University Bill, 2083 presented.\nOctober 14, 2085\n3.\nZero Hour, Mediation (Second Amendment) Bill, 2083, Nepal Law Commission (First Amendment) Bill, 2083, Free Legal Aid Bill, 2083, and Infectious Animal Disease (Control) Bill, 2083 originating in the National Assembly - Motion to send to the relevant committee for clause-wise discussion presented.\n4.\nZero Hour, Special Time, Employee Provident Fund (Tenth Amendment) Bill, 2083, Citizen Investment Fund (Third Amendment) Bill, 2083, and Payment and Settlement (First Amendment) Bill, 2083 - Motion to send to the relevant committee for clause-wise discussion presented.\nOctober 14, 2085\n4.\n6.\nZero Hour, Special Time, Objects Replacing Mother's Milk (Sales and Distribution Control) (First Amendment) Bill, 2083, Safe Motherhood and Reproductive Health Rights (First Amendment) Bill, 2083, Health Worker and Health Institution Security (Second Amendment) Bill, 2083, Diploma Engineer Council Bill, 2083, Solid Waste Management Bill, 2083, and National Defence University Bill, 2083, Women, Children, Gender and Sexual Minorities and Social Security Related Some Nepal Laws Amendment Bill, 2083, Some Nepal Laws Arrangement Bill, 2083, and Ramraja Prasad Singh Health Science Academy Bill, 2083 - Motion to send to the relevant committee for clause-wise discussion presented.\nOctober 16, 2085\n7.\n",
+  "session": {
+    "date_bs": "2085-07-07",
+    "date_ad": "2028-09-22",
+    "meeting_type": "House of Representatives",
+    "meeting_number": null,
+    "chairperson": null
+  },
+  "sections": [
+    {
+      "name": "Main Business",
+      "summary_en": "On October 7, 2085, the House of Representatives meeting included Zero Hour, followed by motions to consider several bills. These included the Payment and Settlement (First Amendment) Bill, 2083, and the Infectious Animal Disease (Control) Bill, 2083. The meeting also saw the presentation of the Citizen Investment Fund (Second Amendment) Bill, 2083.",
+      "speakers": [],
+      "bills_discussed": [
+        {
+          "name": "Payment and Settlement (First Amendment) Bill, 2083",
+          "status": "discussed"
+        },
+        {
+          "name": "Infectious Animal Disease (Control) Bill, 2083",
+          "status": "discussed"
+        },
+        {
+          "name": "Citizen Investment Fund (Second Amendment) Bill, 2083",
+          "status": "introduced"
+        },
+        {
+          "name": "Solid Waste Management Bill, 2083",
+          "status": "introduced"
+        }
+      ],
+      "reports_presented": [],
+      "key_issues": [
+        "Bill presentations",
+        "Bill considerations",
+        "Zero Hour"
+      ]
+    },
+    {
+      "name": "Main Business",
+      "summary_en": "On October 9, 2085, the meeting featured Zero Hour and Special Time. A motion to consider the Solid Waste Management Bill, 2083, was presented. Additionally, the Free Legal Aid Bill, 2083, was presented.",
+      "speakers": [],
+      "bills_discussed": [
+        {
+          "name": "Solid Waste Management Bill, 2083",
+          "status": "discussed"
+        },
+        {
+          "name": "Free Legal Aid Bill, 2083",
+          "status": "introduced"
+        }
+      ],
+      "reports_presented": [],
+      "key_issues": [
+        "Bill presentations",
+        "Bill considerations",
+        "Zero Hour",
+        "Special Time"
+      ]
+    },
+    {
+      "name": "Main Business",
+      "summary_en": "On October 12, 2085, the House of Representatives meeting included Zero Hour. Several bills were presented, including amendments to laws concerning health workers, reproductive health, and social security. A motion to consider the Objects Replacing Mother's Milk (Sales and Distribution Control) (First Amendment) Bill, 2083, was presented.",
+      "speakers": [],
+      "bills_discussed": [
+        {
+          "name": "Objects Replacing Mother's Milk (Sales and Distribution Control) (First Amendment) Bill, 2083",
+          "status": "discussed"
+        },
+        {
+          "name": "Safe Motherhood and Reproductive Health Rights (First Amendment) Bill, 2083",
+          "status": "introduced"
+        },
+        {
+          "name": "Health Worker and Health Institution Security (Second Amendment) Bill, 2083",
+          "status": "introduced"
+        },
+        {
+          "name": "Women, Children, Gender and Sexual Minorities and Social Security Related Some Nepal Laws Amendment Bill, 2083",
+          "status": "introduced"
+        },
+        {
+          "name": "Some Nepal Laws Arrangement Bill, 2083",
+          "status": "introduced"
+        },
+        {
+          "name": "Ramraja Prasad Singh Health Science Academy Bill, 2083",
+          "status": "introduced"
+        }
+      ],
+      "reports_presented": [],
+      "key_issues": [
+        "Bill presentations",
+        "Bill considerations",
+        "Zero Hour"
+      ]
+    },
+    {
+      "name": "Main Business",
+      "summary_en": "On October 13, 2085, the meeting included Zero Hour, the presentation of the Diploma Engineer Council Bill, 2083, and the National Defence University Bill, 2083. A motion to consider the Some Nepal Laws Arrangement Bill, 2083, and the Ramraja Prasad Singh Health Science Academy Bill, 2083, was presented.",
+      "speakers": [],
+      "bills_discussed": [
+        {
+          "name": "Diploma Engineer Council Bill, 2083",
+          "status": "introduced"
+        },
+        {
+          "name": "National Defence University Bill, 2083",
+          "status": "introduced"
+        },
+        {
+          "name": "Some Nepal Laws Arrangement Bill, 2083",
+          "status": "discussed"
+        },
+        {
+          "name": "Ramraja Prasad Singh Health Science Academy Bill, 2083",
+          "status": "discussed"
+        }
+      ],
+      "reports_presented": [],
+      "key_issues": [
+        "Bill presentations",
+        "Bill considerations",
+        "Zero Hour"
+      ]
+    },
+    {
+      "name": "Main Business",
+      "summary_en": "On October 14, 2085, the meeting included Zero Hour and a motion to send the Mediation (Second Amendment) Bill, 2083, Nepal Law Commission (First Amendment) Bill, 2083, Free Legal Aid Bill, 2083, and Infectious Animal Disease (Control) Bill, 2083 to the relevant committee for clause-wise discussion. Another motion was presented to send the Employee Provident Fund (Tenth Amendment) Bill, 2083, Citizen Investment Fund (Third Amendment) Bill, 2083, and Payment and Settlement (First Amendment) Bill, 2083 to committee.",
+      "speakers": [],
+      "bills_discussed": [
+        {
+          "name": "Mediation (Second Amendment) Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Nepal Law Commission (First Amendment) Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Free Legal Aid Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Infectious Animal Disease (Control) Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Employee Provident Fund (Tenth Amendment) Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Citizen Investment Fund (Third Amendment) Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Payment and Settlement (First Amendment) Bill, 2083",
+          "status": "sent_to_committee"
+        }
+      ],
+      "reports_presented": [],
+      "key_issues": [
+        "Bill considerations",
+        "Clause-wise discussion",
+        "Zero Hour",
+        "Special Time"
+      ]
+    },
+    {
+      "name": "Main Business",
+      "summary_en": "On October 16, 2085, the meeting included Zero Hour and Special Time. A motion was presented to send multiple bills to the relevant committee for clause-wise discussion. These included bills related to mother's milk replacement, safe motherhood, health worker security, diploma engineers, solid waste management, national defense university, social security, and general law amendments.",
+      "speakers": [],
+      "bills_discussed": [
+        {
+          "name": "Objects Replacing Mother's Milk (Sales and Distribution Control) (First Amendment) Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Safe Motherhood and Reproductive Health Rights (First Amendment) Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Health Worker and Health Institution Security (Second Amendment) Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Diploma Engineer Council Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Solid Waste Management Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "National Defence University Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Women, Children, Gender and Sexual Minorities and Social Security Related Some Nepal Laws Amendment Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Some Nepal Laws Arrangement Bill, 2083",
+          "status": "sent_to_committee"
+        },
+        {
+          "name": "Ramraja Prasad Singh Health Science Academy Bill, 2083",
+          "status": "sent_to_committee"
+        }
+      ],
+      "reports_presented": [],
+      "key_issues": [
+        "Bill considerations",
+        "Clause-wise discussion",
+        "Zero Hour",
+        "Special Time"
+      ]
+    }
+  ],
+  "agenda_tags": [
+    "Parliamentary Schedule",
+    "House of Representatives",
+    "Bill Presentation",
+    "Bill Consideration",
+    "Zero Hour",
+    "Special Time",
+    "Committee Referral",
+    "Legislation",
+    "Public Health",
+    "Social Security",
+    "Legal Aid",
+    "Waste Management",
+    "Infrastructure"
+  ],
+  "ministries_mentioned": [],
+  "all_speakers_mentioned": [],
+  "adjournment_time": null,
+  "next_meeting_date": null
+}

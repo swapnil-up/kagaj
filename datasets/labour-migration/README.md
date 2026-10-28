@@ -508,11 +508,11 @@ canonical way to reproduce them:
 
 | Shipped file | Rows | Role |
 |--------------|------|------|
-| `panel_canonical.csv.gz` | 70,104 | **primary analysis dataset** — additive-only (gzipped) |
-| `panel_rollup.csv.gz` | 31,041 | aggregates + measures + printed totals (gzipped; never sum with the primary) |
+| `panel_canonical.csv.gz` | 70,089 | **primary analysis dataset** — additive-only (gzipped) |
+| `panel_rollup.csv.gz` | 31,035 | aggregates + measures + printed totals (gzipped; never sum with the primary) |
 | `panel.csv` | 102,744 | raw tidy-long extraction (provenance) |
 | `agencies.csv` | 26,224 | agency-level pre-approval / institutional detail |
-| `series.csv` | 9,208 | historical metric series from narrative reports |
+| `series.csv` | 9,748 | historical metric series from narrative reports |
 | `period_windows.csv` | 28 | reporting-window lookup (`period_bs` → AD start/end) for date merges |
 | `codebook.json` | — | machine-readable column dictionary + vocabularies + per-file checksums |
 | `build.json` | — | build manifest: git revision, timestamp, row counts, SHA-256, audit pass/fail |

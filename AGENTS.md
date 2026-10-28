@@ -37,7 +37,7 @@ kagaj/
 
 | Dataset | Path | Notes |
 |---|---|---|
-| Labour-migration panel | `datasets/labour-migration/` | 70,104 canonical rows; `analysis_safe` filter; `build.json` hashes |
+| Labour-migration panel | `datasets/labour-migration/` | 70,089 canonical rows; `analysis_safe` filter; `build.json` hashes |
 | Parliament translations | `datasets/translations/` | 595 files; indexed in `INDEX.md` |
 | KUKL water schedules | `datasets/water/` | `schedule.json` is the website artifact |
 

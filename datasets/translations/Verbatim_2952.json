@@ -1,0 +1,86 @@
+{
+  "full_translation_en": "National Assembly\nNational\nAssembly\nTwenty-first\nSession\nProceedings\nComplete\nMay 94, 2083\nFriday\nMeeting\n90\nNumber -\nPresided over by\ncommenced at 18:38 hrs.\nHonorable Members of the National Assembly,\n(18:38 hrs.)\nChairperson: - Honorable Members,\nNow, I would like to provide time to the Honorable Finance Minister Dr. Swarnim Wagle to table the report on the Annual Financial Statement of Revenue and Expenditure for the Fiscal Year 2083/084.\nHonorable Finance Minister Dr. Swarnim Wagle: - Honorable Chairperson,\n(18:39 hrs.)\nWith the permission of the Honorable Chairperson, I table before this respected assembly the report on the Annual Financial Statement of Revenue and Expenditure for the Fiscal Year 2083/084.\nThank you.\nHonorable Chairperson: - Honorable Members, the next meeting of the National Assembly will be held on Sunday, Jestha 17, 2083 at 11:15 AM. This meeting is adjourned.\n(Thereafter, the next meeting will be held on Sunday, Jestha 17, 2083 at 11:15 AM, and this meeting is adjourned.)\nAdjourned: 18:39 hrs.\n2",
+  "session": {
+    "date_bs": "2083-02-94",
+    "date_ad": "2023-05-24",
+    "meeting_type": "National Assembly",
+    "meeting_number": "90",
+    "chairperson": "Dr. Swarnim Wagle"
+  },
+  "sections": [
+    {
+      "name": "Opening",
+      "summary_en": "The Chairperson announced the commencement of the meeting and invited the Finance Minister to present the annual financial statement report. The meeting began at 18:38 hrs.",
+      "speakers": [
+        {
+          "name": "Dr. Swarnim Wagle",
+          "party": null,
+          "topic": "Table Annual Financial Statement Report"
+        }
+      ],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Annual Financial Statement",
+        "Revenue and Expenditure"
+      ]
+    },
+    {
+      "name": "Main Business",
+      "summary_en": "Finance Minister Dr. Swarnim Wagle presented the report on the Annual Financial Statement of Revenue and Expenditure for the Fiscal Year 2083/084 to the assembly. He thanked the assembly after presenting the report.",
+      "speakers": [
+        {
+          "name": "Dr. Swarnim Wagle",
+          "party": null,
+          "topic": "Presenting Annual Financial Statement Report"
+        }
+      ],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Annual Financial Statement",
+        "Revenue and Expenditure",
+        "Fiscal Year 2083/084"
+      ]
+    },
+    {
+      "name": "Adjournment",
+      "summary_en": "The Chairperson announced that the next meeting would be held on Sunday, Jestha 17, 2083, at 11:15 AM and adjourned the current meeting. The meeting was adjourned at 18:39 hrs.",
+      "speakers": [],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "Next Meeting Date"
+      ]
+    }
+  ],
+  "agenda_tags": [
+    "National Assembly",
+    "Parliamentary Proceedings",
+    "Finance Minister",
+    "Budget",
+    "Annual Financial Statement",
+    "Revenue",
+    "Expenditure",
+    "Fiscal Year 2083/084",
+    "Meeting Adjournment"
+  ],
+  "ministries_mentioned": [
+    "Finance Ministry"
+  ],
+  "all_speakers_mentioned": [
+    {
+      "name": "Dr. Swarnim Wagle",
+      "party": null,
+      "section": "Opening, Main Business"
+    }
+  ],
+  "adjournment_time": "18:39 hrs",
+  "next_meeting_date": "2083 Jestha 17, Sunday, 11:15 AM",
+  "_trigger": "verbatim",
+  "na_id": 2952,
+  "title": "Complete Proceedings of the Twenty-First Session – 15 Jetha 2083 Friday (Meeting No. 10)",
+  "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_१५ जेठ २०८३ शुक्ववार (बैठक सङ्ख्या- १०)",
+  "published_at": "2026-06-04",
+  "source_pdf": "https://na.parliament.gov.np/uploads/attachments/nwrqd98ktukusgst.pdf"
+}

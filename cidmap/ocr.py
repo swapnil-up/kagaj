@@ -6,10 +6,14 @@ ground-truth word at each unknown glyph position. Those reads feed (a) the
 review sheet's candidate guesses and (b) an independent check on derive results.
 
 PaddleOCR is heavy; every page is rasterised once and OCR'd once, and the word
-boxes are matched to glyph origins inside this module.
+boxes are matched to glyph origins inside this module. Rendering and engine
+setup live in :mod:`kagaj_core.pdf` and :mod:`kagaj_core.ocr`.
 """
 
 from __future__ import annotations
+
+from kagaj_core import ocr as core_ocr
+from kagaj_core import pdf as core_pdf
 
 from .decode import is_unknown_glyph, glyphs, cluster_lines
 
@@ -17,56 +21,22 @@ RENDER_SCALE = 300 / 72.0  # 300 dpi
 
 
 def _ocr_engine(**kwargs):
-    from paddleocr import PaddleOCR  # heavy; import on first use
-    return PaddleOCR(
-        text_recognition_model_name="devanagari_PP-OCRv5_mobile_rec",
-        text_detection_model_name="PP-OCRv5_mobile_det",
-        use_doc_orientation_classify=False,
-        use_doc_unwarping=False,
-        use_textline_orientation=False,
-        **kwargs,
-    )
+    return core_ocr.create_engine(**kwargs)
 
 
 def render_page(page):
-    import fitz
-    pix = page.get_pixmap(matrix=fitz.Matrix(RENDER_SCALE, RENDER_SCALE))
-    if pix.colorspace is None or pix.colorspace.name not in (
-            "RGB", fitz.csRGB.name):
-        pix = fitz.Pixmap(fitz.csRGB, pix)
-    import numpy as np
-    arr = np.frombuffer(pix.samples, dtype=np.uint8).reshape(
-        pix.height, pix.width, pix.n)
-    if pix.n > 3:
-        arr = arr[:, :, :3]
-    return arr
+    return core_pdf.render_page(page, dpi=300)
 
 
 def ocr_words(engine, page_array):
     """OCR a rendered page array; return [(text, x0pt, y0pt, x1pt, y1pt)]."""
-    result = engine.predict(page_array)
-    if not result:
-        return []
-    r = result[0]
-    out = []
-    for i, t in enumerate(r["rec_texts"]):
-        b = r["rec_boxes"]
-        # rec_boxes are flat (x0, y0, x1, y1) in the rendered pixel space.
-        out.append((t,
-                    float(b[i][0]) / RENDER_SCALE,
-                    float(b[i][1]) / RENDER_SCALE,
-                    float(b[i][2]) / RENDER_SCALE,
-                    float(b[i][3]) / RENDER_SCALE))
-    return out
+    return [word.as_tuple() for word in core_ocr.ocr_array(
+        engine, page_array, scale=RENDER_SCALE)]
 
 
 def _text_space_bbox(page, bbox):
     """Map a rendered-page word box into unrotated text space."""
-    if not int(getattr(page, "rotation", 0) or 0):
-        return bbox
-    import fitz
-    rect = fitz.Rect(bbox) * page.derotation_matrix
-    return (rect.x0, rect.y0, rect.x1, rect.y1)
+    return core_pdf.text_space_bbox(page, bbox)
 
 
 def _text_space_words(page, words):
@@ -89,8 +59,7 @@ def word_at(words, x_pt, y_pt):
     return word[0] if word else None
 
 
-def cross_check(doc, census_result, max_pages=None,
-                log=None) -> dict:
+def cross_check(doc, census_result, max_pages=None, log=None) -> dict:
     """For each unknown (font_id,cid), collect the OCR words it appears in.
 
     Returns {font: {cid: {word: count}}} plus per-glyph reads

@@ -220,8 +220,8 @@ def main(argv=None) -> int:
     p.add_argument("-o", "--output", default="output/cidmap_compare.html")
     a = p.parse_args(argv)
 
-    import fitz  # lazy
-    doc = fitz.open(a.pdf)
+    from kagaj_core import pdf as core_pdf
+    doc = core_pdf.open_pdf(a.pdf)
     store = load(a.store)
 
     from .ocr import _ocr_engine

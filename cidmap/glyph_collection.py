@@ -9,6 +9,7 @@ import logging
 
 from .decode import cluster_lines, glyphs as extract_glyphs
 from .fonts import FontResolutionError
+from kagaj_core import pdf as core_pdf
 from kagaj_core.review.crops import sanitize_glyph_bbox
 
 _LOG = logging.getLogger(__name__)
@@ -33,31 +34,30 @@ def _word_bbox(line, i):
     because it is clustered only by baseline. Split on horizontal gaps so the
     crop is a word, not a slice of the whole row.
     """
-    import fitz
-
     target = line[i]
-    tbox = fitz.Rect(target["bbox"]).normalize()
-    tx = (tbox.x0 + tbox.x1) / 2.0 if tbox.width > 0.5 else target["origin"][0]
+    tbox = core_pdf.normalize_bbox(target["bbox"])
+    tx = ((tbox[0] + tbox[2]) / 2.0 if tbox[2] - tbox[0] > 0.5
+          else target["origin"][0])
 
     boxes = []
     for g in line:
         if g["c"].isspace():
             continue
-        r = fitz.Rect(g["bbox"]).normalize()
-        if r.width > 0.5 and r.height > 0.5:
+        r = core_pdf.normalize_bbox(g["bbox"])
+        if r[2] - r[0] > 0.5 and r[3] - r[1] > 0.5:
             boxes.append(r)
     if not boxes:
         return target["bbox"]
-    boxes.sort(key=lambda r: (r.x0, r.x1))
+    boxes.sort(key=lambda r: (r[0], r[2]))
 
     clusters = []
     for rect in boxes:
-        if clusters and rect.x0 - clusters[-1][2] <= _WORD_GAP:
-            clusters[-1][2] = max(clusters[-1][2], rect.x1)
-            clusters[-1][1] = min(clusters[-1][1], rect.y0)
-            clusters[-1][3] = max(clusters[-1][3], rect.y1)
+        if clusters and rect[0] - clusters[-1][2] <= _WORD_GAP:
+            clusters[-1][2] = max(clusters[-1][2], rect[2])
+            clusters[-1][1] = min(clusters[-1][1], rect[1])
+            clusters[-1][3] = max(clusters[-1][3], rect[3])
         else:
-            clusters.append([rect.x0, rect.y0, rect.x1, rect.y1])
+            clusters.append([rect[0], rect[1], rect[2], rect[3]])
 
     def contains(cluster):
         return cluster[0] - _WORD_GAP <= tx <= cluster[2] + _WORD_GAP
@@ -95,8 +95,6 @@ def collect_review_data(doc, max_samples_per_cid=1, issues=None,
     font). Pages with ambiguous font resources are skipped and reported through
     ``issues`` (or logged when no list is supplied).
     """
-    import fitz
-
     unknown: dict[tuple[str, int], dict] = {}
     for pn in range(len(doc)):
         page = doc[pn]
@@ -138,11 +136,10 @@ def collect_review_data(doc, max_samples_per_cid=1, issues=None,
                        for s in record["samples"]):
                     continue
 
-                rect = fitz.Rect(g["bbox"]).normalize()
-                sanitized = sanitize_glyph_bbox(
-                    page, (rect.x0, rect.y0, rect.x1, rect.y1))
-                srect = fitz.Rect(sanitized).normalize()
-                if srect.width <= 0 or srect.height <= 0:
+                rect = core_pdf.normalize_bbox(g["bbox"])
+                sanitized = sanitize_glyph_bbox(page, rect)
+                srect = core_pdf.normalize_bbox(sanitized)
+                if srect[2] - srect[0] <= 0 or srect[3] - srect[1] <= 0:
                     continue
 
                 record["samples"].append({

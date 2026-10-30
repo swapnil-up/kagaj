@@ -27,7 +27,7 @@ import re
 #   the current/capital split. "मन्त्रालय" alone also appears in body
 #   descriptions, so match the column-header phrase (with the slash), which
 #   only occurs on summary template pages.
-TOC_KEYWORDS = ["सूची-पत्र", "अनुक्रमणिका", "विषय सूची", "सूचीपत्र"]
+TOC_KEYWORDS = ["सूची-पत्र", "सूची", "अनुक्रमणिका", "विषय सूची", "सूचीपत्र"]
 DETAIL_KEYWORDS = ["विवरण विविध", "शीर्षक", "स्रोत"]
 SUMMARY_COLUMN = "मन्त्तालय / िनकाय"  # garbled form of मन्त्रालय / निकाय
 SUMMARY_COLUMN_CLEAN = "मन्त्रालय / निकाय"
@@ -119,6 +119,31 @@ def detect_template(text: str) -> PageTemplate:
     if any(kw in text for kw in DETAIL_KEYWORDS):
         return PageTemplate.DETAIL
     return PageTemplate.UNKNOWN
+
+
+ANNEX_MARKERS = ("अनुसूची",)
+EXPENDITURE_TABLE = "expenditure"
+ALLOCATION_TABLE = "allocation"
+SUMMARY_ALLOCATION_MARKERS = ("विनियोजन", "विनयोजन", "नयोजन")
+
+
+def starts_annex(text: str) -> bool:
+    """True when a page opens the schedules/annex section.
+
+    Only the page heading is inspected: annex titles are also listed in the
+    table of contents, which must not end extraction.
+    """
+    for line in text.splitlines():
+        if line.strip():
+            return any(marker in line for marker in ANNEX_MARKERS)
+    return False
+
+
+def summary_table(text: str) -> str:
+    """Classify a summary page as expenditure or allocation."""
+    if any(marker in text for marker in SUMMARY_ALLOCATION_MARKERS):
+        return ALLOCATION_TABLE
+    return EXPENDITURE_TABLE
 
 
 def assign_column(x0: float, x1: float, template: PageTemplate = PageTemplate.DETAIL) -> str:

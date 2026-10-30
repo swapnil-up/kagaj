@@ -49,37 +49,24 @@ def xlsx_to_text(path: str | Path) -> dict:
     return {"kind": "xlsx", "text": "\n".join(blocks), "sheets": sheet_names}
 
 
-def _ocr_engine():
-    from paddleocr import PaddleOCR  # heavy; import on first use
-
-    return PaddleOCR(
-        text_recognition_model_name="devanagari_PP-OCRv5_mobile_rec",
-        text_detection_model_name="PP-OCRv5_mobile_det",
-        use_doc_orientation_classify=False,
-        use_doc_unwarping=False,
-        use_textline_orientation=False,
-    )
-
-
 def pdf_to_text(path: str | Path, log=None) -> dict:
     """OCR every page of a PDF into reading-order Devanagari text."""
-    import pymupdf
-    from cidmap.ocr import render_page, ocr_words
+    from kagaj_core import ocr as core_ocr
+    from kagaj_core import pdf as core_pdf
 
     def emit(msg: str) -> None:
         if log:
             log(msg)
 
-    doc = pymupdf.open(path)
-    engine = _ocr_engine()
+    doc = core_pdf.open_pdf(path)
+    engine = core_ocr.create_engine()
     pages: list[str] = []
-    for pn in range(doc.page_count):
-        arr = render_page(doc[pn])
-        words = ocr_words(engine, arr)
-        words.sort(key=lambda w: (round(w[2], 1), w[1]))  # by y then x (PDF pts)
-        text = "\n".join(w[0] for w in words if w[0].strip())
+    for pn, page in enumerate(core_pdf.iter_pages(doc), 1):
+        words = core_ocr.ocr_page(engine, page)
+        words.sort(key=lambda w: (round(w.bbox[1], 1), w.bbox[0]))
+        text = "\n".join(w.text for w in words if w.text.strip())
         pages.append(text)
-        emit(f"[ocr]  page {pn + 1}/{doc.page_count}: {len(words)} words")
+        emit(f"[ocr]  page {pn}/{doc.page_count}: {len(words)} words")
     doc.close()
     text = "\n".join(f"### page: {i + 1}\n{p}" for i, p in enumerate(pages))
     return {"kind": "pdf", "text": text, "pages": len(pages)}

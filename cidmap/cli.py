@@ -40,11 +40,11 @@ DEFAULT_STORE = "cidmap/data/cid_mappings.json"
 
 
 def _doc(args):
-    import fitz  # lazy
+    from kagaj_core import pdf as core_pdf
     if not os.path.exists(args.pdf):
         print(f"Error: {args.pdf} not found", file=sys.stderr)
         return None
-    return fitz.open(args.pdf)
+    return core_pdf.open_pdf(args.pdf)
 
 
 def _reference_fonts_arg(values):
@@ -578,7 +578,6 @@ def cmd_seed(args) -> int:
 
 
 def cmd_compare(args) -> int:
-    import fitz  # lazy
     doc = _doc(args)
     if doc is None:
         return 1
@@ -610,7 +609,6 @@ def cmd_compare(args) -> int:
 
 
 def cmd_quorum(args) -> int:
-    import fitz  # lazy
     doc = _doc(args)
     if doc is None:
         return 1

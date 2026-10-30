@@ -144,8 +144,9 @@ def _expand_glyph_bbox(rect):
 
 def _ink_bbox(page, glyph_bbox, margin=15.0):
     try:
-        import fitz
         import numpy as np
+
+        from .. import pdf as core_pdf
     except ImportError:
         return glyph_bbox
 
@@ -156,7 +157,7 @@ def _ink_bbox(page, glyph_bbox, margin=15.0):
         return glyph_bbox
 
     try:
-        pix = page.get_pixmap(dpi=150, clip=fitz.Rect(clip))
+        pix = core_pdf.render_pixmap(page, dpi=150, clip=clip)
         if not pix.width or not pix.height or pix.n <= 0:
             return glyph_bbox
         arr = np.frombuffer(pix.samples, dtype=np.uint8).reshape(
@@ -223,11 +224,10 @@ def _limit_dpi(rect, dpi, max_pixels):
 
 
 def _render_region(page, rect, dpi, *, max_pixels=_MAX_PIXELS):
-    import fitz
+    from .. import pdf as core_pdf
 
     dpi = _limit_dpi(rect, dpi, max_pixels)
-    pix = page.get_pixmap(dpi=dpi, clip=fitz.Rect(rect),
-                          colorspace=fitz.csRGB)
+    pix = core_pdf.render_pixmap(page, dpi=dpi, clip=rect, rgb=True)
     if not pix.width or not pix.height:
         raise ValueError("empty crop")
     encoded = base64.b64encode(pix.tobytes("png")).decode("ascii")

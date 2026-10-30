@@ -68,9 +68,3 @@ Rules:
 def build_dda_prompt(ocr_text: str) -> str:
     """Build the complete Gemini prompt with the OCR text embedded."""
     return DDA_PROMPT.format(schema=DDA_SCHEMA, ocr_text=ocr_text)
-
-
-def _output_token_budget(ocr_text: str) -> int:
-    """Adaptive output token budget based on input size."""
-    chars = len(ocr_text)
-    return max(8192, min(chars // 2, 65536))

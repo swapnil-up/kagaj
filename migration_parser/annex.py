@@ -136,9 +136,9 @@ def extract_district_table(rows, cfg, page, report_url, doc_id) -> tuple[list[di
 
 def extract_annex(path: str, report_url: str = "") -> tuple[list[dict], list[str]]:
     """Extract all Annex country + district approval tables from migration_2020."""
-    import fitz
+    from kagaj_core import pdf as core_pdf
 
-    doc = fitz.open(path)
+    doc = core_pdf.open_pdf(path)
     out: list[dict] = []
     problems: list[str] = []
 

@@ -249,13 +249,13 @@ def main(argv=None) -> int:
               file=sys.stderr)
         return 1
 
-    import fitz
+    from kagaj_core import pdf as core_pdf
 
     registry = None
     if getattr(a, "registry", None):
         from . import registry as registry_mod
         registry = registry_mod.load(a.registry)
-    doc = fitz.open(a.pdf)
+    doc = core_pdf.open_pdf(a.pdf)
     htmlout = build_review_html(
         doc, a.crop, only=a.cids,
         session=f"cidmap:{Path(a.pdf).resolve()}",

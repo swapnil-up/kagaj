@@ -19,7 +19,8 @@ from pathlib import Path
 
 import numpy as np
 from pdf2image import convert_from_path
-from paddleocr import PaddleOCR
+
+from kagaj_core import ocr as core_ocr
 
 SCRIPT_DIR = Path(__file__).parent
 DATA_DIR = SCRIPT_DIR.parent / "dictionary-data"
@@ -27,13 +28,14 @@ PDF_PATH = DATA_DIR / "nep-eng.pdf"
 
 DEVANAGARI_RE = re.compile(r"[\u0900-\u097F]")
 
-ocr = PaddleOCR(
-    text_recognition_model_name="devanagari_PP-OCRv5_mobile_rec",
-    text_detection_model_name="PP-OCRv5_mobile_det",
-    use_doc_orientation_classify=False,
-    use_doc_unwarping=False,
-    use_textline_orientation=False,
-)
+_ocr = None
+
+
+def get_ocr():
+    global _ocr
+    if _ocr is None:
+        _ocr = core_ocr.create_engine()
+    return _ocr
 
 DEVANAGARI_X_MIN = 700
 DEVANAGARI_X_MAX = 1200
@@ -41,20 +43,13 @@ DEVANAGARI_X_MAX = 1200
 
 def ocr_page(img) -> list:
     arr = np.array(img)
-    result = ocr.predict(arr)
     detections = []
-    for record in result:
-        texts = record["rec_texts"]
-        boxes = record["rec_boxes"]
-        for i in range(len(texts)):
-            t = texts[i].strip()
-            if not t:
-                continue
-            x1, y1, x2, y2 = [int(boxes[i][j]) for j in range(4)]
-            detections.append({
-                "x": (x1 + x2) / 2, "y": (y1 + y2) / 2,
-                "x1": x1, "y1": y1, "x2": x2, "y2": y2, "text": t,
-            })
+    for word in core_ocr.ocr_array(get_ocr(), arr):
+        x1, y1, x2, y2 = [int(v) for v in word.bbox]
+        detections.append({
+            "x": (x1 + x2) / 2, "y": (y1 + y2) / 2,
+            "x1": x1, "y1": y1, "x2": x2, "y2": y2, "text": word.text,
+        })
     detections.sort(key=lambda d: (d["y"], d["x"]))
     return detections
 

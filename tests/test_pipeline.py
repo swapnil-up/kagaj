@@ -114,3 +114,19 @@ class TestInferSections:
         assert rows[0].section == "101"
         assert rows[1].section == "101"
         assert rows[2].section == "101"
+
+
+class TestTableInference:
+    def test_section_resets_when_table_changes(self):
+        rows = [
+            row(code="101", page=13, description="राष्ट्रपति"),
+            row(code="21112", page=17, description="पारिश्रमिक"),
+            row(code="101", page=36, description="राष्ट्रपति"),
+            row(code="21112", page=73, description="पारिश्रमिक"),
+        ]
+        for r in rows[:2]:
+            r.budget_table = "expenditure"
+        for r in rows[2:]:
+            r.budget_table = "allocation"
+        infer_sections(rows)
+        assert [r.section for r in rows] == ["101", "101", "101", "101"]

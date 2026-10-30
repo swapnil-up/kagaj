@@ -75,8 +75,8 @@ def _find_summary(rows: list[list]) -> tuple[list[list], list[list]]:
 
 def extract_summary(path: str, cfg: dict, report_url: str):
     """Country summary rows (panel schema, channel='preapproval')."""
-    import fitz
-    doc = fitz.open(path)
+    from kagaj_core import pdf as core_pdf
+    doc = core_pdf.open_pdf(path)
     text = doc[0].get_text()
     ad_start, ad_end = parse_window(text)
     rows, totals = _find_summary(doc[0].find_tables().tables[0].extract())
@@ -129,8 +129,8 @@ def _page_lines(text: str) -> list[str]:
 
 def extract_detail(path: str, cfg: dict, report_url: str):
     """Country × agency detail rows (agencies.csv)."""
-    import fitz
-    doc = fitz.open(path)
+    from kagaj_core import pdf as core_pdf
+    doc = core_pdf.open_pdf(path)
     ad_start, ad_end = parse_window(doc[0].get_text())
     recs: list[dict] = []
     for pi in range(len(doc)):
@@ -171,8 +171,8 @@ def extract_detail(path: str, cfg: dict, report_url: str):
 
 def extract_institutional(path: str, cfg: dict, report_url: str):
     """Agency rows from an institutional (संस्थागत) approval statement."""
-    import fitz
-    doc = fitz.open(path)
+    from kagaj_core import pdf as core_pdf
+    doc = core_pdf.open_pdf(path)
     ad_start, ad_end = parse_window(doc[0].get_text())
     recs: list[dict] = []
     problems: list[str] = []

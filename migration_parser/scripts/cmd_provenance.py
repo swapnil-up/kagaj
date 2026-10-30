@@ -17,12 +17,12 @@ directory) and exits non-zero on any mismatch.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import sys
 from pathlib import Path
 
-import fitz
+from kagaj_core import pdf as core_pdf
+from kagaj_core import provenance
 
 from ..paths import MIGRATION_DIR
 from . import cmd_process as process
@@ -31,13 +31,13 @@ ATTESTATION = MIGRATION_DIR / "source_attestation.json"
 
 
 def _sha256_text(text: str) -> str:
-    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+    return provenance.sha256_bytes(text.encode("utf-8"))
 
 
 def attest_pdf(path: Path) -> dict:
     """Page count + document/per-page text digests for one PDF."""
-    doc = fitz.open(str(path))
-    pages = [pg.get_text("text") for pg in doc]
+    doc = core_pdf.open_pdf(path)
+    pages = [pg.get_text("text") for pg in core_pdf.iter_pages(doc)]
     return {
         "page_count": len(pages),
         "text_sha256": _sha256_text("\n".join(pages)),

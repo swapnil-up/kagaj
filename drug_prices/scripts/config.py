@@ -37,7 +37,6 @@ SCRAPE_DELAY = 0.3
 
 # --- Gemini API ---
 GEMINI_MODEL = "gemini-2.5-flash-lite"
-GEMINI_API = "https://generativelanguage.googleapis.com/v1beta/models"
 GEMINI_TEMPERATURE = 0.2
 MAX_OUTPUT_TOKENS = 65536
 

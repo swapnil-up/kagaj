@@ -52,8 +52,8 @@ def cmd_extract(args) -> int:
         for c in report.cross_failures:
             print(f"  XFAIL {c}", file=sys.stderr)
     if args.sqlite and output_path:
-        import fitz  # lazy
-        doc = fitz.open(args.pdf)
+        from kagaj_core import pdf as core_pdf
+        doc = core_pdf.open_pdf(args.pdf)
         page_texts = [fix_text(extract_page_text(doc, p)) for p in range(len(doc))]
         write_db(rows, page_texts, output_path)
         print(f"Wrote {len(rows)} rows to {output_path}", file=sys.stderr)
@@ -75,12 +75,12 @@ def cmd_verify(args) -> int:
 
 
 def cmd_census(args) -> int:
-    import fitz  # lazy
+    from kagaj_core import pdf as core_pdf
 
     if not os.path.exists(args.pdf):
         print(f"Error: {args.pdf} not found", file=sys.stderr)
         return 1
-    doc = fitz.open(args.pdf)
+    doc = core_pdf.open_pdf(args.pdf)
     unknown = build_unknown_census(doc)
     payload = {
         "pdf": args.pdf,
@@ -102,7 +102,7 @@ def cmd_census(args) -> int:
 
 
 def cmd_review(args) -> int:
-    import fitz  # lazy
+    from kagaj_core import pdf as core_pdf
 
     if not os.path.exists(args.pdf):
         print(f"Error: {args.pdf} not found", file=sys.stderr)
@@ -114,7 +114,7 @@ def cmd_review(args) -> int:
         print("Error: --shape-runs requires --reference-font",
               file=sys.stderr)
         return 1
-    doc = fitz.open(args.pdf)
+    doc = core_pdf.open_pdf(args.pdf)
     out = args.output or "output/cid_review.html"
     os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
     registry = None
@@ -134,7 +134,7 @@ def cmd_review(args) -> int:
 
 def cmd_derive(args) -> int:
     from .derive import derive, load_corrections
-    import fitz  # lazy
+    from kagaj_core import pdf as core_pdf
 
     if not os.path.exists(args.pdf):
         print(f"Error: {args.pdf} not found", file=sys.stderr)
@@ -150,7 +150,7 @@ def cmd_derive(args) -> int:
         print("No non-empty corrections found in the file", file=sys.stderr)
         return 1
 
-    doc = fitz.open(args.pdf)
+    doc = core_pdf.open_pdf(args.pdf)
     results = derive(doc, corrections, max_span_evidence=200,
                      max_pages=args.max_pages)
 

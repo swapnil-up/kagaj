@@ -5,14 +5,14 @@ import sys
 from pathlib import Path
 
 import numpy as np
-import requests
 from pdf2image import convert_from_path
-from paddleocr import PaddleOCR
+
+from kagaj_core import llm as core_llm
+from kagaj_core import ocr as core_ocr
+from kagaj_core import pdf as core_pdf
 
 GEMINI_MODEL = "gemini-2.5-flash-lite"
-GEMINI_API = "https://generativelanguage.googleapis.com/v1beta/models"
 
-DEVANAGARI_RE = re.compile(r"[\u0900-\u097F]")
 
 
 def pdf_to_images(pdf_path: str, dpi: int = 300) -> list:
@@ -23,41 +23,26 @@ def pdf_to_images(pdf_path: str, dpi: int = 300) -> list:
 
 
 def is_devanagari_line(text: str, min_ratio: float = 0.4) -> bool:
-    if not text.strip():
-        return False
-    dev_len = len(DEVANAGARI_RE.findall(text))
-    return dev_len / len(text.strip()) >= min_ratio
+    return core_ocr.is_devanagari(text, min_ratio=min_ratio)
 
 
 def extract_lines(images: list) -> list:
-    ocr = PaddleOCR(
-        text_recognition_model_name="devanagari_PP-OCRv5_mobile_rec",
-        text_detection_model_name="PP-OCRv5_mobile_det",
-        use_doc_orientation_classify=False,
-        use_doc_unwarping=False,
-        use_textline_orientation=False,
-    )
+    engine = core_ocr.create_engine()
     total = len(images)
     lines = []
     for page_idx, img in enumerate(images):
         print(f"[ocr]  Page {page_idx + 1}/{total}...", file=sys.stderr, flush=True)
         before = len(lines)
         arr = np.array(img)
-        result = ocr.predict(arr)
-        for record in result:
-            texts = record["rec_texts"]
-            scores = record["rec_scores"]
-            boxes = record["rec_boxes"]
-            for i in range(len(texts)):
-                t = texts[i].strip()
-                s = scores[i]
-                if s < 0.3 or not t:
-                    continue
-                dev_ratio = len(DEVANAGARI_RE.findall(t)) / max(len(t), 1)
-                if dev_ratio < 0.4 and len(t) >= 2 and s < 0.7:
-                    continue
-                x1, y1, x2, y2 = [int(boxes[i][j]) for j in range(4)]
-                lines.append({"y": y1, "x": x1, "w": max(x2 - x1, 60), "h": max(y2 - y1, 14), "text": t, "page": page_idx})
+        for word in core_ocr.ocr_array(engine, arr):
+            t, s = word.text, word.score
+            if s < 0.3:
+                continue
+            dev_ratio = core_ocr.devanagari_ratio(t)
+            if dev_ratio < 0.4 and len(t) >= 2 and s < 0.7:
+                continue
+            x1, y1, x2, y2 = [int(v) for v in word.bbox]
+            lines.append({"y": y1, "x": x1, "w": max(x2 - x1, 60), "h": max(y2 - y1, 14), "text": t, "page": page_idx})
         added = len(lines) - before
         print(f"[ocr]   → {added} lines", file=sys.stderr, flush=True)
     lines.sort(key=lambda r: (r["page"], r["y"], r["x"]))
@@ -76,12 +61,11 @@ def decode_text_layer(pdf_path: str, store_path: str = "cidmap/data/cid_mappings
     Returns per-page Devanagari text. A page falls back to OCR when more than
     ``FALLBACK_UNKNOWN`` of its glyphs stay unmapped after the store lookup.
     """
-    import pymupdf
     from cidmap.decoder import decode_page, coverage
     from cidmap.mappings import load
 
     store = load(store_path)
-    doc = pymupdf.open(pdf_path)
+    doc = core_pdf.open_pdf(pdf_path)
     pages = range(len(doc)) if max_pages is None else range(min(max_pages, len(doc)))
     out = []
     for pn in pages:
@@ -129,29 +113,18 @@ def translate_lines(lines: list, api_key: str) -> list:
         + "\n\n".join(block_texts)
     )
 
-    resp = requests.post(
-        f"{GEMINI_API}/{GEMINI_MODEL}:generateContent",
-        headers={"Content-Type": "application/json",
-                 "x-goog-api-key": api_key},
-        json={
-            "system_instruction": {"parts": [{"text": "You are an expert bilingual administrative translator. Output plain English in natural SVO order."}]},
-            "contents": [{"parts": [{"text": prompt}]}],
-        },
+    text = core_llm.generate_text(
+        prompt,
+        api_key=api_key,
+        model=GEMINI_MODEL,
+        system_instruction=(
+            "You are an expert bilingual administrative translator. "
+            "Output plain English in natural SVO order."),
     )
-    if not resp.ok:
-        err = resp.json().get("error", {}).get("message", resp.text[:200])
-        raise RuntimeError(f"Gemini API error: {err}")
-
-    candidates = resp.json().get("candidates", [])
-    if not candidates:
-        raise RuntimeError("Gemini returned no candidates")
-    parts = candidates[0].get("content", {}).get("parts", [])
-    if not parts:
-        raise RuntimeError("Gemini returned empty content")
 
     result = {}
     current_idx = None
-    for line in parts[0].get("text", "").split("\n"):
+    for line in text.split("\n"):
         m = re.match(r"^=== Block (\d+)", line)
         if m:
             current_idx = int(m.group(1))

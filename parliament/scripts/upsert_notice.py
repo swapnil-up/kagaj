@@ -18,43 +18,17 @@ import argparse
 import json
 import os
 import sys
-import time
 from pathlib import Path
 
 import psycopg
-import requests
 
-from config import EMBED_MODEL, GEMINI_API, load_env
+from kagaj_core import llm as core_llm
 
-
-class EmbeddingQuotaError(RuntimeError):
-    pass
+from config import EMBED_MODEL, load_env
 
 
 def get_embeddings(texts: list[str], api_key: str) -> list[list[float]]:
-    results = []
-    for i, text in enumerate(texts):
-        resp = requests.post(
-            f"{GEMINI_API}/{EMBED_MODEL}:embedContent",
-            headers={"Content-Type": "application/json",
-                     "x-goog-api-key": api_key},
-            json={
-                "model": f"models/{EMBED_MODEL}",
-                "content": {"parts": [{"text": text}]},
-                "outputDimensionality": 768,
-            },
-        )
-        if not resp.ok:
-            err = resp.json().get("error", {}).get("message", resp.text[:300])
-            if resp.status_code == 429 or "quota" in err.lower() or "RESOURCE_EXHAUSTED" in err:
-                raise EmbeddingQuotaError(f"Embedding API error: {err}")
-            raise RuntimeError(f"Embedding API error: {err}")
-        data = resp.json()
-        embedding = data.get("embedding", {}).get("values", [])
-        results.append(embedding)
-        if i > 0 and i % 5 == 0:
-            time.sleep(0.3)
-    return results
+    return core_llm.embed_many(texts, api_key=api_key, model=EMBED_MODEL)
 
 
 def build_chunk_text(section: dict, session: dict, title: str) -> str:
@@ -164,7 +138,7 @@ def upsert_notice(structured: dict, api_key: str, db_url: str, dry_run: bool = F
             print(f"[embed] {len(chunk_texts)} chunks...", file=sys.stderr)
             embeddings = get_embeddings(chunk_texts, api_key)
             print(f"[embed] done", file=sys.stderr)
-        except EmbeddingQuotaError as e:
+        except core_llm.QuotaError as e:
             print(f"[embed] quota exhausted: {e}", file=sys.stderr)
             conn.rollback()
             cur.close()

@@ -216,7 +216,8 @@ def test_crop_failures_are_logged(monkeypatch, caplog):
 
 def test_review_main_loads_store_through_mappings(monkeypatch, tmp_path):
     captured = {}
-    monkeypatch.setitem(sys.modules, "fitz", SimpleNamespace(open=lambda p: object()))
+    from kagaj_core import pdf as core_pdf
+    monkeypatch.setattr(core_pdf, "open_pdf", lambda p: object())
     monkeypatch.setattr(review, "load_store", lambda path: {"loaded": path})
 
     def fake_review(doc, store, ocr, **kwargs):

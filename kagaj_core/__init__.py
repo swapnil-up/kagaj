@@ -1,5 +1,6 @@
 """Shared extraction primitives for Kagaj."""
 
+from . import devanagari, eval, llm, ocr, pdf, provenance, tables
 from .devanagari import (
     Issue,
     canonical_key,
@@ -14,4 +15,11 @@ __all__ = [
     "normalize",
     "segment_aksaras",
     "validate",
+    "devanagari",
+    "eval",
+    "llm",
+    "ocr",
+    "pdf",
+    "provenance",
+    "tables",
 ]

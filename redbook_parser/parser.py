@@ -44,8 +44,30 @@ def _is_amount_line(s: str) -> bool:
     return bool(re.match(r"^[\d,.\-]+$", s))
 
 
+def _assign_amounts(row: BudgetRow, amounts: list[float],
+                    template: PageTemplate) -> None:
+    n = len(amounts)
+    if template == PageTemplate.SUMMARY:
+        row.year_actual = amounts[0] if n >= 1 else 0
+        row.year_revised = amounts[1] if n >= 2 else 0
+        row.year_estimate = amounts[2] if n >= 3 else 0
+        row.current_exp = amounts[3] if n >= 4 else 0
+        row.capital_exp = amounts[4] if n >= 5 else 0
+        row.financial = amounts[5] if n >= 6 else 0
+        row.baideshik_anudan = amounts[6] if n >= 7 else 0
+        row.baideshik_rin = amounts[7] if n >= 8 else 0
+        return
+    row.year_actual = amounts[0] if n >= 1 else 0
+    row.year_revised = amounts[1] if n >= 2 else 0
+    row.year_estimate = amounts[2] if n >= 3 else 0
+    row.financial = amounts[3] if n >= 4 else 0
+    row.baideshik_anudan = amounts[4] if n >= 5 else 0
+    row.baideshik_rin = amounts[5] if n >= 6 else 0
+
+
 def process_page_lines(lines: list[str], page: int, scale: int = 1,
-                       template: PageTemplate = PageTemplate.DETAIL) -> list[BudgetRow]:
+                       template: PageTemplate = PageTemplate.DETAIL,
+                       budget_table: str = "") -> list[BudgetRow]:
     rows = []
     current_code = ""
     current_desc_parts = []
@@ -72,6 +94,7 @@ def process_page_lines(lines: list[str], page: int, scale: int = 1,
             source=current_source,
             nikasa_vidhi=current_nikasa_vidhi,
             page=page,
+            budget_table=budget_table,
             is_total=current_total,
         )
         if current_priority_code:
@@ -80,46 +103,11 @@ def process_page_lines(lines: list[str], page: int, scale: int = 1,
             row.laigik_sanket = current_laigik
         if current_amounts:
             amounts = [a * scale for a in current_amounts]
-            if current_total:
-                # Total rows: sum all amounts into the total field.
-                row.total = sum(amounts)
-            elif template == PageTemplate.SUMMARY:
-                # SUMMARY-template column semantics (confirmed on page 36):
-                # 8 amount columns = year_actual/revised/estimate then the
-                # current/capital split + financing:
-                #   यथार्थ खर्च (2080/81)  -> year_actual
-                #   संशोधित अनुमान (2081/82)-> year_revised
-                #   जम्मा बजेट (2082/83)   -> year_estimate
-                #   चालु                   -> current_exp
-                #   पुँजीगत तथा वित्तिय व्यवस्था -> capital_exp
-                #   नेपाल सरकार            -> financial
-                #   वैदेशिक अनुदान         -> baideshik_anudan
-                #   वैदेशिक ऋण             -> baideshik_rin
-                n = len(amounts)
-                row.year_actual = amounts[0] if n >= 1 else 0
-                row.year_revised = amounts[1] if n >= 2 else 0
-                row.year_estimate = amounts[2] if n >= 3 else 0
-                row.current_exp = amounts[3] if n >= 4 else 0
-                row.capital_exp = amounts[4] if n >= 5 else 0
-                row.financial = amounts[5] if n >= 6 else 0
-                row.baideshik_anudan = amounts[6] if n >= 7 else 0
-                row.baideshik_rin = amounts[7] if n >= 8 else 0
+            if current_total and len(amounts) == 1:
+                # Legacy single-value total row.
+                row.total = amounts[0]
             else:
-                # DETAIL-template column semantics (confirmed in Step-2 spike):
-                # 6 amount columns = financing split, NOT current/capital:
-                #   यथार्थ खर्च (2080/81) -> year_actual
-                #   संशोधित अनुमान (2081/82) -> year_revised
-                #   जम्मा बजेट (2082/83) -> year_estimate
-                #   नेपाल सरकार -> financial
-                #   वैदेशिक अनुदान -> baideshik_anudan
-                #   ऋण -> baideshik_rin
-                n = len(amounts)
-                row.year_actual = amounts[0] if n >= 1 else 0
-                row.year_revised = amounts[1] if n >= 2 else 0
-                row.year_estimate = amounts[2] if n >= 3 else 0
-                row.financial = amounts[3] if n >= 4 else 0
-                row.baideshik_anudan = amounts[4] if n >= 5 else 0
-                row.baideshik_rin = amounts[5] if n >= 6 else 0
+                _assign_amounts(row, amounts, template)
         rows.append(row)
 
     def reset_all():
@@ -150,6 +138,7 @@ def process_page_lines(lines: list[str], page: int, scale: int = 1,
             rows.append(BudgetRow(
                 page=page,
                 description=line,
+                budget_table=budget_table,
                 is_total=False,
                 row_type="heading",
             ))
@@ -178,13 +167,17 @@ def process_page_lines(lines: list[str], page: int, scale: int = 1,
             if total_match:
                 n = parse_number(total_match.group(2))
                 if n is not None:
-                    row = BudgetRow(is_total=True, page=page, total=n * scale)
+                    row = BudgetRow(
+                        is_total=True, page=page, budget_table=budget_table,
+                        total=n * scale)
                     rows.append(row)
                 continue
 
-            is_total = any(kw in line for kw in TOTAL_KEYWORDS)
+            is_total = bool(re.match(
+                r"^(जम्मा|कुल|जोड|कूल|योग)(\s|$)", line))
             if is_total:
                 current_total = True
+                current_desc_parts = [line]
                 continue
 
         # Budget code from the start of the line.
@@ -275,7 +268,9 @@ def process_page_lines(lines: list[str], page: int, scale: int = 1,
         if is_total:
             n = parse_number(line)
             if n is not None:
-                row = BudgetRow(is_total=True, page=page, total=n * scale)
+                row = BudgetRow(
+                    is_total=True, page=page, budget_table=budget_table,
+                    total=n * scale)
                 rows.append(row)
             else:
                 current_total = True

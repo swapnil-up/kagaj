@@ -29,6 +29,8 @@ import sys
 import requests
 import urllib3
 
+from kagaj_core import provenance
+
 from ..paths import MIGRATION_ARCHIVE_MANIFEST, MIGRATION_OUTPUT_DIR, REPO_ROOT
 from . import cmd_process as process
 
@@ -39,8 +41,7 @@ ARCHIVE_PDFS = MIGRATION_OUTPUT_DIR / "archive_pdfs"
 
 
 def _sha256_bytes(data: bytes) -> str:
-    import hashlib
-    return hashlib.sha256(data).hexdigest()
+    return provenance.sha256_bytes(data)
 
 
 def _upstream_sha256(url: str) -> str | None:

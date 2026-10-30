@@ -49,6 +49,10 @@ class BudgetRow:
     is_total: bool = False
     row_type: str = "budget"  # 'budget' | 'total' | 'heading'
     page: int = 0
+    # Budget table this row belongs to. The redbook repeats the same ministry
+    # codes in the expenditure and allocation schedules, so section alone is
+    # not a unique scope.
+    budget_table: str = ""
     # Section scope for verification. v3 does not yet infer sections; this is
     # populated by the spatial layer in Step 2, or by the DB loader when a
     # schema supports it.

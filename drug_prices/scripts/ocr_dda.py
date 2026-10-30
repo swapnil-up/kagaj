@@ -9,16 +9,12 @@ Usage:
 """
 
 import json
-import re
 import sys
 from pathlib import Path
 
-import numpy as np
-from paddleocr import PaddleOCR
+from kagaj_core import ocr as core_ocr
 
 DEFAULT_OUTDIR = Path(__file__).resolve().parent.parent.parent / "output" / "dda"
-
-DEVANAGARI_RE = re.compile(r"[\u0900-\u097F]")
 
 _ocr_instance = None
 
@@ -26,13 +22,7 @@ _ocr_instance = None
 def get_ocr():
     global _ocr_instance
     if _ocr_instance is None:
-        _ocr_instance = PaddleOCR(
-            text_recognition_model_name="devanagari_PP-OCRv5_mobile_rec",
-            text_detection_model_name="PP-OCRv5_mobile_det",
-            use_doc_orientation_classify=False,
-            use_doc_unwarping=False,
-            use_textline_orientation=False,
-        )
+        _ocr_instance = core_ocr.create_engine()
     return _ocr_instance
 
 
@@ -42,36 +32,27 @@ def ocr_image(image_path: Path, page: int = 0) -> list[dict]:
     Returns list of dicts: {text, x, y, w, h, confidence, page}
     sorted by (y, x) for top-to-bottom, left-to-right reading order.
     """
-    from PIL import Image
-
-    ocr = get_ocr()
-    img = Image.open(image_path)
-    arr = np.array(img)
-    result = ocr.predict(arr)
+    words = core_ocr.ocr_image(get_ocr(), image_path, page=page)
 
     lines = []
-    for record in result:
-        texts = record["rec_texts"]
-        scores = record["rec_scores"]
-        boxes = record["rec_boxes"]
-        for i in range(len(texts)):
-            t = texts[i].strip()
-            s = scores[i]
-            if s < 0.3 or not t:
-                continue
-            dev_ratio = len(DEVANAGARI_RE.findall(t)) / max(len(t), 1)
-            if dev_ratio < 0.4 and len(t) >= 2 and s < 0.7:
-                continue
-            x1, y1, x2, y2 = [int(boxes[i][j]) for j in range(4)]
-            lines.append({
-                "text": t,
-                "x": x1,
-                "y": y1,
-                "w": max(x2 - x1, 60),
-                "h": max(y2 - y1, 14),
-                "confidence": round(s, 3),
-                "page": page,
-            })
+    for word in words:
+        text = word.text
+        score = word.score
+        if score < 0.3 or not text:
+            continue
+        if (not core_ocr.is_devanagari(text) and len(text) >= 2
+                and score < 0.7):
+            continue
+        x1, y1, x2, y2 = [int(v) for v in word.bbox]
+        lines.append({
+            "text": text,
+            "x": x1,
+            "y": y1,
+            "w": max(x2 - x1, 60),
+            "h": max(y2 - y1, 14),
+            "confidence": round(score, 3),
+            "page": page,
+        })
 
     lines.sort(key=lambda r: (r["y"], r["x"]))
     return lines

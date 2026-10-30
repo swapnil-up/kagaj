@@ -17,6 +17,8 @@ fiscal_year, unit, year_basis, gender, count, note``.
 
 import re
 
+from kagaj_core import tables
+
 from .parser import _to_int
 
 # Fields that identify one additive series block: rows sharing a ``series_key``
@@ -915,15 +917,28 @@ def _verify_matrix(rows, header_idx, year_cols, name_col) -> list[str]:
                      and str(header[total_col] or "").strip().lower().startswith("total"))
     if not has_total_col:
         return []
-    checks: list[str] = []
+    value_columns = [f"y{j}" for j in year_cols]
+    records: list[dict] = []
     for r in rows[header_idx + 1:]:
         name = _clean_name(r[name_col]) if name_col < len(r) else ""
         if not name or re.match(r"(?i)^(total|grand\s+total)\b", name):
             continue
-        vals = sum(_to_int(r[j]) for j in year_cols if j < len(r))
         stated = _to_int(r[total_col]) if total_col < len(r) else 0
-        if stated and vals != stated:
-            checks.append(f"row_total {name!r} computed={vals} stated={stated}")
+        if not stated:
+            continue
+        record = {"name": name, "total": stated}
+        for j in year_cols:
+            record[f"y{j}"] = _to_int(r[j]) if j < len(r) else 0
+        records.append(record)
+    violations = tables.row_sums_equal(
+        value_columns=value_columns, total_column="total")(records)
+    checks: list[str] = []
+    for violation in violations:
+        record = records[violation.row]
+        computed = sum(record[column] for column in value_columns)
+        checks.append(
+            f"row_total {record['name']!r} computed={computed} "
+            f"stated={record['total']}")
     return checks
 
 
@@ -934,9 +949,9 @@ def extract_series(path: str, report: str = "") -> tuple[list[dict], list[str]]:
     the metric/dimension of their header page. Returns ``(rows, problems)``
     where problems are row/column-total mismatches.
     """
-    import fitz
+    from kagaj_core import pdf as core_pdf
 
-    doc = fitz.open(path)
+    doc = core_pdf.open_pdf(path)
     out: list[dict] = []
     problems: list[str] = []
     last_caption = ""

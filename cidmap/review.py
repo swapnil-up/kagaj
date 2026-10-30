@@ -161,8 +161,8 @@ def main(argv=None) -> int:
     p.add_argument("-o", "--output", default="output/cidmap_review.html")
     a = p.parse_args(argv)
 
-    import fitz
-    doc = fitz.open(a.pdf)
+    from kagaj_core import pdf as core_pdf
+    doc = core_pdf.open_pdf(a.pdf)
     store = load_store(a.store)
     ocr = json.loads(Path(a.ocr).read_text()) if a.ocr else {}
     htmlout = build_review_html(

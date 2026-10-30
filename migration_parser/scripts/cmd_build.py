@@ -22,12 +22,12 @@ from __future__ import annotations
 import argparse
 import csv
 import gzip
-import hashlib
 import json
-import subprocess
 import sys
 import time
 from pathlib import Path
+
+from kagaj_core import provenance
 
 from .. import codebook, normalize
 from ..paths import MIGRATION_DIR, MIGRATION_MANIFEST, MIGRATION_OPENDATA_DIR, REPO_ROOT
@@ -48,11 +48,7 @@ SHIPPED = ["panel.csv.gz", "panel_canonical.csv.gz", "panel_rollup.csv.gz",
 
 
 def _sha256(path: Path) -> str:
-    h = hashlib.sha256()
-    with path.open("rb") as f:
-        for chunk in iter(lambda: f.read(65536), b""):
-            h.update(chunk)
-    return h.hexdigest()
+    return provenance.sha256_file(path)
 
 
 def _row_count(path: Path) -> int | None:
@@ -66,20 +62,7 @@ def _row_count(path: Path) -> int | None:
 
 
 def _git() -> dict:
-    def run(*a):
-        try:
-            return subprocess.run(["git", *a], cwd=REPO_ROOT, capture_output=True,
-                                  text=True, check=True).stdout.strip()
-        except (subprocess.CalledProcessError, FileNotFoundError):
-            return ""
-    porcelain = run("status", "--porcelain")
-    dirty = bool(porcelain)
-    return {
-        "commit": run("rev-parse", "HEAD"),
-        "describe": run("describe", "--tags", "--always", "--dirty"),
-        "dirty": dirty,
-        "clean": not dirty,
-    }
+    return provenance.git_state(REPO_ROOT)
 
 
 def gunzip_panel(src_name: str = "panel_canonical.csv",

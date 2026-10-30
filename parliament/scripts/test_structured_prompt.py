@@ -17,10 +17,9 @@ import os
 import sys
 from pathlib import Path
 
-import requests
+from kagaj_core import llm as core_llm
 
 from config import (
-    GEMINI_API,
     GEMINI_MODEL,
     GEMINI_SYSTEM_INSTRUCTION,
     GEMINI_TEMPERATURE,
@@ -38,38 +37,14 @@ def read_file(path: Path) -> str:
 
 def call_gemini_structured(ocr_text: str, api_key: str) -> dict:
     prompt = STRUCTURED_PROMPT.format(schema=_SCHEMA_DESC, ocr_text=ocr_text)
-
-    resp = requests.post(
-        f"{GEMINI_API}/{GEMINI_MODEL}:generateContent",
-        headers={"Content-Type": "application/json",
-                 "x-goog-api-key": api_key},
-        json={
-                "system_instruction": {
-                    "parts": [{"text": GEMINI_SYSTEM_INSTRUCTION}]
-                },
-                "contents": [{"parts": [{"text": prompt}]}],
-                "generationConfig": {
-                    "response_mime_type": "application/json",
-                    "temperature": GEMINI_TEMPERATURE,
-                "maxOutputTokens": 16384,
-            },
-        },
+    return core_llm.call_structured(
+        prompt,
+        api_key=api_key,
+        model=GEMINI_MODEL,
+        system_instruction=GEMINI_SYSTEM_INSTRUCTION,
+        temperature=GEMINI_TEMPERATURE,
+        max_output_tokens=16384,
     )
-
-    if not resp.ok:
-        err = resp.json().get("error", {}).get("message", resp.text[:500])
-        raise RuntimeError(f"Gemini API error: {err}")
-
-    candidates = resp.json().get("candidates", [])
-    if not candidates:
-        raise RuntimeError("Gemini returned no candidates")
-
-    parts = candidates[0].get("content", {}).get("parts", [])
-    if not parts:
-        raise RuntimeError("Gemini returned empty content")
-
-    text = parts[0].get("text", "").strip()
-    return json.loads(text)
 
 
 def main():

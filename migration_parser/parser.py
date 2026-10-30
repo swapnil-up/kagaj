@@ -7,7 +7,7 @@ across pages because continuation pages repeat or omit the header.
 
 import re
 
-import fitz
+from kagaj_core import pdf as core_pdf
 
 from .model import (
     CHANNEL_GROUPS,
@@ -125,7 +125,7 @@ def _extract_page_tables(page):
 
 def extract_doc(path: str, meta: DocMeta | None = None) -> ExtractResult:
     """Extract all country/district rows + totals from a report PDF."""
-    doc = fitz.open(path)
+    doc = core_pdf.open_pdf(path)
     meta = meta or DocMeta(filename=path)
     if not meta.title:
         meta.title = _first_page_title(doc)

@@ -87,3 +87,49 @@ class TestEmpty:
         report = BudgetVerificationEngine().verify_rows([])
         assert report.ok
         assert report.checks == []
+
+
+class TestTableScope:
+    def test_same_section_in_two_tables_is_isolated(self):
+        rows = [
+            BudgetRow(code="111", page=17, section="101",
+                      budget_table="expenditure", year_estimate=1000),
+            BudgetRow(page=17, section="101", budget_table="expenditure",
+                      year_estimate=1000, is_total=True, description="जम्मा"),
+            BudgetRow(code="111", page=73, section="101",
+                      budget_table="allocation", year_estimate=2000),
+            BudgetRow(page=73, section="101", budget_table="allocation",
+                      year_estimate=2000, is_total=True, description="जम्मा"),
+        ]
+        report = BudgetVerificationEngine().verify_rows(rows)
+        assert report.ok, report.failures
+        assert len(report.checks) == 2
+
+
+class TestCrossPage:
+    def test_block_grants_are_not_missing_detail(self):
+        rows = [
+            BudgetRow(page=13, code="101", section="101",
+                      budget_table="expenditure", year_estimate=1000),
+            BudgetRow(page=17, code="101", section="101",
+                      budget_table="expenditure", year_estimate=1000),
+            BudgetRow(page=17, code="1010000", section="101",
+                      budget_table="expenditure"),
+            BudgetRow(page=38, code="801", section="801",
+                      budget_table="allocation", year_estimate=2000),
+        ]
+        checks = BudgetVerificationEngine().verify_cross_page(rows)
+        assert [c for c in checks if not c.ok] == []
+        assert any(c.kind == "amount_match" and c.ok for c in checks)
+
+    def test_amount_mismatch_fails(self):
+        rows = [
+            BudgetRow(page=13, code="101", section="101",
+                      budget_table="expenditure", year_estimate=1000),
+            BudgetRow(page=17, code="101", section="101",
+                      budget_table="expenditure", year_estimate=999),
+            BudgetRow(page=17, code="1010000", section="101",
+                      budget_table="expenditure"),
+        ]
+        checks = BudgetVerificationEngine().verify_cross_page(rows)
+        assert any(c.kind == "amount_match" and not c.ok for c in checks)

@@ -139,11 +139,11 @@ def build_cells(page, bands) -> tuple[list[dict], list[str]]:
 
 
 def make_overlay(pdf_path: str, page_no: int, boxes_path: Path | None = None):
-    import fitz  # lazy
+    from kagaj_core import pdf as core_pdf
 
-    doc = fitz.open(pdf_path)
+    doc = core_pdf.open_pdf(pdf_path)
     page = doc[page_no - 1]
-    pix = page.get_pixmap(dpi=DPI)
+    pix = core_pdf.render_pixmap(page, dpi=DPI)
     b64 = base64.b64encode(pix.tobytes("png")).decode()
     bands = load_bands(boxes_path)
 

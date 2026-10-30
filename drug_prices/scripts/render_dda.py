@@ -8,7 +8,7 @@ Usage:
 import sys
 from pathlib import Path
 
-import pymupdf
+from kagaj_core import pdf as core_pdf
 
 DEFAULT_DPI = 300
 DEFAULT_OUTDIR = Path(__file__).resolve().parent.parent.parent / "output" / "dda"
@@ -20,17 +20,15 @@ def render_pdf(pdf_path: Path, dpi: int = DEFAULT_DPI, outdir: Path = DEFAULT_OU
     Returns list of output PNG paths.
     """
     outdir.mkdir(parents=True, exist_ok=True)
-    doc = pymupdf.open(pdf_path)
+    doc = core_pdf.open_pdf(pdf_path)
     stem = pdf_path.stem
-    zoom = dpi / 72
-    mat = pymupdf.Matrix(zoom, zoom)
     paths = []
-    for i, page in enumerate(doc):
-        pix = page.get_pixmap(matrix=mat)
+    for i, page in enumerate(core_pdf.iter_pages(doc)):
+        pix = core_pdf.render_pixmap(page, dpi=dpi)
         out_path = outdir / f"{stem}_page{i + 1}.png"
         pix.save(out_path)
         paths.append(out_path)
-        print(f"  rendered page {i + 1}/{len(doc)} -> {out_path}", file=sys.stderr)
+        print(f"  rendered page {i + 1}/{doc.page_count} -> {out_path}", file=sys.stderr)
     doc.close()
     return paths
 

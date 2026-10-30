@@ -24,7 +24,7 @@ from __future__ import annotations
 
 import re
 
-import fitz
+from kagaj_core import pdf as core_pdf
 
 from . import normalize, preeti
 from .historical import HistDoc, HistRow, SCOPE_CLASS
@@ -307,9 +307,9 @@ def _word_rows(page, ncol: int) -> list[list[str]]:
 
 
 def extract_new(path: str, meta: DocMeta | None = None) -> HistDoc:
-    doc = fitz.open(path)
+    doc = core_pdf.open_pdf(path)
     meta = meta or DocMeta(filename=str(path))
-    fitz.TOOLS.mupdf_display_errors(False)
+    core_pdf.suppress_display_errors()
     out = HistDoc(meta=meta, layout=LAYOUT)
     current: tuple[str, str] = ("institutional", "")
     seen = False
@@ -414,7 +414,7 @@ _NEW_MARKERS = (
 
 def looks_new(path: str) -> bool:
     """Cheap template sniff: read only the first few pages."""
-    doc = fitz.open(path)
+    doc = core_pdf.open_pdf(path)
     try:
         text = "\n".join(doc[i].get_text() for i in range(min(3, doc.page_count)))
     finally:

@@ -13,9 +13,10 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
+from kagaj_core import llm as core_llm
+
 from config import (
     ADAPTIVE_BUDGET_RETRIES,
-    GEMINI_API,
     GEMINI_MODEL,
     GEMINI_SYSTEM_INSTRUCTION,
     GEMINI_TEMPERATURE,
@@ -271,20 +272,6 @@ def dedup_lines(text: str) -> str:
     return "\n".join(result)
 
 
-def _classify_gemini_error(err: str) -> str:
-    lowered = err.lower()
-    if any(p in lowered for p in ["rate limit", "high demand", "try again later"]):
-        return "rpm"
-    if any(p in err for p in ["429", "403", "RESOURCE_EXHAUSTED", "quota"]):
-        return "rpd"
-    return "other"
-
-
-def _output_token_budget(ocr_text: str) -> int:
-    chars = len(ocr_text)
-    return max(8192, min(chars // 2, MAX_OUTPUT_TOKENS))
-
-
 def run_ocr(pdf_path: Path) -> dict:
     stem = pdf_path.stem
     ocr_txt = TRANSLATIONS_DIR / f"{stem}-ocr.txt"
@@ -330,63 +317,26 @@ def run_ocr(pdf_path: Path) -> dict:
 
 def call_gemini_structured(ocr_text: str, api_key: str) -> dict:
     prompt = STRUCTURED_PROMPT.format(schema=STRUCTURED_SCHEMA_DESC, ocr_text=ocr_text)
-    budget = _output_token_budget(ocr_text)
-
-    for attempt in range(ADAPTIVE_BUDGET_RETRIES):
-        resp = requests.post(
-            f"{GEMINI_API}/{GEMINI_MODEL}:generateContent",
-            headers={"Content-Type": "application/json",
-                     "x-goog-api-key": api_key},
-            json={
-                "system_instruction": {
-                    "parts": [{"text": GEMINI_SYSTEM_INSTRUCTION}]
-                },
-                "contents": [{"parts": [{"text": prompt}]}],
-                "generationConfig": {
-                    "response_mime_type": "application/json",
-                    "temperature": GEMINI_TEMPERATURE,
-                    "maxOutputTokens": budget,
-                },
-            },
+    budget = core_llm.output_token_budget(ocr_text, cap=MAX_OUTPUT_TOKENS)
+    try:
+        return core_llm.call_structured(
+            prompt,
+            api_key=api_key,
+            model=GEMINI_MODEL,
+            system_instruction=GEMINI_SYSTEM_INSTRUCTION,
+            temperature=GEMINI_TEMPERATURE,
+            max_output_tokens=MAX_OUTPUT_TOKENS,
+            max_retries=ADAPTIVE_BUDGET_RETRIES,
+            retry_on_quota=False,
+            budget=budget,
         )
-
-        try:
-            body = resp.json()
-        except ValueError:
-            body = {}
-
-        if not resp.ok:
-            err = body.get("error", {}).get("message", resp.text[:500])
-            kind = _classify_gemini_error(err)
-            if kind in ("rpm", "rpd"):
-                raise RuntimeError(f"{kind.upper()}: {err}")
-            raise RuntimeError(f"Gemini API error: {err}")
-
-        candidates = body.get("candidates", [])
-        if not candidates:
-            raise RuntimeError("Gemini returned no candidates")
-
-        candidate = candidates[0]
-        finish_reason = candidate.get("finishReason", "")
-        parts = candidate.get("content", {}).get("parts", [])
-        if not parts:
-            raise RuntimeError("Gemini returned empty content")
-
-        text = parts[0].get("text", "").strip()
-        try:
-            return json.loads(text)
-        except json.JSONDecodeError as e:
-            if finish_reason == "MAX_TOKENS":
-                used = (body.get("usageMetadata") or {}).get("candidatesTokenCount") or budget
-                grown = min(int(used * 1.5) + 2048, MAX_OUTPUT_TOKENS)
-                if grown > budget:
-                    print(f"[retry] truncated at {used} tokens, growing budget {budget} -> {grown}...", file=sys.stderr)
-                    budget = grown
-                    continue
-            raise RuntimeError(f"TRUNCATED: Gemini response cut off mid-JSON ({e})")
-        raise RuntimeError(f"Gemini returned invalid JSON ({e})")
-
-    raise RuntimeError("TRUNCATED: Gemini response cut off mid-JSON after budget growth")
+    except core_llm.QuotaError as e:
+        kind = "rpd" if e.kind == "rpd" else "rpm"
+        raise RuntimeError(f"{kind.upper()}: {e}") from e
+    except core_llm.TruncatedError as e:
+        raise RuntimeError(f"TRUNCATED: {e}") from e
+    except core_llm.GeminiError as e:
+        raise RuntimeError(f"Gemini API error: {e}") from e
 
 
 def process_one(notice: dict, index: int, notices: list) -> bool:

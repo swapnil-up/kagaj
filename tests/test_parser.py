@@ -7,6 +7,7 @@ future fix flips them to XPASS instead of silently changing behaviour.
 import pytest
 
 from redbook_parser.parser import process_page_lines
+from redbook_parser.spatial import PageTemplate
 
 
 def amounts(*values):
@@ -139,3 +140,29 @@ class TestSourceAndNikasa:
         lines = ["111111 शीर्ष", "नेपाल सरकार", "1,000"]
         rows = process_page_lines(lines, 17)
         assert rows[0].source == "नेपाल सरकार"
+
+
+class TestTotalColumns:
+    def test_six_value_total_maps_columns(self):
+        lines = ["जम्मा खर्च", "10", "20", "30", "30", "0", "0"]
+        rows = process_page_lines(lines, 17, scale=1)
+        assert len(rows) == 1
+        r = rows[0]
+        assert r.is_total
+        assert r.description == "जम्मा खर्च"
+        assert (r.year_actual, r.year_revised, r.year_estimate,
+                r.financial) == (10, 20, 30, 30)
+        assert r.total == 0
+
+    def test_contribution_word_is_not_a_total(self):
+        lines = ["21213 योगदानमा आधारित बीमा कोष खर्च", "1,000"]
+        rows = process_page_lines(lines, 17)
+        assert len(rows) == 1
+        assert not rows[0].is_total
+        assert rows[0].code == "21213"
+
+    def test_budget_table_tagged_on_all_rows(self):
+        rows = process_page_lines(
+            ["101 मन्त्रालय", "जम्मा 5,000"], 17,
+            template=PageTemplate.DETAIL, budget_table="expenditure")
+        assert all(r.budget_table == "expenditure" for r in rows)

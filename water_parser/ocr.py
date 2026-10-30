@@ -13,63 +13,43 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-import numpy as np
+from kagaj_core import ocr as core_ocr
 
-DEVANAGARI_RE = None  # compiled lazily
+_ENGINE = None
 
 
 def _ocr_engine():
-    from paddleocr import PaddleOCR  # heavy; import on first use
-
-    return PaddleOCR(
-        text_recognition_model_name="devanagari_PP-OCRv5_mobile_rec",
-        text_detection_model_name="PP-OCRv5_mobile_det",
-        use_doc_orientation_classify=False,
-        use_doc_unwarping=False,
-        use_textline_orientation=False,
-    )
-
-
-def _dev_ratio(text: str) -> float:
-    global DEVANAGARI_RE
-    import re
-
-    if DEVANAGARI_RE is None:
-        DEVANAGARI_RE = re.compile(r"[\u0900-\u097F]")
-    return len(DEVANAGARI_RE.findall(text)) / max(len(text), 1)
+    global _ENGINE
+    if _ENGINE is None:
+        _ENGINE = core_ocr.create_engine()
+    return _ENGINE
 
 
 def ocr_image(image_path: str | Path, engine=None, page: int = 1,
               log=None) -> list[dict]:
     """OCR one PNG; return line dicts sorted by (y, x)."""
-    from PIL import Image
-
     engine = engine or _ocr_engine()
-    img = Image.open(image_path)
-    result = engine.predict(np.array(img))
+    words = core_ocr.ocr_image(engine, image_path, page=page)
 
     lines: list[dict] = []
-    for record in result:
-        texts = record["rec_texts"]
-        scores = record["rec_scores"]
-        boxes = record["rec_boxes"]
-        for i in range(len(texts)):
-            t = texts[i].strip()
-            s = float(scores[i])
-            if s < 0.3 or not t:
-                continue
-            if _dev_ratio(t) < 0.4 and len(t) >= 2 and s < 0.7:
-                continue
-            x1, y1, x2, y2 = (int(boxes[i][j]) for j in range(4))
-            lines.append({
-                "text": t,
-                "x": x1,
-                "y": y1,
-                "w": max(x2 - x1, 1),
-                "h": max(y2 - y1, 1),
-                "conf": round(s, 3),
-                "page": page,
-            })
+    for word in words:
+        text = word.text
+        score = word.score
+        if score < 0.3 or not text:
+            continue
+        if (not core_ocr.is_devanagari(text) and len(text) >= 2
+                and score < 0.7):
+            continue
+        x1, y1, x2, y2 = (int(v) for v in word.bbox)
+        lines.append({
+            "text": text,
+            "x": x1,
+            "y": y1,
+            "w": max(x2 - x1, 1),
+            "h": max(y2 - y1, 1),
+            "conf": round(score, 3),
+            "page": page,
+        })
     lines.sort(key=lambda r: (r["y"], r["x"]))
     if log:
         log(f"[ocr] {Path(image_path).name}: {len(lines)} lines")

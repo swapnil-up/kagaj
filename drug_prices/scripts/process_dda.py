@@ -16,11 +16,12 @@ from pathlib import Path
 
 import requests
 
+from kagaj_core import llm as core_llm
+
 from config import (
     DDA_COLUMN_REGIONS,
     DDA_MANIFEST,
     DDA_OUTPUT_DIR,
-    GEMINI_API,
     GEMINI_MODEL,
     GEMINI_TEMPERATURE,
     HEADERS,
@@ -31,7 +32,7 @@ from config import (
     TRANSLATIONS_DIR,
     load_env,
 )
-from dda_schema import DDA_SYSTEM_INSTRUCTION, build_dda_prompt, _output_token_budget
+from dda_schema import DDA_SYSTEM_INSTRUCTION, build_dda_prompt
 from ocr_dda import ocr_image
 from render_dda import render_pdf
 
@@ -85,54 +86,21 @@ def download_file(url: str, dest: Path) -> bool:
     return False
 
 
-def _classify_gemini_error(err) -> str:
-    msg = str(err).lower()
-    if any(kw in msg for kw in ["rate limit", "high demand", "try again later"]):
-        return "rpm"
-    if any(kw in msg for kw in ["429", "403", "resource_exhausted", "quota"]):
-        return "rpd"
-    if "max_tokens" in msg or "truncat" in msg:
-        return "truncated"
-    return "other"
-
-
 def call_gemini(ocr_text: str, api_key: str, budget: int | None = None) -> dict:
     if budget is None:
-        budget = _output_token_budget(ocr_text)
+        budget = core_llm.output_token_budget(ocr_text, cap=MAX_OUTPUT_TOKENS)
 
-    prompt = build_dda_prompt(ocr_text)
-    payload = {
-        "system_instruction": {"parts": [{"text": DDA_SYSTEM_INSTRUCTION}]},
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
-            "response_mime_type": "application/json",
-            "temperature": GEMINI_TEMPERATURE,
-            "maxOutputTokens": budget,
-        },
-    }
-
-    resp = requests.post(
-        f"{GEMINI_API}/{GEMINI_MODEL}:generateContent",
-        headers={"Content-Type": "application/json",
-                 "x-goog-api-key": api_key},
-        json=payload,
+    return core_llm.call_structured(
+        build_dda_prompt(ocr_text),
+        api_key=api_key,
+        model=GEMINI_MODEL,
+        system_instruction=DDA_SYSTEM_INSTRUCTION,
+        temperature=GEMINI_TEMPERATURE,
+        max_output_tokens=MAX_OUTPUT_TOKENS,
+        max_retries=MAX_RETRIES_GEMINI,
         timeout=120,
+        budget=budget,
     )
-    resp.raise_for_status()
-    data = resp.json()
-
-    candidates = data.get("candidates", [])
-    if not candidates:
-        raise RuntimeError("Gemini returned no candidates")
-    finish_reason = candidates[0].get("finishReason", "")
-    content = candidates[0].get("content", {})
-    parts = content.get("parts", [])
-    text = "".join(p.get("text", "") for p in parts)
-
-    if finish_reason == "MAX_TOKENS":
-        raise RuntimeError(f"TRUNCATED:{len(text)}:{budget}")
-
-    return json.loads(text)
 
 
 def ocr_entry(dest: Path, source_type: str) -> str:
@@ -194,40 +162,20 @@ def process_one(entries: list, index: int, api_key: str) -> bool:
     ocr_path.write_text(ocr_text)
     print(f"  OCR text -> {ocr_path} ({len(ocr_text)} chars)", file=sys.stderr)
 
-    # 3. Gemini structured extraction (with retry)
-    budget = _output_token_budget(ocr_text)
-    result = None
-    for attempt in range(MAX_RETRIES_GEMINI):
-        try:
-            result = call_gemini(ocr_text, api_key, budget=budget)
-            break
-        except (RuntimeError, requests.exceptions.RequestException) as e:
-            err_type = _classify_gemini_error(e)
-            if err_type == "rpd":
-                print("  [quota] daily limit reached, stopping", file=sys.stderr)
-                return False
-            if err_type == "truncated":
-                parts = str(e).split(":")
-                used = int(parts[1]) if len(parts) > 1 else budget
-                budget = min(int(used * 1.5) + 2048, MAX_OUTPUT_TOKENS)
-                print(f"  [truncated] growing budget to {budget}", file=sys.stderr)
-                if budget >= MAX_OUTPUT_TOKENS:
-                    print("  [error] budget exhausted", file=sys.stderr)
-                    break
-                time.sleep(2)
-                continue
-            if err_type == "rpm":
-                wait = RETRY_DELAY * (2 ** attempt)
-                print(f"  [rate limit] waiting {wait}s...", file=sys.stderr)
-                time.sleep(wait)
-                continue
-            print(f"  [error] Gemini: {e}", file=sys.stderr)
-            break
-        except Exception as e:
-            print(f"  [error] Gemini: {e}", file=sys.stderr)
-            break
-
-    if result is None:
+    # 3. Gemini structured extraction
+    budget = core_llm.output_token_budget(ocr_text, cap=MAX_OUTPUT_TOKENS)
+    try:
+        result = call_gemini(ocr_text, api_key, budget=budget)
+    except core_llm.QuotaError as e:
+        if e.kind == "rpd":
+            print("  [quota] daily limit reached, stopping", file=sys.stderr)
+            return False
+        print(f"  [rate limit] {e}", file=sys.stderr)
+        entries[index]["status"] = "failed"
+        save_manifest(entries)
+        return False
+    except core_llm.GeminiError as e:
+        print(f"  [error] Gemini: {e}", file=sys.stderr)
         entries[index]["status"] = "failed"
         save_manifest(entries)
         return False

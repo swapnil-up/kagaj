@@ -24,8 +24,6 @@ SPIKE RESULT (validated on Type0/Identity-H notice PDFs, PyMuPDF 1.28):
 
 def extract_page_text(doc, pno: int) -> str:
     """Extract flattened text from a single page (current v3 baseline)."""
-    import fitz  # lazy: keeps the package importable without PyMuPDF
-
     page = doc[pno]
     return page.get_text("text")
 

@@ -108,33 +108,39 @@ class BudgetVerificationEngine:
     def verify_rows(self, rows: list[BudgetRow]) -> VerificationReport:
         checks: list[VerificationCheck] = []
 
-        groups: dict[tuple[int, str], list[BudgetRow]] = defaultdict(list)
+        groups: dict[tuple[int, str, str], list[BudgetRow]] = defaultdict(list)
         for row in rows:
-            groups[(row.page, row.section)].append(row)
+            groups[(row.budget_table, row.page, row.section)].append(row)
 
-        for (page, section), group in sorted(groups.items()):
+        for (table, page, section), group in sorted(groups.items()):
             detail = [r for r in group if r.is_detail_row]
             totals = [r for r in group if r.is_total or r.row_type == "total"]
             if not detail or not totals:
                 continue
 
             computed = {c: sum(r.amount(c) for r in detail) for c in AMOUNT_FIELDS}
+            if computed["total"] == 0:
+                computed["total"] = computed["year_estimate"]
 
             # A page/section with one total row is unambiguous; more than one
             # means sub-total + grand-total coexist and page-wide sums are not
-            # a valid check.  With section inference, most groups have a section
-            # and the ambiguous flag only fires for unsectioned rows.
+            # a valid check.  Grand-total labels ("जम्मा खर्च") close a whole
+            # table, not the page-local section, so they are reported for
+            # review rather than as hard failures.
             ambiguous = len(totals) > 1 and not section
 
             for t in totals:
-                kind = "grand_total" if (t.description or "").startswith(("कुल", "कूल")) else "total"
+                desc = t.description or ""
+                kind = "grand_total" if desc.startswith(("कुल", "कूल", "जम्मा खर्च")) else "total"
+                total_ambiguous = ambiguous or kind == "grand_total"
                 for c in AMOUNT_FIELDS:
                     stated = t.amount(c)
                     if stated == 0:
                         continue  # only check columns the total row actually fills
                     checks.append(VerificationCheck(
                         page, section, kind, c,
-                        computed=computed[c], stated=stated, ambiguous=ambiguous,
+                        computed=computed[c], stated=stated,
+                        ambiguous=total_ambiguous,
                     ))
 
         return VerificationReport(checks)
@@ -143,100 +149,65 @@ class BudgetVerificationEngine:
         return self.verify_rows(page_rows)
 
     def verify_cross_page(self, rows: list[BudgetRow]) -> list[CrossPageCheck]:
-        """Cross-page checks: completeness and line-item deduplication."""
+        """Check that every summary ministry has detail rows.
+
+        The reverse check is deliberately absent: allocation detail includes
+        hundreds of sub-office grant codes that are not listed individually in
+        the ministry-level summary.  Province/local block grants (701/801)
+        are transfers without a separate detail section.
+        """
         cross: list[CrossPageCheck] = []
 
-        # Separate detail and summary pages.
-        # Detail pages have DETAIL template rows; summary pages have SUMMARY rows.
-        # We identify them by page: pages with any SUMMARY-template rows are summary pages.
-        from .spatial import detect_template
-        page_templates: dict[int, str] = {}
-        for row in rows:
-            if row.page not in page_templates:
-                page_templates[row.page] = "unknown"
-            if row.code and _MINISTRY_RE.match(row.code):
-                page_templates[row.page] = "summary"  # 3-digit codes → summary
-                break
-
-        # Find summary sections (ministry codes on summary pages).
-        summary_sections: set[str] = set()
-        detail_sections: dict[str, list[int]] = defaultdict(list)  # section → pages
-        for row in rows:
-            if row.code and _MINISTRY_RE.match(row.code):
-                # This is a ministry-level code — could be on detail or summary page.
-                # We distinguish by checking if the page has only 3-digit codes.
-                pass
-            if row.section:
-                if row.page in page_templates and page_templates[row.page] == "summary":
-                    summary_sections.add(row.section)
-                else:
-                    detail_sections[row.section].append(row.page)
-
-        # Actually, simpler: summary rows have 3-digit codes AND 8 amount columns.
-        # Detail rows have hierarchical codes AND 6 amount columns.
-        # We use the page template detection from spatial.py.
-        summary_pages = set()
-        detail_pages = set()
-        for row in rows:
-            if row.code and _MINISTRY_RE.match(row.code):
-                # Check if this page also has line items (detail) or only codes (summary)
-                pass
-
-        # Simplest approach: rows with section from pages that have
-        # code-length > 5 digits are detail pages. Summary pages only have
-        # 3-digit codes.
-        code_lengths = defaultdict(set)
+        code_lengths: dict[int, set[int]] = defaultdict(set)
         for row in rows:
             if row.code:
                 code_lengths[row.page].add(len(row.code))
 
-        for page, lengths in code_lengths.items():
-            if max(lengths) > 5:
-                detail_pages.add(page)
-            else:
-                summary_pages.add(page)
-
-        # Collect sections per page type.
-        detail_section_pages: dict[str, set[int]] = defaultdict(set)
-        summary_section_rows: dict[str, list[BudgetRow]] = defaultdict(list)
+        summary_rows: dict[tuple[str, str], list[BudgetRow]] = defaultdict(list)
+        detail_pages: dict[tuple[str, str], set[int]] = defaultdict(set)
         for row in rows:
             if not row.section:
                 continue
-            if row.page in detail_pages and row.is_detail_row:
-                detail_section_pages[row.section].add(row.page)
-            elif row.page in summary_pages and row.code and _MINISTRY_RE.match(row.code):
-                summary_section_rows[row.section].append(row)
+            key = (row.budget_table, row.section)
+            if max(code_lengths[row.page], default=0) > 3:
+                if row.is_detail_row and len(row.code) == 3:
+                    detail_pages[key].add(row.page)
+            elif row.code and _MINISTRY_RE.match(row.code):
+                summary_rows[key].append(row)
 
-        # Check 1: every summary ministry has detail rows.
-        for section, srows in sorted(summary_section_rows.items()):
-            if section not in detail_section_pages:
+        for (table, section) in sorted(summary_rows):
+            if section in {"701", "801"}:
+                continue
+            label = f"{table + ':' if table else ''}{section}"
+            if (table, section) not in detail_pages:
                 cross.append(CrossPageCheck(
-                    "missing_detail", section,
+                    "missing_detail", label,
                     f"summary ministry {section} has no detail rows",
                     ok=False,
                 ))
-
-        # Check 2: every detail ministry has a summary row.
-        for section, pages in sorted(detail_section_pages.items()):
-            if section not in summary_section_rows:
+            else:
+                found = sorted(detail_pages[(table, section)])
                 cross.append(CrossPageCheck(
-                    "missing_summary", section,
-                    f"detail ministry {section} has no summary row",
-                    ok=False,
+                    "missing_detail", label,
+                    f"summary ministry {section} has detail rows on pages {found}",
                 ))
-
-        # Add OK checks for passing items.
-        for section in sorted(summary_section_rows):
-            if section in detail_section_pages:
+                if section in {"502", "503", "504"}:
+                    continue
+                summary = next((r for r in summary_rows[(table, section)]
+                                if r.year_estimate), None)
+                if summary is None:
+                    continue
+                detail = [r for r in rows
+                          if r.budget_table == table and r.code == section
+                          and len(r.code) == 3 and r.is_detail_row
+                          and max(code_lengths[r.page], default=0) > 3]
+                estimates = {r.year_estimate for r in detail if r.year_estimate}
+                ok = summary.year_estimate in estimates
                 cross.append(CrossPageCheck(
-                    "missing_detail", section,
-                    f"summary ministry {section} has detail rows on pages {sorted(detail_section_pages[section])}",
-                ))
-        for section in sorted(detail_section_pages):
-            if section in summary_section_rows:
-                cross.append(CrossPageCheck(
-                    "missing_summary", section,
-                    f"detail ministry {section} has summary row",
+                    "amount_match", label,
+                    f"summary estimate {summary.year_estimate:,.0f} "
+                    f"{'matches' if ok else 'does not match'} detail",
+                    ok=ok,
                 ))
 
         return cross

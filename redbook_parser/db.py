@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS budget (
     page INTEGER,
     code TEXT,
     section TEXT,
+    budget_table TEXT,
     description TEXT,
     source TEXT,
     nikasa_vidhi TEXT,
@@ -53,13 +54,14 @@ def write_db(rows: list[BudgetRow], page_texts: list[str] | None,
         cur.execute(
             f"""
             INSERT INTO budget (
-                page, code, section, description, source, nikasa_vidhi,
+                page, code, section, budget_table, description, source, nikasa_vidhi,
                 {", ".join(AMOUNT_FIELDS)},
                 {", ".join(CODE_FIELDS)},
                 is_total, row_type
-            ) VALUES ({", ".join(["?"] * (6 + len(AMOUNT_FIELDS) + len(CODE_FIELDS) + 2))})
+            ) VALUES ({", ".join(["?"] * (7 + len(AMOUNT_FIELDS) + len(CODE_FIELDS) + 2))})
             """,
-            (row.page, row.code, row.section, row.description, row.source, row.nikasa_vidhi,
+            (row.page, row.code, row.section, row.budget_table,
+             row.description, row.source, row.nikasa_vidhi,
              *(row.amount(c) for c in AMOUNT_FIELDS),
              *(getattr(row, c) for c in CODE_FIELDS),
              1 if row.is_total else 0, row.row_type),
@@ -79,9 +81,14 @@ def read_rows(db_path: str) -> list[BudgetRow]:
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
+    columns = {r[1] for r in cur.execute("PRAGMA table_info(budget)")}
+    if "budget_table" not in columns:
+        cur.execute("ALTER TABLE budget ADD COLUMN budget_table TEXT DEFAULT ''")
+        conn.commit()
     cur.execute(
         f"""
-        SELECT page, code, section, description, source, nikasa_vidhi,
+        SELECT page, code, section, budget_table,
+               description, source, nikasa_vidhi,
                {", ".join(AMOUNT_FIELDS)},
                {", ".join(CODE_FIELDS)},
                is_total, row_type
@@ -91,6 +98,7 @@ def read_rows(db_path: str) -> list[BudgetRow]:
     rows = []
     for r in cur.fetchall():
         row = BudgetRow(page=r["page"], code=r["code"], section=r["section"] or "",
+                        budget_table=r["budget_table"] or "",
                         description=r["description"],
                         source=r["source"], nikasa_vidhi=r["nikasa_vidhi"],
                         is_total=bool(r["is_total"]), row_type=r["row_type"])

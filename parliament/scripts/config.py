@@ -38,7 +38,6 @@ VERBATIM_TIMEOUT = 90
 
 # --- Gemini API ---
 GEMINI_MODEL = "gemini-2.5-flash-lite"
-GEMINI_API = "https://generativelanguage.googleapis.com/v1beta/models"
 EMBED_MODEL = "gemini-embedding-001"
 GEMINI_TEMPERATURE = 0.2
 GEMINI_SYSTEM_INSTRUCTION = (

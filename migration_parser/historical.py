@@ -22,7 +22,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-import fitz
+from kagaj_core import pdf as core_pdf
 
 from . import normalize, preeti
 from .model import DocMeta
@@ -238,9 +238,9 @@ def _country_name(c0: str, c1: str) -> tuple[str, str]:
 
 def extract_monthly(path: str, meta: DocMeta | None = None) -> HistDoc:
     """Extract all country × period-scope rows and printed totals from one PDF."""
-    doc = fitz.open(path)
+    doc = core_pdf.open_pdf(path)
     meta = meta or DocMeta(filename=str(path))
-    fitz.TOOLS.mupdf_display_errors(False)
+    core_pdf.suppress_display_errors()
     out = HistDoc(meta=meta)
     skipped: dict[int, int] = {}
     total_candidates: list[dict[str, tuple[int, int, int]]] = []

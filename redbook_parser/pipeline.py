@@ -9,7 +9,13 @@ from .legacy import EXACT_FIXES, CID_CHAR_MAP, fix_text, sanitize_devanagari
 from .model import BudgetRow
 from .numbers import detect_scale
 from .parser import process_page_lines
-from .spatial import detect_template
+from .spatial import (
+    EXPENDITURE_TABLE,
+    PageTemplate,
+    detect_template,
+    starts_annex,
+    summary_table,
+)
 from .verify import BudgetVerificationEngine, VerificationReport
 
 
@@ -73,9 +79,15 @@ def infer_sections(rows: list[BudgetRow]) -> None:
 
     Mutates rows in place.  Headings and total rows without codes inherit
     the last seen section so they stay scoped correctly for verification.
+    Sections reset when the row's budget table changes, because the same
+    ministry code recurs in the expenditure and allocation schedules.
     """
     current_section = ""
+    current_table = ""
     for row in rows:
+        if row.budget_table and row.budget_table != current_table:
+            current_table = row.budget_table
+            current_section = ""
         if row.code and _MINISTRY_CODE_RE.match(row.code):
             current_section = row.code
         if current_section:
@@ -94,9 +106,9 @@ def extract_pdf(pdf_path: str, max_pages: int | None = None,
                  ``decode_text`` path is used instead of legacy ``fix_text``.
         verify: when True, run the math audit and return (rows, report).
     """
-    import fitz  # lazy
+    from kagaj_core import pdf as core_pdf
 
-    doc = fitz.open(pdf_path)
+    doc = core_pdf.open_pdf(pdf_path)
     start_idx = max(0, start_page - 1)
     total_pages = len(doc)
     if max_pages:
@@ -114,18 +126,32 @@ def extract_pdf(pdf_path: str, max_pages: int | None = None,
 
     all_rows: list[BudgetRow] = []
     unknown_glyphs = 0
-    # Continuation pages inherit scale from first detail page.
+    # Continuation pages inherit scale from the first data page.
     current_scale = 1
     first_detail_page = None
+    current_table = ""
+    in_annex = False
 
     for pno in range(start_idx, total_pages):
         if progress:
             sys.stderr.write(f"\rPage {pno + 1}/{total_pages}")
             sys.stderr.flush()
 
+        if in_annex:
+            continue
+
         raw_text = extract_page_text(doc, pno)
         fixed_text = decode(raw_text)
         fixed_text = sanitize_devanagari(fixed_text)
+
+        if starts_annex(fixed_text):
+            in_annex = True
+            continue
+
+        template = detect_template(fixed_text)
+        if template in (PageTemplate.TOC, PageTemplate.UNKNOWN):
+            continue
+
         unknown_glyphs += fixed_text.count("⟦")
 
         page_scale = detect_scale(fixed_text)
@@ -134,9 +160,14 @@ def extract_pdf(pdf_path: str, max_pages: int | None = None,
         if page_scale != 1 and first_detail_page is None:
             first_detail_page = pno
 
-        template = detect_template(fixed_text)
+        if template == PageTemplate.SUMMARY:
+            current_table = summary_table(fixed_text)
+        elif not current_table:
+            current_table = EXPENDITURE_TABLE
+
         lines = fixed_text.split("\n")
-        all_rows.extend(process_page_lines(lines, pno + 1, current_scale, template))
+        all_rows.extend(process_page_lines(
+            lines, pno + 1, current_scale, template, current_table))
 
     if progress:
         sys.stderr.write("\n")

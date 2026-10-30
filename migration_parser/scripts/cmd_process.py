@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import argparse
 import csv
-import hashlib
 import json
 import re
 import sys
@@ -24,6 +23,8 @@ import urllib3
 from .. import extract_doc, melt, verify
 from ..agencies import INSTITUTIONAL, PREAPPROVAL
 from ..model import DocMeta
+from kagaj_core import provenance
+
 from ..paths import (
     MIGRATION_DIR,
     MIGRATION_MANIFEST,
@@ -62,11 +63,7 @@ def content_id(url: str | None) -> str:
 
 
 def sha256_file(path: Path) -> str:
-    h = hashlib.sha256()
-    with path.open("rb") as f:
-        for chunk in iter(lambda: f.read(1 << 20), b""):
-            h.update(chunk)
-    return h.hexdigest()
+    return provenance.sha256_file(path)
 
 
 def pdf_path(entry: dict) -> Path:

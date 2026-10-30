@@ -379,8 +379,8 @@ def main(argv=None) -> int:
     ap.add_argument("--max-pages", type=int, default=None)
     a = ap.parse_args(argv)
 
-    import fitz
-    doc = fitz.open(a.pdf)
+    from kagaj_core import pdf as core_pdf
+    doc = core_pdf.open_pdf(a.pdf)
     with open(a.corrections, encoding="utf-8") as f:
         recs = json.load(f)
     corrections = load_corrections(recs)

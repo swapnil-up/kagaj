@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pymupdf
+from kagaj_core import pdf as core_pdf
 
 DEFAULT_DPI = 300
 
@@ -21,12 +21,10 @@ def render_pdf(pdf_path: str | Path, out_dir: str | Path,
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    doc = pymupdf.open(pdf_path)
-    zoom = dpi / 72.0
-    mat = pymupdf.Matrix(zoom, zoom)
+    doc = core_pdf.open_pdf(pdf_path)
     paths: list[Path] = []
-    for i, page in enumerate(doc):
-        pix = page.get_pixmap(matrix=mat)
+    for i, page in enumerate(core_pdf.iter_pages(doc)):
+        pix = core_pdf.render_pixmap(page, dpi=dpi)
         out = out_dir / f"{pdf_path.stem}_page{i + 1}.png"
         pix.save(out)
         paths.append(out)

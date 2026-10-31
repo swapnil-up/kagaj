@@ -392,13 +392,12 @@
     "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_०५ जेठ २०८३ मङ्गलवार (बैठक सङ्ख्या- ६)",
     "published_at": "2026-05-24",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/cx5bsoahrf79rj97.pdf",
-    "status": "pending",
+    "status": "done",
     "scraped_at": "2026-08-10",
     "serial": "31.",
-    "failure_kind": "quota",
-    "last_error": "RPD: RPD: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free",
-    "failed_at": "2026-10-30T21:00:22+00:00",
-    "attempts": 2
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2946-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2946.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2946.json"
   },
   {
     "id": 2944,
@@ -406,9 +405,12 @@
     "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_०४ जेठ २०८३ सोमवार (बैठक सङ्ख्या- ५)",
     "published_at": "2026-05-24",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/aoheve8y7h03rsxw.pdf",
-    "status": "failed",
+    "status": "done",
     "scraped_at": "2026-08-10",
-    "serial": "32."
+    "serial": "32.",
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2944-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2944.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2944.json"
   },
   {
     "id": 2942,
@@ -416,9 +418,13 @@
     "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_३१ वेैशाख २०८३ बिहीवार (बैठक सङ्ख्या- ४)",
     "published_at": "2026-05-24",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/xgoy7ktaqxlm8ner.pdf",
-    "status": "failed",
+    "status": "pending",
     "scraped_at": "2026-08-10",
-    "serial": "33."
+    "serial": "33.",
+    "failure_kind": "quota",
+    "last_error": "RPD: RPD: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free",
+    "failed_at": "2026-10-31T10:43:07+00:00",
+    "attempts": 1
   },
   {
     "id": 2935,

@@ -1,0 +1,164 @@
+{
+  "git_revision": "2fd9879e32e0dc28aa3e56950b4e9b61efe2b359",
+  "bulletins_parsed": 58,
+  "months_with_violent": 50,
+  "months_with_totals": 51,
+  "months_with_national_totals": 60,
+  "violent_rows": 3574,
+  "fiscal_years": [
+    "2075/76",
+    "2076/77",
+    "2077/78",
+    "2078/79",
+    "2079/80",
+    "2080/81",
+    "2081/82",
+    "2082/83"
+  ],
+  "caveats": [
+    "Kathmandu Valley is excluded from cross-month comparisons because some serious-crime charts omit it.",
+    "Months whose heinous or serious chart is missing/partial are reported as gaps, not zeros.",
+    "The five-year annual chart is a separate series; fiscal years are matched across bulletins by latest as-of date.",
+    "2078 bulletins and 2079 Baishakh use an older layout without province-by-offence charts.",
+    "2079 Asar-Shrawan-Bhadra are derived by differencing consecutive cumulative charts; the 2079 Ashoj heinous chart is read from text labels over a raster background.",
+    "2083 Bhadra serious chart is partial in the source PDF (only attempted murder is plotted)."
+  ],
+  "artifacts": {
+    "violent_monthly.csv.gz": {
+      "sha256": "cab08580d9928f07d87bae7b69a5f9de3e0b08e6ab4479c313b663f9820581f9",
+      "bytes": 19965
+    },
+    "violent_national.csv.gz": {
+      "sha256": "65c3c59fa3a7a0fa4e2ab4e307bc6ce63e6b174946445f39e0903331c63875a4",
+      "bytes": 3379
+    },
+    "violent_by_fy.csv.gz": {
+      "sha256": "38a4d62a74be0f06061381cfd1f117d145d91d5b6b58fac9bb478000c9fb8136",
+      "bytes": 591
+    },
+    "total_cases_monthly.csv.gz": {
+      "sha256": "d390c44b70bad000ceee55776769b3dfa16897f78fac6d850f0e9a3279c2d8a5",
+      "bytes": 4099
+    },
+    "total_cases_national.csv.gz": {
+      "sha256": "ea7b10ce776d62da55a945aae79ac425cd7a64bfe6e5a2cb448b742332c5e36c",
+      "bytes": 2425
+    },
+    "annual_totals.csv": {
+      "sha256": "16b2ce5f6cdc6e31ff8f17864c0256381590181060d48024cdeba27a672d1bf3",
+      "bytes": 2905
+    },
+    "category_coverage.csv.gz": {
+      "sha256": "7246deb7497e1f2bea5c5eacc6b11397e7dc7a6287b9a3c652fb682c6a1dacc2",
+      "bytes": 2488
+    },
+    "month_status.csv.gz": {
+      "sha256": "a8e45fedcd03f1c57e1f93777a9c58c64ffe9c6c326703b2f06ed318af12bb12",
+      "bytes": 527
+    },
+    "offense_availability.csv.gz": {
+      "sha256": "088c8a674f672b8d6238829192db29d2bdbc92ac9e3187b92610d3467ad9fa95",
+      "bytes": 324
+    },
+    "total_case_revisions.csv.gz": {
+      "sha256": "bc9cdf3128845288d263ab5884a9820bfdbfef6a0b7244db700fa4f5bdd2977b",
+      "bytes": 3176
+    },
+    "national_total_revisions.csv.gz": {
+      "sha256": "39f1f11dc07214046624a13886015e7b4f0b4c612afc1634bcd16054e7c56343",
+      "bytes": 599
+    },
+    "annual_revisions.csv": {
+      "sha256": "bea9daa8268f0471bfc8b35ca7419671146f3b2ff6523091d604e078b2ae62c7",
+      "bytes": 2540
+    },
+    "population_nepal.csv": {
+      "sha256": "add20dcc65ac2d4391778495742e6bac8649a663eb3a208894eb6aa047a7d02f",
+      "bytes": 773
+    },
+    "annual_rates.csv": {
+      "sha256": "e6cedc6949c7b4a1b5b59d0a165a8051f9215b5e353a0e1b8ed503944bb7ca62",
+      "bytes": 757
+    },
+    "charts/annual_totals.png": {
+      "sha256": "f16bf2b84a5c3c6969fb5213b2f6ecdfad16ebf8acb6ff1e25c44985e32163cf",
+      "bytes": 45210
+    },
+    "charts/heinous_monthly.png": {
+      "sha256": "6e5ff39ab6827624903c279809b5ac97f70af7fae671d71d1a92c1e24bfdd2c9",
+      "bytes": 113260
+    },
+    "charts/serious_monthly.png": {
+      "sha256": "a86603e4f064157bd1fe0aeb544ea078eeb2e11fcd6a84d48890bafb2d40ab8f",
+      "bytes": 149382
+    },
+    "charts/violent_by_fiscal_year.png": {
+      "sha256": "3686dea7c00350fc026817be1db71c9bb145e86f0da101643b1efb9d53bbd2a1",
+      "bytes": 66435
+    },
+    "charts/total_cases_monthly.png": {
+      "sha256": "fda34defb64d763bd2659ddbfb6251d7d34ccc294812220ec9eaaf28411b36b1",
+      "bytes": 80821
+    }
+  },
+  "pdf_sha256": {
+    "2075-11": "bf91146e677e4fc8341306a65c8d5f373501dd07432b2ddbaaecaa8383b4ac82",
+    "2078-08": "4293302b236c127fdc350b3c23236a98905558fcf1516f430d713f4e730dba11",
+    "2078-09": "42596787ca2494e40eb4b3da074ec917d7431c919f7bffe130681f5ff533f93b",
+    "2078-10": "9408e1026845f7b10f4d9cb8795a66b536cfcd94b69204ba8670f030220dc1b7",
+    "2078-11": "56a2f2c72678121940693e589f8b29a9ea1b1f6e3b6b4b7130208c008972911a",
+    "2078-12": "7fe57b99df5c11e03f9152c1ea8f22fe5c9b6cc2adf4324b8a8e268f3e4da89d",
+    "2079-01": "4fd1f2d8b02e52b3f135ea9c88c8faaabc96fda6c011f8931f594252ad02f4bc",
+    "2079-02": "766721b1a1e25e0ff6e7887799364a1adb22062633fa66d0616906121620a2dd",
+    "2079-03": "24672cf220e1735201cb8408f69f9bb02d68811d9b8ed36c861f72567201cb43",
+    "2079-04": "0d39104bbd6f80cfb189e73782f9f59d1ae58b9cf9388c4c80c2becf0ae2c0e8",
+    "2079-05": "2d4cf8a5927b09fe00e6bc8408be2324f40dfb6792cc1f3e035e9fb28901faef",
+    "2079-06": "20cb15ed94e6fe99bbc96731e812aa9bbfa2d4c7883cb93ccb81bab0b69f04a2",
+    "2079-07": "2879aaca6297bf60bc80ffc6ef5c04cdc59298d72c3f5343ed6a158f3182b81e",
+    "2079-08": "be12f77c2f34cec6a3720996f538082733e45a46ccaa99219290f3f84d8997de",
+    "2079-09": "ab3a733a6f68755402828a6b89f1da49e67e5a73f32252fa9433daae8eaee4cd",
+    "2079-10": "070741742fc1a598feffa3d93eec9cc39c39764dea86324cd61f584670b7ccf1",
+    "2079-11": "8802f7638fe6b66624f42b02d7eaadebedc5549c174534b3c11d1f8b55ae2bb7",
+    "2079-12": "e1bc53a3a68994130b937563402fb29d485924c658e61a5c6d0ab0d49aa63a4b",
+    "2080-01": "fd2d9777d83ab970de73069f5b4705c4cae4728cad9dc48345df1c672f273e91",
+    "2080-02": "9e1d10b544dbc7261adf755a80d91420c16f6fef58bd0b1e02ea74120a0f06e0",
+    "2080-03": "712d5da51a61050c1deaf3bbcf25932129475b4f959c1e57fa5a17db9d5514fa",
+    "2080-04": "037f08ccc866acb9954a7d30f0a9353dbf3ab71e56287704ba74983c689f2745",
+    "2080-05": "82a370d6ea15062012675eb42bc2388fa00da5fc0f9408a0563aa742385ba9c8",
+    "2080-06": "e40bc97a1869916d47b8753b9a872b21c92e76c4c83d9db724816801ce6bbd7b",
+    "2080-07": "c55eecdc368a07c0dc847d77702dba65475d63620611ecf96b7d7cde33899161",
+    "2080-08": "3b2c51adcbc5636dad57c80b02769e5da2517261cb0886374f70e4142e275afc",
+    "2080-09": "5ceeba0aa74d16a0484b04e3db2822d7ccb18855824ccf79d7b810085243d1b3",
+    "2080-10": "f4118e24fa17086521641176ab03e92f8d89501241e487c47b492f59c471572e",
+    "2080-11": "af332f96e994f62be0456e69c8bb3e8c620556071497a5ecf6dad3463f4f47b6",
+    "2080-12": "0d4c1b2fc37b5df568b898d64f3013af2666df10b5576cf4a2698d1f026fe780",
+    "2081-01": "69ea38f5e92da85af174837a9c8365fca77283db415e45228540ac4b0fb3b87c",
+    "2081-02": "3be8c39f10521bf878eeaea15ed19d0d4695523df78888a6fde81c88bde4bf7c",
+    "2081-03": "e6bbf2124d993d7bcfff21fae8c217f5ae57f89510440b61db2540edb71d1d3a",
+    "2081-04": "13dbcfed90eac5b34a40998814732e84107fe91942297f8f01740730844be61b",
+    "2081-05": "905696744cbf346a7279336d3872a511e89e4e28f2a978a53b15f868861729ca",
+    "2081-06": "599ac9b66ebe48c93b5f14792a730c184fb1282ec880058f7ccd5e3f2af1befd",
+    "2081-07": "bb071aaedaf9ec383d38a35899a904675bfa217586e849535bf460f886b2b6ab",
+    "2081-08": "d0b8333cc9683ef88ce8a09b252313fe7b96db7849f265bd485a986f618619ee",
+    "2081-09": "f1672704b5c200e3803497f7ea92a2d8681dae142e94ddee8e8459e3deeda1b9",
+    "2081-10": "007fcd725eb85ef8133fe1794edf7f5951e9b33f0c664a83ce4b09bdc362f71a",
+    "2081-11": "10d2bf47ad25d92b8909fba89d791b4777e0fd4b242bf37820f404366ff2cbd4",
+    "2081-12": "0bfe24f35ad881c12660d71b14ca801dfc8ceb4a208563fb18121a686ba87a47",
+    "2082-01": "4238c7dcce4d24fdfb4bda8ae7830607ad6ccab566680dfaabb35277315124cb",
+    "2082-02": "7880165e62512dd3ee02eb458c6dc48bb7f7111c706d39d1521fae426a240f6f",
+    "2082-05": "56970826ed93e5f0d8701783970fe9c7961dd0afce5697f67782465be96eb212",
+    "2082-06": "d0d68b7ff51b9ecf2e7224c686347fd8e35614c5faebc15fb4a0856b255e1452",
+    "2082-07": "5ac0a5219eaca6d2bca699d9e011875605cac492c103ef25bf7ac11ca4562830",
+    "2082-08": "88a44be62c1174f39814a854dadb628ee5a93866fc08c700fa3163c4567f25d3",
+    "2082-09": "41bb8ae6676f9a9193eb15467b70056b73b623e109dc1e6fb6fbf5e2a093ee4e",
+    "2082-10": "03df87ed4e81f1dd57b53ef79acecbae1582e1da6b86ebed66ead007e5422a84",
+    "2082-11": "7262e1d96b523770637e60c8d7dd4c4a437697ac6d0752c10ccd2178bf9ee7f3",
+    "2082-12": "129f994aecc0dfaf46b8e5de907b801abada8263576ba0b4d8046b693e00b2ab",
+    "2083-01": "46ea2e0bcefa1738eaed24791f0d10c6fc03d77a0f97fd26525e447af4f357bc",
+    "2083-02": "45e0ea443eb1ac4c450dc09073b2313cf4fe0e95a768fbdfc83561f0de2e5f64",
+    "2083-03": "0c5dc8c0e29734291432c71f3a69217fa4373de48d27f4321367ed1176d4761a",
+    "2083-04": "9b9bc695e5974fb327b5cd49735a257978f6fd09f6692d7eea2cbdd1a197411b",
+    "2083-05": "76ddceb0970c6633127b876c80662bd7a18bbebc0428c54b9cdec085c89b0876",
+    "2083-06": "b2f7bc02ef1e8de463fb8aa4f5ddca98a336e999ac82563c5b39a7846873e8e7"
+  }
+}

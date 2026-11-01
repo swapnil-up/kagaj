@@ -1,0 +1,34 @@
+{
+  "parsed_bulletins": 58,
+  "rows": {
+    "violent_monthly": 3574,
+    "violent_national": 453,
+    "total_cases_monthly": 408,
+    "annual_totals": 18
+  },
+  "months": {
+    "violent": 50,
+    "totals": 51
+  },
+  "methods": {
+    "chart_labels": 3302,
+    "cumulative_difference": 240,
+    "text_labels": 32
+  },
+  "derived_months": [
+    "2079-03",
+    "2079-04",
+    "2079-05"
+  ],
+  "partial_charts": 1,
+  "revision_conflicts": 67,
+  "national_total_conflicts": 30,
+  "issues": [
+    "ok"
+  ],
+  "warnings": [
+    "partial charts: 2083-05 serious (1 series)",
+    "67 month/province totals differ across bulletins; see total_case_revisions.csv.gz",
+    "2075/76: disposed + pending differs from registered by 54"
+  ]
+}

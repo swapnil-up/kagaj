@@ -5,11 +5,12 @@ description = "Turn Nepali government PDFs into open, structured data"
 requires-python = ">=3.10"
 
 [tool.setuptools.packages.find]
-include = ["kagaj_core*", "redbook_parser*", "migration_parser*", "water_parser*", "cidmap*", "dictionary*"]
+include = ["kagaj_core*", "redbook_parser*", "migration_parser*", "water_parser*", "cidmap*", "dictionary*", "crime*"]
 exclude = ["archive*", "output*", "tmpvenv*", "parliament*", "drug_prices*", "tests*"]
 
 [tool.setuptools.package-data]
 cidmap = ["data/*.json", "data/*.txt.gz"]
+crime = ["manifests/*.json"]
 
 [project.optional-dependencies]
 # Budget PDF extraction (redbook_parser, cidmap)
@@ -71,12 +72,23 @@ analysis = [
     "jupyterlab>=4.2",
 ]
 
+# Crime-bulletin extraction and charts
+crime = [
+    "pymupdf",
+    "pandas>=2.1",
+    "matplotlib>=3.8",
+    "requests>=2.31.0",
+    "urllib3",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=4.9.0",
+]
+
 # Everything needed for CLI/CI work
 dev = [
-    "kagaj[redbook,billtracker,ocr,water,test,analysis]",
+    "kagaj[redbook,billtracker,ocr,water,test,analysis,crime]",
 ]
 
 # Full install (all components)
 all = [
-    "kagaj[redbook,billtracker,ocr,water,test,analysis]",
+    "kagaj[redbook,billtracker,ocr,water,test,analysis,crime]",
 ]

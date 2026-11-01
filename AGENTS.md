@@ -18,13 +18,15 @@ kagaj/
 ├── redbook_parser/          # budget redbook extraction (active)
 ├── migration_parser/        # DoFE labour-migration panel
 ├── water_parser/            # KUKL water schedules
+├── crime/                   # CID monthly crime bulletins (dataset + charts)
 ├── kagaj_core/              # shared primitives (devanagari, review harness)
 ├── cidmap/                  # font-scoped CID → Devanagari mapping
 ├── dictionary/              # Nepali–English StarDict builder
 ├── datasets/                # committed outputs (START HERE)
 │   ├── labour-datasets/labour-migration/    # panels + codebook + build.json
 │   ├── datasets/translations/        # parliamentary OCR / EN / JSON + INDEX.md
-│   └── datasets/water/               # per-branch schedules + schedule.json
+│   ├── datasets/water/               # per-branch schedules + schedule.json
+│   └── crime/                        # violent-crime panels + charts + DATASET.md
 ├── docs/                    # architecture, integrity, roadmap, review harness, plans
 ├── tests/                   # pytest + gold pages
 ├── archive/budget/          # frozen legacy budget extractors
@@ -40,6 +42,7 @@ kagaj/
 | Labour-migration panel | `datasets/labour-migration/` | 70,089 canonical rows; `analysis_safe` filter; `build.json` hashes |
 | Parliament translations | `datasets/translations/` | 601 files; indexed in `INDEX.md` |
 | KUKL water schedules | `datasets/water/` | `schedule.json` is the website artifact |
+| Crime bulletins | `datasets/crime/` | 58 CID bulletins; violent monthly/FY panels + charts; see `DATASET.md` |
 
 ## Setup
 
@@ -51,7 +54,7 @@ uv venv .venv --python 3.12
 uv pip install --python .venv/bin/python -e ".[dev]"   # all CLI pipelines + tests
 ```
 
-Available extras: `redbook`, `ocr`, `billtracker`, `water`, `test`,
+Available extras: `redbook`, `ocr`, `billtracker`, `water`, `crime`, `test`,
 `analysis`, `dev`, `all`. `.env` lives at the **repo root** (gitignored); copy
 `.env.example`. `GEMINI_API_KEY` and `DATABASE_URL` are read from there.
 
@@ -181,6 +184,30 @@ python -m water_parser.cli build
 - Column regions: `water_parser/column_regions.json`.
 - Flattened text is cached in `output/water/`; use `--force` to redo OCR.
 - `schedule.json` is generated; do not hand-edit.
+
+## Crime pipeline (`crime/`)
+
+```bash
+python -m crime.cli scrape --download   # refresh manifest + fetch PDFs
+python -m crime.cli extract             # parse PDFs to output/crime/parsed
+python -m crime.cli build               # write datasets/crime + charts
+python -m crime.cli verify              # integrity report -> verify.json
+```
+
+- Manifest: `crime/manifests/bulletins.json`; PDFs in `output/crime/pdfs/`.
+- Charts are vector graphics: data labels are the source of truth; bars give the
+  baseline and scale. Series order is province-major.
+- Dataset schema and caveats: `datasets/crime/DATASET.md`; plan:
+  `docs/plans/nepal-crime-data.md`.
+- `basis=cumulative` rows (2079 Jestha–Bhadra YTD charts) stay in intermediate
+  JSON; Asar–Bhadra are differenced into `basis=derived` monthly rows.
+- `method` records `chart_labels`, `text_labels`, or `cumulative_difference`;
+  `confidence` is currently `high` for all committed rows.
+- `category_coverage.csv.gz`, `month_status.csv.gz`, and
+  `offense_availability.csv.gz` record category/era gaps; revisions are in
+  `*_revisions.csv*`; population denominators in `population_nepal.csv` and
+  `annual_rates.csv`.
+- Do not smooth source anomalies (for example the 2083 Jestha rape value).
 
 ## Drug-price pipeline (experimental)
 

@@ -4,6 +4,7 @@ llm/
 output/
 dictionary-data/
 *.png
+!datasets/crime/charts/*.png
 __pycache__/
 .pytest_cache/
 .env

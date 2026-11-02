@@ -1,0 +1,89 @@
+{
+  "full_translation_en": "National Assembly, 21st Session, Verbatim Proceedings, Baisakh 28, 2083, Monday, Meeting Number - 2 (Second). The meeting commenced at 18:16 hrs under the chairmanship of the Honourable Chairperson, Narayan Prasad Dahal. Honourable Chairperson: The proceedings will now commence. Honourable members, I would like to provide time to the Honourable Prime Minister, Balendra Shah, to table before the House the copy of the address delivered by the Right Honourable President to a joint meeting of both houses of the Federal Parliament, in accordance with Article 94 of the Constitution of Nepal, on Baisakh 28, 2083 BS. Honourable Prime Minister, Balendra Shah: Honourable Prime Minister Balendra Shah tabled the copy of the address before the House. Honourable Chairperson: Honourable members, I present before the House the following motion of thanks to the Right Honourable President for addressing the joint meeting of the Federal Parliament. Motion of Thanks: \"This National Assembly meeting expresses its gratitude to the Right Honourable President for the address delivered to a joint meeting of both houses of the Federal Parliament on Baisakh 28, 2083 BS at 4:00 PM, in accordance with Article 95 of the Constitution of Nepal.\" Honourable members, I request you to provide your consent to the above motion. Honourable members, I inform you that the motion has been passed by the House. Honourable members, those Honourable members who wish to submit a notice of amendment to the Government of Nepal's policy and program, in accordance with Rule 38(2) of the National Assembly Rules, 2075, can submit their notice to the Business Section (National Assembly) between 11:00 AM and 2:00 PM on Baisakh 29, 2083 BS, and the amendment notice form will be available from the same section. Honourable members, I inform you that the dates of Baisakh 30 and 31, 2083 BS have been scheduled for discussion on the Government of Nepal's policy and program for the fiscal year 2083/084, as mentioned in the address by the Right Honourable President. Honourable members, I request Honourable members who wish to participate in the discussion on the Government of Nepal's annual policy and program for the fiscal year 2083/084 to provide their names to the Business Section (National Assembly) one day prior to the discussion day, based on party representation. Honourable members, this meeting is adjourned to convene the next meeting of the National Assembly on Wednesday, Baisakh 30, 2083 BS, at 12:15 PM. (Thereafter, this meeting was adjourned to convene the next meeting on Wednesday, Baisakh 30, 2083 BS, at 12:15 PM). Adjourned: 18:19 hrs.",
+  "session": {
+    "date_bs": "2083-02-28",
+    "date_ad": "2023-05-11",
+    "meeting_type": "National Assembly",
+    "meeting_number": "2",
+    "chairperson": "Narayan Prasad Dahal"
+  },
+  "sections": [
+    {
+      "name": "Opening",
+      "summary_en": "The meeting commenced under the chairmanship of Honourable Narayan Prasad Dahal. The Honourable Prime Minister, Balendra Shah, tabled the copy of the President's address to a joint session of Parliament. The House then presented a motion of thanks to the President.",
+      "speakers": [
+        {
+          "name": "Narayan Prasad Dahal",
+          "party": null,
+          "topic": "Commencement of proceedings and tabling of President's address"
+        },
+        {
+          "name": "Balendra Shah",
+          "party": null,
+          "topic": "Tabling of President's address"
+        }
+      ]
+    },
+    {
+      "name": "Main Business",
+      "summary_en": "A motion of thanks to the President for the address was presented and passed. Information was provided regarding the submission of amendments to the government's policy and program and the schedule for discussion on the policy and program for the fiscal year 2083/084.",
+      "speakers": [
+        {
+          "name": "Narayan Prasad Dahal",
+          "party": null,
+          "topic": "Presenting and passing motion of thanks, announcing amendment procedures"
+        }
+      ],
+      "bills_discussed": [],
+      "reports_presented": [],
+      "key_issues": [
+        "President's address",
+        "Motion of thanks",
+        "Government's policy and program",
+        "Amendments"
+      ]
+    },
+    {
+      "name": "Adjournment",
+      "summary_en": "The Honourable Chairperson announced that the next meeting would be held on Baisakh 30, 2083 BS, at 12:15 PM, and adjourned the current meeting.",
+      "speakers": [
+        {
+          "name": "Narayan Prasad Dahal",
+          "party": null,
+          "topic": "Announcing next meeting and adjournment"
+        }
+      ]
+    }
+  ],
+  "agenda_tags": [
+    "Parliamentary proceedings",
+    "National Assembly",
+    "President's address",
+    "Motion of thanks",
+    "Government policy",
+    "Fiscal year 2083/084",
+    "Amendments",
+    "Meeting adjournment"
+  ],
+  "ministries_mentioned": [],
+  "all_speakers_mentioned": [
+    {
+      "name": "Narayan Prasad Dahal",
+      "party": null,
+      "section": "Opening, Main Business, Adjournment"
+    },
+    {
+      "name": "Balendra Shah",
+      "party": null,
+      "section": "Opening"
+    }
+  ],
+  "adjournment_time": "18:19",
+  "next_meeting_date": "2083-02-30",
+  "_trigger": "verbatim",
+  "na_id": 2934,
+  "title": "Complete Proceedings of the Twenty-First Session – 28 Baisakh 2083 Monday (Meeting No. 2)",
+  "title_np": "एक्काइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_२८ वेैशाख २०८३ सोमवार (बैठक सङ्ख्या- २)",
+  "published_at": "2026-05-22",
+  "source_pdf": "https://na.parliament.gov.np/uploads/attachments/cah5ppyud6o6vwuu.pdf"
+}

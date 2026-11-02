@@ -139,8 +139,36 @@ def clean_label(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+_EXACT_OFFENSE_LABELS = {
+    "कर्तव्य ज्यान": "murder",
+    "कर्तब्य ज्यान": "murder",
+    "ज्यान मार्ने उद्योग": "attempted_murder",
+    "आत्महत्या दुरुत्साहन": "suicide_abetment",
+    "आत्म हत्या गर्न दुरुत्साहन गरेको": "suicide_abetment",
+    "मानव बेचबिखन तथा ओसारपसार": "trafficking",
+    "मानव वेचविखन तथा ओसारपसार": "trafficking",
+    "मा.बे.बि. तथा ओसारपसार": "trafficking",
+    "जबरजस्ती करणी": "rape",
+    "जवरजस्ती करणी": "rape",
+    "अपहरण वा शरीर बन्दी": "kidnapping",
+    "ब्यक्ति अपहरण": "kidnapping",
+    "अपहरण": "kidnapping",
+    "कुटपिट अंगभंग": "assault",
+    "कुटपिट वा अंगभंग": "assault",
+    "डाँका चोरी": "dacoity",
+    "नकबजनी चोरी": "burglary",
+    "गर्भ संरक्षण विरुद्धको कसूर": "abortion",
+}
+
+
+def match_offense_exact(raw: str) -> str | None:
+    return _EXACT_OFFENSE_LABELS.get(clean_label(raw))
+
+
 def match_offense(raw: str) -> str | None:
     label = clean_label(raw)
+    if any(k in label for k in ("सवारी", "ट्राफिक", "सडक दुर्घटना")):
+        return None
     for canonical, needles in _ALIASES:
         for needle in needles:
             if needle in label:

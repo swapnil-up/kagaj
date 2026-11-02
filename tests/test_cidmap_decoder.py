@@ -1,6 +1,8 @@
 from cidmap import legacy
 from cidmap.decode import layout_lines
 from cidmap.decoder import decode_page
+from cidmap import decoder as decoder_mod
+from cidmap.legacy_identify import LegacyIdentity
 from cidmap.legacy_tables import Row, build_table, save_table
 
 
@@ -35,6 +37,14 @@ def _glyph(x, y, cid=0):
             "bbox": (x, y, x + 1, y + 1)}
 
 
+def _legacy_glyph(char, cid):
+    return {
+        "c": char, "cid": cid, "font": "ABCDEF+Foo",
+        "base_font": "ABCDEF+Foo", "font_id": "Foo@cmap:1",
+        "font_xref": 7, "simple_font": True, "mapped": False,
+    }
+
+
 def test_layout_lines_reads_columns_by_column():
     lines = [
         [_glyph(0, 0, 1), _glyph(5, 0, 2), _glyph(20, 0, 3)],
@@ -58,6 +68,23 @@ def test_layout_lines_reads_columns_by_column():
 def test_preeti_span_is_decoded_by_default():
     page = FakePage([_span("ABCDEE+Preeti", "g]kfn ;/sf/")])
     assert decode_page(page, {}) == "नेपाल सरकार"
+
+
+def test_decoder_uses_identified_family(monkeypatch):
+    text = "g]kfn ;/sf/"
+    line = [_legacy_glyph(char, index)
+            for index, char in enumerate(text)]
+
+    def fake_identify(base_font, font=None, *, simple=None, references=None):
+        assert base_font == "ABCDEF+Foo"
+        return LegacyIdentity(
+            family="preeti", supported=True, source="font-name",
+            confidence="high", encoding="8-bit", needs_table=False,
+            base_font=base_font)
+
+    monkeypatch.setattr(decoder_mod, "identify_font", fake_identify)
+    assert decoder_mod._decode_line(line, {}, identities={}) == \
+        "नेपाल सरकार"
 
 
 def test_legacy_decoding_can_be_disabled():

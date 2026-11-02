@@ -28,6 +28,10 @@ where the source omits it.
 ## Annual picture
 
 Per-month averages avoid the uneven month coverage across fiscal years.
+2075/76 is excluded: only its rape chart is available at province level, so it
+is not comparable to the full heinous-plus-serious panel. Page 5 of that
+bulletin does provide national totals for seven violent categories, but without
+a province split they cannot be joined to the ex-valley monthly series.
 
 | Fiscal year | Months | Violent total | Per month | Heinous/mo | Serious/mo |
 |---|---:|---:|---:|---:|---:|
@@ -99,10 +103,11 @@ on this series without re-checking the source page.
 
 ## How far to trust this
 
-- Coverage is **50 months**, with gaps (2078, 2079 Baishakh/Jestha, 2082
-  Ashad/Shrawan, and two partial chart pages). This is not a continuous
-  90-month panel. Three 2079 months are reconstructed by differencing
-  cumulative charts; one 2079 heinous chart is read from text labels.
+- Coverage is **51 months**, with gaps (2078, 2079 Baishakh/Jestha, 2082
+  Ashad/Shrawan, and two partial chart pages; 2075-11 reports rape only). This
+  is not a continuous 90-month panel. Three 2079 months are reconstructed by
+  differencing cumulative charts; one 2079 heinous chart is read from text
+  labels.
 - Category sets drift between eras. Comparisons are strongest within the
   2080–2083 window, which is why the report anchors there.
 - The largest months cluster in Baishakh and Ashad, but missing months make

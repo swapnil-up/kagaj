@@ -77,6 +77,7 @@ crime = [
     "pymupdf",
     "pandas>=2.1",
     "matplotlib>=3.8",
+    "fonttools>=4.40",
     "requests>=2.31.0",
     "urllib3",
     "beautifulsoup4>=4.12.0",

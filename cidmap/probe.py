@@ -14,6 +14,7 @@ from .decode import glyphs as extract_glyphs, is_unknown_glyph
 from .embedded import EmbeddedFontCache
 from .fingerprint import font_signature, subset_signature
 from .fonts import FontResolutionError, cmap_mapping
+from .legacy_identify import LegacyReferenceIndex, identify_font
 
 
 def _new_font(font_id, base_font, font_xref, scheme):
@@ -25,23 +26,10 @@ def _new_font(font_id, base_font, font_xref, scheme):
         "observed": 0,
         "known": 0,
         "unknown": 0,
+        "simple": 0,
         "classes": Counter(),
         "unknown_cids": defaultdict(lambda: {"count": 0, "pages": set()}),
     }
-
-
-def _fingerprints(font, embedded):
-    xref = font.get("font_xref")
-    if not xref:
-        return None, None
-    try:
-        cache = embedded.get(xref)
-        if cache is None:
-            return None, None
-        return subset_signature(cache.font), font_signature(
-            cache.font, font.get("base_font") or "")
-    except Exception:
-        return None, None
 
 
 def _candidates(reference, embedded, xref, cid):
@@ -57,7 +45,8 @@ def _candidates(reference, embedded, xref, cid):
 
 
 def probe_document(doc, *, max_pages=None, reference_font=None,
-                   reference_fonts=None, registry=None) -> dict:
+                   reference_fonts=None, registry=None,
+                   legacy_references=None) -> dict:
     """Scan a PDF once and return per-font diagnostics."""
     if reference_fonts:
         from .reference import ReferenceEnsemble
@@ -67,6 +56,10 @@ def probe_document(doc, *, max_pages=None, reference_font=None,
         reference = ReferenceIndex.from_path(reference_font)
     else:
         reference = None
+    if legacy_references is None:
+        legacy_references = LegacyReferenceIndex.from_local()
+    elif not isinstance(legacy_references, LegacyReferenceIndex):
+        legacy_references = LegacyReferenceIndex(legacy_references)
     embedded = EmbeddedFontCache(doc)
 
     fonts: dict[str, dict] = {}
@@ -100,6 +93,8 @@ def probe_document(doc, *, max_pages=None, reference_font=None,
                 )
             char = glyph.get("c") or ""
             record["observed"] += 1
+            if glyph.get("simple_font"):
+                record["simple"] += 1
             record["classes"][char_class(char)] += 1
             if is_unknown_glyph(glyph):
                 record["unknown"] += 1
@@ -119,8 +114,29 @@ def probe_document(doc, *, max_pages=None, reference_font=None,
         if record.get("font_xref"):
             mapping = cmap_mapping(doc, record["font_xref"])
         subset_sig = family_sig = None
-        if unknown:
-            subset_sig, family_sig = _fingerprints(record, embedded)
+        embedded_font = None
+        if record.get("font_xref"):
+            embedded_font = embedded.get(record["font_xref"])
+            if embedded_font is not None:
+                try:
+                    family_sig = font_signature(
+                        embedded_font.font, record["base_font"] or "")
+                except Exception:
+                    family_sig = None
+                if unknown:
+                    try:
+                        subset_sig = subset_signature(embedded_font.font)
+                    except Exception:
+                        subset_sig = None
+        font_obj = embedded_font.font if embedded_font is not None else None
+        try:
+            identity = identify_font(
+                record["base_font"], font_obj,
+                simple=bool(record["simple"]),
+                references=legacy_references)
+        except Exception:
+            identity = identify_font(
+                record["base_font"], None, simple=bool(record["simple"]))
         unknown_cids = []
         candidates = {}
         for cid in sorted(record["unknown_cids"]):
@@ -135,34 +151,31 @@ def probe_document(doc, *, max_pages=None, reference_font=None,
                                     record.get("font_xref"), cid)
                 if found:
                     candidates[str(cid)] = found
-        if registry is not None and record.get("font_xref"):
+        if registry is not None and embedded_font is not None \
+                and family_sig is not None:
             from . import registry as registry_mod
             from .fingerprint import glyph_fingerprint
 
-            embedded_font = embedded.get(record["font_xref"])
-            if embedded_font is not None:
-                try:
-                    family = font_signature(
-                        embedded_font.font, record["base_font"] or "")
-                    for row in unknown_cids:
-                        cid = row["cid"]
-                        if cid < 0 or cid >= len(embedded_font.order):
-                            continue
-                        fingerprint = glyph_fingerprint(
-                            embedded_font.glyph_set, embedded_font.order[cid],
-                            embedded_font.hmtx, embedded_font.upm)
-                        entry = registry_mod.lookup(
-                            registry, family.family_hash,
-                            fingerprint.outline_hash)
-                        if entry:
-                            row["registry"] = {
-                                "value": entry.get("value") or "",
-                                "status": entry.get("status") or "",
-                                "support": entry.get("support") or 0,
-                                "values": entry.get("values") or [],
-                            }
-                except Exception:
-                    pass
+            try:
+                for row in unknown_cids:
+                    cid = row["cid"]
+                    if cid < 0 or cid >= len(embedded_font.order):
+                        continue
+                    fingerprint = glyph_fingerprint(
+                        embedded_font.glyph_set, embedded_font.order[cid],
+                        embedded_font.hmtx, embedded_font.upm)
+                    entry = registry_mod.lookup(
+                        registry, family_sig.family_hash,
+                        fingerprint.outline_hash)
+                    if entry:
+                        row["registry"] = {
+                            "value": entry.get("value") or "",
+                            "status": entry.get("status") or "",
+                            "support": entry.get("support") or 0,
+                            "values": entry.get("values") or [],
+                        }
+            except Exception:
+                pass
         out.append({
             "font_id": font_id,
             "base_font": record["base_font"],
@@ -175,8 +188,10 @@ def probe_document(doc, *, max_pages=None, reference_font=None,
             "classes": dict(sorted(record["classes"].items())),
             "cmap_entries": len(mapping) if mapping is not None else 0,
             "glyph_count": (family_sig.glyph_count if family_sig else None),
+            "simple_font": bool(record["simple"]),
             "subset_signature": subset_sig,
             "font_signature": (family_sig.as_dict() if family_sig else None),
+            "legacy": identity.as_dict(),
             "unknown_cids": unknown_cids,
             "candidates": candidates,
         })
@@ -233,12 +248,27 @@ def format_probe(result: dict) -> str:
         lines.append(f"  classes: {classes or '-'}")
         signature = font.get("font_signature")
         if signature:
+            subset = font.get("subset_signature")
             lines.append(
                 f"  font: {signature.get('family') or '?'} "
                 f"{signature.get('style') or ''} \u00b7 "
                 f"glyphs={signature.get('glyph_count')} "
                 f"\u00b7 family={signature.get('family_hash', '')[:12]} "
-                f"\u00b7 subset={font['subset_signature'][:12]}")
+                f"\u00b7 subset={subset[:12] if subset else '-'}")
+        legacy = font.get("legacy")
+        if legacy:
+            family = legacy.get("family") or "unknown"
+            flags = []
+            flags.append("supported" if legacy.get("supported")
+                         else "needs table")
+            if legacy.get("legacy_like"):
+                flags.append("8-bit candidate")
+            lines.append(
+                f"  legacy: {family} ({', '.join(flags)}; "
+                f"{legacy.get('source') or 'unknown'}, "
+                f"{legacy.get('confidence') or 'unknown'})")
+            if legacy.get("evidence"):
+                lines.append(f"    {legacy['evidence']}")
         if font["unknown_cids"]:
             shown = ", ".join(
                 f"{row['cid']}\u00d7{row['count']}"

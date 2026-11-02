@@ -1,10 +1,11 @@
 {
-  "git_revision": "2fd9879e32e0dc28aa3e56950b4e9b61efe2b359",
+  "git_revision": "ae80cfa090713c716ec217a7ed57705bedfa811e",
   "bulletins_parsed": 58,
-  "months_with_violent": 50,
+  "months_with_violent": 51,
   "months_with_totals": 51,
   "months_with_national_totals": 60,
-  "violent_rows": 3574,
+  "months_with_national_offense_table": 1,
+  "violent_rows": 3582,
   "fiscal_years": [
     "2075/76",
     "2076/77",
@@ -21,27 +22,28 @@
     "The five-year annual chart is a separate series; fiscal years are matched across bulletins by latest as-of date.",
     "2078 bulletins and 2079 Baishakh use an older layout without province-by-offence charts.",
     "2079 Asar-Shrawan-Bhadra are derived by differencing consecutive cumulative charts; the 2079 Ashoj heinous chart is read from text labels over a raster background.",
+    "2075-11 heinous chart is partial in the source PDF (rape only; legacy fonts decoded); the national offence table supplies monthly national totals for seven violent categories, without province detail.",
     "2083 Bhadra serious chart is partial in the source PDF (only attempted murder is plotted)."
   ],
   "artifacts": {
     "violent_monthly.csv.gz": {
-      "sha256": "cab08580d9928f07d87bae7b69a5f9de3e0b08e6ab4479c313b663f9820581f9",
-      "bytes": 19965
+      "sha256": "45132bdee5c6e037ef3d4bae758d917dbd9d87b0ca33c34f399f27f35c0ba2b2",
+      "bytes": 20092
     },
     "violent_national.csv.gz": {
-      "sha256": "65c3c59fa3a7a0fa4e2ab4e307bc6ce63e6b174946445f39e0903331c63875a4",
-      "bytes": 3379
+      "sha256": "17a1e1f4f6febebc528292a693446c0e9988ba4a968bb93fd77c82a13303753b",
+      "bytes": 3557
     },
     "violent_by_fy.csv.gz": {
-      "sha256": "38a4d62a74be0f06061381cfd1f117d145d91d5b6b58fac9bb478000c9fb8136",
-      "bytes": 591
+      "sha256": "66bb2849c93fabb3248fdcd310c12598e4ab1231fa1f548da3c5f59a18413869",
+      "bytes": 617
     },
     "total_cases_monthly.csv.gz": {
-      "sha256": "d390c44b70bad000ceee55776769b3dfa16897f78fac6d850f0e9a3279c2d8a5",
+      "sha256": "ab1a1ed544beb75f585b5ec957dde861eab343f53f20271d56eaf3976ffa5334",
       "bytes": 4099
     },
     "total_cases_national.csv.gz": {
-      "sha256": "ea7b10ce776d62da55a945aae79ac425cd7a64bfe6e5a2cb448b742332c5e36c",
+      "sha256": "4f1474c9754787fa7790715038685d2ffe0976a8e8d593d20fc47dd6589d6025",
       "bytes": 2425
     },
     "annual_totals.csv": {
@@ -49,23 +51,23 @@
       "bytes": 2905
     },
     "category_coverage.csv.gz": {
-      "sha256": "7246deb7497e1f2bea5c5eacc6b11397e7dc7a6287b9a3c652fb682c6a1dacc2",
-      "bytes": 2488
+      "sha256": "b1cb73d4ab5ffb5f361df392e7525c123c9bbea4b243ba0d90c0dbaf0a52d5d1",
+      "bytes": 2504
     },
     "month_status.csv.gz": {
-      "sha256": "a8e45fedcd03f1c57e1f93777a9c58c64ffe9c6c326703b2f06ed318af12bb12",
-      "bytes": 527
+      "sha256": "fd9e3cbe1cfc82f4d00545b2019a9504e6506c92027414e732e3bdad7a3a587e",
+      "bytes": 543
     },
     "offense_availability.csv.gz": {
-      "sha256": "088c8a674f672b8d6238829192db29d2bdbc92ac9e3187b92610d3467ad9fa95",
-      "bytes": 324
+      "sha256": "ccadd266e4f58abe2c56ccac45874b53db845422bd27e96a53e7939f566ad2e9",
+      "bytes": 332
     },
     "total_case_revisions.csv.gz": {
-      "sha256": "bc9cdf3128845288d263ab5884a9820bfdbfef6a0b7244db700fa4f5bdd2977b",
+      "sha256": "7a6ce82636a0cd985ef964fc2cc64e94255b34c2655b05e5689c91036e11e8d3",
       "bytes": 3176
     },
     "national_total_revisions.csv.gz": {
-      "sha256": "39f1f11dc07214046624a13886015e7b4f0b4c612afc1634bcd16054e7c56343",
+      "sha256": "7374922e01480c20705fd921a0cd87325543411ab492f94dc3b371eeb0bddc88",
       "bytes": 599
     },
     "annual_revisions.csv": {
@@ -85,16 +87,16 @@
       "bytes": 45210
     },
     "charts/heinous_monthly.png": {
-      "sha256": "6e5ff39ab6827624903c279809b5ac97f70af7fae671d71d1a92c1e24bfdd2c9",
-      "bytes": 113260
+      "sha256": "aec1f8667ae3db02fe04df6284d38221d86d4a777edeb38de08da42063640331",
+      "bytes": 96873
     },
     "charts/serious_monthly.png": {
       "sha256": "a86603e4f064157bd1fe0aeb544ea078eeb2e11fcd6a84d48890bafb2d40ab8f",
       "bytes": 149382
     },
     "charts/violent_by_fiscal_year.png": {
-      "sha256": "3686dea7c00350fc026817be1db71c9bb145e86f0da101643b1efb9d53bbd2a1",
-      "bytes": 66435
+      "sha256": "868d846b4693823e8e3c077370adf99bdd3f8222579b69b8cc4aa078dd4f7a77",
+      "bytes": 68327
     },
     "charts/total_cases_monthly.png": {
       "sha256": "fda34defb64d763bd2659ddbfb6251d7d34ccc294812220ec9eaaf28411b36b1",

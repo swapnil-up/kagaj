@@ -68,9 +68,10 @@ def resolve_series(
                     resolved[i] = canon
                     warnings.append(f"series {i} label missing; inferred {canon} from chart order")
     elif prior and len(prior) != len(resolved):
-        warnings.append(
-            f"series count {len(resolved)} does not match known {kind} order ({len(prior)})"
-        )
+        if not (len(resolved) == 1 and resolved[0] is not None):
+            warnings.append(
+                f"series count {len(resolved)} does not match known {kind} order ({len(prior)})"
+            )
 
     if any(c is None for c in resolved):
         warnings.append("unresolved series: " + ", ".join(repr(r) for r, c in zip(raw_labels, resolved) if c is None))

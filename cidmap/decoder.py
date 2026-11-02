@@ -17,11 +17,18 @@ from __future__ import annotations
 
 from . import legacy as legacy_fonts
 from .decode import cluster_lines, glyphs, is_unknown_glyph, layout_lines
+from .embedded import EmbeddedFontCache
+from .legacy_identify import (
+    LegacyIdentity,
+    LegacyReferenceIndex,
+    identify_font,
+)
 from .mappings import get_value
 
 
 def decode_page(page, store, dedup=True, legacy=True,
-                issues=None) -> str:
+                issues=None, embedded=None, references=None,
+                identities=None) -> str:
     """Decode one page to Devanagari text (reading order, newline per line).
 
     Legacy 8-bit spans are decoded deterministically before per-glyph store
@@ -31,30 +38,59 @@ def decode_page(page, store, dedup=True, legacy=True,
     Spans whose BaseFont maps to several resources are skipped and reported in
     ``issues`` rather than aborting the page.
     """
+    if identities is None:
+        identities = {}
+    if embedded is None and getattr(page, "parent", None) is not None:
+        embedded = EmbeddedFontCache(page.parent)
     page_glyphs = glyphs(page, dedup=dedup, allow_ambiguous=True,
                          issues=issues)
     out = []
     for line in layout_lines(cluster_lines(page_glyphs)):
-        out.append(_decode_line(line, store, legacy))
+        out.append(_decode_line(
+            line, store, legacy, identities, embedded, references))
     return "\n".join(out)
 
 
-def _legacy_family(glyph: dict) -> str | None:
-    return legacy_fonts.family(
-        glyph.get("base_font") or glyph.get("font") or "")
+def _legacy_identity(glyph: dict, identities: dict, embedded,
+                     references) -> LegacyIdentity:
+    key = (glyph.get("font_xref"),
+           glyph.get("base_font") or glyph.get("font") or "")
+    found = identities.get(key)
+    if found is not None:
+        return found
+    font = None
+    xref = glyph.get("font_xref")
+    if embedded is not None and xref:
+        cached = embedded.get(xref)
+        if cached is not None:
+            font = cached.font
+    found = identify_font(
+        key[1], font, simple=glyph.get("simple_font"),
+        references=references)
+    identities[key] = found
+    return found
 
 
-def _decode_line(line, store, legacy=True) -> str:
+def _decode_line(line, store, legacy=True, identities=None,
+                 embedded=None, references=None) -> str:
     if not legacy:
         return "".join(_resolve(glyph, store) for glyph in line)
+    if identities is None:
+        identities = {}
     out = []
     index = 0
     while index < len(line):
         glyph = line[index]
-        family = _legacy_family(glyph)
-        if family and legacy_fonts.supported(family):
+        identity = _legacy_identity(
+            glyph, identities, embedded, references)
+        family = identity.family
+        if family and identity.supported:
             end = index + 1
-            while end < len(line) and _legacy_family(line[end]) == family:
+            while end < len(line):
+                other = _legacy_identity(
+                    line[end], identities, embedded, references)
+                if not (other.family == family and other.supported):
+                    break
                 end += 1
             run = line[index:end]
             if legacy_fonts.table_family(family):
@@ -89,12 +125,17 @@ def decode_doc(doc, store, max_pages=None, dedup=True, log=None,
     """Decode a document; return one Devanagari string per page."""
     pages = range(len(doc)) if max_pages is None else range(
         min(max_pages, len(doc)))
+    embedded = EmbeddedFontCache(doc) if legacy and doc is not None else None
+    references = LegacyReferenceIndex.from_local() if legacy else None
+    identities = {}
     out = []
     for pn in pages:
         page = doc[pn]
         page_issues = []
-        text = decode_page(page, store, dedup=dedup, legacy=legacy,
-                           issues=page_issues)
+        text = decode_page(
+            page, store, dedup=dedup, legacy=legacy,
+            issues=page_issues, embedded=embedded, references=references,
+            identities=identities)
         for issue in page_issues:
             issue["page"] = pn + 1
         if issues is not None:

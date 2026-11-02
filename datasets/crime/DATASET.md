@@ -5,7 +5,7 @@ e-bulletins (`cid.nepalpolice.gov.np/publication/4/`). Values are transcribed
 from the vector charts in each bulletin; chart data labels are the source of
 truth and bars are used only for baselines and scale checks.
 
-Coverage: 58 bulletins, Bhadra 2075 — Ashoj 2083 (50 months with usable
+Coverage: 58 bulletins, Bhadra 2075 — Ashoj 2083 (51 months with usable
 province-by-offence charts, 51 months with totals). All dates are Bikram Sambat.
 
 ## Files
@@ -13,7 +13,7 @@ province-by-offence charts, 51 months with totals). All dates are Bikram Sambat.
 | File | Grain | Key columns |
 |---|---|---|
 | `violent_monthly.csv.gz` | month × offence × province | `month`, `chart_kind`, `offense`, `province`, `value`, `basis`, `method`, `confidence` |
-| `violent_national.csv.gz` | month × offence | `value`, `value_ex_valley`, `provinces_reported`, `categories_reported` |
+| `violent_national.csv.gz` | month × offence | `value`, `value_ex_valley`, `provinces_reported`, `categories_reported`, `source` (`province_sum` or `table_labels`) |
 | `violent_by_fy.csv.gz` | fiscal year × offence | `value` (ex-valley), `months_reported` |
 | `category_coverage.csv.gz` | month × offence | `provinces_reported`, `reported` |
 | `offense_availability.csv.gz` | offence | `months_reported`, `first_month`, `last_month` |
@@ -32,10 +32,12 @@ province-by-offence charts, 51 months with totals). All dates are Bikram Sambat.
 
 `month` is `YYYY-MM` in Bikram Sambat. `fy` is the Nepali fiscal year
 (`YYYY/YY`), running Shrawan–Ashad. `basis` is `monthly` or `derived`;
-`method` is `chart_labels`, `text_labels`, or `cumulative_difference`.
-National totals use `method=province_sum` where province detail exists and
+`method` is `chart_labels`, `text_labels`, `cumulative_difference`, or
+`table_labels`. National totals use `method=province_sum` where province detail
+exists, `method=table_labels` for the 2075-11 national offence table, and
 `method=line_labels` for the nine months filled from quarterly registered-case
-line charts.
+line charts. `value_ex_valley` is blank for table rows because the source table
+has no province split.
 
 Population denominators are the NSO medium-scenario projection
 (`Population Projection for Nepal 2021-2051`) for 2021–2027; 2019–2020 use
@@ -91,14 +93,19 @@ Shrawan. Derived rows are tagged `basis=derived` and
   the monthly panel; Asar, Shrawan, and Bhadra are derived by differencing
   consecutive snapshots. Original cumulative rows remain in the intermediate
   JSON and are excluded from the committed monthly trend.
-- **2075 legacy font.** The single 2075 bulletin uses an 8-bit font; its
-  violent category chart is not machine-readable, so the violent series starts
-  in 2079.
+- **2075 legacy font.** The single 2075 bulletin uses legacy 8-bit fonts for
+  some chart text. Decoding recovers its standalone Phagun rape chart, so
+  province-level `rape` is available for 2075-11. Page 5 also prints a monthly
+  national offence table; it supplies national totals for murder, attempted
+  murder, trafficking, suicide abetment, kidnapping, assault, and rape, but no
+  province split except for the separate rape chart. Those table rows are
+  marked `source=table_labels`; other violent series start in 2079-03.
 - **2078 and 2079 Baishakh** use an older layout without province-by-offence
   charts.
-- **Raster charts.** The 2079 Ashoj heinous chart is an embedded image; its
-  text labels are read from the PDF text layer. The 2083 Bhadra serious chart
-  is partial in the source (only attempted murder is plotted) and is flagged in
+- **Raster charts and partial pages.** The 2079 Ashoj heinous chart is an
+  embedded image; its text labels are read from the PDF text layer. The
+  2075-11 heinous chart publishes only rape, and the 2083 Bhadra serious chart
+  publishes only attempted murder; both are flagged as partial in
   `month_status.csv.gz`.
 - **2083 Jestha rape = 30** is a source anomaly. Verified against page 10 of
   the bulletin: every province prints a single-digit rape value

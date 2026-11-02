@@ -102,13 +102,25 @@ def cmd_verify(_: argparse.Namespace) -> None:
         violent.groupby(["month", "chart_kind", "offense"], as_index=False)
         .agg(expect_total=("value", "sum"), expect_ex=("value", lambda s: s[violent.loc[s.index, "ex_valley"]].sum()))
     )
-    check = national.merge(recomputed, on=["month", "chart_kind", "offense"], how="left")
+    national_source = (
+        national["source"] if "source" in national
+        else pd.Series("province_sum", index=national.index)
+    )
+    province_national = national[national_source == "province_sum"]
+    check = province_national.merge(
+        recomputed, on=["month", "chart_kind", "offense"], how="left"
+    )
     mismatch = (
         (check["value"] != check["expect_total"])
         | (check["value_ex_valley"] != check["expect_ex"])
     ).sum()
     if mismatch:
         issues.append(f"{mismatch} national rows disagree with province detail")
+    table_national = national[national_source == "table_labels"]
+    if (table_national["value"] <= 0).any():
+        issues.append("non-positive national table values")
+    if (table_national["provinces_reported"] != 0).any():
+        issues.append("national table rows with province counts")
 
     dup = totals.duplicated(subset=["month", "province"]).sum()
     if dup:
@@ -151,6 +163,7 @@ def cmd_verify(_: argparse.Namespace) -> None:
             "totals": int(totals["month"].nunique()),
         },
         "methods": violent["method"].value_counts().to_dict(),
+        "national_table_rows": int(len(table_national)),
         "derived_months": sorted(violent.loc[violent["basis"] == "derived", "month"].unique().tolist()),
         "partial_charts": int(len(partial)),
         "revision_conflicts": revised,

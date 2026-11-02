@@ -5,6 +5,8 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
+from crime.schema import match_offense, match_offense_exact
+
 DATA = Path(__file__).resolve().parent.parent / "datasets" / "crime"
 MONTH_RE = r"^\d{4}-\d{2}$"
 
@@ -28,15 +30,37 @@ def test_violent_monthly_unique_and_well_formed(violent):
 
 def test_violent_national_matches_province_detail(violent):
     national = pd.read_csv(DATA / "violent_national.csv.gz", dtype={"month": str})
+    province_national = national[national["source"] == "province_sum"]
     detail = violent.assign(ex=violent["province"] != "kathmandu_valley")
     recomputed = (
         detail.groupby(["month", "chart_kind", "offense"], as_index=False)
         .agg(total=("value", "sum"), ex=("value", lambda s: s[detail.loc[s.index, "ex"]].sum()))
     )
-    merged = national.merge(recomputed, on=["month", "chart_kind", "offense"])
-    assert len(merged) == len(national)
+    merged = province_national.merge(recomputed, on=["month", "chart_kind", "offense"])
+    assert len(merged) == len(province_national)
     assert (merged["value"] == merged["total"]).all()
     assert (merged["value_ex_valley"] == merged["ex"]).all()
+
+
+def test_2075_national_table_backfills_missing_offences():
+    national = pd.read_csv(DATA / "violent_national.csv.gz", dtype={"month": str})
+    rows = national[
+        (national["month"] == "2075-11") & (national["source"] == "table_labels")
+    ].set_index("offense")
+    assert rows["value"].astype(int).to_dict() == {
+        "murder": 40,
+        "attempted_murder": 62,
+        "trafficking": 24,
+        "suicide_abetment": 5,
+        "kidnapping": 11,
+        "assault": 13,
+    }
+    assert (rows["provinces_reported"] == 0).all()
+    assert rows["value_ex_valley"].isna().all()
+    rape = national[(national["month"] == "2075-11") & (national["offense"] == "rape")]
+    assert len(rape) == 1
+    assert rape.iloc[0]["source"] == "province_sum"
+    assert int(rape.iloc[0]["value"]) == 155
 
 
 def test_total_cases_unique_and_positive():
@@ -80,11 +104,40 @@ def test_derived_and_text_label_values(violent):
 def test_partial_chart_is_flagged():
     status = pd.read_csv(DATA / "month_status.csv.gz", dtype={"month": str})
     partial = status[status["partial_chart"]]
-    assert list(partial["month"]) == ["2083-05"]
-    assert list(partial["chart_kind"]) == ["serious"]
+    assert list(partial["month"]) == ["2075-11", "2083-05"]
+    assert list(partial["chart_kind"]) == ["heinous", "serious"]
     serious = pd.read_csv(DATA / "violent_monthly.csv.gz", dtype={"month": str})
     row = serious[(serious["month"] == "2083-05") & (serious["chart_kind"] == "serious")]
     assert set(row["offense"]) == {"attempted_murder"}
+
+
+def test_2075_rape_backfilled_from_legacy_chart(violent):
+    rows = violent[(violent["month"] == "2075-11") & (violent["chart_kind"] == "heinous")]
+    assert set(rows["offense"]) == {"rape"}
+    assert len(rows) == 8
+    assert int(rows["value"].sum()) == 155
+    values = rows.set_index("province")["value"].astype(int).to_dict()
+    assert values == {
+        "kathmandu_valley": 16,
+        "koshi": 35,
+        "madhesh": 22,
+        "bagmati": 10,
+        "gandaki": 16,
+        "lumbini": 29,
+        "karnali": 8,
+        "sudurpashchim": 19,
+    }
+
+
+def test_offense_matching_rejects_traffic_labels():
+    assert match_offense_exact("जबरजस्ती करणी") == "rape"
+    assert match_offense_exact("जवरजस्ती करणी") == "rape"
+    assert match_offense_exact("ज्यान मार्ने उद्योग") == "attempted_murder"
+    assert match_offense_exact("आत्म हत्या गर्न दुरुत्साहन गरेको") == "suicide_abetment"
+    assert match_offense_exact("कुटपिट अंगभंग") == "assault"
+    assert match_offense_exact("जबरजस्ती करणी उद्योग") is None
+    assert match_offense("सवारी ज्यान सम्बन्धी कसूर") is None
+    assert match_offense("सडक दुर्घटना") is None
 
 
 def test_supporting_tables_are_consistent():

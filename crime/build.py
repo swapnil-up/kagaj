@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import gzip
 import hashlib
+import io
 import json
 import subprocess
 from pathlib import Path
@@ -100,6 +101,7 @@ def build_frames(parsed: list[dict]) -> dict[str, pd.DataFrame]:
     violent_rows = []
     total_rows = []
     annual_rows = []
+    national_offense_rows = []
     for bulletin in parsed:
         issue = bulletin["issue"]
         for rec in bulletin["violent"]:
@@ -108,6 +110,10 @@ def build_frames(parsed: list[dict]) -> dict[str, pd.DataFrame]:
             violent_rows.append(rec)
         for rec in bulletin["monthly_totals"]:
             total_rows.append(rec)
+        for rec in bulletin.get("national_offense", []):
+            rec.setdefault("method", "table_labels")
+            rec.setdefault("confidence", "high")
+            national_offense_rows.append(rec)
         for rec in bulletin["annual"]:
             annual_rows.append(rec)
 
@@ -146,6 +152,33 @@ def build_frames(parsed: list[dict]) -> dict[str, pd.DataFrame]:
     national["complete_categories"] = (
         national["categories_reported"] == national["categories_expected"]
     )
+    national["source"] = "province_sum"
+
+    national_offense = pd.DataFrame(national_offense_rows)
+    if not national_offense.empty:
+        national_offense["offense_en"] = national_offense["offense"].map(
+            lambda key: OFFENSES[key][0]
+        )
+        national_offense["provinces_reported"] = 0
+        national_offense["value_ex_valley"] = float("nan")
+        national_offense["categories_reported"] = 1
+        national_offense["categories_expected"] = national_offense["chart_kind"].map(
+            {"heinous": len(HEINOUS_CORE), "serious": len(SERIOUS_CORE)}
+        )
+        national_offense["complete_categories"] = False
+        national_offense["source"] = "table_labels"
+        national = pd.concat([
+            national,
+            national_offense[[
+                "month", "fy", "offense", "offense_en", "chart_kind", "value",
+                "provinces_reported", "value_ex_valley", "basis", "method",
+                "categories_reported", "categories_expected", "complete_categories",
+                "source",
+            ]],
+        ], ignore_index=True)
+        national = national.sort_values(
+            ["month", "chart_kind", "offense"]
+        ).reset_index(drop=True)
     return {
         "violent": violent,
         "national": national,
@@ -155,6 +188,7 @@ def build_frames(parsed: list[dict]) -> dict[str, pd.DataFrame]:
         "national_raw": pd.DataFrame(
             [rec for bulletin in parsed for rec in bulletin.get("national_totals", [])]
         ),
+        "national_offense_raw": national_offense,
         "annual_raw": pd.DataFrame(annual_rows),
     }
 
@@ -314,8 +348,10 @@ def build_coverage(violent: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, p
 def _save_gz(frame: pd.DataFrame, name: str) -> Path:
     OUT.mkdir(parents=True, exist_ok=True)
     path = OUT / name
-    with gzip.open(path, "wt", encoding="utf-8", newline="") as handle:
-        frame.to_csv(handle, index=False)
+    with path.open("wb") as raw:
+        with gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as gz:
+            with io.TextIOWrapper(gz, encoding="utf-8", newline="") as handle:
+                frame.to_csv(handle, index=False)
     return path
 
 
@@ -412,7 +448,9 @@ def chart_monthly(national: pd.DataFrame, offenses: list[str], title: str, name:
 
 def chart_fy_violent(national: pd.DataFrame) -> Path:
     core = HEINOUS_CORE + SERIOUS_CORE
-    subset = national[national["offense"].isin(core)].copy()
+    subset = national[
+        national["offense"].isin(core) & national["value_ex_valley"].notna()
+    ].copy()
     grouped = (
         subset.groupby(["fy", "offense"], as_index=False)
         .agg(value=("value_ex_valley", "sum"), months=("month", "nunique"))
@@ -494,7 +532,8 @@ def build() -> dict:
     _save_gz(
         national[["month", "fy", "chart_kind", "offense", "offense_en", "value",
                   "value_ex_valley", "provinces_reported", "categories_reported",
-                  "categories_expected", "complete_categories", "basis", "method"]]
+                  "categories_expected", "complete_categories", "basis", "method",
+                  "source"]]
         .sort_values(["month", "chart_kind", "offense"]),
         "violent_national.csv.gz",
     )
@@ -513,7 +552,10 @@ def build() -> dict:
     )
 
     fy = (
-        national[national["offense"].isin(HEINOUS_CORE + SERIOUS_CORE)]
+        national[
+            national["offense"].isin(HEINOUS_CORE + SERIOUS_CORE)
+            & national["value_ex_valley"].notna()
+        ]
         .groupby(["fy", "chart_kind", "offense", "offense_en"], as_index=False)
         .agg(value=("value_ex_valley", "sum"), months_reported=("month", "nunique"))
     )
@@ -565,6 +607,9 @@ def build() -> dict:
         "months_with_violent": int(violent["month"].nunique()),
         "months_with_totals": int(totals["month"].nunique()) if not totals.empty else 0,
         "months_with_national_totals": int(national_totals["month"].nunique()),
+        "months_with_national_offense_table": int(
+            national.loc[national["source"] == "table_labels", "month"].nunique()
+        ),
         "violent_rows": int(len(violent)),
         "fiscal_years": sorted(annual["fy"].unique().tolist()),
         "caveats": [
@@ -573,6 +618,7 @@ def build() -> dict:
             "The five-year annual chart is a separate series; fiscal years are matched across bulletins by latest as-of date.",
             "2078 bulletins and 2079 Baishakh use an older layout without province-by-offence charts.",
             "2079 Asar-Shrawan-Bhadra are derived by differencing consecutive cumulative charts; the 2079 Ashoj heinous chart is read from text labels over a raster background.",
+            "2075-11 heinous chart is partial in the source PDF (rape only; legacy fonts decoded); the national offence table supplies monthly national totals for seven violent categories, without province detail.",
             "2083 Bhadra serious chart is partial in the source PDF (only attempted murder is plotted).",
         ],
         "artifacts": {

@@ -136,9 +136,12 @@ python -m cidmap.cli legacy-import <codes.csv> [--catalog codes.csv] [--table ci
 ```
 
 - `cidmap probe` is read-only: per-font ToUnicode coverage, character classes,
-  fingerprints, and unknown CIDs. It scans unambiguous fonts on pages with
-  duplicate BaseFont resources and reports ambiguous spans as issues. Use it
-  before review to spot hybrid fonts.
+  fingerprints, legacy identification, and unknown CIDs. It scans unambiguous
+  fonts on pages with duplicate BaseFont resources and reports ambiguous spans
+  as issues. Legacy families are identified from BaseFont, the embedded name
+  table, committed/external tables, or local legacy reference outlines. Unknown
+  simple ASCII fonts are flagged `legacy_like`/`needs_table`, never decoded by
+  guesswork.
 - `cidmap infer` is read-only shape-run inference; `review --shape-runs` adds
   the same candidates to the review sheet. Both need a reference font.
 - `cidmap registry ingest` records glyph fingerprints from committed mappings;
@@ -163,7 +166,8 @@ python -m cidmap.cli legacy-import <codes.csv> [--catalog codes.csv] [--table ci
   `kalimati`, `kokila`, `mangal`, `preeti`, or `kantipur`; never commit font
   binaries. Proprietary fonts must come from a licensed local installation.
   Legacy 8-bit fonts still need a separate byte→Unicode decoder; they are not
-  usable as Unicode reference outlines.
+  usable as Unicode reference outlines. They can identify a family by matching
+  ASCII-keyed glyph outlines, but that is not a Devanagari mapping source.
 - Unknown-CID workflow: `census` → `review` → `commit` → `registry ingest`
   → `repair`.
 - `cidmap review` exports neutral decisions; `derive` accepts them and legacy
@@ -201,8 +205,11 @@ python -m crime.cli verify              # integrity report -> verify.json
   `docs/plans/nepal-crime-data.md`.
 - `basis=cumulative` rows (2079 Jestha–Bhadra YTD charts) stay in intermediate
   JSON; Asar–Bhadra are differenced into `basis=derived` monthly rows.
-- `method` records `chart_labels`, `text_labels`, or `cumulative_difference`;
-  `confidence` is currently `high` for all committed rows.
+- `method` records `chart_labels`, `text_labels`, `cumulative_difference`, or
+  `table_labels`; `confidence` is currently `high` for all committed rows.
+  `violent_national.csv.gz` carries `source=province_sum` or `table_labels`;
+  2075-11's page-5 national table adds national offence totals without a
+  province split.
 - `category_coverage.csv.gz`, `month_status.csv.gz`, and
   `offense_availability.csv.gz` record category/era gaps; revisions are in
   `*_revisions.csv*`; population denominators in `population_nepal.csv` and

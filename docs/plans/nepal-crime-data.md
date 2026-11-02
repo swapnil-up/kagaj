@@ -69,7 +69,11 @@ Intermediate PDFs and parsed JSON live in gitignored `output/crime/`.
 
 ## Open issues
 
-- 2075 uses a legacy 8-bit font; the violent category chart remains unavailable.
+- 2075 uses legacy 8-bit fonts; the standalone Phagun rape chart is decoded.
+  Page 5's national offence table supplies national totals for seven violent
+  categories, but no province split beyond rape.
+- The 2075-11 heinous chart is partial (rape only) and is flagged alongside the
+  2083 Bhadra serious chart.
 - 2079 Jestha cannot be isolated from its cumulative chart; Asar–Bhadra are
   derived by differencing.
 - The 2079 Ashoj heinous chart is raster but readable from text labels.

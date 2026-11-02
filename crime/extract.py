@@ -12,6 +12,7 @@ import pymupdf
 from .charts import extract_annual, extract_charts, extract_text_chart
 from .normalize import HEINOUS_ORDER, SERIOUS_FULL_ORDER, SERIOUS_MODERN_ORDER, resolve_series, title_kind
 from .schema import PROVINCES, Issue, add_months, fiscal_year, month_key, normalize_digits, parse_int
+from .tables import extract_national_offense_table
 
 
 @dataclass
@@ -56,6 +57,22 @@ class NationalTotalRecord:
 
 
 @dataclass
+class NationalOffenseRecord:
+    month: str
+    fy: str
+    offense: str
+    chart_kind: str
+    value: int
+    basis: str
+    window: str
+    method: str
+    confidence: str
+    issue_no: int | None
+    page: int
+    source_url: str
+
+
+@dataclass
 class AnnualRecord:
     fy: str
     series: str
@@ -75,6 +92,7 @@ class BulletinData:
     violent: list[ViolentRecord] = field(default_factory=list)
     monthly_totals: list[MonthlyTotalRecord] = field(default_factory=list)
     national_totals: list[NationalTotalRecord] = field(default_factory=list)
+    national_offense: list[NationalOffenseRecord] = field(default_factory=list)
     annual: list[AnnualRecord] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
 
@@ -86,6 +104,7 @@ class BulletinData:
             "violent": [asdict(r) for r in self.violent],
             "monthly_totals": [asdict(r) for r in self.monthly_totals],
             "national_totals": [asdict(r) for r in self.national_totals],
+            "national_offense": [asdict(r) for r in self.national_offense],
             "annual": [asdict(r) for r in self.annual],
             "warnings": self.warnings,
         }
@@ -118,8 +137,16 @@ def analyze_pdf(path: str | Path, issue: Issue, source_url: str = "") -> Bulleti
     from .charts import _titles, page_spans
 
     quarter_covered: set[str] = set()
+    national_offense_rows: list[dict] = []
     for page_no, page in enumerate(doc, start=1):
         page_titles = _titles(page_spans(page))
+        page_text = page.get_text()
+        if "शीर्षक" in page_text or "zLif{s" in page_text:
+            national_offense_rows.extend(
+                extract_national_offense_table(
+                    page, issue, page_no, source_url
+                )
+            )
         quarter_titles = [t for t in page_titles if "त्रैम" in t.text]
         seen_kinds: set[str] = set()
         for chart in extract_charts(page):
@@ -142,7 +169,8 @@ def analyze_pdf(path: str | Path, issue: Issue, source_url: str = "") -> Bulleti
                 )
             )
             if (
-                title_kind(chart.title_raw) == kind
+                (title_kind(chart.title_raw) == kind
+                 or (chart.n_series == 1 and kind == "heinous"))
                 and _is_violent_chart(chart.title_raw, provinces, kind, n_series)
             ):
                 seen_kinds.add(kind)
@@ -336,6 +364,13 @@ def analyze_pdf(path: str | Path, issue: Issue, source_url: str = "") -> Bulleti
     for record in data.national_totals:
         national_dedup[record.month] = record
     data.national_totals = list(national_dedup.values())
+    province_offenses = {record.offense for record in data.violent}
+    national_offense_dedup: dict[tuple[str, str], NationalOffenseRecord] = {}
+    for record in national_offense_rows:
+        if record["offense"] in province_offenses:
+            continue
+        national_offense_dedup[(record["month"], record["offense"])] = NationalOffenseRecord(**record)
+    data.national_offense = list(national_offense_dedup.values())
     return data
 
 

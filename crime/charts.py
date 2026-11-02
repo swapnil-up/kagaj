@@ -19,7 +19,16 @@ from dataclasses import dataclass, field
 
 import pymupdf
 
-from .schema import clean_label, match_province, parse_int
+from cidmap import legacy as cidmap_legacy
+from cidmap.legacy_identify import LegacyIdentity, identify_font
+
+from .schema import (
+    OFFENSES,
+    clean_label,
+    match_offense_exact,
+    match_province,
+    parse_int,
+)
 
 
 @dataclass
@@ -89,14 +98,27 @@ def _is_devanagari(text: str) -> bool:
     return any("\u0900" <= ch <= "\u097f" for ch in text)
 
 
+def _is_province_row(text: str) -> bool:
+    return text.count("प्रदेश") >= 3
+
+
 def page_spans(page: pymupdf.Page) -> list[Span]:
     spans: list[Span] = []
+    identities: dict[str, LegacyIdentity] = {}
     for block in page.get_text("dict")["blocks"]:
         for line in block.get("lines", []):
             for span in line["spans"]:
                 text = span["text"].strip()
                 if not text:
                     continue
+                identity = identities.get(span["font"])
+                if identity is None:
+                    identity = identify_font(span["font"])
+                    identities[span["font"]] = identity
+                if identity.family and identity.supported:
+                    decoded = cidmap_legacy.decode(text, identity.family)
+                    if decoded is not None:
+                        text = decoded
                 x0, y0, x1, y1 = span["bbox"]
                 spans.append(Span(text, x0, y0, x1, y1, float(span["size"])))
     return spans
@@ -110,6 +132,7 @@ def _titles(spans: list[Span]) -> list[Span]:
         and _is_devanagari(s.text)
         and len(clean_label(s.text)) >= 3
         and parse_int(s.text) is None
+        and not _is_province_row(s.text)
     ]
     candidates.sort(key=lambda s: (s.y0, s.x0))
     lines: list[Span] = []
@@ -141,7 +164,7 @@ def _titles(spans: list[Span]) -> list[Span]:
             )
         else:
             merged.append(line)
-    return merged
+    return [line for line in merged if not _is_province_row(line.text)]
 
 
 def _swatch_rows(page: pymupdf.Page) -> list[tuple[float, list[tuple[float, tuple[float, float, float]]]]]:
@@ -366,6 +389,10 @@ def extract_charts(page: pymupdf.Page, debug: bool = False) -> list[Chart]:
 
         series_raw = list(legend_labels[:n_series])
         series_raw += [""] * (n_series - len(series_raw))
+        if n_series == 1 and not series_raw[0]:
+            exact = match_offense_exact(title.text)
+            if exact and OFFENSES[exact][2] == "heinous":
+                series_raw[0] = OFFENSES[exact][1]
         scale = _estimate_scale(chart_bars, data_spans)
 
         if debug:

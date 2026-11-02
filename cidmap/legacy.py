@@ -32,6 +32,11 @@ _FAMILIES: tuple[tuple[str, str], ...] = (
     ("fontasyhimali", "fontasy"),
     ("fontasy", "fontasy"),
     ("kantipur", "kantipur"),
+    ("sagarmatha", "sagarmatha"),
+    ("pcsnepali", "pcsnepali"),
+    ("gorkhapatra", "gorkhapatra"),
+    ("nayanepal", "nayanepal"),
+    ("himalli", "himalli"),
     ("himalayabold", "preeti"),
     ("shreenathbold", "preeti"),
     ("cvshrinagar", "preeti"),
@@ -119,8 +124,32 @@ def family(base_font: str) -> str | None:
     return _table_family(name)
 
 
+def family_source(base_font: str) -> str | None:
+    """Return how a legacy family was recognized."""
+    name = _normalize(base_font)
+    if not name:
+        return None
+    for alias, canonical in _FAMILIES:
+        if name == alias or name.startswith(alias):
+            return "gen-ascii" if canonical in _GEN_ASCII else "base-alias"
+    if _table_family(name):
+        return "external-table"
+    return None
+
+
 def is_legacy(base_font: str) -> bool:
     return family(base_font) is not None
+
+
+def encoding(family: str) -> str:
+    """Return the encoding kind for a canonical legacy family."""
+    if family in _SUPPORTED:
+        return "8-bit"
+    if family in _GEN_ASCII:
+        return "cid"
+    if family in _TABLE.get("families", {}):
+        return "table"
+    return "8-bit"
 
 
 def supported(base_font_or_family: str) -> bool:

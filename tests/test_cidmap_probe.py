@@ -54,7 +54,30 @@ def test_probe_reports_coverage_classes_and_unknown_cids(monkeypatch):
         {"cid": 2, "count": 2, "pages": [1]},
     ]
     assert font["cmap_entries"] == 0
+    assert font["legacy"]["family"] is None
+    assert font["legacy"]["source"] == "unknown"
+    assert "legacy: unknown" in probe_mod.format_probe(result)
     assert "unknown CIDs: 2\u00d72" in probe_mod.format_probe(result)
+
+
+def test_probe_identifies_base_font_without_embedded_font(monkeypatch):
+    glyphs = [
+        {"font_id": "P@cmap:1", "base_font": "ABCDEE+Preeti",
+         "font_xref": None, "font_id_scheme": "cmap-hash",
+         "cid": 1, "c": "g", "simple_font": True},
+    ]
+
+    def fake_extract(page, dedup=True, **kwargs):
+        return glyphs
+
+    monkeypatch.setattr(probe_mod, "extract_glyphs", fake_extract)
+    result = probe_mod.probe_document(FakeDoc())
+    font = result["fonts"][0]
+    assert font["legacy"]["family"] == "preeti"
+    assert font["legacy"]["supported"] is True
+    assert font["legacy"]["source"] == "base-font"
+    assert "legacy: preeti (supported; base-font, high)" in \
+        probe_mod.format_probe(result)
 
 
 def test_probe_scans_unambiguous_fonts_on_partial_pages(monkeypatch):

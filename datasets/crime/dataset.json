@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "id": "crime",
+  "title": "CID violent-crime panels",
+  "status": "active",
+  "description": "Structured extraction of the Crime Investigation Department's monthly e-bulletins. Values are read from the vector charts in each bulletin — data labels are the source of truth and bars are used only for baselines and scale checks — then assembled into monthly, national and fiscal-year panels of violent crime.",
+  "grain": "one row per month × offence × province (with national and fiscal-year rollups in separate files)",
+  "coverage": {
+    "start": "2075 Bhadra",
+    "end": "2083 Ashoj",
+    "note": "Bikram Sambat; 51 of 58 bulletins carry usable province-by-offence charts"
+  },
+  "sources": [
+    {
+      "name": "Crime Investigation Department, Nepal Police",
+      "url": "https://cid.nepalpolice.gov.np/publication/4/"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "violent_monthly.csv.gz",
+      "role": "primary",
+      "format": "csv.gz",
+      "description": "month × offence × province, with basis, method and confidence per row."
+    },
+    {
+      "path": "violent_national.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "month × offence, national totals with and without the Kathmandu Valley."
+    },
+    {
+      "path": "violent_by_fy.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz"
+    },
+    {
+      "path": "total_cases_monthly.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz"
+    },
+    {
+      "path": "total_cases_national.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz"
+    },
+    {
+      "path": "annual_totals.csv",
+      "role": "canonical",
+      "format": "csv"
+    },
+    {
+      "path": "annual_rates.csv",
+      "role": "canonical",
+      "format": "csv"
+    },
+    {
+      "path": "category_coverage.csv.gz",
+      "role": "reference",
+      "format": "csv.gz"
+    },
+    {
+      "path": "offense_availability.csv.gz",
+      "role": "reference",
+      "format": "csv.gz"
+    },
+    {
+      "path": "month_status.csv.gz",
+      "role": "reference",
+      "format": "csv.gz"
+    },
+    {
+      "path": "national_total_revisions.csv.gz",
+      "role": "reference",
+      "format": "csv.gz",
+      "description": "Cross-source revision check for national totals."
+    },
+    {
+      "path": "total_case_revisions.csv.gz",
+      "role": "reference",
+      "format": "csv.gz",
+      "description": "Cross-bulletin revision check for provincial totals."
+    },
+    {
+      "path": "annual_revisions.csv",
+      "role": "reference",
+      "format": "csv"
+    },
+    {
+      "path": "population_nepal.csv",
+      "role": "reference",
+      "format": "csv",
+      "description": "Population denominators for annual_rates.csv."
+    },
+    {
+      "path": "charts/annual_totals.png",
+      "role": "chart",
+      "format": "png"
+    },
+    {
+      "path": "charts/heinous_monthly.png",
+      "role": "chart",
+      "format": "png"
+    },
+    {
+      "path": "charts/serious_monthly.png",
+      "role": "chart",
+      "format": "png"
+    },
+    {
+      "path": "charts/total_cases_monthly.png",
+      "role": "chart",
+      "format": "png"
+    },
+    {
+      "path": "charts/violent_by_fiscal_year.png",
+      "role": "chart",
+      "format": "png"
+    }
+  ],
+  "inventories": [
+    "crime/manifests/bulletins.json"
+  ],
+  "freshness": {
+    "fingerprint": "build.json"
+  },
+  "verification": {
+    "status": "verified",
+    "method": "integrity checks over parsed bulletins, province sums reconciled against national tables where both exist, and cross-bulletin revision conflicts recorded rather than smoothed",
+    "report": "verify.json"
+  },
+  "pipeline": {
+    "package": "crime",
+    "cli": "python -m crime.cli build",
+    "plan": "docs/plans/nepal-crime-data.md"
+  },
+  "docs": [
+    "DATASET.md",
+    "REPORT.md",
+    "verify.json",
+    "build.json"
+  ],
+  "tags": [
+    "crime",
+    "police",
+    "cid",
+    "monthly",
+    "province"
+  ],
+  "notes": [
+    "Kathmandu Valley is excluded from cross-month comparisons because some source charts omit it.",
+    "Months with missing or partial charts are reported as gaps, never as zeros."
+  ],
+  "license": {
+    "code": "MIT",
+    "data": "MIT; derived from public Nepal Police bulletins, attribution required"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "id": "labour-migration",
+  "title": "Labour-migration panel",
+  "status": "active",
+  "description": "Tidy, audited extraction of the labour-approval tables published by the Department of Foreign Employment: how many Nepalis received work permits, to which country or district, through which channel, in which fiscal year. Every source document is math-audited against its own printed totals before its rows enter the panel.",
+  "grain": "one row per source document × reporting period × section (country | district) × entity × channel × gender",
+  "coverage": {
+    "start": "FY2074/75",
+    "end": "FY2082/83",
+    "note": "Bikram Sambat fiscal years (Shrawan–Ashad); archive backfill beyond this range is tracked separately in panel_archive_build.json"
+  },
+  "sources": [
+    {
+      "name": "Department of Foreign Employment",
+      "url": "https://dofe.gov.np"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "panel_canonical.csv.gz",
+      "role": "primary",
+      "format": "csv.gz",
+      "description": "Additive-only detail rows with canonical entities/channels/fiscal years; filter analysis_safe=true for the default specification."
+    },
+    {
+      "path": "panel_rollup.csv.gz",
+      "role": "rollup",
+      "format": "csv.gz",
+      "description": "Printed totals, aggregates and distinct measures — compare against, never add to the primary."
+    },
+    {
+      "path": "panel.csv.gz",
+      "role": "raw",
+      "format": "csv.gz",
+      "description": "Raw tidy-long extraction exactly as emitted from the source tables."
+    },
+    {
+      "path": "agencies.csv",
+      "role": "reference",
+      "format": "csv"
+    },
+    {
+      "path": "series.csv",
+      "role": "reference",
+      "format": "csv",
+      "description": "Deaths, returns and remittance series — different units and bases from the panel."
+    },
+    {
+      "path": "period_windows.csv",
+      "role": "reference",
+      "format": "csv"
+    },
+    {
+      "path": "panel_archive.csv.gz",
+      "role": "reference",
+      "format": "csv.gz",
+      "description": "Archive backfill of pre-2025 DoFE reports; not yet merged into the primary panel."
+    },
+    {
+      "path": "panel_archive_unresolved.csv.gz",
+      "role": "reference",
+      "format": "csv.gz",
+      "description": "Archive rows whose entities or channels remain unresolved."
+    }
+  ],
+  "inventories": [
+    "datasets/labour-migration/manifests/migration_manifest.json",
+    "datasets/labour-migration/manifests/migration_archive_manifest.json"
+  ],
+  "freshness": {
+    "fingerprint": "build.json"
+  },
+  "verification": {
+    "status": "verified",
+    "method": "per-document math audit of the extracted tables, reconciliation against printed totals, cross-source crosscheck against opendatanepal, gold-page transcription tests",
+    "report": "reconciliation.json"
+  },
+  "pipeline": {
+    "package": "migration_parser",
+    "cli": "python -m migration_parser.cli build"
+  },
+  "docs": [
+    "README.md",
+    "DATA_AVAILABILITY.md",
+    "codebook.json",
+    "CHANGELOG.md",
+    "verification.json",
+    "crosscheck.json",
+    "source_attestation.json",
+    "reconciliation.json"
+  ],
+  "tags": [
+    "labour",
+    "migration",
+    "dofe",
+    "panel",
+    "fiscal-year"
+  ],
+  "notes": [
+    "panel_archive*.csv.gz are fingerprinted only by counts in panel_archive_build.json — no SHA-256 is recorded for them yet."
+  ],
+  "license": {
+    "code": "MIT",
+    "data": "MIT with source attribution; see DATA_AVAILABILITY.md for source terms"
+  }
+}

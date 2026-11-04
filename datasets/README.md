@@ -3,6 +3,14 @@
 Committed, reusable outputs. Every dataset keeps its source URLs, extraction
 code, and verification notes alongside it.
 
+Each dataset directory carries a [`dataset.json`](labour-migration/dataset.json)
+descriptor — what the data is, where it came from, which file to open first —
+and [`index.json`](index.json) is the generated, merged view of all of them
+(fingerprints included). This is what a catalog or query surface should read
+instead of reverse-engineering each pipeline. See
+[`docs/dataset-manifest.md`](../docs/dataset-manifest.md); regenerate with
+`python -m kagaj_core.manifest index`.
+
 | Dataset | Path | Rows / size | Coverage | Format |
 |---|---|---|---|---|
 | Labour-migration panel | [`labour-migration/`](labour-migration/) | 70,089 canonical rows (50,052 `analysis_safe`) | FY2074/75–2082/83 | CSV.GZ + JSON codebook |

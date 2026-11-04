@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "id": "translations",
+  "title": "Parliament translations",
+  "status": "active",
+  "description": "House of Representatives notices and National Assembly verbatims, OCR'd from the published PDFs and translated to English by a fixed-schema Gemini call. Each document has raw Devanagari OCR, an English translation, and a structured JSON record (session, sections, speakers, bills, tags).",
+  "grain": "one structured JSON record per document",
+  "coverage": {
+    "start": "6th HoR (archive notices)",
+    "end": "7th HoR and NA sessions 19+ (2083)",
+    "note": "Verbatims are segmented into 10k-character chunks with checkpoints; only the merged JSON is committed"
+  },
+  "sources": [
+    {
+      "name": "House of Representatives secretariat",
+      "url": "https://hr.parliament.gov.np"
+    },
+    {
+      "name": "National Assembly verbatims API",
+      "url": "https://na.parliament.gov.np/api/v1/verbatims"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".",
+      "pattern": "*.json",
+      "role": "primary",
+      "format": "json",
+      "description": "Structured record per document."
+    },
+    {
+      "path": ".",
+      "pattern": "*.txt",
+      "role": "canonical",
+      "format": "txt",
+      "description": "Document text: English translation, except files suffixed -ocr.txt which are the raw Devanagari OCR they were produced from."
+    }
+  ],
+  "inventories": [
+    "parliament/manifests/notices.json",
+    "parliament/manifests/notices-6th-hor.json",
+    "parliament/manifests/verbatims.json",
+    "parliament/manifests/verbatims-archive.json"
+  ],
+  "freshness": {},
+  "verification": {
+    "status": "partial",
+    "method": "prose, so there are no printed totals to reconcile; every structured record is stored beside the OCR text that produced it, and per-document status (done / failed / no_pdf) is tracked in the inventories"
+  },
+  "pipeline": {
+    "cli": [
+      "python parliament/scripts/process_notice.py --max-count 1",
+      "python parliament/scripts/process_verbatim.py --max-count 1"
+    ]
+  },
+  "docs": [
+    "INDEX.md"
+  ],
+  "tags": [
+    "parliament",
+    "translation",
+    "devanagari",
+    "notices",
+    "verbatims"
+  ],
+  "notes": [
+    "34 of 70 tracked verbatims and 3 notices are still marked failed; see INDEX.md for per-document status.",
+    "Documents are not chunked or embedded here — the pgvector tables are built separately by parliament/scripts/init_db.py."
+  ],
+  "license": {
+    "code": "MIT",
+    "data": "Derived from public parliamentary documents; attribution required"
+  }
+}

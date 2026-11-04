@@ -44,6 +44,22 @@ kagaj/
 | KUKL water schedules | `datasets/water/` | `schedule.json` is the website artifact |
 | Crime bulletins | `datasets/crime/` | 58 CID bulletins; violent monthly/FY panels + charts; see `DATASET.md` |
 
+## Dataset descriptors
+
+Every dataset directory ships a `dataset.json` describing what it is — grain,
+coverage, sources, artifacts, verification, pipeline. Contract:
+`docs/dataset-manifest.md`.
+
+```bash
+python -m kagaj_core.manifest validate    # errors + warnings
+python -m kagaj_core.manifest index       # regenerate datasets/index.json
+python -m kagaj_core.manifest check       # validate + fail if index.json is stale
+```
+
+`datasets/index.json` is generated and committed; regenerate it after any data
+change (a test fails otherwise). Row counts, byte sizes and SHA-256 come from
+each dataset's `build.json`, never from `dataset.json` itself.
+
 ## Setup
 
 Dependencies are declared in `pyproject.toml`. Create a venv with the extras you

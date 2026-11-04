@@ -51,6 +51,7 @@ it.
 | Unknown-glyph review | `kagaj_core/review/` |
 | pgvector schema | `parliament/scripts/init_db.py` |
 | Tests | `tests/` (pytest) |
+| Dataset descriptors | `kagaj_core/manifest.py` + `datasets/<id>/dataset.json` → `datasets/index.json` |
 | Gold pages | `tests/gold/` |
 
 ### Unknown-glyph review

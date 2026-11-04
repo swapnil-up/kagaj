@@ -1,0 +1,785 @@
+{
+  "schema_version": "1.0",
+  "datasets": [
+    {
+      "id": "crime",
+      "title": "CID violent-crime panels",
+      "status": "active",
+      "description": "Structured extraction of the Crime Investigation Department's monthly e-bulletins. Values are read from the vector charts in each bulletin — data labels are the source of truth and bars are used only for baselines and scale checks — then assembled into monthly, national and fiscal-year panels of violent crime.",
+      "grain": "one row per month × offence × province (with national and fiscal-year rollups in separate files)",
+      "coverage": {
+        "start": "2075 Bhadra",
+        "end": "2083 Ashoj",
+        "note": "Bikram Sambat; 51 of 58 bulletins carry usable province-by-offence charts"
+      },
+      "sources": [
+        {
+          "name": "Crime Investigation Department, Nepal Police",
+          "url": "https://cid.nepalpolice.gov.np/publication/4/"
+        }
+      ],
+      "verification": {
+        "status": "verified",
+        "method": "integrity checks over parsed bulletins, province sums reconciled against national tables where both exist, and cross-bulletin revision conflicts recorded rather than smoothed",
+        "report": "verify.json"
+      },
+      "pipeline": {
+        "package": "crime",
+        "cli": "python -m crime.cli build",
+        "plan": "docs/plans/nepal-crime-data.md"
+      },
+      "license": {
+        "code": "MIT",
+        "data": "MIT; derived from public Nepal Police bulletins, attribution required"
+      },
+      "tags": [
+        "crime",
+        "police",
+        "cid",
+        "monthly",
+        "province"
+      ],
+      "notes": [
+        "Kathmandu Valley is excluded from cross-month comparisons because some source charts omit it.",
+        "Months with missing or partial charts are reported as gaps, never as zeros."
+      ],
+      "docs": [
+        "DATASET.md",
+        "REPORT.md",
+        "verify.json",
+        "build.json"
+      ],
+      "inventories": [
+        "crime/manifests/bulletins.json"
+      ],
+      "freshness": {
+        "fingerprints": [
+          "build.json"
+        ],
+        "commit": "ae80cfa090713c716ec217a7ed57705bedfa811e"
+      },
+      "artifacts": [
+        {
+          "path": "violent_monthly.csv.gz",
+          "role": "primary",
+          "format": "csv.gz",
+          "bytes": 20092,
+          "columns": [
+            "month",
+            "fy",
+            "chart_kind",
+            "offense",
+            "offense_en",
+            "province",
+            "value",
+            "basis",
+            "method",
+            "confidence",
+            "issue_no",
+            "page",
+            "source_url"
+          ],
+          "sha256": "45132bdee5c6e037ef3d4bae758d917dbd9d87b0ca33c34f399f27f35c0ba2b2",
+          "description": "month × offence × province, with basis, method and confidence per row."
+        },
+        {
+          "path": "violent_national.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 3557,
+          "columns": [
+            "month",
+            "fy",
+            "chart_kind",
+            "offense",
+            "offense_en",
+            "value",
+            "value_ex_valley",
+            "provinces_reported",
+            "categories_reported",
+            "categories_expected",
+            "complete_categories",
+            "basis",
+            "method",
+            "source"
+          ],
+          "sha256": "17a1e1f4f6febebc528292a693446c0e9988ba4a968bb93fd77c82a13303753b",
+          "description": "month × offence, national totals with and without the Kathmandu Valley."
+        },
+        {
+          "path": "violent_by_fy.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 617,
+          "columns": [
+            "fy",
+            "chart_kind",
+            "offense",
+            "offense_en",
+            "value",
+            "months_reported"
+          ],
+          "sha256": "66bb2849c93fabb3248fdcd310c12598e4ab1231fa1f548da3c5f59a18413869"
+        },
+        {
+          "path": "total_cases_monthly.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 4099,
+          "columns": [
+            "month",
+            "fy",
+            "province",
+            "value",
+            "as_of",
+            "issue_no",
+            "source_url"
+          ],
+          "sha256": "ab1a1ed544beb75f585b5ec957dde861eab343f53f20271d56eaf3976ffa5334"
+        },
+        {
+          "path": "total_cases_national.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 2425,
+          "columns": [
+            "month",
+            "fy",
+            "value",
+            "as_of",
+            "method",
+            "issue_no",
+            "source_url"
+          ],
+          "sha256": "4f1474c9754787fa7790715038685d2ffe0976a8e8d593d20fc47dd6589d6025"
+        },
+        {
+          "path": "annual_totals.csv",
+          "role": "canonical",
+          "format": "csv",
+          "bytes": 2905,
+          "columns": [
+            "fy",
+            "series",
+            "value",
+            "as_of",
+            "complete",
+            "n_series",
+            "source_url"
+          ],
+          "sha256": "16b2ce5f6cdc6e31ff8f17864c0256381590181060d48024cdeba27a672d1bf3"
+        },
+        {
+          "path": "annual_rates.csv",
+          "role": "canonical",
+          "format": "csv",
+          "bytes": 757,
+          "columns": [
+            "fy",
+            "registered_cases",
+            "complete",
+            "population",
+            "source",
+            "registered_per_100k"
+          ],
+          "sha256": "e6cedc6949c7b4a1b5b59d0a165a8051f9215b5e353a0e1b8ed503944bb7ca62"
+        },
+        {
+          "path": "category_coverage.csv.gz",
+          "role": "reference",
+          "format": "csv.gz",
+          "bytes": 2504,
+          "columns": [
+            "month",
+            "fy",
+            "chart_kind",
+            "offense",
+            "offense_en",
+            "provinces_reported",
+            "value",
+            "reported"
+          ],
+          "sha256": "b1cb73d4ab5ffb5f361df392e7525c123c9bbea4b243ba0d90c0dbaf0a52d5d1"
+        },
+        {
+          "path": "offense_availability.csv.gz",
+          "role": "reference",
+          "format": "csv.gz",
+          "bytes": 332,
+          "columns": [
+            "chart_kind",
+            "offense",
+            "offense_en",
+            "months_reported",
+            "first_month",
+            "last_month",
+            "provinces_reported"
+          ],
+          "sha256": "ccadd266e4f58abe2c56ccac45874b53db845422bd27e96a53e7939f566ad2e9"
+        },
+        {
+          "path": "month_status.csv.gz",
+          "role": "reference",
+          "format": "csv.gz",
+          "bytes": 543,
+          "columns": [
+            "month",
+            "fy",
+            "chart_kind",
+            "offenses_reported",
+            "provinces_reported",
+            "rows",
+            "basis",
+            "method",
+            "partial_chart"
+          ],
+          "sha256": "fd9e3cbe1cfc82f4d00545b2019a9504e6506c92027414e732e3bdad7a3a587e"
+        },
+        {
+          "path": "national_total_revisions.csv.gz",
+          "role": "reference",
+          "format": "csv.gz",
+          "bytes": 599,
+          "columns": [
+            "month",
+            "sources",
+            "values",
+            "differs"
+          ],
+          "sha256": "7374922e01480c20705fd921a0cd87325543411ab492f94dc3b371eeb0bddc88",
+          "description": "Cross-source revision check for national totals."
+        },
+        {
+          "path": "total_case_revisions.csv.gz",
+          "role": "reference",
+          "format": "csv.gz",
+          "bytes": 3176,
+          "columns": [
+            "month",
+            "province",
+            "observations",
+            "as_of_first",
+            "as_of_last",
+            "values",
+            "differs"
+          ],
+          "sha256": "7a6ce82636a0cd985ef964fc2cc64e94255b34c2655b05e5689c91036e11e8d3",
+          "description": "Cross-bulletin revision check for provincial totals."
+        },
+        {
+          "path": "annual_revisions.csv",
+          "role": "reference",
+          "format": "csv",
+          "bytes": 2540,
+          "columns": [
+            "fy",
+            "series",
+            "observations",
+            "as_of_first",
+            "as_of_last",
+            "values",
+            "differs"
+          ],
+          "sha256": "bea9daa8268f0471bfc8b35ca7419671146f3b2ff6523091d604e078b2ae62c7"
+        },
+        {
+          "path": "population_nepal.csv",
+          "role": "reference",
+          "format": "csv",
+          "bytes": 773,
+          "columns": [
+            "fy",
+            "population",
+            "fy_end_year",
+            "calendar_year",
+            "source"
+          ],
+          "sha256": "add20dcc65ac2d4391778495742e6bac8649a663eb3a208894eb6aa047a7d02f",
+          "description": "Population denominators for annual_rates.csv."
+        },
+        {
+          "path": "charts/annual_totals.png",
+          "role": "chart",
+          "format": "png",
+          "bytes": 45210,
+          "sha256": "f16bf2b84a5c3c6969fb5213b2f6ecdfad16ebf8acb6ff1e25c44985e32163cf"
+        },
+        {
+          "path": "charts/heinous_monthly.png",
+          "role": "chart",
+          "format": "png",
+          "bytes": 96873,
+          "sha256": "aec1f8667ae3db02fe04df6284d38221d86d4a777edeb38de08da42063640331"
+        },
+        {
+          "path": "charts/serious_monthly.png",
+          "role": "chart",
+          "format": "png",
+          "bytes": 149382,
+          "sha256": "a86603e4f064157bd1fe0aeb544ea078eeb2e11fcd6a84d48890bafb2d40ab8f"
+        },
+        {
+          "path": "charts/total_cases_monthly.png",
+          "role": "chart",
+          "format": "png",
+          "bytes": 80821,
+          "sha256": "fda34defb64d763bd2659ddbfb6251d7d34ccc294812220ec9eaaf28411b36b1"
+        },
+        {
+          "path": "charts/violent_by_fiscal_year.png",
+          "role": "chart",
+          "format": "png",
+          "bytes": 68327,
+          "sha256": "868d846b4693823e8e3c077370adf99bdd3f8222579b69b8cc4aa078dd4f7a77"
+        }
+      ]
+    },
+    {
+      "id": "labour-migration",
+      "title": "Labour-migration panel",
+      "status": "active",
+      "description": "Tidy, audited extraction of the labour-approval tables published by the Department of Foreign Employment: how many Nepalis received work permits, to which country or district, through which channel, in which fiscal year. Every source document is math-audited against its own printed totals before its rows enter the panel.",
+      "grain": "one row per source document × reporting period × section (country | district) × entity × channel × gender",
+      "coverage": {
+        "start": "FY2074/75",
+        "end": "FY2082/83",
+        "note": "Bikram Sambat fiscal years (Shrawan–Ashad); archive backfill beyond this range is tracked separately in panel_archive_build.json"
+      },
+      "sources": [
+        {
+          "name": "Department of Foreign Employment",
+          "url": "https://dofe.gov.np"
+        }
+      ],
+      "verification": {
+        "status": "verified",
+        "method": "per-document math audit of the extracted tables, reconciliation against printed totals, cross-source crosscheck against opendatanepal, gold-page transcription tests",
+        "report": "reconciliation.json"
+      },
+      "pipeline": {
+        "package": "migration_parser",
+        "cli": "python -m migration_parser.cli build"
+      },
+      "license": {
+        "code": "MIT",
+        "data": "MIT with source attribution; see DATA_AVAILABILITY.md for source terms"
+      },
+      "tags": [
+        "labour",
+        "migration",
+        "dofe",
+        "panel",
+        "fiscal-year"
+      ],
+      "notes": [
+        "panel_archive*.csv.gz are fingerprinted only by counts in panel_archive_build.json — no SHA-256 is recorded for them yet."
+      ],
+      "docs": [
+        "README.md",
+        "DATA_AVAILABILITY.md",
+        "codebook.json",
+        "CHANGELOG.md",
+        "verification.json",
+        "crosscheck.json",
+        "source_attestation.json",
+        "reconciliation.json"
+      ],
+      "inventories": [
+        "datasets/labour-migration/manifests/migration_manifest.json",
+        "datasets/labour-migration/manifests/migration_archive_manifest.json"
+      ],
+      "freshness": {
+        "fingerprints": [
+          "build.json"
+        ],
+        "generated_at": "2026-10-28T10:03:30+0545",
+        "commit": "55af9f60750a973e428bdeb732604d9a7a5180a4"
+      },
+      "artifacts": [
+        {
+          "path": "panel_canonical.csv.gz",
+          "role": "primary",
+          "format": "csv.gz",
+          "bytes": 616537,
+          "columns": [
+            "doc_id",
+            "period_bs",
+            "period_ad_start",
+            "period_ad_end",
+            "doc_type",
+            "section",
+            "row_type",
+            "name",
+            "sn",
+            "channel",
+            "gender",
+            "count",
+            "source_page",
+            "verified",
+            "source_url",
+            "entity_type",
+            "name_canonical",
+            "iso3",
+            "province",
+            "entity_note",
+            "entity_resolved",
+            "fiscal_year",
+            "channel_canonical",
+            "channel_class",
+            "granularity",
+            "reconciled_fiscal_year",
+            "period_override",
+            "analysis_safe",
+            "analysis_safe_permissive",
+            "channel_reviewed",
+            "merged_rows",
+            "raw_names"
+          ],
+          "rows": 70089,
+          "sha256": "3ce380cec24716672fafe0a494eac6e400be499c26fedcbc8bd483823ba0b25b",
+          "description": "Additive-only detail rows with canonical entities/channels/fiscal years; filter analysis_safe=true for the default specification."
+        },
+        {
+          "path": "panel_rollup.csv.gz",
+          "role": "rollup",
+          "format": "csv.gz",
+          "bytes": 340344,
+          "columns": [
+            "doc_id",
+            "period_bs",
+            "period_ad_start",
+            "period_ad_end",
+            "doc_type",
+            "section",
+            "row_type",
+            "name",
+            "sn",
+            "channel",
+            "gender",
+            "count",
+            "source_page",
+            "verified",
+            "source_url",
+            "entity_type",
+            "name_canonical",
+            "iso3",
+            "province",
+            "entity_note",
+            "entity_resolved",
+            "fiscal_year",
+            "channel_canonical",
+            "channel_class",
+            "granularity",
+            "reconciled_fiscal_year",
+            "period_override",
+            "analysis_safe",
+            "analysis_safe_permissive",
+            "channel_reviewed",
+            "merged_rows",
+            "raw_names"
+          ],
+          "rows": 31035,
+          "sha256": "833a7ac909321662ba6e9309693bc4363812719c7244b01d93e93c357a26f494",
+          "description": "Printed totals, aggregates and distinct measures — compare against, never add to the primary."
+        },
+        {
+          "path": "panel.csv.gz",
+          "role": "raw",
+          "format": "csv.gz",
+          "bytes": 561705,
+          "columns": [
+            "doc_id",
+            "period_bs",
+            "period_ad_start",
+            "period_ad_end",
+            "doc_type",
+            "section",
+            "row_type",
+            "name",
+            "sn",
+            "channel",
+            "gender",
+            "count",
+            "source_page",
+            "verified",
+            "source_url"
+          ],
+          "rows": 102744,
+          "sha256": "d25653ca4033e903c0c7f495f8d46b24ba28707d6d9c99a8266ecdcc0f3f8bb4",
+          "description": "Raw tidy-long extraction exactly as emitted from the source tables."
+        },
+        {
+          "path": "agencies.csv",
+          "role": "reference",
+          "format": "csv",
+          "bytes": 5285971,
+          "columns": [
+            "measure",
+            "doc_id",
+            "period_bs",
+            "period_ad_start",
+            "period_ad_end",
+            "doc_type",
+            "sn",
+            "lot_no",
+            "country",
+            "agency",
+            "male",
+            "female",
+            "total",
+            "source_page",
+            "verified",
+            "source_url"
+          ],
+          "rows": 26224,
+          "sha256": "7cbc151543cc31bccde54b216208ff7575e22ea61bc31491bc5ae2c4409ada47"
+        },
+        {
+          "path": "series.csv",
+          "role": "reference",
+          "format": "csv",
+          "bytes": 3420802,
+          "columns": [
+            "series_key",
+            "report",
+            "source_page",
+            "caption",
+            "metric",
+            "dimension",
+            "name",
+            "fiscal_year",
+            "unit",
+            "year_basis",
+            "gender",
+            "count",
+            "note"
+          ],
+          "rows": 9748,
+          "sha256": "75482753cee81b904db763b6e7ac1f6a5e1f445e768e3509e7d4fd17d4ff20e4",
+          "description": "Deaths, returns and remittance series — different units and bases from the panel."
+        },
+        {
+          "path": "period_windows.csv",
+          "role": "reference",
+          "format": "csv",
+          "bytes": 1478,
+          "columns": [
+            "period_bs",
+            "fiscal_year",
+            "period_ad_start",
+            "period_ad_end",
+            "doc_id",
+            "granularity"
+          ],
+          "rows": 28,
+          "sha256": "0ab799de92f9cc498218ef95be28bde97afb0f1f5dddcd07e3880bccf7b0031c"
+        },
+        {
+          "path": "panel_archive.csv.gz",
+          "role": "reference",
+          "format": "csv.gz",
+          "bytes": 550337,
+          "columns": [
+            "source_kind",
+            "doc_id",
+            "period_bs",
+            "doc_type",
+            "section",
+            "row_type",
+            "name",
+            "sn",
+            "approval_type",
+            "entry_type",
+            "gender",
+            "count",
+            "scope",
+            "scope_class",
+            "granularity",
+            "source_page",
+            "name_canonical",
+            "iso3",
+            "entity_resolved",
+            "analysis_safe",
+            "verified",
+            "source_url",
+            "source_pdf_sha256"
+          ],
+          "description": "Archive backfill of pre-2025 DoFE reports; not yet merged into the primary panel."
+        },
+        {
+          "path": "panel_archive_unresolved.csv.gz",
+          "role": "reference",
+          "format": "csv.gz",
+          "bytes": 130127,
+          "columns": [
+            "source_kind",
+            "doc_id",
+            "period_bs",
+            "doc_type",
+            "section",
+            "row_type",
+            "name",
+            "sn",
+            "approval_type",
+            "entry_type",
+            "gender",
+            "count",
+            "scope",
+            "scope_class",
+            "granularity",
+            "source_page",
+            "name_canonical",
+            "iso3",
+            "entity_resolved",
+            "analysis_safe",
+            "verified",
+            "source_url",
+            "source_pdf_sha256"
+          ],
+          "description": "Archive rows whose entities or channels remain unresolved."
+        }
+      ]
+    },
+    {
+      "id": "translations",
+      "title": "Parliament translations",
+      "status": "active",
+      "description": "House of Representatives notices and National Assembly verbatims, OCR'd from the published PDFs and translated to English by a fixed-schema Gemini call. Each document has raw Devanagari OCR, an English translation, and a structured JSON record (session, sections, speakers, bills, tags).",
+      "grain": "one structured JSON record per document",
+      "coverage": {
+        "start": "6th HoR (archive notices)",
+        "end": "7th HoR and NA sessions 19+ (2083)",
+        "note": "Verbatims are segmented into 10k-character chunks with checkpoints; only the merged JSON is committed"
+      },
+      "sources": [
+        {
+          "name": "House of Representatives secretariat",
+          "url": "https://hr.parliament.gov.np"
+        },
+        {
+          "name": "National Assembly verbatims API",
+          "url": "https://na.parliament.gov.np/api/v1/verbatims"
+        }
+      ],
+      "verification": {
+        "status": "partial",
+        "method": "prose, so there are no printed totals to reconcile; every structured record is stored beside the OCR text that produced it, and per-document status (done / failed / no_pdf) is tracked in the inventories"
+      },
+      "pipeline": {
+        "cli": [
+          "python parliament/scripts/process_notice.py --max-count 1",
+          "python parliament/scripts/process_verbatim.py --max-count 1"
+        ]
+      },
+      "license": {
+        "code": "MIT",
+        "data": "Derived from public parliamentary documents; attribution required"
+      },
+      "tags": [
+        "parliament",
+        "translation",
+        "devanagari",
+        "notices",
+        "verbatims"
+      ],
+      "notes": [
+        "34 of 70 tracked verbatims and 3 notices are still marked failed; see INDEX.md for per-document status.",
+        "Documents are not chunked or embedded here — the pgvector tables are built separately by parliament/scripts/init_db.py."
+      ],
+      "docs": [
+        "INDEX.md"
+      ],
+      "inventories": [
+        "parliament/manifests/notices.json",
+        "parliament/manifests/notices-6th-hor.json",
+        "parliament/manifests/verbatims.json",
+        "parliament/manifests/verbatims-archive.json"
+      ],
+      "freshness": {},
+      "artifacts": [
+        {
+          "path": ".",
+          "role": "primary",
+          "format": "json",
+          "pattern": "*.json",
+          "file_count": 240,
+          "bytes": 8515432,
+          "description": "Structured record per document."
+        },
+        {
+          "path": ".",
+          "role": "canonical",
+          "format": "txt",
+          "pattern": "*.txt",
+          "file_count": 388,
+          "bytes": 4943632,
+          "description": "Document text: English translation, except files suffixed -ocr.txt which are the raw Devanagari OCR they were produced from."
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "title": "KUKL water-distribution schedules",
+      "status": "active",
+      "description": "Per-branch drinking-water distribution schedules published by Kathmandu Upatyaka Khanepani Limited: reservoirs, zones, delivery days, time windows, served areas and contact details, extracted from the utility's monthly PDF/XLSX releases.",
+      "grain": "one record per branch × month, with reservoirs and zones nested",
+      "coverage": {
+        "start": "2081 Baishakh",
+        "end": "2083 Kartik",
+        "note": "Bikram Sambat; schedule.json holds the latest extracted month per branch"
+      },
+      "sources": [
+        {
+          "name": "Kathmandu Upatyaka Khanepani Limited",
+          "url": "https://kukl.org.np/downloads/water-distribution-schedule"
+        }
+      ],
+      "verification": {
+        "status": "partial",
+        "method": "extracted from the utility's published source files and cross-checked against the listing page; prose/schedule content, so there are no printed totals to reconcile"
+      },
+      "pipeline": {
+        "package": "water_parser",
+        "cli": "python -m water_parser.cli build"
+      },
+      "license": {
+        "code": "MIT",
+        "data": "Published by KUKL for public use; attribution required"
+      },
+      "tags": [
+        "water",
+        "kukl",
+        "kathmandu",
+        "utility",
+        "schedule"
+      ],
+      "notes": [
+        "No build fingerprint yet: schedule.json is regenerated by `python -m water_parser.cli build` but is not hashed.",
+        "The scrape inventory records 231 source files with most still pending, so coverage is limited to the months already processed."
+      ],
+      "docs": [],
+      "inventories": [
+        "datasets/water/manifest.json"
+      ],
+      "freshness": {},
+      "artifacts": [
+        {
+          "path": "schedule.json",
+          "role": "primary",
+          "format": "json",
+          "bytes": 766730,
+          "description": "Latest schedule per branch, merged."
+        },
+        {
+          "path": ".",
+          "role": "reference",
+          "format": "json",
+          "pattern": "*__*.json",
+          "file_count": 7,
+          "bytes": 468305,
+          "description": "Per-branch monthly extracts named <Branch>__<YYYY>_<Month>.json."
+        }
+      ]
+    }
+  ]
+}

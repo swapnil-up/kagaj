@@ -14,6 +14,7 @@
 | CID mapping tool | Shipped — `cidmap/` |
 | DDA drug prices | Experimental — scripts + plan, no shipped dataset |
 | Dataset descriptors + index | Shipped — `datasets/<id>/dataset.json` + `datasets/index.json`; see `docs/dataset-manifest.md` |
+| Dataset explorer | Shipped — `explorer/`, browser-side SQLite (sql.js); 19 tables, 2.4 MB gz |
 | Vector search UI | None — pgvector tables exist; no query surface |
 | Alerts | None |
 
@@ -49,10 +50,10 @@ solid.
    `datasets/<id>/`, a documented schema, a validator, and a generated
    `datasets/index.json` that any frontend can consume.
    *Done — contract in `docs/dataset-manifest.md`, CLI `python -m kagaj_core.manifest`.*
-2. **A2. Dataset explorer (browser-side SQLite).** Ship a `.sqlite` and query it
-   client-side — no backend, works on the static Vercel site. Applies to the
-   tabular datasets (migration, water, crime, future budget) where people want
-   filter/facet/aggregate, not semantic search.
+2. **A2. Dataset explorer (browser-side SQLite).** *Done — `explorer/` queries
+   `output/explorer/kagaj.sqlite.gz` client-side via sql.js: browse, filter,
+   sort, free SQL, CSV export. No backend, static-hostable. Build with
+   `python datasets/build_sqlite.py`.*
 3. **A3. Parliament search stays separate.** Semantic/vector search fits the
    document corpus (notices, verbatims, future gazette/court text). Linked from
    the explorer, not merged into it. pgvector needs a backend; a local embedding

@@ -27,6 +27,7 @@ kagaj/
 │   ├── datasets/translations/        # parliamentary OCR / EN / JSON + INDEX.md
 │   ├── datasets/water/               # per-branch schedules + schedule.json
 │   └── crime/                        # violent-crime panels + charts + DATASET.md
+├── explorer/                # browser-side SQLite query surface (sql.js, static)
 ├── docs/                    # architecture, integrity, roadmap, review harness, plans
 ├── tests/                   # pytest + gold pages
 ├── archive/budget/          # frozen legacy budget extractors
@@ -59,6 +60,18 @@ python -m kagaj_core.manifest check       # validate + fail if index.json is sta
 `datasets/index.json` is generated and committed; regenerate it after any data
 change (a test fails otherwise). Row counts, byte sizes and SHA-256 come from
 each dataset's `build.json`, never from `dataset.json` itself.
+
+To browse the tabular datasets in a browser:
+
+```bash
+python datasets/build_sqlite.py    # -> output/explorer/kagaj.sqlite{,.gz}
+python -m http.server              # repo root, not explorer/
+# open http://localhost:8000/explorer/
+```
+
+`explorer/` is static HTML/JS/CSS with sql.js — no backend, no npm build. See
+`explorer/README.md`. Parliament text is deliberately excluded: document corpora
+belong to the semantic-search track (A3), not a filter UI.
 
 ## Setup
 

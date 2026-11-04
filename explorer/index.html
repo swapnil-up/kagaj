@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kagaj — dataset explorer</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="mark">
+    <span class="mark-np">कगज</span>
+    <span class="mark-en">explorer</span>
+  </div>
+  <div class="topbar-status" id="db-status">loading…</div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="side-label">Catalogue</div>
+    <nav id="dataset-list" class="dataset-list"></nav>
+    <div class="side-foot" id="side-foot"></div>
+  </aside>
+
+  <main class="main">
+
+    <section class="card" id="dataset-card" hidden>
+      <div class="card-head">
+        <span class="status-pill" id="card-status"></span>
+        <h1 id="card-title"></h1>
+      </div>
+      <p class="card-desc" id="card-desc"></p>
+      <dl class="meta" id="card-meta"></dl>
+      <div class="card-notes" id="card-notes"></div>
+    </section>
+
+    <section class="controls">
+      <div class="filter-row">
+        <select id="filter-column" class="ctl" title="column"></select>
+        <select id="filter-op" class="ctl ctl-op" title="operator">
+          <option value="=">=</option>
+          <option value="!=">≠</option>
+          <option value=">">&gt;</option>
+          <option value=">=">≥</option>
+          <option value="<">&lt;</option>
+          <option value="<=">≤</option>
+          <option value="contains">contains</option>
+          <option value="starts">starts with</option>
+          <option value="is null">is null</option>
+          <option value="is not null">is not null</option>
+        </select>
+        <input id="filter-value" class="ctl ctl-value" type="text" placeholder="value" spellcheck="false">
+        <button id="filter-add" class="btn" type="button">add filter</button>
+        <div class="chips" id="filter-chips"></div>
+      </div>
+
+      <div class="sql-row">
+        <textarea id="sql" class="sql" rows="3" spellcheck="false"
+          placeholder='SELECT * FROM "labour_migration_panel_canonical" WHERE analysis_safe = &#39;true&#39; ORDER BY count DESC LIMIT 100'></textarea>
+        <div class="sql-actions">
+          <button id="sql-run" class="btn btn-primary" type="button">run</button>
+          <button id="sql-clear" class="btn" type="button">browse</button>
+        </div>
+      </div>
+
+      <div class="status-row">
+        <div class="status-line" id="status-line">—</div>
+        <div class="status-tools">
+          <label class="page-size">rows
+            <select id="page-size" class="ctl">
+              <option>50</option><option selected>100</option><option>250</option><option>1000</option>
+            </select>
+          </label>
+          <button id="export-csv" class="btn" type="button">export csv</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-wrap">
+      <div class="grid-scroll">
+        <table class="grid" id="grid">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="pager" id="pager" hidden>
+        <button id="page-prev" class="btn" type="button">← prev</button>
+        <span id="page-label" class="page-label"></span>
+        <button id="page-next" class="btn" type="button">next →</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="overlay-inner">
+    <div class="overlay-mark">कगज</div>
+    <div class="overlay-text" id="overlay-text">fetching kagaj.sqlite…</div>
+    <div class="overlay-bar"><span id="overlay-bar-fill"></span></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.15.2/sql-wasm.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

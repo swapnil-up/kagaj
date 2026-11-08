@@ -19,6 +19,9 @@ kagaj/
 ├── migration_parser/        # DoFE labour-migration panel
 ├── water_parser/            # KUKL water schedules
 ├── crime/                   # CID monthly crime bulletins (dataset + charts)
+├── govweb/                  # passive .gov.np web-infrastructure observation
+│   ├── manifests/           # sources.json
+│   └── cli.py               # roster / discover-ct / collect / build / verify
 ├── kagaj_core/              # shared primitives (devanagari, review harness)
 ├── cidmap/                  # font-scoped CID → Devanagari mapping
 ├── dictionary/              # Nepali–English StarDict builder
@@ -26,7 +29,8 @@ kagaj/
 │   ├── labour-datasets/labour-migration/    # panels + codebook + build.json
 │   ├── datasets/translations/        # parliamentary OCR / EN / JSON + INDEX.md
 │   ├── datasets/water/               # per-branch schedules + schedule.json
-│   └── crime/                        # violent-crime panels + charts + DATASET.md
+│   ├── crime/                        # violent-crime panels + charts + DATASET.md
+│   └── govweb/                       # hostname inventory + observations + roster
 ├── explorer/                # browser-side SQLite query surface (sql.js, static)
 ├── docs/                    # architecture, integrity, roadmap, review harness, plans
 ├── tests/                   # pytest + gold pages
@@ -44,6 +48,7 @@ kagaj/
 | Parliament translations | `datasets/translations/` | 601 files; indexed in `INDEX.md` |
 | KUKL water schedules | `datasets/water/` | `schedule.json` is the website artifact |
 | Crime bulletins | `datasets/crime/` | 58 CID bulletins; violent monthly/FY panels + charts; see `DATASET.md` |
+| `.gov.np` infrastructure | `datasets/govweb/` | 2,091 hostnames; 20-host pilot sample; roster + attribution join; see `DATASET.md` |
 
 ## Dataset descriptors
 
@@ -255,6 +260,32 @@ python drug_prices/scripts/upsert_dda.py datasets/translations/dda-*.json
 
 Plan: `docs/plans/dda-drug-prices.md`. No shipped dataset yet.
 
+## Govweb pipeline (`govweb/`)
+
+```bash
+python -m govweb.cli roster           # OAG local-level roster -> roster.json
+python -m govweb.cli discover-ct      # crt.sh hostnames -> inventory + coverage
+python -m govweb.cli discover-mofaga  # default only; MoFAGA directory
+python -m govweb.cli attribute        # ranked attribution -> attribution.json
+python -m govweb.cli sample           # deterministic observation sample
+python -m govweb.cli collect          # passive collectors -> observations/*.json
+python -m govweb.cli report           # offline analysis -> audit_summary.md
+python -m govweb.cli build            # tidy CSVs + build.json
+python -m govweb.cli verify           # reconciliation.json
+```
+
+- Committed data: `datasets/govweb/`; caches: `output/govweb/`; sources:
+  `govweb/manifests/sources.json`.
+- Collection is passive: ordinary DNS, one TLS handshake, one HTTPS root
+  request, published `robots.txt`, public CT logs. Never scan ports, never probe
+  for vulnerabilities, never bypass `robots.txt`.
+- The unit is a hostname. Local-level attribution is a separate join; never
+  infer it from a name.
+- Analysis (`report`, `build`, `verify`) is offline and reads committed
+  artifacts only.
+- Experimentation lives in `datasets/govweb/`. Plan and Phase gate:
+  `docs/plans/govweb-audit.md`.
+
 ## Conventions
 
 - **Venvs** are gitignored (`.venv/`, `redbook-env/`, `ocr-env/`).
@@ -290,4 +321,8 @@ Required secrets: `GEMINI_API_KEY`, `DATABASE_URL`.
 - Some legacy-font conjuncts and rephas are still misrecognised by OCR.
 - Summary pages in the redbook have a different column layout from detail pages.
 - `drug_prices/` is not complete and has no verified output.
+- `govweb/` attribution covers 659 of 753 local levels (87.52%) but the
+  observation sample is still a 20-host pilot with no attributed local level, so
+  `tls.csv.gz` is header-only and 60% of the sample disallows the crawler, giving
+  script data a structural selection bias. 94 local levels are unresolved.
 - The retired web app was removed; do not reintroduce it into this repo.

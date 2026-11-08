@@ -1,0 +1,6003 @@
+{
+ "schema_version": "1.0",
+ "source": "OpenStreetMap Overpass API",
+ "source_url": "https://overpass-api.de/api/interpreter",
+ "query": "[out:json][timeout:150]; area[\"ISO3166-1\"=\"NP\"][admin_level=2]->.a; rel[\"boundary\"=\"administrative\"][\"admin_level\"~\"^(7|8)$\"](area.a); out tags;",
+ "fetched_at": "2026-11-05T00:00:00+00:00",
+ "relation_count": 749,
+ "website_count": 5,
+ "relations": [
+  {
+   "osm_type": "relation",
+   "osm_id": 5776709,
+   "admin_level": "7",
+   "name": "Resunga",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 5862115,
+   "admin_level": "7",
+   "name": "हेटौँडा उपमहानगरपालिका",
+   "name_en": "Hetauda",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 5884302,
+   "admin_level": "7",
+   "name": "Narayan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 5926263,
+   "admin_level": "7",
+   "name": "Bedkot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 5927493,
+   "admin_level": "7",
+   "name": "Belauri",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 5927686,
+   "admin_level": "7",
+   "name": "Punarbas",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 6104486,
+   "admin_level": "7",
+   "name": "Pokhara",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 6648070,
+   "admin_level": "7",
+   "name": "निजगढ नगरपालिका",
+   "name_en": "Nijgadh",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 6823504,
+   "admin_level": "7",
+   "name": "गौर नगरपालिका",
+   "name_en": "Gaur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 7405325,
+   "admin_level": "7",
+   "name": "दमक नगरपालिका",
+   "name_en": "Damak",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 7417879,
+   "admin_level": "7",
+   "name": "गौरादह नगरपालिका",
+   "name_en": "Gauradaha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 7437233,
+   "admin_level": "7",
+   "name": "नीलकण्ठ नगरपालिका",
+   "name_en": "Nilakantha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 7680219,
+   "admin_level": "7",
+   "name": "धनुषाधाम नगरपालिका",
+   "name_en": "Dhanusadham",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 7715169,
+   "admin_level": "7",
+   "name": "मध्यपुर थिमि नगरपालिका",
+   "name_en": "Madhyapur Thimi Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 7715519,
+   "admin_level": "7",
+   "name": "भक्तपुर नगरपालिका",
+   "name_en": "Bhaktapur Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 8909942,
+   "admin_level": "7",
+   "name": "मोदि गाउँपालिका (Modi)",
+   "name_en": "Modi",
+   "website": "https://modimun.gov.np/"
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10321399,
+   "admin_level": "7",
+   "name": "राजविराज नगरपालिका",
+   "name_en": "Rajbiraj",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10326954,
+   "admin_level": "7",
+   "name": "बोदेबरसाइन नगरपालिका",
+   "name_en": "Bode Parsain",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10326955,
+   "admin_level": "7",
+   "name": "बलान-बिहुल गाउँपालिका",
+   "name_en": "Balan Bihul",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328083,
+   "admin_level": "7",
+   "name": "डाक्नेश्वरी नगरपालिका",
+   "name_en": "Dakneshwori",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328094,
+   "admin_level": "7",
+   "name": "शम्भुनाथ नगरपालिका",
+   "name_en": "Shambhunath",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328453,
+   "admin_level": "7",
+   "name": "तिरहुत गाउँपालिका",
+   "name_en": "Tirahut",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328454,
+   "admin_level": "7",
+   "name": "खडक नगरपालिका",
+   "name_en": "Khadak",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328455,
+   "admin_level": "7",
+   "name": "सुरुङ्गा नगरपालिका",
+   "name_en": "Surunga",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328456,
+   "admin_level": "7",
+   "name": "अग्नीसाइर कृष्णासवरन गाउँपालिका",
+   "name_en": "Agnisar Krishna Savaran",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328457,
+   "admin_level": "7",
+   "name": "रुपनी गाउँपालिका",
+   "name_en": "Rupani",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328842,
+   "admin_level": "7",
+   "name": "विष्णुपुर गाउँपालिका",
+   "name_en": "Bishnupur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328843,
+   "admin_level": "7",
+   "name": "राजगढ गाउँपालिका",
+   "name_en": "Rajgadh",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328844,
+   "admin_level": "7",
+   "name": "सप्तकोशी नगरपालिका",
+   "name_en": "Saptakoshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328845,
+   "admin_level": "7",
+   "name": "कञ्चनरूप नगरपालिका",
+   "name_en": "Kanchanrup",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328846,
+   "admin_level": "7",
+   "name": "हनुमाननगर कङ्कालिनी नगरपालिका",
+   "name_en": "Hannumannagar Kankalini",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328847,
+   "admin_level": "7",
+   "name": "छिन्नमस्ता गाउँपालिका",
+   "name_en": "Chhinnamasta",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328848,
+   "admin_level": "7",
+   "name": "तिलाठी कोईलाडी गाउँपालिका",
+   "name_en": "Tilathi Keiladi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10328849,
+   "admin_level": "7",
+   "name": "महादेवा गाउँपालिका",
+   "name_en": "Mahadeva",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10414305,
+   "admin_level": "7",
+   "name": "लिम्चुङबुङ गाउँपालिका",
+   "name_en": "Limchungbung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10414306,
+   "admin_level": "7",
+   "name": "ताप्ली गाउँपालिका",
+   "name_en": "Tapli",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10414307,
+   "admin_level": "7",
+   "name": "कटारी नगरपालिका",
+   "name_en": "Katari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10414308,
+   "admin_level": "7",
+   "name": "उदयपुरगढी गाउँपालिका",
+   "name_en": "Udayapurgadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10414309,
+   "admin_level": "7",
+   "name": "रौतामाई गाउँपालिका",
+   "name_en": "Rautamai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10414310,
+   "admin_level": "7",
+   "name": "त्रियुगा नगरपालिका",
+   "name_en": "Triyuga",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10414311,
+   "admin_level": "7",
+   "name": "चौदण्डीगढी नगरपालिका",
+   "name_en": "Chaudandigadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10414312,
+   "admin_level": "7",
+   "name": "बेलका नगरपालिका",
+   "name_en": "Belaka",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418474,
+   "admin_level": "7",
+   "name": "कमल गाउँपालिका",
+   "name_en": "Kamal",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418475,
+   "admin_level": "7",
+   "name": "गौरीगञ्ज गाउँपालिका",
+   "name_en": "Gauriganj",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418476,
+   "admin_level": "7",
+   "name": "झापा गाउँपालिका",
+   "name_en": "Jhapa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418477,
+   "admin_level": "7",
+   "name": "शिवसताक्षी नगरपालिका",
+   "name_en": "Shivasataxi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418478,
+   "admin_level": "7",
+   "name": "कनकाई नगरपालिका",
+   "name_en": "Kankai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418479,
+   "admin_level": "7",
+   "name": "अर्जुनधारा नगरपालिका",
+   "name_en": "Arjundhara",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418480,
+   "admin_level": "7",
+   "name": "बुद्धशान्ति गाउँपालिका",
+   "name_en": "Buddhashanti",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418481,
+   "admin_level": "7",
+   "name": "बिर्तामोड नगरपालिका",
+   "name_en": "Birtamod",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418482,
+   "admin_level": "7",
+   "name": "मेचीनगर नगरपालिका",
+   "name_en": "Mechinagar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418483,
+   "admin_level": "7",
+   "name": "बाह्रदशी गाउँपालिका",
+   "name_en": "Barhadashi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418484,
+   "admin_level": "7",
+   "name": "हल्दीबारी गाउँपालिका",
+   "name_en": "Haldibari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418485,
+   "admin_level": "7",
+   "name": "भद्रपुर नगरपालिका",
+   "name_en": "Bhadrapur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10418486,
+   "admin_level": "7",
+   "name": "कचनकवल गाउँपालिका",
+   "name_en": "Kachankawal",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419541,
+   "admin_level": "7",
+   "name": "सन्दकपुर गाउँपालिका",
+   "name_en": "Sandakpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419542,
+   "admin_level": "7",
+   "name": "माईजोगमाई गाउँपालिका",
+   "name_en": "Maijogmai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419543,
+   "admin_level": "7",
+   "name": "इलाम नगरपालिका",
+   "name_en": "Ilam",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419544,
+   "admin_level": "7",
+   "name": "देउमाई नगरपालिका",
+   "name_en": "Deumai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419545,
+   "admin_level": "7",
+   "name": "फाकफोकथुम गाउँपालिका",
+   "name_en": "Fakphokthum",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419546,
+   "admin_level": "7",
+   "name": "माङसेबुङ गाउँपालिका",
+   "name_en": "Mangsebung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419547,
+   "admin_level": "7",
+   "name": "चुलाचुली गाउँपालिका",
+   "name_en": "Chulachuli",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419548,
+   "admin_level": "7",
+   "name": "सूर्योदय नगरपालिका",
+   "name_en": "Suryodaya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419550,
+   "admin_level": "7",
+   "name": "रोङ गाउँपालिका",
+   "name_en": "Rong",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419775,
+   "admin_level": "7",
+   "name": "आठराई त्रिवेणी गाउँपालिका",
+   "name_en": "Aathrai Tribeni",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419776,
+   "admin_level": "7",
+   "name": "मैवाखोला गाउँपालिका",
+   "name_en": "Maiwakhola",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419777,
+   "admin_level": "7",
+   "name": "मेरिङदेन गाउँपालिका",
+   "name_en": "Meringden",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419778,
+   "admin_level": "7",
+   "name": "मिक्वाखोला गाउँपालिका",
+   "name_en": "Mikwakhola",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419779,
+   "admin_level": "7",
+   "name": "फक्ताङलुङ गाउँपालिका",
+   "name_en": "Phaktanglung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419780,
+   "admin_level": "7",
+   "name": "सिरिजङ्घा गाउँपालिका",
+   "name_en": "Sirijangha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419781,
+   "admin_level": "7",
+   "name": "सिदिङ्वा गाउँपालिका",
+   "name_en": "Sidingba",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419782,
+   "admin_level": "7",
+   "name": "फुङलिङ नगरपालिका",
+   "name_en": "Phungling",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10419783,
+   "admin_level": "7",
+   "name": "पाथीभरा याङवरक गाउँपालिका",
+   "name_en": "Pathibhara Yangwarak",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420455,
+   "admin_level": "7",
+   "name": "लिखु पिके गाउँपालिका",
+   "name_en": "Likhupike",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420456,
+   "admin_level": "7",
+   "name": "नेचासल्यान गाउँपालिका",
+   "name_en": "Nechasalyan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420457,
+   "admin_level": "7",
+   "name": "सोलुदुधकुण्ड नगरपालिका",
+   "name_en": "Solududhkunda",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420458,
+   "admin_level": "7",
+   "name": "खुम्बु पासाङल्हामु गाउँपालिका",
+   "name_en": "Khumbu Pasang Lhamu",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420459,
+   "admin_level": "7",
+   "name": "माप्य दुधकोशी गाउँपालिका",
+   "name_en": "Mapya Dudhkoshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420460,
+   "admin_level": "7",
+   "name": "महाकुलुङ गाउँपालिका",
+   "name_en": "Mahakulung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420461,
+   "admin_level": "7",
+   "name": "सोताङ गाउँपालिका",
+   "name_en": "Sotang",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420462,
+   "admin_level": "7",
+   "name": "थुलुङ दुधकोशी गाउँपालिका",
+   "name_en": "Thulung Dudhkoshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420679,
+   "admin_level": "7",
+   "name": "भोटखोला गाउँपालिका",
+   "name_en": "Bhotkhola",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420680,
+   "admin_level": "7",
+   "name": "मकालु गाउँपालिका",
+   "name_en": "Makalu",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420681,
+   "admin_level": "7",
+   "name": "सिलीचोङ गाउँपालिका",
+   "name_en": "Silichong",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420682,
+   "admin_level": "7",
+   "name": "चिचिला गाउँपालिका",
+   "name_en": "Chichila",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420683,
+   "admin_level": "7",
+   "name": "सभापोखरी गाउँपालिका",
+   "name_en": "Sabhapokhari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420684,
+   "admin_level": "7",
+   "name": "खाँदबारी नगरपालिका",
+   "name_en": "Khandbari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420685,
+   "admin_level": "7",
+   "name": "पाँचखपन नगरपालिका",
+   "name_en": "Panchakhapan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420686,
+   "admin_level": "7",
+   "name": "धर्मदेवी नगरपालिका",
+   "name_en": "Dharmadevi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420687,
+   "admin_level": "7",
+   "name": "मादी नगरपालिका",
+   "name_en": "Madi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10420688,
+   "admin_level": "7",
+   "name": "चैनपुर नगरपालिका",
+   "name_en": "Chainpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10423319,
+   "admin_level": "7",
+   "name": "लहान नगरपालिका",
+   "name_en": "Lahan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10423320,
+   "admin_level": "7",
+   "name": "लक्ष्मीपुर पतारी गाउँपालिका",
+   "name_en": "Lakshmipur Patari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10423321,
+   "admin_level": "7",
+   "name": "नवराजपुर गाउँपालिका",
+   "name_en": "Nawarajpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10423322,
+   "admin_level": "7",
+   "name": "भगवानपुर गाउँपालिका",
+   "name_en": "Bhagawanpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10423323,
+   "admin_level": "7",
+   "name": "सखुवानान्कारकट्टी गाउँपालिका",
+   "name_en": "Sakhuwanankarkatti",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424756,
+   "admin_level": "7",
+   "name": "कर्जन्हा नगरपालिका",
+   "name_en": "Karjanha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424757,
+   "admin_level": "7",
+   "name": "मिर्चैया नगरपालिका",
+   "name_en": "Mirchaiya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424758,
+   "admin_level": "7",
+   "name": "कल्याणपुर नगरपालिका",
+   "name_en": "Kalyanpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424759,
+   "admin_level": "7",
+   "name": "सिराहा नगरपालिका",
+   "name_en": "Siraha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424760,
+   "admin_level": "7",
+   "name": "विष्णुपुर गाउँपालिका",
+   "name_en": "Bishnupur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424761,
+   "admin_level": "7",
+   "name": "औरही गाउँपालिका",
+   "name_en": "Aurahi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424762,
+   "admin_level": "7",
+   "name": "बरियारपट्टी गाउँपालिका",
+   "name_en": "Bariyarpatti",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424763,
+   "admin_level": "7",
+   "name": "अर्नमा गाउँपालिका",
+   "name_en": "Arnama",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424764,
+   "admin_level": "7",
+   "name": "नरहा गाउँपालिका",
+   "name_en": "Naraha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424765,
+   "admin_level": "7",
+   "name": "गोलबजार नगरपालिका",
+   "name_en": "Golbazar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424766,
+   "admin_level": "7",
+   "name": "सुखीपुर नगरपालिका",
+   "name_en": "Sukhipur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10424767,
+   "admin_level": "7",
+   "name": "धनगढीमाई नगरपालिका",
+   "name_en": "Dhangadhimai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426063,
+   "admin_level": "7",
+   "name": "बटेश्वर गाउँपालिका",
+   "name_en": "Bateshwor",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426064,
+   "admin_level": "7",
+   "name": "मुखियापट्टी मुसहरनिया गाउँपालिका",
+   "name_en": "Mukhiyapatti Musarmiya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426065,
+   "admin_level": "7",
+   "name": "जनकपुर उपमहानगरपालिका",
+   "name_en": "Janakpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426066,
+   "admin_level": "7",
+   "name": "औरही गाउँपालिका",
+   "name_en": "Aaurahi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426067,
+   "admin_level": "7",
+   "name": "नगराइन नगरपालिका",
+   "name_en": "Nagarain",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426068,
+   "admin_level": "7",
+   "name": "धनौजी गाउँपालिका",
+   "name_en": "Dhanauji",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426069,
+   "admin_level": "7",
+   "name": "लक्ष्मीनिया गाउँपालिका",
+   "name_en": "Lakshminiya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426070,
+   "admin_level": "7",
+   "name": "हंसपुर नगरपालिका",
+   "name_en": "Hansapur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426071,
+   "admin_level": "7",
+   "name": "मिथिला बिहारी नगरपालिका",
+   "name_en": "Mithila Bihari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426072,
+   "admin_level": "7",
+   "name": "क्षिरेश्वरनाथ नगरपालिका",
+   "name_en": "Kshireshwornath",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426073,
+   "admin_level": "7",
+   "name": "मिथिला नगरपालिका",
+   "name_en": "Mithila",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426074,
+   "admin_level": "7",
+   "name": "गणेशमान चारनाथ नगरपालिका",
+   "name_en": "Ganeshman Charnath",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426075,
+   "admin_level": "7",
+   "name": "सबैला नगरपालिका",
+   "name_en": "Sabaila",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426076,
+   "admin_level": "7",
+   "name": "शहीदनगर नगरपालिका",
+   "name_en": "Shahidnagar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426077,
+   "admin_level": "7",
+   "name": "विदेह नगरपालिका",
+   "name_en": "Bideha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426078,
+   "admin_level": "7",
+   "name": "कमला नगरपालिका",
+   "name_en": "Kamala",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10426079,
+   "admin_level": "7",
+   "name": "जनकनन्दिनी गाउँपालिका",
+   "name_en": "Janaknandani",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10427742,
+   "admin_level": "7",
+   "name": "वैतेश्वर गाउँपालिका",
+   "name_en": "Baiteshwor",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10427743,
+   "admin_level": "7",
+   "name": "मेलुङ गाउँपालिका",
+   "name_en": "Melung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10427744,
+   "admin_level": "7",
+   "name": "जिरी नगरपालिका",
+   "name_en": "Jiri",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10427745,
+   "admin_level": "7",
+   "name": "गौरीशङ्कर गाउँपालिका",
+   "name_en": "Gaurishankar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10430161,
+   "admin_level": "7",
+   "name": "तामाकोशी गाउँपालिका",
+   "name_en": "Tamakoshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10430162,
+   "admin_level": "7",
+   "name": "शैलुङ गाउँपालिका",
+   "name_en": "Sailung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10430163,
+   "admin_level": "7",
+   "name": "भीमेश्वर नगरपालिका",
+   "name_en": "Bhimeshwor",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10430164,
+   "admin_level": "7",
+   "name": "कालिन्चोक गाउँपालिका",
+   "name_en": "Kalinchok",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10430165,
+   "admin_level": "7",
+   "name": "विगु गाउँपालिका",
+   "name_en": "Bigu",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10432870,
+   "admin_level": "7",
+   "name": "साकेला गाउँपालिका",
+   "name_en": "Sakela",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10432871,
+   "admin_level": "7",
+   "name": "दिक्तेल रुपाकोट मझुवागढी नगरपालिका",
+   "name_en": "Diktel Rupakot Majhuwagadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10432872,
+   "admin_level": "7",
+   "name": "हलेसी तुवाचुङ नगरपालिका",
+   "name_en": "Halesi Tuwachung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10432873,
+   "admin_level": "7",
+   "name": "रावा बेसी गाउँपालिका",
+   "name_en": "Rawa Besi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10432874,
+   "admin_level": "7",
+   "name": "केपिलासगढी गाउँपालिका",
+   "name_en": "Kepilasagadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10432875,
+   "admin_level": "7",
+   "name": "ऐसेलुखर्क गाउँपालिका",
+   "name_en": "Aiselukharka",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433054,
+   "admin_level": "7",
+   "name": "जन्तेढुङ्गा गाउँपालिका",
+   "name_en": "Jantedhunga",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433055,
+   "admin_level": "7",
+   "name": "बराहपोखरी गाउँपालिका",
+   "name_en": "Barahapokhari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433056,
+   "admin_level": "7",
+   "name": "खोटेहाङ गाउँपालिका",
+   "name_en": "Khotehang",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433057,
+   "admin_level": "7",
+   "name": "दिप्रुङ चुइचुम्मा गाउँपालिका",
+   "name_en": "Diprung Chuichumma",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433199,
+   "admin_level": "7",
+   "name": "केराबारी गाउँपालिका",
+   "name_en": "Kerabari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433200,
+   "admin_level": "7",
+   "name": "लेटाङ नगरपालिका",
+   "name_en": "Letang",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433201,
+   "admin_level": "7",
+   "name": "उर्लाबारी नगरपालिका",
+   "name_en": "Urlabari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433202,
+   "admin_level": "7",
+   "name": "मिक्लाजुङ गाउँपालिका",
+   "name_en": "Miklajung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433476,
+   "admin_level": "7",
+   "name": "बिराटनगर महानगरपालिका",
+   "name_en": "Biratnagar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433477,
+   "admin_level": "7",
+   "name": "बुढीगङ्गा गाउँपालिका",
+   "name_en": "Budhiganga",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433478,
+   "admin_level": "7",
+   "name": "ग्रामथान गाउँपालिका",
+   "name_en": "Gramthan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433479,
+   "admin_level": "7",
+   "name": "सुन्दरहरैँचा नगरपालिका",
+   "name_en": "Sundarharaicha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433480,
+   "admin_level": "7",
+   "name": "बेलबारी नगरपालिका",
+   "name_en": "Belbari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433481,
+   "admin_level": "7",
+   "name": "कानेपोखरी गाउँपालिका",
+   "name_en": "Kanepokhari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433482,
+   "admin_level": "7",
+   "name": "पथरी शनिश्चरे नगरपालिका",
+   "name_en": "Pathari Shanishchare",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433613,
+   "admin_level": "7",
+   "name": "रतुवामाई नगरपालिका",
+   "name_en": "Ratuwamai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433614,
+   "admin_level": "7",
+   "name": "सुनवर्षि नगरपालिका",
+   "name_en": "Sunavarshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433615,
+   "admin_level": "7",
+   "name": "धनपालथान गाउँपालिका",
+   "name_en": "Dhanpalthan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433616,
+   "admin_level": "7",
+   "name": "जहदा गाउँपालिका",
+   "name_en": "Jahada",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433617,
+   "admin_level": "7",
+   "name": "रङ्गेली नगरपालिका",
+   "name_en": "Rangeli",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10433618,
+   "admin_level": "7",
+   "name": "कटहरी गाउँपालिका",
+   "name_en": "Katahari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10434096,
+   "admin_level": "7",
+   "name": "चम्पादेवी गाउँपालिका",
+   "name_en": "Champadevi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10434097,
+   "admin_level": "7",
+   "name": "लिखु गाउँपालिका",
+   "name_en": "Likhu",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10434098,
+   "admin_level": "7",
+   "name": "खिजिदेम्बा गाउँपालिका",
+   "name_en": "Khijidemba",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10434099,
+   "admin_level": "7",
+   "name": "मोलुङ गाउँपालिका",
+   "name_en": "Molung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10434100,
+   "admin_level": "7",
+   "name": "सिद्धिचरण नगरपालिका",
+   "name_en": "Siddhicharan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10434101,
+   "admin_level": "7",
+   "name": "चिशंखुगढी गाउँपालिका",
+   "name_en": "Chisankhugadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10436729,
+   "admin_level": "7",
+   "name": "मानेभञ्ज्याङ्ग गाउँपालिका",
+   "name_en": "Manebhanjyang",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10436730,
+   "admin_level": "7",
+   "name": "सुनकोशी गाउँपालिका",
+   "name_en": "Sunkoshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10442744,
+   "admin_level": "7",
+   "name": "हरिहरपुरगढी गाउँपालिका",
+   "name_en": "Hariharpurgadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10442745,
+   "admin_level": "7",
+   "name": "मरिण गाउँपालिका",
+   "name_en": "Marin",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10442746,
+   "admin_level": "7",
+   "name": "घ्याङलेख गाउँपालिका",
+   "name_en": "Ghanglekh",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10442747,
+   "admin_level": "7",
+   "name": "सुनकोशी गाउँपालिका",
+   "name_en": "Sunkoshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10442748,
+   "admin_level": "7",
+   "name": "कमलामाई नगरपालिका",
+   "name_en": "Kamalamai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10442749,
+   "admin_level": "7",
+   "name": "गोलन्जोर गाउँपालिका",
+   "name_en": "Golanjor",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10442750,
+   "admin_level": "7",
+   "name": "तीनपाटन गाउँपालिका",
+   "name_en": "Tinpatan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10442751,
+   "admin_level": "7",
+   "name": "फिक्कल गाउँपालिका",
+   "name_en": "Phikkal",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10442752,
+   "admin_level": "7",
+   "name": "दुधौली नगरपालिका",
+   "name_en": "Dudhauli",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10443713,
+   "admin_level": "7",
+   "name": "Parashuram",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10443714,
+   "admin_level": "7",
+   "name": "Alital",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10443715,
+   "admin_level": "7",
+   "name": "Bhageshwar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10443716,
+   "admin_level": "7",
+   "name": "Ajaymeru",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10443717,
+   "admin_level": "7",
+   "name": "Amargadhi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10443718,
+   "admin_level": "7",
+   "name": "Ganayapdhura",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10443719,
+   "admin_level": "7",
+   "name": "Nawadurga",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10451009,
+   "admin_level": "7",
+   "name": "Mahakali",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10451010,
+   "admin_level": "7",
+   "name": "भिमदत्त",
+   "name_en": "Bhimdatta",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10458349,
+   "admin_level": "7",
+   "name": "Laljhadi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10458350,
+   "admin_level": "7",
+   "name": "Beldandi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10458352,
+   "admin_level": "7",
+   "name": "Krishnapur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10458353,
+   "admin_level": "7",
+   "name": "Shuklaphanta",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10465203,
+   "admin_level": "7",
+   "name": "Godawari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10465204,
+   "admin_level": "7",
+   "name": "Mohanyal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10465205,
+   "admin_level": "7",
+   "name": "Gauriganga",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466213,
+   "admin_level": "7",
+   "name": "Chure",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466214,
+   "admin_level": "7",
+   "name": "Tikapur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466215,
+   "admin_level": "7",
+   "name": "Janaki",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466216,
+   "admin_level": "7",
+   "name": "Bhajani",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466217,
+   "admin_level": "7",
+   "name": "Joshipur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466218,
+   "admin_level": "7",
+   "name": "Lamkichuha",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466219,
+   "admin_level": "7",
+   "name": "Bardagoriya",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466220,
+   "admin_level": "7",
+   "name": "Ghodagodhi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466221,
+   "admin_level": "7",
+   "name": "Kailari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466222,
+   "admin_level": "7",
+   "name": "Dhangadhi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466478,
+   "admin_level": "7",
+   "name": "Purbichauki",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466479,
+   "admin_level": "7",
+   "name": "Sayal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466480,
+   "admin_level": "7",
+   "name": "Adharsha",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466481,
+   "admin_level": "7",
+   "name": "Dipayal Silgadi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466482,
+   "admin_level": "7",
+   "name": "K I Singh",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466483,
+   "admin_level": "7",
+   "name": "Bogtan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466484,
+   "admin_level": "7",
+   "name": "Badikedar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466485,
+   "admin_level": "7",
+   "name": "Jorayal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10466486,
+   "admin_level": "7",
+   "name": "Shikhar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10467157,
+   "admin_level": "7",
+   "name": "Purchaudi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10467158,
+   "admin_level": "7",
+   "name": "Dilasaini",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10467159,
+   "admin_level": "7",
+   "name": "Dogadakedar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10467160,
+   "admin_level": "7",
+   "name": "Surnaya",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10467161,
+   "admin_level": "7",
+   "name": "Sigas",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10467162,
+   "admin_level": "7",
+   "name": "Patan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10467163,
+   "admin_level": "7",
+   "name": "Melauli",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10467164,
+   "admin_level": "7",
+   "name": "Dasharathchanda",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10467165,
+   "admin_level": "7",
+   "name": "Pancheshwar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10467166,
+   "admin_level": "7",
+   "name": "Shivanath",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10468410,
+   "admin_level": "7",
+   "name": "Marma",
+   "name_en": "Marma Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10468411,
+   "admin_level": "7",
+   "name": "Apihimal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10468412,
+   "admin_level": "7",
+   "name": "Byash",
+   "name_en": "Byash Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10468413,
+   "admin_level": "7",
+   "name": "Dunhu",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10468414,
+   "admin_level": "7",
+   "name": "Naugad",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10468415,
+   "admin_level": "7",
+   "name": "Mahakali",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10468416,
+   "admin_level": "7",
+   "name": "Malikaarjun",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10468417,
+   "admin_level": "7",
+   "name": "Shailyashikhar",
+   "name_en": "Shailyashikhar Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10468418,
+   "admin_level": "7",
+   "name": "Lekam",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470779,
+   "admin_level": "7",
+   "name": "Thalara",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470780,
+   "admin_level": "7",
+   "name": "Bithadchir",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470781,
+   "admin_level": "7",
+   "name": "Kedarseu",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470782,
+   "admin_level": "7",
+   "name": "Durgathali",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470783,
+   "admin_level": "7",
+   "name": "Chabispathivera",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470784,
+   "admin_level": "7",
+   "name": "Khaptadchhanna",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470785,
+   "admin_level": "7",
+   "name": "JayaPrithvi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470786,
+   "admin_level": "7",
+   "name": "Masta",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470787,
+   "admin_level": "7",
+   "name": "Bungal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470788,
+   "admin_level": "7",
+   "name": "Surma",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470789,
+   "admin_level": "7",
+   "name": "Talkot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10470790,
+   "admin_level": "7",
+   "name": "Kanda",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10472479,
+   "admin_level": "7",
+   "name": "गढी गाउँपालिका",
+   "name_en": "Gadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10472627,
+   "admin_level": "7",
+   "name": "Dungeshwor",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10472734,
+   "admin_level": "7",
+   "name": "Chandannath",
+   "name_en": null,
+   "website": "https://www.chandannathmun.gov.np/en"
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10476379,
+   "admin_level": "7",
+   "name": "Tanjakot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10476380,
+   "admin_level": "7",
+   "name": "Adanchuli",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10476381,
+   "admin_level": "7",
+   "name": "Sarkegad",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10476382,
+   "admin_level": "7",
+   "name": "Chankheli",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10476383,
+   "admin_level": "7",
+   "name": "Kharpunath",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10476384,
+   "admin_level": "7",
+   "name": "Simkot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10476385,
+   "admin_level": "7",
+   "name": "Namkha",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10476914,
+   "admin_level": "7",
+   "name": "सहिदभूमि गाउँपालिका",
+   "name_en": "Shahidbhumi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10480147,
+   "admin_level": "7",
+   "name": "Mugum Karmarong",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10480148,
+   "admin_level": "7",
+   "name": "Chhayanath Rara",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10480149,
+   "admin_level": "7",
+   "name": "Soru",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10480150,
+   "admin_level": "7",
+   "name": "Khatyad",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10480271,
+   "admin_level": "7",
+   "name": "Pachaljharana",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10480272,
+   "admin_level": "7",
+   "name": "Palata",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10482038,
+   "admin_level": "7",
+   "name": "Mahawai",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10482039,
+   "admin_level": "7",
+   "name": "Tilagufa Municipality",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10482040,
+   "admin_level": "7",
+   "name": "Kalika",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10482041,
+   "admin_level": "7",
+   "name": "Khandachakra",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10482042,
+   "admin_level": "7",
+   "name": "Naraharinath",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10482043,
+   "admin_level": "7",
+   "name": "Sanni Tribeni",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10482044,
+   "admin_level": "7",
+   "name": "Rāskot",
+   "name_en": "Raskot",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10482139,
+   "admin_level": "7",
+   "name": "Kamalbazar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483157,
+   "admin_level": "7",
+   "name": "Turmakhad",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483158,
+   "admin_level": "7",
+   "name": "Dhakari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483159,
+   "admin_level": "7",
+   "name": "Mangalsen",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483160,
+   "admin_level": "7",
+   "name": "Bannigadhi Jayagadh",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483161,
+   "admin_level": "7",
+   "name": "Chaurpati",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483162,
+   "admin_level": "7",
+   "name": "साँफेबगर",
+   "name_en": "Sanphebagar",
+   "website": "https://sanfebagarmun.gov.np/"
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483163,
+   "admin_level": "7",
+   "name": "Mellekh",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483164,
+   "admin_level": "7",
+   "name": "Ramaroshan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483165,
+   "admin_level": "7",
+   "name": "Panchadewal Binayak",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483945,
+   "admin_level": "7",
+   "name": "Janki",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483946,
+   "admin_level": "7",
+   "name": "Khajura",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483948,
+   "admin_level": "7",
+   "name": "Narainapur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483949,
+   "admin_level": "7",
+   "name": "Rapti Sonari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483950,
+   "admin_level": "7",
+   "name": "Kohalpur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10483951,
+   "admin_level": "7",
+   "name": "Baijanath",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488179,
+   "admin_level": "7",
+   "name": "Geruwa",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488180,
+   "admin_level": "7",
+   "name": "Rajapur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488181,
+   "admin_level": "7",
+   "name": "Thakurbaba",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488182,
+   "admin_level": "7",
+   "name": "Madhuwan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488183,
+   "admin_level": "7",
+   "name": "बारबर्दिया",
+   "name_en": "Barbardiya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488184,
+   "admin_level": "7",
+   "name": "गुलरिया-०१",
+   "name_en": "Gulariya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488185,
+   "admin_level": "7",
+   "name": "Badhaiyatal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488186,
+   "admin_level": "7",
+   "name": "Bansagadhi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488776,
+   "admin_level": "7",
+   "name": "Simta",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488777,
+   "admin_level": "7",
+   "name": "Chingad",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488778,
+   "admin_level": "7",
+   "name": "Gurbhakot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488779,
+   "admin_level": "7",
+   "name": "Lekbeshi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488780,
+   "admin_level": "7",
+   "name": "Bheriganga",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488781,
+   "admin_level": "7",
+   "name": "Birendranagar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488782,
+   "admin_level": "7",
+   "name": "Panchpuri",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488783,
+   "admin_level": "7",
+   "name": "Barahtal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10488784,
+   "admin_level": "7",
+   "name": "Chaukure",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10490848,
+   "admin_level": "7",
+   "name": "Chhedagad",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10490849,
+   "admin_level": "7",
+   "name": "Kuse",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10490850,
+   "admin_level": "7",
+   "name": "Shiwalaya",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10491216,
+   "admin_level": "7",
+   "name": "Junichande",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10491217,
+   "admin_level": "7",
+   "name": "Barekot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10491218,
+   "admin_level": "7",
+   "name": "Tribeni Nalagad",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10491219,
+   "admin_level": "7",
+   "name": "Bheri",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10491402,
+   "admin_level": "7",
+   "name": "Palhi Nandan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10491403,
+   "admin_level": "7",
+   "name": "Pratappur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10491404,
+   "admin_level": "7",
+   "name": "Susta",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10492497,
+   "admin_level": "7",
+   "name": "Chaurjahari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10492498,
+   "admin_level": "7",
+   "name": "Tribeni",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10492499,
+   "admin_level": "7",
+   "name": "Sani Bheri",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10492500,
+   "admin_level": "7",
+   "name": "Musikot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10492501,
+   "admin_level": "7",
+   "name": "Banfikot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10492502,
+   "admin_level": "7",
+   "name": "Aathbiskot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10492503,
+   "admin_level": "7",
+   "name": "Sunwal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10492504,
+   "admin_level": "7",
+   "name": "Ramgram",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10492505,
+   "admin_level": "7",
+   "name": "Sarawal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10492506,
+   "admin_level": "7",
+   "name": "नवलपरासी पश्चिम / बर्दघाट सुस्ता पश्चिम",
+   "name_en": "Nawalparasi West / Bardaghat Susta",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10494402,
+   "admin_level": "7",
+   "name": "Bhume",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10494403,
+   "admin_level": "7",
+   "name": "Putha Uttarganga",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10494404,
+   "admin_level": "7",
+   "name": "Sisne",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10495600,
+   "admin_level": "7",
+   "name": "Tripurasundari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10495601,
+   "admin_level": "7",
+   "name": "Thuli Bheri",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10495602,
+   "admin_level": "7",
+   "name": "Kaike",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10495603,
+   "admin_level": "7",
+   "name": "Chharka Tangsong",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10495604,
+   "admin_level": "7",
+   "name": "Dolpo Buddha",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10495605,
+   "admin_level": "7",
+   "name": "Mudchekula",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10495606,
+   "admin_level": "7",
+   "name": "Jagadulla",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10495607,
+   "admin_level": "7",
+   "name": "Shey Phoksundo",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10496399,
+   "admin_level": "7",
+   "name": "Patrasi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10496400,
+   "admin_level": "7",
+   "name": "Kanakasundari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10496401,
+   "admin_level": "7",
+   "name": "Sinja",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10496402,
+   "admin_level": "7",
+   "name": "Hima Rural Municipality",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10496403,
+   "admin_level": "7",
+   "name": "Tila Rural Municipality",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10496404,
+   "admin_level": "7",
+   "name": "Tatopani",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10496405,
+   "admin_level": "7",
+   "name": "Guthichaur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10497174,
+   "admin_level": "7",
+   "name": "Barhagaun Muktikhsetra",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10497175,
+   "admin_level": "7",
+   "name": "Gharapjhong",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10497176,
+   "admin_level": "7",
+   "name": "Thasang",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10497177,
+   "admin_level": "7",
+   "name": "लोमान्थाङ",
+   "name_en": "Lomanthang",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10497178,
+   "admin_level": "7",
+   "name": "Dalome",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507081,
+   "admin_level": "7",
+   "name": "Dhorchaur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507082,
+   "admin_level": "7",
+   "name": "Kukmakhmalika",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507083,
+   "admin_level": "7",
+   "name": "Darma",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507084,
+   "admin_level": "7",
+   "name": "Bagchaur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507085,
+   "admin_level": "7",
+   "name": "Bangad Kupinde",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507086,
+   "admin_level": "7",
+   "name": "Sharada",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507087,
+   "admin_level": "7",
+   "name": "Chhatreshwori",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507088,
+   "admin_level": "7",
+   "name": "Kapurkot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507089,
+   "admin_level": "7",
+   "name": "Tribeni",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507090,
+   "admin_level": "7",
+   "name": "Kalimati",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507330,
+   "admin_level": "7",
+   "name": "बंगलाचुली",
+   "name_en": "Bangalachuli",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507331,
+   "admin_level": "7",
+   "name": "राप्ती",
+   "name_en": "Rapti",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507332,
+   "admin_level": "7",
+   "name": "गढवा",
+   "name_en": "Gadhawa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507333,
+   "admin_level": "7",
+   "name": "राजपुर",
+   "name_en": "Rajpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507334,
+   "admin_level": "7",
+   "name": "लमही",
+   "name_en": "Lamahi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507335,
+   "admin_level": "7",
+   "name": "घोराही",
+   "name_en": "Ghorahi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507336,
+   "admin_level": "7",
+   "name": "तुलसीपुर",
+   "name_en": "Tulsipur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507337,
+   "admin_level": "7",
+   "name": "दङ्गीशरण",
+   "name_en": "Dangisharan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507338,
+   "admin_level": "7",
+   "name": "शान्तिनगर",
+   "name_en": "Shantinagar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507339,
+   "admin_level": "7",
+   "name": "बबई",
+   "name_en": "Babai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507520,
+   "admin_level": "7",
+   "name": "Suwarnabati",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507521,
+   "admin_level": "7",
+   "name": "रोल्पा",
+   "name_en": "Rolpa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507522,
+   "admin_level": "7",
+   "name": "Lungri rural municipality",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507523,
+   "admin_level": "7",
+   "name": "Sunchhahari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507524,
+   "admin_level": "7",
+   "name": "Thawang",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507525,
+   "admin_level": "7",
+   "name": "Duikholi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507526,
+   "admin_level": "7",
+   "name": "Madi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507527,
+   "admin_level": "7",
+   "name": "Tribeni",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507528,
+   "admin_level": "7",
+   "name": "Sukidaha",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507529,
+   "admin_level": "7",
+   "name": "Runtigadi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507711,
+   "admin_level": "7",
+   "name": "Naubahini",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507712,
+   "admin_level": "7",
+   "name": "Gaumukhi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507713,
+   "admin_level": "7",
+   "name": "Jhimruk",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507714,
+   "admin_level": "7",
+   "name": "Mallarani",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507715,
+   "admin_level": "7",
+   "name": "Ayirabati",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507716,
+   "admin_level": "7",
+   "name": "Sarumarani",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507717,
+   "admin_level": "7",
+   "name": "Mandavi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507719,
+   "admin_level": "7",
+   "name": "Sworgadwary",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507953,
+   "admin_level": "7",
+   "name": "Bhumikasthan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507954,
+   "admin_level": "7",
+   "name": "Panini",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507955,
+   "admin_level": "7",
+   "name": "Chhatradev",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507956,
+   "admin_level": "7",
+   "name": "Sandhikharka",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507957,
+   "admin_level": "7",
+   "name": "Shitaganga",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10507958,
+   "admin_level": "7",
+   "name": "Malarani",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10508279,
+   "admin_level": "7",
+   "name": "Kapilbastu",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10508280,
+   "admin_level": "7",
+   "name": "यसोधरा",
+   "name_en": "Yasodhara",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10508281,
+   "admin_level": "7",
+   "name": "Mayadevi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10508282,
+   "admin_level": "7",
+   "name": "Suddhodhan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10508283,
+   "admin_level": "7",
+   "name": "Banganga",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10508284,
+   "admin_level": "7",
+   "name": "Shivaraj",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10508285,
+   "admin_level": "7",
+   "name": "Buddhabhumi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10508286,
+   "admin_level": "7",
+   "name": "Maharajgunj",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10508287,
+   "admin_level": "7",
+   "name": "Krishnanagar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10508288,
+   "admin_level": "7",
+   "name": "Bijayanagar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512626,
+   "admin_level": "7",
+   "name": "Gulmidarbar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512627,
+   "admin_level": "7",
+   "name": "Chatrakot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512628,
+   "admin_level": "7",
+   "name": "Ruru",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512629,
+   "admin_level": "7",
+   "name": "Satyawati",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512630,
+   "admin_level": "7",
+   "name": "Kaligandaki",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512631,
+   "admin_level": "7",
+   "name": "Chandrakot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512633,
+   "admin_level": "7",
+   "name": "Musikot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512634,
+   "admin_level": "7",
+   "name": "Isma",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512635,
+   "admin_level": "7",
+   "name": "Dhurkot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512636,
+   "admin_level": "7",
+   "name": "Malika",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10512637,
+   "admin_level": "7",
+   "name": "Madane",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515183,
+   "admin_level": "7",
+   "name": "Jaljala",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515184,
+   "admin_level": "7",
+   "name": "Kushma",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515185,
+   "admin_level": "7",
+   "name": "Phalebas",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515186,
+   "admin_level": "7",
+   "name": "Mahashila",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515187,
+   "admin_level": "7",
+   "name": "Painyu",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515188,
+   "admin_level": "7",
+   "name": "Bihadi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515347,
+   "admin_level": "7",
+   "name": "Mangala",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515348,
+   "admin_level": "7",
+   "name": "Malika",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515349,
+   "admin_level": "7",
+   "name": "Beni",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515350,
+   "admin_level": "7",
+   "name": "Annapurna",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515351,
+   "admin_level": "7",
+   "name": "Raghuganga",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10515352,
+   "admin_level": "7",
+   "name": "Dhaulagiri",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10516302,
+   "admin_level": "7",
+   "name": "Neshyang",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10516303,
+   "admin_level": "7",
+   "name": "Narphu",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10516304,
+   "admin_level": "7",
+   "name": "Nashong",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10516305,
+   "admin_level": "7",
+   "name": "Chame",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521423,
+   "admin_level": "7",
+   "name": "Bhirkot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521424,
+   "admin_level": "7",
+   "name": "Chapakot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521425,
+   "admin_level": "7",
+   "name": "Galyang",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521426,
+   "admin_level": "7",
+   "name": "Kaligandagi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521978,
+   "admin_level": "7",
+   "name": "Harinas",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521979,
+   "admin_level": "7",
+   "name": "Biruwa",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521980,
+   "admin_level": "7",
+   "name": "Putalibazar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521981,
+   "admin_level": "7",
+   "name": "Phedhikhola",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521982,
+   "admin_level": "7",
+   "name": "Aandhikhola",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521983,
+   "admin_level": "7",
+   "name": "Arjunchaupari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10521984,
+   "admin_level": "7",
+   "name": "Waling",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10523828,
+   "admin_level": "7",
+   "name": "Dudhpokhari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10523829,
+   "admin_level": "7",
+   "name": "Dordi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10523830,
+   "admin_level": "7",
+   "name": "Rainas",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10523831,
+   "admin_level": "7",
+   "name": "Sundarbazar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10523832,
+   "admin_level": "7",
+   "name": "Besishahar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10523833,
+   "admin_level": "7",
+   "name": "Madhya Nepal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10523834,
+   "admin_level": "7",
+   "name": "Kwholasothar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10523835,
+   "admin_level": "7",
+   "name": "Marsyangdi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524445,
+   "admin_level": "7",
+   "name": "गोरखा",
+   "name_en": "Gorkha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524446,
+   "admin_level": "7",
+   "name": "Palungtar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524447,
+   "admin_level": "7",
+   "name": "Siranchok",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524448,
+   "admin_level": "7",
+   "name": "Gandaki",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524449,
+   "admin_level": "7",
+   "name": "Sahid Lakhan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524450,
+   "admin_level": "7",
+   "name": "Bhimsen",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524451,
+   "admin_level": "7",
+   "name": "Aarughat",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524452,
+   "admin_level": "7",
+   "name": "Dharche",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524453,
+   "admin_level": "7",
+   "name": "Sulikot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524454,
+   "admin_level": "7",
+   "name": "Ajirkot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524455,
+   "admin_level": "7",
+   "name": "Chum Nubri",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524862,
+   "admin_level": "7",
+   "name": "धुनिवेशी नगरपालिका",
+   "name_en": "Dhunibesi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524863,
+   "admin_level": "7",
+   "name": "थाक्रे गाउँपालिका",
+   "name_en": "Thakre",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524864,
+   "admin_level": "7",
+   "name": "गजुरी गाउँपालिका",
+   "name_en": "Gajuri",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524865,
+   "admin_level": "7",
+   "name": "गल्छी गाउँपालिका",
+   "name_en": "Galchhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524866,
+   "admin_level": "7",
+   "name": "बेनीघाट रोराङ गाउँपालिका",
+   "name_en": "Benighat Rorang",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524867,
+   "admin_level": "7",
+   "name": "सिद्धलेक गाउँपालिका",
+   "name_en": "Siddhalek",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524868,
+   "admin_level": "7",
+   "name": "ज्वालामुखी गाउँपालिका",
+   "name_en": "Jwalamukhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524869,
+   "admin_level": "7",
+   "name": "त्रिपुरासुन्दरी गाउँपालिका",
+   "name_en": "Tripura Sundari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524870,
+   "admin_level": "7",
+   "name": "नेत्रावती डबजोङ गाउँपालिका",
+   "name_en": "Netrawati Dabjong",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524871,
+   "admin_level": "7",
+   "name": "गङ्गाजमुना गाउँपालिका",
+   "name_en": "Gangajamuna",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524872,
+   "admin_level": "7",
+   "name": "खनियाबास गाउँपालिका",
+   "name_en": "Khaniyabash",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10524873,
+   "admin_level": "7",
+   "name": "रुवी भ्याली गाउँपालिका",
+   "name_en": "Rubi Valley",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529069,
+   "admin_level": "7",
+   "name": "सुवर्ण गाउँपालिका",
+   "name_en": "Suwarna",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529070,
+   "admin_level": "7",
+   "name": "परवानीपुर गाउँपालिका",
+   "name_en": "Parwanipur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529071,
+   "admin_level": "7",
+   "name": "प्रसौनी गाउँपालिका",
+   "name_en": "Prasauni",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529072,
+   "admin_level": "7",
+   "name": "फेटा गाउँपालिका",
+   "name_en": "Pheta",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529073,
+   "admin_level": "7",
+   "name": "करैयामाई गाउँपालिका",
+   "name_en": "Bishrampur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529074,
+   "admin_level": "7",
+   "name": "करैयामाई गाउँपालिका",
+   "name_en": "Karaiyamai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529075,
+   "admin_level": "7",
+   "name": "कलैया उपमहानगरपालिका",
+   "name_en": "Kalaiya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529076,
+   "admin_level": "7",
+   "name": "जीतपुरसिमरा उपमहानगरपालिका",
+   "name_en": "Jitpur Simara",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529077,
+   "admin_level": "7",
+   "name": "देवताल गाउँपालिका",
+   "name_en": "Devtal",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529078,
+   "admin_level": "7",
+   "name": "महागढीमाई नगरपालिका",
+   "name_en": "Mahagadhimai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529079,
+   "admin_level": "7",
+   "name": "पचरौता नगरपालिका",
+   "name_en": "Pacharauta",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529080,
+   "admin_level": "7",
+   "name": "सिम्रौनगढ नगरपालिका",
+   "name_en": "Simraungadh",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529081,
+   "admin_level": "7",
+   "name": "आदर्श कोतवाल गाउँपालिका",
+   "name_en": "Adarshkotwal",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529082,
+   "admin_level": "7",
+   "name": "बारागढी गाउँपालिका",
+   "name_en": "Baragadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529083,
+   "admin_level": "7",
+   "name": "कोल्हवी नगरपालिका",
+   "name_en": "Kolhabi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529084,
+   "admin_level": "7",
+   "name": "गोसाइँकुण्ड गाउँपालिका",
+   "name_en": "Gosaikunda",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529085,
+   "admin_level": "7",
+   "name": "कालिका गाउँपालिका",
+   "name_en": "Kalika",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529086,
+   "admin_level": "7",
+   "name": "उत्तरगया गाउँपालिका",
+   "name_en": "Uttargaya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529087,
+   "admin_level": "7",
+   "name": "नौकुण्ड गाउँपालिका",
+   "name_en": "Naukunda",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529088,
+   "admin_level": "7",
+   "name": "आमाछोदिङ्मो गाउँपालिका",
+   "name_en": "Aamachhodingmo",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529681,
+   "admin_level": "7",
+   "name": "ईशनाथ नगरपालिका",
+   "name_en": "Ishanath",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529682,
+   "admin_level": "7",
+   "name": "परोहा नगरपालिका",
+   "name_en": "Paroha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529683,
+   "admin_level": "7",
+   "name": "मौलापुर नगरपालिका",
+   "name_en": "Maulapur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529684,
+   "admin_level": "7",
+   "name": "राजपुर नगरपालिका",
+   "name_en": "Rajpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529685,
+   "admin_level": "7",
+   "name": "राजदेवी नगरपालिका",
+   "name_en": "Rajdevi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529686,
+   "admin_level": "7",
+   "name": "दुर्गा भगवती गाउँपालिका",
+   "name_en": "Durga Bhagwati",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529687,
+   "admin_level": "7",
+   "name": "यमुनामाई गाउँपालिका",
+   "name_en": "Yemunamai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529688,
+   "admin_level": "7",
+   "name": "माधव नारायण नगरपालिका",
+   "name_en": "Madhav Narayan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529689,
+   "admin_level": "7",
+   "name": "गढीमाई नगरपालिका",
+   "name_en": "Gadhimai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529690,
+   "admin_level": "7",
+   "name": "बौधीमाई नगरपालिका",
+   "name_en": "Baudhimai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529691,
+   "admin_level": "7",
+   "name": "देवाही गोनाही नगरपालिका",
+   "name_en": "Dewahi Gonahi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529692,
+   "admin_level": "7",
+   "name": "कटहरिया नगरपालिका",
+   "name_en": "Katahariya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529693,
+   "admin_level": "7",
+   "name": "गरुडा नगरपालिका",
+   "name_en": "Garuda",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529694,
+   "admin_level": "7",
+   "name": "वृन्दावन नगरपालिका",
+   "name_en": "Brindaban",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529695,
+   "admin_level": "7",
+   "name": "चन्द्रपुर नगरपालिका",
+   "name_en": "Chandrapur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529696,
+   "admin_level": "7",
+   "name": "गुजरा नगरपालिका",
+   "name_en": "Gujara",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10529697,
+   "admin_level": "7",
+   "name": "फतुवा विजयपुर नगरपालिका",
+   "name_en": "Phatuwa Bijayapur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532289,
+   "admin_level": "7",
+   "name": "पर्सा गाउँपालिका",
+   "name_en": "Parsa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532290,
+   "admin_level": "7",
+   "name": "विष्णु गाउँपालिका",
+   "name_en": "Bishnu",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532291,
+   "admin_level": "7",
+   "name": "चक्रघट्टा गाउँपालिका",
+   "name_en": "Chakraghatta",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532292,
+   "admin_level": "7",
+   "name": "बलरा नगरपालिका",
+   "name_en": "Balara",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532293,
+   "admin_level": "7",
+   "name": "गोडैता नगरपालिका",
+   "name_en": "Godaita",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532294,
+   "admin_level": "7",
+   "name": "रामनगर गाउँपालिका",
+   "name_en": "Ramnagar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532295,
+   "admin_level": "7",
+   "name": "धनकौल गाउँपालिका",
+   "name_en": "Dhankaul",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532296,
+   "admin_level": "7",
+   "name": "बसबरीया गाउँपालिका",
+   "name_en": "Basbariya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532297,
+   "admin_level": "7",
+   "name": "कौडेना गाउँपालिका",
+   "name_en": "Kaudena",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532298,
+   "admin_level": "7",
+   "name": "बरहथवा नगरपालिका",
+   "name_en": "Barahathawa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532299,
+   "admin_level": "7",
+   "name": "मलंगवा नगरपालिका",
+   "name_en": "Malangawa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532300,
+   "admin_level": "7",
+   "name": "कविलासी नगरपालिका",
+   "name_en": "Kabilasi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532301,
+   "admin_level": "7",
+   "name": "ब्रह्मपुरी गाउँपालिका",
+   "name_en": "Bramhapuri",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532302,
+   "admin_level": "7",
+   "name": "चन्द्रनगर गाउँपालिका",
+   "name_en": "Chandranagar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532303,
+   "admin_level": "7",
+   "name": "हरिपुर नगरपालिका",
+   "name_en": "Haripur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532304,
+   "admin_level": "7",
+   "name": "हरिपुर्वा नगरपालिका",
+   "name_en": "Haripurwa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532305,
+   "admin_level": "7",
+   "name": "ईश्वरपुर नगरपालिका",
+   "name_en": "Ishworpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532306,
+   "admin_level": "7",
+   "name": "लालबन्दी नगरपालिका",
+   "name_en": "Lalbandi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532307,
+   "admin_level": "7",
+   "name": "हरिवन नगरपालिका",
+   "name_en": "Hariwan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10532308,
+   "admin_level": "7",
+   "name": "बागमती नगरपालिका",
+   "name_en": "Bagmati",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534181,
+   "admin_level": "7",
+   "name": "मटिहानी नगरपालिका",
+   "name_en": "Matihani",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534182,
+   "admin_level": "7",
+   "name": "जलेश्वर नगरपालिका",
+   "name_en": "Jaleswar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534183,
+   "admin_level": "7",
+   "name": "एकडारा गाउँपालिका",
+   "name_en": "Ekdanra",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534184,
+   "admin_level": "7",
+   "name": "महोत्तरी गाउँपालिका",
+   "name_en": "Mahottari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534185,
+   "admin_level": "7",
+   "name": "मनरा शिसवा नगरपालिका",
+   "name_en": "Manra Siswa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534186,
+   "admin_level": "7",
+   "name": "बलवा नगरपालिका",
+   "name_en": "Balwa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534187,
+   "admin_level": "7",
+   "name": "रामगोपालपुर नगरपालिका",
+   "name_en": "Ramgopalpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534188,
+   "admin_level": "7",
+   "name": "साम्सी गाउँपालिका",
+   "name_en": "Samsi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534189,
+   "admin_level": "7",
+   "name": "पिपरा गाउँपालिका",
+   "name_en": "Pipra",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534190,
+   "admin_level": "7",
+   "name": "लोहरपट्टी नगरपालिका",
+   "name_en": "Loharpatti",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534191,
+   "admin_level": "7",
+   "name": "भँगाहा नगरपालिका",
+   "name_en": "Bhangaha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534192,
+   "admin_level": "7",
+   "name": "औरही नगरपालिका",
+   "name_en": "Aurahi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534193,
+   "admin_level": "7",
+   "name": "सोनमा गाउँपालिका",
+   "name_en": "Sonama",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534194,
+   "admin_level": "7",
+   "name": "गौशाला नगरपालिका",
+   "name_en": "Gaushala",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534195,
+   "admin_level": "7",
+   "name": "बर्दिबास नगरपालिका",
+   "name_en": "Bardibas",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534402,
+   "admin_level": "7",
+   "name": null,
+   "name_en": "Gaindakot",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534403,
+   "admin_level": "7",
+   "name": "Devchuli",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534404,
+   "admin_level": "7",
+   "name": "Kawasoti",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534405,
+   "admin_level": "7",
+   "name": "Bulingtar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534406,
+   "admin_level": "7",
+   "name": "Bungdikali",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534407,
+   "admin_level": "7",
+   "name": "Hupsekot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534408,
+   "admin_level": "7",
+   "name": "Madhyabindu",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534409,
+   "admin_level": "7",
+   "name": "Binayi Tribeni",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534607,
+   "admin_level": "7",
+   "name": "बाह्रविसे नगरपालिका",
+   "name_en": "Barhabise",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534608,
+   "admin_level": "7",
+   "name": "चौतारा साँगाचोकगढी नगरपालिका",
+   "name_en": "Chautara Sangachok Gadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534609,
+   "admin_level": "7",
+   "name": "बलेफी गाउँपालिका",
+   "name_en": "Balefi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534610,
+   "admin_level": "7",
+   "name": "सुनकोशी गाउँपालिका",
+   "name_en": "Sunkoshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534611,
+   "admin_level": "7",
+   "name": "लिसङ्खु पाखर गाउँपालिका",
+   "name_en": "Lisangkhu Pakhar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534612,
+   "admin_level": "7",
+   "name": "त्रिपुरासुन्दरी गाउँपालिका",
+   "name_en": "Tripurasundari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534613,
+   "admin_level": "7",
+   "name": "भोटेकोशी गाउँपालिका",
+   "name_en": "Bhotekoshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534614,
+   "admin_level": "7",
+   "name": "जुगल गाउँपालिका",
+   "name_en": "Jugal",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534615,
+   "admin_level": "7",
+   "name": "पाँचपोखरी थाङपाल गाउँपालिका",
+   "name_en": "Panchpokhari Thangpal",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534616,
+   "admin_level": "7",
+   "name": "हेलम्बु गाउँपालिका",
+   "name_en": "Helambu",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534617,
+   "admin_level": "7",
+   "name": "ईन्द्रावती गाउँपालिका",
+   "name_en": "Indrawati",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534618,
+   "admin_level": "7",
+   "name": "मेलम्ची नगरपालिका",
+   "name_en": "Melamchi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534782,
+   "admin_level": "7",
+   "name": "किस्पाङ गाउँपालिका",
+   "name_en": "Kispang",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534783,
+   "admin_level": "7",
+   "name": "म्यागङ गाउँपालिका",
+   "name_en": "Myagang Gaunpalika",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534784,
+   "admin_level": "7",
+   "name": "तारकेश्वर गाउँपालिका",
+   "name_en": "Tarkeshwar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534785,
+   "admin_level": "7",
+   "name": "बिदुर नगरपालिका",
+   "name_en": "Bidur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534788,
+   "admin_level": "7",
+   "name": "शिवपुरी गाउँपालिका",
+   "name_en": "Shivapuri",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534789,
+   "admin_level": "7",
+   "name": "पञ्चकन्या गाउँपालिका",
+   "name_en": "Panchakanya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534790,
+   "admin_level": "7",
+   "name": "लिखु गाउँपालिका",
+   "name_en": "Likhu",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534791,
+   "admin_level": "7",
+   "name": "सूर्यगढी गाउँपालिका",
+   "name_en": "Suryagadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534792,
+   "admin_level": "7",
+   "name": "तादी गाउँपालिका",
+   "name_en": "Tadi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534793,
+   "admin_level": "7",
+   "name": "दुप्चेश्वर गाउँपालिका",
+   "name_en": "Ducheshwar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534890,
+   "admin_level": "7",
+   "name": "सूर्यविनायक नगरपालिका",
+   "name_en": "Suryabinayak Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10534891,
+   "admin_level": "7",
+   "name": "चाँगुनारायण नगरपालिका",
+   "name_en": "Changunarayan Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10535030,
+   "admin_level": "7",
+   "name": "बाग्मती गाउँपालिका",
+   "name_en": "Bagmati",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10535031,
+   "admin_level": "7",
+   "name": "महाङ्काल गाउँपालिका",
+   "name_en": "Mahankal",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10535032,
+   "admin_level": "7",
+   "name": "कोन्ज्योसोम गाउँपालिका",
+   "name_en": "Konjyosom",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10535033,
+   "admin_level": "7",
+   "name": "गोदावरी नगरपालिका",
+   "name_en": "Godawari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10535034,
+   "admin_level": "7",
+   "name": "ललितपुर महानगरपालिका",
+   "name_en": "Lalitpur Metropolitan City",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10535035,
+   "admin_level": "7",
+   "name": "ललितपुर महानगरपालिका",
+   "name_en": "Mahalaxmi Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10537757,
+   "admin_level": "7",
+   "name": "मकवानपुरगढी गाउँपालिका",
+   "name_en": "Makawanpurgadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10537758,
+   "admin_level": "7",
+   "name": "भीमफेदी गाउँपालिका",
+   "name_en": "Bhimphedi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10537759,
+   "admin_level": "7",
+   "name": "बागमती गाउँपालिका",
+   "name_en": "Bagmati",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10541342,
+   "admin_level": "7",
+   "name": "Thaha",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10541343,
+   "admin_level": "7",
+   "name": "मनहरी गाउँपालिका",
+   "name_en": "Manahari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10541344,
+   "admin_level": "7",
+   "name": "राक्सिराङ गाउँपालिका",
+   "name_en": "Raksirang",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10541345,
+   "admin_level": "7",
+   "name": "कैलाश गाउँपालिका",
+   "name_en": "Kailash",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10541346,
+   "admin_level": "7",
+   "name": "बकैया गाउँपालिका",
+   "name_en": "Bakaiya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10541347,
+   "admin_level": "7",
+   "name": "इन्द्रसरोवर गाउँपालिका",
+   "name_en": "Indrasarowar Rural Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10543806,
+   "admin_level": "7",
+   "name": "Annapurna",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10543807,
+   "admin_level": "7",
+   "name": "Rupa",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10543808,
+   "admin_level": "7",
+   "name": "Machhapuchchhre",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 10543809,
+   "admin_level": "7",
+   "name": "Madi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 11020314,
+   "admin_level": "7",
+   "name": "Naumule",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 11020315,
+   "admin_level": "7",
+   "name": "Mahabu",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 11020316,
+   "admin_level": "7",
+   "name": "Bhairabi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 11020317,
+   "admin_level": "7",
+   "name": "Chamunda Bindrasaini",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 11020318,
+   "admin_level": "7",
+   "name": "Thantikandh",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 11020319,
+   "admin_level": "7",
+   "name": "Aathabis",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 11020320,
+   "admin_level": "7",
+   "name": "Bhagawatimai",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 11020321,
+   "admin_level": "7",
+   "name": "Dullu",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 11020322,
+   "admin_level": "7",
+   "name": "Gurans",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378464,
+   "admin_level": "7",
+   "name": "याङवरक गाउँपालिका",
+   "name_en": "Yangwarak",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378497,
+   "admin_level": "7",
+   "name": "फालेलुङ गाउँपालिका",
+   "name_en": "Falelung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378586,
+   "admin_level": "7",
+   "name": "फिदिम नगरपालिका",
+   "name_en": "Phidim",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378636,
+   "admin_level": "7",
+   "name": "हिलिहाङ गाउँपालिका",
+   "name_en": "Hilihang",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378651,
+   "admin_level": "7",
+   "name": "फाल्गुनन्द गाउँपालिका",
+   "name_en": "Falgunanda",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378676,
+   "admin_level": "7",
+   "name": "मिक्लाजुङ गाउँपालिका",
+   "name_en": "Miklajung (Panchthar)",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378705,
+   "admin_level": "7",
+   "name": "तुम्बेवा गाउँपालिका",
+   "name_en": "Tumbewa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378706,
+   "admin_level": "7",
+   "name": "कुम्मायक गाउँपालिका",
+   "name_en": "Kummayak",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378774,
+   "admin_level": "7",
+   "name": "छथर गाउँपालिका",
+   "name_en": "Chhathar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378775,
+   "admin_level": "7",
+   "name": "लालीगुराँस नगरपालिका",
+   "name_en": "Laligurans",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378776,
+   "admin_level": "7",
+   "name": "म्याङलुङ नगरपालिका",
+   "name_en": "Myanglung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378777,
+   "admin_level": "7",
+   "name": "फेदाप गाउँपालिका",
+   "name_en": "Phedap",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378778,
+   "admin_level": "7",
+   "name": "मेन्छयायेम गाउँपालिका",
+   "name_en": "Menchayayem",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12378779,
+   "admin_level": "7",
+   "name": "आठराई गाउँपालिका",
+   "name_en": "Aathrai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379683,
+   "admin_level": "7",
+   "name": "अरुण गाउँपालिका",
+   "name_en": "Arun",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379684,
+   "admin_level": "7",
+   "name": "पौवादुङमा गाउँपालिका",
+   "name_en": "Pauwadungma",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379685,
+   "admin_level": "7",
+   "name": "हतुवागढी गाउँपालिका",
+   "name_en": "Hatuwagadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379686,
+   "admin_level": "7",
+   "name": "आमचोक गाउँपालिका",
+   "name_en": "Aamchok",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379687,
+   "admin_level": "7",
+   "name": "रामप्रसाद राई गाउँपालिका",
+   "name_en": "Ramprasad Rai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379688,
+   "admin_level": "7",
+   "name": "टेम्केमैयुङ गाउँपालिका",
+   "name_en": "Tyamke Maiyum",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379689,
+   "admin_level": "7",
+   "name": "षडानन्द नगरपालिका",
+   "name_en": "Shadananda",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379690,
+   "admin_level": "7",
+   "name": "भोजपुर नगरपालिका",
+   "name_en": "Bhojpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379691,
+   "admin_level": "7",
+   "name": "साल्पासिलिछो गाउँपालिका",
+   "name_en": "Salpasilichho",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379734,
+   "admin_level": "7",
+   "name": "छथर जोरपाटी गाउँपालिका",
+   "name_en": "Chhathar Jorpati",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379736,
+   "admin_level": "7",
+   "name": "चौबिसे गाउँपालिका",
+   "name_en": "Chaubise",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379737,
+   "admin_level": "7",
+   "name": "सागुरीगढी गाउँपालिका",
+   "name_en": "Sangurigadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379738,
+   "admin_level": "7",
+   "name": "पाख्रीबास नगरपालिका",
+   "name_en": "Pakhribas",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379739,
+   "admin_level": "7",
+   "name": "महालक्ष्मी नगरपालिका",
+   "name_en": "Mahalaxmi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379740,
+   "admin_level": "7",
+   "name": "धनकुटा नगरपालिका",
+   "name_en": "Dhankuta",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379915,
+   "admin_level": "7",
+   "name": "बराहक्षेत्र नगरपालिका",
+   "name_en": "Barahaksetra",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379916,
+   "admin_level": "7",
+   "name": "इटहरी उपमहानगरपालिका",
+   "name_en": "Itahari",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12379917,
+   "admin_level": "7",
+   "name": "धरान उपमहानगरपालिका",
+   "name_en": "Dharan",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12380011,
+   "admin_level": "7",
+   "name": "रामधुनी नगरपालिका",
+   "name_en": "Ramdhuni",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12380012,
+   "admin_level": "7",
+   "name": "इनरुवा नगरपालिका",
+   "name_en": "Inaruwa",
+   "website": "Inaruwamun.gov.np"
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12380135,
+   "admin_level": "7",
+   "name": "बर्जु गाउँपालिका",
+   "name_en": "Barju",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12380137,
+   "admin_level": "7",
+   "name": "देवानगञ्ज गाउँपालिका",
+   "name_en": "Dewanganj",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12380138,
+   "admin_level": "7",
+   "name": "भोक्राहा नरसिंह गाउँपालिका",
+   "name_en": "Bhokraha Narsinha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12380139,
+   "admin_level": "7",
+   "name": "हरिनगर गाउँपालिका",
+   "name_en": "Harinagara",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12380140,
+   "admin_level": "7",
+   "name": "कोशी गाउँपालिका",
+   "name_en": "Koshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12380141,
+   "admin_level": "7",
+   "name": "दुहवी नगरपालिका",
+   "name_en": "Duhabi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389468,
+   "admin_level": "7",
+   "name": "बीरगन्ज महानगरपालिका",
+   "name_en": "Birgunj",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389469,
+   "admin_level": "7",
+   "name": "पर्सागढी नगरपालिका",
+   "name_en": "Parsagadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389487,
+   "admin_level": "7",
+   "name": "सखुवा प्रसौनी गाउँपालिका",
+   "name_en": "Sakhuwa Prasauni",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389492,
+   "admin_level": "7",
+   "name": "पटेर्वा सुगौली गाउँपालिका",
+   "name_en": "Paterwa Sugauli",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389521,
+   "admin_level": "7",
+   "name": "जिराभवानी गाउँपालिका",
+   "name_en": "Jirabhawani",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389523,
+   "admin_level": "7",
+   "name": "ठोरी गाउँपालिका",
+   "name_en": "Thori",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389542,
+   "admin_level": "7",
+   "name": "जगरनाथपुर गाउँपालिका",
+   "name_en": "Jagarnathpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389564,
+   "admin_level": "7",
+   "name": "धोबिनी गाउँपालिका",
+   "name_en": "Dhobini",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389568,
+   "admin_level": "7",
+   "name": "छिपहरमाई गाउँपालिका",
+   "name_en": "Chhipahrmai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389577,
+   "admin_level": "7",
+   "name": "पकहाँ मैनपुर गाउँपालिका",
+   "name_en": "Pakaha Mainpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389592,
+   "admin_level": "7",
+   "name": "बिन्दबासिनी गाउँपालिका",
+   "name_en": "Bindabasini",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389606,
+   "admin_level": "7",
+   "name": "कालिकामाई गाउँपालिका",
+   "name_en": "Kalikamai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389685,
+   "admin_level": "7",
+   "name": "पोखरीया नगरपालिका",
+   "name_en": "Pokhariya",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12389707,
+   "admin_level": "7",
+   "name": "बहुदरमाई नगरपालिका",
+   "name_en": "Bahudarmai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393262,
+   "admin_level": "7",
+   "name": "रत्ननगर नगरपालिका",
+   "name_en": "Ratnanagar",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393263,
+   "admin_level": "7",
+   "name": "खैरहनी नगरपालिका",
+   "name_en": "Khairhani",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393264,
+   "admin_level": "7",
+   "name": "राप्ती नगरपालिका",
+   "name_en": "Rapti",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393265,
+   "admin_level": "7",
+   "name": "कालिका नगरपालिका",
+   "name_en": "Kalika",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393266,
+   "admin_level": "7",
+   "name": "इच्छाकामना गाउँपालिका",
+   "name_en": "Ichchhakamana",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393267,
+   "admin_level": "7",
+   "name": "भरतपुर महानगरपालिका",
+   "name_en": "Bharatpur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393268,
+   "admin_level": "7",
+   "name": "माडी नगरपालिका",
+   "name_en": "Madi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393597,
+   "admin_level": "7",
+   "name": "सुनापती गाउँपालिका",
+   "name_en": "Sunapati",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393598,
+   "admin_level": "7",
+   "name": "दोरम्बा शैलुङ गाउँपालिका",
+   "name_en": "Doramba Sailung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393599,
+   "admin_level": "7",
+   "name": "खाँडादेवी गाउँपालिका",
+   "name_en": "Khandadevi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393600,
+   "admin_level": "7",
+   "name": "मन्थली नगरपालिका",
+   "name_en": "Manthali",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393601,
+   "admin_level": "7",
+   "name": "रामेछाप नगरपालिका",
+   "name_en": "Ramechhap",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393602,
+   "admin_level": "7",
+   "name": "लिखु तामाकोशी गाउँपालिका",
+   "name_en": "Likhu Tamakoshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393603,
+   "admin_level": "7",
+   "name": "गोकुलगङ्गा गाउँपालिका",
+   "name_en": "Gokulganga",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12393604,
+   "admin_level": "7",
+   "name": "उमाकुण्ड गाउँपालिका",
+   "name_en": "Umakunda",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394194,
+   "admin_level": "7",
+   "name": "भुम्लु गाउँपालिका",
+   "name_en": "Bhumlu",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394195,
+   "admin_level": "7",
+   "name": "चौंरीदेउराली गाउँपालिका",
+   "name_en": "Chaunri Deurali",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394196,
+   "admin_level": "7",
+   "name": "तेमाल गाउँपालिका",
+   "name_en": "Temal",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394197,
+   "admin_level": "7",
+   "name": "रोशी गाउँपालिका",
+   "name_en": "Roshi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394198,
+   "admin_level": "7",
+   "name": "नमोबुद्ध नगरपालिका",
+   "name_en": "Namobuddha",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394199,
+   "admin_level": "7",
+   "name": "दुधौली नगरपालिका",
+   "name_en": "Dhulikhel",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394200,
+   "admin_level": "7",
+   "name": "पाँचखाल नगरपालिका",
+   "name_en": "Panchkhal",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394201,
+   "admin_level": "7",
+   "name": "बनेपा नगरपालिका",
+   "name_en": "Banepa",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394202,
+   "admin_level": "7",
+   "name": "मण्डनदेउपुर नगरपालिका",
+   "name_en": "Mandandeupur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394203,
+   "admin_level": "7",
+   "name": "पनौती नगरपालिका",
+   "name_en": "Paunauti",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394204,
+   "admin_level": "7",
+   "name": "बेथानचोक गाउँपालिका",
+   "name_en": "Bethanchok",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394205,
+   "admin_level": "7",
+   "name": "खानीखोला गाउँपालिका",
+   "name_en": "Khanikhola",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394206,
+   "admin_level": "7",
+   "name": "महाभारत गाउँपालिका",
+   "name_en": "Mahabharat",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394674,
+   "admin_level": "7",
+   "name": "दक्षि‍णकाली नगरपालिका",
+   "name_en": "Dakshinkali Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394675,
+   "admin_level": "7",
+   "name": "चन्द्रागिरी नगरपालिका",
+   "name_en": "Chandragiri Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394676,
+   "admin_level": "7",
+   "name": "कीर्तिपुर नगरपालिका",
+   "name_en": "Kirtipur Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394677,
+   "admin_level": "7",
+   "name": "काठमाडौँ महानगरपालिका",
+   "name_en": "Kathmandu Metropolitan City",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394678,
+   "admin_level": "7",
+   "name": "नागार्जुन नगरपालिका",
+   "name_en": "Nagarjun Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394679,
+   "admin_level": "7",
+   "name": "तारकेश्वर नगरपालिका",
+   "name_en": "Tarakeshwar Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394680,
+   "admin_level": "7",
+   "name": "टोखा नगरपालिका",
+   "name_en": "Tokha Municipality",
+   "website": "https://www.tokhamun.gov.np"
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394681,
+   "admin_level": "7",
+   "name": "बूढानीलकण्ठ नगरपालिका",
+   "name_en": "Budhanilkantha Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394682,
+   "admin_level": "7",
+   "name": "गोकर्णेश्वर नगरपालिका",
+   "name_en": "Gokarneshwar Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394683,
+   "admin_level": "7",
+   "name": "कागेश्वरी मनोहरा नगरपालिका",
+   "name_en": "Kageshwori Manohara Municipality",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12394684,
+   "admin_level": "7",
+   "name": "शङ्खरापुर नगरपालिका",
+   "name_en": "Shankharapur",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12403920,
+   "admin_level": "7",
+   "name": "Bareng",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12403921,
+   "admin_level": "7",
+   "name": "Jaimuni",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12403922,
+   "admin_level": "7",
+   "name": "बागलुङ",
+   "name_en": "Baglung",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12403923,
+   "admin_level": "7",
+   "name": "Kanthekhola",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12403924,
+   "admin_level": "7",
+   "name": "Tarakhola",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12403925,
+   "admin_level": "7",
+   "name": "Galkot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12403926,
+   "admin_level": "7",
+   "name": "Badigad",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12403927,
+   "admin_level": "7",
+   "name": "Tamankhola",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12403928,
+   "admin_level": "7",
+   "name": "Dhorpatan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12403929,
+   "admin_level": "7",
+   "name": "Nisikhola",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12405036,
+   "admin_level": "7",
+   "name": "Aanbu Khaireni",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12405037,
+   "admin_level": "7",
+   "name": "Bandipur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12405038,
+   "admin_level": "7",
+   "name": "Devghat",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12405039,
+   "admin_level": "7",
+   "name": "Rishing",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12405040,
+   "admin_level": "7",
+   "name": "Ghiring",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12405041,
+   "admin_level": "7",
+   "name": "Bhimad",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12405042,
+   "admin_level": "7",
+   "name": "Shuklagandaki",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12405043,
+   "admin_level": "7",
+   "name": "Myagde",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12405044,
+   "admin_level": "7",
+   "name": "Byas",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12405045,
+   "admin_level": "7",
+   "name": "Bhanu",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409105,
+   "admin_level": "7",
+   "name": "Tinau",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409106,
+   "admin_level": "7",
+   "name": "Rainadevi Chhahara",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409107,
+   "admin_level": "7",
+   "name": "Ribdikot",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409108,
+   "admin_level": "7",
+   "name": "Tansen",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409109,
+   "admin_level": "7",
+   "name": "Bagnaskali",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409110,
+   "admin_level": "7",
+   "name": "Rambha",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409111,
+   "admin_level": "7",
+   "name": "Mathagadhi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409112,
+   "admin_level": "7",
+   "name": "Purbakhola",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409113,
+   "admin_level": "7",
+   "name": "Nisdi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409114,
+   "admin_level": "7",
+   "name": "Rampur",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409344,
+   "admin_level": "7",
+   "name": "Lumbini Sanskritik",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409345,
+   "admin_level": "7",
+   "name": "Sammarimai",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409346,
+   "admin_level": "7",
+   "name": "Marchawarimai",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409347,
+   "admin_level": "7",
+   "name": "Kotahimai",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409348,
+   "admin_level": "7",
+   "name": "Gaidhawa",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409349,
+   "admin_level": "7",
+   "name": "Kanchan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409350,
+   "admin_level": "7",
+   "name": "Shuddhodhan",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409351,
+   "admin_level": "7",
+   "name": "Siyari",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409352,
+   "admin_level": "7",
+   "name": "Mayadevi",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409353,
+   "admin_level": "7",
+   "name": "Siddharthanagar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409354,
+   "admin_level": "7",
+   "name": "Rohini",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409355,
+   "admin_level": "7",
+   "name": "Omsatiya",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409356,
+   "admin_level": "7",
+   "name": "Devdaha",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409357,
+   "admin_level": "7",
+   "name": "Tilottama",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12409358,
+   "admin_level": "7",
+   "name": "Butwal",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12421488,
+   "admin_level": "7",
+   "name": "Himali",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12421489,
+   "admin_level": "7",
+   "name": "Gaumul",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12421490,
+   "admin_level": "7",
+   "name": "Budhinanda",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12421491,
+   "admin_level": "7",
+   "name": "Swami Kartik Khapar",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12421492,
+   "admin_level": "7",
+   "name": "Pandav Gupha",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12421493,
+   "admin_level": "7",
+   "name": "Badimalika",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12421494,
+   "admin_level": "7",
+   "name": "Budhiganga",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12421495,
+   "admin_level": "7",
+   "name": "Tribeni",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 12421496,
+   "admin_level": "7",
+   "name": "Khaptad Chhededaha",
+   "name_en": null,
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 16021219,
+   "admin_level": "7",
+   "name": "माई नगरपालिका",
+   "name_en": "Mai",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 16106342,
+   "admin_level": "7",
+   "name": "बेलकोटगढी नगरपालिका",
+   "name_en": "Belkotgadhi",
+   "website": null
+  },
+  {
+   "osm_type": "relation",
+   "osm_id": 16106343,
+   "admin_level": "7",
+   "name": "ककनी गाउँपालिका",
+   "name_en": "Kakani",
+   "website": null
+  }
+ ]
+}

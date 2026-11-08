@@ -335,6 +335,425 @@
       ]
     },
     {
+      "id": "govweb",
+      "title": "Nepal .gov.np web-infrastructure observations",
+      "status": "experimental",
+      "description": "Passive observations of Nepal's public-sector web infrastructure: the canonical local-level roster, the Certificate Transparency hostname inventory, an evidence-bearing hostname-to-local-level attribution, and per-hostname hosting, DNS, TLS and HTTP behaviour. The unit of record is a hostname, not a local level, because a hostname can belong to an office the roster does not contain; attribution to a local level is a separate join whose method and evidence URL are recorded on every row. Collection uses ordinary public requests only and never scans ports, probes for vulnerabilities, or bypasses robots.txt.",
+      "grain": "one row per hostname per observation (hosting, DNS, TLS, HTTP headers, robots, scripts); the roster table is one row per local level, the attribution table one row per local level with its linked hostname (empty when unresolved), and the sites table one row per discovered hostname",
+      "coverage": {
+        "start": "2026-11-05",
+        "end": "2026-11-06",
+        "note": "Hostname discovery and per-host observations are a single 2026-11-05 snapshot over a 20-hostname pilot sample; attribution and the roster adjudication were extended on 2026-11-06 across all 753 local levels. The pilot sample is not a census of the 2,091 discovered hostnames."
+      },
+      "sources": [
+        {
+          "name": "Office of the Auditor General — local-level report API",
+          "url": "https://oag.gov.np/api/front/local-level-report?province=&district=&municipality=&fiscal_year=&page=1&per_page=2000"
+        },
+        {
+          "name": "Certificate Transparency search (crt.sh)",
+          "url": "https://crt.sh/?q=%25.gov.np&output=json"
+        },
+        {
+          "name": "Local-body e-office directory (dcc-localbody-list)",
+          "url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list"
+        },
+        {
+          "name": "Wikidata Query Service — P856 official website",
+          "url": "https://query.wikidata.org/sparql"
+        },
+        {
+          "name": "OpenStreetMap Overpass API — Nepal administrative relations",
+          "url": "https://overpass-api.de/api/interpreter"
+        },
+        {
+          "name": "IP registration metadata (ipwho.is)",
+          "url": "https://ipwho.is/"
+        },
+        {
+          "name": "Cloudflare DNS-over-HTTPS resolver",
+          "url": "https://cloudflare-dns.com/dns-query"
+        }
+      ],
+      "verification": {
+        "status": "partial",
+        "method": "roster reconciled against the official 753 local levels after adjudicating 12 extra records; every active local level is either attributed or explicitly unresolved; attributed hostnames are unique, end in .gov.np, and appear in a committed discovery source; every mapped row carries method, evidence URL and decision date; observation hostnames are checked against the discovery inventory",
+        "report": "reconciliation.json"
+      },
+      "pipeline": {
+        "package": "govweb",
+        "cli": [
+          "python -m govweb.cli roster",
+          "python -m govweb.cli discover-ct",
+          "python -m govweb.cli attribute",
+          "python -m govweb.cli sample",
+          "python -m govweb.cli collect",
+          "python -m govweb.cli report",
+          "python -m govweb.cli build",
+          "python -m govweb.cli verify"
+        ],
+        "plan": "docs/plans/govweb-audit.md"
+      },
+      "license": {
+        "code": "MIT",
+        "data": "MIT; derived from public government and Certificate Transparency responses, attribution required"
+      },
+      "tags": [
+        "digital-infrastructure",
+        "local-government",
+        "hosting",
+        "dns",
+        "tls",
+        "http-headers",
+        "attribution",
+        "nepal"
+      ],
+      "notes": [
+        "The 20-hostname observation sample is a deterministic lexicographic pilot, not a census of the 2,091 discovered hostnames or the 753 local levels.",
+        "Attribution is not proof of administrative ownership: it records the best available source agreement, with the method and evidence URL on every row.",
+        "The local-body directory contains duplicate rows and some wrong or generic links; a row is accepted only when its hostname is a plausible .gov.np local-level name and is not already owned by another local level.",
+        "Unresolved local levels are evidence of missing data, not evidence that the local level has no website.",
+        "Non-local government agencies and province portals are not attributed to a local level even when their names collide.",
+        "A failed or missing observation is never treated as a secure configuration.",
+        "Country-level IP geolocation is approximate and does not establish the physical server location or the hosting contract.",
+        "robots.txt directives are publisher instructions, not access control; robots-disallowed hostnames retain no script data."
+      ],
+      "docs": [
+        "DATASET.md",
+        "codebook.json",
+        "audit_summary.md",
+        "reconciliation.json"
+      ],
+      "inventories": [
+        "govweb/manifests/sources.json"
+      ],
+      "freshness": {
+        "fingerprints": [
+          "build.json"
+        ],
+        "generated_at": "2026-11-08T23:04:01.166240+00:00",
+        "commit": "2d296558c529ac476fc5629c735f7d0be5008490"
+      },
+      "artifacts": [
+        {
+          "path": "sites.csv.gz",
+          "role": "primary",
+          "format": "csv.gz",
+          "bytes": 20169,
+          "columns": [
+            "hostname",
+            "apex_hostname",
+            "subdomain",
+            "in_observed_sample",
+            "discovered_via"
+          ],
+          "rows": 2782,
+          "sha256": "ad5f3ff492378de9fcba96f80c82b69a3f795b7a51d14caf20bfbafdd3fc24c4",
+          "description": "The discovered .gov.np hostname universe with apex and subdomain decomposition and whether the hostname entered the observation sample."
+        },
+        {
+          "path": "roster.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 10729,
+          "columns": [
+            "province_id",
+            "province",
+            "district_id",
+            "district",
+            "municipality_id",
+            "name",
+            "normalized_name"
+          ],
+          "rows": 765,
+          "sha256": "206001a29ba13c17d8127e937a5cb619e653e12836c555158c2aece81a326695",
+          "description": "Canonical local-level roster as delivered by the OAG API, with stable string identifiers and normalized names."
+        },
+        {
+          "path": "attribution.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 20417,
+          "columns": [
+            "hostname",
+            "local_level_id",
+            "local_level_name",
+            "district",
+            "province",
+            "method",
+            "confidence",
+            "status",
+            "evidence_url",
+            "evidence_note",
+            "decided_at"
+          ],
+          "rows": 800,
+          "sha256": "14e2ab63f60aef74e0d539a98ca79d9c46080fabd23b69383d7616cc8d68ba6f",
+          "description": "Hostname-to-local-level links with method, confidence and evidence; unresolved local levels carry an empty hostname."
+        },
+        {
+          "path": "hosting.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 853,
+          "columns": [
+            "hostname",
+            "ip_addresses",
+            "asn",
+            "organization",
+            "countries",
+            "country_codes",
+            "hosting_classification",
+            "confidence",
+            "status",
+            "observed_at",
+            "error"
+          ],
+          "rows": 20,
+          "sha256": "d2ccce712d4eb9c280b3bf658a997f1ff599c8650f75e524cc7ad35fdd9b0800",
+          "description": "Resolved addresses, ASN, organization, country evidence and the conservative hosting classification per hostname."
+        },
+        {
+          "path": "dns_mail.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 516,
+          "columns": [
+            "hostname",
+            "a_count",
+            "aaaa_count",
+            "mx_count",
+            "ns_count",
+            "caa_count",
+            "txt_count",
+            "mx_present",
+            "spf_status",
+            "dmarc_status",
+            "dmarc_policy",
+            "status",
+            "confidence",
+            "observed_at"
+          ],
+          "rows": 20,
+          "sha256": "49195f1e38a44b2dc3a42f59bb79fea970df656e1e85ad02ab92f60e8f00a8e1",
+          "description": "Per-hostname DNS record counts and SPF/DMARC evidence states."
+        },
+        {
+          "path": "http_headers.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 735,
+          "columns": [
+            "hostname",
+            "url",
+            "final_url",
+            "response_status",
+            "has_content_security_policy",
+            "has_strict_transport_security",
+            "has_x_content_type_options",
+            "has_x_frame_options",
+            "has_referrer_policy",
+            "has_permissions_policy",
+            "missing_header_count",
+            "status",
+            "error",
+            "observed_at"
+          ],
+          "rows": 20,
+          "sha256": "f120b5c4793fd7c7d33c756abf3d6eae37a15e9e499ddebb2c6ee42d42adecbd",
+          "description": "Root-resource response status and presence of six audited security headers per hostname."
+        },
+        {
+          "path": "tls.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 113,
+          "columns": [
+            "hostname",
+            "status",
+            "validity",
+            "issuer",
+            "subject",
+            "valid_from",
+            "expiration",
+            "protocol",
+            "cipher_name",
+            "certificate_sha256",
+            "observed_at",
+            "error"
+          ],
+          "rows": 0,
+          "sha256": "9e414b21c2f2622e2988eb4b7d3f7a42f9869803d24b45035d5d9e7e4782286f",
+          "description": "Passive TLS handshake observations. Header-only when the live TLS collection has not run: an empty table is unavailable evidence, not a passing result."
+        },
+        {
+          "path": "third_party_scripts.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 1572,
+          "columns": [
+            "hostname",
+            "script_url",
+            "script_hostname",
+            "category",
+            "confidence",
+            "script_count",
+            "third_party_script_count",
+            "page_status",
+            "observed_at"
+          ],
+          "rows": 85,
+          "sha256": "5c9a315163008ca0258192c11d212c4181c25bc0373ef80dba5a1dec87e19bca",
+          "description": "One row per referenced script, plus one empty-script row for each hostname whose page was not fetched, so collection failures keep their denominator."
+        },
+        {
+          "path": "robots.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 635,
+          "columns": [
+            "hostname",
+            "accessible",
+            "status_code",
+            "status",
+            "group_count",
+            "directive_count",
+            "final_url",
+            "error",
+            "observed_at"
+          ],
+          "rows": 20,
+          "sha256": "48e35693c5922e5292d11e37247794c15a6a39d1e5e0e49c1f7fc1808f933541",
+          "description": "robots.txt availability, status and directive counts per hostname."
+        },
+        {
+          "path": "roster.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 187621,
+          "sha256": "efca741b1dc41c98155b8333d6bd06278681711ac60dbf24e7f437acb20045d0"
+        },
+        {
+          "path": "roster_meta.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 494,
+          "sha256": "5dd023c02e607f84f89b81378073e6febee9f1a6c6b659c5ee405a5dc9388cc2"
+        },
+        {
+          "path": "roster_adjudication.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 6327,
+          "sha256": "e7decf8161fa3a07467c9df701ded4776fdbdba4531f07325358c233797a076e",
+          "description": "The 12 roster records excluded from the canonical 753, each with status, superseding record and evidence."
+        },
+        {
+          "path": "attribution.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 454887,
+          "sha256": "d4fd513f371e773a1927e4a1937f6432ac515752e0ee5fcdeb8c1310d3eb25b9",
+          "description": "Full attribution output: one record per mapped local level and one per unresolved local level, with method, confidence, evidence URL, evidence note and decision date."
+        },
+        {
+          "path": "tls_sample.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 1025,
+          "sha256": "4e09e7766d6ddb772e70608cc39bf38a73e3632b36ef4a0d5c14f5510fb5cbb9"
+        },
+        {
+          "path": "website_coverage_crtsh.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 623,
+          "sha256": "72dd2a8882cd3541db874a71edce632aa2c60b9ce16e4a560fcf7f5f3122ff89"
+        },
+        {
+          "path": "website_mappings_crtsh.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 342500,
+          "sha256": "5c900b339d9e1ec2289e0383e7b202488386871a0053e6039ccffec0f8eb665b"
+        },
+        {
+          "path": "sources/crtsh_gov_np.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 1125126,
+          "sha256": "37a9e73acce46761bc64f4c01a96cac5b028ca811e2f3ab75cd137124731fef9",
+          "description": "The crt.sh response the inventory was derived from, committed because a live query cannot be reproduced byte-for-byte."
+        },
+        {
+          "path": "sources/localbody_directory.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 163966,
+          "sha256": "df05cfc8cd9e8684afed43742bed1245680efd89adef95e9454683d03c2919a2",
+          "description": "Primary attribution source: the 753-row local-body e-office directory with English name, wards and website per row."
+        },
+        {
+          "path": "sources/wikidata_nepal_websites.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 335641,
+          "sha256": "4c544fe04e6f669bb2ca3b2faae999a08feb8dba0aa314e364f0045af82b2438",
+          "description": "Secondary attribution source: 1,534 Wikidata items with a P856 official website, used only when the name and district agree."
+        },
+        {
+          "path": "sources/osm_np_local_levels.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 130439,
+          "sha256": "0cf1f5333681f827d4d2995b504ff30fc00a0d4c137c3d351b6fde3684d42c4c",
+          "description": "Corroboration source: 749 OSM administrative relations, of which 5 carry a website tag."
+        },
+        {
+          "path": "observations/http_header_observations.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 19366,
+          "sha256": "b03447247d6dbb5cd52ec02afc0aeef40a2395ecb3261405e813f6b9c7584d60"
+        },
+        {
+          "path": "observations/hosting_observations.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 23316,
+          "sha256": "cda2fadda267b75fa2b2359582c2c9e3b42d32d396ab1a3948d016a5521c7e05"
+        },
+        {
+          "path": "observations/dns_mail_observations.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 74455,
+          "sha256": "994ce9012e263c96689140ea32502f9211b109e10c0b4ec97c31d2d41a885da8"
+        },
+        {
+          "path": "observations/third_party_scripts.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 31037,
+          "sha256": "3a6e30363060e93c44fa98ebdaadaf476e07f0956e144b51aaad72da5995ba95"
+        },
+        {
+          "path": "observations/robots_observations.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 783185,
+          "sha256": "3f7a1928a0d194c0f8135c5b9fd0a7f3b6164b72630ba34af2c5725a0daa85a9"
+        },
+        {
+          "path": "audit_report.json",
+          "role": "report",
+          "format": "json",
+          "bytes": 946854,
+          "sha256": "949c3e949b84f5a4b87b0f0820c13e02b2b85e52691b8e492731752204b349a5"
+        }
+      ]
+    },
+    {
       "id": "labour-migration",
       "title": "Labour-migration panel",
       "status": "active",

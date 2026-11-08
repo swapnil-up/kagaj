@@ -1,0 +1,796 @@
+{
+  "completed_count": 20,
+  "created_at": "2026-11-05T06:36:28.331010Z",
+  "observation_type": "hosting_classification",
+  "observations": [
+    {
+      "asn": [],
+      "confidence": "low",
+      "country": [],
+      "country_codes": [],
+      "error": "DNS returned no addresses",
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [],
+        "ip_metadata": {},
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "unknown",
+      "hostname": "2016.presidentofnepal.gov.np",
+      "ip_addresses": [],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:23.907161Z",
+      "organization": [],
+      "status": "error"
+    },
+    {
+      "asn": [
+        "45353"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/202.45.144.44"
+        ],
+        "ip_metadata": {
+          "202.45.144.44": {
+            "asn": 45353,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "202.45.144.44",
+            "observed_at": "2026-11-05T06:36:24.273516Z",
+            "organization": "National Information Technology Center",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/202.45.144.44"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "abpp.gov.np",
+      "ip_addresses": [
+        "202.45.144.44"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:24.274156Z",
+      "organization": [
+        "National Information Technology Center"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "24504"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/202.51.2.112"
+        ],
+        "ip_metadata": {
+          "202.51.2.112": {
+            "asn": 24504,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "202.51.2.112",
+            "observed_at": "2026-11-05T06:36:24.563775Z",
+            "organization": "Silverlining Private Limited",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/202.51.2.112"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "adbl.gov.np",
+      "ip_addresses": [
+        "202.51.2.112"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:24.564304Z",
+      "organization": [
+        "Silverlining Private Limited"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [],
+      "confidence": "low",
+      "country": [],
+      "country_codes": [],
+      "error": "DNS returned no addresses",
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [],
+        "ip_metadata": {},
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "unknown",
+      "hostname": "admin.mof.gov.np",
+      "ip_addresses": [],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:24.588066Z",
+      "organization": [],
+      "status": "error"
+    },
+    {
+      "asn": [
+        "17501"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/202.166.195.145"
+        ],
+        "ip_metadata": {
+          "202.166.195.145": {
+            "asn": 17501,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "202.166.195.145",
+            "observed_at": "2026-11-05T06:36:24.864011Z",
+            "organization": "Static subnet for enterprise pool 1",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/202.166.195.145"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "admincourt.gov.np",
+      "ip_addresses": [
+        "202.166.195.145"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:24.864481Z",
+      "organization": [
+        "Static subnet for enterprise pool 1"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "47583"
+      ],
+      "confidence": "high",
+      "country": [
+        "India"
+      ],
+      "country_codes": [
+        "IN"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/72.60.222.190"
+        ],
+        "ip_metadata": {
+          "72.60.222.190": {
+            "asn": 47583,
+            "country": "India",
+            "country_code": "IN",
+            "ip_address": "72.60.222.190",
+            "observed_at": "2026-11-05T06:36:25.238346Z",
+            "organization": "Hostinger Operations UAB",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/72.60.222.190"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "foreign-other",
+      "hostname": "aepc.gov.np",
+      "ip_addresses": [
+        "72.60.222.190"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:25.238886Z",
+      "organization": [
+        "Hostinger Operations UAB"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "45650"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/110.44.116.37"
+        ],
+        "ip_metadata": {
+          "110.44.116.37": {
+            "asn": 45650,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "110.44.116.37",
+            "observed_at": "2026-11-05T06:36:25.562842Z",
+            "organization": "VIA NET COMMUNICATION LTD",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/110.44.116.37"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "aet.aepc.gov.np",
+      "ip_addresses": [
+        "110.44.116.37"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:25.563405Z",
+      "organization": [
+        "VIA NET COMMUNICATION LTD"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "45353"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/202.45.147.176"
+        ],
+        "ip_metadata": {
+          "202.45.147.176": {
+            "asn": 45353,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "202.45.147.176",
+            "observed_at": "2026-11-05T06:36:25.834438Z",
+            "organization": "National Information Technology Center",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/202.45.147.176"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "ag.gov.np",
+      "ip_addresses": [
+        "202.45.147.176"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:25.835095Z",
+      "organization": [
+        "National Information Technology Center"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "45353"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/202.45.144.21"
+        ],
+        "ip_metadata": {
+          "202.45.144.21": {
+            "asn": 45353,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "202.45.144.21",
+            "observed_at": "2026-11-05T06:36:26.326179Z",
+            "organization": "National Information Technology Center",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/202.45.144.21"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "agriextension.gov.np",
+      "ip_addresses": [
+        "202.45.144.21"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:26.326589Z",
+      "organization": [
+        "National Information Technology Center"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "45353"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/202.45.144.31"
+        ],
+        "ip_metadata": {
+          "202.45.144.31": {
+            "asn": 45353,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "202.45.144.31",
+            "observed_at": "2026-11-05T06:36:26.653181Z",
+            "organization": "National Information Technology Center",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/202.45.144.31"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "aicc.gov.np",
+      "ip_addresses": [
+        "202.45.144.31"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:26.653654Z",
+      "organization": [
+        "National Information Technology Center"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "45353"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/103.69.124.8"
+        ],
+        "ip_metadata": {
+          "103.69.124.8": {
+            "asn": 45353,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "103.69.124.8",
+            "observed_at": "2026-11-05T06:36:26.934433Z",
+            "organization": "Department of Information Technology, Government of Nepal",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/103.69.124.8"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "aitc.gov.np",
+      "ip_addresses": [
+        "103.69.124.8"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:26.935294Z",
+      "organization": [
+        "Department of Information Technology, Government of Nepal"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "46606"
+      ],
+      "confidence": "high",
+      "country": [
+        "United States"
+      ],
+      "country_codes": [
+        "US"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/143.95.237.141"
+        ],
+        "ip_metadata": {
+          "143.95.237.141": {
+            "asn": 46606,
+            "country": "United States",
+            "country_code": "US",
+            "ip_address": "143.95.237.141",
+            "observed_at": "2026-11-05T06:36:27.286667Z",
+            "organization": "Newfold Digital, Inc.",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/143.95.237.141"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "foreign-other",
+      "hostname": "ampcnaktajhij.gov.np",
+      "ip_addresses": [
+        "143.95.237.141"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:27.287202Z",
+      "organization": [
+        "Newfold Digital, Inc."
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "58504"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/103.171.243.20"
+        ],
+        "ip_metadata": {
+          "103.171.243.20": {
+            "asn": 58504,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "103.171.243.20",
+            "observed_at": "2026-11-05T06:36:27.685212Z",
+            "organization": "Nimble Network Pvt Ltd",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/103.171.243.20"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "apf.gov.np",
+      "ip_addresses": [
+        "103.171.243.20"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:27.685677Z",
+      "organization": [
+        "Nimble Network Pvt Ltd"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "45353"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/103.69.124.125"
+        ],
+        "ip_metadata": {
+          "103.69.124.125": {
+            "asn": 45353,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "103.69.124.125",
+            "observed_at": "2026-11-05T06:36:27.951260Z",
+            "organization": "Department of Information Technology, Government of Nepal",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/103.69.124.125"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "apps.doind.gov.np",
+      "ip_addresses": [
+        "103.69.124.125"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:27.951890Z",
+      "organization": [
+        "Department of Information Technology, Government of Nepal"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "40244"
+      ],
+      "confidence": "high",
+      "country": [
+        "United States"
+      ],
+      "country_codes": [
+        "US"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/163.182.171.218"
+        ],
+        "ip_metadata": {
+          "163.182.171.218": {
+            "asn": 40244,
+            "country": "United States",
+            "country_code": "US",
+            "ip_address": "163.182.171.218",
+            "observed_at": "2026-11-05T06:36:28.247715Z",
+            "organization": "Turnkey Internet Inc.",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/163.182.171.218"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "foreign-other",
+      "hostname": "aqojnk.gov.np",
+      "ip_addresses": [
+        "163.182.171.218"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:28.248492Z",
+      "organization": [
+        "Turnkey Internet Inc."
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [],
+      "confidence": "low",
+      "country": [],
+      "country_codes": [],
+      "error": "DNS returned no addresses",
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [],
+        "ip_metadata": {},
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "unknown",
+      "hostname": "archive.old.tourism.gov.np",
+      "ip_addresses": [],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:28.272209Z",
+      "organization": [],
+      "status": "error"
+    },
+    {
+      "asn": [
+        "45353"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/202.45.144.44"
+        ],
+        "ip_metadata": {
+          "202.45.144.44": {
+            "asn": 45353,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "202.45.144.44",
+            "observed_at": "2026-11-05T06:36:24.273516Z",
+            "organization": "National Information Technology Center",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/202.45.144.44"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "asha.gov.np",
+      "ip_addresses": [
+        "202.45.144.44"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:28.281926Z",
+      "organization": [
+        "National Information Technology Center"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [
+        "45353"
+      ],
+      "confidence": "high",
+      "country": [
+        "Nepal"
+      ],
+      "country_codes": [
+        "NP"
+      ],
+      "error": null,
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [
+          "https://ipwho.is/202.45.144.21"
+        ],
+        "ip_metadata": {
+          "202.45.144.21": {
+            "asn": 45353,
+            "country": "Nepal",
+            "country_code": "NP",
+            "ip_address": "202.45.144.21",
+            "observed_at": "2026-11-05T06:36:26.326179Z",
+            "organization": "National Information Technology Center",
+            "provider": "ipwho.is",
+            "source_url": "https://ipwho.is/202.45.144.21"
+          }
+        },
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "Nepal-local",
+      "hostname": "attorneygeneral.gov.np",
+      "ip_addresses": [
+        "202.45.144.21"
+      ],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:28.291599Z",
+      "organization": [
+        "National Information Technology Center"
+      ],
+      "status": "observed"
+    },
+    {
+      "asn": [],
+      "confidence": "low",
+      "country": [],
+      "country_codes": [],
+      "error": "DNS returned no addresses",
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [],
+        "ip_metadata": {},
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "unknown",
+      "hostname": "autodiscover.aqojnk.gov.np",
+      "ip_addresses": [],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:28.310333Z",
+      "organization": [],
+      "status": "error"
+    },
+    {
+      "asn": [],
+      "confidence": "low",
+      "country": [],
+      "country_codes": [],
+      "error": "DNS returned no addresses",
+      "evidence": {
+        "dns_method": "system resolver getaddrinfo AF_UNSPEC",
+        "errors": [],
+        "geolocation_provider": "ipwho.is",
+        "geolocation_source_urls": [],
+        "ip_metadata": {},
+        "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+      },
+      "hosting_classification": "unknown",
+      "hostname": "autodiscover.bhairahawa.aqo.gov.np",
+      "ip_addresses": [],
+      "observation_type": "hosting",
+      "observed_at": "2026-11-05T06:36:28.328923Z",
+      "organization": [],
+      "status": "error"
+    }
+  ],
+  "requested_hostname_count": 20,
+  "schema_version": 1,
+  "source": "Discovered hostnames from data/tls_sample.json",
+  "user_agent": "dinfra-passive-audit/1.0 (public infrastructure research)"
+}

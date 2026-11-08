@@ -1,0 +1,35 @@
+{
+  "created_at": "2026-11-05T05:28:27.138946+00:00",
+  "hostnames": [
+    "2016.presidentofnepal.gov.np",
+    "abpp.gov.np",
+    "adbl.gov.np",
+    "admin.mof.gov.np",
+    "admincourt.gov.np",
+    "aepc.gov.np",
+    "aet.aepc.gov.np",
+    "ag.gov.np",
+    "agriextension.gov.np",
+    "aicc.gov.np",
+    "aitc.gov.np",
+    "ampcnaktajhij.gov.np",
+    "apf.gov.np",
+    "apps.doind.gov.np",
+    "aqojnk.gov.np",
+    "archive.old.tourism.gov.np",
+    "asha.gov.np",
+    "attorneygeneral.gov.np",
+    "autodiscover.aqojnk.gov.np",
+    "autodiscover.bhairahawa.aqo.gov.np"
+  ],
+  "inventory_count": 2091,
+  "requested_sample_size": 20,
+  "sample_count": 20,
+  "schema_version": 1,
+  "selection_policy": "lexicographically first unique normalized discovered hostnames",
+  "source": "discovered Certificate Transparency hostname inventory",
+  "source_files": [
+    "/home/swap/github/orchestrator-workspace/dinfra/data/website_mappings_crtsh.json",
+    "/home/swap/github/orchestrator-workspace/dinfra/data/cache/crtsh.json"
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "report_type": "govweb_reconciliation",
+  "generated_at": "2026-11-08T23:04:01.519934+00:00",
+  "roster": {
+    "records": 753,
+    "official_total": 753,
+    "delta": 0,
+    "province_count": 7,
+    "district_count": 77,
+    "by_type": {
+      "metropolitan_city": 6,
+      "municipality": 282,
+      "rural_municipality": 454,
+      "sub_metropolitan_city": 11
+    },
+    "official_by_type": {
+      "metropolitan_city": 6,
+      "sub_metropolitan_city": 11,
+      "municipality": 276,
+      "rural_municipality": 460
+    },
+    "duplicate_district_name": [],
+    "unclassified_names": [],
+    "raw_records": 765,
+    "adjudicated_records": 12
+  },
+  "discovery": {
+    "ct_hostname_count": 2091,
+    "source_hostname_count": 3224,
+    "coverage": {
+      "roster_count": 765,
+      "mapped_count": 0,
+      "unresolved_count": 765,
+      "coverage_percent": 0.0,
+      "matching_policy": "Exact normalized municipality and district DNS labels; unique name-only matching only when district is absent from the roster record. No fuzzy matching."
+    },
+    "attribution": {
+      "canonical_local_levels": 753,
+      "mapped_local_levels": 659,
+      "unresolved_local_levels": 94,
+      "coverage_percent": 87.52,
+      "methods": {
+        "ct_hostname_slug": 13,
+        "localbody_directory": 607,
+        "wikidata_p856": 86
+      },
+      "mapped_hostname_count": 706
+    }
+  },
+  "observations": {
+    "tls": {
+      "available": false,
+      "requested": null,
+      "completed": 0,
+      "status_counts": {}
+    },
+    "http_headers": {
+      "available": true,
+      "requested": 20,
+      "completed": 20,
+      "status_counts": {
+        "error": 14,
+        "observed": 6
+      }
+    },
+    "hosting": {
+      "available": true,
+      "requested": 20,
+      "completed": 20,
+      "status_counts": {
+        "error": 5,
+        "observed": 15
+      }
+    },
+    "third_party_scripts": {
+      "available": true,
+      "requested": 20,
+      "completed": 20,
+      "status_counts": {
+        "ok": 3,
+        "robots_disallowed": 17
+      }
+    },
+    "dns_mail": {
+      "available": true,
+      "requested": 20,
+      "completed": 20,
+      "status_counts": {
+        "ok": 20
+      }
+    },
+    "robots": {
+      "available": true,
+      "requested": null,
+      "completed": 20,
+      "status_counts": {
+        "error": 15,
+        "success": 5
+      }
+    }
+  },
+  "checks": [
+    {
+      "id": "roster_total_matches_official_753",
+      "status": "pass",
+      "detail": "765 roster records, 753 after adjudication, official total 753"
+    },
+    {
+      "id": "roster_adjudication_accounts_for_delta",
+      "status": "pass",
+      "detail": "12 adjudicated records against a roster delta of 12"
+    },
+    {
+      "id": "roster_province_count",
+      "status": "pass",
+      "detail": "7 provinces"
+    },
+    {
+      "id": "roster_district_count",
+      "status": "pass",
+      "detail": "77 districts"
+    },
+    {
+      "id": "roster_has_no_duplicate_district_name",
+      "status": "pass",
+      "detail": "0 duplicate district+name pairs"
+    },
+    {
+      "id": "roster_type_counts_match_official",
+      "status": "warn",
+      "detail": "observed {'metropolitan_city': 6, 'municipality': 282, 'rural_municipality': 454, 'sub_metropolitan_city': 11} against official {'metropolitan_city': 6, 'sub_metropolitan_city': 11, 'municipality': 276, 'rural_municipality': 460}"
+    },
+    {
+      "id": "attribution_exists",
+      "status": "pass",
+      "detail": "706 mapped rows and 94 unresolved rows"
+    },
+    {
+      "id": "attribution_covers_every_active_local_level",
+      "status": "pass",
+      "detail": "every active local level is either mapped or explicitly unresolved"
+    },
+    {
+      "id": "attribution_never_uses_adjudicated_records",
+      "status": "pass",
+      "detail": "0 adjudicated records were attributed"
+    },
+    {
+      "id": "attribution_has_no_duplicate_hostname_links",
+      "status": "pass",
+      "detail": "hostnames claimed by more than one local level: []"
+    },
+    {
+      "id": "attribution_hosts_are_gov_np",
+      "status": "pass",
+      "detail": "706 attributed hostnames"
+    },
+    {
+      "id": "attribution_has_no_hostname_outside_discovery_sources",
+      "status": "pass",
+      "detail": "attributed hostnames absent from every committed source: []"
+    },
+    {
+      "id": "attribution_rows_carry_evidence",
+      "status": "pass",
+      "detail": "0 mapped rows lack method, evidence URL or decision date"
+    },
+    {
+      "id": "attribution_method_counts_reconcile",
+      "status": "pass",
+      "detail": "706 method counts against 706 mapped rows"
+    },
+    {
+      "id": "attribution_coverage_matches_its_own_counts",
+      "status": "pass",
+      "detail": "declared 87.52%, computed 87.52%"
+    },
+    {
+      "id": "sample_within_declared_limit",
+      "status": "pass",
+      "detail": "20 sampled hostnames"
+    },
+    {
+      "id": "observations_stay_within_discovered_inventory",
+      "status": "pass",
+      "detail": "datasets with hostnames absent from every discovery source: []"
+    }
+  ]
+}

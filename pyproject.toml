@@ -5,12 +5,13 @@ description = "Turn Nepali government PDFs into open, structured data"
 requires-python = ">=3.10"
 
 [tool.setuptools.packages.find]
-include = ["kagaj_core*", "redbook_parser*", "migration_parser*", "water_parser*", "cidmap*", "dictionary*", "crime*"]
+include = ["kagaj_core*", "redbook_parser*", "migration_parser*", "water_parser*", "cidmap*", "dictionary*", "crime*", "govweb*"]
 exclude = ["archive*", "output*", "tmpvenv*", "parliament*", "drug_prices*", "tests*"]
 
 [tool.setuptools.package-data]
 cidmap = ["data/*.json", "data/*.txt.gz"]
 crime = ["manifests/*.json"]
+govweb = ["manifests/*.json"]
 
 [project.optional-dependencies]
 # Budget PDF extraction (redbook_parser, cidmap)

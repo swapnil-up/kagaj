@@ -1,0 +1,415 @@
+{
+  "completed_count": 20,
+  "created_at": "2026-11-05T06:33:40.094964Z",
+  "observation_type": "http_security_headers",
+  "observations": [
+    {
+      "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:31:39.482413Z",
+      "url": "https://2016.presidentofnepal.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error timed out>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:31:40.545758Z",
+      "url": "https://abpp.gov.np/"
+    },
+    {
+      "error": null,
+      "final_url": "https://adbl.gov.np/en",
+      "headers": {
+        "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "Connection": "close",
+        "Content-Type": "text/html; charset=utf-8",
+        "Date": "Thu, 05 Nov 2026 06:31:54 GMT",
+        "Server": "Apache/2.4.58 (Ubuntu)",
+        "Transfer-Encoding": "chunked",
+        "Vary": "RSC,Next-Router-State-Tree,Next-Router-Prefetch,Next-Url,Accept-Encoding",
+        "X-Powered-By": "Next.js",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'nonce-NmQyZWMxZDEtYzQyZS00ODliLWJjZDAtN2JmMGZiOTk0NTJl' 'unsafe-eval' https://www.google.com https://www.gstatic.com https://www.recaptcha.net https://omnichannel.tingting.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://maps.gstatic.com https://js.api.here.com https://omnichannel.tingting.io; style-src-attr 'unsafe-inline'; img-src 'self' blob: data: https://adb1backend.adbl.gov.np https://adblbackend.peacenepal.com https://maps.gstatic.com https://maps.googleapis.com https://maps.googleapis.com/maps https://omnichannel.tingting.io; font-src 'self' https://fonts.gstatic.com; frame-src 'self' https://www.google.com https://www.gstatic.com https://www.youtube.com https://www.recaptcha.net; object-src 'none'; connect-src 'self' https://adb1backend.adbl.gov.np https://adblbackend.peacenepal.com https://maps.googleapis.com https://maps.gstatic.com https://www.google.com https://www.gstatic.com https://www.recaptcha.net https://omnichannel.tingting.io; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;",
+        "set-cookie": "NEXT_LOCALE=en; Path=/; Expires=Fri, 05 Nov 2027 06:31:54 GMT; Max-Age=31536000; SameSite=strict",
+        "x-next-i18n-router-locale": "en",
+        "x-nonce": "NmQyZWMxZDEtYzQyZS00ODliLWJjZDAtN2JmMGZiOTk0NTJl"
+      },
+      "missing_security_headers": {
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": 200,
+      "status": "observed",
+      "timestamp": "2026-11-05T06:31:54.375155Z",
+      "url": "https://adbl.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:31:55.814259Z",
+      "url": "https://admin.mof.gov.np/"
+    },
+    {
+      "error": null,
+      "final_url": "https://admincourt.gov.np/",
+      "headers": {
+        "Connection": "close",
+        "Content-Security-Policy": "'self'",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Date": "Thu, 05 Nov 2026 06:31:51 GMT",
+        "Feature-Policy": "'self'",
+        "Referrer-Policy": "origin",
+        "Set-Cookie": "TS0165422a=0130cddca87dbf31f2e318ad81f1c8837c67c0a99dd17f18d89646725e285e1247fb568bf5d68582bbcc41ec350e3c3581c505cba52522b8ee3fe011a6a2ea8cc4522508d5324a45a29644e2b9b708e87a6a1c57ca119f15dfc1bf68b324e222f28a0e339eb979dfd2fbbec28cf4b3094e3ed3fd1e; Path=/; Domain=.admincourt.gov.np",
+        "Transfer-Encoding": "chunked",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "SAMEORIGIN"
+      },
+      "missing_security_headers": {
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      },
+      "response_status": 200,
+      "status": "observed",
+      "timestamp": "2026-11-05T06:31:56.838539Z",
+      "url": "https://admincourt.gov.np/"
+    },
+    {
+      "error": null,
+      "final_url": "https://www.aepc.gov.np/",
+      "headers": {
+        "Cache-Control": "no-cache, private",
+        "Connection": "close",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Date": "Thu, 05 Nov 2026 06:31:58 GMT",
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Set-Cookie": "aepc_session=eyJpdiI6IjYvSUtrY3ZQYThzUGIyL1JpbFVxMlE9PSIsInZhbHVlIjoiTXRJRC9FUmI3UUhRM3BVKzJ5SUR4S0J1SFd5Qlg3d2drOUtJWFJBRnhEalFORE8wNmZNZk52cExQYjNhMGNGUzJnWFRmNlV4ZGh2dEczaldISUlsMTY2L2NpUjI5STdXUWpCT0V1K01pVjFTcUFSUmUxUGVKYUVKVmd1c0NWdlEiLCJtYWMiOiJhNWE4NjJhZmUxOWZhZjk0ZTkxMzViMWJlNTZiY2U0YzZkMTBiMzJlOThhZmEyMTI5MjFhMTliMWZhN2UwOTkwIiwidGFnIjoiIn0%3D; expires=Thu, 05-Nov-2026 08:31:58 GMT; Max-Age=7200; path=/; httponly; samesite=lax",
+        "Transfer-Encoding": "chunked",
+        "X-Powered-By": "PHP/8.2.29"
+      },
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": 200,
+      "status": "observed",
+      "timestamp": "2026-11-05T06:31:57.916495Z",
+      "url": "https://aepc.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error [Errno 111] Connection refused>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:31:59.462442Z",
+      "url": "https://aet.aepc.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error timed out>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:32:00.483995Z",
+      "url": "https://ag.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error timed out>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:32:13.504896Z",
+      "url": "https://agriextension.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error timed out>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:32:26.604154Z",
+      "url": "https://aicc.gov.np/"
+    },
+    {
+      "error": null,
+      "final_url": "https://aitc.gov.np/",
+      "headers": {
+        "Accept-Ranges": "bytes",
+        "Age": "643",
+        "Connection": "close",
+        "Content-Type": "text/html; charset=utf-8",
+        "Date": "Thu, 05 Nov 2026 06:31:56 GMT",
+        "Server": "nginx/1.26.1",
+        "Transfer-Encoding": "chunked",
+        "Vary": "Accept-Encoding, Accept-Language, Accept-Language",
+        "Via": "1.1 varnish (Varnish/6.2)",
+        "X-Cache": "HIT",
+        "X-Cache-Language": "ne",
+        "X-Varnish": "1021958421 1054318486",
+        "cache-control": "max-age=0",
+        "cross-origin-opener-policy": "same-origin",
+        "expires": "Thu, 05 Nov 2026 06:21:56 GMT",
+        "p3p": "CP=\"ALL DSP COR PSAa PSDa OUR NOR ONL UNI COM NAV\"",
+        "referrer-policy": "same-origin",
+        "via": "1.1 varnish (Varnish/6.2)",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "SAMEORIGIN",
+        "x-pref-lang": "ne",
+        "x-varnish": "33449769"
+      },
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      },
+      "response_status": 200,
+      "status": "observed",
+      "timestamp": "2026-11-05T06:32:39.636930Z",
+      "url": "https://aitc.gov.np/"
+    },
+    {
+      "error": null,
+      "final_url": "https://ampcnaktajhij.gov.np/",
+      "headers": {
+        "Connection": "Upgrade, close",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Date": "Thu, 05 Nov 2026 06:32:41 GMT",
+        "Server": "Apache",
+        "Transfer-Encoding": "chunked",
+        "Upgrade": "h2,h2c",
+        "Vary": "Accept-Encoding"
+      },
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": 200,
+      "status": "observed",
+      "timestamp": "2026-11-05T06:32:40.687857Z",
+      "url": "https://ampcnaktajhij.gov.np/"
+    },
+    {
+      "error": null,
+      "final_url": "https://apf.gov.np/",
+      "headers": {
+        "Cache-Control": "no-cache, private",
+        "Connection": "close",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Date": "Thu, 05 Nov 2026 06:32:44 GMT",
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Set-Cookie": "qyec_session=eyJpdiI6InJaZzAxbzE4dDhVS1pwYld6N21lRlE9PSIsInZhbHVlIjoiMkQxM2tzdWRteXNFS3hOQ2piak5oclZOWXNZZ1ZMUGtVK1NKcWFIcHcxZFJHZGFBak1md0thUGtnRHlIWGxGcHZtN0ZqV2pQL1ZuUWQzSUJyMGpVUXY1UmlDOTE3Rk9ta0RweEEwc2FYblpvWWNMWFh4dHN6clc4cjA5RFY2emEiLCJtYWMiOiIzYzE2MDg2Y2NkNzE3ZmM1Y2FkYWZhMjdiMzg0YzE5NTBhNGQ1YzBlN2NlZjYxNThiNWMwOGY2YTE3MzkyMmIyIiwidGFnIjoiIn0%3D; expires=Thu, 05-Nov-2026 08:32:44 GMT; Max-Age=7200; path=/; httponly; samesite=lax",
+        "Transfer-Encoding": "chunked"
+      },
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": 200,
+      "status": "observed",
+      "timestamp": "2026-11-05T06:32:43.042261Z",
+      "url": "https://apf.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error timed out>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:32:45.780044Z",
+      "url": "https://apps.doind.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error timed out>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:32:58.809393Z",
+      "url": "https://aqojnk.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:33:11.901662Z",
+      "url": "https://archive.old.tourism.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error timed out>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:33:12.929554Z",
+      "url": "https://asha.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error timed out>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:33:25.978129Z",
+      "url": "https://attorneygeneral.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:33:39.026812Z",
+      "url": "https://autodiscover.aqojnk.gov.np/"
+    },
+    {
+      "error": "URLError: <urlopen error [Errno -2] Name or service not known>",
+      "final_url": null,
+      "headers": {},
+      "missing_security_headers": {
+        "Content-Security-Policy": "A restrictive policy appropriate to the website",
+        "Permissions-Policy": "Explicitly restrict unnecessary browser capabilities",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY or SAMEORIGIN"
+      },
+      "response_status": null,
+      "status": "error",
+      "timestamp": "2026-11-05T06:33:40.063991Z",
+      "url": "https://autodiscover.bhairahawa.aqo.gov.np/"
+    }
+  ],
+  "requested_url_count": 20,
+  "schema_version": 1,
+  "source": "Discovered hostnames from data/tls_sample.json",
+  "user_agent": "dinfra-passive-audit/1.0 (public infrastructure security research)"
+}

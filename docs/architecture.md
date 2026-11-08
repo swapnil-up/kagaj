@@ -4,7 +4,7 @@ Kagaj is a set of independent extractors that share OCR, PDF geometry, CID
 mapping, and a structured-output client. Each pipeline is runnable on its own;
 none depends on a web service.
 
-## Three extraction families
+## Four extraction families
 
 ### 1. OCR for legacy fonts
 
@@ -33,6 +33,21 @@ wide tables into a tidy panel, and verifies every document.
 
 Used by: `migration_parser/`. KUKL's modern `.xlsx`/`.doc` schedules take a
 similar route via `openpyxl` before falling back to Gemini for normalisation.
+
+### 4. Passive network observation
+
+Not every Kagaj source is a PDF. `govweb/` measures Nepal's public-sector web
+infrastructure from the outside, using only ordinary DNS lookups, one TLS
+handshake, one HTTPS root request, published `robots.txt` files, and the public
+Certificate Transparency log. It never scans ports, probes for vulnerabilities
+or bypasses `robots.txt`; an unobserved host is recorded as missing evidence,
+never as a passing result.
+
+The unit of record is a **hostname**. Attribution to a local level is a separate,
+evidence-bearing join (`attribution.csv.gz`), so the grain does not have to
+change when an office outside the 753 local levels is discovered.
+
+Used by: `datasets/govweb/`, plan in `docs/plans/govweb-audit.md`.
 
 ## Structured output
 
@@ -91,6 +106,28 @@ datasets/labour-migration/panel_canonical.csv.gz
 datasets/labour-migration/panel_rollup.csv.gz
    ↓ build
 build.json (git revision + SHA-256 fingerprints)
+```
+
+## Data flow (govweb)
+
+```text
+oag.gov.np local-level report API      crt.sh Certificate Transparency
+   ↓ roster                              ↓ discover-ct
+datasets/govweb/roster.json            datasets/govweb/sources/crtsh_gov_np.json
+   │                                      │
+   │  local-body e-office directory      │
+   │  Wikidata P856, OSM website tags    │
+   └──────────────┬──────────────────────┘
+                  ↓ attribute (ranked, evidence-bearing)
+        datasets/govweb/attribution.json (659/753 local levels)
+                  ↓ merge into the hostname universe
+        sites.csv.gz (2,782 hostnames)
+                  ↓ deterministic sample
+        tls_sample.json (20 hostnames, not a census)
+                  ↓ passive collection (cache in output/govweb/)
+        datasets/govweb/observations/*.json
+                  ↓ build + analyze + verify
+        nine tidy CSVs + build.json + audit_report.json + reconciliation.json
 ```
 
 ## Why not a web app?

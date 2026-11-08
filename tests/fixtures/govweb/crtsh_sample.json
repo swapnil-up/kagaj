@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1001,
+    "issuer_name": "C=US, O=Example CA",
+    "common_name": "rural-municipality.district-one.gov.np",
+    "name_value": "rural-municipality.district-one.gov.np\nwww.rural-municipality.district-one.gov.np\n*.rural-municipality.district-one.gov.np"
+  },
+  {
+    "id": 1002,
+    "common_name": "township.district-two.gov.np",
+    "name_value": "township.district-two.gov.np\nwww.township.district-two.gov.np"
+  },
+  {
+    "id": 1004,
+    "common_name": "rural-municipality.district-three.gov.np",
+    "name_value": "rural-municipality.district-three.gov.np"
+  }
+]

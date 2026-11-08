@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "dataset": "govweb",
+  "purpose": "Adjudication of the 12 roster records that do not correspond to one of the 753 gazetted local levels. Records are kept in roster.json and roster.csv.gz; this file marks which ones must be excluded from the coverage denominator and why. Attribution uses only active records.",
+  "source": "Office of the Auditor General local-level report API (2026-11-05), cross-checked against the 753-unit structure and public records of local-level renames.",
+  "summary": {
+    "roster_records": 765,
+    "canonical_local_levels": 753,
+    "excluded": 12,
+    "excluded_by_status": {
+      "superseded": 9,
+      "duplicate": 2,
+      "misplaced": 1
+    }
+  },
+  "records": [
+    {
+      "local_level_id": "676",
+      "district": "Bajhang",
+      "name": "Kanda Rural Municipality",
+      "status": "superseded",
+      "superseded_by": "772",
+      "superseded_by_name": "Saipal Municipality",
+      "confidence": "high",
+      "evidence_url": "https://kathmandupost.com/miscellaneous/2018/02/16/kanda-village-gets-rural-municipality-status",
+      "note": "Kanda was granted separate rural-municipality status and then named Saipal. The gazetted name is Saipal; the roster carries both the interim and the final name."
+    },
+    {
+      "local_level_id": "661",
+      "district": "Bajura",
+      "name": "Paandav Gufa Rural Municipality",
+      "status": "superseded",
+      "superseded_by": "773",
+      "superseded_by_name": "Jagannath Municipality",
+      "confidence": "high",
+      "evidence_url": "https://en.wikipedia.org/wiki/Pandav_Gufa_Rural_Municipality",
+      "note": "Formed as Pandav Gufa and renamed Jagannath. The roster carries both names."
+    },
+    {
+      "local_level_id": "127",
+      "district": "Khotang",
+      "name": "Lamidanda municipality",
+      "status": "superseded",
+      "superseded_by": "766",
+      "superseded_by_name": "Rawabesi Municipality",
+      "confidence": "high",
+      "evidence_url": "https://www.citypopulation.de/en/nepal/mun/admin/13__khotang/",
+      "note": "The gazetted unit is Rawa Besi, listed with Lamidanda as an alternate name. The roster carries both."
+    },
+    {
+      "local_level_id": "318",
+      "district": "Rasuwa",
+      "name": "Parbatikunda Rural Municipality",
+      "status": "superseded",
+      "superseded_by": "761",
+      "superseded_by_name": "Aamachhodingmo Rural Municipality",
+      "confidence": "high",
+      "evidence_url": "https://www.citypopulation.de/en/nepal/mun/admin/29__rasuwa/",
+      "note": "Gazetted as Aamachhodingmo, listed with Parbatikunda as an alternate name."
+    },
+    {
+      "local_level_id": "540",
+      "district": "Rolpa",
+      "name": "Duikholi Rural Municipality",
+      "status": "superseded",
+      "superseded_by": "763",
+      "superseded_by_name": "Pariwartan Rural Municipality",
+      "confidence": "high",
+      "evidence_url": "https://www.myrepublica.nagariknetwork.com/news/parties-renaming-public-places-after-their-own",
+      "note": "Renamed Pariwartan by the first village council."
+    },
+    {
+      "local_level_id": "544",
+      "district": "Rolpa",
+      "name": "Sukidaha Rural Municipality",
+      "status": "superseded",
+      "superseded_by": "762",
+      "superseded_by_name": "Gangadev Rural Municipality",
+      "confidence": "high",
+      "evidence_url": "https://www.myrepublica.nagariknetwork.com/news/peoples-representatives-in-rolpa-under-fire-for-trying-to-change-name-of-municipalities",
+      "note": "Renamed Gangadev; the roster carries both."
+    },
+    {
+      "local_level_id": "546",
+      "district": "Rolpa",
+      "name": "Suwarnawati Rural Municipality",
+      "status": "superseded",
+      "superseded_by": "765",
+      "superseded_by_name": "Sunilsmriti Rural Municipality",
+      "confidence": "high",
+      "evidence_url": "https://en.setopati.com/political/113748",
+      "note": "Renamed Sahid Sunil Smriti; the roster carries both."
+    },
+    {
+      "local_level_id": "157",
+      "district": "Saptari",
+      "name": "Belhi chapena rural municipality",
+      "status": "superseded",
+      "superseded_by": "771",
+      "superseded_by_name": "Rajgadh Municipality",
+      "confidence": "high",
+      "evidence_url": "https://www.citypopulation.de/en/nepal/mun/admin/saptari/1503__rajgadh/",
+      "note": "Gazetted as Rajgadh, listed with Belhi Chapena as an alternate name."
+    },
+    {
+      "local_level_id": "111",
+      "district": "Solukhumbu",
+      "name": "Dudhkaushika municipality",
+      "status": "superseded",
+      "superseded_by": "109",
+      "superseded_by_name": "Thulung dudhkoshi rural municipality",
+      "confidence": "high",
+      "evidence_url": "https://hamrakura.com/news-details/29890/2017-09-11",
+      "note": "Dudhkaushika was renamed Thulung Dudhkoshi; the roster carries both."
+    },
+    {
+      "local_level_id": "117",
+      "district": "Solukhumbu",
+      "name": "Khijidemba rural municipality",
+      "status": "misplaced",
+      "superseded_by": "767",
+      "superseded_by_name": "Khijidemba Rural Municipality (Okhaldhunga)",
+      "confidence": "high",
+      "evidence_url": "https://www.citypopulation.de/en/nepal/mun/admin/11__okhaldhunga/",
+      "note": "Khijidemba is an Okhaldhunga local level. The Solukhumbu copy duplicates a unit that already exists in the roster under Okhaldhunga."
+    },
+    {
+      "local_level_id": "141",
+      "district": "Udayapur",
+      "name": "Sunkoshi rural municipality",
+      "status": "superseded",
+      "superseded_by": "770",
+      "superseded_by_name": "Limchungbung Municipality",
+      "confidence": "high",
+      "evidence_url": "https://nepalindata.com/media/resources/items/12/bNEC2018_Preliminary_Local_level_Report_No.2.pdf",
+      "note": "The 2018 local-level code list names Udayapur's unit Sunkoshi; the gazetted name is Limchungbung. The roster carries both."
+    },
+    {
+      "local_level_id": "489",
+      "district": "Palpa",
+      "name": "Nisdi Rural Municipality",
+      "status": "duplicate",
+      "superseded_by": "488",
+      "superseded_by_name": "Nisdi Rural Municipality",
+      "confidence": "high",
+      "evidence_url": "datasets/govweb/roster.json",
+      "note": "Exact duplicate of record 488 (same district, same normalized name). The higher id is excluded."
+    }
+  ]
+}

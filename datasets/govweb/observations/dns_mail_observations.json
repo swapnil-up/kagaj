@@ -1,0 +1,2189 @@
+{
+  "completed_count": 20,
+  "created_at": "2026-11-05T06:50:30.934106Z",
+  "observation_type": "dns_mail_security",
+  "observations": [
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [],
+        "NS": [],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:47:21.647602Z",
+          "query_name": "2016.presidentofnepal.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=2016.presidentofnepal.gov.np&type=A",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:22.920637Z",
+          "query_name": "2016.presidentofnepal.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=2016.presidentofnepal.gov.np&type=AAAA",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:24.407397Z",
+          "query_name": "2016.presidentofnepal.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=2016.presidentofnepal.gov.np&type=MX",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:25.535420Z",
+          "query_name": "2016.presidentofnepal.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=2016.presidentofnepal.gov.np&type=NS",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:26.740593Z",
+          "query_name": "2016.presidentofnepal.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=2016.presidentofnepal.gov.np&type=TXT",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:27.990560Z",
+          "query_name": "2016.presidentofnepal.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=2016.presidentofnepal.gov.np&type=CAA",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:29.305124Z",
+          "query_name": "_dmarc.2016.presidentofnepal.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.2016.presidentofnepal.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": false,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:47:30.305812Z",
+      "site_hostname": "2016.presidentofnepal.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "202.45.144.44"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:47:30.622931Z",
+          "query_name": "abpp.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=abpp.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:32.482696Z",
+          "query_name": "abpp.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=abpp.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:33.698459Z",
+          "query_name": "abpp.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=abpp.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:34.892323Z",
+          "query_name": "abpp.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=abpp.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:36.662690Z",
+          "query_name": "abpp.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=abpp.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:38.524292Z",
+          "query_name": "abpp.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=abpp.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:39.836603Z",
+          "query_name": "_dmarc.abpp.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.abpp.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": false,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:47:40.837356Z",
+      "site_hostname": "abpp.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [
+        "\"v=DMARC1; p=quarantine; rua=mailto:cbs.support@adbl.gov.np; ruf=mailto:cbs.support@adbl.gov.np; fo=1; pct=1; adkim=s; aspf=s\""
+      ],
+      "dns_records": {
+        "A": [
+          "202.51.2.112"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "10 mx1.adbl.gov.np.",
+          "20 mx2.adbl.gov.np.",
+          "30 mail.adbl.gov.np."
+        ],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": [
+          "\"MS=ms64090029\"",
+          "\"facebook-domain-verification=fneigiluvl8h90iwhc8zo4m0vms8l9\"",
+          "\"v=spf1 a mx ip4:202.166.216.139 ip4:202.166.195.193 ip4:202.166.195.194 ip4:202.166.195.192/30 include:spf.protection.outlook.com ~all\""
+        ]
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:47:41.126508Z",
+          "query_name": "adbl.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=adbl.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:42.807277Z",
+          "query_name": "adbl.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=adbl.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:44.077809Z",
+          "query_name": "adbl.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=adbl.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:45.358602Z",
+          "query_name": "adbl.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=adbl.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:46.659391Z",
+          "query_name": "adbl.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=adbl.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:48.520527Z",
+          "query_name": "adbl.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=adbl.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:47:50.205044Z",
+          "query_name": "_dmarc.adbl.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.adbl.gov.np&type=TXT",
+          "status": 0
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:47:51.205881Z",
+      "site_hostname": "adbl.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [],
+        "NS": [],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:47:51.674807Z",
+          "query_name": "admin.mof.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admin.mof.gov.np&type=A",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:52.942522Z",
+          "query_name": "admin.mof.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admin.mof.gov.np&type=AAAA",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:53.974359Z",
+          "query_name": "admin.mof.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admin.mof.gov.np&type=MX",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:55.078069Z",
+          "query_name": "admin.mof.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admin.mof.gov.np&type=NS",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:56.266311Z",
+          "query_name": "admin.mof.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admin.mof.gov.np&type=TXT",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:58.103680Z",
+          "query_name": "admin.mof.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admin.mof.gov.np&type=CAA",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:47:59.366356Z",
+          "query_name": "_dmarc.admin.mof.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.admin.mof.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": false,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:48:00.367059Z",
+      "site_hostname": "admin.mof.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "202.166.195.145"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "10 mx.nitc.gov.np."
+        ],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:48:00.746417Z",
+          "query_name": "admincourt.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admincourt.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:02.029186Z",
+          "query_name": "admincourt.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admincourt.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:03.077378Z",
+          "query_name": "admincourt.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admincourt.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:04.344301Z",
+          "query_name": "admincourt.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admincourt.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:06.240244Z",
+          "query_name": "admincourt.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admincourt.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:07.476739Z",
+          "query_name": "admincourt.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=admincourt.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:08.649977Z",
+          "query_name": "_dmarc.admincourt.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.admincourt.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:48:09.650610Z",
+      "site_hostname": "admincourt.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "72.60.222.190"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "10 mx.aepc.gov.np.",
+          "15 mx1.aepc.gov.np.",
+          "2 smtp.aepc.gov.np.",
+          "5 mail.aepc.gov.np."
+        ],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": [
+          "\"v=spf1 a a:mail.aepc.gov.np ip4:202.166.215.161 ~all\""
+        ]
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:48:09.954629Z",
+          "query_name": "aepc.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aepc.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:11.093212Z",
+          "query_name": "aepc.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aepc.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:12.347681Z",
+          "query_name": "aepc.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aepc.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:13.631012Z",
+          "query_name": "aepc.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aepc.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:14.734440Z",
+          "query_name": "aepc.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aepc.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:15.771547Z",
+          "query_name": "aepc.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aepc.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:17.059631Z",
+          "query_name": "_dmarc.aepc.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.aepc.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:48:18.060205Z",
+      "site_hostname": "aepc.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "110.44.116.37"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [],
+        "NS": [],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:48:18.091087Z",
+          "query_name": "aet.aepc.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aet.aepc.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:19.282251Z",
+          "query_name": "aet.aepc.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aet.aepc.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:20.478657Z",
+          "query_name": "aet.aepc.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aet.aepc.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:21.739211Z",
+          "query_name": "aet.aepc.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aet.aepc.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:23.055106Z",
+          "query_name": "aet.aepc.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aet.aepc.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:25.081263Z",
+          "query_name": "aet.aepc.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aet.aepc.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:26.397972Z",
+          "query_name": "_dmarc.aet.aepc.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.aet.aepc.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": false,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:48:27.398614Z",
+      "site_hostname": "aet.aepc.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "202.45.147.176"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "10 mx1.nepal.gov.np.",
+          "20 mx2.nepal.gov.np."
+        ],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": [
+          "\"MS=ms71862284\"",
+          "\"v=spf1 a mx a:mx1.nepal.gov.np a:mx2.nepal.gov.np ip4:202.45.146.101 ip4:202.45.146.102 -all\""
+        ]
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:48:27.759368Z",
+          "query_name": "ag.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ag.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:29.032292Z",
+          "query_name": "ag.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ag.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:30.212442Z",
+          "query_name": "ag.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ag.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:31.411172Z",
+          "query_name": "ag.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ag.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:32.451140Z",
+          "query_name": "ag.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ag.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:33.734040Z",
+          "query_name": "ag.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ag.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:34.770489Z",
+          "query_name": "_dmarc.ag.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.ag.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:48:35.771186Z",
+      "site_hostname": "ag.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "202.45.144.21"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "10 mx.nitc.gov.np."
+        ],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": [
+          "\"v=spf1 ip4:202.45.144.0/22 ip4:202.70.71.0/24 ?all\""
+        ]
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:48:35.943432Z",
+          "query_name": "agriextension.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=agriextension.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:37.263035Z",
+          "query_name": "agriextension.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=agriextension.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:38.522945Z",
+          "query_name": "agriextension.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=agriextension.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:39.793876Z",
+          "query_name": "agriextension.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=agriextension.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:41.139327Z",
+          "query_name": "agriextension.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=agriextension.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:42.333216Z",
+          "query_name": "agriextension.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=agriextension.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:43.366458Z",
+          "query_name": "_dmarc.agriextension.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.agriextension.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:48:44.367180Z",
+      "site_hostname": "agriextension.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "202.45.144.31"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "10 mx.nitc.gov.np."
+        ],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:48:44.652500Z",
+          "query_name": "aicc.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aicc.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:45.908161Z",
+          "query_name": "aicc.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aicc.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:47.259186Z",
+          "query_name": "aicc.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aicc.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:48.289518Z",
+          "query_name": "aicc.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aicc.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:49.552206Z",
+          "query_name": "aicc.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aicc.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:50.663756Z",
+          "query_name": "aicc.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aicc.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:51.853477Z",
+          "query_name": "_dmarc.aicc.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.aicc.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:48:52.854220Z",
+      "site_hostname": "aicc.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "103.69.124.8"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "10 mx2.nepal.gov.np.",
+          "5 mx1.nepal.gov.np."
+        ],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": [
+          "\"v=spf1 a mx a:mx1.nepal.gov.np a:mx2.nepal.gov.np ip4:202.45.146.101 ip4:202.45.146.102 -all\""
+        ]
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:48:52.901845Z",
+          "query_name": "aitc.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aitc.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:54.168006Z",
+          "query_name": "aitc.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aitc.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:55.472582Z",
+          "query_name": "aitc.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aitc.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:56.669588Z",
+          "query_name": "aitc.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aitc.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:58.074256Z",
+          "query_name": "aitc.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aitc.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:48:59.664591Z",
+          "query_name": "aitc.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aitc.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:01.001784Z",
+          "query_name": "_dmarc.aitc.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.aitc.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:49:02.002376Z",
+      "site_hostname": "aitc.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "143.95.237.141"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:49:02.270195Z",
+          "query_name": "ampcnaktajhij.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ampcnaktajhij.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:03.389724Z",
+          "query_name": "ampcnaktajhij.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ampcnaktajhij.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:04.701599Z",
+          "query_name": "ampcnaktajhij.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ampcnaktajhij.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:05.804540Z",
+          "query_name": "ampcnaktajhij.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ampcnaktajhij.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:07.091345Z",
+          "query_name": "ampcnaktajhij.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ampcnaktajhij.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:08.197372Z",
+          "query_name": "ampcnaktajhij.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=ampcnaktajhij.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:09.243502Z",
+          "query_name": "_dmarc.ampcnaktajhij.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.ampcnaktajhij.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": false,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:49:10.244205Z",
+      "site_hostname": "ampcnaktajhij.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [
+        "\"v=DMARC1; p=quarantine; fo=1; pct=100; adkim=r; aspf=s;  rua=mailto:hostmaster@apf.gov.np,mailto:WqlvxhRraE@rua.kdmarc.com;  ruf=mailto:hostmaster@apf.gov.np,mailto:WqlvxhRraE@ruf.kdmarc.com;\""
+      ],
+      "dns_records": {
+        "A": [
+          "103.171.243.20"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "0 apf-gov-np.mail.protection.outlook.com."
+        ],
+        "NS": [
+          "ns1-01.azure-dns.com.",
+          "ns2-01.azure-dns.net.",
+          "ns3-01.azure-dns.org.",
+          "ns4-01.azure-dns.info."
+        ],
+        "TXT": [
+          "\" google-site-verification=HyU6Fd9CLX4rpn-jxb7yXmVdRy3Jt4t6UVW6G7WyuGU\"",
+          "\"MS=715798FCED7AF3FC48978D2B628F73D842E177BE\"",
+          "\"MS=ms18451897\"",
+          "\"threatcop-admin-central-site-verification=eR4o0r1yIMNNN6UiMd8l01lzp2Y09rWWbJ1zhMVQ\"",
+          "\"v=spf1 a:mail.apf.gov.np ip4:103.171.243.18 include:spf.protection.outlook.com -all\""
+        ]
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:49:10.360068Z",
+          "query_name": "apf.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apf.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:12.427397Z",
+          "query_name": "apf.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apf.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:13.658416Z",
+          "query_name": "apf.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apf.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:14.903124Z",
+          "query_name": "apf.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apf.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:15.970408Z",
+          "query_name": "apf.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apf.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:17.601384Z",
+          "query_name": "apf.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apf.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:18.739557Z",
+          "query_name": "_dmarc.apf.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.apf.gov.np&type=TXT",
+          "status": 0
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:49:19.740098Z",
+      "site_hostname": "apf.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "103.69.124.125"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "10 mx.nitc.gov.np."
+        ],
+        "NS": [],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:49:19.908318Z",
+          "query_name": "apps.doind.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apps.doind.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:21.299951Z",
+          "query_name": "apps.doind.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apps.doind.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:22.561938Z",
+          "query_name": "apps.doind.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apps.doind.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:23.850856Z",
+          "query_name": "apps.doind.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apps.doind.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:24.996514Z",
+          "query_name": "apps.doind.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apps.doind.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:26.281022Z",
+          "query_name": "apps.doind.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=apps.doind.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:27.413937Z",
+          "query_name": "_dmarc.apps.doind.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.apps.doind.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:49:28.414578Z",
+      "site_hostname": "apps.doind.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "163.182.171.218"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:49:28.687960Z",
+          "query_name": "aqojnk.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aqojnk.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:31.600950Z",
+          "query_name": "aqojnk.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aqojnk.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:34.091573Z",
+          "query_name": "aqojnk.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aqojnk.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:36.088897Z",
+          "query_name": "aqojnk.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aqojnk.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:37.953653Z",
+          "query_name": "aqojnk.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aqojnk.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:39.215922Z",
+          "query_name": "aqojnk.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=aqojnk.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:40.372475Z",
+          "query_name": "_dmarc.aqojnk.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.aqojnk.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": false,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:49:41.373116Z",
+      "site_hostname": "aqojnk.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [],
+        "NS": [],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:49:41.557390Z",
+          "query_name": "archive.old.tourism.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=archive.old.tourism.gov.np&type=A",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:49:43.292135Z",
+          "query_name": "archive.old.tourism.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=archive.old.tourism.gov.np&type=AAAA",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:49:44.608703Z",
+          "query_name": "archive.old.tourism.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=archive.old.tourism.gov.np&type=MX",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:49:46.339119Z",
+          "query_name": "archive.old.tourism.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=archive.old.tourism.gov.np&type=NS",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:49:48.042058Z",
+          "query_name": "archive.old.tourism.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=archive.old.tourism.gov.np&type=TXT",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:49:49.241999Z",
+          "query_name": "archive.old.tourism.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=archive.old.tourism.gov.np&type=CAA",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:49:50.563576Z",
+          "query_name": "_dmarc.archive.old.tourism.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.archive.old.tourism.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": false,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:49:51.564332Z",
+      "site_hostname": "archive.old.tourism.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [
+        "\"v=DMARC1; p=none; rua=mailto:info@asha.gov.np; ruf=mailto:info@asha.gov.np\""
+      ],
+      "dns_records": {
+        "A": [
+          "202.45.144.44"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "10 mail.asha.gov.np."
+        ],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": [
+          "\"v=spf1 mx ip4:202.45.147.128/32 ~all\""
+        ]
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:49:51.610126Z",
+          "query_name": "asha.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=asha.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:53.455020Z",
+          "query_name": "asha.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=asha.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:54.498151Z",
+          "query_name": "asha.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=asha.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:55.766769Z",
+          "query_name": "asha.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=asha.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:57.049127Z",
+          "query_name": "asha.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=asha.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:58.886813Z",
+          "query_name": "asha.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=asha.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:49:59.942356Z",
+          "query_name": "_dmarc.asha.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.asha.gov.np&type=TXT",
+          "status": 0
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:50:00.943131Z",
+      "site_hostname": "asha.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [
+          "202.45.144.21"
+        ],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [
+          "10 mx.nitc.gov.np."
+        ],
+        "NS": [
+          "bagmati.nitc.gov.np.",
+          "koshi.nitc.gov.np.",
+          "mechi.nitc.gov.np."
+        ],
+        "TXT": [
+          "\"v=spf1 ip4:202.45.144.0/22 ip4:202.70.71.0/24 ?all\""
+        ]
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:50:01.219606Z",
+          "query_name": "attorneygeneral.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=attorneygeneral.gov.np&type=A",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:50:02.586182Z",
+          "query_name": "attorneygeneral.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=attorneygeneral.gov.np&type=AAAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:50:04.522953Z",
+          "query_name": "attorneygeneral.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=attorneygeneral.gov.np&type=MX",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:50:06.343771Z",
+          "query_name": "attorneygeneral.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=attorneygeneral.gov.np&type=NS",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:50:07.625656Z",
+          "query_name": "attorneygeneral.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=attorneygeneral.gov.np&type=TXT",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:50:09.025446Z",
+          "query_name": "attorneygeneral.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=attorneygeneral.gov.np&type=CAA",
+          "status": 0
+        },
+        {
+          "observed_at": "2026-11-05T06:50:10.134874Z",
+          "query_name": "_dmarc.attorneygeneral.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.attorneygeneral.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": true,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:50:11.135433Z",
+      "site_hostname": "attorneygeneral.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [],
+        "NS": [],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:50:11.997946Z",
+          "query_name": "autodiscover.aqojnk.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.aqojnk.gov.np&type=A",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:13.191902Z",
+          "query_name": "autodiscover.aqojnk.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.aqojnk.gov.np&type=AAAA",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:14.454547Z",
+          "query_name": "autodiscover.aqojnk.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.aqojnk.gov.np&type=MX",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:15.607248Z",
+          "query_name": "autodiscover.aqojnk.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.aqojnk.gov.np&type=NS",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:16.650471Z",
+          "query_name": "autodiscover.aqojnk.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.aqojnk.gov.np&type=TXT",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:17.947905Z",
+          "query_name": "autodiscover.aqojnk.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.aqojnk.gov.np&type=CAA",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:19.691776Z",
+          "query_name": "_dmarc.autodiscover.aqojnk.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.autodiscover.aqojnk.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": false,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:50:20.692527Z",
+      "site_hostname": "autodiscover.aqojnk.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    },
+    {
+      "confidence": "high",
+      "dmarc_txt_records": [],
+      "dns_records": {
+        "A": [],
+        "AAAA": [],
+        "CAA": [],
+        "MX": [],
+        "NS": [],
+        "TXT": []
+      },
+      "errors": [],
+      "evidence": [
+        {
+          "observed_at": "2026-11-05T06:50:20.977244Z",
+          "query_name": "autodiscover.bhairahawa.aqo.gov.np",
+          "query_type": "A",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.bhairahawa.aqo.gov.np&type=A",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:22.021766Z",
+          "query_name": "autodiscover.bhairahawa.aqo.gov.np",
+          "query_type": "AAAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.bhairahawa.aqo.gov.np&type=AAAA",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:23.908202Z",
+          "query_name": "autodiscover.bhairahawa.aqo.gov.np",
+          "query_type": "MX",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.bhairahawa.aqo.gov.np&type=MX",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:25.118310Z",
+          "query_name": "autodiscover.bhairahawa.aqo.gov.np",
+          "query_type": "NS",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.bhairahawa.aqo.gov.np&type=NS",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:26.315517Z",
+          "query_name": "autodiscover.bhairahawa.aqo.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.bhairahawa.aqo.gov.np&type=TXT",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:28.203423Z",
+          "query_name": "autodiscover.bhairahawa.aqo.gov.np",
+          "query_type": "CAA",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=autodiscover.bhairahawa.aqo.gov.np&type=CAA",
+          "status": 3
+        },
+        {
+          "observed_at": "2026-11-05T06:50:29.932396Z",
+          "query_name": "_dmarc.autodiscover.bhairahawa.aqo.gov.np",
+          "query_type": "TXT",
+          "resolver": "Cloudflare DNS-over-HTTPS",
+          "source_url": "https://cloudflare-dns.com/dns-query?name=_dmarc.autodiscover.bhairahawa.aqo.gov.np&type=TXT",
+          "status": 3
+        }
+      ],
+      "mail_security": {
+        "dmarc": {
+          "assessment": "no DMARC record was found",
+          "confidence": "high",
+          "evidence": [
+            "No DMARC TXT record was returned at the _dmarc name"
+          ],
+          "policy": null,
+          "record": null,
+          "status": "missing",
+          "subdomain_policy": null,
+          "tags": {}
+        },
+        "mx_present": false,
+        "spf": {
+          "all_qualifier": null,
+          "assessment": "no SPF record was found",
+          "confidence": "high",
+          "evidence": [
+            "No TXT record beginning with v=spf1 was returned"
+          ],
+          "record": null,
+          "status": "missing"
+        }
+      },
+      "municipality_id": null,
+      "observation_type": "dns_mail_security",
+      "observed_at": "2026-11-05T06:50:30.933117Z",
+      "site_hostname": "autodiscover.bhairahawa.aqo.gov.np",
+      "source_url": "https://cloudflare-dns.com/dns-query",
+      "status": "ok"
+    }
+  ],
+  "requested_hostname_count": 20
+}

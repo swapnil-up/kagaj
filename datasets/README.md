@@ -16,6 +16,7 @@ instead of reverse-engineering each pipeline. See
 | Labour-migration panel | [`labour-migration/`](labour-migration/) | 70,089 canonical rows (50,052 `analysis_safe`) | FY2074/75–2082/83 | CSV.GZ + JSON codebook |
 | Parliament translations | [`translations/`](translations/) | 220 structured JSON docs, 601 files (~13 MB) | 7th HoR; NA sessions 19+ | TXT + JSON |
 | KUKL water schedules | [`water/`](water/) | 7 branches, 231 source entries | 2083 Ashoj | JSON |
+| `.gov.np` infrastructure | [`govweb/`](govweb/) | 2,782 hostnames, 753 local levels (659 attributed), 20 observed | 2026-11 snapshot | CSV.GZ + JSON |
 
 ## Labour-migration panel
 
@@ -56,6 +57,26 @@ notice/verbatim URL is stored in the corresponding manifest.
 branch. The per-branch extract for a given month is
 `datasets/water/<Branch>__<YYYY>_<Month>.json`. Each zone includes delivery days, time
 windows, served areas, and contact details when published.
+
+## `.gov.np` infrastructure observations
+
+Start with [`govweb/DATASET.md`](govweb/DATASET.md) and
+[`govweb/audit_summary.md`](govweb/audit_summary.md).
+
+- **Primary file:** `sites.csv.gz` — one row per discovered `.gov.np` hostname.
+  The unit is a hostname, not a local level.
+- **Roster:** `roster.csv.gz` — the canonical local-level list. The raw roster
+  carries 765 records; `roster_adjudication.json` resolves the 12 extras to the
+  official 753.
+- **Attribution:** `attribution.csv.gz` — the evidence-bearing join from a local
+  level to its hostname. 659 of 753 are mapped; 94 are explicitly unresolved.
+- **Observations:** `hosting`, `dns_mail`, `http_headers`, `tls`,
+  `third_party_scripts`, `robots` — 20-hostname pilot sample only, not a census.
+  `tls.csv.gz` is header-only because live TLS collection has not run.
+- **Fingerprint:** `build.json`; reconciliation: `reconciliation.json`.
+
+Collection is passive and never scans ports or bypasses `robots.txt`. Read the
+interpretation rules in `DATASET.md` before quoting any figure.
 
 ## License
 

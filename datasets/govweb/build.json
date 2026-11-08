@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-11-08T23:04:01.166240+00:00",
+  "git_revision": "2d296558c529ac476fc5629c735f7d0be5008490",
+  "files": {
+    "sites.csv.gz": {
+      "rows": 2782,
+      "bytes": 20169,
+      "sha256": "ad5f3ff492378de9fcba96f80c82b69a3f795b7a51d14caf20bfbafdd3fc24c4"
+    },
+    "roster.csv.gz": {
+      "rows": 765,
+      "bytes": 10729,
+      "sha256": "206001a29ba13c17d8127e937a5cb619e653e12836c555158c2aece81a326695"
+    },
+    "attribution.csv.gz": {
+      "rows": 800,
+      "bytes": 20417,
+      "sha256": "14e2ab63f60aef74e0d539a98ca79d9c46080fabd23b69383d7616cc8d68ba6f"
+    },
+    "hosting.csv.gz": {
+      "rows": 20,
+      "bytes": 853,
+      "sha256": "d2ccce712d4eb9c280b3bf658a997f1ff599c8650f75e524cc7ad35fdd9b0800"
+    },
+    "dns_mail.csv.gz": {
+      "rows": 20,
+      "bytes": 516,
+      "sha256": "49195f1e38a44b2dc3a42f59bb79fea970df656e1e85ad02ab92f60e8f00a8e1"
+    },
+    "http_headers.csv.gz": {
+      "rows": 20,
+      "bytes": 735,
+      "sha256": "f120b5c4793fd7c7d33c756abf3d6eae37a15e9e499ddebb2c6ee42d42adecbd"
+    },
+    "tls.csv.gz": {
+      "rows": 0,
+      "bytes": 113,
+      "sha256": "9e414b21c2f2622e2988eb4b7d3f7a42f9869803d24b45035d5d9e7e4782286f"
+    },
+    "third_party_scripts.csv.gz": {
+      "rows": 85,
+      "bytes": 1572,
+      "sha256": "5c9a315163008ca0258192c11d212c4181c25bc0373ef80dba5a1dec87e19bca"
+    },
+    "robots.csv.gz": {
+      "rows": 20,
+      "bytes": 635,
+      "sha256": "48e35693c5922e5292d11e37247794c15a6a39d1e5e0e49c1f7fc1808f933541"
+    },
+    "roster.json": {
+      "bytes": 187621,
+      "sha256": "efca741b1dc41c98155b8333d6bd06278681711ac60dbf24e7f437acb20045d0"
+    },
+    "roster_meta.json": {
+      "bytes": 494,
+      "sha256": "5dd023c02e607f84f89b81378073e6febee9f1a6c6b659c5ee405a5dc9388cc2"
+    },
+    "roster_adjudication.json": {
+      "bytes": 6327,
+      "sha256": "e7decf8161fa3a07467c9df701ded4776fdbdba4531f07325358c233797a076e"
+    },
+    "attribution.json": {
+      "bytes": 454887,
+      "sha256": "d4fd513f371e773a1927e4a1937f6432ac515752e0ee5fcdeb8c1310d3eb25b9"
+    },
+    "tls_sample.json": {
+      "bytes": 1025,
+      "sha256": "4e09e7766d6ddb772e70608cc39bf38a73e3632b36ef4a0d5c14f5510fb5cbb9"
+    },
+    "website_coverage_crtsh.json": {
+      "bytes": 623,
+      "sha256": "72dd2a8882cd3541db874a71edce632aa2c60b9ce16e4a560fcf7f5f3122ff89"
+    },
+    "website_mappings_crtsh.json": {
+      "bytes": 342500,
+      "sha256": "5c900b339d9e1ec2289e0383e7b202488386871a0053e6039ccffec0f8eb665b"
+    },
+    "sources/crtsh_gov_np.json": {
+      "bytes": 1125126,
+      "sha256": "37a9e73acce46761bc64f4c01a96cac5b028ca811e2f3ab75cd137124731fef9"
+    },
+    "sources/wikidata_nepal_websites.json": {
+      "bytes": 335641,
+      "sha256": "4c544fe04e6f669bb2ca3b2faae999a08feb8dba0aa314e364f0045af82b2438"
+    },
+    "sources/localbody_directory.json": {
+      "bytes": 163966,
+      "sha256": "df05cfc8cd9e8684afed43742bed1245680efd89adef95e9454683d03c2919a2"
+    },
+    "sources/osm_np_local_levels.json": {
+      "bytes": 130439,
+      "sha256": "0cf1f5333681f827d4d2995b504ff30fc00a0d4c137c3d351b6fde3684d42c4c"
+    },
+    "observations/http_header_observations.json": {
+      "bytes": 19366,
+      "sha256": "b03447247d6dbb5cd52ec02afc0aeef40a2395ecb3261405e813f6b9c7584d60"
+    },
+    "observations/hosting_observations.json": {
+      "bytes": 23316,
+      "sha256": "cda2fadda267b75fa2b2359582c2c9e3b42d32d396ab1a3948d016a5521c7e05"
+    },
+    "observations/dns_mail_observations.json": {
+      "bytes": 74455,
+      "sha256": "994ce9012e263c96689140ea32502f9211b109e10c0b4ec97c31d2d41a885da8"
+    },
+    "observations/third_party_scripts.json": {
+      "bytes": 31037,
+      "sha256": "3a6e30363060e93c44fa98ebdaadaf476e07f0956e144b51aaad72da5995ba95"
+    },
+    "observations/robots_observations.json": {
+      "bytes": 783185,
+      "sha256": "3f7a1928a0d194c0f8135c5b9fd0a7f3b6164b72630ba34af2c5725a0daa85a9"
+    },
+    "audit_report.json": {
+      "bytes": 946854,
+      "sha256": "949c3e949b84f5a4b87b0f0820c13e02b2b85e52691b8e492731752204b349a5"
+    }
+  }
+}

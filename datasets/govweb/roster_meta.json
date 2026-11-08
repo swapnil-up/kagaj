@@ -1,0 +1,9 @@
+{
+  "source_url": "https://oag.gov.np/api/front/local-level-report?province=&district=&municipality=&fiscal_year=&page=1&per_page=2000",
+  "fetched_at": "2026-11-04T23:10:12.753670+00:00",
+  "province_count": 7,
+  "district_count": 77,
+  "municipality_count": 765,
+  "record_count": 765,
+  "normalization": "Display names: surrounding and repeated whitespace collapsed; original capitalization retained. normalized_name: whitespace collapsed and Unicode case-folded. No other substitutions."
+}

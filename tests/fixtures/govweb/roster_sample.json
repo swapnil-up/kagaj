@@ -1,0 +1,47 @@
+[
+  {
+    "province_id": "1",
+    "province": "Koshi Province",
+    "district_id": "101",
+    "district": "Morang",
+    "municipality_id": "1001",
+    "name": "Biratnagar Metropolitan City",
+    "normalized_name": "biratnagar metropolitan city"
+  },
+  {
+    "province_id": "1",
+    "province": "Koshi Province",
+    "district_id": "101",
+    "district": "Morang",
+    "municipality_id": "1002",
+    "name": "Rangeli Municipality",
+    "normalized_name": "rangeli municipality"
+  },
+  {
+    "province_id": "1",
+    "province": "Koshi Province",
+    "district_id": "102",
+    "district": "Sunsari",
+    "municipality_id": "1003",
+    "name": "Itahari Sub Metropolitan City",
+    "normalized_name": "itahari sub metropolitan city"
+  },
+  {
+    "province_id": "2",
+    "province": "Madhesh Province",
+    "district_id": "201",
+    "district": "Dhanusha",
+    "municipality_id": "2001",
+    "name": "Janakpur Sub Metropolitan City",
+    "normalized_name": "janakpur sub metropolitan city"
+  },
+  {
+    "province_id": "2",
+    "province": "Madhesh Province",
+    "district_id": "201",
+    "district": "Dhanusha",
+    "municipality_id": "2002",
+    "name": "  Janaki   Rural Municipality  ",
+    "normalized_name": "janaki rural municipality"
+  }
+]

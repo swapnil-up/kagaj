@@ -46,7 +46,7 @@ def test_every_table_with_data_has_a_primary(built):
     conn, stats, _ = built
     datasets_with_tables = {row[0] for row in conn.execute("SELECT DISTINCT dataset FROM catalog_tables")}
     # translations ships a document corpus, not tabular data
-    assert datasets_with_tables == {"crime", "labour-migration", "water"}
+    assert datasets_with_tables == {"crime", "govweb", "labour-migration", "water"}
     for dataset in datasets_with_tables:
         primaries = conn.execute(
             "SELECT COUNT(*) FROM catalog_tables WHERE dataset = ? AND role = 'primary'", (dataset,)

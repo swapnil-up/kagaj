@@ -10,6 +10,7 @@
 | Crime bulletins | Shipped — `datasets/crime/`, 58 bulletins, violent panels + charts |
 | Budget redbook extraction | Active — `redbook_parser/` spatial-first; legacy engines frozen; **no shipped dataset yet** |
 | KUKL water schedules | Active — `datasets/water/schedule.json`, 7 branches |
+| `.gov.np` infrastructure | Experimental — `datasets/govweb/`, Phase 1 complete: 659/753 local levels attributed (87.52%); 20-host pilot sample |
 | Dictionary | Shipped — StarDict output |
 | CID mapping tool | Shipped — `cidmap/` |
 | DDA drug prices | Experimental — scripts + plan, no shipped dataset |
@@ -80,6 +81,7 @@ before it becomes a build.
 | **Import–export** | Customs/trade monthly and annual series (imports, exports, trade balance by HS code / partner country) | Scout Department of Customs + Trade & Commerce export data for structured files; check whether ODN already carries it and how fresh | **Scout.** Likely Excel/CSV rather than PDF — cheapest extraction shape of the three budget-adjacent domains |
 | **Gazette + court documents** | Narrative, cross-referential corpora — the first documents besides parliament where semantic search genuinely fits | Survey existing Nepali legal-digitization efforts first (Law Commission, prior judgment scrapers) so we don't duplicate | **Survey first.** Decide redaction/anonymization policy *before* ingesting; court data carries real sensitivity |
 | **Crime** | CID monthly bulletins | Continue as coverage allows; fill known gaps | **Shipped** — maintain |
+| **Government web infrastructure** | Passive observation of `.gov.np` hosting, DNS, TLS and HTTP behaviour | Phase 2: replace the pilot sample with an attributed, multidomain universe; multi-vantage availability; RDAP provider attribution; certificate timeline; foreign-edge dependency | **Experimental** — Phase 1 complete (659/753 attributed, gate passed); paper framing is hosting concentration and availability, not a vulnerability audit |
 | **BIPAD (disaster)** | Already-structured government portal | Ask NDRRMA / Youth Innovation Lab what technical gap remains | **Not a build.** Consume as an *input* to cross-dataset analysis, or partner — don't rebuild a working system |
 | **HMIS / IEMIS (health, education)** | Collection works; public release doesn't | Approach as an access/relationships question, ideally alongside a partner org | **Partnership, not extraction.** Different skill from what Kagaj does |
 | **Land records** | NeLIS runs on a private, access-controlled network | Revisit only via Survey Department or academic GIS partnership | **Deprioritize.** Open cadastral slice is a computer-vision research problem outside this toolchain |
@@ -134,6 +136,7 @@ Applies to parliament now and gazette/court if adopted.
 | 2026-11 | Semantic search scoped to document corpora; tabular data gets filter/browse |
 | 2026-11 | Municipal budget chosen as next build; BIPAD excluded as a build target |
 | 2026-11 | Auditor General and import–export added as scout candidates |
+| 2026-11 | `.gov.np` observation added as a fourth extraction family; grain is hostname, attribution is a separate join |
 
 > Note: external claims above (ODN coverage, BIPAD status, NeLIS access model,
 > Data Spending Party history) come from an AI-assisted research pass and should

@@ -1,0 +1,926 @@
+{
+  "completed_count": 20,
+  "created_at": "2026-11-05T06:44:06.779772Z",
+  "observation_type": "third_party_script_inventory",
+  "observations": [
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:41:36.488097Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "2016.presidentofnepal.gov.np",
+      "source_url": "https://2016.presidentofnepal.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:41:52.515003Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "abpp.gov.np",
+      "source_url": "https://abpp.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "robots.txt",
+        "public HTML fetched with identifying User-Agent"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:41:54.775363Z",
+      "script_count": 39,
+      "scripts": [
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/0e5ce63c-eed6352a08b69777.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/0e762574-6bfd0ad8b92d517b.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/1316-f5d612fbbf855195.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/1362-14265a7857916fe6.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/2072-0e07650010ab340e.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/2670-2b8bb1cd1daea6b7.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/3081-0915d2b212c1dcc1.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/3151-a3504e0a61bdb88b.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/3341-3f13e4c64360656d.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/3685-2f46080ae686c9c3.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/3d47b92a-09c37f4051222289.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/4107-59536e4ab3030cec.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/479ba886-11cc440846771fcb.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/5167-d696ccb9da5ca738.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/53c13509-d04a43cea8273663.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/5787-9626d6cd802c40db.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/5e22fd23-67777bb80ec53f7f.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/6173-e9ffda58761ee9b9.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/66ec4792-1c26d6d9853d8dab.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/6912-b8e29f8a9d621327.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/703-0c2d258055722c5e.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/791-a1e621967849bac0.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/8069-2613dfc2cb87fad1.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/8304-32345971a0836b30.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/8618-6e6b5841637a1b91.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/8792-ec624dc4549f0a61.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/8e1d74a4-4c32ebac36f5d97e.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/9109-56c0f739dda441f2.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/9c4e2130-cb2e21232ee9d226.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/app/%5Blocale%5D/layout-0ce7470df36f302b.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/app/%5Blocale%5D/not-found-77214b4c4ae998ad.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/app/%5Blocale%5D/page-09c22151e5c1de79.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/b563f954-bd7bac0252fe3ddc.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/eec3d76d-c5c8746130880456.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/fd9d1056-12b6a31fd9d9cb25.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/main-app-641148eefcb7a949.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/_next/static/chunks/webpack-c4e5e3335cbb1a20.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "adbl.gov.np",
+          "url": "https://adbl.gov.np/widget_acc.js"
+        }
+      ],
+      "site_hostname": "adbl.gov.np",
+      "source_url": "https://adbl.gov.np/en",
+      "status": "ok",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:41:55.801424Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "admin.mof.gov.np",
+      "source_url": "https://admin.mof.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "robots.txt",
+        "public HTML fetched with identifying User-Agent"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:41:57.051946Z",
+      "script_count": 6,
+      "scripts": [
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "admincourt.gov.np",
+          "url": "https://admincourt.gov.np/assets/bootstrap/js/bootstrap.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "admincourt.gov.np",
+          "url": "https://admincourt.gov.np/assets/js/custom.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "admincourt.gov.np",
+          "url": "https://admincourt.gov.np/assets/js/jquery.min.2.0.3.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "admincourt.gov.np",
+          "url": "https://admincourt.gov.np/assets/js/jssor.slider.mini.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "admincourt.gov.np",
+          "url": "https://admincourt.gov.np/assets/js/nepali.datepicker.v2.2.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "admincourt.gov.np",
+          "url": "https://admincourt.gov.np/assets/jui/js/jquery-ui-1.9.2.min.js"
+        }
+      ],
+      "site_hostname": "admincourt.gov.np",
+      "source_url": "https://admincourt.gov.np/",
+      "status": "ok",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: ValueError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:41:58.341200Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "aepc.gov.np",
+      "source_url": "https://aepc.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:41:59.366357Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "aet.aepc.gov.np",
+      "source_url": "https://aet.aepc.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:42:15.385569Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "ag.gov.np",
+      "source_url": "https://ag.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:42:31.408417Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "agriextension.gov.np",
+      "source_url": "https://agriextension.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:42:47.429955Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "aicc.gov.np",
+      "source_url": "https://aicc.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: ValueError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:42:48.473019Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "aitc.gov.np",
+      "source_url": "https://aitc.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "high",
+      "evidence": [
+        "robots.txt",
+        "public HTML fetched with identifying User-Agent"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:42:57.390629Z",
+      "script_count": 23,
+      "scripts": [
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/js/appear.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/js/bootstrap.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/js/jquery-ui.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/js/jquery.fancybox.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/js/jquery.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/js/knob.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/js/main-slider-script.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/js/owl.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/js/script.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/js/wow.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/extensions/revolution.extension.actions.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/extensions/revolution.extension.carousel.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/extensions/revolution.extension.migration.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/extensions/revolution.extension.navigation.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/extensions/revolution.extension.parallax.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/extensions/revolution.extension.video.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/jquery.themepunch.revolution.min.js"
+        },
+        {
+          "category": "first_party",
+          "confidence": "high",
+          "evidence": [
+            "script hostname matches the audited site"
+          ],
+          "hostname": "ampcnaktajhij.gov.np",
+          "url": "https://ampcnaktajhij.gov.np/assets/plugins/revolution/js/jquery.themepunch.tools.min.js"
+        },
+        {
+          "category": "embedded",
+          "confidence": "medium",
+          "evidence": [
+            "URL matched known category indicators: facebook.net"
+          ],
+          "hostname": "connect.facebook.net",
+          "url": "https://connect.facebook.net/en_US/sdk.js"
+        },
+        {
+          "category": "other",
+          "confidence": "low",
+          "evidence": [
+            "external script URL had no recognized category indicators"
+          ],
+          "hostname": "counter4.optistats.ovh",
+          "url": "https://counter4.optistats.ovh/private/counter.js?c=qjxm924mprfklfkcx52taftqekh3chdm&down=async"
+        }
+      ],
+      "site_hostname": "ampcnaktajhij.gov.np",
+      "source_url": "https://ampcnaktajhij.gov.np/",
+      "status": "ok",
+      "third_party_script_count": 2
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: ValueError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:42:58.578690Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "apf.gov.np",
+      "source_url": "https://apf.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:43:14.604387Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "apps.doind.gov.np",
+      "source_url": "https://apps.doind.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:43:30.642925Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "aqojnk.gov.np",
+      "source_url": "https://aqojnk.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:43:31.667022Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "archive.old.tourism.gov.np",
+      "source_url": "https://archive.old.tourism.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:43:47.696919Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "asha.gov.np",
+      "source_url": "https://asha.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:44:03.730869Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "attorneygeneral.gov.np",
+      "source_url": "https://attorneygeneral.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:44:04.754885Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "autodiscover.aqojnk.gov.np",
+      "source_url": "https://autodiscover.aqojnk.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    },
+    {
+      "confidence": "low",
+      "evidence": [
+        "robots.txt unavailable; fail-closed: URLError"
+      ],
+      "municipality_id": null,
+      "observation_type": "third_party_script_inventory",
+      "observed_at": "2026-11-05T06:44:05.779037Z",
+      "script_count": 0,
+      "scripts": [],
+      "site_hostname": "autodiscover.bhairahawa.aqo.gov.np",
+      "source_url": "https://autodiscover.bhairahawa.aqo.gov.np/",
+      "status": "robots_disallowed",
+      "third_party_script_count": 0
+    }
+  ],
+  "requested_hostname_count": 20
+}

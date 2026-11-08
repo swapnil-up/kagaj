@@ -1,0 +1,6035 @@
+{
+ "schema_version": "1.0",
+ "source": "Local-body e-office directory (dcc-localbody-list)",
+ "source_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+ "method": "76 paginated HTML pages, 10 rows each; one GET per page",
+ "fetched_at": "2026-11-06T00:00:00+00:00",
+ "row_count": 753,
+ "website_count": 750,
+ "rows": [
+  {
+   "serial": 1,
+   "name_np": "फक्ताङलुङ गाउँपालिका",
+   "name_en": "Phaktanglung Rural Municipality",
+   "wards": 7,
+   "website": "http://phaktanglungmun.gov.np",
+   "page": 1
+  },
+  {
+   "serial": 2,
+   "name_np": "मिक्वाखोला गाउँपालिका",
+   "name_en": "Mikwakhola Rural Municipality",
+   "wards": 6,
+   "website": "http://mikwakholamun.gov.np",
+   "page": 1
+  },
+  {
+   "serial": 3,
+   "name_np": "मेरिङ्गदेन गाउँपालिका",
+   "name_en": "Meringden Rural Municipality",
+   "wards": 6,
+   "website": "http://meringdenmun.gov.np",
+   "page": 1
+  },
+  {
+   "serial": 4,
+   "name_np": "मैवाखोला गाउँपालिका",
+   "name_en": "Maiwakhola Rural Municipality",
+   "wards": 6,
+   "website": "http://maiwakholamun.gov.np",
+   "page": 1
+  },
+  {
+   "serial": 5,
+   "name_np": "आठराई त्रिवेणी गाउँपालिका",
+   "name_en": "Aatharai Tribeni Rural Municipality",
+   "wards": 5,
+   "website": "http://aatharaitribenimun.gov.np",
+   "page": 1
+  },
+  {
+   "serial": 6,
+   "name_np": "फुङलिङ्ग नगरपालिका",
+   "name_en": "Phungling Municipality",
+   "wards": 11,
+   "website": "http://phunglingmun.gov.np",
+   "page": 1
+  },
+  {
+   "serial": 7,
+   "name_np": "पाथिभरा याङ्वरक गाउँपालिका",
+   "name_en": "Pathivara Yangwarak Rural Municipality",
+   "wards": 6,
+   "website": "http://pathivarayangwarakmun.gov.np",
+   "page": 1
+  },
+  {
+   "serial": 8,
+   "name_np": "सिरीजङ्गा गाउंपालिका",
+   "name_en": "Sirijanga Rural Municipality",
+   "wards": 8,
+   "website": "http://www.sirijangamun.gov.np",
+   "page": 1
+  },
+  {
+   "serial": 9,
+   "name_np": "सिदिङ्गवा गाउँपालिका",
+   "name_en": "Sidingba Rural Municipality",
+   "wards": 7,
+   "website": "http://sidingbamun.gov.np",
+   "page": 1
+  },
+  {
+   "serial": 10,
+   "name_np": "भोटखोला गाउँपालिका",
+   "name_en": "Bhotkhola Rural Municipality",
+   "wards": 5,
+   "website": "http://bhotkholamun.gov.np",
+   "page": 1
+  },
+  {
+   "serial": 11,
+   "name_np": "मकालु गाउँपालिका",
+   "name_en": "Makalu Rural Municipality",
+   "wards": 6,
+   "website": "http://makalumun.gov.np",
+   "page": 2
+  },
+  {
+   "serial": 12,
+   "name_np": "सिलीचोङ गाउँपालिका",
+   "name_en": "Silichong Rural Municipality",
+   "wards": 5,
+   "website": "http://dipayalsilgadhimun.gov.np",
+   "page": 2
+  },
+  {
+   "serial": 13,
+   "name_np": "चिचिला गाउँपालिका",
+   "name_en": "Chichila Rural Municipality",
+   "wards": 5,
+   "website": "http://chichilamun.gov.np",
+   "page": 2
+  },
+  {
+   "serial": 14,
+   "name_np": "सभापोखरी गाउँपालिका",
+   "name_en": "Sabhapokhari Rural Municipality",
+   "wards": 6,
+   "website": "http://savapokharimun.gov.np",
+   "page": 2
+  },
+  {
+   "serial": 15,
+   "name_np": "खाँदबारी नगरपालिका",
+   "name_en": "Khandbari Municipality",
+   "wards": 11,
+   "website": "http://khandbarimun.gov.np",
+   "page": 2
+  },
+  {
+   "serial": 16,
+   "name_np": "पाँचखपन नगरपालिका",
+   "name_en": "Panchakhapan Municipality",
+   "wards": 9,
+   "website": "http://panchkhapanmun.gov.np",
+   "page": 2
+  },
+  {
+   "serial": 17,
+   "name_np": "चैनपुर नगरपालिका",
+   "name_en": "Chainpur Municipality",
+   "wards": 11,
+   "website": "http://chainpurmun.gov.np",
+   "page": 2
+  },
+  {
+   "serial": 18,
+   "name_np": "मादी नगरपालिका",
+   "name_en": "Madi Municipality",
+   "wards": 9,
+   "website": "https://madisankhuwasabha.gov.np",
+   "page": 2
+  },
+  {
+   "serial": 19,
+   "name_np": "धर्मदेवी नगरपालिका",
+   "name_en": "Dharmadevi Municipality",
+   "wards": 9,
+   "website": "http://dharmadevimun.gov.np",
+   "page": 2
+  },
+  {
+   "serial": 20,
+   "name_np": "खुम्बु पासाङल्हामु गाउँपालिका",
+   "name_en": "Khumbu Pasanglhamu Rural Municipality",
+   "wards": 5,
+   "website": "http://khambupasanglhamumun.gov.np",
+   "page": 2
+  },
+  {
+   "serial": 21,
+   "name_np": "माहाकुलुङ गाउँपालिका",
+   "name_en": "Mahakulung Rural Municipality",
+   "wards": 5,
+   "website": "http://mahakulung.gov.np",
+   "page": 3
+  },
+  {
+   "serial": 22,
+   "name_np": "सोताङ गाउँपालिका",
+   "name_en": "Sotang Rural Municipality",
+   "wards": 5,
+   "website": "http://sotangmun.gov.np",
+   "page": 3
+  },
+  {
+   "serial": 23,
+   "name_np": "थुलुङ दुधकोशी गाउँपालिका",
+   "name_en": "Thulungdudhkoshi Rural Municipality",
+   "wards": 9,
+   "website": "https://thulungdudhkoshimun.gov.np",
+   "page": 3
+  },
+  {
+   "serial": 24,
+   "name_np": "माप्य दुधकोशी गाउँपालिका",
+   "name_en": "Mapya Dudhkoshi Rural Municipality",
+   "wards": 7,
+   "website": "http://dudhkoshimun.gov.np",
+   "page": 3
+  },
+  {
+   "serial": 25,
+   "name_np": "नेचासल्यान गाउँपालिका",
+   "name_en": "Necha Salyan Rural Municipality",
+   "wards": 5,
+   "website": "http://nechasalyanmun.gov.np",
+   "page": 3
+  },
+  {
+   "serial": 26,
+   "name_np": "सोलुदुधकुण्ड नगरपालिका",
+   "name_en": "Solu Dhudhakunda Municipality",
+   "wards": 11,
+   "website": "http://solududhkundamun.gov.np",
+   "page": 3
+  },
+  {
+   "serial": 27,
+   "name_np": "लिखु पिके गाउँपालिका",
+   "name_en": "Likhu Pike Rural Municipality",
+   "wards": 5,
+   "website": "https://likhupikemun.gov.np",
+   "page": 3
+  },
+  {
+   "serial": 28,
+   "name_np": "चिशंखुगढी गाउँपालिका",
+   "name_en": "Chishankhu Gadhi Rural Municipality",
+   "wards": 8,
+   "website": "http://chishankhugadhimun.gov.np",
+   "page": 3
+  },
+  {
+   "serial": 29,
+   "name_np": "सिद्धिचरण नगरपालिका",
+   "name_en": "Siddhicharan Municipality",
+   "wards": 12,
+   "website": "https://siddhicharanmun.gov.np",
+   "page": 3
+  },
+  {
+   "serial": 30,
+   "name_np": "मोलुङ्ग गाउँपालिका",
+   "name_en": "Molung Rural Municipality",
+   "wards": 8,
+   "website": "http://molungmun.gov.np",
+   "page": 3
+  },
+  {
+   "serial": 31,
+   "name_np": "खिजीदेम्बा गाउँपालिका",
+   "name_en": "Khiji Demba Rural Municipality",
+   "wards": 9,
+   "website": "http://khijidembamun.gov.np",
+   "page": 4
+  },
+  {
+   "serial": 32,
+   "name_np": "लिखु गाउँपालिका",
+   "name_en": "Likhu Rural Municipality",
+   "wards": 6,
+   "website": "https://likhumunnuwakot.gov.np",
+   "page": 4
+  },
+  {
+   "serial": 33,
+   "name_np": "चम्पादेवी गाउँपालिका",
+   "name_en": "Champadevi Rural Municipality",
+   "wards": 10,
+   "website": "http://champadevimun.gov.np",
+   "page": 4
+  },
+  {
+   "serial": 34,
+   "name_np": "सुनकोशी गाउँपालिका",
+   "name_en": "Sunkoshi Rural Municipality",
+   "wards": 10,
+   "website": "http://sunkoshimunokhaldhunga.gov.np",
+   "page": 4
+  },
+  {
+   "serial": 35,
+   "name_np": "मानेभन्ज्याङ्ग गाउँपालिका",
+   "name_en": "Manebhanjyang Rural Municipality",
+   "wards": 9,
+   "website": "http://manebhanjyangmun.gov.np",
+   "page": 4
+  },
+  {
+   "serial": 36,
+   "name_np": "केपिलासगढी गाउँपालिका",
+   "name_en": "Kepilasgadhi Rural Municipality",
+   "wards": 7,
+   "website": "http://kepilasgadhimun.gov.np",
+   "page": 4
+  },
+  {
+   "serial": 37,
+   "name_np": "ऐसेलुखर्क गाउँपालिका",
+   "name_en": "Aiselukharka Rural Municipality",
+   "wards": 7,
+   "website": "http://aiselukharkamun.gov.np",
+   "page": 4
+  },
+  {
+   "serial": 38,
+   "name_np": "रावा वेसी गाउँपालिका]",
+   "name_en": "] Rawa Besi Rural Municipality",
+   "wards": 6,
+   "website": "https://rawabesimun.gov.np",
+   "page": 4
+  },
+  {
+   "serial": 39,
+   "name_np": "हलेसी तुवाचुङ नगरपालिका",
+   "name_en": "Halesi Tuwachung Municipality",
+   "wards": 11,
+   "website": "http://halesituwachungmun.gov.np",
+   "page": 4
+  },
+  {
+   "serial": 40,
+   "name_np": "दिक्तेल रुपाकोट मझुवागढी नगरपालिका",
+   "name_en": "Diktel Rupakot Majhuwagadhi Municipality",
+   "wards": 15,
+   "website": "http://rupakotmajhuwagadhimun.gov.np",
+   "page": 4
+  },
+  {
+   "serial": 41,
+   "name_np": "साकेला गाउँपालिका",
+   "name_en": "Sakela Rural Municipality",
+   "wards": 5,
+   "website": "http://sakelamun.gov.np",
+   "page": 5
+  },
+  {
+   "serial": 42,
+   "name_np": "दिप्रुङ्ग गाउँपालिका",
+   "name_en": "Diprung Rural Municipality",
+   "wards": 7,
+   "website": "http://diprungmun.gov.np",
+   "page": 5
+  },
+  {
+   "serial": 43,
+   "name_np": "खोटेहाङ गाउँपालिका",
+   "name_en": "Khotehang Rural Municipality",
+   "wards": 9,
+   "website": "http://khotehangmun.gov.np",
+   "page": 5
+  },
+  {
+   "serial": 44,
+   "name_np": "जन्तेढुङ्गा गाउँपालिका",
+   "name_en": "Jante Dhunga Rural Municipality",
+   "wards": 6,
+   "website": "http://jantedhungamun.gov.np",
+   "page": 5
+  },
+  {
+   "serial": 45,
+   "name_np": "बराहपोखरी गाउँपालिका",
+   "name_en": "Baraha Pokhari Rural Municipality",
+   "wards": 6,
+   "website": "http://barahapokharimun.gov.np",
+   "page": 5
+  },
+  {
+   "serial": 46,
+   "name_np": "षडानन्द नगरपालिका",
+   "name_en": "Shadananda Municipality",
+   "wards": 14,
+   "website": "https://shadanandamun.gov.np",
+   "page": 5
+  },
+  {
+   "serial": 47,
+   "name_np": "साल्पासिलिछो गाउँपालिका",
+   "name_en": "Salpa Silichho Rural Municipality",
+   "wards": 6,
+   "website": "http://salpasilichhomun.gov.np",
+   "page": 5
+  },
+  {
+   "serial": 48,
+   "name_np": "ट्याम्के मैयुम गाउँपालिका",
+   "name_en": "Tyamke Maiyum Rural Municipality",
+   "wards": 9,
+   "website": "http://tyamkemaiyummun.gov.np",
+   "page": 5
+  },
+  {
+   "serial": 49,
+   "name_np": "भोजपुर नगरपालिका",
+   "name_en": "Bhojpur Municipality",
+   "wards": 12,
+   "website": "https://bhojpurmun.gov.np",
+   "page": 5
+  },
+  {
+   "serial": 50,
+   "name_np": "अरुण गाउँपालिका",
+   "name_en": "Arun Rural Municipality",
+   "wards": 7,
+   "website": "http://arunmun.gov.np",
+   "page": 5
+  },
+  {
+   "serial": 51,
+   "name_np": "पौवादुङ्मा गाउँपालिका",
+   "name_en": "Pauwa Dunma Rural Municipality",
+   "wards": 6,
+   "website": "http://pauwadungmamun.gov.np",
+   "page": 6
+  },
+  {
+   "serial": 52,
+   "name_np": "रामप्रसाद राई गाउँपालिका",
+   "name_en": "Ramprasad Rai Rural Municipality",
+   "wards": 8,
+   "website": "http://ramprasadraimun.gov.np",
+   "page": 6
+  },
+  {
+   "serial": 53,
+   "name_np": "हतुवागढी गाउँपालिका",
+   "name_en": "Hatuwagadhi Rural Municipality",
+   "wards": 9,
+   "website": "http://hatuwagadhimun.gov.np",
+   "page": 6
+  },
+  {
+   "serial": 54,
+   "name_np": "आमचोक गाउँपालिका",
+   "name_en": "Aamchowk Rural Municipality",
+   "wards": 10,
+   "website": "https://aamchowkmun.gov.np",
+   "page": 6
+  },
+  {
+   "serial": 55,
+   "name_np": "महालक्ष्मी नगरपालिका",
+   "name_en": "Mahalaxmi Municipality",
+   "wards": 9,
+   "website": "http://mahalaxmimundhankuta.gov.np",
+   "page": 6
+  },
+  {
+   "serial": 56,
+   "name_np": "पाख्रिबास नगरपालिका",
+   "name_en": "Pakhribas Municipality",
+   "wards": 10,
+   "website": "http://pakhribasmun.gov.np",
+   "page": 6
+  },
+  {
+   "serial": 57,
+   "name_np": "छथर जोरपाटी गाउँपालिका",
+   "name_en": "Chhathar Jorpati Rural Municipality",
+   "wards": 6,
+   "website": "http://chhatharjorpatimun.gov.np",
+   "page": 6
+  },
+  {
+   "serial": 58,
+   "name_np": "धनकुटा नगरपालिका",
+   "name_en": "Dhankuta Municipality",
+   "wards": 10,
+   "website": "http://dhankutamun.gov.np",
+   "page": 6
+  },
+  {
+   "serial": 59,
+   "name_np": "सहीदभूमि गाउँपालिका",
+   "name_en": "Sahidbhumi Rural Municipality",
+   "wards": 1,
+   "website": "http://shahidbhumimun.gov.np",
+   "page": 6
+  },
+  {
+   "serial": 60,
+   "name_np": "साँगुरीगढी गाउँपालिका",
+   "name_en": "Sangurigadhi Rural Municipality",
+   "wards": 10,
+   "website": "http://sangurigadhimun.gov.np",
+   "page": 6
+  },
+  {
+   "serial": 61,
+   "name_np": "चौविसे गाउँपालिका",
+   "name_en": "Chaubise Rural Municipality",
+   "wards": 8,
+   "website": "http://choubisemun.gov.np",
+   "page": 7
+  },
+  {
+   "serial": 62,
+   "name_np": "आठराई त्रिवेणी गाउँपालिका",
+   "name_en": "Aatharai Tribeni Rural Municipality",
+   "wards": 5,
+   "website": "http://aatharaitribenimun.gov.np",
+   "page": 7
+  },
+  {
+   "serial": 63,
+   "name_np": "फेदाप गाउँपालिका",
+   "name_en": "Phedap Rural Municipality",
+   "wards": 5,
+   "website": "http://phedapmun.gov.np",
+   "page": 7
+  },
+  {
+   "serial": 64,
+   "name_np": "मेन्छयायेम गाउँपालिका",
+   "name_en": "Menchhayayem Rural Municipality",
+   "wards": 6,
+   "website": "http://menchhayayemmun.gov.np",
+   "page": 7
+  },
+  {
+   "serial": 65,
+   "name_np": "म्याङ्गलुङ्ग नगरपालिका",
+   "name_en": "Myanglung Municipality",
+   "wards": 10,
+   "website": "http://myanglung.gov.np",
+   "page": 7
+  },
+  {
+   "serial": 66,
+   "name_np": "लालीगुराँस नगरपालिका",
+   "name_en": "Laligurans Municipality",
+   "wards": 6,
+   "website": "http://laligurans.gov.np",
+   "page": 7
+  },
+  {
+   "serial": 67,
+   "name_np": "छथर गाउँपालिका",
+   "name_en": "Chhathar Rural Municipality",
+   "wards": 6,
+   "website": "http://chhatharmun.gov.np",
+   "page": 7
+  },
+  {
+   "serial": 68,
+   "name_np": "याङवरक गाउँपालिका",
+   "name_en": "Yangwarak Rural Municipality",
+   "wards": 6,
+   "website": "http://yangwarakmunpanchthar.gov.np",
+   "page": 7
+  },
+  {
+   "serial": 69,
+   "name_np": "हिलिहाङ्ग गाउँपालिका",
+   "name_en": "Hilihan Rural Municipality",
+   "wards": 7,
+   "website": "http://www.hilihangruralmun.gov.np",
+   "page": 7
+  },
+  {
+   "serial": 70,
+   "name_np": "फालेलुङ्ग गाउँपालिका",
+   "name_en": "Phalelung Rural Municipality",
+   "wards": 8,
+   "website": "http://phalelungmun.gov.np",
+   "page": 7
+  },
+  {
+   "serial": 71,
+   "name_np": "फिदिम नगरपालिका",
+   "name_en": "Phidim Municipality",
+   "wards": 14,
+   "website": "http://phidimmun.gov.np",
+   "page": 8
+  },
+  {
+   "serial": 72,
+   "name_np": "फाल्गुनन्द गाउँपालिका",
+   "name_en": "Falgunanda Rural Municipality",
+   "wards": 7,
+   "website": "http://phalgunandamun.gov.np",
+   "page": 8
+  },
+  {
+   "serial": 73,
+   "name_np": "कुम्मायक गाउँपालिका",
+   "name_en": "Kummayak Rural Municipality",
+   "wards": 5,
+   "website": "http://kummayakmun.gov.np",
+   "page": 8
+  },
+  {
+   "serial": 74,
+   "name_np": "तुम्बेवा गाउँपालिका",
+   "name_en": "Tumbewa Rural Municipality",
+   "wards": 5,
+   "website": "http://tumwewamun.gov.np",
+   "page": 8
+  },
+  {
+   "serial": 75,
+   "name_np": "मिक्लाजुङ गाउँपालिका",
+   "name_en": "Miklajung Rural Municipality",
+   "wards": 12,
+   "website": "http://miklajungmunpanchthar.gov.np",
+   "page": 8
+  },
+  {
+   "serial": 76,
+   "name_np": "माई जोगमाई गाउँपालिका",
+   "name_en": "Mai Jogmai Rural Municipality",
+   "wards": 6,
+   "website": "https://maijogmaimun.gov.np",
+   "page": 8
+  },
+  {
+   "serial": 77,
+   "name_np": "सन्दकपुर गाउँपालिका",
+   "name_en": "Sandakpur Rural Municipality",
+   "wards": 5,
+   "website": "https://sandakpurmun.gov.np",
+   "page": 8
+  },
+  {
+   "serial": 78,
+   "name_np": "ईलाम नगरपालिका",
+   "name_en": "Ilam Municipality",
+   "wards": 10,
+   "website": "https://ilammun.gov.np",
+   "page": 8
+  },
+  {
+   "serial": 79,
+   "name_np": "देउमाई नगरपालिका",
+   "name_en": "Deumai Municipality",
+   "wards": 9,
+   "website": "https://deumaimun.gov.np",
+   "page": 8
+  },
+  {
+   "serial": 80,
+   "name_np": "फाकफोकथुम गाउँपालिका",
+   "name_en": "Fakfokathum Rural Municipality",
+   "wards": 7,
+   "website": "https://phakphokthummun.gov.np",
+   "page": 8
+  },
+  {
+   "serial": 81,
+   "name_np": "माङसेबुङ गाउँपालिका",
+   "name_en": "Mangsebung Rural Municipality",
+   "wards": 6,
+   "website": "https://mansebungmun.gov.np",
+   "page": 9
+  },
+  {
+   "serial": 82,
+   "name_np": "चुलाचुली गाउँपालिका",
+   "name_en": "Chulachuli Rural Municipality",
+   "wards": 6,
+   "website": "https://chulachulimun.gov.np",
+   "page": 9
+  },
+  {
+   "serial": 83,
+   "name_np": "माई नगरपालिका",
+   "name_en": "Mai Municipality",
+   "wards": 10,
+   "website": "https://maimun.gov.np",
+   "page": 9
+  },
+  {
+   "serial": 84,
+   "name_np": "सूर्योदय नगरपालिका",
+   "name_en": "Suryodaya Municipality",
+   "wards": 14,
+   "website": "https://suryodayamun.gov.np",
+   "page": 9
+  },
+  {
+   "serial": 85,
+   "name_np": "रोङ गाउँपालिका",
+   "name_en": "Rong Rural Municipality",
+   "wards": 6,
+   "website": "https://rongmun.gov.np",
+   "page": 9
+  },
+  {
+   "serial": 86,
+   "name_np": "मेचीनगर नगरपालिका",
+   "name_en": "Mechinagar Municipality",
+   "wards": 15,
+   "website": "http://mechinagarmun.gov.np",
+   "page": 9
+  },
+  {
+   "serial": 87,
+   "name_np": "बुद्धशान्ति गाउँपालिका",
+   "name_en": "Buddhashanti Rural Municipality",
+   "wards": 7,
+   "website": "http://buddhashantimun.gov.np",
+   "page": 9
+  },
+  {
+   "serial": 88,
+   "name_np": "अर्जुनधारा नगरपालिका",
+   "name_en": "Arjundhara Municipality",
+   "wards": 11,
+   "website": "http://arjundharamun.gov.np",
+   "page": 9
+  },
+  {
+   "serial": 89,
+   "name_np": "कन्काई नगरपालिका",
+   "name_en": "Kankai Municipality",
+   "wards": 9,
+   "website": "http://kankaimun.gov.np",
+   "page": 9
+  },
+  {
+   "serial": 90,
+   "name_np": "शिवसताक्षी नगरपालिका",
+   "name_en": "Shivasatakshi Municipality",
+   "wards": 11,
+   "website": "http://shivasatakshimun.gov.np",
+   "page": 9
+  },
+  {
+   "serial": 91,
+   "name_np": "कमल गाउँपालिका",
+   "name_en": "Kamal Rural Municipality",
+   "wards": 7,
+   "website": "http://kamalmun.gov.np",
+   "page": 10
+  },
+  {
+   "serial": 92,
+   "name_np": "दमक नगरपालिका",
+   "name_en": "Damak Municipality",
+   "wards": 10,
+   "website": "http://damakmun.gov.np",
+   "page": 10
+  },
+  {
+   "serial": 93,
+   "name_np": "गौरादह नगरपालिका",
+   "name_en": "Gauradaha Municipality",
+   "wards": 9,
+   "website": "http://gauradahamun.gov.np",
+   "page": 10
+  },
+  {
+   "serial": 94,
+   "name_np": "गौरिगञ्ज गाउँपालिका",
+   "name_en": "Gauriganj Rural Municipality",
+   "wards": 6,
+   "website": "http://gaurigunjmun.gov.np",
+   "page": 10
+  },
+  {
+   "serial": 95,
+   "name_np": "झापा गाउँपालिका",
+   "name_en": "Jhapa Rural Municipality",
+   "wards": 7,
+   "website": "http://jhapamun.gov.np",
+   "page": 10
+  },
+  {
+   "serial": 96,
+   "name_np": "बाह्रदशी गाउँपालिका",
+   "name_en": "Barhadashi Rural Municipality",
+   "wards": 7,
+   "website": "http://bahradashimun.gov.np",
+   "page": 10
+  },
+  {
+   "serial": 97,
+   "name_np": "बिर्तामोड नगरपालिका",
+   "name_en": "Birtamod Municipality",
+   "wards": 10,
+   "website": "http://birtamodmun.gov.np",
+   "page": 10
+  },
+  {
+   "serial": 98,
+   "name_np": "हल्दीबारी गाउँपालिका",
+   "name_en": "Haldibari Rural Municipality",
+   "wards": 5,
+   "website": "http://haldibarimun.gov.np",
+   "page": 10
+  },
+  {
+   "serial": 99,
+   "name_np": "भद्रपुर नगरपालिका",
+   "name_en": "Bhadrapur Municipality",
+   "wards": 10,
+   "website": "http://bhadpurapurmun.gov.np",
+   "page": 10
+  },
+  {
+   "serial": 100,
+   "name_np": "कचनकवल गाउँपालिका",
+   "name_en": "Kachanakawal Rural Municipality",
+   "wards": 7,
+   "website": "http://kachankawalmun.gov.np",
+   "page": 10
+  },
+  {
+   "serial": 101,
+   "name_np": "मिक्लाजुङ्ग गाउँपालिका",
+   "name_en": "Miklajung Rural Municipality",
+   "wards": 9,
+   "website": "http://miklajungmunmorang.gov.np",
+   "page": 11
+  },
+  {
+   "serial": 102,
+   "name_np": "लेटाङ नगरपालिका",
+   "name_en": "Letang Municipality",
+   "wards": 9,
+   "website": "http://letangmun.gov.np",
+   "page": 11
+  },
+  {
+   "serial": 103,
+   "name_np": "केराबारी गाउँपालिका",
+   "name_en": "Kerabari Rural Municipality",
+   "wards": 10,
+   "website": "http://kerabarimun.gov.np",
+   "page": 11
+  },
+  {
+   "serial": 104,
+   "name_np": "सुन्दरहरैंचा नगरपालिका",
+   "name_en": "Sundarharaicha Municipality",
+   "wards": 12,
+   "website": "http://sundarharaichamun.gov.np",
+   "page": 11
+  },
+  {
+   "serial": 105,
+   "name_np": "बेलबारी नगरपालिका",
+   "name_en": "Belbari Municipality",
+   "wards": 11,
+   "website": "https://belbarimun.gov.np",
+   "page": 11
+  },
+  {
+   "serial": 106,
+   "name_np": "कानेपोखरी गाउँपालिका",
+   "name_en": "Kanepokhari Rural Municipality",
+   "wards": 7,
+   "website": "http://kanepokharimun.gov.np",
+   "page": 11
+  },
+  {
+   "serial": 107,
+   "name_np": "पथरी शनिश्चरे नगरपालिका",
+   "name_en": "Pathari Shanishchare Municipality",
+   "wards": 10,
+   "website": "http://patharisanishcharemun.gov.np",
+   "page": 11
+  },
+  {
+   "serial": 108,
+   "name_np": "उर्लाबारी नगरपालिका",
+   "name_en": "Urlabari Municipality",
+   "wards": 9,
+   "website": "http://urlabarimun.gov.np",
+   "page": 11
+  },
+  {
+   "serial": 109,
+   "name_np": "रतुवामाई नगरपालिका",
+   "name_en": "Ratuwamai Municipality",
+   "wards": 10,
+   "website": "http://ratuwamaimun.gov.np",
+   "page": 11
+  },
+  {
+   "serial": 110,
+   "name_np": "सुनवर्षी नगरपालिका",
+   "name_en": "Sunwarshi Municipality",
+   "wards": 9,
+   "website": "https://sunawarshimun.gov.np",
+   "page": 11
+  },
+  {
+   "serial": 111,
+   "name_np": "रंगेली नगरपालिका",
+   "name_en": "Rangeli Municipality",
+   "wards": 9,
+   "website": "http://rangelimun.gov.np",
+   "page": 12
+  },
+  {
+   "serial": 112,
+   "name_np": "ग्रामथान गाउँपालिका",
+   "name_en": "Gramthan Rural Municipality",
+   "wards": 7,
+   "website": "http://gramthanmun.gov.np",
+   "page": 12
+  },
+  {
+   "serial": 113,
+   "name_np": "बुढीगंगा गाउँपालिका",
+   "name_en": "Budhiganga Rural Municipality",
+   "wards": 7,
+   "website": "http://budhigangamunmorang.gov.np",
+   "page": 12
+  },
+  {
+   "serial": 114,
+   "name_np": "बिराटनगर महानगरपालिका",
+   "name_en": "Biratnagar Metropolitian City",
+   "wards": 19,
+   "website": "http://biratnagarmun.gov.np",
+   "page": 12
+  },
+  {
+   "serial": 115,
+   "name_np": "कटहरी गाउँपालिका",
+   "name_en": "Katahari Rural Municipality",
+   "wards": 7,
+   "website": "http://kataharimun.gov.np",
+   "page": 12
+  },
+  {
+   "serial": 116,
+   "name_np": "धनपालथान गाउँपालिका",
+   "name_en": "Dhanapalthan Rural Municipality",
+   "wards": 7,
+   "website": "https://dhanapalthanmun.gov.np",
+   "page": 12
+  },
+  {
+   "serial": 117,
+   "name_np": "जहदा गाउँपालिका",
+   "name_en": "Jahada Rural Municipality",
+   "wards": 7,
+   "website": "http://jahadamun.gov.np",
+   "page": 12
+  },
+  {
+   "serial": 118,
+   "name_np": "धरान उपमहानगरपालिका",
+   "name_en": "Dharan Sub-Metropolitian City",
+   "wards": 20,
+   "website": "http://dharanmun.gov.np",
+   "page": 12
+  },
+  {
+   "serial": 119,
+   "name_np": "बराहक्षेत्र नगरपालिका",
+   "name_en": "Barahachettra Municipality",
+   "wards": 11,
+   "website": "http://barahamun.gov.np",
+   "page": 12
+  },
+  {
+   "serial": 120,
+   "name_np": "कोशी गाउँपालिका",
+   "name_en": "Koshi Rural Municipality",
+   "wards": 8,
+   "website": "http://koshi.gov.np",
+   "page": 12
+  },
+  {
+   "serial": 121,
+   "name_np": "भोक्राहा नरसिंह गाउँपालिका",
+   "name_en": "Bhokraha Narsingh Rural Municipality",
+   "wards": 8,
+   "website": "http://bhokrahamun.gov.np",
+   "page": 13
+  },
+  {
+   "serial": 122,
+   "name_np": "रामधुनी नगरपालिका",
+   "name_en": "Ramdhuni Municipality",
+   "wards": 9,
+   "website": "http://ramdhunimun.gov.np",
+   "page": 13
+  },
+  {
+   "serial": 123,
+   "name_np": "ईटहरी उपमहानगरपालिका",
+   "name_en": "Itahari Sub-Metropolitian City",
+   "wards": 20,
+   "website": "http://itaharimun.gov.np",
+   "page": 13
+  },
+  {
+   "serial": 124,
+   "name_np": "दुहबी नगरपालिका",
+   "name_en": "Duhabi Municipality",
+   "wards": 12,
+   "website": "http://duhabimun.gov.np",
+   "page": 13
+  },
+  {
+   "serial": 125,
+   "name_np": "गढी गाउँपालिका",
+   "name_en": "Gadhi Rural Municipality",
+   "wards": 6,
+   "website": "http://gadhimun.gov.np",
+   "page": 13
+  },
+  {
+   "serial": 126,
+   "name_np": "इनरुवा नगरपालिका",
+   "name_en": "Inaruwa Municipality",
+   "wards": 10,
+   "website": "http://inaruwamun.gov.np",
+   "page": 13
+  },
+  {
+   "serial": 127,
+   "name_np": "हरिनगर गाउँपालिका",
+   "name_en": "Harinagar Rural Municipality",
+   "wards": 7,
+   "website": "http://harinagarmun.gov.np",
+   "page": 13
+  },
+  {
+   "serial": 128,
+   "name_np": "देवानगन्ज गाउँपालिका",
+   "name_en": "Dewangunj Rural Municipality",
+   "wards": 7,
+   "website": "http://dewanganjmun.gov.np",
+   "page": 13
+  },
+  {
+   "serial": 129,
+   "name_np": "बर्जु गाउँपालिका",
+   "name_en": "Barju Rural Municipality",
+   "wards": 6,
+   "website": "http://barjumun.gov.np",
+   "page": 13
+  },
+  {
+   "serial": 130,
+   "name_np": "बेलका नगरपालिका",
+   "name_en": "Belaka Municipality",
+   "wards": 14,
+   "website": "http://belakamun.gov.np",
+   "page": 13
+  },
+  {
+   "serial": 131,
+   "name_np": "चौदण्डीगढी नगरपालिका",
+   "name_en": "Chaudandigadhi Municipality",
+   "wards": 10,
+   "website": "https://chaudandigadhimun.gov.np",
+   "page": 14
+  },
+  {
+   "serial": 132,
+   "name_np": "त्रियुगा नगरपालिका",
+   "name_en": "Triyuga Municipality",
+   "wards": 16,
+   "website": "https://triyugamun.gov.np",
+   "page": 14
+  },
+  {
+   "serial": 133,
+   "name_np": "रौतामाई गाउँपालिका",
+   "name_en": "Rautamai Rural Municipality",
+   "wards": 8,
+   "website": "https://rautamaimun.gov.np",
+   "page": 14
+  },
+  {
+   "serial": 134,
+   "name_np": "लिम्चुङबुङ गाउँपालिका",
+   "name_en": "Limchubung Rural Municipality",
+   "wards": 5,
+   "website": "http://limchungbungmun.gov.np",
+   "page": 14
+  },
+  {
+   "serial": 135,
+   "name_np": "ताप्ली गाउँपालिका",
+   "name_en": "Tapli Rural Municipality",
+   "wards": 5,
+   "website": "http://taplimun.gov.np",
+   "page": 14
+  },
+  {
+   "serial": 136,
+   "name_np": "कटारी नगरपालिका",
+   "name_en": "Katari Municipality",
+   "wards": 14,
+   "website": "https://katarimun.gov.np",
+   "page": 14
+  },
+  {
+   "serial": 137,
+   "name_np": "उदयपुरगढी गाउँपालिका",
+   "name_en": "Udayapurgadhi Rural Municipality",
+   "wards": 8,
+   "website": "https://udayapurgadhimun.gov.np",
+   "page": 14
+  },
+  {
+   "serial": 138,
+   "name_np": "सप्तकोशी नगरपालिका",
+   "name_en": "Saptakoshi Municipality",
+   "wards": 15,
+   "website": "https://www.saptakoshimun.gov.np",
+   "page": 14
+  },
+  {
+   "serial": 139,
+   "name_np": "कन्चनरुप नगरपालिका",
+   "name_en": "Kanchanrup Municipality",
+   "wards": 12,
+   "website": "https://www.kanchanrupmun.gov.np",
+   "page": 14
+  },
+  {
+   "serial": 140,
+   "name_np": "अग्निसाइर कृष्ण सवरन गाउँपालिका",
+   "name_en": "Agnisair Krishna Sabaran Rural Municipality",
+   "wards": 6,
+   "website": "http://agnisairkrishnasawaranmun.gov.np",
+   "page": 14
+  },
+  {
+   "serial": 141,
+   "name_np": "रुपनी गाउँपालिका",
+   "name_en": "Rupani Rural Municipality",
+   "wards": 6,
+   "website": "https://www.rupanimun.gov.np",
+   "page": 15
+  },
+  {
+   "serial": 142,
+   "name_np": "शम्भुनाथ नगरपालिका",
+   "name_en": "Shambhunath Municipality",
+   "wards": 12,
+   "website": "https://www.shambhunathmun.gov.np",
+   "page": 15
+  },
+  {
+   "serial": 143,
+   "name_np": "खडक नगरपालिका",
+   "name_en": "Khadak Municipality",
+   "wards": 11,
+   "website": "http://www.khadakmun.gov.np",
+   "page": 15
+  },
+  {
+   "serial": 144,
+   "name_np": "सुरुङ्गा नगरपालिका",
+   "name_en": "Surunga Municipality",
+   "wards": 11,
+   "website": "https://www.surungamun.gov.np",
+   "page": 15
+  },
+  {
+   "serial": 145,
+   "name_np": "बलान बिहुल गाउँपालिका",
+   "name_en": "Balan-Bihul Rural Municipality",
+   "wards": 6,
+   "website": "https://www.balanbihulmun.gov.np",
+   "page": 15
+  },
+  {
+   "serial": 146,
+   "name_np": "बोदेबरसाईन नगरपालिका",
+   "name_en": "BodeBarsain Municipality",
+   "wards": 10,
+   "website": "http://bodebarsainmun.gov.np",
+   "page": 15
+  },
+  {
+   "serial": 147,
+   "name_np": "डाक्नेश्वरी नगरपालिका",
+   "name_en": "Dakneshwori Municipality",
+   "wards": 10,
+   "website": "https://www.dakneshworimun.gov.np",
+   "page": 15
+  },
+  {
+   "serial": 148,
+   "name_np": "राजगढ गाउँपालिका",
+   "name_en": "Rajgadh Rural Municipality",
+   "wards": 6,
+   "website": "https://www.rajgadhmun.gov.np",
+   "page": 15
+  },
+  {
+   "serial": 149,
+   "name_np": "बिष्णुपुर गाउँपालिका",
+   "name_en": "Bishnupur Rural Municipality",
+   "wards": 7,
+   "website": "https://www.bishnupurmunsaptari.gov.np",
+   "page": 15
+  },
+  {
+   "serial": 150,
+   "name_np": "राजविराज नगरपालिका",
+   "name_en": "Rajbiraj Municipality",
+   "wards": 16,
+   "website": "http://rajapurmun.gov.np",
+   "page": 15
+  },
+  {
+   "serial": 151,
+   "name_np": "महादेवा गाउँपालिका",
+   "name_en": "Mahadewa Rural Municipality",
+   "wards": 6,
+   "website": "https://www.mahadevamun.gov.np",
+   "page": 16
+  },
+  {
+   "serial": 152,
+   "name_np": "तिरहुत गाउँपालिका",
+   "name_en": "Tirahut Rural Municipality",
+   "wards": 5,
+   "website": "http://tirahutmun.gov.np",
+   "page": 16
+  },
+  {
+   "serial": 153,
+   "name_np": "हनुमाननगर कङ्कालिनी नगरपालिका",
+   "name_en": "Hanumannagar Kankalini Municipality",
+   "wards": 15,
+   "website": "https://www.hanumannagarkankalinimun.gov.np",
+   "page": 16
+  },
+  {
+   "serial": 154,
+   "name_np": "तिलाठी कोईलाडी गाउँपालिका",
+   "name_en": "Tilathi Koiladi Rural Municipality",
+   "wards": 8,
+   "website": "http://tilagufamun.gov.np",
+   "page": 16
+  },
+  {
+   "serial": 155,
+   "name_np": "छिन्नमस्ता गाउँपालिका",
+   "name_en": "Chhinnamasta Rural Municipality",
+   "wards": 7,
+   "website": "http://www.chhinnamastamun.gov.np",
+   "page": 16
+  },
+  {
+   "serial": 156,
+   "name_np": "लहान नगरपालिका",
+   "name_en": "Lahan Municipality",
+   "wards": 24,
+   "website": "https://www.lahanmun.gov.np",
+   "page": 16
+  },
+  {
+   "serial": 157,
+   "name_np": "धनगढीमाई नगरपालिका",
+   "name_en": "Dhangadhimai Municipality",
+   "wards": 14,
+   "website": "https://www.dhangadhimaimun.gov.np",
+   "page": 16
+  },
+  {
+   "serial": 158,
+   "name_np": "गोलबजार नगरपालिका",
+   "name_en": "Golbazar Municipality",
+   "wards": 13,
+   "website": "https://www.golbazarmun.gov.np",
+   "page": 16
+  },
+  {
+   "serial": 159,
+   "name_np": "मिर्चेया नगरपालिका",
+   "name_en": "mirchaiya municipality",
+   "wards": 12,
+   "website": "https://www.mirchaiyamun.gov.np",
+   "page": 16
+  },
+  {
+   "serial": 160,
+   "name_np": "कर्जन्हा नगरपालिका",
+   "name_en": "Karjanha Municipality",
+   "wards": 11,
+   "website": "https://www.karjanhamun.gov.np",
+   "page": 16
+  },
+  {
+   "serial": 161,
+   "name_np": "कल्याणपुर नगरपालिका",
+   "name_en": "Kalyanpur Municipality",
+   "wards": 12,
+   "website": "https://www.kalyanpurmun.gov.np",
+   "page": 17
+  },
+  {
+   "serial": 162,
+   "name_np": "नरहा गाउँपालिका",
+   "name_en": "Naraha Rural Municipality",
+   "wards": 5,
+   "website": "https://www.narahamun.gov.np",
+   "page": 17
+  },
+  {
+   "serial": 163,
+   "name_np": "विष्णुपुर गाउँपालिका",
+   "name_en": "Bishnupur Rural Municipality",
+   "wards": 5,
+   "website": "https://www.bishnupurmunsiraha.gov.np",
+   "page": 17
+  },
+  {
+   "serial": 164,
+   "name_np": "अर्नमा गाउँपालिका",
+   "name_en": "Arnama Rural Municipality",
+   "wards": 5,
+   "website": "https://www.anarmamun.gov.np",
+   "page": 17
+  },
+  {
+   "serial": 165,
+   "name_np": "सुखीपुर नगरपालिका",
+   "name_en": "Sukhipur Municipality",
+   "wards": 10,
+   "website": "https://www.sukhipurmun.gov.np",
+   "page": 17
+  },
+  {
+   "serial": 166,
+   "name_np": "लक्ष्मीपुर पतारी गाउँपालिका",
+   "name_en": "Laxmipur Patari Rural Municipality",
+   "wards": 6,
+   "website": "https://www.laxmipurpatarimun.gov.np",
+   "page": 17
+  },
+  {
+   "serial": 167,
+   "name_np": "सखुवानान्कारकट्टी गाउँपालिका",
+   "name_en": "Sakhuwa Nankarkatti Rural Municipality",
+   "wards": 5,
+   "website": "https://www.sakhuwanankarkattimun.gov.np",
+   "page": 17
+  },
+  {
+   "serial": 168,
+   "name_np": "भगवानपुर गाउँपालिका",
+   "name_en": "Bhagawanpur Rural Municipality",
+   "wards": 5,
+   "website": "https://www.bhagwanpurmun.gov.np",
+   "page": 17
+  },
+  {
+   "serial": 169,
+   "name_np": "नवराजपुर गाउँपालिका",
+   "name_en": "Nawarajpur Rural Municipality",
+   "wards": 5,
+   "website": "https://www.nawarajpurmun.gov.np",
+   "page": 17
+  },
+  {
+   "serial": 170,
+   "name_np": "बरियारपट्टी गाउँपालिका",
+   "name_en": "Bariyarpatti Rural Municipality",
+   "wards": 5,
+   "website": "https://www.bariyapattimun.gov.np",
+   "page": 17
+  },
+  {
+   "serial": 171,
+   "name_np": "औरही गाउँपालिका",
+   "name_en": "Aurahi Rural Municipality",
+   "wards": 5,
+   "website": "https://www.aurahimunsiraha.gov.np",
+   "page": 18
+  },
+  {
+   "serial": 172,
+   "name_np": "सिराहा नगरपालिका",
+   "name_en": "Siraha Municipality",
+   "wards": 22,
+   "website": "https://www.sirahamun.gov.np",
+   "page": 18
+  },
+  {
+   "serial": 173,
+   "name_np": "गणेशमान चारनाथ नगरपालिका",
+   "name_en": "Ganeshman Charnath Municipality",
+   "wards": 1,
+   "website": "https://www.ganeshmancharnathmun.gov.np",
+   "page": 18
+  },
+  {
+   "serial": 174,
+   "name_np": "धनुषाधाम नगरपालिका",
+   "name_en": "Dhanushadham Municipality",
+   "wards": 9,
+   "website": "https://dhanushadhammun.gov.np",
+   "page": 18
+  },
+  {
+   "serial": 175,
+   "name_np": "मिथिला विहारी नगरपालिका",
+   "name_en": "Mithila Bihari Municipality",
+   "wards": 10,
+   "website": "http://mithilabiharimun.gov.np",
+   "page": 18
+  },
+  {
+   "serial": 176,
+   "name_np": "बटेश्वर गाउँपालिका",
+   "name_en": "Bateshwor Rural Municipality",
+   "wards": 5,
+   "website": "http://bateshwormun.gov.np",
+   "page": 18
+  },
+  {
+   "serial": 177,
+   "name_np": "क्षिरेश्वरनाथ नगरपालिका",
+   "name_en": "Bateshwor Rural Municipality",
+   "wards": 5,
+   "website": "http://bateshwormun.gov.np",
+   "page": 18
+  },
+  {
+   "serial": 178,
+   "name_np": "लक्ष्मीनिया गाउँपालिका",
+   "name_en": "Laxminiya Rural Municipality",
+   "wards": 7,
+   "website": "http://laxminiyamun.gov.np",
+   "page": 18
+  },
+  {
+   "serial": 179,
+   "name_np": "मिथिला बिहारी नगरपालिका",
+   "name_en": "Mithila Bihari Municipality",
+   "wards": 10,
+   "website": "http://mithilabiharimun.gov.np",
+   "page": 18
+  },
+  {
+   "serial": 180,
+   "name_np": "हंसपुर नगरपालिका",
+   "name_en": "Hansapur Municipality",
+   "wards": 9,
+   "website": "http://hansapurmun.gov.np",
+   "page": 18
+  },
+  {
+   "serial": 181,
+   "name_np": "सबैला नगरपालिका",
+   "name_en": "Sabaila Municipality",
+   "wards": 13,
+   "website": "http://sabailamun.gov.np",
+   "page": 19
+  },
+  {
+   "serial": 182,
+   "name_np": "शहीदनगर नगरपालिका",
+   "name_en": "Shahidnagar Municipality",
+   "wards": 9,
+   "website": "http://shahidnagarmun.gov.np",
+   "page": 19
+  },
+  {
+   "serial": 183,
+   "name_np": "कमला नगरपालिका",
+   "name_en": "Kamala Municipality",
+   "wards": 9,
+   "website": "http://kamalamun.gov.np",
+   "page": 19
+  },
+  {
+   "serial": 184,
+   "name_np": "जनक नन्दिनी गाउँपालिका",
+   "name_en": "Janak Nandini Rural Municipality",
+   "wards": 6,
+   "website": "http://janaknandinimun.gov.np",
+   "page": 19
+  },
+  {
+   "serial": 185,
+   "name_np": "बिदेह नगरपालिका",
+   "name_en": "Bideha Municipality",
+   "wards": 9,
+   "website": "http://bidehamun.gov.np",
+   "page": 19
+  },
+  {
+   "serial": 186,
+   "name_np": "औरही गाउँपालिका",
+   "name_en": "Aurahi Rural Municipality",
+   "wards": 5,
+   "website": "https://www.aurahimunsiraha.gov.np",
+   "page": 19
+  },
+  {
+   "serial": 187,
+   "name_np": "जनकपुर उपमहानगरपालिका",
+   "name_en": "Janakpur Sub-Metropolitian City",
+   "wards": 25,
+   "website": "https://www.janakpurmun.gov.np",
+   "page": 19
+  },
+  {
+   "serial": 188,
+   "name_np": "धनौजी गाउँपालिका",
+   "name_en": "Dhanauji Rural Municipality",
+   "wards": 5,
+   "website": "http://dhanaujimun.gov.np",
+   "page": 19
+  },
+  {
+   "serial": 189,
+   "name_np": "नगराइन नगरपालिका",
+   "name_en": "Nagarain Municipality",
+   "wards": 9,
+   "website": "https://nagrainmun.gov.np",
+   "page": 19
+  },
+  {
+   "serial": 190,
+   "name_np": "मुखियापट्टी मुसहरमिया गाउँपालिका",
+   "name_en": "Mukhiyapatti Musaharmiya Rural Municipality",
+   "wards": 6,
+   "website": "http://mukhiyapattimusaharmiyamun.gov.np",
+   "page": 19
+  },
+  {
+   "serial": 191,
+   "name_np": "बर्दिबास नगरपालिका",
+   "name_en": "Bardibas Municipality",
+   "wards": 14,
+   "website": "https://bardibasmun.gov.np",
+   "page": 20
+  },
+  {
+   "serial": 192,
+   "name_np": "गौशाला नगरपालिका",
+   "name_en": "Gaushala Municipality",
+   "wards": 12,
+   "website": "https://gaushalamun.gov.np",
+   "page": 20
+  },
+  {
+   "serial": 193,
+   "name_np": "सोनमा गाउँपालिका",
+   "name_en": "Sonama Rural Municipality",
+   "wards": 8,
+   "website": "https://sonmamun.gov.np",
+   "page": 20
+  },
+  {
+   "serial": 194,
+   "name_np": "औरही नगरपालिका",
+   "name_en": "Aurahi Rural Municipality",
+   "wards": 5,
+   "website": "https://www.aurahimunsiraha.gov.np",
+   "page": 20
+  },
+  {
+   "serial": 195,
+   "name_np": "भँगाहा नगरपालिका",
+   "name_en": "Bhangaha Municipality",
+   "wards": 9,
+   "website": "https://bhagahamun.gov.np",
+   "page": 20
+  },
+  {
+   "serial": 196,
+   "name_np": "लोहरपट्टी नगरपालिका",
+   "name_en": "Loharpatti Municipality",
+   "wards": 9,
+   "website": "http://loharpattimun.gov.np",
+   "page": 20
+  },
+  {
+   "serial": 197,
+   "name_np": "बलवा नगरपालिका",
+   "name_en": "Balawa Municipality",
+   "wards": 11,
+   "website": "https://balwamun.gov.np",
+   "page": 20
+  },
+  {
+   "serial": 198,
+   "name_np": "राम गोपालपुर नगरपालिका",
+   "name_en": "Ram Gopalpur Municipality",
+   "wards": 9,
+   "website": "https://ramgopalpurmun.gov.np",
+   "page": 20
+  },
+  {
+   "serial": 199,
+   "name_np": "साम्सी गाउँपालिका",
+   "name_en": "Samsi Rural Municipality",
+   "wards": 7,
+   "website": "https://samsimun.gov.np",
+   "page": 20
+  },
+  {
+   "serial": 200,
+   "name_np": "मनरा शिसवा नगरपालिका",
+   "name_en": "Manara Shisawa Municipality",
+   "wards": 10,
+   "website": "http://manrashiswamun.gov.np",
+   "page": 20
+  },
+  {
+   "serial": 201,
+   "name_np": "एकडारा गाउँपालिका",
+   "name_en": "Ekadara Rural Municipality",
+   "wards": 6,
+   "website": "https://ekdaramun.gov.np",
+   "page": 21
+  },
+  {
+   "serial": 202,
+   "name_np": "महोत्तरी गाउँपालिका",
+   "name_en": "Mahottari Rural Municipality",
+   "wards": 6,
+   "website": "https://mahottarimun.gov.np",
+   "page": 21
+  },
+  {
+   "serial": 203,
+   "name_np": "पिपरा गाउँपालिका",
+   "name_en": "Pipara Rural Municipality",
+   "wards": 7,
+   "website": "https://pipramun.gov.np",
+   "page": 21
+  },
+  {
+   "serial": 204,
+   "name_np": "मटिहानी नगरपालिका",
+   "name_en": "Matihani Municipality",
+   "wards": 9,
+   "website": "http://matihanimun.gov.np",
+   "page": 21
+  },
+  {
+   "serial": 205,
+   "name_np": "जलेश्वर नगरपालिका",
+   "name_en": "Jaleshwor Municipality",
+   "wards": 12,
+   "website": "http://jaleshwormun.gov.np",
+   "page": 21
+  },
+  {
+   "serial": 206,
+   "name_np": "लालबन्दी नगरपालिका",
+   "name_en": "Lalbandi Municipality",
+   "wards": 17,
+   "website": "https://www.lalbandimun.gov.np",
+   "page": 21
+  },
+  {
+   "serial": 207,
+   "name_np": "हरिवन नगरपालिका",
+   "name_en": "Hariwan Municipality",
+   "wards": 11,
+   "website": "https://www.harionmun.gov.np",
+   "page": 21
+  },
+  {
+   "serial": 208,
+   "name_np": "बागमती नगरपालिका",
+   "name_en": "Bagmati Municipality",
+   "wards": 12,
+   "website": "http://www.bagmatimunsarlahi.gov.np",
+   "page": 21
+  },
+  {
+   "serial": 209,
+   "name_np": "बरहथवा नगरपालिका",
+   "name_en": "Barahathawa Municipality",
+   "wards": 18,
+   "website": "https://www.barhathwamun.gov.np",
+   "page": 21
+  },
+  {
+   "serial": 210,
+   "name_np": "हरिपुर नगरपालिका",
+   "name_en": "Haripurwa Municipality",
+   "wards": 9,
+   "website": "http://www.haripurwamun.gov.np",
+   "page": 21
+  },
+  {
+   "serial": 211,
+   "name_np": "ईश्वरपुर नगरपालिका",
+   "name_en": "Ishworpur Municipality",
+   "wards": 15,
+   "website": "https://www.ishworpurmun.gov.np",
+   "page": 22
+  },
+  {
+   "serial": 212,
+   "name_np": "हरिपुर्वा नगरपालिका",
+   "name_en": "Haripurwa Municipality",
+   "wards": 9,
+   "website": "http://www.haripurwamun.gov.np",
+   "page": 22
+  },
+  {
+   "serial": 213,
+   "name_np": "पर्सा गाउँपालिका",
+   "name_en": "Parsa Rural Municipality",
+   "wards": 6,
+   "website": "http://www.parsamun.gov.np",
+   "page": 22
+  },
+  {
+   "serial": 214,
+   "name_np": "ब्रह्मपुरी गाउँपालिका",
+   "name_en": "Brahmapuri Rural Municipality",
+   "wards": 7,
+   "website": "http://brahmapurimun.gov.np",
+   "page": 22
+  },
+  {
+   "serial": 215,
+   "name_np": "चन्द्रनगर गाउँपालिका",
+   "name_en": "Chandranagar Rural Municipality",
+   "wards": 7,
+   "website": "https://chandranagarmun.gov.np",
+   "page": 22
+  },
+  {
+   "serial": 216,
+   "name_np": "कविलासी नगरपालिका",
+   "name_en": "Kabilashi Municipality",
+   "wards": 10,
+   "website": "https://www.kawilasimun.gov.np",
+   "page": 22
+  },
+  {
+   "serial": 217,
+   "name_np": "चक्रघट्टा गाउँपालिका",
+   "name_en": "Chakraghatta Rural Municipality",
+   "wards": 13,
+   "website": "http://chakraghattamun.gov.np",
+   "page": 22
+  },
+  {
+   "serial": 218,
+   "name_np": "बसबरिया गाउँपालिका",
+   "name_en": "Basbariya Rural Municipality",
+   "wards": 6,
+   "website": "https://www.basbariyamun.gov.np",
+   "page": 22
+  },
+  {
+   "serial": 219,
+   "name_np": "धनकौल गाउँपालिका",
+   "name_en": "Dhanakaul Rural Municipality",
+   "wards": 7,
+   "website": "http://www.dhankaulmun.gov.np",
+   "page": 22
+  },
+  {
+   "serial": 220,
+   "name_np": "रामनगर गाउँपालिका",
+   "name_en": "Ramnagar Rural Municipality",
+   "wards": 7,
+   "website": "https://ramnagarmun.gov.np",
+   "page": 22
+  },
+  {
+   "serial": 221,
+   "name_np": "बलरा नगरपालिका",
+   "name_en": "Balara Municipality",
+   "wards": 11,
+   "website": "https://www.balramun.gov.np",
+   "page": 23
+  },
+  {
+   "serial": 222,
+   "name_np": "गोडैटा नगरपालिका",
+   "name_en": "Godaita Municipality",
+   "wards": 12,
+   "website": "https://www.godaitamun.gov.np",
+   "page": 23
+  },
+  {
+   "serial": 223,
+   "name_np": "विष्णु गाउँपालिका",
+   "name_en": "Bishnu Rural Municipality",
+   "wards": 12,
+   "website": "http://bishnumun.gov.np",
+   "page": 23
+  },
+  {
+   "serial": 224,
+   "name_np": "कौडेना गाउँपालिका",
+   "name_en": "Kaudena Rural Municipality",
+   "wards": 7,
+   "website": "http://kaudenamun.gov.np",
+   "page": 23
+  },
+  {
+   "serial": 225,
+   "name_np": "मलंगवा नगरपालिका",
+   "name_en": "Malangawa Municipality",
+   "wards": 12,
+   "website": "https://www.malangwamun.gov.np",
+   "page": 23
+  },
+  {
+   "serial": 226,
+   "name_np": "चन्द्रपुर नगरपालिका",
+   "name_en": "Chandrapur Municipality",
+   "wards": 10,
+   "website": "https://chandrapurmun.gov.np",
+   "page": 23
+  },
+  {
+   "serial": 227,
+   "name_np": "गुजरा नगरपालिका",
+   "name_en": "Gujara Municipality",
+   "wards": 9,
+   "website": "http://gujaramun.gov.np",
+   "page": 23
+  },
+  {
+   "serial": 228,
+   "name_np": "फतुवा बिजयपुर नगरपालिका",
+   "name_en": "Phatuwa Bijayapur Municipality",
+   "wards": 11,
+   "website": "https://phatuwabijaypurmun.gov.np",
+   "page": 23
+  },
+  {
+   "serial": 229,
+   "name_np": "कटहरिया नगरपालिका",
+   "name_en": "Katahariya Municipality",
+   "wards": 9,
+   "website": "https://katahariyamun.gov.np",
+   "page": 23
+  },
+  {
+   "serial": 230,
+   "name_np": "बृन्दावन नगरपालिका",
+   "name_en": "Brindaban Municipality",
+   "wards": 9,
+   "website": "http://brindawanmun.gov.np",
+   "page": 23
+  },
+  {
+   "serial": 231,
+   "name_np": "गढीमाई नगरपालिका",
+   "name_en": "Gadhimai Municipality",
+   "wards": 9,
+   "website": "https://gadhimaimun.gov.np",
+   "page": 24
+  },
+  {
+   "serial": 232,
+   "name_np": "माधव नारायण नगरपालिका",
+   "name_en": "Madhav Narayan Municipality",
+   "wards": 9,
+   "website": "https://madhavnarayanmun.gov.np",
+   "page": 24
+  },
+  {
+   "serial": 233,
+   "name_np": "गरुडा नगरपालिका",
+   "name_en": "Garuda Municipality",
+   "wards": 9,
+   "website": "https://garudamun.gov.np",
+   "page": 24
+  },
+  {
+   "serial": 234,
+   "name_np": "देवाही गोनाही नगरपालिका",
+   "name_en": "Dewahi Gonahi Municipality",
+   "wards": 9,
+   "website": "https://dewahigonahimun.gov.np",
+   "page": 24
+  },
+  {
+   "serial": 235,
+   "name_np": "मौलापुर नगरपालिका",
+   "name_en": "Maulapur Municipality",
+   "wards": 9,
+   "website": "http://maulapurmun.gov.np",
+   "page": 24
+  },
+  {
+   "serial": 236,
+   "name_np": "बौधीमाई नगरपालिका",
+   "name_en": "Boudhimai Municipality",
+   "wards": 9,
+   "website": "https://baudhimaimun.gov.np",
+   "page": 24
+  },
+  {
+   "serial": 237,
+   "name_np": "परोहा नगरपालिका",
+   "name_en": "Paroha Municipality",
+   "wards": 9,
+   "website": "https://parohamun.gov.np",
+   "page": 24
+  },
+  {
+   "serial": 238,
+   "name_np": "राजपुर नगरपालिका",
+   "name_en": "Rajpur Municipality",
+   "wards": 9,
+   "website": "http://rajapurmun.gov.np",
+   "page": 24
+  },
+  {
+   "serial": 239,
+   "name_np": "यमुनामाई गाउँपालिका",
+   "name_en": "Yamunamai Rural Municipality",
+   "wards": 5,
+   "website": "https://yamunamaimun.gov.np",
+   "page": 24
+  },
+  {
+   "serial": 240,
+   "name_np": "दुर्गा भगवती गाउँपालिका",
+   "name_en": "Durga Bhagawati Rural Municipality",
+   "wards": 5,
+   "website": "https://durgabhagawatimun.gov.np",
+   "page": 24
+  },
+  {
+   "serial": 241,
+   "name_np": "राजदेवी नगरपालिका",
+   "name_en": "Rajdevi Municipality",
+   "wards": 9,
+   "website": "https://rajdevimun.gov.np",
+   "page": 25
+  },
+  {
+   "serial": 242,
+   "name_np": "गौर नगरपालिका",
+   "name_en": "Gaur Municipality",
+   "wards": 9,
+   "website": "https://gaurmun.gov.np",
+   "page": 25
+  },
+  {
+   "serial": 243,
+   "name_np": "ईशनाथ नगरपालिका",
+   "name_en": "Ishanath Municipality",
+   "wards": 9,
+   "website": "https://ishnathmun.gov.np",
+   "page": 25
+  },
+  {
+   "serial": 244,
+   "name_np": "निजगढ नगरपालिका",
+   "name_en": "Nijagadh Municipality",
+   "wards": 13,
+   "website": "http://nijgadhmun.gov.np",
+   "page": 25
+  },
+  {
+   "serial": 245,
+   "name_np": "कोल्हवी नगरपालिका",
+   "name_en": "Kolhabi Municipality",
+   "wards": 9,
+   "website": "http://kolhabimun.gov.np",
+   "page": 25
+  },
+  {
+   "serial": 246,
+   "name_np": "जीतपुर सिमरा उपमहानगरपालिका",
+   "name_en": "Jitpur Simara Sub-Metropolitian City",
+   "wards": 24,
+   "website": "http://jeetpursimaramun.gov.np",
+   "page": 25
+  },
+  {
+   "serial": 247,
+   "name_np": "परवानीपुर गाउँपालिका",
+   "name_en": "Parawanipur Rural Municipality",
+   "wards": 5,
+   "website": "https://parwanipurmun.gov.np",
+   "page": 25
+  },
+  {
+   "serial": 248,
+   "name_np": "प्रसौनी गाउँपालिका",
+   "name_en": "Prasauni Rural Municipality",
+   "wards": 7,
+   "website": "https://prasaunimun.gov.np",
+   "page": 25
+  },
+  {
+   "serial": 249,
+   "name_np": "विश्रामपुर गाउँपालिका",
+   "name_en": "Bishrampur Rural Municipality",
+   "wards": 5,
+   "website": "https://bishrampurmun.gov.np",
+   "page": 25
+  },
+  {
+   "serial": 250,
+   "name_np": "फेटा गाउँपालिका",
+   "name_en": "Pheta Rural Municipality",
+   "wards": 7,
+   "website": "https://phetamun.gov.np",
+   "page": 25
+  },
+  {
+   "serial": 251,
+   "name_np": "कलैया उपमहानगरपालिका",
+   "name_en": "Kalaiya Sub-Metropolitian City",
+   "wards": 27,
+   "website": "https://kalaiyamun.gov.np",
+   "page": 26
+  },
+  {
+   "serial": 252,
+   "name_np": "करैयामाई गाउँपालिका",
+   "name_en": "Karaiyamai Rural Municipality",
+   "wards": 8,
+   "website": "https://karaiyamaimun.gov.np",
+   "page": 26
+  },
+  {
+   "serial": 253,
+   "name_np": "बारागढी गाउँपालिका",
+   "name_en": "Baragadhi Rural Municipality",
+   "wards": 6,
+   "website": "https://baragadhimun.gov.np",
+   "page": 26
+  },
+  {
+   "serial": 254,
+   "name_np": "आदर्श कोटवाल गाउँपालिका",
+   "name_en": "Aadarsha Kotwal Rural Municipality",
+   "wards": 8,
+   "website": "https://aadarshakotwalmun.gov.np",
+   "page": 26
+  },
+  {
+   "serial": 255,
+   "name_np": "सिम्रौनगढ नगरपालिका",
+   "name_en": "Simraungadh Municipality",
+   "wards": 11,
+   "website": "https://simraungadhmun.gov.np",
+   "page": 26
+  },
+  {
+   "serial": 256,
+   "name_np": "पचरौता नगरपालिका",
+   "name_en": "Pacharauta Municipality",
+   "wards": 9,
+   "website": "https://pachrautamun.gov.np",
+   "page": 26
+  },
+  {
+   "serial": 257,
+   "name_np": "महागढीमाई नगरपालिका",
+   "name_en": "Mahagadhimai Municipality",
+   "wards": 11,
+   "website": "http://mahagadimaimun.gov.np",
+   "page": 26
+  },
+  {
+   "serial": 258,
+   "name_np": "देवताल गाउँपालिका",
+   "name_en": "Devtal Rural Municipality",
+   "wards": 7,
+   "website": "https://devtalmun.gov.np",
+   "page": 26
+  },
+  {
+   "serial": 259,
+   "name_np": "सुवर्ण गाउँपालिका",
+   "name_en": "Subarna Rural Municipality",
+   "wards": 8,
+   "website": "https://suwarnamun.gov.np",
+   "page": 26
+  },
+  {
+   "serial": 260,
+   "name_np": "ठोरी (सुवर्णपुर) गाउँपालिका",
+   "name_en": "( ) Thori Rural Municipality",
+   "wards": 5,
+   "website": "http://thorimun.gov.np",
+   "page": 26
+  },
+  {
+   "serial": 261,
+   "name_np": "जिराभवानी गाउँपालिका",
+   "name_en": "Jirabhawani Rural Municipality",
+   "wards": 5,
+   "website": "https://jirabhawanimun.gov.np",
+   "page": 27
+  },
+  {
+   "serial": 262,
+   "name_np": "जगरनाथपुर गाउँपालिका",
+   "name_en": "Jagarnathpur Rural Municipality",
+   "wards": 6,
+   "website": "https://jagarnathpurmun.gov.np",
+   "page": 27
+  },
+  {
+   "serial": 263,
+   "name_np": "पटेर्वा सुगौली गाउँपालिका",
+   "name_en": "Paterwa Sugauli Rural Municipality",
+   "wards": 5,
+   "website": "https://paterwasugaulimun.gov.np",
+   "page": 27
+  },
+  {
+   "serial": 264,
+   "name_np": "सखुवा प्रसौनी गाउँपालिका",
+   "name_en": "Sakhuwa Prasauni Rural Municipality",
+   "wards": 6,
+   "website": "http://sakhuwaprasaunimun.gov.np",
+   "page": 27
+  },
+  {
+   "serial": 265,
+   "name_np": "पर्सागढी नगरपालिका",
+   "name_en": "Parsagadhi Municipality",
+   "wards": 9,
+   "website": "https://parsagadhimun.gov.np",
+   "page": 27
+  },
+  {
+   "serial": 266,
+   "name_np": "बिरगन्ज महानगरपालिका",
+   "name_en": "Birgunj Metropolitian City",
+   "wards": 32,
+   "website": "https://birgunjmun.gov.np",
+   "page": 27
+  },
+  {
+   "serial": 267,
+   "name_np": "बहुदरमाई नगरपालिका",
+   "name_en": "Bahudarmai Municipality",
+   "wards": 9,
+   "website": "https://bahudarmaimun.gov.np",
+   "page": 27
+  },
+  {
+   "serial": 268,
+   "name_np": "पोखरिया नगरपालिका",
+   "name_en": "Pokhariya Municipality",
+   "wards": 10,
+   "website": "https://pokhariyamun.gov.np",
+   "page": 27
+  },
+  {
+   "serial": 269,
+   "name_np": "कालिकामाई गाउँपालिका",
+   "name_en": "Kalikamai Rural Municipality",
+   "wards": 5,
+   "website": "https://kalikamaimun.gov.np",
+   "page": 27
+  },
+  {
+   "serial": 270,
+   "name_np": "धोबीनी गाउँपालिका",
+   "name_en": "Dhobini Rural Municipality",
+   "wards": 5,
+   "website": "https://dhobinimun.gov.np",
+   "page": 27
+  },
+  {
+   "serial": 271,
+   "name_np": "छिपहरमाई गाउँपालिका",
+   "name_en": "Chhipaharmai Rural Municipality",
+   "wards": 5,
+   "website": "https://chhipaharmaimun.gov.np",
+   "page": 28
+  },
+  {
+   "serial": 272,
+   "name_np": "पकाहा मैनपुर गाउँपालिका",
+   "name_en": "Pakaha Mainpur Rural Municipality",
+   "wards": 5,
+   "website": "https://pakahamainpurmun.gov.np",
+   "page": 28
+  },
+  {
+   "serial": 273,
+   "name_np": "बिन्दबासिनी गाउँपालिका",
+   "name_en": "Bindabasini Rural Municipality",
+   "wards": 5,
+   "website": "https://bindabasinimun.gov.np",
+   "page": 28
+  },
+  {
+   "serial": 274,
+   "name_np": "गौरीशङ्कर गाउँपालिका",
+   "name_en": "Gaurishankar Rural Municipality",
+   "wards": 9,
+   "website": "https://gaurishankarmun.gov.np",
+   "page": 28
+  },
+  {
+   "serial": 275,
+   "name_np": "विगु गाउँपालिका",
+   "name_en": "Bigu Rural Municipality",
+   "wards": 8,
+   "website": "http://bigumun.gov.np",
+   "page": 28
+  },
+  {
+   "serial": 276,
+   "name_np": "कालिन्चोक गाउँपालिका",
+   "name_en": "Kalinchowk Rural Municipality",
+   "wards": 9,
+   "website": "http://kalinchowkmun.gov.np",
+   "page": 28
+  },
+  {
+   "serial": 277,
+   "name_np": "वैतेश्वर गाउँपालिका",
+   "name_en": "Baitedhar Rural Municipality",
+   "wards": 8,
+   "website": "https://baiteshwormun.gov.np",
+   "page": 28
+  },
+  {
+   "serial": 278,
+   "name_np": "जिरी नगरपालिका",
+   "name_en": "Jiri Municipality",
+   "wards": 9,
+   "website": "https://www.jirimun.gov.np",
+   "page": 28
+  },
+  {
+   "serial": 279,
+   "name_np": "तामाकोशी गाउँपालिका",
+   "name_en": "Tamakoshi Rural Municipality",
+   "wards": 7,
+   "website": "http://tamakoshimun.gov.np",
+   "page": 28
+  },
+  {
+   "serial": 280,
+   "name_np": "मेलुङ्ग गाउँपालिका",
+   "name_en": "Melung Rural Municipality",
+   "wards": 7,
+   "website": "https://melungmun.gov.np",
+   "page": 28
+  },
+  {
+   "serial": 281,
+   "name_np": "शैलुङ्ग गाउँपालिका",
+   "name_en": "Shailung Rural Municipality",
+   "wards": 8,
+   "website": "https://shailungmun.gov.np",
+   "page": 29
+  },
+  {
+   "serial": 282,
+   "name_np": "भिमेश्वर नगरपालिका",
+   "name_en": "Bhimeshwor Municipality",
+   "wards": 9,
+   "website": "https://bhimeshwormun.gov.np",
+   "page": 29
+  },
+  {
+   "serial": 283,
+   "name_np": "भोटेकोशी गाउँपालिका",
+   "name_en": "Bhotekoshi Rural Municipality",
+   "wards": 5,
+   "website": "http://www.bhotekoshimun.gov.np",
+   "page": 29
+  },
+  {
+   "serial": 284,
+   "name_np": "जुगल गाउँपालिका",
+   "name_en": "Jugal Rural Municipality",
+   "wards": 7,
+   "website": "http://jugalmun.gov.np",
+   "page": 29
+  },
+  {
+   "serial": 285,
+   "name_np": "पाँचपोखरी थाड०पाल गाउँपालिका",
+   "name_en": "Panchpokhari Thangpal Rural Municipality",
+   "wards": 8,
+   "website": "https://panchpokharithangpalmun.gov.np",
+   "page": 29
+  },
+  {
+   "serial": 286,
+   "name_np": "हेलम्बु गाउँपालिका",
+   "name_en": "Helambu Rural Municipality",
+   "wards": 7,
+   "website": "https://helambumun.gov.np",
+   "page": 29
+  },
+  {
+   "serial": 287,
+   "name_np": "मेलम्ची नगरपालिका",
+   "name_en": "Melanchi Municipality",
+   "wards": 13,
+   "website": "https://melamchimun.gov.np",
+   "page": 29
+  },
+  {
+   "serial": 288,
+   "name_np": "ईन्द्रावती गाउँपालिका",
+   "name_en": "Indrawoti Rural Municipality",
+   "wards": 12,
+   "website": "https://indrawatimun.gov.np",
+   "page": 29
+  },
+  {
+   "serial": 289,
+   "name_np": "चौतारा सागाचोकगढी नगरपालिका",
+   "name_en": "Choutara Sangachowkgadhi Municipality",
+   "wards": 14,
+   "website": "https://chautarasangachowkgadhimun.gov.np",
+   "page": 29
+  },
+  {
+   "serial": 290,
+   "name_np": "बलेफी गाउँपालिका",
+   "name_en": "Balephi Rural Municipality",
+   "wards": 8,
+   "website": "https://balephimun.gov.np",
+   "page": 29
+  },
+  {
+   "serial": 291,
+   "name_np": "वाह्रविसे नगरपालिका",
+   "name_en": "Bahrabise Municipality",
+   "wards": 9,
+   "website": "https://barhabisemun.gov.np",
+   "page": 30
+  },
+  {
+   "serial": 292,
+   "name_np": "त्रिपुरासुन्दरी गाउँपालिका",
+   "name_en": "Tripurasundari Rural Municipality",
+   "wards": 6,
+   "website": "http://trivenimunbajura.gov.np",
+   "page": 30
+  },
+  {
+   "serial": 293,
+   "name_np": "ललिसंखुपाखर गाउँपालिका",
+   "name_en": "Lisankhu Pakhar Rural Municipality",
+   "wards": 7,
+   "website": "http://lisankhupakharmun.gov.np",
+   "page": 30
+  },
+  {
+   "serial": 294,
+   "name_np": "सुनकोशी गाउँपालिका",
+   "name_en": "Sunkoshi Rural Municipality",
+   "wards": 10,
+   "website": "http://sunkoshimunokhaldhunga.gov.np",
+   "page": 30
+  },
+  {
+   "serial": 295,
+   "name_np": "गोसाईंकुण्ड गाउँपालिका",
+   "name_en": "Gosaikunda Rural Municipality",
+   "wards": 6,
+   "website": "http://gosaikundamun.gov.np",
+   "page": 30
+  },
+  {
+   "serial": 296,
+   "name_np": "आमाछोदिङमो गाउँपालिका",
+   "name_en": "Aamachhodingmo Rural Municipality",
+   "wards": 5,
+   "website": "http://aamachhodingmomun.gov.np",
+   "page": 30
+  },
+  {
+   "serial": 297,
+   "name_np": "उत्तरगया गाउँपालिका",
+   "name_en": "Uttargaya Rural Municipality",
+   "wards": 5,
+   "website": "https://uttargayamun.gov.np",
+   "page": 30
+  },
+  {
+   "serial": 298,
+   "name_np": "कालिका गाउँपालिका",
+   "name_en": "Kalika Rural Municipality",
+   "wards": 5,
+   "website": "https://kalikamunrasuwa.gov.np",
+   "page": 30
+  },
+  {
+   "serial": 299,
+   "name_np": "नौकुण्ड गाउँपालिका",
+   "name_en": "Naukunda Rural Municipality",
+   "wards": 6,
+   "website": "https://naukundamun.gov.np",
+   "page": 30
+  },
+  {
+   "serial": 300,
+   "name_np": "रुवी भ्याली गाउँपालिका",
+   "name_en": "Rubi Valley Rural Municipality",
+   "wards": 6,
+   "website": "http://rubivalleymun.gov.np",
+   "page": 30
+  },
+  {
+   "serial": 301,
+   "name_np": "खनियाबास गाउँपालिका",
+   "name_en": "Khaniyabas Rural Municipality",
+   "wards": 5,
+   "website": "http://khaniyabasmun.gov.np",
+   "page": 31
+  },
+  {
+   "serial": 302,
+   "name_np": "गङ्गाजमुना गाउँपालिका",
+   "name_en": "Ganga Jamuna Rural Municipality",
+   "wards": 7,
+   "website": "https://gangajamunamun.gov.np",
+   "page": 31
+  },
+  {
+   "serial": 303,
+   "name_np": "त्रिपुरासुन्दरी गाउँपालिका",
+   "name_en": "Tripurasundari Rural Municipality",
+   "wards": 6,
+   "website": "http://trivenimunbajura.gov.np",
+   "page": 31
+  },
+  {
+   "serial": 304,
+   "name_np": "नेत्रावती डबजोङ गाउँपालिका",
+   "name_en": "Netrawati Rural Municipality",
+   "wards": 5,
+   "website": "http://netrawatimun.gov.np",
+   "page": 31
+  },
+  {
+   "serial": 305,
+   "name_np": "नीलकण्ठ नगरपालिका",
+   "name_en": "Nilkhantha Municipality",
+   "wards": 14,
+   "website": "https://neelakanthamun.gov.np",
+   "page": 31
+  },
+  {
+   "serial": 306,
+   "name_np": "ज्वालामूखी गाउँपालिका",
+   "name_en": "Jwalamukhi Rural Municipality",
+   "wards": 7,
+   "website": "http://jwalamukhimun.gov.np",
+   "page": 31
+  },
+  {
+   "serial": 307,
+   "name_np": "सिद्धलेक गाउँपालिका",
+   "name_en": "Siddhalek Rural Municipality",
+   "wards": 7,
+   "website": "https://siddhalekmun.gov.np",
+   "page": 31
+  },
+  {
+   "serial": 308,
+   "name_np": "बेनीघाट रोराङ्ग गाउँपालिका",
+   "name_en": "Benighat Rorang Rural Municipality",
+   "wards": 10,
+   "website": "https://benighatrorangmun.gov.np",
+   "page": 31
+  },
+  {
+   "serial": 309,
+   "name_np": "गजुरी गाउँपालिका",
+   "name_en": "Gajuri Rural Municipality",
+   "wards": 8,
+   "website": "http://gajurimun.gov.np",
+   "page": 31
+  },
+  {
+   "serial": 310,
+   "name_np": "गल्छी गाउँपालिका",
+   "name_en": "Galchhi Rural Municipality",
+   "wards": 8,
+   "website": "http://galchhimun.gov.np",
+   "page": 31
+  },
+  {
+   "serial": 311,
+   "name_np": "थाक्रे गाउँपालिका",
+   "name_en": "Thakre Rural Municipality",
+   "wards": 11,
+   "website": "https://thakremun.gov.np",
+   "page": 32
+  },
+  {
+   "serial": 312,
+   "name_np": "धुनीबेंशी नगरपालिका",
+   "name_en": "Dhunibenshi Municipality",
+   "wards": 9,
+   "website": "https://dhunibeshimun.gov.np",
+   "page": 32
+  },
+  {
+   "serial": 313,
+   "name_np": "दुप्चेश्वर गाउँपालिका",
+   "name_en": "Dupcheshwor Rural Municipality",
+   "wards": 7,
+   "website": "http://dupcheshwormun.gov.np",
+   "page": 32
+  },
+  {
+   "serial": 314,
+   "name_np": "तादी गाउँपालिका",
+   "name_en": "Tadi Rural Municipality",
+   "wards": 6,
+   "website": "https://tadimun.gov.np",
+   "page": 32
+  },
+  {
+   "serial": 315,
+   "name_np": "सुर्यगढी गाउँपालिका",
+   "name_en": "Suryagadhi Rural Municipality",
+   "wards": 5,
+   "website": "https://suryagadhimun.gov.np",
+   "page": 32
+  },
+  {
+   "serial": 316,
+   "name_np": "बिदुर नगरपालिका",
+   "name_en": "Bidur Municipality",
+   "wards": 13,
+   "website": "http://bidurmun.gov.np",
+   "page": 32
+  },
+  {
+   "serial": 317,
+   "name_np": "किस्पाङ गाउँपालिका",
+   "name_en": "Kispang Rural Municipality",
+   "wards": 5,
+   "website": "https://kispangmun.gov.np",
+   "page": 32
+  },
+  {
+   "serial": 318,
+   "name_np": "म्यागङ गाउँपालिका",
+   "name_en": "Myagang Rural Municipality",
+   "wards": 6,
+   "website": "https://myagangmun.gov.np",
+   "page": 32
+  },
+  {
+   "serial": 319,
+   "name_np": "तारकेश्वर गाउँपालिका",
+   "name_en": "Tarakeshwor Rural Municipality",
+   "wards": 6,
+   "website": "https://tarakeshwormunnuwakot.gov.np",
+   "page": 32
+  },
+  {
+   "serial": 320,
+   "name_np": "बेलकोटगढी नगरपालिका",
+   "name_en": "Belkotgadhi Municipality",
+   "wards": 13,
+   "website": "https://belkotgadhimun.gov.np",
+   "page": 32
+  },
+  {
+   "serial": 321,
+   "name_np": "लिखु गाउँपालिका",
+   "name_en": "Likhu Rural Municipality",
+   "wards": 6,
+   "website": "https://likhumunnuwakot.gov.np",
+   "page": 33
+  },
+  {
+   "serial": 322,
+   "name_np": "पञ्चकन्या गाउँपालिका",
+   "name_en": "Panchakanya Rural Municipality",
+   "wards": 5,
+   "website": "https://panchakanyamun.gov.np",
+   "page": 33
+  },
+  {
+   "serial": 323,
+   "name_np": "शिवपुरी गाउँपालिका",
+   "name_en": "Shivapuri Rural Municipality",
+   "wards": 8,
+   "website": "https://shivapurimun.gov.np",
+   "page": 33
+  },
+  {
+   "serial": 324,
+   "name_np": "ककनी गाउँपालिका",
+   "name_en": "Kakani Rural Municipality",
+   "wards": 8,
+   "website": "http://kakanimun.gov.np",
+   "page": 33
+  },
+  {
+   "serial": 325,
+   "name_np": "शंखरापुर नगरपालिका",
+   "name_en": "Shankharapur Municipality",
+   "wards": 9,
+   "website": "https://shankharapurmun.gov.np",
+   "page": 33
+  },
+  {
+   "serial": 326,
+   "name_np": "कागेश्वरी मनहरा नगरपालिका",
+   "name_en": "Kageshwori Manahara Municipality",
+   "wards": 9,
+   "website": "http://kageshworimanoharamun.gov.np",
+   "page": 33
+  },
+  {
+   "serial": 327,
+   "name_np": "गोकर्णेश्वर नगरपालिका",
+   "name_en": "Gokarneshwor Municipality",
+   "wards": 9,
+   "website": "https://gokarneshwormun.gov.np",
+   "page": 33
+  },
+  {
+   "serial": 328,
+   "name_np": "बुढानिलकण्ठ नगरपालिका",
+   "name_en": "Budhanilkhantha Municipality",
+   "wards": 13,
+   "website": "http://budhanilkanthamun.gov.np",
+   "page": 33
+  },
+  {
+   "serial": 329,
+   "name_np": "टोखा नगरपालिका",
+   "name_en": "Tokha Municipality",
+   "wards": 11,
+   "website": "http://tokhamun.gov.np",
+   "page": 33
+  },
+  {
+   "serial": 330,
+   "name_np": "बिरुवा गाउँपालिका",
+   "name_en": "Biruwa Rural Municipality",
+   "wards": 8,
+   "website": "https://biruwamun.gov.np",
+   "page": 33
+  },
+  {
+   "serial": 331,
+   "name_np": "तारकेश्वर नगरपालिका",
+   "name_en": "Tarakeshwor Rural Municipality",
+   "wards": 6,
+   "website": "https://tarakeshwormunnuwakot.gov.np",
+   "page": 34
+  },
+  {
+   "serial": 332,
+   "name_np": "नागार्जुन नगरपालिका",
+   "name_en": "Nagarjun Municipality",
+   "wards": 10,
+   "website": "https://nagarjunmun.gov.np",
+   "page": 34
+  },
+  {
+   "serial": 333,
+   "name_np": "काठमाडौँ महानगरपालिका",
+   "name_en": "Kathmandu Metropolitian City",
+   "wards": 32,
+   "website": "https://kathmandu.gov.np",
+   "page": 34
+  },
+  {
+   "serial": 334,
+   "name_np": "कीर्तिपुर नगरपालिका",
+   "name_en": "Kirtipur Municipality",
+   "wards": 10,
+   "website": "http://kirtipurmun.gov.np",
+   "page": 34
+  },
+  {
+   "serial": 335,
+   "name_np": "चन्द्रागिरी नगरपालिका",
+   "name_en": "Chandragiri Municipality",
+   "wards": 15,
+   "website": "https://chandragirimun.gov.np",
+   "page": 34
+  },
+  {
+   "serial": 336,
+   "name_np": "दक्षिणकाली नगरपालिका",
+   "name_en": "Dakshinkali Municipality",
+   "wards": 9,
+   "website": "https://dakshinkalimun.gov.np",
+   "page": 34
+  },
+  {
+   "serial": 337,
+   "name_np": "चाँगुनारायण नगरपालिका",
+   "name_en": "Changunarayan Municipality",
+   "wards": 9,
+   "website": "https://changunarayanmun.gov.np",
+   "page": 34
+  },
+  {
+   "serial": 338,
+   "name_np": "भक्तपुर नगरपालिका",
+   "name_en": "Bhaktapur Municipality",
+   "wards": 10,
+   "website": "https://bhaktapurmun.gov.np",
+   "page": 34
+  },
+  {
+   "serial": 339,
+   "name_np": "मध्यपुर थिमी नगरपालिका",
+   "name_en": "Madhyapur Thimi Municipality",
+   "wards": 9,
+   "website": "http://madhuwanmun.gov.np",
+   "page": 34
+  },
+  {
+   "serial": 340,
+   "name_np": "सूर्यविनायक नगरपालिका",
+   "name_en": "Suryabinayak Municipality",
+   "wards": 10,
+   "website": "http://suryabinayakmun.gov.np",
+   "page": 34
+  },
+  {
+   "serial": 341,
+   "name_np": "महालक्ष्मी नगरपालिका",
+   "name_en": "Mahalaxmi Municipality",
+   "wards": 10,
+   "website": "https://www.mahalaxmimun.gov.np",
+   "page": 35
+  },
+  {
+   "serial": 342,
+   "name_np": "ललितपुर महानगरपालिका",
+   "name_en": "Lalitpur Metropolitian City",
+   "wards": 29,
+   "website": "https://lalitpurmun.gov.np",
+   "page": 35
+  },
+  {
+   "serial": 343,
+   "name_np": "गोदावरी नगरपालिका",
+   "name_en": "Godawari Municipality",
+   "wards": 14,
+   "website": "https://godawarimunlalitpur.gov.np",
+   "page": 35
+  },
+  {
+   "serial": 344,
+   "name_np": "कोन्ज्योसोम गाउँपालिका",
+   "name_en": "Konjyosom Rural Municipality",
+   "wards": 5,
+   "website": "http://konjyosommun.gov.np",
+   "page": 35
+  },
+  {
+   "serial": 345,
+   "name_np": "महाङ्काल गाउँपालिका",
+   "name_en": "Mahankal Rural Municipality",
+   "wards": 6,
+   "website": "http://mahakalimundarchula.gov.np",
+   "page": 35
+  },
+  {
+   "serial": 346,
+   "name_np": "बाग्मती गाउँपालिका",
+   "name_en": "Bagmati Rural Municipality",
+   "wards": 7,
+   "website": "https://bagmatimunlalitpur.gov.np",
+   "page": 35
+  },
+  {
+   "serial": 347,
+   "name_np": "चौंरीदेउराली गाउँपालिका",
+   "name_en": "Chauri Deurali Rural Municipality",
+   "wards": 9,
+   "website": "https://chaurideuralimun.gov.np",
+   "page": 35
+  },
+  {
+   "serial": 348,
+   "name_np": "भुम्लु गाउँपालिका",
+   "name_en": "Bhumlu Rural Municipality",
+   "wards": 10,
+   "website": "https://bhumlumun.gov.np",
+   "page": 35
+  },
+  {
+   "serial": 349,
+   "name_np": "मण्डनदेउपुर नगरपालिका",
+   "name_en": "Mandan Deupur Municipality",
+   "wards": 12,
+   "website": "https://mandandeupurmun.gov.np",
+   "page": 35
+  },
+  {
+   "serial": 350,
+   "name_np": "बनेपा नगरपालिका",
+   "name_en": "Banepa Municipality",
+   "wards": 14,
+   "website": "https://banepamun.gov.np",
+   "page": 35
+  },
+  {
+   "serial": 351,
+   "name_np": "धुलिखेल नगरपालिका",
+   "name_en": "Dhulikhel Municipality",
+   "wards": 12,
+   "website": "https://dhulikhelmun.gov.np",
+   "page": 36
+  },
+  {
+   "serial": 352,
+   "name_np": "पांचखाल नगरपालिका",
+   "name_en": "Panchkhal Municipality",
+   "wards": 13,
+   "website": "https://panchkhalmun.gov.np",
+   "page": 36
+  },
+  {
+   "serial": 353,
+   "name_np": "तेमाल गाउँपालिका",
+   "name_en": "Temal Rural Municipality",
+   "wards": 9,
+   "website": "http://temalmun.gov.np",
+   "page": 36
+  },
+  {
+   "serial": 354,
+   "name_np": "नमोबुद्ध नगरपालिका",
+   "name_en": "Namobuddha Municipality",
+   "wards": 11,
+   "website": "https://namobuddhamun.gov.np",
+   "page": 36
+  },
+  {
+   "serial": 355,
+   "name_np": "पनौती नगरपालिका",
+   "name_en": "Panauti Municipality",
+   "wards": 12,
+   "website": "https://panautimun.gov.np",
+   "page": 36
+  },
+  {
+   "serial": 356,
+   "name_np": "बेथानचोक गाउँपालिका",
+   "name_en": "Bethanchowk Rural Municipality",
+   "wards": 6,
+   "website": "http://bethanchowkmun.gov.np",
+   "page": 36
+  },
+  {
+   "serial": 357,
+   "name_np": "रोशी गाउँपालिका",
+   "name_en": "Roshi Rural Municipality",
+   "wards": 12,
+   "website": "https://roshimun.gov.np",
+   "page": 36
+  },
+  {
+   "serial": 358,
+   "name_np": "महाभारत गाउँपालिका",
+   "name_en": "Mahabharat Rural Municipality",
+   "wards": 8,
+   "website": "https://mahabharatmun.gov.np",
+   "page": 36
+  },
+  {
+   "serial": 359,
+   "name_np": "खानीखोला गाउँपालिका",
+   "name_en": "Khanikhola Rural Municipality",
+   "wards": 7,
+   "website": "https://khanikholamun.gov.np",
+   "page": 36
+  },
+  {
+   "serial": 360,
+   "name_np": "उमाकुण्ड गाउँपालिका",
+   "name_en": "Umakunda Rural Municipality",
+   "wards": 7,
+   "website": "http://umakundamun.gov.np",
+   "page": 36
+  },
+  {
+   "serial": 361,
+   "name_np": "गोकुलगङ्गा गाउँपालिका",
+   "name_en": "Gokulganga Rural Municipality",
+   "wards": 6,
+   "website": "http://gokulgangamun.gov.np",
+   "page": 37
+  },
+  {
+   "serial": 362,
+   "name_np": "लिखु गाउँपालिका",
+   "name_en": "Likhu Rural Municipality",
+   "wards": 9,
+   "website": "http://likhumunokhaldhunga.gov.np",
+   "page": 37
+  },
+  {
+   "serial": 363,
+   "name_np": "रामेछाप नगरपालिका",
+   "name_en": "Ramechhap Municipality",
+   "wards": 9,
+   "website": "https://ramechhapmun.gov.np",
+   "page": 37
+  },
+  {
+   "serial": 364,
+   "name_np": "मन्थली नगरपालिका",
+   "name_en": "Manthali Municipality",
+   "wards": 14,
+   "website": "https://manthalimun.gov.np",
+   "page": 37
+  },
+  {
+   "serial": 365,
+   "name_np": "खाँडादेवी गाउँपालिका",
+   "name_en": "Khandadevi Rural Municipality",
+   "wards": 9,
+   "website": "https://khandadevimun.gov.np",
+   "page": 37
+  },
+  {
+   "serial": 366,
+   "name_np": "दोरम्बा शैलुङ गाउँपालिका",
+   "name_en": "Doramba Rural Municipality",
+   "wards": 7,
+   "website": "https://dorambamun.gov.np",
+   "page": 37
+  },
+  {
+   "serial": 367,
+   "name_np": "सुनापती गाउँपालिका",
+   "name_en": "Sunapati Rural Municipality",
+   "wards": 5,
+   "website": "http://sunaryamun.gov.np",
+   "page": 37
+  },
+  {
+   "serial": 368,
+   "name_np": "दुधौली नगरपालिका",
+   "name_en": "Dudhouli Municipality",
+   "wards": 14,
+   "website": "http://dudhaulimun.gov.np",
+   "page": 37
+  },
+  {
+   "serial": 369,
+   "name_np": "फिक्कल गाउँपालिका",
+   "name_en": "Phikkal Rural Municipality",
+   "wards": 6,
+   "website": "http://phikkalmun.gov.np",
+   "page": 37
+  },
+  {
+   "serial": 370,
+   "name_np": "तीनपाटन गाउँपालिका",
+   "name_en": "Tinpatan Rural Municipality",
+   "wards": 11,
+   "website": "http://tinpatanmun.gov.np",
+   "page": 37
+  },
+  {
+   "serial": 371,
+   "name_np": "गोलन्जोर गाउँपालिका",
+   "name_en": "Golanjor Rural Municipality",
+   "wards": 7,
+   "website": "http://golanjormun.gov.np",
+   "page": 38
+  },
+  {
+   "serial": 372,
+   "name_np": "कमलामाई नगरपालिका",
+   "name_en": "Kamalamai Municipality",
+   "wards": 14,
+   "website": "http://kamalamaimun.gov.np",
+   "page": 38
+  },
+  {
+   "serial": 373,
+   "name_np": "सुनकोशी गाउँपालिका",
+   "name_en": "Sunkoshi Rural Municipality",
+   "wards": 10,
+   "website": "http://sunkoshimunokhaldhunga.gov.np",
+   "page": 38
+  },
+  {
+   "serial": 374,
+   "name_np": "ध्याङलेख गाउँपालिका",
+   "name_en": "Ghyanglekha Rural Municipality",
+   "wards": 5,
+   "website": "http://ghyanglekhmun.gov.np",
+   "page": 38
+  },
+  {
+   "serial": 375,
+   "name_np": "मरिण गाउँपालिका",
+   "name_en": "Marin Rural Municipality",
+   "wards": 8,
+   "website": "http://marmamun.gov.np",
+   "page": 38
+  },
+  {
+   "serial": 376,
+   "name_np": "हरिहरपुरगढी गाउँपालिका",
+   "name_en": "Hariharpurgaghi Rural Municipality",
+   "wards": 8,
+   "website": "http://hariharpurgadhimun.gov.np",
+   "page": 38
+  },
+  {
+   "serial": 377,
+   "name_np": "ईन्द्रसरोवर गाउँपालिका",
+   "name_en": "Indrasarowar Rural Municipality",
+   "wards": 5,
+   "website": "https://indrasarowarmun.gov.np",
+   "page": 38
+  },
+  {
+   "serial": 378,
+   "name_np": "थाहा नगरपालिका",
+   "name_en": "Thaha Municipality",
+   "wards": 12,
+   "website": "https://thahamun.gov.np",
+   "page": 38
+  },
+  {
+   "serial": 379,
+   "name_np": "कैलाश गाउँपालिका",
+   "name_en": "Kailash Rural Municipality",
+   "wards": 10,
+   "website": "https://kailashmun.gov.np",
+   "page": 38
+  },
+  {
+   "serial": 380,
+   "name_np": "राक्सिराङ्ग गाउँपालिका",
+   "name_en": "Raksirang Rural Municipality",
+   "wards": 9,
+   "website": "https://raksirangmun.gov.np",
+   "page": 38
+  },
+  {
+   "serial": 381,
+   "name_np": "मनहरी गाउँपालिका",
+   "name_en": "Manahari Rural Municipality",
+   "wards": 9,
+   "website": "https://manaharimun.gov.np",
+   "page": 39
+  },
+  {
+   "serial": 382,
+   "name_np": "हेटौंडा उप-महानगरपालिका",
+   "name_en": "Hetauda Sub-Metropolitian City",
+   "wards": 19,
+   "website": "https://hetaudamun.gov.np",
+   "page": 39
+  },
+  {
+   "serial": 383,
+   "name_np": "भिमफेदी गाउँपालिका",
+   "name_en": "Bhimphedi Rural Municipality",
+   "wards": 9,
+   "website": "https://bhimphedimun.gov.np",
+   "page": 39
+  },
+  {
+   "serial": 384,
+   "name_np": "मकवानपुरगढी गाउँपालिका",
+   "name_en": "Makawanpurgadhi Rural Municipality",
+   "wards": 8,
+   "website": "https://makawanpurgadhimun.gov.np",
+   "page": 39
+  },
+  {
+   "serial": 385,
+   "name_np": "बकैया गाउँपालिका",
+   "name_en": "Bakaiya Rural Municipality",
+   "wards": 12,
+   "website": "https://bakaiyamun.gov.np",
+   "page": 39
+  },
+  {
+   "serial": 386,
+   "name_np": "बाग्मती गाउँपालिका",
+   "name_en": "Bagmati Rural Municipality",
+   "wards": 9,
+   "website": "https://bagmatimunmakawanpur.gov.np",
+   "page": 39
+  },
+  {
+   "serial": 387,
+   "name_np": "राप्ती नगरपालिका",
+   "name_en": "Rapti Municipality",
+   "wards": 13,
+   "website": "http://raptimunchitwan.gov.np",
+   "page": 39
+  },
+  {
+   "serial": 388,
+   "name_np": "कालिका नगरपालिका",
+   "name_en": "Kalika Municipality",
+   "wards": 11,
+   "website": "https://kalikamunchitwan.gov.np",
+   "page": 39
+  },
+  {
+   "serial": 389,
+   "name_np": "इच्छाकामना गाउँपालिका",
+   "name_en": "Ichchha Kamana Rural Municipality",
+   "wards": 7,
+   "website": "https://ichchhakamanamun.gov.np",
+   "page": 39
+  },
+  {
+   "serial": 390,
+   "name_np": "भरतपुर महानगरपालिका",
+   "name_en": "Bharatpur Metropolitian City",
+   "wards": 29,
+   "website": "https://bharatpurmun.gov.np",
+   "page": 39
+  },
+  {
+   "serial": 391,
+   "name_np": "रत्ननगर नगरपालिका",
+   "name_en": "Ratnanagar Municipality",
+   "wards": 16,
+   "website": "https://ratnanagarmun.gov.np",
+   "page": 40
+  },
+  {
+   "serial": 392,
+   "name_np": "खैरहनी नगरपालिका",
+   "name_en": "Khairahani Municipality",
+   "wards": 13,
+   "website": "https://khairhanimun.gov.np",
+   "page": 40
+  },
+  {
+   "serial": 393,
+   "name_np": "माडी नगरपालिका",
+   "name_en": "Madi Municipality",
+   "wards": 9,
+   "website": "https://madimunchitwan.gov.np",
+   "page": 40
+  },
+  {
+   "serial": 394,
+   "name_np": "चुमनुव्री गाउँपालिका",
+   "name_en": "Chumanubri Rural Municipality",
+   "wards": 7,
+   "website": "https://chumanuwrimun.gov.np",
+   "page": 40
+  },
+  {
+   "serial": 395,
+   "name_np": "अजिरकोट गाउँपालिका",
+   "name_en": "Ajirkot Rural Municipality",
+   "wards": 5,
+   "website": "http://ajirkotmun.gov.np",
+   "page": 40
+  },
+  {
+   "serial": 396,
+   "name_np": "बारपाक सुलिकोट गाउँपालिका",
+   "name_en": "Barpak Sulikot Rural Municipality",
+   "wards": 8,
+   "website": "https://barpaksulikotmun.gov.np",
+   "page": 40
+  },
+  {
+   "serial": 397,
+   "name_np": "धार्चे गाउँपालिका",
+   "name_en": "Dharche Rural Municipality",
+   "wards": 7,
+   "website": "https://dharchemun.gov.np",
+   "page": 40
+  },
+  {
+   "serial": 398,
+   "name_np": "आरूघाट गाउँपालिका",
+   "name_en": "Aarughat Rural Municipality",
+   "wards": 10,
+   "website": "https://aarughatmun.gov.np",
+   "page": 40
+  },
+  {
+   "serial": 399,
+   "name_np": "भिमसेनथापा गाउँपालिका",
+   "name_en": "Bhimsen Thapa Rural Municipality",
+   "wards": 8,
+   "website": "https://www.bhimsenthapamun.gov.np",
+   "page": 40
+  },
+  {
+   "serial": 400,
+   "name_np": "सिरानचोक गाउँपालिका",
+   "name_en": "Siranchowk Rural Municipality",
+   "wards": 8,
+   "website": "https://siranchowkmun.gov.np",
+   "page": 40
+  },
+  {
+   "serial": 401,
+   "name_np": "पालुङटार नगरपालिका",
+   "name_en": "Palungtar Municipality",
+   "wards": 10,
+   "website": "http://palungtarmun.gov.np",
+   "page": 41
+  },
+  {
+   "serial": 402,
+   "name_np": "गोरखा नगरपालिका",
+   "name_en": "Gorkha Municipality",
+   "wards": 14,
+   "website": "https://gorkhamun.gov.np",
+   "page": 41
+  },
+  {
+   "serial": 403,
+   "name_np": "शहीद लखन गाउँपालिका",
+   "name_en": "Shahid Lakhan Rural Municipality",
+   "wards": 9,
+   "website": "https://shahidlakhanmun.gov.np",
+   "page": 41
+  },
+  {
+   "serial": 404,
+   "name_np": "गण्डकी गाउँपालिका",
+   "name_en": "Gandaki Rural Municipality",
+   "wards": 8,
+   "website": "https://gandakimun.gov.np",
+   "page": 41
+  },
+  {
+   "serial": 405,
+   "name_np": "नार्पा भूमि गाउँपालिका",
+   "name_en": "Narpabhumi Rural Municipality",
+   "wards": 5,
+   "website": "https://narpabhumimun.gov.np",
+   "page": 41
+  },
+  {
+   "serial": 406,
+   "name_np": "मनाङ ङिस्याङ गाउँपालिका",
+   "name_en": "Manangngisyang Rural Municipality",
+   "wards": 9,
+   "website": "https://manangngisyangmun.gov.np",
+   "page": 41
+  },
+  {
+   "serial": 407,
+   "name_np": "चामे गाउँपालिका",
+   "name_en": "Chame Rural Municipality",
+   "wards": 5,
+   "website": "http://chamemun.gov.np",
+   "page": 41
+  },
+  {
+   "serial": 408,
+   "name_np": "नासोँ गाउँपालिका",
+   "name_en": "Nason Rural Municipality",
+   "wards": 9,
+   "website": "http://nasonmun.gov.np",
+   "page": 41
+  },
+  {
+   "serial": 409,
+   "name_np": "लो-घेकर दामोदरकुण्ड गाउँपालिका",
+   "name_en": "Lo-Ghekar Damodarkunda Rural Municipality",
+   "wards": 5,
+   "website": "http://dalomemun.gov.np",
+   "page": 41
+  },
+  {
+   "serial": 410,
+   "name_np": "घरपझोङ गाउँपालिका",
+   "name_en": "Gharpajhong Rural Municipality",
+   "wards": 5,
+   "website": "http://gharapjhongmun.gov.np",
+   "page": 41
+  },
+  {
+   "serial": 411,
+   "name_np": "वारागुङ मुक्तिक्षेत्र गाउँपालिका",
+   "name_en": "Varagung Muktikshetra Rural Municipality",
+   "wards": 5,
+   "website": "https://varagungmuktichhetramun.gov.np",
+   "page": 42
+  },
+  {
+   "serial": 412,
+   "name_np": "लोमन्थाङ गाउँपालिका",
+   "name_en": "Lomanthang Rural Municipality",
+   "wards": 5,
+   "website": "https://lomanthangmun.gov.np",
+   "page": 42
+  },
+  {
+   "serial": 413,
+   "name_np": "थासाङ गाउँपालिका",
+   "name_en": "Thasang Rural Municipality",
+   "wards": 5,
+   "website": "http://thasangmun.gov.np",
+   "page": 42
+  },
+  {
+   "serial": 414,
+   "name_np": "अन्नपूर्ण गाउँपालिका",
+   "name_en": "Annapurna Rural Municipality",
+   "wards": 11,
+   "website": "http://annapurnamunkaski.gov.np",
+   "page": 42
+  },
+  {
+   "serial": 415,
+   "name_np": "रघुगंगा गाउँपालिका",
+   "name_en": "Raghuganga Rural Municipality",
+   "wards": 8,
+   "website": "http://raghugangamun.gov.np",
+   "page": 42
+  },
+  {
+   "serial": 416,
+   "name_np": "धवलागिरी गाउँपालिका",
+   "name_en": "Dhawalagiri Rural Municipality",
+   "wards": 7,
+   "website": "https://dhawalagirimun.gov.np",
+   "page": 42
+  },
+  {
+   "serial": 417,
+   "name_np": "मालिका गाउँपालिका",
+   "name_en": "Malika Rural Municipality",
+   "wards": 7,
+   "website": "https://malikamunmyagdi.gov.np",
+   "page": 42
+  },
+  {
+   "serial": 418,
+   "name_np": "मंगला गाउँपालिका",
+   "name_en": "Mangala Rural Municipality",
+   "wards": 5,
+   "website": "http://mangalamun.gov.np",
+   "page": 42
+  },
+  {
+   "serial": 419,
+   "name_np": "बेनी नगरपालिका",
+   "name_en": "Beni Municipality",
+   "wards": 10,
+   "website": "https://benimun.gov.np",
+   "page": 42
+  },
+  {
+   "serial": 420,
+   "name_np": "मादी गाउँपालिका",
+   "name_en": "Madi Municipality",
+   "wards": 9,
+   "website": "https://madisankhuwasabha.gov.np",
+   "page": 42
+  },
+  {
+   "serial": 421,
+   "name_np": "माछापुछ्रे गाउँपालिका",
+   "name_en": "Machhapuchchhre Rural Municipality",
+   "wards": 9,
+   "website": "http://machhapuchhremun.gov.np",
+   "page": 43
+  },
+  {
+   "serial": 422,
+   "name_np": "अन्नपूर्ण गाउँपालिका",
+   "name_en": "Annapurna Rural Municipality",
+   "wards": 8,
+   "website": "http://annapurnamunmyagdi.gov.np",
+   "page": 43
+  },
+  {
+   "serial": 423,
+   "name_np": "पोखरा महानगरपालिका",
+   "name_en": "Pokhara Metropolitian City",
+   "wards": 33,
+   "website": "https://pokharamun.gov.np",
+   "page": 43
+  },
+  {
+   "serial": 424,
+   "name_np": "रूपा गाउँपालिका",
+   "name_en": "Rupa Rural Municipality",
+   "wards": 7,
+   "website": "http://rupamun.gov.np",
+   "page": 43
+  },
+  {
+   "serial": 425,
+   "name_np": "दोर्दी गाउँपालिका",
+   "name_en": "Dordi Rural Municipality",
+   "wards": 9,
+   "website": "http://dordimun.gov.np",
+   "page": 43
+  },
+  {
+   "serial": 426,
+   "name_np": "मर्स्याङदी गाउँपालिका",
+   "name_en": "Marsyangdi Rural Municipality",
+   "wards": 9,
+   "website": "https://marsyangdimun.gov.np",
+   "page": 43
+  },
+  {
+   "serial": 427,
+   "name_np": "क्व्होलासोथार गाउँपालिका",
+   "name_en": "Kwhola Sothar Rural Municipality",
+   "wards": 9,
+   "website": "https://kwholasotharmun.gov.np",
+   "page": 43
+  },
+  {
+   "serial": 428,
+   "name_np": "मध्यनेपाल नगरपालिका",
+   "name_en": "Madhya Nepal Municipality",
+   "wards": 10,
+   "website": "https://madhyanepalmun.gov.np",
+   "page": 43
+  },
+  {
+   "serial": 429,
+   "name_np": "बेसीशहर नगरपालिका",
+   "name_en": "Besi Shahar Municipality",
+   "wards": 11,
+   "website": "https://besishaharmun.gov.np",
+   "page": 43
+  },
+  {
+   "serial": 430,
+   "name_np": "सुन्दरबजार नगरपालिका",
+   "name_en": "Sundarbazar Municipality",
+   "wards": 11,
+   "website": "https://sundarbazarmun.gov.np",
+   "page": 43
+  },
+  {
+   "serial": 431,
+   "name_np": "राईनास नगरपालिका",
+   "name_en": "Rainas Municipality",
+   "wards": 10,
+   "website": "https://rainasmun.gov.np",
+   "page": 44
+  },
+  {
+   "serial": 432,
+   "name_np": "दूधपोखरी गाउँपालिका",
+   "name_en": "DhudhpokhariRural Municipality",
+   "wards": 6,
+   "website": "https://dudhpokharimun.gov.np",
+   "page": 44
+  },
+  {
+   "serial": 433,
+   "name_np": "भानु नगरपालिका",
+   "name_en": "Bhanu Municipality",
+   "wards": 13,
+   "website": "https://bhanumun.gov.np",
+   "page": 44
+  },
+  {
+   "serial": 434,
+   "name_np": "ब्यास नगरपालिका",
+   "name_en": "Byas Rural Municipality",
+   "wards": 6,
+   "website": "http://vyansmun.gov.np",
+   "page": 44
+  },
+  {
+   "serial": 435,
+   "name_np": "म्याग्दे गाउँपालिका",
+   "name_en": "Myagde Rural Municipality",
+   "wards": 7,
+   "website": "http://myagdemun.gov.np",
+   "page": 44
+  },
+  {
+   "serial": 436,
+   "name_np": "शुक्लागण्डकी नगरपालिका",
+   "name_en": "Shuklagandaki Municipality",
+   "wards": 12,
+   "website": "https://shuklagandakimun.gov.np",
+   "page": 44
+  },
+  {
+   "serial": 437,
+   "name_np": "भिमाद नगरपालिका",
+   "name_en": "Bhimad Municipality",
+   "wards": 9,
+   "website": "http://bhimadmun.gov.np",
+   "page": 44
+  },
+  {
+   "serial": 438,
+   "name_np": "घिरिङ गाउँपालिका",
+   "name_en": "Ghiring Rural Municipality",
+   "wards": 5,
+   "website": "https://ghiringmun.gov.np",
+   "page": 44
+  },
+  {
+   "serial": 439,
+   "name_np": "ऋषिङ्ग गाउँपालिका",
+   "name_en": "Rhishing Rural Municipality",
+   "wards": 8,
+   "website": "https://rishingmun.gov.np",
+   "page": 44
+  },
+  {
+   "serial": 440,
+   "name_np": "देवघाट गाउँपालिका",
+   "name_en": "Devghat Rural Municipality",
+   "wards": 5,
+   "website": "https://devghatmun.gov.np",
+   "page": 44
+  },
+  {
+   "serial": 441,
+   "name_np": "बन्दिपुर गाउँपालिका",
+   "name_en": "Bandipur Rural Municipality",
+   "wards": 6,
+   "website": "https://bandipurmun.gov.np",
+   "page": 45
+  },
+  {
+   "serial": 442,
+   "name_np": "आँबुखैरेनी गाउँपालिका",
+   "name_en": "Aanbu Khaireni Rural Municipality",
+   "wards": 6,
+   "website": "https://aanbookhairenimun.gov.np",
+   "page": 45
+  },
+  {
+   "serial": 443,
+   "name_np": "गैंडाकोट नगरपालिका",
+   "name_en": "Gaindakot Municipality",
+   "wards": 18,
+   "website": "https://gaindakotmun.gov.np",
+   "page": 45
+  },
+  {
+   "serial": 444,
+   "name_np": "बुलिङटार गाउँपालिका",
+   "name_en": "Bulingtar Rural Municipality",
+   "wards": 6,
+   "website": "http://bulingtarmun.gov.np",
+   "page": 45
+  },
+  {
+   "serial": 445,
+   "name_np": "बौदीकाली गाउँपालिका",
+   "name_en": "Bungdikali Rural Municipality",
+   "wards": 6,
+   "website": "https://bungdikalimun.gov.np",
+   "page": 45
+  },
+  {
+   "serial": 446,
+   "name_np": "हुप्सेकोट गाउँपालिका",
+   "name_en": "Hupsekot Rural Municipality",
+   "wards": 6,
+   "website": "http://hupsekotmun.gov.np",
+   "page": 45
+  },
+  {
+   "serial": 447,
+   "name_np": "देवचुली नगरपालिका",
+   "name_en": "Devchuli Municipality",
+   "wards": 17,
+   "website": "http://devchulimun.tax.munerp.org",
+   "page": 45
+  },
+  {
+   "serial": 448,
+   "name_np": "कावासोती नगरपालिका",
+   "name_en": "Kawasoti Municipality",
+   "wards": 17,
+   "website": "http://kawasotimun.gov.np",
+   "page": 45
+  },
+  {
+   "serial": 449,
+   "name_np": "मध्यविन्दु नगरपालिका",
+   "name_en": "Madhya Bindu Municipality",
+   "wards": 15,
+   "website": "https://madhyabindumun.gov.np",
+   "page": 45
+  },
+  {
+   "serial": 450,
+   "name_np": "बिनयी त्रिवेणी गाउँपालिका",
+   "name_en": "Binayi Tribeni Rural Municipality",
+   "wards": 7,
+   "website": "https://binayitribenimun.gov.np",
+   "page": 45
+  },
+  {
+   "serial": 451,
+   "name_np": "पुतलीबजार नगरपालिका",
+   "name_en": "Putalibazar Municipality",
+   "wards": 14,
+   "website": "https://putalibazarmun.gov.np",
+   "page": 46
+  },
+  {
+   "serial": 452,
+   "name_np": "फेदीखोला गाउँपालिका",
+   "name_en": "Phedikhola Rural Municipality",
+   "wards": 5,
+   "website": "http://phedikholamun.gov.np",
+   "page": 46
+  },
+  {
+   "serial": 453,
+   "name_np": "आँधिखोला गाउँपालिका",
+   "name_en": "Aandhikhola Rural Municipality",
+   "wards": 6,
+   "website": "http://aandhikholamun.gov.np",
+   "page": 46
+  },
+  {
+   "serial": 454,
+   "name_np": "अर्जुनचौपारी गाउँपालिका",
+   "name_en": "Arjun Choupari Rural Municipality",
+   "wards": 6,
+   "website": "https://arjunchauparimun.gov.np",
+   "page": 46
+  },
+  {
+   "serial": 455,
+   "name_np": "भीरकोट नगरपालिका",
+   "name_en": "Bheerkot Municipality",
+   "wards": 9,
+   "website": "https://bheerkotmun.gov.np",
+   "page": 46
+  },
+  {
+   "serial": 456,
+   "name_np": "हरिनास गाउँपालिका",
+   "name_en": "Harinas Rural Municipality",
+   "wards": 7,
+   "website": "https://harinasmun.gov.np",
+   "page": 46
+  },
+  {
+   "serial": 457,
+   "name_np": "चापाकोट नगरपालिका",
+   "name_en": "Chapakot Municipality",
+   "wards": 10,
+   "website": "https://chapakotmun.gov.np",
+   "page": 46
+  },
+  {
+   "serial": 458,
+   "name_np": "वालिङ नगरपालिका",
+   "name_en": "Waling Municipality",
+   "wards": 14,
+   "website": "https://walingmun.gov.np",
+   "page": 46
+  },
+  {
+   "serial": 459,
+   "name_np": "गल्याङ नगरपालिका",
+   "name_en": "Galyang Municipality",
+   "wards": 11,
+   "website": "https://galyangmun.gov.np",
+   "page": 46
+  },
+  {
+   "serial": 460,
+   "name_np": "कालीगण्डकी गाउँपालिका",
+   "name_en": "Kaligandaki Rural Municipality",
+   "wards": 7,
+   "website": "https://kaligandakimungulmi.gov.np",
+   "page": 46
+  },
+  {
+   "serial": 461,
+   "name_np": "मोदी गाउँपालिका",
+   "name_en": "Modi Rural Municipality",
+   "wards": 8,
+   "website": "http://modimun.gov.np",
+   "page": 47
+  },
+  {
+   "serial": 462,
+   "name_np": "जलजला गाउँपालिका",
+   "name_en": "Jaljala Rural Municipality",
+   "wards": 9,
+   "website": "http://jaljalamun.gov.np",
+   "page": 47
+  },
+  {
+   "serial": 463,
+   "name_np": "कुश्मा नगरपालिका",
+   "name_en": "Kushma Municipality",
+   "wards": 14,
+   "website": "https://kushmamun.gov.np",
+   "page": 47
+  },
+  {
+   "serial": 464,
+   "name_np": "फलेवास नगरपालिका",
+   "name_en": "Phalebas Municipality",
+   "wards": 11,
+   "website": "https://phalewasmun.gov.np",
+   "page": 47
+  },
+  {
+   "serial": 465,
+   "name_np": "महाशिला गाउँपालिका",
+   "name_en": "Mahashila Rural Municipality",
+   "wards": 6,
+   "website": "http://mahashilamun.gov.np",
+   "page": 47
+  },
+  {
+   "serial": 466,
+   "name_np": "विहादी गाउँपालिका",
+   "name_en": "Bihadi Rural Municipality",
+   "wards": 6,
+   "website": "http://bihadimun.gov.np",
+   "page": 47
+  },
+  {
+   "serial": 467,
+   "name_np": "पैयूं गाउँपालिका",
+   "name_en": "Paiyu Rural Municipality",
+   "wards": 7,
+   "website": "https://paiyunmun.gov.np",
+   "page": 47
+  },
+  {
+   "serial": 468,
+   "name_np": "बाग्लुङ्ग नगरपालिका",
+   "name_en": "Baglung Municipality",
+   "wards": 14,
+   "website": "https://baglungmun.gov.np",
+   "page": 47
+  },
+  {
+   "serial": 469,
+   "name_np": "काठेखोला गाउँपालिका",
+   "name_en": "Kathekhola Rural Municipality",
+   "wards": 8,
+   "website": "https://kathekholamun.gov.np",
+   "page": 47
+  },
+  {
+   "serial": 470,
+   "name_np": "ताराखोला गाउँपालिका",
+   "name_en": "Tarakhola Rural Municipality",
+   "wards": 5,
+   "website": "https://tarakholamun.gov.np",
+   "page": 47
+  },
+  {
+   "serial": 471,
+   "name_np": "तमानखोला गाउँपालिका",
+   "name_en": "Tamankhola Rural Municipality",
+   "wards": 6,
+   "website": "https://tamankholamun.gov.np",
+   "page": 48
+  },
+  {
+   "serial": 472,
+   "name_np": "ढोरपाटन नगरपालिका",
+   "name_en": "Dhorpatan Municipality",
+   "wards": 9,
+   "website": "https://dhorpatanmun.gov.np",
+   "page": 48
+  },
+  {
+   "serial": 473,
+   "name_np": "निसीखोला गाउँपालिका",
+   "name_en": "Nisikhola Rural Municipality",
+   "wards": 7,
+   "website": "http://nisikholamun.gov.np",
+   "page": 48
+  },
+  {
+   "serial": 474,
+   "name_np": "वडिगाड गाउँपालिका",
+   "name_en": "Badigad Rural Municipality",
+   "wards": 10,
+   "website": "http://badigadmun.gov.np",
+   "page": 48
+  },
+  {
+   "serial": 475,
+   "name_np": "गल्कोट नगरपालिका",
+   "name_en": "Galkot Municipality",
+   "wards": 11,
+   "website": "https://galkotmun.gov.np",
+   "page": 48
+  },
+  {
+   "serial": 476,
+   "name_np": "वरेङ गाउँपालिका",
+   "name_en": "Bareng Rural Municipality",
+   "wards": 5,
+   "website": "http://barengmun.gov.np",
+   "page": 48
+  },
+  {
+   "serial": 477,
+   "name_np": "जैमुनी नगरपालिका",
+   "name_en": "Jaimuni Municipality",
+   "wards": 10,
+   "website": "http://jaiminimun.gov.np",
+   "page": 48
+  },
+  {
+   "serial": 478,
+   "name_np": "पुथा उत्तरगंगा गाउँपालिका",
+   "name_en": "Putha Uttanganga Rural Municipality",
+   "wards": 14,
+   "website": "http://puthauttargangamun.gov.np",
+   "page": 48
+  },
+  {
+   "serial": 479,
+   "name_np": "सिस्ने गाउँपालिका",
+   "name_en": "Sisne Rural Municipality",
+   "wards": 8,
+   "website": "http://sisnemun.gov.np",
+   "page": 48
+  },
+  {
+   "serial": 480,
+   "name_np": "भूमे गाउँपालिका",
+   "name_en": "Bhume Rural Municipality",
+   "wards": 9,
+   "website": "https://bhumemun.gov.np",
+   "page": 48
+  },
+  {
+   "serial": 481,
+   "name_np": "सुनछहरी गाउँपालिका",
+   "name_en": "Sunchhahari Rural Municipality",
+   "wards": 7,
+   "website": "https://sunchhaharimun.gov.np",
+   "page": 49
+  },
+  {
+   "serial": 482,
+   "name_np": "थबाङ्ग गाउँपालिका",
+   "name_en": "Thawang Rural Municipality",
+   "wards": 5,
+   "website": "http://thabangmun.gov.np",
+   "page": 49
+  },
+  {
+   "serial": 483,
+   "name_np": "दुईखोली गाउँपालिका",
+   "name_en": "Duikholi Rural Municipality",
+   "wards": null,
+   "website": "",
+   "page": 49
+  },
+  {
+   "serial": 484,
+   "name_np": "गंगादेव गाउँपालिका",
+   "name_en": "Gangadeb Municipality",
+   "wards": 7,
+   "website": "http://sukidahamun.gov.np",
+   "page": 49
+  },
+  {
+   "serial": 485,
+   "name_np": "माडी गाउँपालिका",
+   "name_en": "Madi Municipality",
+   "wards": 9,
+   "website": "https://madimunchitwan.gov.np",
+   "page": 49
+  },
+  {
+   "serial": 486,
+   "name_np": "त्रिवेणी गाउँपालिका",
+   "name_en": "Tribeni Rural Municipality",
+   "wards": 6,
+   "website": "http://www.trivenimunsalyan.gov.np",
+   "page": 49
+  },
+  {
+   "serial": 487,
+   "name_np": "रोल्पा नगरपालिका",
+   "name_en": "Rolpa Municipality",
+   "wards": 10,
+   "website": "https://rolpamun.gov.np",
+   "page": 49
+  },
+  {
+   "serial": 488,
+   "name_np": "रुन्टीगढी गाउँपालिका",
+   "name_en": "Runtigadhi Rural Municipality",
+   "wards": 9,
+   "website": "https://runtigadhimun.gov.np",
+   "page": 49
+  },
+  {
+   "serial": 489,
+   "name_np": "सुनिल स्मृति गाउँपालिका",
+   "name_en": "Subarnabati Rural Municipality",
+   "wards": 8,
+   "website": "http://sunilsmritimun.gov.np",
+   "page": 49
+  },
+  {
+   "serial": 490,
+   "name_np": "लुङ्ग्री गाउँपालिका",
+   "name_en": "Lungri Rural Municipality",
+   "wards": 7,
+   "website": "http://lungrimun.gov.np",
+   "page": 49
+  },
+  {
+   "serial": 491,
+   "name_np": "गौमुखी गाउँपालिका",
+   "name_en": "Gaumukhi Rural Municipality",
+   "wards": 7,
+   "website": "https://gaumukhimun.gov.np",
+   "page": 50
+  },
+  {
+   "serial": 492,
+   "name_np": "नौबहिनी गाउँपालिका",
+   "name_en": "Naubahini Rural Municipality",
+   "wards": 8,
+   "website": "http://naubahinimun.gov.np",
+   "page": 50
+  },
+  {
+   "serial": 493,
+   "name_np": "झिमरुक गाउँपालिका",
+   "name_en": "Jhimaruk Rural Municipality",
+   "wards": 8,
+   "website": "https://jhimrukmun.gov.np",
+   "page": 50
+  },
+  {
+   "serial": 494,
+   "name_np": "प्यूठान नगरपालिका",
+   "name_en": "Pyuthan Municipality",
+   "wards": 10,
+   "website": "http://pyuthanmun.gov.np",
+   "page": 50
+  },
+  {
+   "serial": 495,
+   "name_np": "स्वर्गद्धारी नगरपालिका",
+   "name_en": "Sworgadwari Municipality",
+   "wards": 9,
+   "website": "https://swargadwarimun.gov.np",
+   "page": 50
+  },
+  {
+   "serial": 496,
+   "name_np": "माण्डवी गाउँपालिका",
+   "name_en": "Mandavi Rural Municipality",
+   "wards": 5,
+   "website": "https://mandavimun.gov.np",
+   "page": 50
+  },
+  {
+   "serial": 497,
+   "name_np": "मल्लरानी गाउँपालिका",
+   "name_en": "Mallarani Rural Municipality",
+   "wards": 5,
+   "website": "http://mallaranimun.gov.np",
+   "page": 50
+  },
+  {
+   "serial": 498,
+   "name_np": "ऐरावती गाउँपालिका",
+   "name_en": "Aairawati Rural Municipality",
+   "wards": 6,
+   "website": "http://airawatimun.gov.np",
+   "page": 50
+  },
+  {
+   "serial": 499,
+   "name_np": "सरुमारानी गाउँपालिका",
+   "name_en": "Sarumarani Rural Municipality",
+   "wards": 6,
+   "website": "http://sarumaranimun.gov.np",
+   "page": 50
+  },
+  {
+   "serial": 500,
+   "name_np": "कालिगण्डकी गाउँपालिका",
+   "name_en": "Kaligandaki Rural Municipality",
+   "wards": 7,
+   "website": "https://kaligandakimungulmi.gov.np",
+   "page": 50
+  },
+  {
+   "serial": 501,
+   "name_np": "सत्यवती गाउँपालिका",
+   "name_en": "Satyawoti Rural Municipality",
+   "wards": 8,
+   "website": "http://satyawatimun.gov.np",
+   "page": 51
+  },
+  {
+   "serial": 502,
+   "name_np": "चन्द्रकोट गाउँपालिका",
+   "name_en": "Chandrakot Rural Municipality",
+   "wards": 8,
+   "website": "http://chandrakotmun.gov.np",
+   "page": 51
+  },
+  {
+   "serial": 503,
+   "name_np": "मुसिकोट नगरपालिका",
+   "name_en": "Musikot Municipality",
+   "wards": 14,
+   "website": "http://musikotmunrukum.gov.np",
+   "page": 51
+  },
+  {
+   "serial": 504,
+   "name_np": "ईस्मा गाउँपालिका",
+   "name_en": "Isma Rural Municipality",
+   "wards": 6,
+   "website": "https://ishmamun.gov.np",
+   "page": 51
+  },
+  {
+   "serial": 505,
+   "name_np": "मालिका गाउँपालिका",
+   "name_en": "Malika Rural Municipality",
+   "wards": 7,
+   "website": "https://malikamunmyagdi.gov.np",
+   "page": 51
+  },
+  {
+   "serial": 506,
+   "name_np": "मदाने गाउँपालिका",
+   "name_en": "Madane Rural Municipality",
+   "wards": 7,
+   "website": "http://madhuwanmun.gov.np",
+   "page": 51
+  },
+  {
+   "serial": 507,
+   "name_np": "धुर्कोट गाउँपालिका",
+   "name_en": "Dhurkot Rural Municipality",
+   "wards": 7,
+   "website": "http://dhurkotmun.gov.np",
+   "page": 51
+  },
+  {
+   "serial": 508,
+   "name_np": "रेसुङ्गा नगरपालिका",
+   "name_en": "Resunga Municipality",
+   "wards": 14,
+   "website": "https://resungamun.gov.np",
+   "page": 51
+  },
+  {
+   "serial": 509,
+   "name_np": "गुल्मी दरबार गाउँपालिका",
+   "name_en": "Gulmi Durbar Rural Municipality",
+   "wards": 7,
+   "website": "https://gulmidarbarmun.gov.np",
+   "page": 51
+  },
+  {
+   "serial": 510,
+   "name_np": "छत्रकोट गाउँपालिका",
+   "name_en": "Chhatrakot Rural Municipality",
+   "wards": 6,
+   "website": "http://chhatrakotmun.gov.np",
+   "page": 51
+  },
+  {
+   "serial": 511,
+   "name_np": "रूरू गाउँपालिका",
+   "name_en": "Ruru Rural Municipality",
+   "wards": 6,
+   "website": "http://rurumun.gov.np",
+   "page": 52
+  },
+  {
+   "serial": 512,
+   "name_np": "छत्रदेव गाउँपालिका",
+   "name_en": "Chhatradev Rural Municipality",
+   "wards": 8,
+   "website": "https://chhatradevmun.gov.np",
+   "page": 52
+  },
+  {
+   "serial": 513,
+   "name_np": "मालारानी गाउँपालिका",
+   "name_en": "Malarani Rural Municipality",
+   "wards": 9,
+   "website": "https://malaranimun.gov.np",
+   "page": 52
+  },
+  {
+   "serial": 514,
+   "name_np": "भुमिकास्थान नगरपालिका",
+   "name_en": "Bhumikasthan Municipality",
+   "wards": 10,
+   "website": "http://bhumikasthanmun.gov.np",
+   "page": 52
+  },
+  {
+   "serial": 515,
+   "name_np": "सन्धिखर्क नगरपालिका",
+   "name_en": "Sandhikharka Municipality",
+   "wards": 12,
+   "website": "https://sandhikharkamun.gov.np",
+   "page": 52
+  },
+  {
+   "serial": 516,
+   "name_np": "पाणिनी गाउँपालिका",
+   "name_en": "Panini Rural Municipality",
+   "wards": 8,
+   "website": "http://paninimun.gov.np",
+   "page": 52
+  },
+  {
+   "serial": 517,
+   "name_np": "शितगंगा नगरपालिका",
+   "name_en": "Shitaganga Municipality",
+   "wards": 14,
+   "website": "https://shitagangamun.gov.np",
+   "page": 52
+  },
+  {
+   "serial": 518,
+   "name_np": "रामपुर नगरपालिका",
+   "name_en": "Rampur Municipality",
+   "wards": 10,
+   "website": "https://rampurmun.gov.np",
+   "page": 52
+  },
+  {
+   "serial": 519,
+   "name_np": "पुर्वखोला गाउँपालिका",
+   "name_en": "Purbakhola Rural Municipality",
+   "wards": 6,
+   "website": "https://purbakholamun.gov.np",
+   "page": 52
+  },
+  {
+   "serial": 520,
+   "name_np": "रम्भा गाउँपालिका",
+   "name_en": "Rambha Rural Municipality",
+   "wards": 5,
+   "website": "http://rambhamun.gov.np",
+   "page": 52
+  },
+  {
+   "serial": 521,
+   "name_np": "बगनासकाली गाउँपालिका",
+   "name_en": "Baganaskali Rural Municipality",
+   "wards": 9,
+   "website": "https://baganaskalimun.gov.np",
+   "page": 53
+  },
+  {
+   "serial": 522,
+   "name_np": "तानसेन नगरपालिका",
+   "name_en": "Tansen Municipality",
+   "wards": 14,
+   "website": "https://tansenmun.gov.np",
+   "page": 53
+  },
+  {
+   "serial": 523,
+   "name_np": "रिब्दीकोट गाउँपालिका",
+   "name_en": "Ribdikot Rural Municipality",
+   "wards": 8,
+   "website": "http://ribdikotmun.gov.np",
+   "page": 53
+  },
+  {
+   "serial": 524,
+   "name_np": "रैनादेवी छहरा गाउँपालिका",
+   "name_en": "Rainadevi Chhahara Rural Municipality",
+   "wards": 8,
+   "website": "http://rainadevichhaharamun.gov.np",
+   "page": 53
+  },
+  {
+   "serial": 525,
+   "name_np": "तिनाउ गाउँपालिका",
+   "name_en": "Tinau Rural Municipality",
+   "wards": 6,
+   "website": "http://tinaumun.gov.np",
+   "page": 53
+  },
+  {
+   "serial": 526,
+   "name_np": "माथागढी गाउँपालिका",
+   "name_en": "Mathagadhi Rural Municipality",
+   "wards": 8,
+   "website": "http://mathagadhimun.gov.np",
+   "page": 53
+  },
+  {
+   "serial": 527,
+   "name_np": "निस्दी गाउँपालिका",
+   "name_en": "Nisdi Rural Municipality",
+   "wards": 7,
+   "website": "http://nisdimun.gov.np",
+   "page": 53
+  },
+  {
+   "serial": 528,
+   "name_np": "बर्दघाट नगरपालिका",
+   "name_en": "Bardaghat Municipality",
+   "wards": 16,
+   "website": "https://bardaghatmun.gov.np",
+   "page": 53
+  },
+  {
+   "serial": 529,
+   "name_np": "सुनवल नगरपालिका",
+   "name_en": "Sunawal Municipality",
+   "wards": 13,
+   "website": "https://sunwalmun.gov.np",
+   "page": 53
+  },
+  {
+   "serial": 530,
+   "name_np": "रामग्राम नगरपालिका",
+   "name_en": "Ramgram Municipality",
+   "wards": 18,
+   "website": "https://ramgrammun.gov.np",
+   "page": 53
+  },
+  {
+   "serial": 531,
+   "name_np": "पाल्हीनन्दन गाउँपालिका",
+   "name_en": "Palhinandan Rural Municipality",
+   "wards": 6,
+   "website": "http://palhinandanmun.gov.np",
+   "page": 54
+  },
+  {
+   "serial": 532,
+   "name_np": "सरावल गाउँपालिका",
+   "name_en": "Sarawal Rural Municipality",
+   "wards": 7,
+   "website": "https://sarawalmun.gov.np",
+   "page": 54
+  },
+  {
+   "serial": 533,
+   "name_np": "प्रतापपुर गाउँपालिका",
+   "name_en": "Pratapapur Rural Municipality",
+   "wards": 9,
+   "website": "https://pratappurmun.gov.np",
+   "page": 54
+  },
+  {
+   "serial": 534,
+   "name_np": "सुस्ता गाउँपालिका",
+   "name_en": "Susta Rural Municipality",
+   "wards": 5,
+   "website": "http://sustamun.gov.np",
+   "page": 54
+  },
+  {
+   "serial": 535,
+   "name_np": "देवदह नगरपालिका",
+   "name_en": "Devdaha Municipality",
+   "wards": 12,
+   "website": "https://devdahamun.gov.np",
+   "page": 54
+  },
+  {
+   "serial": 536,
+   "name_np": "बुटवल उपमहानगरपालिका",
+   "name_en": "Butwal Sub-Metropolitian City",
+   "wards": 22,
+   "website": "http://butwalmun.gov.np",
+   "page": 54
+  },
+  {
+   "serial": 537,
+   "name_np": "सैनामैना नगरपालिका",
+   "name_en": "Sainamaina",
+   "wards": 11,
+   "website": "https://sainamainamun.gov.np",
+   "page": 54
+  },
+  {
+   "serial": 538,
+   "name_np": "कन्चन गाउँपालिका",
+   "name_en": "Kanchan Rural Municipality",
+   "wards": 5,
+   "website": "https://kanchanmun.gov.np",
+   "page": 54
+  },
+  {
+   "serial": 539,
+   "name_np": "गैडहवा गाउँपालिका",
+   "name_en": "Gaidahawa Rural Municipality",
+   "wards": 9,
+   "website": "http://gaidahawamun.gov.np",
+   "page": 54
+  },
+  {
+   "serial": 540,
+   "name_np": "सुद्धोधन गाउँपालिका",
+   "name_en": "Suddhodhan Rural Municipality",
+   "wards": 6,
+   "website": "http://shuddhodhanmunrupandehi.gov.np",
+   "page": 54
+  },
+  {
+   "serial": 541,
+   "name_np": "सियारी गाउँपालिका",
+   "name_en": "Siyari Rural Municipality",
+   "wards": 7,
+   "website": "http://siyarimun.gov.np",
+   "page": 55
+  },
+  {
+   "serial": 542,
+   "name_np": "तिलोत्तमा नगरपालिका",
+   "name_en": "Tilottama Municipality",
+   "wards": 17,
+   "website": "https://tilottamamun.gov.np",
+   "page": 55
+  },
+  {
+   "serial": 543,
+   "name_np": "ओमसतिया गाउँपालिका",
+   "name_en": "Om Satiya Rural Municipality",
+   "wards": 6,
+   "website": "http://omsatiyamun.gov.np",
+   "page": 55
+  },
+  {
+   "serial": 544,
+   "name_np": "रोहिणी गाउँपालिका",
+   "name_en": "Rohini Rural Municipality",
+   "wards": 7,
+   "website": "http://rohinimun.gov.np",
+   "page": 55
+  },
+  {
+   "serial": 545,
+   "name_np": "सिद्धार्थनगर नगरपालिका",
+   "name_en": "Siddharthanagar Municipality",
+   "wards": 13,
+   "website": "https://siddharthanagarmun.gov.np",
+   "page": 55
+  },
+  {
+   "serial": 546,
+   "name_np": "मायादेवी गाउँपालिका",
+   "name_en": "Mayadevi Rural Municipality",
+   "wards": 8,
+   "website": "http://mayadevimunkapilvastu.gov.np",
+   "page": 55
+  },
+  {
+   "serial": 547,
+   "name_np": "लुम्बिनी साँस्कृतिक नगरपालिका",
+   "name_en": "Lumbini Sanskritik Municipality",
+   "wards": 13,
+   "website": "https://lumbinisanskritikmun.gov.np",
+   "page": 55
+  },
+  {
+   "serial": 548,
+   "name_np": "कोटहीमाई गाउँपालिका",
+   "name_en": "Kotahimai Rural Municipality",
+   "wards": 7,
+   "website": "https://kotahimaimun.gov.np",
+   "page": 55
+  },
+  {
+   "serial": 549,
+   "name_np": "सम्मरीमाई गाउँपालिका",
+   "name_en": "Sammarimai Rural Municipality",
+   "wards": 7,
+   "website": "http://sammarimaimun.gov.np",
+   "page": 55
+  },
+  {
+   "serial": 550,
+   "name_np": "मर्चवारी गाउँपालिका",
+   "name_en": "Marchawari Rural Municipality",
+   "wards": 7,
+   "website": "http://marchawarimun.gov.np",
+   "page": 55
+  },
+  {
+   "serial": 551,
+   "name_np": "बाणगंगा नगरपालिका",
+   "name_en": "Banganga Municipality",
+   "wards": 11,
+   "website": "https://bangangamun.gov.np",
+   "page": 56
+  },
+  {
+   "serial": 552,
+   "name_np": "बुद्धभूमी नगरपालिका",
+   "name_en": "Buddhabhumi Municipality",
+   "wards": 10,
+   "website": "https://buddhabhumimun.gov.np",
+   "page": 56
+  },
+  {
+   "serial": 553,
+   "name_np": "शिवराज नगरपालिका",
+   "name_en": "Shivaraj Municipality",
+   "wards": 11,
+   "website": "https://shivrajmun.gov.np",
+   "page": 56
+  },
+  {
+   "serial": 554,
+   "name_np": "बिजयनगर गाउँपालिका",
+   "name_en": "Bijayanagar Rural Municipality",
+   "wards": 7,
+   "website": "http://bijaynagarmun.gov.np",
+   "page": 56
+  },
+  {
+   "serial": 555,
+   "name_np": "कृष्णनगर नगरपालिका",
+   "name_en": "Krishnanagar Municipality",
+   "wards": 12,
+   "website": "https://krishnanagarmun.gov.np",
+   "page": 56
+  },
+  {
+   "serial": 556,
+   "name_np": "महाराजगन्ज नगरपालिका",
+   "name_en": "Maharajganj Municipality",
+   "wards": 11,
+   "website": "https://maharajgunjmun.gov.np",
+   "page": 56
+  },
+  {
+   "serial": 557,
+   "name_np": "कपिलबस्तु नगरपालिका",
+   "name_en": "Kapilbastu Municipality",
+   "wards": 12,
+   "website": "https://kapilvastumun.gov.np",
+   "page": 56
+  },
+  {
+   "serial": 558,
+   "name_np": "यसोधरा गाउँपालिका",
+   "name_en": "Yasodhara Rural Municipality",
+   "wards": 8,
+   "website": "http://yasodharamun.gov.np",
+   "page": 56
+  },
+  {
+   "serial": 559,
+   "name_np": "मायादेवी गाउँपालिका",
+   "name_en": "Mayadevi Rural Municipality",
+   "wards": 8,
+   "website": "http://mayadevimunkapilvastu.gov.np",
+   "page": 56
+  },
+  {
+   "serial": 560,
+   "name_np": "शुद्धोधन गाउँपालिका",
+   "name_en": "Suddhodhan Rural Municipality",
+   "wards": 6,
+   "website": "http://shuddhodhanmunrupandehi.gov.np",
+   "page": 56
+  },
+  {
+   "serial": 561,
+   "name_np": "बंगलाचुली गाउँपालिका",
+   "name_en": "Bangalachuli Rural Municipality",
+   "wards": 8,
+   "website": "https://bangalachulimun.gov.np",
+   "page": 57
+  },
+  {
+   "serial": 562,
+   "name_np": "घोराही उपमहानगरपालिका",
+   "name_en": "Ghorahi Sub-Metropolitian City",
+   "wards": 19,
+   "website": "https://ghorahimun.gov.np",
+   "page": 57
+  },
+  {
+   "serial": 563,
+   "name_np": "तुल्सीपुर उपमहानगरपालिका",
+   "name_en": "Tulsipur Sub-Metropolitian City",
+   "wards": 19,
+   "website": "http://tulsipurmun.gov.np",
+   "page": 57
+  },
+  {
+   "serial": 564,
+   "name_np": "शान्तिनगर गाउँपालिका",
+   "name_en": "Shantinagar Rural Municipality",
+   "wards": 7,
+   "website": "https://shantinagarmun.gov.np",
+   "page": 57
+  },
+  {
+   "serial": 565,
+   "name_np": "बबई गाउँपालिका",
+   "name_en": "Babai Rural Municipality",
+   "wards": 7,
+   "website": "https://babaimun.gov.np",
+   "page": 57
+  },
+  {
+   "serial": 566,
+   "name_np": "दंगीशरण गाउँपालिका",
+   "name_en": "Dangisharan Rural Municipality",
+   "wards": 7,
+   "website": "http://dangisharanmun.gov.np",
+   "page": 57
+  },
+  {
+   "serial": 567,
+   "name_np": "लमही नगरपालिका",
+   "name_en": "Lamahi Municipality",
+   "wards": 9,
+   "website": "https://lamahimun.gov.np",
+   "page": 57
+  },
+  {
+   "serial": 568,
+   "name_np": "राप्ती गाउँपालिका",
+   "name_en": "Rapti Municipality",
+   "wards": 13,
+   "website": "http://raptimunchitwan.gov.np",
+   "page": 57
+  },
+  {
+   "serial": 569,
+   "name_np": "गढवा गाउँपालिका",
+   "name_en": "Gadhawa Rural Municipality",
+   "wards": 8,
+   "website": "http://gadhawamun.gov.np",
+   "page": 57
+  },
+  {
+   "serial": 570,
+   "name_np": "राजपुर गाउँपालिका",
+   "name_en": "Rajpur Rural Municipality",
+   "wards": 7,
+   "website": "http://rajapurmun.gov.np",
+   "page": 57
+  },
+  {
+   "serial": 571,
+   "name_np": "राप्ती सोनारी गाउँपालिका",
+   "name_en": "Rapti Sonari Rural Municipality",
+   "wards": 9,
+   "website": "http://raptisonarimun.gov.np",
+   "page": 58
+  },
+  {
+   "serial": 572,
+   "name_np": "कोहलपुर नगरपालिका",
+   "name_en": "Kohalpur Municipality",
+   "wards": 15,
+   "website": "https://kohalpurmun.gov.np",
+   "page": 58
+  },
+  {
+   "serial": 573,
+   "name_np": "बैजनाथ गाउँपालिका",
+   "name_en": "Baijanath Rural Municipality",
+   "wards": 8,
+   "website": "http://baijanathmun.gov.np",
+   "page": 58
+  },
+  {
+   "serial": 574,
+   "name_np": "खजुरा गाउँपालिका",
+   "name_en": "Khajura Rural Municipality",
+   "wards": 8,
+   "website": "https://khajuramun.gov.np",
+   "page": 58
+  },
+  {
+   "serial": 575,
+   "name_np": "जानकी गाउँपालिका",
+   "name_en": "Janaki Rural Municipality",
+   "wards": 6,
+   "website": "http://janakimunbanke.gov.np",
+   "page": 58
+  },
+  {
+   "serial": 576,
+   "name_np": "नेपालगञ्ज उपमहानगरपालिका",
+   "name_en": "Nepalganj Sub-Metropolitian City",
+   "wards": 23,
+   "website": "https://nepalgunjmun.gov.np",
+   "page": 58
+  },
+  {
+   "serial": 577,
+   "name_np": "डुडुवा गाउँपालिका",
+   "name_en": "Duduwa Rural Municipality",
+   "wards": 6,
+   "website": "http://duduwamun.gov.np",
+   "page": 58
+  },
+  {
+   "serial": 578,
+   "name_np": "नरैनापुर गाउँपालिका",
+   "name_en": "Narainapur Rural Municipality",
+   "wards": 6,
+   "website": "https://narainapurmun.gov.np",
+   "page": 58
+  },
+  {
+   "serial": 579,
+   "name_np": "बाँसगढी नगरपालिका",
+   "name_en": "Bansgadhi Municipality",
+   "wards": 9,
+   "website": "https://bansgadhimun.gov.np",
+   "page": 58
+  },
+  {
+   "serial": 580,
+   "name_np": "बारबर्दिया नगरपालिका",
+   "name_en": "Barbardiya Municipality",
+   "wards": 11,
+   "website": "https://barbardiyamun.gov.np",
+   "page": 58
+  },
+  {
+   "serial": 581,
+   "name_np": "ठाकुरबाबा नगरपालिका",
+   "name_en": "Thakurbaba Municipality",
+   "wards": 9,
+   "website": "https://thakurbabamun.gov.np",
+   "page": 59
+  },
+  {
+   "serial": 582,
+   "name_np": "गेरुवा गाउँपालिका",
+   "name_en": "Geruwa Rural Municipality",
+   "wards": 6,
+   "website": "http://geruwamun.gov.np",
+   "page": 59
+  },
+  {
+   "serial": 583,
+   "name_np": "राजापुर नगरपालिका",
+   "name_en": "Rajapur Municipality",
+   "wards": 10,
+   "website": "https://rajapurmun.gov.np",
+   "page": 59
+  },
+  {
+   "serial": 584,
+   "name_np": "मधुवन नगरपालिका",
+   "name_en": "Madhuwan Municipality",
+   "wards": 9,
+   "website": "http://madhuwanmun.gov.np",
+   "page": 59
+  },
+  {
+   "serial": 585,
+   "name_np": "गुलरीया नगरपालिका",
+   "name_en": "Gulariya Municipality",
+   "wards": 12,
+   "website": "http://gulariyamun.gov.np",
+   "page": 59
+  },
+  {
+   "serial": 586,
+   "name_np": "बढैयाताल गाउँपालिका",
+   "name_en": "Badhaiyatal Rural Municipality",
+   "wards": 9,
+   "website": "https://badhaiyatalmun.gov.np",
+   "page": 59
+  },
+  {
+   "serial": 587,
+   "name_np": "डोल्पो बुद्ध गाउँपालिका",
+   "name_en": "Dolpo Buddha Rural Municipality",
+   "wards": 6,
+   "website": "http://dolpobuddhamun.gov.np",
+   "page": 59
+  },
+  {
+   "serial": 588,
+   "name_np": "शे फोक्सुण्डो गाउँपालिका",
+   "name_en": "Shey Phoksundo Rural Municipality",
+   "wards": 9,
+   "website": "http://shephoksundomun.gov.np",
+   "page": 59
+  },
+  {
+   "serial": 589,
+   "name_np": "जगदुल्ला गाउँपालिका",
+   "name_en": "Jagadulla Rural Municipality",
+   "wards": 6,
+   "website": "http://jagdullamun.gov.np",
+   "page": 59
+  },
+  {
+   "serial": 590,
+   "name_np": "मुड्केचुला गाउँपालिका",
+   "name_en": "Mudkechula Rural Municipality",
+   "wards": 9,
+   "website": "https://mudkechulamun.gov.np",
+   "page": 59
+  },
+  {
+   "serial": 591,
+   "name_np": "त्रिपुरासुन्दरी नगरपालिका",
+   "name_en": "Tripurasundari Rural Municipality",
+   "wards": 6,
+   "website": "http://trivenimunbajura.gov.np",
+   "page": 60
+  },
+  {
+   "serial": 592,
+   "name_np": "ठुलीभेरी नगरपालिका",
+   "name_en": "Thulibheri Municipality",
+   "wards": 11,
+   "website": "http://thulibherimun.gov.np",
+   "page": 60
+  },
+  {
+   "serial": 593,
+   "name_np": "काइके गाउँपालिका",
+   "name_en": "Kaike Rural Municipality",
+   "wards": 7,
+   "website": "http://kaikemun.gov.np",
+   "page": 60
+  },
+  {
+   "serial": 594,
+   "name_np": "छार्का ताङसोङ गाउँपालिका",
+   "name_en": "Chharka Tangsong Rural Municipality",
+   "wards": 6,
+   "website": "http://chharkatangsongmun.gov.np",
+   "page": 60
+  },
+  {
+   "serial": 595,
+   "name_np": "मुगुमकार्मारोग गाउँपालिका",
+   "name_en": "Mugumakarmarog Rural Municipality",
+   "wards": 9,
+   "website": "http://mugumkarmarongmun.gov.np",
+   "page": 60
+  },
+  {
+   "serial": 596,
+   "name_np": "छायाँनाथ रारा नगरपालिका",
+   "name_en": "Chhayanath Rara Municipality",
+   "wards": 14,
+   "website": "http://chhayanathraramun.gov.np",
+   "page": 60
+  },
+  {
+   "serial": 597,
+   "name_np": "सोरु गाउँपालिका",
+   "name_en": "Soru Rural Municipality",
+   "wards": 11,
+   "website": "http://sorumun.gov.np",
+   "page": 60
+  },
+  {
+   "serial": 598,
+   "name_np": "खत्याड गाउँपालिका",
+   "name_en": "Khatyad Rural Municipality",
+   "wards": 11,
+   "website": "http://khatyadmun.gov.np",
+   "page": 60
+  },
+  {
+   "serial": 599,
+   "name_np": "चंखेली गाउँपालिका",
+   "name_en": "Chankheli Rural Municipality",
+   "wards": 6,
+   "website": "http://chankhelimun.gov.np",
+   "page": 60
+  },
+  {
+   "serial": 600,
+   "name_np": "खार्पुनाथ गाउँपालिका",
+   "name_en": "Kharpunath Rural Municipality",
+   "wards": 5,
+   "website": "http://kharpunathmun.gov.np",
+   "page": 60
+  },
+  {
+   "serial": 601,
+   "name_np": "सिमकोट गाउँपालिका",
+   "name_en": "Simkot Rural Municipality",
+   "wards": 8,
+   "website": "http://simkotmun.gov.np",
+   "page": 61
+  },
+  {
+   "serial": 602,
+   "name_np": "नाम्खा गाउँपालिका",
+   "name_en": "Namkha Rural Municipality",
+   "wards": 6,
+   "website": "http://namkhamun.gov.np",
+   "page": 61
+  },
+  {
+   "serial": 603,
+   "name_np": "सर्केगाड गाउँपालिका",
+   "name_en": "Sarkegad Rural Municipality",
+   "wards": 8,
+   "website": "http://sarkegadmun.gov.np",
+   "page": 61
+  },
+  {
+   "serial": 604,
+   "name_np": "अदानचुली गाउँपालिका",
+   "name_en": "Adanchuli Rural Municipality",
+   "wards": 6,
+   "website": "https://adanchulimun.gov.np",
+   "page": 61
+  },
+  {
+   "serial": 605,
+   "name_np": "ताँजाकोट गाउँपालिका",
+   "name_en": "Tanjakot Rural Municipality",
+   "wards": 5,
+   "website": "http://tajakotmun.gov.np",
+   "page": 61
+  },
+  {
+   "serial": 606,
+   "name_np": "पातारासी गाउँपालिका",
+   "name_en": "Patarasi Rural Municipality",
+   "wards": 7,
+   "website": "http://patarasimun.gov.np",
+   "page": 61
+  },
+  {
+   "serial": 607,
+   "name_np": "कनका सुन्दरी गाउँपालिका",
+   "name_en": "Kanaka Sundari Rural Municipality",
+   "wards": 8,
+   "website": "http://kankasundarimun.gov.np",
+   "page": 61
+  },
+  {
+   "serial": 608,
+   "name_np": "सिंजा गाउँपालिका",
+   "name_en": "Sinja Rural Municipality",
+   "wards": 6,
+   "website": "http://sinjamun.gov.np",
+   "page": 61
+  },
+  {
+   "serial": 609,
+   "name_np": "चन्दननाथ नगरपालिका",
+   "name_en": "Chandannath Municipality",
+   "wards": 10,
+   "website": "https://chandannathmun.gov.np",
+   "page": 61
+  },
+  {
+   "serial": 610,
+   "name_np": "गुठिचौर गाउँपालिका",
+   "name_en": "Guthichaur Rural Municipality",
+   "wards": 5,
+   "website": "http://guthichaurmun.gov.np",
+   "page": 61
+  },
+  {
+   "serial": 611,
+   "name_np": "तातोपानी गाउँपालिका",
+   "name_en": "Tatopani Rural Municipality",
+   "wards": 8,
+   "website": "http://tatopanimun.gov.np",
+   "page": 62
+  },
+  {
+   "serial": 612,
+   "name_np": "तिला गाउँपालिका",
+   "name_en": "Tila Rural Municipality",
+   "wards": 9,
+   "website": "http://tilamun.gov.np",
+   "page": 62
+  },
+  {
+   "serial": 613,
+   "name_np": "हिमा गाउँपालिका",
+   "name_en": "Hima Rural Municipality",
+   "wards": 7,
+   "website": "http://himamun.gov.np",
+   "page": 62
+  },
+  {
+   "serial": 614,
+   "name_np": "पलाता गाउँपालिका",
+   "name_en": "Palata Rural Municipality",
+   "wards": 9,
+   "website": "http://palatamun.gov.np",
+   "page": 62
+  },
+  {
+   "serial": 615,
+   "name_np": "पचाल झरना गाउँपालिका",
+   "name_en": "Pachal Jharana Rural Municipality",
+   "wards": 9,
+   "website": "http://pachaljharanamun.gov.np",
+   "page": 62
+  },
+  {
+   "serial": 616,
+   "name_np": "रास्कोट नगरपालिका",
+   "name_en": "Raskot Municipality",
+   "wards": 9,
+   "website": "http://raskotmun.gov.np",
+   "page": 62
+  },
+  {
+   "serial": 617,
+   "name_np": "सान्नी त्रिवेणी गाउँपालिका",
+   "name_en": "Sanni Tribeni Rural Municipality",
+   "wards": 9,
+   "website": "http://sannitrivenimun.gov.np",
+   "page": 62
+  },
+  {
+   "serial": 618,
+   "name_np": "नरहरिनाथ गाउँपालिका",
+   "name_en": "Naraharinath Rural Municipality",
+   "wards": 9,
+   "website": "http://narharinathmun.gov.np",
+   "page": 62
+  },
+  {
+   "serial": 619,
+   "name_np": "खाँडाचक्र नगरपालिका",
+   "name_en": "Khandachakra Municipality",
+   "wards": 11,
+   "website": "http://khandachakramun.gov.np",
+   "page": 62
+  },
+  {
+   "serial": 620,
+   "name_np": "तिलागुफा नगरपालिका",
+   "name_en": "Tilagupha Municipality",
+   "wards": 11,
+   "website": "https://tilagufamun.gov.np",
+   "page": 62
+  },
+  {
+   "serial": 621,
+   "name_np": "महावै गाउँपालिका",
+   "name_en": "Mahawai Rural Municipality",
+   "wards": 7,
+   "website": "http://mahawaimun.gov.np",
+   "page": 63
+  },
+  {
+   "serial": 622,
+   "name_np": "शुभ कालिका गाउँपालिका",
+   "name_en": "Shubha Kalika Rural Municipality",
+   "wards": 5,
+   "website": "https://kalikamunrasuwa.gov.np",
+   "page": 63
+  },
+  {
+   "serial": 623,
+   "name_np": "नौमुले गाउँपालिका",
+   "name_en": "Naumule Rural Municipality",
+   "wards": 8,
+   "website": "http://naumulemun.gov.np",
+   "page": 63
+  },
+  {
+   "serial": 624,
+   "name_np": "महाबु गाउँपालिका",
+   "name_en": "Mahabu Rural Municipality",
+   "wards": 6,
+   "website": "https://mahabumun.gov.np",
+   "page": 63
+  },
+  {
+   "serial": 625,
+   "name_np": "भैरवी गाउँपालिका",
+   "name_en": "Bhairabi Rural Municipality",
+   "wards": 7,
+   "website": "http://bhairabimun.gov.np",
+   "page": 63
+  },
+  {
+   "serial": 626,
+   "name_np": "ठाँटीकाँध गाउँपालिका",
+   "name_en": "Thantikandh Rural Municipality",
+   "wards": 6,
+   "website": "http://thalaramun.gov.np",
+   "page": 63
+  },
+  {
+   "serial": 627,
+   "name_np": "आठबीस नगरपालिका",
+   "name_en": "Aathbis Municipality",
+   "wards": 9,
+   "website": "http://aathabismun.gov.np",
+   "page": 63
+  },
+  {
+   "serial": 628,
+   "name_np": "चामुण्डा बिन्द्रासैनी नगरपालिका",
+   "name_en": "Chamunda Bindrasaini Municipality",
+   "wards": 9,
+   "website": "http://chamundabindrasainimun.gov.np",
+   "page": 63
+  },
+  {
+   "serial": 629,
+   "name_np": "दुल्लु नगरपालिका",
+   "name_en": "Dullu Municipality",
+   "wards": 13,
+   "website": "https://dullumun.gov.np",
+   "page": 63
+  },
+  {
+   "serial": 630,
+   "name_np": "नारायण नगरपालिका",
+   "name_en": "Narayan Municipality",
+   "wards": 11,
+   "website": "https://narayanmun.gov.np",
+   "page": 63
+  },
+  {
+   "serial": 631,
+   "name_np": "भगवतीमाई गाउँपालिका",
+   "name_en": "Bhagawatimai Rural Municipality",
+   "wards": 7,
+   "website": "http://bhagawatimaimun.gov.np",
+   "page": 64
+  },
+  {
+   "serial": 632,
+   "name_np": "डुङ्गेश्वर गाउँपालिका",
+   "name_en": "Dungeshwor Rural Municipality",
+   "wards": 6,
+   "website": "http://dungeshwormun.gov.np",
+   "page": 64
+  },
+  {
+   "serial": 633,
+   "name_np": "गुराँस गाउँपालिका",
+   "name_en": "Gurans Rural Municipality",
+   "wards": 8,
+   "website": "http://guransmun.gov.np",
+   "page": 64
+  },
+  {
+   "serial": 634,
+   "name_np": "बारेकोट गाउँपालिका",
+   "name_en": "Barekot Rural Municipality",
+   "wards": 9,
+   "website": "http://barekotmun.gov.np",
+   "page": 64
+  },
+  {
+   "serial": 635,
+   "name_np": "कुसे गाउँपालिका",
+   "name_en": "Kuse Rural Municipality",
+   "wards": 9,
+   "website": "http://kushemun.gov.np",
+   "page": 64
+  },
+  {
+   "serial": 636,
+   "name_np": "जुनीचाँदे गाउँपालिका",
+   "name_en": "Junichande Rural Municipality",
+   "wards": 11,
+   "website": "http://junichaandemun.gov.np",
+   "page": 64
+  },
+  {
+   "serial": 637,
+   "name_np": "छेडागाड नगरपालिका",
+   "name_en": "Chhedagad Municipality",
+   "wards": 13,
+   "website": "http://chhedagadmun.gov.np",
+   "page": 64
+  },
+  {
+   "serial": 638,
+   "name_np": "शिवालय गाउँपालिका",
+   "name_en": "Shivalaya Rural Municipality",
+   "wards": 9,
+   "website": "http://shibalayamun.gov.np",
+   "page": 64
+  },
+  {
+   "serial": 639,
+   "name_np": "भेरी नगरपालिका",
+   "name_en": "Bheri Municipality",
+   "wards": null,
+   "website": "https://bherimun.gov.np",
+   "page": 64
+  },
+  {
+   "serial": 640,
+   "name_np": "नलगाड नगरपालिका",
+   "name_en": "Nalagad Municipality",
+   "wards": 13,
+   "website": "https://nalgaadmun.gov.np/",
+   "page": 64
+  },
+  {
+   "serial": 641,
+   "name_np": "आठबिसकोट नगरपालिका",
+   "name_en": "Aathabisakot Municipality",
+   "wards": 14,
+   "website": "http://aathbiskotmun.gov.np",
+   "page": 65
+  },
+  {
+   "serial": 642,
+   "name_np": "सानीभेरी गाउँपालिका",
+   "name_en": "Sanibheri Rural Municipality",
+   "wards": 11,
+   "website": "http://sanibherimun.gov.np",
+   "page": 65
+  },
+  {
+   "serial": 643,
+   "name_np": "बाँफिकोट गाउँपालिका",
+   "name_en": "Banphikot Rural Municipality",
+   "wards": 6,
+   "website": "https://banphikotmun.gov.np",
+   "page": 65
+  },
+  {
+   "serial": 644,
+   "name_np": "मुसिकोट नगरपालिका",
+   "name_en": "Musikot Municipality",
+   "wards": 14,
+   "website": "http://musikotmunrukum.gov.np",
+   "page": 65
+  },
+  {
+   "serial": 645,
+   "name_np": "त्रिवेणी गाउँपालिका",
+   "name_en": "Tribeni Rural Municipality",
+   "wards": 6,
+   "website": "http://www.trivenimunsalyan.gov.np",
+   "page": 65
+  },
+  {
+   "serial": 646,
+   "name_np": "चौरजहारी नगरपालिका",
+   "name_en": "Chaurjahari Municipality",
+   "wards": 14,
+   "website": "https://chaurjaharimun.gov.np",
+   "page": 65
+  },
+  {
+   "serial": 647,
+   "name_np": "दार्मा गाउँपालिका",
+   "name_en": "Darma Rural Municipality",
+   "wards": 6,
+   "website": "https://darmamun.gov.np",
+   "page": 65
+  },
+  {
+   "serial": 648,
+   "name_np": "कुमाख गाउँपालिका",
+   "name_en": "Kummayak Rural Municipality",
+   "wards": 5,
+   "website": "http://kumakhmalikamun.gov.np/",
+   "page": 65
+  },
+  {
+   "serial": 649,
+   "name_np": "बनगाड कुपिण्डे नगरपालिका",
+   "name_en": "Banagad Kupinde Municipality",
+   "wards": 12,
+   "website": "https://bangadkupindemun.gov.np",
+   "page": 65
+  },
+  {
+   "serial": 650,
+   "name_np": "सिद्ध कुमाख गाउँपालिका",
+   "name_en": "Siddihakumakh Rural Municipality",
+   "wards": 5,
+   "website": "https://siddhakumakhmun.gov.np/",
+   "page": 65
+  },
+  {
+   "serial": 651,
+   "name_np": "बागचौर नगरपालिका",
+   "name_en": "Bagachour Municipality",
+   "wards": 12,
+   "website": "https://bagchaurmun.gov.np",
+   "page": 66
+  },
+  {
+   "serial": 652,
+   "name_np": "छत्रेश्वरी गाउँपालिका",
+   "name_en": "Chhatreshwori Rural Municipality",
+   "wards": 7,
+   "website": "https://chhatreshworimun.gov.np",
+   "page": 66
+  },
+  {
+   "serial": 653,
+   "name_np": "शारदा नगरपालिका",
+   "name_en": "Sharada Municipality",
+   "wards": 15,
+   "website": "https://shaaradamun.gov.np",
+   "page": 66
+  },
+  {
+   "serial": 654,
+   "name_np": "कालिमाटी गाउँपालिका",
+   "name_en": "Kalimati Rural Municipality",
+   "wards": 7,
+   "website": "https://kalimatimun.gov.np",
+   "page": 66
+  },
+  {
+   "serial": 655,
+   "name_np": "त्रिवेणी गाउँपालिका",
+   "name_en": "Tribeni Rural Municipality",
+   "wards": 10,
+   "website": "http://trivenimunrukum.gov.np",
+   "page": 66
+  },
+  {
+   "serial": 656,
+   "name_np": "कपुरकोट गाउँपालिका",
+   "name_en": "Kapurkot Rural Municipality",
+   "wards": 6,
+   "website": "https://kapurkotmun.gov.np",
+   "page": 66
+  },
+  {
+   "serial": 657,
+   "name_np": "सिम्ता गाउँपालिका",
+   "name_en": "Simta Rural Municipality",
+   "wards": 9,
+   "website": "http://simkotmun.gov.np",
+   "page": 66
+  },
+  {
+   "serial": 658,
+   "name_np": "चिङ्गगाड गाउँपालिका",
+   "name_en": "Chingad Rural Municipality",
+   "wards": 6,
+   "website": "http://chingadmun.gov.np",
+   "page": 66
+  },
+  {
+   "serial": 659,
+   "name_np": "लेकबेशी नगरपालिका",
+   "name_en": "Lekabeshi Municipality",
+   "wards": 10,
+   "website": "https://lekbeshimun.gov.np",
+   "page": 66
+  },
+  {
+   "serial": 660,
+   "name_np": "गुर्भाकोट नगरपालिका",
+   "name_en": "Gurbhakot Municipality",
+   "wards": 14,
+   "website": "http://gurbhakotmun.gov.np",
+   "page": 66
+  },
+  {
+   "serial": 661,
+   "name_np": "भेरीगंगा नगरपालिका",
+   "name_en": "Bheriganga Municipality",
+   "wards": 13,
+   "website": "https://bherigangamun.gov.np",
+   "page": 67
+  },
+  {
+   "serial": 662,
+   "name_np": "बीरेन्द्रनगर नगरपालिका",
+   "name_en": "Birendranagar Municipality",
+   "wards": 16,
+   "website": "http://birendranagarmun.gov.np",
+   "page": 67
+  },
+  {
+   "serial": 663,
+   "name_np": "बराहताल गाउँपालिका",
+   "name_en": "Barahatal Rural Municipality",
+   "wards": 10,
+   "website": "http://barahatalmun.gov.np",
+   "page": 67
+  },
+  {
+   "serial": 664,
+   "name_np": "पञ्चपुरी नगरपालिका",
+   "name_en": "Panchapuri Municipality",
+   "wards": 11,
+   "website": "https://panchapurimun.gov.np",
+   "page": 67
+  },
+  {
+   "serial": 665,
+   "name_np": "चौकुने गाउँपालिका",
+   "name_en": "Chaukune Rural Municipality",
+   "wards": 10,
+   "website": "https://chaukunemun.gov.np",
+   "page": 67
+  },
+  {
+   "serial": 666,
+   "name_np": "हिमाली गाउँपालिका",
+   "name_en": "Himali Rural Municipality",
+   "wards": 7,
+   "website": "https://www.himalimun.gov.np",
+   "page": 67
+  },
+  {
+   "serial": 667,
+   "name_np": "गौमुल गाउँपालिका",
+   "name_en": "Gaumul Rural Municipality",
+   "wards": 6,
+   "website": "https://www.gaumulmun.gov.np",
+   "page": 67
+  },
+  {
+   "serial": 668,
+   "name_np": "बुढीनन्दा नगरपालिका",
+   "name_en": "Budhinanda Municipality",
+   "wards": 10,
+   "website": "https://www.budhinandamun.gov.np",
+   "page": 67
+  },
+  {
+   "serial": 669,
+   "name_np": "स्वामी कार्तिक गाउँपालिका",
+   "name_en": "Swami Kartik Rural Municipality",
+   "wards": 5,
+   "website": "http://swamikartikmun.gov.np",
+   "page": 67
+  },
+  {
+   "serial": 670,
+   "name_np": "जगन्नाथ गाउँपालिका",
+   "name_en": "Jagganath Rural Municipality",
+   "wards": 6,
+   "website": "https://www.jagganathmun.gov.np",
+   "page": 67
+  },
+  {
+   "serial": 671,
+   "name_np": "बडिमालिका नगरपालिका",
+   "name_en": "Badimalika Municipality",
+   "wards": 9,
+   "website": "https://www.badimalikamun.gov.np",
+   "page": 68
+  },
+  {
+   "serial": 672,
+   "name_np": "खप्तड छेडेदह गाउँपालिका",
+   "name_en": "Khaptad Chhededaha Rural Municipality",
+   "wards": 7,
+   "website": "http://chhededahamun.gov.np",
+   "page": 68
+  },
+  {
+   "serial": 673,
+   "name_np": "बुढीगंगा नगरपालिका",
+   "name_en": "Budhiganga Municipality",
+   "wards": 10,
+   "website": "https://www.budhigangamunbajura.gov.np",
+   "page": 68
+  },
+  {
+   "serial": 674,
+   "name_np": "त्रिवेणी नगरपालिका",
+   "name_en": "Tribeni Municipality",
+   "wards": 9,
+   "website": "http://trivenimunbajura.gov.np",
+   "page": 68
+  },
+  {
+   "serial": 675,
+   "name_np": "काँडा गाउँपालिका",
+   "name_en": "Kanda Rural Municipality",
+   "wards": null,
+   "website": "",
+   "page": 68
+  },
+  {
+   "serial": 676,
+   "name_np": "बुंगल नगरपालिका",
+   "name_en": "Bungal Municipality",
+   "wards": 11,
+   "website": "https://www.bungalmun.gov.np",
+   "page": 68
+  },
+  {
+   "serial": 677,
+   "name_np": "सूर्मा गाउँपालिका",
+   "name_en": "Surma Rural Municipality",
+   "wards": 5,
+   "website": "https://www.surmamun.gov.np",
+   "page": 68
+  },
+  {
+   "serial": 678,
+   "name_np": "तालकोट गाउँपालिका",
+   "name_en": "Talkot Rural Municipality",
+   "wards": 7,
+   "website": "https://www.talkotmun.gov.np",
+   "page": 68
+  },
+  {
+   "serial": 679,
+   "name_np": "मष्टा गाउँपालिका",
+   "name_en": "Masta Rural Municipality",
+   "wards": 7,
+   "website": "https://www.mastamun.gov.np",
+   "page": 68
+  },
+  {
+   "serial": 680,
+   "name_np": "जयपृथ्वी नगरपालिका",
+   "name_en": "Jayaprithbi Municipality",
+   "wards": 11,
+   "website": "https://www.jayaprithvimun.gov.np",
+   "page": 68
+  },
+  {
+   "serial": 681,
+   "name_np": "छबिस पाथिभरा गाउँपालिका",
+   "name_en": "Chhabis Pathibhara Rural Municipality",
+   "wards": 7,
+   "website": "https://www.chhabispathiveramun.gov.np",
+   "page": 69
+  },
+  {
+   "serial": 682,
+   "name_np": "दुर्गाथली गाउँपालिका",
+   "name_en": "Durgathali Rural Municipality",
+   "wards": 7,
+   "website": "https://www.durgathalimun.gov.np",
+   "page": 69
+  },
+  {
+   "serial": 683,
+   "name_np": "केदारस्युँ गाउँपालिका",
+   "name_en": "Kedarsyun Rural Municipality",
+   "wards": 9,
+   "website": "https://www.kedarasyumun.gov.np",
+   "page": 69
+  },
+  {
+   "serial": 684,
+   "name_np": "बित्थडचिर गाउँपालिका",
+   "name_en": "Bitthadchir Rural Municipality",
+   "wards": 9,
+   "website": "https://www.bitthadchirmun.gov.np",
+   "page": 69
+  },
+  {
+   "serial": 685,
+   "name_np": "थलारा गाउँपालिका",
+   "name_en": "Thalara Rural Municipality",
+   "wards": 9,
+   "website": "https://www.thalaramun.gov.np",
+   "page": 69
+  },
+  {
+   "serial": 686,
+   "name_np": "खप्तडछान्ना गाउँपालिका",
+   "name_en": "Khaptad Chhanna Rural Municipality",
+   "wards": 7,
+   "website": "https://www.khaptadchhannamun.gov.np",
+   "page": 69
+  },
+  {
+   "serial": 687,
+   "name_np": "ब्याँस गाउँपालिका",
+   "name_en": "Byas Rural Municipality",
+   "wards": 6,
+   "website": "http://vyansmun.gov.np",
+   "page": 69
+  },
+  {
+   "serial": 688,
+   "name_np": "दुहुँ गाउँपालिका",
+   "name_en": "Duhun Rural Municipality",
+   "wards": 5,
+   "website": "http://duhunmun.gov.np",
+   "page": 69
+  },
+  {
+   "serial": 689,
+   "name_np": "महाकाली नगरपालिका",
+   "name_en": "Mahakali Municipality",
+   "wards": 9,
+   "website": "http://mahakalimundarchula.gov.np",
+   "page": 69
+  },
+  {
+   "serial": 690,
+   "name_np": "नौगाड गाउँपालिका",
+   "name_en": "Naugad Rural Municipality",
+   "wards": 6,
+   "website": "http://naugadmun.gov.np",
+   "page": 69
+  },
+  {
+   "serial": 691,
+   "name_np": "अपिहिमाल गाउँपालिका",
+   "name_en": "Apihimal Rural Municipality",
+   "wards": 6,
+   "website": "http://apihimalmun.gov.np",
+   "page": 70
+  },
+  {
+   "serial": 692,
+   "name_np": "मार्मा गाउँपालिका",
+   "name_en": "Marma Rural Municipality",
+   "wards": 6,
+   "website": "http://marmamun.gov.np",
+   "page": 70
+  },
+  {
+   "serial": 693,
+   "name_np": "शैल्यशिखर नगरपालिका",
+   "name_en": "Shailyashikhar Municipality",
+   "wards": 9,
+   "website": "https://www.shailyashikharmun.gov.np",
+   "page": 70
+  },
+  {
+   "serial": 694,
+   "name_np": "मालिकार्जुन गाउँपालिका",
+   "name_en": "Malikarjun Rural Municipality",
+   "wards": 8,
+   "website": "http://badimalikamun.gov.np",
+   "page": 70
+  },
+  {
+   "serial": 695,
+   "name_np": "लेकम गाउँपालिका",
+   "name_en": "Lekam Rural Municipality",
+   "wards": 6,
+   "website": "http://lekammun.gov.np",
+   "page": 70
+  },
+  {
+   "serial": 696,
+   "name_np": "डीलासैनी गाउँपालिका",
+   "name_en": "Dilasaini Rural Municipality",
+   "wards": 7,
+   "website": "http://dilasainimun.gov.np",
+   "page": 70
+  },
+  {
+   "serial": 697,
+   "name_np": "दोगडाकेदार गाउँपालिका",
+   "name_en": "Dogada Kedar Rural Municipality",
+   "wards": 8,
+   "website": "http://dogdakedarmun.gov.np",
+   "page": 70
+  },
+  {
+   "serial": 698,
+   "name_np": "पुचौंडी नगरपालिका",
+   "name_en": "Puchaundi Municipality",
+   "wards": 10,
+   "website": "https://www.purchaudimun.gov.np",
+   "page": 70
+  },
+  {
+   "serial": 699,
+   "name_np": "सुर्नया गाउँपालिका",
+   "name_en": "Sunarya Rural Municipality",
+   "wards": 8,
+   "website": "https://www.sunaryamun.gov.np",
+   "page": 70
+  },
+  {
+   "serial": 700,
+   "name_np": "दशरथचन्द नगरपालिका",
+   "name_en": "Dasharathchand Municipality",
+   "wards": 11,
+   "website": "http://www.dasharathchandmun.gov.np",
+   "page": 70
+  },
+  {
+   "serial": 701,
+   "name_np": "पन्चेश्वर गाउँपालिका",
+   "name_en": "Pancheshwor Rural Municipality",
+   "wards": 6,
+   "website": "https://www.pancheshwormun.gov.np",
+   "page": 71
+  },
+  {
+   "serial": 702,
+   "name_np": "शिवनाथ गाउँपालिका",
+   "name_en": "Shivanath Rural Municipality",
+   "wards": 6,
+   "website": "http://shivanathmun.gov.np",
+   "page": 71
+  },
+  {
+   "serial": 703,
+   "name_np": "मेलौली नगरपालिका",
+   "name_en": "Melauli Municipality",
+   "wards": 9,
+   "website": "http://melaulimun.gov.np",
+   "page": 71
+  },
+  {
+   "serial": 704,
+   "name_np": "पाटन नगरपालिका",
+   "name_en": "Patan Municipality",
+   "wards": 10,
+   "website": "http://www.patanmun.gov.np",
+   "page": 71
+  },
+  {
+   "serial": 705,
+   "name_np": "सिगास गाउँपालिका",
+   "name_en": "Sigas Rural Municipality",
+   "wards": 9,
+   "website": "http://sigasmun.gov.np",
+   "page": 71
+  },
+  {
+   "serial": 706,
+   "name_np": "नवदुर्गा गाउँपालिका",
+   "name_en": "Nawadurga Rural Municipality",
+   "wards": 5,
+   "website": "http://www.navadurgamun.gov.np",
+   "page": 71
+  },
+  {
+   "serial": 707,
+   "name_np": "अमरगढी नगरपालिका",
+   "name_en": "Amargadhi Municipality",
+   "wards": 11,
+   "website": "http://www.amargadhimun.gov.np",
+   "page": 71
+  },
+  {
+   "serial": 708,
+   "name_np": "अजयमेरु गाउँपालिका",
+   "name_en": "Ajayameru Rural Municipality",
+   "wards": 6,
+   "website": "https://www.ajayamerumun.gov.np",
+   "page": 71
+  },
+  {
+   "serial": 709,
+   "name_np": "भागेश्वर गाउँपालिका",
+   "name_en": "Bhageshwor Rural Municipality",
+   "wards": 5,
+   "website": "https://www.bhageshwormun.gov.np",
+   "page": 71
+  },
+  {
+   "serial": 710,
+   "name_np": "परशुराम नगरपालिका",
+   "name_en": "Parashuram Municipality",
+   "wards": 12,
+   "website": "http://www.parshurammun.gov.np",
+   "page": 71
+  },
+  {
+   "serial": 711,
+   "name_np": "आलिताल गाउँपालिका",
+   "name_en": "Aalital Rural Municipality",
+   "wards": 8,
+   "website": "https://www.aalitalmun.gov.np",
+   "page": 72
+  },
+  {
+   "serial": 712,
+   "name_np": "गन्यापधुरा गाउँपालिका",
+   "name_en": "Ganyapdhura Rural Municipality",
+   "wards": 5,
+   "website": "https://www.ganyapadhuramun.gov.np",
+   "page": 72
+  },
+  {
+   "serial": 713,
+   "name_np": "पुर्विचौकी गाउँपालिका",
+   "name_en": "Purbichouki Rural Municipality",
+   "wards": 7,
+   "website": "https://www.purbichaukimun.gov.np",
+   "page": 72
+  },
+  {
+   "serial": 714,
+   "name_np": "सायल गाउँपालिका",
+   "name_en": "Sayal Rural Municipality",
+   "wards": 6,
+   "website": "https://www.sayalmun.gov.np",
+   "page": 72
+  },
+  {
+   "serial": 715,
+   "name_np": "आदर्श गाउँपालिका",
+   "name_en": "Aadarsha Rural Municipality",
+   "wards": 7,
+   "website": "https://www.aadarshamun.gov.np",
+   "page": 72
+  },
+  {
+   "serial": 716,
+   "name_np": "शिखर नगरपालिका",
+   "name_en": "Shikhar Municipality",
+   "wards": 11,
+   "website": "",
+   "page": 72
+  },
+  {
+   "serial": 717,
+   "name_np": "दिपायल सिलगढी नगरपालिका",
+   "name_en": "Dipayal Silgadhi Municipality",
+   "wards": 9,
+   "website": "https://www.dipayalsilgadhimun.gov.np",
+   "page": 72
+  },
+  {
+   "serial": 718,
+   "name_np": "के.आई.सिं. गाउँपालिका",
+   "name_en": ". . . K.I. Singh Rural Municipality",
+   "wards": 7,
+   "website": "https://www.kisinghmun.gov.np",
+   "page": 72
+  },
+  {
+   "serial": 719,
+   "name_np": "बोगटान गाउँपालिका",
+   "name_en": "Bogatan Rural Municipality",
+   "wards": 7,
+   "website": "https://www.bogatanmun.gov.np",
+   "page": 72
+  },
+  {
+   "serial": 720,
+   "name_np": "बडीकेदार गाउँपालिका",
+   "name_en": "Badi Kedar Rural Municipality",
+   "wards": 5,
+   "website": "https://www.badikedarmun.gov.np",
+   "page": 72
+  },
+  {
+   "serial": 721,
+   "name_np": "जोरायल गाउँपालिका",
+   "name_en": "Jorayal Rural Municipality",
+   "wards": 6,
+   "website": "https://www.jorayalmun.gov.np",
+   "page": 73
+  },
+  {
+   "serial": 722,
+   "name_np": "पंचदेवल बिनायक नगरपालिका",
+   "name_en": "Panchdebal Binayak Municipality",
+   "wards": 9,
+   "website": "https://www.panchadewalbinayakmun.gov.np",
+   "page": 73
+  },
+  {
+   "serial": 723,
+   "name_np": "रामारोशन गाउँपालिका",
+   "name_en": "Ramaroshan Rural Municipality",
+   "wards": 7,
+   "website": "https://www.ramaroshanmun.gov.np",
+   "page": 73
+  },
+  {
+   "serial": 724,
+   "name_np": "मेल्लेख गाउँपालिका",
+   "name_en": "Mellekh Rural Municipality",
+   "wards": 8,
+   "website": "https://www.mellekhmun.gov.np",
+   "page": 73
+  },
+  {
+   "serial": 725,
+   "name_np": "साँफेबगर नगरपालिका",
+   "name_en": "Sanphebagar Municipality",
+   "wards": 14,
+   "website": "https://www.sanfebagarmun.gov.np",
+   "page": 73
+  },
+  {
+   "serial": 726,
+   "name_np": "चौरपाटी गाउँपालिका",
+   "name_en": "Chaurpati Rural Municipality",
+   "wards": 7,
+   "website": "https://www.chaurpatimun.gov.np",
+   "page": 73
+  },
+  {
+   "serial": 727,
+   "name_np": "मंगलसेन नगरपालिका",
+   "name_en": "Mangalsen Municipality",
+   "wards": 14,
+   "website": "https://www.mangalsenmun.gov.np",
+   "page": 73
+  },
+  {
+   "serial": 728,
+   "name_np": "बान्नीगढी जयगढ गाउँपालिका",
+   "name_en": "Bannigadhi Jayagadh Rural Municipality",
+   "wards": 6,
+   "website": "http://bannigadhijaygadhmun.gov.np",
+   "page": 73
+  },
+  {
+   "serial": 729,
+   "name_np": "कमलबजार नगरपालिका",
+   "name_en": "Kamal Bazar Municipality",
+   "wards": 10,
+   "website": "https://www.kamalbazarmun.gov.np",
+   "page": 73
+  },
+  {
+   "serial": 730,
+   "name_np": "ढकारी गाउँपालिका",
+   "name_en": "Dhakari Rural Municipality",
+   "wards": 8,
+   "website": "https://www.dhakarimun.gov.np",
+   "page": 73
+  },
+  {
+   "serial": 731,
+   "name_np": "तुर्माखाँद गाउँपालिका",
+   "name_en": "Turmakhand Rural Municipality",
+   "wards": 8,
+   "website": "http://turmakhadmun.gov.np",
+   "page": 74
+  },
+  {
+   "serial": 732,
+   "name_np": "मोहन्याल गाउँपालिका",
+   "name_en": "Mohanyal Rural Municipality",
+   "wards": 7,
+   "website": "https://www.mohanyalmun.gov.np",
+   "page": 74
+  },
+  {
+   "serial": 733,
+   "name_np": "चुरे गाउँपालिका",
+   "name_en": "Chure Rural Municipality",
+   "wards": 6,
+   "website": "https://www.churemun.gov.np",
+   "page": 74
+  },
+  {
+   "serial": 734,
+   "name_np": "गोदावरी नगरपालिका",
+   "name_en": "Godawari Municipality",
+   "wards": 14,
+   "website": "https://godawarimunlalitpur.gov.np",
+   "page": 74
+  },
+  {
+   "serial": 735,
+   "name_np": "गौरीगंगा नगरपालिका",
+   "name_en": "Gauriganga Municipality",
+   "wards": 11,
+   "website": "https://www.gaurigangamun.gov.np",
+   "page": 74
+  },
+  {
+   "serial": 736,
+   "name_np": "घोडाघोडी नगरपालिका",
+   "name_en": "Ghodaghodi Municipality",
+   "wards": 12,
+   "website": "https://www.ghodaghodimun.gov.np",
+   "page": 74
+  },
+  {
+   "serial": 737,
+   "name_np": "बर्दगोरिया गाउँपालिका",
+   "name_en": "Bardagoriya Rural Municipality",
+   "wards": 6,
+   "website": "https://www.bardgoriyamun.gov.np",
+   "page": 74
+  },
+  {
+   "serial": 738,
+   "name_np": "लम्कि चुहा नगरपालिका",
+   "name_en": "Lamki Chuha Municipality",
+   "wards": 10,
+   "website": "https://www.lamkichuhamun.gov.np",
+   "page": 74
+  },
+  {
+   "serial": 739,
+   "name_np": "जानकी गाउँपालिका",
+   "name_en": "Janaki Rural Municipality",
+   "wards": 6,
+   "website": "http://janakimunbanke.gov.np",
+   "page": 74
+  },
+  {
+   "serial": 740,
+   "name_np": "जोशीपुर गाउँपालिका",
+   "name_en": "Joshipur Rural Municipality",
+   "wards": 7,
+   "website": "https://www.joshipurmun.gov.np",
+   "page": 74
+  },
+  {
+   "serial": 741,
+   "name_np": "टिकापुर नगरपालिका",
+   "name_en": "Tikapur Municipality",
+   "wards": 9,
+   "website": "https://www.tikapurmun.gov.np",
+   "page": 75
+  },
+  {
+   "serial": 742,
+   "name_np": "भजनी नगरपालिका",
+   "name_en": "Bhajani Municipality",
+   "wards": 9,
+   "website": "https://www.bhajanimun.gov.np",
+   "page": 75
+  },
+  {
+   "serial": 743,
+   "name_np": "कैलारी गाउँपालिका",
+   "name_en": "Kailari Rural Municipality",
+   "wards": 9,
+   "website": "https://www.kailarimun.gov.np",
+   "page": 75
+  },
+  {
+   "serial": 744,
+   "name_np": "धनगढी उपमहानगरपालिका",
+   "name_en": "Dhangadhi Sub-Metropolitian City",
+   "wards": 19,
+   "website": "https://www.dhangadhimun.gov.np",
+   "page": 75
+  },
+  {
+   "serial": 745,
+   "name_np": "कृष्णपुर नगरपालिका",
+   "name_en": "Krishnapur Municipality",
+   "wards": 9,
+   "website": "https://www.krishnapurmun.gov.np",
+   "page": 75
+  },
+  {
+   "serial": 746,
+   "name_np": "शुक्लाफाँटा नगरपालिका",
+   "name_en": "Shuklaphanta Municipality",
+   "wards": 12,
+   "website": "https://www.shuklaphantamun.gov.np",
+   "page": 75
+  },
+  {
+   "serial": 747,
+   "name_np": "बेदकोट नगरपालिका",
+   "name_en": "Bedkot Municipality",
+   "wards": 10,
+   "website": "http://www.bedkotmun.gov.np",
+   "page": 75
+  },
+  {
+   "serial": 748,
+   "name_np": "भिमदत्त नगरपालिका",
+   "name_en": "Bhimdatta Municipality",
+   "wards": 19,
+   "website": "https://www.bheemdattamun.gov.np",
+   "page": 75
+  },
+  {
+   "serial": 749,
+   "name_np": "दोधारा चाँदनी नगरपालिका",
+   "name_en": "Dodhara Chandani Municipality",
+   "wards": 10,
+   "website": "https://www.dodharachandanimun.gov.np",
+   "page": 75
+  },
+  {
+   "serial": 750,
+   "name_np": "लालझाडी गाउँपालिका",
+   "name_en": "Laljhadi Rural Municipality",
+   "wards": 6,
+   "website": "https://www.laljhadimun.gov.np",
+   "page": 75
+  },
+  {
+   "serial": 751,
+   "name_np": "पुनर्वास नगरपालिका",
+   "name_en": "Punarbas Municipality",
+   "wards": 11,
+   "website": "https://www.punarbasmun.gov.np",
+   "page": 76
+  },
+  {
+   "serial": 752,
+   "name_np": "बेलौरी नगरपालिका",
+   "name_en": "Belouri Municipality",
+   "wards": 10,
+   "website": "https://www.belaurimun.gov.np",
+   "page": 76
+  },
+  {
+   "serial": 753,
+   "name_np": "बेलडाँडी गाउँपालिका",
+   "name_en": "Beldandi Rural Municipality",
+   "wards": 5,
+   "website": "https://www.beldandimun.gov.np",
+   "page": 76
+  }
+ ]
+}

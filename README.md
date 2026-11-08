@@ -25,6 +25,9 @@ CID-keyed Kalimati text, or spreadsheets that change layout every month.
 Kagaj turns that paper into **structured, verifiable, reusable data** — and
 keeps the tools open so anyone can extend them to a new office or document type.
 
+Not all of it is paper: `govweb/` passively measures the infrastructure those
+offices publish on, using only ordinary public requests.
+
 ## Datasets
 
 | Dataset | What it is | Coverage | Format | Link |
@@ -33,6 +36,7 @@ keeps the tools open so anyone can extend them to a new office or document type.
 | **Parliament translations** | HoR notices + National Assembly verbatims, English + structured JSON | 7th HoR · NA sessions 19+ · 220 structured docs | TXT / JSON | [`datasets/translations/`](datasets/translations/) |
 | **KUKL water schedules** | Branch → reservoir → zone/DMA/day/time/areas | 2083 Ashoj · 7 branches · 231 source entries | JSON | [`datasets/water/schedule.json`](datasets/water/schedule.json) |
 | **Budget (redbook)** | Ministry/program budget rows with a math audit against printed totals | 2082/83 redbook | SQLite / CSV / Excel | [`redbook_parser/`](redbook_parser/) |
+| **Nepal `.gov.np` infrastructure** | Hostname inventory, hosting/DNS/TLS/header observations, local-level roster + attribution join | 2026-11 snapshot · 2,782 hostnames · 659/753 local levels attributed · 20 observed | CSV.GZ + JSON | [`datasets/govweb/`](datasets/govweb/) |
 
 The labour-migration panel is the most mature artifact. Every row carries a
 `source_url`, each source document passes a printed-total audit, overlaps between
@@ -91,6 +95,7 @@ ORDER BY fiscal_year;
 | [`drug_prices/`](drug_prices/) | `dda.gov.np` | OCR + spatial columns (experimental) | `python drug_prices/scripts/process_dda.py` |
 | [`cidmap/`](cidmap/) | Any CID-keyed PDF | Font-scoped CID → Devanagari mapping | `python -m cidmap.cli` |
 | [`dictionary/`](dictionary/) | Legacy Nepali PDFs | OCR → StarDict dictionary | see `dictionary/README.md` |
+| [`govweb/`](govweb/) | `.gov.np` hosts, crt.sh, OAG roster | Passive network observation, no scanning | `python -m govweb.cli` |
 
 Shared infrastructure: OCR (`paddleocr`), PDF text/geometry (`pymupdf`),
 structured extraction (`gemini-2.5-flash-lite`), pgvector for semantic search,
@@ -142,6 +147,7 @@ drug_prices/       DDA drug-price extraction (experimental)
 cidmap/            CID → Devanagari font mapping
 kagaj_core/        Shared Devanagari + unknown-glyph review harness
 dictionary/        Nepali–English dictionary builder
+govweb/            Passive .gov.np web-infrastructure observation
 
 datasets/          Committed, reusable outputs (start here)
 docs/              Architecture, integrity, roadmap, review harness, plans

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "dataset": "govweb",
+  "purpose": "Registry of every source the observation pipeline reads, so a consumer can re-collect or audit provenance without reading the package.",
+  "sources": [
+    {
+      "id": "oag-local-level-roster",
+      "name": "Office of the Auditor General — local-level report API",
+      "url": "https://oag.gov.np/api/front/local-level-report?province=&district=&municipality=&fiscal_year=&page=1&per_page=2000",
+      "kind": "roster",
+      "method": "one GET, JSON response, no pagination needed at per_page=2000",
+      "observed_at": "2026-11-05",
+      "artifact": "roster.json",
+      "note": "The provinces property is the roster source; reports and fiscal_years are not."
+    },
+    {
+      "id": "crt-sh-gov-np",
+      "name": "Certificate Transparency search — crt.sh",
+      "url": "https://crt.sh/?q=%25.gov.np&output=json",
+      "kind": "discovery",
+      "method": "one GET, JSON array of certificate records; names extracted from name_value and common_name",
+      "observed_at": "2026-11-05",
+      "artifact": "sources/crtsh_gov_np.json"
+    },
+    {
+      "id": "localbody-eoffice-directory",
+      "name": "Local-body e-office directory (dcc-localbody-list)",
+      "url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "kind": "attribution",
+      "method": "76 paginated HTML pages, 10 rows each; one GET per page; English name, wards and website per row",
+      "observed_at": "2026-11-06",
+      "artifact": "sources/localbody_directory.json",
+      "note": "Primary attribution source: 753 rows, 750 with a website. Contains duplicate rows and some wrong or generic links, so every hostname is cross-checked before it is accepted."
+    },
+    {
+      "id": "wikidata-nepal-websites",
+      "name": "Wikidata Query Service — Nepali entities with P856 official website",
+      "url": "https://query.wikidata.org/sparql",
+      "kind": "attribution",
+      "method": "one SPARQL GET; P17 = Nepal, P856 official website, optional P131 district",
+      "observed_at": "2026-11-05",
+      "artifact": "sources/wikidata_nepal_websites.json",
+      "note": "Secondary attribution source: 1,534 items including non-local agencies, so candidates are filtered by name, district and hostname agreement."
+    },
+    {
+      "id": "osm-np-local-levels",
+      "name": "OpenStreetMap Overpass — Nepal administrative relations",
+      "url": "https://overpass-api.de/api/interpreter",
+      "kind": "attribution",
+      "method": "one Overpass query; boundary=administrative, admin_level 7 or 8 inside the Nepal area; tags only",
+      "observed_at": "2026-11-05",
+      "artifact": "sources/osm_np_local_levels.json",
+      "note": "Corroboration only: 749 relations but just 5 carry a website tag, so it never contributes an attribution on its own."
+    },
+    {
+      "id": "ipwho-is",
+      "name": "ipwho.is IP registration metadata",
+      "url": "https://ipwho.is/",
+      "kind": "enrichment",
+      "method": "one GET per public IP address; ASN, organization and country only",
+      "observed_at": "2026-11-05",
+      "artifact": "observations/hosting_observations.json",
+      "note": "Only global public addresses are queried; private and link-local addresses never leave the host."
+    },
+    {
+      "id": "cloudflare-doh",
+      "name": "Cloudflare DNS-over-HTTPS resolver",
+      "url": "https://cloudflare-dns.com/dns-query",
+      "kind": "measurement",
+      "method": "A, AAAA, MX, NS, TXT, CAA, plus _dmarc TXT per hostname",
+      "observed_at": "2026-11-05",
+      "artifact": "observations/dns_mail_observations.json"
+    }
+  ]
+}

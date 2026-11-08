@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.0",
+  "id": "govweb",
+  "title": "Nepal .gov.np web-infrastructure observations",
+  "status": "experimental",
+  "description": "Passive observations of Nepal's public-sector web infrastructure: the canonical local-level roster, the Certificate Transparency hostname inventory, an evidence-bearing hostname-to-local-level attribution, and per-hostname hosting, DNS, TLS and HTTP behaviour. The unit of record is a hostname, not a local level, because a hostname can belong to an office the roster does not contain; attribution to a local level is a separate join whose method and evidence URL are recorded on every row. Collection uses ordinary public requests only and never scans ports, probes for vulnerabilities, or bypasses robots.txt.",
+  "grain": "one row per hostname per observation (hosting, DNS, TLS, HTTP headers, robots, scripts); the roster table is one row per local level, the attribution table one row per local level with its linked hostname (empty when unresolved), and the sites table one row per discovered hostname",
+  "coverage": {
+    "start": "2026-11-05",
+    "end": "2026-11-06",
+    "note": "Hostname discovery and per-host observations are a single 2026-11-05 snapshot over a 20-hostname pilot sample; attribution and the roster adjudication were extended on 2026-11-06 across all 753 local levels. The pilot sample is not a census of the 2,091 discovered hostnames."
+  },
+  "sources": [
+    {
+      "name": "Office of the Auditor General — local-level report API",
+      "url": "https://oag.gov.np/api/front/local-level-report?province=&district=&municipality=&fiscal_year=&page=1&per_page=2000"
+    },
+    {
+      "name": "Certificate Transparency search (crt.sh)",
+      "url": "https://crt.sh/?q=%25.gov.np&output=json"
+    },
+    {
+      "name": "Local-body e-office directory (dcc-localbody-list)",
+      "url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list"
+    },
+    {
+      "name": "Wikidata Query Service — P856 official website",
+      "url": "https://query.wikidata.org/sparql"
+    },
+    {
+      "name": "OpenStreetMap Overpass API — Nepal administrative relations",
+      "url": "https://overpass-api.de/api/interpreter"
+    },
+    {
+      "name": "IP registration metadata (ipwho.is)",
+      "url": "https://ipwho.is/"
+    },
+    {
+      "name": "Cloudflare DNS-over-HTTPS resolver",
+      "url": "https://cloudflare-dns.com/dns-query"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "sites.csv.gz",
+      "role": "primary",
+      "format": "csv.gz",
+      "description": "The discovered .gov.np hostname universe with apex and subdomain decomposition and whether the hostname entered the observation sample."
+    },
+    {
+      "path": "roster.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "Canonical local-level roster as delivered by the OAG API, with stable string identifiers and normalized names."
+    },
+    {
+      "path": "attribution.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "Hostname-to-local-level links with method, confidence and evidence; unresolved local levels carry an empty hostname."
+    },
+    {
+      "path": "hosting.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "Resolved addresses, ASN, organization, country evidence and the conservative hosting classification per hostname."
+    },
+    {
+      "path": "dns_mail.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "Per-hostname DNS record counts and SPF/DMARC evidence states."
+    },
+    {
+      "path": "http_headers.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "Root-resource response status and presence of six audited security headers per hostname."
+    },
+    {
+      "path": "tls.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "Passive TLS handshake observations. Header-only when the live TLS collection has not run: an empty table is unavailable evidence, not a passing result."
+    },
+    {
+      "path": "third_party_scripts.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "One row per referenced script, plus one empty-script row for each hostname whose page was not fetched, so collection failures keep their denominator."
+    },
+    {
+      "path": "robots.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "robots.txt availability, status and directive counts per hostname."
+    },
+    {
+      "path": "roster.json",
+      "role": "raw",
+      "format": "json"
+    },
+    {
+      "path": "roster_meta.json",
+      "role": "raw",
+      "format": "json"
+    },
+    {
+      "path": "roster_adjudication.json",
+      "role": "raw",
+      "format": "json",
+      "description": "The 12 roster records excluded from the canonical 753, each with status, superseding record and evidence."
+    },
+    {
+      "path": "attribution.json",
+      "role": "raw",
+      "format": "json",
+      "description": "Full attribution output: one record per mapped local level and one per unresolved local level, with method, confidence, evidence URL, evidence note and decision date."
+    },
+    {
+      "path": "tls_sample.json",
+      "role": "raw",
+      "format": "json"
+    },
+    {
+      "path": "website_coverage_crtsh.json",
+      "role": "raw",
+      "format": "json"
+    },
+    {
+      "path": "website_mappings_crtsh.json",
+      "role": "raw",
+      "format": "json"
+    },
+    {
+      "path": "sources/crtsh_gov_np.json",
+      "role": "raw",
+      "format": "json",
+      "description": "The crt.sh response the inventory was derived from, committed because a live query cannot be reproduced byte-for-byte."
+    },
+    {
+      "path": "sources/localbody_directory.json",
+      "role": "raw",
+      "format": "json",
+      "description": "Primary attribution source: the 753-row local-body e-office directory with English name, wards and website per row."
+    },
+    {
+      "path": "sources/wikidata_nepal_websites.json",
+      "role": "raw",
+      "format": "json",
+      "description": "Secondary attribution source: 1,534 Wikidata items with a P856 official website, used only when the name and district agree."
+    },
+    {
+      "path": "sources/osm_np_local_levels.json",
+      "role": "raw",
+      "format": "json",
+      "description": "Corroboration source: 749 OSM administrative relations, of which 5 carry a website tag."
+    },
+    {
+      "path": "observations/http_header_observations.json",
+      "role": "raw",
+      "format": "json"
+    },
+    {
+      "path": "observations/hosting_observations.json",
+      "role": "raw",
+      "format": "json"
+    },
+    {
+      "path": "observations/dns_mail_observations.json",
+      "role": "raw",
+      "format": "json"
+    },
+    {
+      "path": "observations/third_party_scripts.json",
+      "role": "raw",
+      "format": "json"
+    },
+    {
+      "path": "observations/robots_observations.json",
+      "role": "raw",
+      "format": "json"
+    },
+    {
+      "path": "audit_report.json",
+      "role": "report",
+      "format": "json"
+    }
+  ],
+  "inventories": [
+    "govweb/manifests/sources.json"
+  ],
+  "freshness": {
+    "fingerprint": "build.json"
+  },
+  "verification": {
+    "status": "partial",
+    "method": "roster reconciled against the official 753 local levels after adjudicating 12 extra records; every active local level is either attributed or explicitly unresolved; attributed hostnames are unique, end in .gov.np, and appear in a committed discovery source; every mapped row carries method, evidence URL and decision date; observation hostnames are checked against the discovery inventory",
+    "report": "reconciliation.json"
+  },
+  "pipeline": {
+    "package": "govweb",
+    "cli": [
+      "python -m govweb.cli roster",
+      "python -m govweb.cli discover-ct",
+      "python -m govweb.cli attribute",
+      "python -m govweb.cli sample",
+      "python -m govweb.cli collect",
+      "python -m govweb.cli report",
+      "python -m govweb.cli build",
+      "python -m govweb.cli verify"
+    ],
+    "plan": "docs/plans/govweb-audit.md"
+  },
+  "docs": [
+    "DATASET.md",
+    "codebook.json",
+    "audit_summary.md",
+    "reconciliation.json"
+  ],
+  "license": {
+    "code": "MIT",
+    "data": "MIT; derived from public government and Certificate Transparency responses, attribution required"
+  },
+  "tags": [
+    "digital-infrastructure",
+    "local-government",
+    "hosting",
+    "dns",
+    "tls",
+    "http-headers",
+    "attribution",
+    "nepal"
+  ],
+  "notes": [
+    "The 20-hostname observation sample is a deterministic lexicographic pilot, not a census of the 2,091 discovered hostnames or the 753 local levels.",
+    "Attribution is not proof of administrative ownership: it records the best available source agreement, with the method and evidence URL on every row.",
+    "The local-body directory contains duplicate rows and some wrong or generic links; a row is accepted only when its hostname is a plausible .gov.np local-level name and is not already owned by another local level.",
+    "Unresolved local levels are evidence of missing data, not evidence that the local level has no website.",
+    "Non-local government agencies and province portals are not attributed to a local level even when their names collide.",
+    "A failed or missing observation is never treated as a secure configuration.",
+    "Country-level IP geolocation is approximate and does not establish the physical server location or the hosting contract.",
+    "robots.txt directives are publisher instructions, not access control; robots-disallowed hostnames retain no script data."
+  ]
+}

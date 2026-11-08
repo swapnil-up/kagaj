@@ -1,0 +1,15 @@
+{
+  "source": "crt.sh",
+  "source_url": "https://crt.sh/?q=%25.gov.np&output=json",
+  "roster_count": 765,
+  "mapped_count": 0,
+  "unresolved_count": 765,
+  "ambiguous_hostname_count": 0,
+  "unique_hostname_count": 2091,
+  "coverage_percent": 0.0,
+  "ambiguous_hostnames": [],
+  "matching_policy": "Exact normalized municipality and district DNS labels; unique name-only matching only when district is absent from the roster record. No fuzzy matching.",
+  "fetched_at": "2026-11-05T02:34:14.220894+00:00",
+  "cache_status": "network",
+  "source_sha256": "ac1e3d696faae77388aa70759a497406843e0228ab4dcdd9401497b5eb0b2639"
+}

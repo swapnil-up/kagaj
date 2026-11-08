@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "dataset": "govweb",
+  "tables": {
+    "sites.csv.gz": {
+      "hostname": "Lowercase normalized DNS name ending in .gov.np, wildcard prefix stripped.",
+      "apex_hostname": "Registrable .gov.np name: the hostname itself when it has three labels, else its last three labels.",
+      "subdomain": "Everything left of the apex; empty for an apex hostname.",
+      "in_observed_sample": "'true' when the hostname entered the deterministic observation sample.",
+      "discovered_via": "Semicolon-joined discovery tags: crtsh, tls_sample, attribution, or a combination; records where the name was first seen."
+    },
+    "roster.csv.gz": {
+      "province_id": "Stable source identifier, kept as a string.",
+      "province": "Province display name as delivered by the OAG API.",
+      "district_id": "Stable source identifier, kept as a string.",
+      "district": "District display name as delivered by the OAG API.",
+      "municipality_id": "Stable local-level identifier, kept as a string.",
+      "name": "Local-level display name; capitalization and wording are unchanged.",
+      "normalized_name": "Whitespace-collapsed, Unicode case-folded name used for exact matching."
+    },
+    "attribution.csv.gz": {
+      "hostname": "Attributed hostname, or empty when no hostname could be established.",
+      "local_level_id": "Canonical roster municipality_id the hostname maps to.",
+      "local_level_name": "Canonical roster display name.",
+      "district": "Canonical roster district.",
+      "province": "Canonical roster province.",
+      "method": "Attribution rule: localbody_directory, wikidata_p856, ct_hostname_slug, osm_website, or manual; empty when unresolved.",
+      "confidence": "high, medium, low, or none, following the strength of the accepted evidence.",
+      "status": "mapped or unresolved.",
+      "evidence_url": "The exact source URL the decision is based on, or empty when unresolved.",
+      "evidence_note": "Human-readable statement of the evidence, including the source row or item and any disambiguation applied.",
+      "decided_at": "UTC ISO-8601 timestamp when the attribution decision was made."
+    },
+    "hosting.csv.gz": {
+      "hostname": "Observed hostname.",
+      "ip_addresses": "Semicolon-joined resolved IPv4/IPv6 addresses.",
+      "asn": "Semicolon-joined provider-reported autonomous system numbers.",
+      "organization": "Semicolon-joined provider-reported network organizations.",
+      "countries": "Semicolon-joined provider-reported country names.",
+      "country_codes": "Semicolon-joined ISO country codes.",
+      "hosting_classification": "Nepal-local, foreign-cloud, foreign-other, or unknown.",
+      "confidence": "high, medium, or low, following the classification evidence.",
+      "status": "observed or error.",
+      "observed_at": "UTC ISO-8601 observation time.",
+      "error": "DNS-level collection error, if any."
+    },
+    "dns_mail.csv.gz": {
+      "hostname": "Observed hostname.",
+      "a_count": "Number of A answers returned through DNS-over-HTTPS.",
+      "aaaa_count": "Number of AAAA answers.",
+      "mx_count": "Number of MX answers.",
+      "ns_count": "Number of NS answers.",
+      "caa_count": "Number of CAA answers.",
+      "txt_count": "Number of TXT answers.",
+      "mx_present": "'true' when at least one MX answer was returned.",
+      "spf_status": "absent, present, or unknown, derived from TXT evidence and query errors.",
+      "dmarc_status": "DMARC policy state, or missing/unknown.",
+      "dmarc_policy": "DMARC p= value when parseable.",
+      "status": "ok or partial.",
+      "confidence": "high or medium.",
+      "observed_at": "UTC ISO-8601 observation time."
+    },
+    "http_headers.csv.gz": {
+      "hostname": "Hostname parsed from the requested URL.",
+      "url": "Requested HTTPS root resource.",
+      "final_url": "URL after redirects, when observed.",
+      "response_status": "HTTP status code, if a response was received.",
+      "has_content_security_policy": "'true' when a non-empty Content-Security-Policy header was present.",
+      "has_strict_transport_security": "'true' when a non-empty Strict-Transport-Security header was present.",
+      "has_x_content_type_options": "'true' when a non-empty X-Content-Type-Options header was present.",
+      "has_x_frame_options": "'true' when a non-empty X-Frame-Options header was present.",
+      "has_referrer_policy": "'true' when a non-empty Referrer-Policy header was present.",
+      "has_permissions_policy": "'true' when a non-empty Permissions-Policy header was present.",
+      "missing_header_count": "Count of the six audited headers not present.",
+      "status": "observed or error.",
+      "error": "Collection error, if any.",
+      "observed_at": "UTC ISO-8601 observation time."
+    },
+    "tls.csv.gz": {
+      "hostname": "Observed hostname.",
+      "status": "observed or error.",
+      "validity": "Certificate validity result under system CA and hostname verification.",
+      "issuer": "Decoded certificate issuer.",
+      "subject": "Decoded certificate subject.",
+      "valid_from": "Certificate notBefore.",
+      "expiration": "Certificate notAfter.",
+      "protocol": "Negotiated TLS version.",
+      "cipher_name": "Negotiated cipher suite name.",
+      "certificate_sha256": "SHA-256 of the DER certificate.",
+      "observed_at": "UTC ISO-8601 observation time.",
+      "error": "Handshake error, if any."
+    },
+    "third_party_scripts.csv.gz": {
+      "hostname": "Audited site hostname.",
+      "script_url": "Referenced script URL; empty when the page was not fetched.",
+      "script_hostname": "Host serving the script.",
+      "category": "first_party, analytics, advertising, cdn, embedded, or other.",
+      "confidence": "Classification confidence.",
+      "script_count": "Total scripts referenced by the page as recorded in the observation.",
+      "third_party_script_count": "Scripts not served by the audited site.",
+      "page_status": "ok, robots_disallowed, or fetch_error.",
+      "observed_at": "UTC ISO-8601 observation time."
+    },
+    "robots.csv.gz": {
+      "hostname": "Observed hostname.",
+      "accessible": "'true' when robots.txt returned 200 on the same HTTPS host.",
+      "status_code": "HTTP status code, if received.",
+      "status": "success, unavailable, or error.",
+      "group_count": "Number of user-agent groups parsed.",
+      "directive_count": "Total directives across all groups.",
+      "final_url": "URL after any same-host redirect.",
+      "error": "Collection error, if any.",
+      "observed_at": "UTC ISO-8601 observation time."
+    }
+  },
+  "enumerations": {
+    "hosting_classification": [
+      "Nepal-local",
+      "foreign-cloud",
+      "foreign-other",
+      "unknown"
+    ],
+    "attribution_status": [
+      "mapped",
+      "unresolved"
+    ],
+    "observation_status": [
+      "observed",
+      "ok",
+      "partial",
+      "success",
+      "unavailable",
+      "error"
+    ],
+    "attribution_method": [
+      "manual",
+      "localbody_directory",
+      "wikidata_p856",
+      "ct_hostname_slug",
+      "osm_website"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "report_type": "govweb_reconciliation",
-  "generated_at": "2026-11-08T23:04:01.519934+00:00",
+  "generated_at": "2026-11-08T23:49:35.126901+00:00",
   "roster": {
     "records": 753,
     "official_total": 753,
@@ -27,7 +27,7 @@
   },
   "discovery": {
     "ct_hostname_count": 2091,
-    "source_hostname_count": 3224,
+    "source_hostname_count": 3225,
     "coverage": {
       "roster_count": 765,
       "mapped_count": 0,
@@ -37,15 +37,16 @@
     },
     "attribution": {
       "canonical_local_levels": 753,
-      "mapped_local_levels": 659,
-      "unresolved_local_levels": 94,
-      "coverage_percent": 87.52,
+      "mapped_local_levels": 712,
+      "unresolved_local_levels": 41,
+      "coverage_percent": 94.56,
       "methods": {
         "ct_hostname_slug": 13,
-        "localbody_directory": 607,
-        "wikidata_p856": 86
+        "localbody_directory": 682,
+        "manual": 1,
+        "wikidata_p856": 65
       },
-      "mapped_hostname_count": 706
+      "mapped_hostname_count": 761
     }
   },
   "observations": {
@@ -134,7 +135,7 @@
     {
       "id": "attribution_exists",
       "status": "pass",
-      "detail": "706 mapped rows and 94 unresolved rows"
+      "detail": "761 mapped rows and 41 unresolved rows"
     },
     {
       "id": "attribution_covers_every_active_local_level",
@@ -154,12 +155,22 @@
     {
       "id": "attribution_hosts_are_gov_np",
       "status": "pass",
-      "detail": "706 attributed hostnames"
+      "detail": "761 attributed hostnames"
     },
     {
       "id": "attribution_has_no_hostname_outside_discovery_sources",
       "status": "pass",
       "detail": "attributed hostnames absent from every committed source: []"
+    },
+    {
+      "id": "attribution_rejections_are_not_linked",
+      "status": "pass",
+      "detail": "overridden rejections still attributed: []"
+    },
+    {
+      "id": "attribution_acceptances_are_applied",
+      "status": "pass",
+      "detail": "manual acceptances missing from attribution: []"
     },
     {
       "id": "attribution_rows_carry_evidence",
@@ -169,12 +180,12 @@
     {
       "id": "attribution_method_counts_reconcile",
       "status": "pass",
-      "detail": "706 method counts against 706 mapped rows"
+      "detail": "761 method counts against 761 mapped rows"
     },
     {
       "id": "attribution_coverage_matches_its_own_counts",
       "status": "pass",
-      "detail": "declared 87.52%, computed 87.52%"
+      "detail": "declared 94.56%, computed 94.56%"
     },
     {
       "id": "sample_within_declared_limit",

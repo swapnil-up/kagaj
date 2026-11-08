@@ -45,6 +45,7 @@ RAW_ARTIFACTS = (
     "roster_meta.json",
     "roster_adjudication.json",
     "attribution.json",
+    "attribution_overrides.json",
     "tls_sample.json",
     "website_coverage_crtsh.json",
     "website_mappings_crtsh.json",

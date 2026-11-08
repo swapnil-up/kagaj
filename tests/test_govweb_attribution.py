@@ -145,6 +145,107 @@ def test_ct_slug_attribution_and_method_counts_reconcile():
     assert document["coverage_percent"] == round(100.0 * 1 / 4, 2)
 
 
+def test_slug_stems_strip_glued_type_and_district():
+    assert "triveni" in a._slug_stems("trivenimunsalyan", "Salyan")
+    assert "shuddhodhan" in a._slug_stems("shuddhodhanmunrupandehi", "Rupandehi")
+    assert "kaligandaki" in a._slug_stems("kaligandakimungulmi", "Gulmi")
+
+
+def test_tolerant_slug_match_accepts_transliteration_variants():
+    assert a._name_slug_agrees("jaiminimun.gov.np", "Jaimuni Municipality", district="Baglung")
+    assert a._name_slug_agrees("sunaryamun.gov.np", "Surnaya Rural Municipality", district="Baitadi")
+    assert a._name_slug_agrees("talkotmun.gov.np", "Talakot Rural Municipality", district="Bajhang")
+
+
+def test_generic_slug_does_not_corroborate_a_name():
+    assert a._name_slug_agrees("kalikamun.gov.np", "Kalika Rural Municipality", district="Gulmi") is True
+    assert a._name_slug_agrees("rainbowmun.gov.np", "Kalika Rural Municipality", district="Gulmi") is False
+
+
+def test_district_in_hostname_requires_a_real_district_token():
+    assert a._district_in_hostname("madimunchitwan.gov.np", "Chitwan") is True
+    assert a._district_in_hostname("likhumunokhaldhunga.gov.np", "Okhaldhunga") is True
+    assert a._district_in_hostname("gaurmun.gov.np", "Rautahat") is False
+
+
+def test_same_name_rows_are_split_by_the_district_named_in_the_hostname():
+    roster = [
+        _record("1", "Likhu Rural Municipality", "Nuwakot"),
+        _record("2", "Likhu Rural Municipality", "Okhaldhunga"),
+    ]
+    row = {"serial": 1, "name_en": "Likhu Rural Municipality", "website": "https://likhumunokhaldhunga.gov.np"}
+    _, by_name = a._roster_index(roster)
+    match = a.match_directory_row(row, by_name, roster)
+    assert match is not None
+    assert match[0]["municipality_id"] == "2"
+
+
+def test_ambiguous_same_name_row_without_corroboration_is_dropped():
+    roster = [
+        _record("1", "Aurahi Rural Municipality", "Siraha"),
+        _record("2", "Aurahi Rural Municipality", "Dhanusa"),
+        _record("3", "Aurahi Municipality", "Mahottari"),
+    ]
+    row = {"serial": 1, "name_en": "Aurahi Rural Municipality", "website": "https://example.gov.np"}
+    _, by_name = a._roster_index(roster)
+    assert a.match_directory_row(row, by_name, roster) is None
+
+
+def test_overrides_reject_and_accept_links():
+    roster = [_record("1", "Manara Sishawa Municipality", "Mahottari")]
+    directory = [
+        {
+            "serial": 1,
+            "name_en": "Manara Sishawa Municipality",
+            "website": "https://manrashiswamun.gov.np",
+        }
+    ]
+    overrides = {
+        "reject": [{"local_level_id": "1", "hostname": "manrashiswamun.gov.np"}],
+        "accept": [
+            {
+                "local_level_id": "1",
+                "hostname": "manarashiswamun.gov.np",
+                "confidence": "medium",
+                "evidence_note": "Corrected spelling resolves; the directory hostname does not.",
+            }
+        ],
+    }
+    document = a.attribute(
+        roster,
+        wikidata=[],
+        hostnames=["manrashiswamun.gov.np", "manarashiswamun.gov.np"],
+        directory=directory,
+        adjudication={},
+        overrides=overrides,
+        decided_at="2026-11-09",
+    )
+    hosts = [record["hostname"] for record in document["records"]]
+    assert hosts == ["manarashiswamun.gov.np"]
+    assert document["records"][0]["method"] == "manual"
+    assert document["records"][0]["confidence"] == "medium"
+    assert document["mapped_local_levels"] == 1
+
+
+def test_overrides_reject_leaves_the_local_level_unresolved():
+    roster = [_record("1", "Gaur Municipality", "Rautahat")]
+    directory = [
+        {"serial": 1, "name_en": "Gaur Municipality", "website": "https://gaurmun.gov.np"}
+    ]
+    overrides = {"reject": [{"local_level_id": "1", "hostname": "gaurmun.gov.np"}], "accept": []}
+    document = a.attribute(
+        roster,
+        wikidata=[],
+        hostnames=[],
+        directory=directory,
+        adjudication={},
+        overrides=overrides,
+        decided_at="2026-11-09",
+    )
+    assert document["records"] == []
+    assert document["unresolved"][0]["local_level_id"] == "1"
+
+
 def test_resolved_records_carry_evidence(tmp_path):
     document = a.attribute(
         ROSTER,

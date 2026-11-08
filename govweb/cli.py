@@ -170,6 +170,7 @@ def cmd_attribute(args: argparse.Namespace) -> None:
         directory=attribution.load_directory(),
         osm_websites=attribution.load_osm_websites(),
         adjudication=attribution.load_adjudication(),
+        overrides=attribution.load_overrides(),
     )
     path = attribution.write_document(document)
     print(

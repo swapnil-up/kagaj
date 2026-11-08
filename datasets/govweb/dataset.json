@@ -7,8 +7,8 @@
   "grain": "one row per hostname per observation (hosting, DNS, TLS, HTTP headers, robots, scripts); the roster table is one row per local level, the attribution table one row per local level with its linked hostname (empty when unresolved), and the sites table one row per discovered hostname",
   "coverage": {
     "start": "2026-11-05",
-    "end": "2026-11-06",
-    "note": "Hostname discovery and per-host observations are a single 2026-11-05 snapshot over a 20-hostname pilot sample; attribution and the roster adjudication were extended on 2026-11-06 across all 753 local levels. The pilot sample is not a census of the 2,091 discovered hostnames."
+    "end": "2026-11-09",
+    "note": "Hostname discovery and per-host observations are a 2026-11-05 snapshot over a 20-hostname pilot sample; attribution, the roster adjudication and manual overrides were extended through 2026-11-09 across all 753 local levels over the 2,837-hostname discovered inventory. The pilot sample is not a census of the discovered hostnames."
   },
   "sources": [
     {
@@ -116,6 +116,12 @@
       "role": "raw",
       "format": "json",
       "description": "Full attribution output: one record per mapped local level and one per unresolved local level, with method, confidence, evidence URL, evidence note and decision date."
+    },
+    {
+      "path": "attribution_overrides.json",
+      "role": "raw",
+      "format": "json",
+      "description": "Manual reject/accept corrections applied after the automatic sources, each with a reason, evidence and decision date."
     },
     {
       "path": "tls_sample.json",
@@ -233,10 +239,11 @@
     "nepal"
   ],
   "notes": [
-    "The 20-hostname observation sample is a deterministic lexicographic pilot, not a census of the 2,091 discovered hostnames or the 753 local levels.",
+    "The 20-hostname observation sample is a deterministic lexicographic pilot, not a census of the 2,837 discovered hostnames or the 753 local levels.",
     "Attribution is not proof of administrative ownership: it records the best available source agreement, with the method and evidence URL on every row.",
     "The local-body directory contains duplicate rows and some wrong or generic links; a row is accepted only when its hostname is a plausible .gov.np local-level name and is not already owned by another local level.",
     "Unresolved local levels are evidence of missing data, not evidence that the local level has no website.",
+    "Manual corrections are recorded in attribution_overrides.json so a reviewer can see every deviation from the automatic result.",
     "Non-local government agencies and province portals are not attributed to a local level even when their names collide.",
     "A failed or missing observation is never treated as a secure configuration.",
     "Country-level IP geolocation is approximate and does not establish the physical server location or the hosting contract.",

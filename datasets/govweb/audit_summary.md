@@ -3,7 +3,7 @@
 ## Scope and coverage
 
 - Canonical local levels in roster: **753**
-- Local levels with an attributed hostname: **659** (87.52%), 94 unresolved
+- Local levels with an attributed hostname: **712** (94.56%), 41 unresolved
 - Distinct CT hostnames: **2091**
 - CT mapped entries: **0**
 - CT unresolved entries: **765**

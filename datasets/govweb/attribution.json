@@ -1,17 +1,18 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-08T22:53:27.100253+00:00",
+  "generated_at": "2026-11-08T23:48:50.793232+00:00",
   "roster_records": 765,
   "canonical_local_levels": 753,
   "excluded_records": 12,
-  "mapped_local_levels": 659,
-  "unresolved_local_levels": 94,
-  "coverage_percent": 87.52,
-  "mapping_count": 706,
+  "mapped_local_levels": 712,
+  "unresolved_local_levels": 41,
+  "coverage_percent": 94.56,
+  "mapping_count": 761,
   "methods": {
     "ct_hostname_slug": 13,
-    "localbody_directory": 607,
-    "wikidata_p856": 86
+    "localbody_directory": 682,
+    "manual": 1,
+    "wikidata_p856": 65
   },
   "records": [
     {
@@ -109,7 +110,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 722: 'Panchdebal Binayak Municipality' (9 wards, name score=0.91)",
+      "evidence_note": "Local-body directory row 722: 'Panchdebal Binayak Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -132,12 +133,12 @@
       "district": "Achham",
       "province": "Sudurpashchim Province",
       "hostname": "sanfebagarmun.gov.np",
-      "website_url": "http://sanfebagarmun.gov.np",
-      "method": "wikidata_p856",
+      "website_url": "https://www.sanfebagarmun.gov.np",
+      "method": "localbody_directory",
       "confidence": "medium",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q7418908",
-      "evidence_note": "Wikidata P856 for 'Sanphebagar' (item district='Achham District', name score=0.95)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 725: 'Sanphebagar Municipality' (14 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -225,6 +226,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "524",
+      "local_level_name": "Sitganga Municipality",
+      "district": "Arghakhanchi",
+      "province": "Lumbini Province",
+      "hostname": "shitagangamun.gov.np",
+      "website_url": "https://shitagangamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 517: 'Shitaganga Municipality' (14 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "473",
       "local_level_name": "Badigad Rural Municipality",
       "district": "Baglung",
@@ -309,6 +324,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "466",
+      "local_level_name": "Jaimuni Municipality",
+      "district": "Baglung",
+      "province": "Gandaki Province",
+      "hostname": "jaiminimun.gov.np",
+      "website_url": "http://jaiminimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 477: 'Jaimuni Municipality' (10 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "469",
       "local_level_name": "Khathekhola Rural Municipality",
       "district": "Baglung",
@@ -319,7 +348,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 469: 'Kathekhola Rural Municipality' (8 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 469: 'Kathekhola Rural Municipality' (8 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -459,7 +488,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 698: 'Puchaundi Municipality' (10 wards, name score=0.89)",
+      "evidence_note": "Local-body directory row 698: 'Puchaundi Municipality' (10 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -491,6 +520,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "730",
+      "local_level_name": "Surnaya Rural Municipality",
+      "district": "Baitadi",
+      "province": "Sudurpashchim Province",
+      "hostname": "sunaryamun.gov.np",
+      "website_url": "https://www.sunaryamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 699: 'Sunarya Rural Municipality' (8 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "671",
       "local_level_name": "Bitthadchir Rural Municipality",
       "district": "Bajhang",
@@ -519,6 +562,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "673",
+      "local_level_name": "Chhabispathivera Rural Municipality",
+      "district": "Bajhang",
+      "province": "Sudurpashchim Province",
+      "hostname": "chhabispathiveramun.gov.np",
+      "website_url": "https://www.chhabispathiveramun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 681: 'Chhabis Pathibhara Rural Municipality' (7 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "674",
       "local_level_name": "Durgathali Rural Municipality",
       "district": "Bajhang",
@@ -543,7 +600,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 680: 'Jayaprithbi Municipality' (11 wards, name score=0.87)",
+      "evidence_note": "Local-body directory row 680: 'Jayaprithbi Municipality' (11 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -600,6 +657,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 677: 'Surma Rural Municipality' (5 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "667",
+      "local_level_name": "Talakot Rural Municipality",
+      "district": "Bajhang",
+      "province": "Sudurpashchim Province",
+      "hostname": "talkotmun.gov.np",
+      "website_url": "https://www.talkotmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 678: 'Talkot Rural Municipality' (7 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -687,6 +758,34 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "773",
+      "local_level_name": "Jagannath Municipality",
+      "district": "Bajura",
+      "province": "Sudurpashchim Province",
+      "hostname": "jagganathmun.gov.np",
+      "website_url": "https://www.jagganathmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 670: 'Jagganath Rural Municipality' (6 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "663",
+      "local_level_name": "Khaptad Chhededaha Rural Municipality",
+      "district": "Bajura",
+      "province": "Sudurpashchim Province",
+      "hostname": "chhededahamun.gov.np",
+      "website_url": "http://chhededahamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 672: 'Khaptad Chhededaha Rural Municipality' (7 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "662",
       "local_level_name": "Swamikartik Rural Municipality",
       "district": "Bajura",
@@ -701,6 +800,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "657",
+      "local_level_name": "Tribeni Municipality",
+      "district": "Bajura",
+      "province": "Sudurpashchim Province",
+      "hostname": "trivenimunbajura.gov.np",
+      "website_url": "http://trivenimunbajura.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 674: 'Tribeni Municipality' (9 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "581",
       "local_level_name": "Baijnath Rural Municipality",
       "district": "Banke",
@@ -708,10 +821,24 @@
       "hostname": "baijanathmun.gov.np",
       "website_url": "http://baijanathmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 573: 'Baijanath Rural Municipality' (8 wards, name score=0.94)",
+      "evidence_note": "Local-body directory row 573: 'Baijanath Rural Municipality' (8 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "583",
+      "local_level_name": "Daduwa Village Rural Municipality",
+      "district": "Banke",
+      "province": "Lumbini Province",
+      "hostname": "duduwamun.gov.np",
+      "website_url": "http://duduwamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 577: 'Duduwa Rural Municipality' (6 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -776,12 +903,12 @@
       "district": "Banke",
       "province": "Lumbini Province",
       "hostname": "nepalgunjmun.gov.np",
-      "website_url": "http://www.nepalgunjmun.gov.np",
-      "method": "wikidata_p856",
-      "confidence": "medium",
+      "website_url": "https://nepalgunjmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q1025462",
-      "evidence_note": "Wikidata P856 for 'Nepalgunj' (item district='Banke District', name score=0.89)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 576: 'Nepalganj Sub-Metropolitian City' (23 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -860,12 +987,12 @@
       "district": "Bara",
       "province": "Madhesh Province",
       "hostname": "jeetpursimaramun.gov.np",
-      "website_url": "https://www.jeetpursimaramun.gov.np/",
-      "method": "wikidata_p856",
+      "website_url": "http://jeetpursimaramun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q6173006",
-      "evidence_note": "Wikidata P856 for 'Jeetpursimara' (item district='Bara District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 246: 'Jitpur Simara Sub-Metropolitian City' (24 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -916,12 +1043,12 @@
       "district": "Bara",
       "province": "Madhesh Province",
       "hostname": "nijgadhmun.gov.np",
-      "website_url": "https://www.nijgadhmun.gov.np/",
-      "method": "wikidata_p856",
+      "website_url": "http://nijgadhmun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q3425003",
-      "evidence_note": "Wikidata P856 for 'Nijgadh Municipality' (item district='Bara District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 244: 'Nijagadh Municipality' (13 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -946,10 +1073,10 @@
       "hostname": "parwanipurmun.gov.np",
       "website_url": "https://parwanipurmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 247: 'Parawanipur Rural Municipality' (5 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 247: 'Parawanipur Rural Municipality' (5 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -992,6 +1119,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 255: 'Simraungadh Municipality' (11 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "373",
+      "local_level_name": "Subarna Rural Municipality",
+      "district": "Bara",
+      "province": "Madhesh Province",
+      "hostname": "suwarnamun.gov.np",
+      "website_url": "https://suwarnamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 259: 'Subarna Rural Municipality' (8 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -1061,7 +1202,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 579: 'Bansgadhi Municipality' (9 wards, name score=0.94)",
+      "evidence_note": "Local-body directory row 579: 'Bansgadhi Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -1527,6 +1668,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "723",
+      "local_level_name": "Nawadurga Rural Municipality",
+      "district": "Dadeldhura",
+      "province": "Sudurpashchim Province",
+      "hostname": "navadurgamun.gov.np",
+      "website_url": "http://www.navadurgamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 706: 'Nawadurga Rural Municipality' (5 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "720",
       "local_level_name": "Parshuram Municipality",
       "district": "Dadeldhura",
@@ -1534,10 +1689,24 @@
       "hostname": "parshurammun.gov.np",
       "website_url": "http://www.parshurammun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 710: 'Parashuram Municipality' (12 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 710: 'Parashuram Municipality' (12 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "605",
+      "local_level_name": "Aathbis Municipality",
+      "district": "Dailekh",
+      "province": "Karnali Province",
+      "hostname": "aathabismun.gov.np",
+      "website_url": "http://aathabismun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 627: 'Aathbis Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -1548,10 +1717,10 @@
       "hostname": "bhagawatimaimun.gov.np",
       "website_url": "http://bhagawatimaimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 631: 'Bhagawatimai Rural Municipality' (7 wards, name score=0.96)",
+      "evidence_note": "Local-body directory row 631: 'Bhagawatimai Rural Municipality' (7 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -1702,10 +1871,10 @@
       "hostname": "bangalachulimun.gov.np",
       "website_url": "https://bangalachulimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 561: 'Bangalachuli Rural Municipality' (8 wards, name score=0.96)",
+      "evidence_note": "Local-body directory row 561: 'Bangalachuli Rural Municipality' (8 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -1845,7 +2014,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 688: 'Duhun Rural Municipality' (5 wards, name score=0.89)",
+      "evidence_note": "Local-body directory row 688: 'Duhun Rural Municipality' (5 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -2063,6 +2232,20 @@
       "local_level_name": "Nilkantha Municipality",
       "district": "Dhading",
       "province": "Bagmati Province",
+      "hostname": "neelakanthamun.gov.np",
+      "website_url": "https://neelakanthamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 305: 'Nilkhantha Municipality' (14 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "760",
+      "local_level_name": "Nilkantha Municipality",
+      "district": "Dhading",
+      "province": "Bagmati Province",
       "hostname": "nilkanthamun.gov.np",
       "website_url": "http://www.nilkanthamun.gov.np",
       "method": "wikidata_p856",
@@ -2070,6 +2253,20 @@
       "status": "mapped",
       "evidence_url": "https://www.wikidata.org/wiki/Q7090066",
       "evidence_note": "Wikidata P856 for 'Nilkantha' (item district='Dhading District', name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "328",
+      "local_level_name": "Ruby Valley Rural Municipality",
+      "district": "Dhading",
+      "province": "Bagmati Province",
+      "hostname": "rubivalleymun.gov.np",
+      "website_url": "http://rubivalleymun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 300: 'Rubi Valley Rural Municipality' (6 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -2112,6 +2309,20 @@
       "status": "mapped",
       "evidence_url": "https://www.wikidata.org/wiki/Q51816454",
       "evidence_note": "Wikidata P856 for 'Chaubise' (item district='Dhankuta District', name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "91",
+      "local_level_name": "Chaubise rural municipality",
+      "district": "Dhankuta",
+      "province": "Koshi Province",
+      "hostname": "choubisemun.gov.np",
+      "website_url": "http://choubisemun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 61: 'Chaubise Rural Municipality' (8 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -2304,10 +2515,10 @@
       "hostname": "janaknandinimun.gov.np",
       "website_url": "http://janaknandinimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 184: 'Janak Nandini Rural Municipality' (6 wards, name score=0.92)",
+      "evidence_note": "Local-body directory row 184: 'Janak Nandini Rural Municipality' (6 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -2378,6 +2589,34 @@
       "status": "mapped",
       "evidence_url": "https://www.wikidata.org/wiki/Q20750552",
       "evidence_note": "Wikidata P856 for 'Mithila Municipality' (item district='Janakpur Zone', name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "191",
+      "local_level_name": "Mukhiyapatti Musaharpatti Municipality",
+      "district": "Dhanusa",
+      "province": "Madhesh Province",
+      "hostname": "mukhiyapattimusaharmiyamun.gov.np",
+      "website_url": "http://mukhiyapattimusaharmiyamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 190: 'Mukhiyapatti Musaharmiya Rural Municipality' (6 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "181",
+      "local_level_name": "Nagarain Municipality",
+      "district": "Dhanusa",
+      "province": "Madhesh Province",
+      "hostname": "nagrainmun.gov.np",
+      "website_url": "https://nagrainmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 189: 'Nagarain Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -2738,10 +2977,10 @@
       "hostname": "purbichaukimun.gov.np",
       "website_url": "https://www.purbichaukimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 713: 'Purbichouki Rural Municipality' (7 wards, name score=0.91)",
+      "evidence_note": "Local-body directory row 713: 'Purbichouki Rural Municipality' (7 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -2783,7 +3022,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 478: 'Putha Uttanganga Rural Municipality' (14 wards, name score=0.93)",
+      "evidence_note": "Local-body directory row 478: 'Putha Uttanganga Rural Municipality' (14 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -2909,7 +3148,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 403: 'Shahid Lakhan Rural Municipality' (9 wards, name score=0.96)",
+      "evidence_note": "Local-body directory row 403: 'Shahid Lakhan Rural Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -2924,6 +3163,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 400: 'Siranchowk Rural Municipality' (8 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "403",
+      "local_level_name": "chum Numbri Rural Municipality",
+      "district": "Gorkha",
+      "province": "Gandaki Province",
+      "hostname": "chumanuwrimun.gov.np",
+      "website_url": "https://chumanuwrimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 394: 'Chumanubri Rural Municipality' (7 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -2979,7 +3232,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 509: 'Gulmi Durbar Rural Municipality' (7 wards, name score=0.91)",
+      "evidence_note": "Local-body directory row 509: 'Gulmi Durbar Rural Municipality' (7 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -2993,7 +3246,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 504: 'Isma Rural Municipality' (6 wards, name score=0.89)",
+      "evidence_note": "Local-body directory row 504: 'Isma Rural Municipality' (6 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3060,10 +3313,10 @@
       "hostname": "satyawatimun.gov.np",
       "website_url": "http://satyawatimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 501: 'Satyawoti Rural Municipality' (8 wards, name score=0.89)",
+      "evidence_note": "Local-body directory row 501: 'Satyawoti Rural Municipality' (8 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3148,6 +3401,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 601: 'Simkot Rural Municipality' (8 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "655",
+      "local_level_name": "Tanjakot Rural Municipality",
+      "district": "Humla",
+      "province": "Karnali Province",
+      "hostname": "tajakotmun.gov.np",
+      "website_url": "http://tajakotmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 605: 'Tanjakot Rural Municipality' (5 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3368,10 +3635,10 @@
       "hostname": "junichaandemun.gov.np",
       "website_url": "http://junichaandemun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 636: 'Junichande Rural Municipality' (11 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 636: 'Junichande Rural Municipality' (11 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3385,7 +3652,21 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 635: 'Kuse Rural Municipality' (9 wards, name score=0.89)",
+      "evidence_note": "Local-body directory row 635: 'Kuse Rural Municipality' (9 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "615",
+      "local_level_name": "Nalgad Municipality",
+      "district": "Jajarkot",
+      "province": "Karnali Province",
+      "hostname": "nalgaadmun.gov.np",
+      "website_url": "https://nalgaadmun.gov.np/",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 640: 'Nalagad Municipality' (13 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3400,6 +3681,20 @@
       "status": "mapped",
       "evidence_url": "https://www.wikidata.org/wiki/Q55887307",
       "evidence_note": "Wikidata P856 for 'Nalgad' (item district='Jajarkot District', name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "619",
+      "local_level_name": "Shivalaya Rural Municipality",
+      "district": "Jajarkot",
+      "province": "Karnali Province",
+      "hostname": "shibalayamun.gov.np",
+      "website_url": "http://shibalayamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 638: 'Shivalaya Rural Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3422,12 +3717,12 @@
       "district": "Jhapa",
       "province": "Koshi Province",
       "hostname": "bahradashimun.gov.np",
-      "website_url": "http://bahradashimun.gov.np/",
-      "method": "wikidata_p856",
+      "website_url": "http://bahradashimun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q32953948",
-      "evidence_note": "Wikidata P856 for 'Barhadashi' (item district='Jhapa District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 96: 'Barhadashi Rural Municipality' (7 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3452,10 +3747,10 @@
       "hostname": "birtamodmun.gov.np",
       "website_url": "http://birtamodmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 97: 'Birtamod Municipality' (10 wards, name score=0.94)",
+      "evidence_note": "Local-body directory row 97: 'Birtamod Municipality' (10 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3520,12 +3815,12 @@
       "district": "Jhapa",
       "province": "Koshi Province",
       "hostname": "gaurigunjmun.gov.np",
-      "website_url": "http://www.gaurigunjmun.gov.np/",
-      "method": "wikidata_p856",
+      "website_url": "http://gaurigunjmun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q32855071",
-      "evidence_note": "Wikidata P856 for 'Gaurigunj' (item district='Jhapa District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 94: 'Gauriganj Rural Municipality' (6 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3563,11 +3858,11 @@
       "province": "Koshi Province",
       "hostname": "kachankawalmun.gov.np",
       "website_url": "http://kachankawalmun.gov.np",
-      "method": "wikidata_p856",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q32729518",
-      "evidence_note": "Wikidata P856 for 'Kachankawal' (item district='Jhapa District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 100: 'Kachanakawal Rural Municipality' (7 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3746,10 +4041,10 @@
       "hostname": "bardgoriyamun.gov.np",
       "website_url": "https://www.bardgoriyamun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 737: 'Bardagoriya Rural Municipality' (6 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 737: 'Bardagoriya Rural Municipality' (6 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -3935,6 +4230,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "643",
+      "local_level_name": "Mahabai Rural Municipality",
+      "district": "Kalikot",
+      "province": "Karnali Province",
+      "hostname": "mahawaimun.gov.np",
+      "website_url": "http://mahawaimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 621: 'Mahawai Rural Municipality' (7 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "641",
       "local_level_name": "Naraharinath Rural Municipality",
       "district": "Kalikot",
@@ -4038,12 +4347,12 @@
       "district": "Kanchanpur",
       "province": "Sudurpashchim Province",
       "hostname": "belaurimun.gov.np",
-      "website_url": "http://www.belaurimun.gov.np",
-      "method": "wikidata_p856",
-      "confidence": "medium",
+      "website_url": "https://www.belaurimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q7238175",
-      "evidence_note": "Wikidata P856 for 'Sreepur' (item district='Kanchanpur District', name score=0.95)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 752: 'Belouri Municipality' (10 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -4066,12 +4375,12 @@
       "district": "Kanchanpur",
       "province": "Sudurpashchim Province",
       "hostname": "bheemdattamun.gov.np",
-      "website_url": "http://bheemdattamun.gov.np",
-      "method": "wikidata_p856",
-      "confidence": "medium",
+      "website_url": "https://www.bheemdattamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q1447167",
-      "evidence_note": "Wikidata P856 for 'Bhimdatta' (item district='Kanchanpur District', name score=0.89)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 748: 'Bhimdatta Municipality' (19 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -4178,12 +4487,12 @@
       "district": "Kapilvastu",
       "province": "Lumbini Province",
       "hostname": "bijaynagarmun.gov.np",
-      "website_url": "http://www.bijaynagarmun.gov.np/",
-      "method": "wikidata_p856",
+      "website_url": "http://bijaynagarmun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q97167617",
-      "evidence_note": "Wikidata P856 for 'Bijaynagar Rural Municipality' (item district='Syangja District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 554: 'Bijayanagar Rural Municipality' (7 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -4250,10 +4559,10 @@
       "hostname": "maharajgunjmun.gov.np",
       "website_url": "https://maharajgunjmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 556: 'Maharajganj Municipality' (11 wards, name score=0.91)",
+      "evidence_note": "Local-body directory row 556: 'Maharajganj Municipality' (11 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -4268,6 +4577,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 546: 'Mayadevi Rural Municipality' (8 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "515",
+      "local_level_name": "Shivaraj Municipality",
+      "district": "Kapilvastu",
+      "province": "Lumbini Province",
+      "hostname": "shivrajmun.gov.np",
+      "website_url": "https://shivrajmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 553: 'Shivaraj Municipality' (11 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -4295,7 +4618,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 558: 'Yasodhara Rural Municipality' (8 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 558: 'Yasodhara Rural Municipality' (8 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -4432,10 +4755,10 @@
       "hostname": "kageshworimanoharamun.gov.np",
       "website_url": "http://kageshworimanoharamun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 326: 'Kageshwori Manahara Municipality' (9 wards, name score=0.94)",
+      "evidence_note": "Local-body directory row 326: 'Kageshwori Manahara Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -4729,7 +5052,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 37: 'Aiselukharka Rural Municipality' (7 wards, name score=0.96)",
+      "evidence_note": "Local-body directory row 37: 'Aiselukharka Rural Municipality' (7 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -4747,6 +5070,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "125",
+      "local_level_name": "Diktel majhuwagadhi municipality",
+      "district": "Khotang",
+      "province": "Koshi Province",
+      "hostname": "rupakotmajhuwagadhimun.gov.np",
+      "website_url": "http://rupakotmajhuwagadhimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 40: 'Diktel Rupakot Majhuwagadhi Municipality' (15 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "124",
       "local_level_name": "Haleshi tuwachung municipality",
       "district": "Khotang",
@@ -4757,7 +5094,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 39: 'Halesi Tuwachung Municipality' (11 wards, name score=0.97)",
+      "evidence_note": "Local-body directory row 39: 'Halesi Tuwachung Municipality' (11 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -4929,6 +5266,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "411",
+      "local_level_name": "Kwhlosothar Rural Municipality",
+      "district": "Lamjung",
+      "province": "Gandaki Province",
+      "hostname": "kwholasotharmun.gov.np",
+      "website_url": "https://kwholasotharmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 427: 'Kwhola Sothar Rural Municipality' (9 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "408",
       "local_level_name": "Madhya Nepal Municipality",
       "district": "Lamjung",
@@ -4953,7 +5304,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 426: 'Marsyangdi Rural Municipality' (9 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 426: 'Marsyangdi Rural Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -4985,6 +5336,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "203",
+      "local_level_name": "Balawa Municipality",
+      "district": "Mahottari",
+      "province": "Madhesh Province",
+      "hostname": "balwamun.gov.np",
+      "website_url": "https://balwamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 197: 'Balawa Municipality' (11 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "196",
       "local_level_name": "Bardibas Municipality",
       "district": "Mahottari",
@@ -4999,6 +5364,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "202",
+      "local_level_name": "Bhangaha Municipality",
+      "district": "Mahottari",
+      "province": "Madhesh Province",
+      "hostname": "bhagahamun.gov.np",
+      "website_url": "https://bhagahamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 195: 'Bhangaha Municipality' (9 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "205",
       "local_level_name": "Ekdara Rural Municipality",
       "district": "Mahottari",
@@ -5006,10 +5385,10 @@
       "hostname": "ekdaramun.gov.np",
       "website_url": "https://ekdaramun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 201: 'Ekadara Rural Municipality' (6 wards, name score=0.92)",
+      "evidence_note": "Local-body directory row 201: 'Ekadara Rural Municipality' (6 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5083,6 +5462,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "200",
+      "local_level_name": "Manara Sishawa Municipality",
+      "district": "Mahottari",
+      "province": "Madhesh Province",
+      "hostname": "manarashiswamun.gov.np",
+      "website_url": "https://manarashiswamun.gov.np/",
+      "method": "manual",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Directory row 200 lists Manara Shisawa Municipality with the typo manrashiswamun.gov.np (NXDOMAIN). The corrected hostname manarashiswamun.gov.np resolves and matches the name.",
+      "decided_at": "2026-11-09"
+    },
+    {
       "local_level_id": "201",
       "local_level_name": "Matihani Municipality",
       "district": "Mahottari",
@@ -5104,10 +5497,10 @@
       "hostname": "pipramun.gov.np",
       "website_url": "https://pipramun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 203: 'Pipara Rural Municipality' (7 wards, name score=0.91)",
+      "evidence_note": "Local-body directory row 203: 'Pipara Rural Municipality' (7 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5122,6 +5515,34 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 198: 'Ram Gopalpur Municipality' (9 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "207",
+      "local_level_name": "Samshi Rural Municipality",
+      "district": "Mahottari",
+      "province": "Madhesh Province",
+      "hostname": "samsimun.gov.np",
+      "website_url": "https://samsimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 199: 'Samsi Rural Municipality' (7 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "206",
+      "local_level_name": "Sonama Rural Municiaplity",
+      "district": "Mahottari",
+      "province": "Madhesh Province",
+      "hostname": "sonmamun.gov.np",
+      "website_url": "https://sonmamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 193: 'Sonama Rural Municipality' (8 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5191,7 +5612,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 377: 'Indrasarowar Rural Municipality' (5 wards, name score=0.92)",
+      "evidence_note": "Local-body directory row 377: 'Indrasarowar Rural Municipality' (5 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5279,6 +5700,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "445",
+      "local_level_name": "Manag Nesyang Rural Municipality",
+      "district": "Manang",
+      "province": "Gandaki Province",
+      "hostname": "manangngisyangmun.gov.np",
+      "website_url": "https://manangngisyangmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 406: 'Manangngisyang Rural Municipality' (9 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "443",
       "local_level_name": "Narpabhumi Rural Municipality",
       "district": "Manang",
@@ -5290,6 +5725,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 405: 'Narpabhumi Rural Municipality' (5 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "444",
+      "local_level_name": "Nasong Rural Municipality",
+      "district": "Manang",
+      "province": "Gandaki Province",
+      "hostname": "nasonmun.gov.np",
+      "website_url": "http://nasonmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 408: 'Nason Rural Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5522,12 +5971,12 @@
       "district": "Morang",
       "province": "Koshi Province",
       "hostname": "sunawarshimun.gov.np",
-      "website_url": "http://sunawarshimun.gov.np",
-      "method": "wikidata_p856",
+      "website_url": "https://sunawarshimun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q43370734",
-      "evidence_note": "Wikidata P856 for 'Sunawarshi Municipality' (item district='Morang District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 110: 'Sunwarshi Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5555,7 +6004,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 104: 'Sundarharaicha Municipality' (12 wards, name score=0.97)",
+      "evidence_note": "Local-body directory row 104: 'Sundarharaicha Municipality' (12 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5611,7 +6060,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 595: 'Mugumakarmarog Rural Municipality' (9 wards, name score=0.93)",
+      "evidence_note": "Local-body directory row 595: 'Mugumakarmarog Rural Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5634,12 +6083,12 @@
       "district": "Mustang",
       "province": "Gandaki Province",
       "hostname": "varagungmuktichhetramun.gov.np",
-      "website_url": "https://varagungmuktichhetramun.gov.np/",
-      "method": "wikidata_p856",
+      "website_url": "https://varagungmuktichhetramun.gov.np",
+      "method": "localbody_directory",
       "confidence": "medium",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q31271626",
-      "evidence_note": "Wikidata P856 for 'Varagung Muktichhetra Rural Municipality' (item district='Mustang District', name score=0.95)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 411: 'Varagung Muktikshetra Rural Municipality' (5 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5650,10 +6099,10 @@
       "hostname": "gharapjhongmun.gov.np",
       "website_url": "http://gharapjhongmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 410: 'Gharpajhong Rural Municipality' (5 wards, name score=0.91)",
+      "evidence_note": "Local-body directory row 410: 'Gharpajhong Rural Municipality' (5 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5727,6 +6176,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "453",
+      "local_level_name": "Dhaulagiri Rural Municipality",
+      "district": "Myagdi",
+      "province": "Gandaki Province",
+      "hostname": "dhawalagirimun.gov.np",
+      "website_url": "https://dhawalagirimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 416: 'Dhawalagiri Rural Municipality' (7 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "455",
       "local_level_name": "Malika Rural Municipality",
       "district": "Myagdi",
@@ -5766,6 +6229,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 415: 'Raghuganga Rural Municipality' (8 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "749",
+      "local_level_name": "Baudikali Municipality",
+      "district": "Nawalpur",
+      "province": "Gandaki Province",
+      "hostname": "bungdikalimun.gov.np",
+      "website_url": "https://bungdikalimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 445: 'Bungdikali Rural Municipality' (6 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -5821,7 +6298,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 443: 'Gaindakot Municipality' (18 wards, name score=0.94)",
+      "evidence_note": "Local-body directory row 443: 'Gaindakot Municipality' (18 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6007,20 +6484,6 @@
       "decided_at": "2026-11-08"
     },
     {
-      "local_level_id": "312",
-      "local_level_name": "Shivapuri Rural Municipality",
-      "district": "Nuwakot",
-      "province": "Bagmati Province",
-      "hostname": "shivarajmun.gov.np",
-      "website_url": "http://www.shivarajmun.gov.np",
-      "method": "wikidata_p856",
-      "confidence": "medium",
-      "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q3424594",
-      "evidence_note": "Wikidata P856 for 'Shivapur' (item district='Kapilvastu District', name score=0.94)",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "313",
       "local_level_name": "Suryagadhi Rural Municipality",
       "district": "Nuwakot",
@@ -6129,7 +6592,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 35: 'Manebhanjyang Rural Municipality' (9 wards, name score=0.96)",
+      "evidence_note": "Local-body directory row 35: 'Manebhanjyang Rural Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6182,10 +6645,10 @@
       "hostname": "baganaskalimun.gov.np",
       "website_url": "https://baganaskalimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 521: 'Baganaskali Rural Municipality' (9 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 521: 'Baganaskali Rural Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6273,6 +6736,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "495",
+      "local_level_name": "Ripdikot Rural Municipality",
+      "district": "Palpa",
+      "province": "Lumbini Province",
+      "hostname": "ribdikotmun.gov.np",
+      "website_url": "http://ribdikotmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 523: 'Ribdikot Rural Municipality' (8 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "487",
       "local_level_name": "Tansen Municipality",
       "district": "Palpa",
@@ -6284,6 +6761,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 522: 'Tansen Municipality' (14 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "493",
+      "local_level_name": "Tinahu Rural Municipality",
+      "district": "Palpa",
+      "province": "Lumbini Province",
+      "hostname": "tinaumun.gov.np",
+      "website_url": "http://tinaumun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 525: 'Tinau Rural Municipality' (6 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6311,7 +6802,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 69: 'Hilihan Rural Municipality' (7 wards, name score=0.93)",
+      "evidence_note": "Local-body directory row 69: 'Hilihan Rural Municipality' (7 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6462,10 +6953,10 @@
       "hostname": "pratappurmun.gov.np",
       "website_url": "https://pratappurmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 533: 'Pratapapur Rural Municipality' (9 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 533: 'Pratapapur Rural Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6502,12 +6993,12 @@
       "district": "Parasi",
       "province": "Lumbini Province",
       "hostname": "sunwalmun.gov.np",
-      "website_url": "http://www.sunwalmun.gov.np",
-      "method": "wikidata_p856",
+      "website_url": "https://sunwalmun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q3416696",
-      "evidence_note": "Wikidata P856 for 'Sunwal' (item district='Parasi District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 529: 'Sunawal Municipality' (13 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6619,7 +7110,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 467: 'Paiyu Rural Municipality' (7 wards, name score=0.91)",
+      "evidence_note": "Local-body directory row 467: 'Paiyu Rural Municipality' (7 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6633,7 +7124,21 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 464: 'Phalebas Municipality' (11 wards, name score=0.88)",
+      "evidence_note": "Local-body directory row 464: 'Phalebas Municipality' (11 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "377",
+      "local_level_name": "Bahadurmai Municipality",
+      "district": "Parsa",
+      "province": "Madhesh Province",
+      "hostname": "bahudarmaimun.gov.np",
+      "website_url": "https://bahudarmaimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 267: 'Bahudarmai Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6819,6 +7324,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "537",
+      "local_level_name": "Airawoti Rural Municipality",
+      "district": "Pyuthan",
+      "province": "Lumbini Province",
+      "hostname": "airawatimun.gov.np",
+      "website_url": "http://airawatimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 498: 'Aairawati Rural Municipality' (6 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "531",
       "local_level_name": "Gaumukhi Rural Municipality",
       "district": "Pyuthan",
@@ -6840,10 +7359,10 @@
       "hostname": "jhimrukmun.gov.np",
       "website_url": "https://jhimrukmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 493: 'Jhimaruk Rural Municipality' (8 wards, name score=0.93)",
+      "evidence_note": "Local-body directory row 493: 'Jhimaruk Rural Municipality' (8 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6858,6 +7377,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 497: 'Mallarani Rural Municipality' (5 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "532",
+      "local_level_name": "Mandabi Rural Municipality",
+      "district": "Pyuthan",
+      "province": "Lumbini Province",
+      "hostname": "mandavimun.gov.np",
+      "website_url": "https://mandavimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 496: 'Mandavi Rural Municipality' (5 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6910,10 +7443,10 @@
       "hostname": "swargadwarimun.gov.np",
       "website_url": "https://swargadwarimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 495: 'Sworgadwari Municipality' (9 wards, name score=0.91)",
+      "evidence_note": "Local-body directory row 495: 'Sworgadwari Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -6955,7 +7488,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 365: 'Khandadevi Rural Municipality' (9 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 365: 'Khandadevi Rural Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7078,10 +7611,24 @@
       "hostname": "baudhimaimun.gov.np",
       "website_url": "https://baudhimaimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 236: 'Boudhimai Municipality' (9 wards, name score=0.89)",
+      "evidence_note": "Local-body directory row 236: 'Boudhimai Municipality' (9 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "345",
+      "local_level_name": "Brindaban Municipality",
+      "district": "Rautahat",
+      "province": "Madhesh Province",
+      "hostname": "brindawanmun.gov.np",
+      "website_url": "http://brindawanmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 230: 'Brindaban Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7109,7 +7656,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 234: 'Dewahi Gonahi Municipality' (9 wards, name score=0.92)",
+      "evidence_note": "Local-body directory row 234: 'Dewahi Gonahi Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7137,7 +7684,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 228: 'Phatuwa Bijayapur Municipality' (11 wards, name score=0.87)",
+      "evidence_note": "Local-body directory row 228: 'Phatuwa Bijayapur Municipality' (11 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7204,10 +7751,10 @@
       "hostname": "ishnathmun.gov.np",
       "website_url": "https://ishnathmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 243: 'Ishanath Municipality' (9 wards, name score=0.93)",
+      "evidence_note": "Local-body directory row 243: 'Ishanath Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7333,7 +7880,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 488: 'Runtigadhi Rural Municipality' (9 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 488: 'Runtigadhi Rural Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7348,6 +7895,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 481: 'Sunchhahari Rural Municipality' (7 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "547",
+      "local_level_name": "Thawang Rural Municipality",
+      "district": "Rolpa",
+      "province": "Lumbini Province",
+      "hostname": "thabangmun.gov.np",
+      "website_url": "http://thabangmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 482: 'Thawang Rural Municipality' (5 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7533,6 +8094,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "512",
+      "local_level_name": "Suddodhan Rural Municipality",
+      "district": "Rupandehi",
+      "province": "Lumbini Province",
+      "hostname": "shuddhodhanmunrupandehi.gov.np",
+      "website_url": "http://shuddhodhanmunrupandehi.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 540: 'Suddhodhan Rural Municipality' (6 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "502",
       "local_level_name": "Tilottama Municipality",
       "district": "Rupandehi",
@@ -7552,12 +8127,12 @@
       "district": "Salyan",
       "province": "Karnali Province",
       "hostname": "bagchaurmun.gov.np",
-      "website_url": "http://www.bagchaurmun.gov.np",
-      "method": "wikidata_p856",
+      "website_url": "https://bagchaurmun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q21065995",
-      "evidence_note": "Wikidata P856 for 'Bagchaur' (item district='Salyan District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 651: 'Bagachour Municipality' (12 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7566,12 +8141,26 @@
       "district": "Salyan",
       "province": "Karnali Province",
       "hostname": "bangadkupindemun.gov.np",
-      "website_url": "http://www.bangadkupindemun.gov.np",
-      "method": "wikidata_p856",
+      "website_url": "https://bangadkupindemun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q55639263",
-      "evidence_note": "Wikidata P856 for 'Bangad Kupinde' (item district='Salyan District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 649: 'Banagad Kupinde Municipality' (12 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "563",
+      "local_level_name": "Chatreshwari Rural Municipality",
+      "district": "Salyan",
+      "province": "Karnali Province",
+      "hostname": "chhatreshworimun.gov.np",
+      "website_url": "https://chhatreshworimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 652: 'Chhatreshwori Rural Municipality' (7 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7617,6 +8206,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "557",
+      "local_level_name": "Shaarda Municipality",
+      "district": "Salyan",
+      "province": "Karnali Province",
+      "hostname": "shaaradamun.gov.np",
+      "website_url": "https://shaaradamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 653: 'Sharada Municipality' (15 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "564",
       "local_level_name": "Siddhakumakh Rural Municipality",
       "district": "Salyan",
@@ -7624,10 +8227,24 @@
       "hostname": "siddhakumakhmun.gov.np",
       "website_url": "https://siddhakumakhmun.gov.np/",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 650: 'Siddihakumakh Rural Municipality' (5 wards, name score=0.96)",
+      "evidence_note": "Local-body directory row 650: 'Siddihakumakh Rural Municipality' (5 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "561",
+      "local_level_name": "Tribeni Rural Municipality",
+      "district": "Salyan",
+      "province": "Karnali Province",
+      "hostname": "trivenimunsalyan.gov.np",
+      "website_url": "http://www.trivenimunsalyan.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 486: 'Tribeni Rural Municipality' (6 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7763,11 +8380,11 @@
       "province": "Koshi Province",
       "hostname": "panchkhapanmun.gov.np",
       "website_url": "http://panchkhapanmun.gov.np",
-      "method": "wikidata_p856",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q55628506",
-      "evidence_note": "Wikidata P856 for 'Panchkhapan Municipality' (item district='Sankhuwasabha District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 16: 'Panchakhapan Municipality' (9 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7795,7 +8412,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 140: 'Agnisair Krishna Sabaran Rural Municipality' (6 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 140: 'Agnisair Krishna Sabaran Rural Municipality' (6 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -7921,7 +8538,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 151: 'Mahadewa Rural Municipality' (6 wards, name score=0.88)",
+      "evidence_note": "Local-body directory row 151: 'Mahadewa Rural Municipality' (6 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8037,6 +8654,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "217",
+      "local_level_name": "Balara Municipality",
+      "district": "Sarlahi",
+      "province": "Madhesh Province",
+      "hostname": "balramun.gov.np",
+      "website_url": "https://www.balramun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 221: 'Balara Municipality' (11 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "216",
       "local_level_name": "Barhathawa Municipality",
       "district": "Sarlahi",
@@ -8044,10 +8675,10 @@
       "hostname": "barhathwamun.gov.np",
       "website_url": "https://www.barhathwamun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 209: 'Barahathawa Municipality' (18 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 209: 'Barahathawa Municipality' (18 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8163,6 +8794,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "215",
+      "local_level_name": "Hariwon Municipality",
+      "district": "Sarlahi",
+      "province": "Madhesh Province",
+      "hostname": "harionmun.gov.np",
+      "website_url": "https://www.harionmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 207: 'Hariwan Municipality' (11 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "210",
       "local_level_name": "Ishworpur Municipality",
       "district": "Sarlahi",
@@ -8174,6 +8819,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 211: 'Ishworpur Municipality' (15 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "220",
+      "local_level_name": "Kabilasi Municipality",
+      "district": "Sarlahi",
+      "province": "Madhesh Province",
+      "hostname": "kawilasimun.gov.np",
+      "website_url": "https://www.kawilasimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 216: 'Kabilashi Municipality' (10 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8268,10 +8927,10 @@
       "hostname": "dudhaulimun.gov.np",
       "website_url": "http://dudhaulimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 368: 'Dudhouli Municipality' (14 wards, name score=0.88)",
+      "evidence_note": "Local-body directory row 368: 'Dudhouli Municipality' (14 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8313,7 +8972,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 376: 'Hariharpurgaghi Rural Municipality' (8 wards, name score=0.93)",
+      "evidence_note": "Local-body directory row 376: 'Hariharpurgaghi Rural Municipality' (8 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8383,7 +9042,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 291: 'Bahrabise Municipality' (9 wards, name score=0.89)",
+      "evidence_note": "Local-body directory row 291: 'Bahrabise Municipality' (9 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8408,10 +9067,24 @@
       "hostname": "chautarasangachowkgadhimun.gov.np",
       "website_url": "https://chautarasangachowkgadhimun.gov.np",
       "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 289: 'Choutara Sangachowkgadhi Municipality' (14 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "266",
+      "local_level_name": "Helambhu Rural Municipality",
+      "district": "Sindhupalchok",
+      "province": "Bagmati Province",
+      "hostname": "helambumun.gov.np",
+      "website_url": "https://helambumun.gov.np",
+      "method": "localbody_directory",
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 289: 'Choutara Sangachowkgadhi Municipality' (14 wards, name score=0.96)",
+      "evidence_note": "Local-body directory row 286: 'Helambu Rural Municipality' (7 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8422,10 +9095,10 @@
       "hostname": "indrawatimun.gov.np",
       "website_url": "https://indrawatimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 288: 'Indrawoti Rural Municipality' (12 wards, name score=0.89)",
+      "evidence_note": "Local-body directory row 288: 'Indrawoti Rural Municipality' (12 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8467,7 +9140,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 287: 'Melanchi Municipality' (13 wards, name score=0.88)",
+      "evidence_note": "Local-body directory row 287: 'Melanchi Municipality' (13 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8478,10 +9151,10 @@
       "hostname": "panchpokharithangpalmun.gov.np",
       "website_url": "https://panchpokharithangpalmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 285: 'Panchpokhari Thangpal Rural Municipality' (8 wards, name score=0.98)",
+      "evidence_note": "Local-body directory row 285: 'Panchpokhari Thangpal Rural Municipality' (8 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8496,6 +9169,20 @@
       "status": "mapped",
       "evidence_url": "https://www.wikidata.org/wiki/Q55634219",
       "evidence_note": "Wikidata P856 for 'Sunkoshi' (item district='Sindhupalchowk District', name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "175",
+      "local_level_name": "Anarma Rural Municipality",
+      "district": "Siraha",
+      "province": "Madhesh Province",
+      "hostname": "anarmamun.gov.np",
+      "website_url": "https://www.anarmamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 164: 'Arnama Rural Municipality' (5 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8534,10 +9221,10 @@
       "hostname": "bhagwanpurmun.gov.np",
       "website_url": "https://www.bhagwanpurmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 168: 'Bhagawanpur Rural Municipality' (5 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 168: 'Bhagawanpur Rural Municipality' (5 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8793,6 +9480,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "768",
+      "local_level_name": "Mapya Dudhkoshi Rural Municipality",
+      "district": "Solukhumbu",
+      "province": "Koshi Province",
+      "hostname": "dudhkoshimun.gov.np",
+      "website_url": "http://dudhkoshimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 24: 'Mapya Dudhkoshi Rural Municipality' (7 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "112",
       "local_level_name": "Nechasalyan rural municipality",
       "district": "Solukhumbu",
@@ -8831,7 +9532,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 26: 'Solu Dhudhakunda Municipality' (11 wards, name score=0.93)",
+      "evidence_note": "Local-body directory row 26: 'Solu Dhudhakunda Municipality' (11 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8863,6 +9564,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "78",
+      "local_level_name": "Baraha chhetra rural municipality",
+      "district": "Sunsari",
+      "province": "Koshi Province",
+      "hostname": "barahamun.gov.np",
+      "website_url": "http://barahamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 119: 'Barahachettra Municipality' (11 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "82",
       "local_level_name": "Barju rural municipality",
       "district": "Sunsari",
@@ -8877,17 +9592,31 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "83",
+      "local_level_name": "Bhokraha narsingh rural municipality",
+      "district": "Sunsari",
+      "province": "Koshi Province",
+      "hostname": "bhokrahamun.gov.np",
+      "website_url": "http://bhokrahamun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 121: 'Bhokraha Narsingh Rural Municipality' (8 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "79",
       "local_level_name": "Dewanganj rural municipality",
       "district": "Sunsari",
       "province": "Koshi Province",
       "hostname": "dewanganjmun.gov.np",
-      "website_url": "http://www.dewanganjmun.gov.np/",
-      "method": "wikidata_p856",
+      "website_url": "http://dewanganjmun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q42895890",
-      "evidence_note": "Wikidata P856 for 'Dewanganj' (item district='Sunsari District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 128: 'Dewangunj Rural Municipality' (7 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -8982,10 +9711,10 @@
       "hostname": "harinagarmun.gov.np",
       "website_url": "http://harinagarmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 127: 'Harinagar Rural Municipality' (7 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 127: 'Harinagar Rural Municipality' (7 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -9143,6 +9872,20 @@
       "decided_at": "2026-11-08"
     },
     {
+      "local_level_id": "597",
+      "local_level_name": "Lekbesi Municipality",
+      "district": "Surkhet",
+      "province": "Karnali Province",
+      "hostname": "lekbeshimun.gov.np",
+      "website_url": "https://lekbeshimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 659: 'Lekabeshi Municipality' (10 wards, name score=0.90)",
+      "decided_at": "2026-11-08"
+    },
+    {
       "local_level_id": "596",
       "local_level_name": "Panchapuri Municipality",
       "district": "Surkhet",
@@ -9168,6 +9911,20 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 453: 'Aandhikhola Rural Municipality' (6 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "431",
+      "local_level_name": "ArjunChopari Rural Municipality",
+      "district": "Syangja",
+      "province": "Gandaki Province",
+      "hostname": "arjunchauparimun.gov.np",
+      "website_url": "https://arjunchauparimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 454: 'Arjun Choupari Rural Municipality' (6 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -9315,6 +10072,20 @@
       "local_level_name": "Anbu Khaireni Rural Municipality",
       "district": "Tanahun",
       "province": "Gandaki Province",
+      "hostname": "aanbookhairenimun.gov.np",
+      "website_url": "https://aanbookhairenimun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "high",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 442: 'Aanbu Khaireni Rural Municipality' (6 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "419",
+      "local_level_name": "Anbu Khaireni Rural Municipality",
+      "district": "Tanahun",
+      "province": "Gandaki Province",
       "hostname": "anbukhairenimun.gov.np",
       "website_url": "https://anbukhairenimun.gov.np/",
       "method": "wikidata_p856",
@@ -9419,7 +10190,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 439: 'Rhishing Rural Municipality' (8 wards, name score=0.93)",
+      "evidence_note": "Local-body directory row 439: 'Rhishing Rural Municipality' (8 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -9444,10 +10215,10 @@
       "hostname": "aatharaitribenimun.gov.np",
       "website_url": "http://aatharaitribenimun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 5: 'Aatharai Tribeni Rural Municipality' (5 wards, name score=0.97)",
+      "evidence_note": "Local-body directory row 5: 'Aatharai Tribeni Rural Municipality' (5 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -9527,11 +10298,11 @@
       "province": "Koshi Province",
       "hostname": "phaktanglungmun.gov.np",
       "website_url": "http://phaktanglungmun.gov.np",
-      "method": "wikidata_p856",
+      "method": "localbody_directory",
       "confidence": "medium",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q30626095",
-      "evidence_note": "Wikidata P856 for 'Phaktanglung Rural Municipality' (item district='Taplejung District', name score=0.87)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 1: 'Phaktanglung Rural Municipality' (7 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -9546,20 +10317,6 @@
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
       "evidence_note": "Local-body directory row 6: 'Phungling Municipality' (11 wards, name score=1.00)",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "15",
-      "local_level_name": "Phungling municipality",
-      "district": "Taplejung",
-      "province": "Koshi Province",
-      "hostname": "taplejungmun.gov.np",
-      "website_url": "http://www.taplejungmun.gov.np",
-      "method": "wikidata_p856",
-      "confidence": "high",
-      "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q668851",
-      "evidence_note": "Wikidata P856 for 'Phungling' (item district='Taplejung District', name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -9587,7 +10344,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 8: 'Sirijanga Rural Municipality' (8 wards, name score=0.95)",
+      "evidence_note": "Local-body directory row 8: 'Sirijanga Rural Municipality' (8 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -9668,10 +10425,10 @@
       "hostname": "menchhayayemmun.gov.np",
       "website_url": "http://menchhayayemmun.gov.np",
       "method": "localbody_directory",
-      "confidence": "medium",
+      "confidence": "high",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 64: 'Menchhayayem Rural Municipality' (6 wards, name score=0.96)",
+      "evidence_note": "Local-body directory row 64: 'Menchhayayem Rural Municipality' (6 wards, name score=1.00)",
       "decided_at": "2026-11-08"
     },
     {
@@ -9783,7 +10540,7 @@
       "confidence": "medium",
       "status": "mapped",
       "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
-      "evidence_note": "Local-body directory row 134: 'Limchubung Rural Municipality' (5 wards, name score=0.91)",
+      "evidence_note": "Local-body directory row 134: 'Limchubung Rural Municipality' (5 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -9848,12 +10605,26 @@
       "district": "Western Rukum",
       "province": "Karnali Province",
       "hostname": "aathbiskotmun.gov.np",
-      "website_url": "http://aathbiskotmun.gov.np/",
-      "method": "wikidata_p856",
+      "website_url": "http://aathbiskotmun.gov.np",
+      "method": "localbody_directory",
       "confidence": "high",
       "status": "mapped",
-      "evidence_url": "https://www.wikidata.org/wiki/Q3423389",
-      "evidence_note": "Wikidata P856 for 'Aathbis Kot' (item district='Rukum District', name score=1.00)",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 641: 'Aathabisakot Municipality' (14 wards, name score=1.00)",
+      "decided_at": "2026-11-08"
+    },
+    {
+      "local_level_id": "554",
+      "local_level_name": "Banfikot Rural Municipality",
+      "district": "Western Rukum",
+      "province": "Karnali Province",
+      "hostname": "banphikotmun.gov.np",
+      "website_url": "https://banphikotmun.gov.np",
+      "method": "localbody_directory",
+      "confidence": "medium",
+      "status": "mapped",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Local-body directory row 643: 'Banphikot Rural Municipality' (6 wards, name score=0.90)",
       "decided_at": "2026-11-08"
     },
     {
@@ -9901,178 +10672,10 @@
   ],
   "unresolved": [
     {
-      "local_level_id": "524",
-      "local_level_name": "Sitganga Municipality",
-      "district": "Arghakhanchi",
-      "province": "Lumbini Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "466",
-      "local_level_name": "Jaimuni Municipality",
-      "district": "Baglung",
-      "province": "Gandaki Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "730",
-      "local_level_name": "Surnaya Rural Municipality",
-      "district": "Baitadi",
-      "province": "Sudurpashchim Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "673",
-      "local_level_name": "Chhabispathivera Rural Municipality",
-      "district": "Bajhang",
-      "province": "Sudurpashchim Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "772",
       "local_level_name": "Saipal Municipality",
       "district": "Bajhang",
       "province": "Sudurpashchim Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "667",
-      "local_level_name": "Talakot Rural Municipality",
-      "district": "Bajhang",
-      "province": "Sudurpashchim Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "773",
-      "local_level_name": "Jagannath Municipality",
-      "district": "Bajura",
-      "province": "Sudurpashchim Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "663",
-      "local_level_name": "Khaptad Chhededaha Rural Municipality",
-      "district": "Bajura",
-      "province": "Sudurpashchim Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "657",
-      "local_level_name": "Tribeni Municipality",
-      "district": "Bajura",
-      "province": "Sudurpashchim Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "583",
-      "local_level_name": "Daduwa Village Rural Municipality",
-      "district": "Banke",
-      "province": "Lumbini Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "373",
-      "local_level_name": "Subarna Rural Municipality",
-      "district": "Bara",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "723",
-      "local_level_name": "Nawadurga Rural Municipality",
-      "district": "Dadeldhura",
-      "province": "Sudurpashchim Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "605",
-      "local_level_name": "Aathbis Municipality",
-      "district": "Dailekh",
-      "province": "Karnali Province",
       "hostname": "",
       "website_url": "",
       "method": "no_site_found",
@@ -10101,20 +10704,6 @@
       "local_level_name": "Malikaarjun Rural Municipality",
       "district": "Darchula",
       "province": "Sudurpashchim Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "328",
-      "local_level_name": "Ruby Valley Rural Municipality",
-      "district": "Dhading",
-      "province": "Bagmati Province",
       "hostname": "",
       "website_url": "",
       "method": "no_site_found",
@@ -10167,34 +10756,6 @@
       "decided_at": "2026-11-08"
     },
     {
-      "local_level_id": "191",
-      "local_level_name": "Mukhiyapatti Musaharpatti Municipality",
-      "district": "Dhanusa",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "181",
-      "local_level_name": "Nagarain Municipality",
-      "district": "Dhanusa",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "688",
       "local_level_name": "Shikhar Municipality",
       "district": "Doti",
@@ -10211,20 +10772,6 @@
     {
       "local_level_id": "398",
       "local_level_name": "Barpak Rural Municipality",
-      "district": "Gorkha",
-      "province": "Gandaki Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "403",
-      "local_level_name": "chum Numbri Rural Municipality",
       "district": "Gorkha",
       "province": "Gandaki Province",
       "hostname": "",
@@ -10279,34 +10826,6 @@
       "decided_at": "2026-11-08"
     },
     {
-      "local_level_id": "655",
-      "local_level_name": "Tanjakot Rural Municipality",
-      "district": "Humla",
-      "province": "Karnali Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "619",
-      "local_level_name": "Shivalaya Rural Municipality",
-      "district": "Jajarkot",
-      "province": "Karnali Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "702",
       "local_level_name": "Godawari Municipality",
       "district": "Kailali",
@@ -10335,38 +10854,10 @@
       "decided_at": "2026-11-08"
     },
     {
-      "local_level_id": "643",
-      "local_level_name": "Mahabai Rural Municipality",
-      "district": "Kalikot",
-      "province": "Karnali Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "642",
       "local_level_name": "Shubha Kalika Rural Municipality",
       "district": "Kalikot",
       "province": "Karnali Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "515",
-      "local_level_name": "Shivaraj Municipality",
-      "district": "Kapilvastu",
-      "province": "Lumbini Province",
       "hostname": "",
       "website_url": "",
       "method": "no_site_found",
@@ -10395,20 +10886,6 @@
       "local_level_name": "Tarakeshwor Municipality",
       "district": "Kathmandu",
       "province": "Bagmati Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "125",
-      "local_level_name": "Diktel majhuwagadhi municipality",
-      "district": "Khotang",
-      "province": "Koshi Province",
       "hostname": "",
       "website_url": "",
       "method": "no_site_found",
@@ -10461,92 +10938,8 @@
       "decided_at": "2026-11-08"
     },
     {
-      "local_level_id": "411",
-      "local_level_name": "Kwhlosothar Rural Municipality",
-      "district": "Lamjung",
-      "province": "Gandaki Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "204",
       "local_level_name": "Aurahi Municipality",
-      "district": "Mahottari",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "203",
-      "local_level_name": "Balawa Municipality",
-      "district": "Mahottari",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "202",
-      "local_level_name": "Bhangaha Municipality",
-      "district": "Mahottari",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "200",
-      "local_level_name": "Manara Sishawa Municipality",
-      "district": "Mahottari",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "207",
-      "local_level_name": "Samshi Rural Municipality",
-      "district": "Mahottari",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "206",
-      "local_level_name": "Sonama Rural Municiaplity",
       "district": "Mahottari",
       "province": "Madhesh Province",
       "hostname": "",
@@ -10563,132 +10956,6 @@
       "local_level_name": "Bagmati Rural Municpality",
       "district": "Makwanpur",
       "province": "Bagmati Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "445",
-      "local_level_name": "Manag Nesyang Rural Municipality",
-      "district": "Manang",
-      "province": "Gandaki Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "444",
-      "local_level_name": "Nasong Rural Municipality",
-      "district": "Manang",
-      "province": "Gandaki Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "453",
-      "local_level_name": "Dhaulagiri Rural Municipality",
-      "district": "Myagdi",
-      "province": "Gandaki Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "749",
-      "local_level_name": "Baudikali Municipality",
-      "district": "Nawalpur",
-      "province": "Gandaki Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "495",
-      "local_level_name": "Ripdikot Rural Municipality",
-      "district": "Palpa",
-      "province": "Lumbini Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "493",
-      "local_level_name": "Tinahu Rural Municipality",
-      "district": "Palpa",
-      "province": "Lumbini Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "377",
-      "local_level_name": "Bahadurmai Municipality",
-      "district": "Parsa",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "537",
-      "local_level_name": "Airawoti Rural Municipality",
-      "district": "Pyuthan",
-      "province": "Lumbini Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "532",
-      "local_level_name": "Mandabi Rural Municipality",
-      "district": "Pyuthan",
-      "province": "Lumbini Province",
       "hostname": "",
       "website_url": "",
       "method": "no_site_found",
@@ -10717,20 +10984,6 @@
       "local_level_name": "Sunapati Rural Municipality",
       "district": "Ramechhap",
       "province": "Bagmati Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "345",
-      "local_level_name": "Brindaban Municipality",
-      "district": "Rautahat",
-      "province": "Madhesh Province",
       "hostname": "",
       "website_url": "",
       "method": "no_site_found",
@@ -10811,20 +11064,6 @@
       "decided_at": "2026-11-08"
     },
     {
-      "local_level_id": "547",
-      "local_level_name": "Thawang Rural Municipality",
-      "district": "Rolpa",
-      "province": "Lumbini Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "539",
       "local_level_name": "Triveni Rural Municipality",
       "district": "Rolpa",
@@ -10853,64 +11092,8 @@
       "decided_at": "2026-11-08"
     },
     {
-      "local_level_id": "512",
-      "local_level_name": "Suddodhan Rural Municipality",
-      "district": "Rupandehi",
-      "province": "Lumbini Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "563",
-      "local_level_name": "Chatreshwari Rural Municipality",
-      "district": "Salyan",
-      "province": "Karnali Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "565",
       "local_level_name": "Kumakh Rural Municipality",
-      "district": "Salyan",
-      "province": "Karnali Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "557",
-      "local_level_name": "Shaarda Municipality",
-      "district": "Salyan",
-      "province": "Karnali Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "561",
-      "local_level_name": "Tribeni Rural Municipality",
       "district": "Salyan",
       "province": "Karnali Province",
       "hostname": "",
@@ -10951,50 +11134,8 @@
       "decided_at": "2026-11-08"
     },
     {
-      "local_level_id": "217",
-      "local_level_name": "Balara Municipality",
-      "district": "Sarlahi",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "213",
       "local_level_name": "Haripur Municipality",
-      "district": "Sarlahi",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "215",
-      "local_level_name": "Hariwon Municipality",
-      "district": "Sarlahi",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "220",
-      "local_level_name": "Kabilasi Municipality",
       "district": "Sarlahi",
       "province": "Madhesh Province",
       "hostname": "",
@@ -11035,20 +11176,6 @@
       "decided_at": "2026-11-08"
     },
     {
-      "local_level_id": "266",
-      "local_level_name": "Helambhu Rural Municipality",
-      "district": "Sindhupalchok",
-      "province": "Bagmati Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "267",
       "local_level_name": "Tripurasundari Rural Municipality",
       "district": "Sindhupalchok",
@@ -11063,94 +11190,10 @@
       "decided_at": "2026-11-08"
     },
     {
-      "local_level_id": "175",
-      "local_level_name": "Anarma Rural Municipality",
-      "district": "Siraha",
-      "province": "Madhesh Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "768",
-      "local_level_name": "Mapya Dudhkoshi Rural Municipality",
-      "district": "Solukhumbu",
-      "province": "Koshi Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "78",
-      "local_level_name": "Baraha chhetra rural municipality",
-      "district": "Sunsari",
-      "province": "Koshi Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "83",
-      "local_level_name": "Bhokraha narsingh rural municipality",
-      "district": "Sunsari",
-      "province": "Koshi Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "597",
-      "local_level_name": "Lekbesi Municipality",
-      "district": "Surkhet",
-      "province": "Karnali Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
       "local_level_id": "601",
       "local_level_name": "Simta Rural Municipality",
       "district": "Surkhet",
       "province": "Karnali Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "431",
-      "local_level_name": "ArjunChopari Rural Municipality",
-      "district": "Syangja",
-      "province": "Gandaki Province",
       "hostname": "",
       "website_url": "",
       "method": "no_site_found",
@@ -11179,20 +11222,6 @@
       "local_level_name": "Byas Municipality",
       "district": "Tanahun",
       "province": "Gandaki Province",
-      "hostname": "",
-      "website_url": "",
-      "method": "no_site_found",
-      "confidence": "none",
-      "status": "unresolved",
-      "evidence_url": "",
-      "evidence_note": "No .gov.np hostname matched by the local-body directory, Wikidata P856, Certificate Transparency or OpenStreetMap.",
-      "decided_at": "2026-11-08"
-    },
-    {
-      "local_level_id": "554",
-      "local_level_name": "Banfikot Rural Municipality",
-      "district": "Western Rukum",
-      "province": "Karnali Province",
       "hostname": "",
       "website_url": "",
       "method": "no_site_found",

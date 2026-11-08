@@ -4820,13 +4820,14 @@
   "schema_version": 1,
   "scope": {
     "adjudicated_records": 12,
-    "attribution_coverage_percent": 87.52,
-    "attribution_local_levels_mapped": 659,
-    "attribution_local_levels_unresolved": 94,
+    "attribution_coverage_percent": 94.56,
+    "attribution_local_levels_mapped": 712,
+    "attribution_local_levels_unresolved": 41,
     "attribution_methods": {
       "ct_hostname_slug": 13,
-      "localbody_directory": 607,
-      "wikidata_p856": 86
+      "localbody_directory": 682,
+      "manual": 1,
+      "wikidata_p856": 65
     },
     "canonical_roster_count": 753,
     "ct_coverage_percent": 0.0,

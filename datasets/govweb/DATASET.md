@@ -8,7 +8,7 @@ Certificate Transparency response.
 
 ## What this dataset is — and is not
 
-**Is:** a reproducible inventory of 2,091 `.gov.np` hostnames, an
+**Is:** a reproducible inventory of 2,837 `.gov.np` hostnames, an
 evidence-bearing attribution of those hostnames to 753 local levels, a small set
 of per-hostname measurements over a pilot sample, and the canonical local-level
 roster.
@@ -40,27 +40,29 @@ The unit is a hostname. Joining by local level requires going through
 carry more than one hostname (apex plus a legacy or campaign domain), so the
 attribution table has one row per accepted link.
 
-## Coverage (2026-11-06 snapshot)
+## Coverage (2026-11-09 snapshot)
 
 | Quantity | Value |
 |---|---:|
 | Roster records | 765 |
 | Adjudicated (excluded) records | 12 |
 | Canonical local levels | 753 |
-| Local levels with at least one attributed hostname | 659 |
-| Attribution coverage | 87.52% |
-| Accepted hostname links | 706 |
-| Unresolved local levels | 94 |
-| Distinct CT hostnames | 2,091 |
+| Local levels with at least one attributed hostname | 712 |
+| Attribution coverage | 94.56% |
+| Accepted hostname links | 761 |
+| Unresolved local levels | 41 |
+| Distinct discovered hostnames | 2,837 |
+| Distinct apex hostnames | 1,187 |
 | Hostnames in observation sample | 20 |
 
 Attribution methods, by accepted hostname link:
 
 | Method | Links |
 |---|---:|
-| `localbody_directory` | 607 |
-| `wikidata_p856` | 86 |
+| `localbody_directory` | 682 |
+| `wikidata_p856` | 65 |
 | `ct_hostname_slug` | 13 |
+| `manual` | 1 |
 
 The roster is 12 records larger than the official count. `roster_adjudication.json`
 records each excluded record with a status (`superseded`, `duplicate` or
@@ -91,7 +93,9 @@ re-checks the arithmetic rather than deleting rows to force a match.
    broken by district or hostname agreement; if that still leaves two
    candidates, the row is dropped and the local level stays unresolved. Every
    accepted row carries `method`, `confidence`, `evidence_url`, `evidence_note`
-   and `decided_at`.
+   and `decided_at`. Manual corrections live in `attribution_overrides.json`
+   (`reject` or `accept`) with their own reason and evidence, rather than as
+   hidden matcher tweaks.
 4. **Sample.** `python -m govweb.cli sample` takes the lexicographically first
    unique hostnames from the discovered inventory. Hostnames are never
    synthesized. The sample predates attribution and is not municipality-weighted.
@@ -133,8 +137,10 @@ re-checks the arithmetic rather than deleting rows to force a match.
 - The local-body directory has data-quality problems: duplicate rows with the
   same website, wrong or generic links (for example a Rajbiraj row pointing at
   `rajapurmun.gov.np`), and hosts that do not resolve. The matcher rejects links
-  that do not corroborate the roster name, but a wrong link that happens to look
-  plausible can still slip through; those rows are candidates for manual review.
+  that do not corroborate the roster name, and hand-checked rejections and
+  acceptances are recorded in `attribution_overrides.json`; every remaining
+  unresolved local level is either absent from the directory or points at a
+  hostname already owned by another local level.
 - `laligurans.gov.np`, `mahakulung.gov.np` and `myanglung.gov.np` do not resolve
   in DNS and are therefore absent from the discovered inventory even though the
   directory lists them.

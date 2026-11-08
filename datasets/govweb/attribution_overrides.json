@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "dataset": "govweb",
+  "description": "Manual corrections applied after the automatic attribution sources. Each entry records the evidence for the decision so the correction is auditable rather than hidden in a matcher tweak.",
+  "decided_at": "2026-11-09",
+  "reject": [
+    {
+      "local_level_id": "44",
+      "local_level_name": "Bhadrapur municipality",
+      "hostname": "bhadpurapurmun.gov.np",
+      "reason": "Directory row 99 reads 'bhadpurapurmun.gov.np', a duplication in the source. The hostname does not resolve, while the separately sourced bhadrapurmun.gov.np does."
+    },
+    {
+      "local_level_id": "312",
+      "local_level_name": "Shivapuri Rural Municipality",
+      "hostname": "shivarajmun.gov.np",
+      "reason": "Wikidata P856 points at Shivaraj Municipality in Kapilvastu; the page title is 'Shivaraj Municipality' and the hostname does not match Shivapuri. The directory hostname shivapurimun.gov.np is retained instead."
+    },
+    {
+      "local_level_id": "15",
+      "local_level_name": "Phungling municipality",
+      "hostname": "taplejungmun.gov.np",
+      "reason": "The hostname names the district rather than the local level, the same ambiguity that excludes province portals. The directory hostname phunglingmun.gov.np is retained instead."
+    },
+    {
+      "local_level_id": "200",
+      "local_level_name": "Manara Sishawa Municipality",
+      "hostname": "manrashiswamun.gov.np",
+      "reason": "Directory row 200 omits a syllable; manrashiswamun.gov.np does not resolve. The correct spelling manarashiswamun.gov.np resolves, so the typo is rejected and the corrected hostname is accepted below."
+    }
+  ],
+  "accept": [
+    {
+      "local_level_id": "200",
+      "local_level_name": "Manara Sishawa Municipality",
+      "hostname": "manarashiswamun.gov.np",
+      "confidence": "medium",
+      "evidence_url": "http://eoffice.mahalaxmimun.gov.np/dcc-localbody-list",
+      "evidence_note": "Directory row 200 lists Manara Shisawa Municipality with the typo manrashiswamun.gov.np (NXDOMAIN). The corrected hostname manarashiswamun.gov.np resolves and matches the name.",
+      "decided_at": "2026-11-09"
+    }
+  ]
+}

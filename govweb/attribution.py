@@ -37,6 +37,7 @@ WIKIDATA_QUERY_URL = (
     WIKIDATA_ENDPOINT + "?" + urllib.parse.urlencode({"query": WIKIDATA_QUERY, "format": "json"})
 )
 ADJUDICATION_FILE = paths.DATASET_DIR / "roster_adjudication.json"
+OVERRIDES_FILE = paths.DATASET_DIR / "attribution_overrides.json"
 
 SUFFIX_WORDS = frozenset(
     {
@@ -68,6 +69,8 @@ DISTRICT_ALIASES = {
     "pachthar": "panchthar",
     "tehrathum": "terhathum",
     "chitawan": "chitwan",
+    "makawanpur": "makwanpur",
+    "sindhupalchowk": "sindhupalchok",
     "rukum east": "eastern rukum",
     "rukum west": "western rukum",
     "nawalparasi east": "nawalpur",
@@ -272,6 +275,23 @@ def load_adjudication(dataset_dir: Path | None = None) -> dict[str, dict]:
         str(record["local_level_id"]): record
         for record in document.get("records", [])
         if record.get("status") in {"superseded", "duplicate", "misplaced"}
+    }
+
+
+def load_overrides(dataset_dir: Path | None = None) -> dict[str, list[dict]]:
+    """Manual corrections applied after the automatic sources.
+
+    ``reject`` drops a link that a source proposed but the evidence does not
+    support; ``accept`` adds a link backed by a hand-checked source.
+    """
+    root = dataset_dir or paths.DATASET_DIR
+    path = root / "attribution_overrides.json"
+    if not path.is_file():
+        return {"reject": [], "accept": []}
+    document = json.loads(path.read_text(encoding="utf-8"))
+    return {
+        "reject": [entry for entry in document.get("reject", []) if isinstance(entry, dict)],
+        "accept": [entry for entry in document.get("accept", []) if isinstance(entry, dict)],
     }
 
 
@@ -495,16 +515,127 @@ def hostname_matches_record(hostname: str, record: dict) -> bool:
     label = re.sub(r"[^a-z0-9]", "", hostname.split(".")[0].lower())
     if not label:
         return False
+    if _name_slug_agrees(hostname, record.get("name", ""), district=record.get("district")):
+        return True
     name = compact(record.get("name", "")).replace(" ", "")
-    if len(name) >= 4 and (name in label or label in name):
-        return True
-    if len(name) >= 6 and similarity(name, label) >= 0.8:
-        return True
-    tokens = compact(record.get("name", "")).split()
-    if any(len(token) >= 6 and token in label for token in tokens):
-        return True
     district = compact(record.get("district", "")).replace(" ", "")
     return bool(district and district in label and name[:4] and name[:4] in label)
+
+
+def _vowel_squash(text: str) -> str:
+    return re.sub(r"[aeiouwy]", "", text)
+
+
+def _slug_stems(label: str, district: str | None = None) -> set[str]:
+    """Every plausible local-level stem hiding in one DNS label.
+
+    Registrars glue the type and the district to the name in any order, so
+    ``trivenimunsalyan`` must reduce to ``triveni``.
+    """
+    base = re.sub(r"[^a-z0-9]", "", label.lower())
+    stems = {base} if base else set()
+    queue = [base] if base else []
+    markers = (
+        "municipality",
+        "nagarpalika",
+        "gaunpalika",
+        "submetropolitan",
+        "submetro",
+        "metropolitan",
+        "mun",
+        "bids",
+        "bds",
+    )
+    while queue:
+        current = queue.pop()
+        candidates = []
+        for marker in markers:
+            index = current.find(marker)
+            if index != -1 and len(current) - len(marker) >= 4:
+                candidates.append(current[:index] + current[index + len(marker) :])
+        for prefix in SLUG_PREFIXES:
+            if current.startswith(prefix) and len(current) - len(prefix) >= 4:
+                candidates.append(current[len(prefix) :])
+        for suffix in SLUG_SUFFIXES:
+            if current.endswith(suffix) and len(current) - len(suffix) >= 4:
+                candidates.append(current[: -len(suffix)])
+        if district:
+            key = district_key(district)
+            if key:
+                key_compact = key.replace(" ", "")
+                if key_compact and key_compact in current and len(current) - len(key_compact) >= 4:
+                    candidates.append(current.replace(key_compact, ""))
+        for candidate in candidates:
+            if candidate and candidate not in stems:
+                stems.add(candidate)
+                queue.append(candidate)
+    return stems
+
+
+def _name_slug_agrees(
+    hostname: str,
+    name: str,
+    *,
+    district: str | None = None,
+    allow_prefix: bool = False,
+) -> bool:
+    """Whether a DNS label is a defensible rendering of a local-level name.
+
+    Nepali transliteration is not standardized: ``Jaimuni`` registers as
+    ``jaiminimun`` and ``Sunarya`` as ``surnaya``. The rules below accept those
+    vowel and one-letter swaps while rejecting a slug that only shares a generic
+    token such as ``kalika``.
+    """
+    target = compact(name).replace(" ", "")
+    if not target:
+        return False
+    for stem in _slug_stems(hostname.split(".")[0], district):
+        if not stem:
+            continue
+        if target == stem or _vowel_squash(target) == _vowel_squash(stem):
+            return True
+        if len(target) >= 5 and target in stem:
+            return True
+        score = similarity(stem, target)
+        if score >= 0.9:
+            return True
+        if score >= 0.82 and stem[0] == target[0] and abs(len(stem) - len(target)) <= 1:
+            return True
+        if len(stem) >= 7 and stem in target:
+            return True
+        if allow_prefix and len(stem) >= 5 and target.startswith(stem):
+            return True
+    return False
+
+
+def _district_in_hostname(hostname: str, district: str | None) -> bool:
+    key = district_key(district)
+    if not key:
+        return False
+    label = re.sub(r"[^a-z0-9]", "", hostname.split(".")[0].lower())
+    key_compact = key.replace(" ", "")
+    if len(key_compact) >= 5 and key_compact in label:
+        return True
+    if len(key_compact) >= 4 and (label.startswith(key_compact) or label.endswith(key_compact)):
+        return True
+    squashed_key = _vowel_squash(key_compact)
+    return bool(len(squashed_key) >= 6 and squashed_key in _vowel_squash(label))
+
+
+def _names_agree(left: str, right: str) -> bool:
+    left_key = compact(left)
+    right_key = compact(right)
+    if not left_key or not right_key:
+        return False
+    if left_key == right_key:
+        return True
+    if _vowel_squash(left_key.replace(" ", "")) == _vowel_squash(right_key.replace(" ", "")):
+        return True
+    if similarity(left_key, right_key) >= 0.82:
+        return True
+    left_tokens = {token for token in left_key.split() if len(token) >= 5}
+    right_tokens = {token for token in right_key.split() if len(token) >= 5}
+    return bool(left_tokens and right_tokens and (left_tokens <= right_tokens or right_tokens <= left_tokens))
 
 
 def match_directory_row(
@@ -515,13 +646,25 @@ def match_directory_row(
     """Match one directory row to a roster record.
 
     The directory's English names are close to the gazetted names, but some are
-    ambiguous across districts. The row's own website is used to disambiguate.
+    ambiguous across districts, some omit a qualifier, and many use a different
+    transliteration. The row's own website is used to disambiguate.
     """
     name = compact(row.get("name_en", ""))
     if not name:
         return None
     hostname = hostname_from_url(row.get("website"))
     candidates = by_name.get(name, [])
+    if hostname:
+        named_district = [
+            record
+            for record in all_records
+            if _district_in_hostname(hostname, record.get("district"))
+            and _names_agree(name, record.get("name", ""))
+        ]
+        unique_named = {str(record.get("municipality_id")): record for record in named_district}
+        candidate_ids = {str(record.get("municipality_id")) for record in candidates}
+        if len(unique_named) == 1 and not (candidate_ids & set(unique_named)):
+            return next(iter(unique_named.values())), 0.9, "fuzzy"
     if not candidates:
         tokens = set(name.split())
         candidates = [
@@ -531,21 +674,43 @@ def match_directory_row(
             and record_tokens <= tokens
             and any(len(token) >= 4 for token in record_tokens)
         ]
+    if not candidates:
+        scored = sorted(
+            (
+                (record, similarity(compact(record.get("name", "")), name))
+                for record in all_records
+            ),
+            key=lambda pair: pair[1],
+            reverse=True,
+        )
+        if scored and scored[0][1] >= 0.8 and (
+            len(scored) == 1 or scored[1][1] <= scored[0][1] - 0.03
+        ):
+            candidates = [scored[0][0]]
     unique = {str(record.get("municipality_id")): record for record in candidates}
     if len(unique) == 1:
-        return next(iter(unique.values())), 1.0, "exact"
+        record = next(iter(unique.values()))
+        exact = compact(record.get("name", "")) == name or (
+            _vowel_squash(compact(record.get("name", "")).replace(" ", ""))
+            == _vowel_squash(name.replace(" ", ""))
+        )
+        return record, 1.0 if exact else 0.9, "exact" if exact else "fuzzy"
     if unique and hostname:
         by_district = [
-            record
-            for record in unique.values()
-            if compact(record.get("district", "")).replace(" ", "") in re.sub(r"[^a-z0-9]", "", hostname)
+            record for record in unique.values() if _district_in_hostname(hostname, record.get("district"))
         ]
         narrowed = {str(record.get("municipality_id")): record for record in by_district}
         if len(narrowed) > 1:
             narrowed = {
                 key: record
                 for key, record in narrowed.items()
-                if hostname_matches_record(hostname, record)
+                if _name_slug_agrees(hostname, record.get("name", ""), district=record.get("district"))
+                or _name_slug_agrees(
+                    hostname,
+                    row.get("name_en", ""),
+                    district=record.get("district"),
+                    allow_prefix=True,
+                )
             }
         if len(narrowed) == 1:
             return next(iter(narrowed.values())), 1.0, "exact"
@@ -553,6 +718,12 @@ def match_directory_row(
             str(record.get("municipality_id")): record
             for record in unique.values()
             if hostname_matches_record(hostname, record)
+            or _name_slug_agrees(
+                hostname,
+                row.get("name_en", ""),
+                district=record.get("district"),
+                allow_prefix=True,
+            )
         }
         if len(corroborated) == 1:
             return next(iter(corroborated.values())), 1.0, "exact"
@@ -603,6 +774,7 @@ def attribute(
     directory: list[dict] | None = None,
     osm_websites: list[dict] | None = None,
     adjudication: dict[str, dict] | None = None,
+    overrides: dict[str, list[dict]] | None = None,
     decided_at: str | None = None,
 ) -> dict:
     """Build the attribution document.
@@ -652,7 +824,12 @@ def attribute(
         if match is None:
             continue
         record, score, kind = match
-        if not hostname_matches_record(hostname, record):
+        if not hostname_matches_record(hostname, record) and not _name_slug_agrees(
+            hostname,
+            row.get("name_en", ""),
+            district=record.get("district"),
+            allow_prefix=True,
+        ):
             continue
         key = str(record.get("municipality_id"))
         add(
@@ -756,6 +933,38 @@ def attribute(
 
     records: list[dict] = []
     mapped_ids: set[str] = set()
+
+    active_by_id = {str(record.get("municipality_id")): record for record in active}
+    corrections = overrides if overrides is not None else load_overrides()
+    for entry in corrections.get("reject", []):
+        local_level_id = str(entry.get("local_level_id") or "")
+        hostname = str(entry.get("hostname") or "").strip().lower().rstrip(".")
+        if not local_level_id or not hostname:
+            continue
+        links.pop((local_level_id, hostname), None)
+        if owners.get(hostname) == local_level_id:
+            del owners[hostname]
+    for entry in corrections.get("accept", []):
+        local_level_id = str(entry.get("local_level_id") or "")
+        hostname = str(entry.get("hostname") or "").strip().lower().rstrip(".")
+        record = active_by_id.get(local_level_id)
+        if record is None or not hostname:
+            continue
+        add(
+            record,
+            local_level_id,
+            _record(
+                record,
+                hostname=hostname,
+                website_url=f"https://{hostname}/",
+                method="manual",
+                confidence=str(entry.get("confidence") or "medium"),
+                evidence_url=str(entry.get("evidence_url") or ""),
+                evidence_note=str(entry.get("evidence_note") or ""),
+                decided_at=str(entry.get("decided_at") or stamp),
+            ),
+        )
+
     for payload in links.values():
         records.append(payload)
         mapped_ids.add(payload["local_level_id"])

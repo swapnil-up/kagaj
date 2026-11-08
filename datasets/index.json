@@ -342,8 +342,8 @@
       "grain": "one row per hostname per observation (hosting, DNS, TLS, HTTP headers, robots, scripts); the roster table is one row per local level, the attribution table one row per local level with its linked hostname (empty when unresolved), and the sites table one row per discovered hostname",
       "coverage": {
         "start": "2026-11-05",
-        "end": "2026-11-06",
-        "note": "Hostname discovery and per-host observations are a single 2026-11-05 snapshot over a 20-hostname pilot sample; attribution and the roster adjudication were extended on 2026-11-06 across all 753 local levels. The pilot sample is not a census of the 2,091 discovered hostnames."
+        "end": "2026-11-09",
+        "note": "Hostname discovery and per-host observations are a 2026-11-05 snapshot over a 20-hostname pilot sample; attribution, the roster adjudication and manual overrides were extended through 2026-11-09 across all 753 local levels over the 2,837-hostname discovered inventory. The pilot sample is not a census of the discovered hostnames."
       },
       "sources": [
         {
@@ -409,10 +409,11 @@
         "nepal"
       ],
       "notes": [
-        "The 20-hostname observation sample is a deterministic lexicographic pilot, not a census of the 2,091 discovered hostnames or the 753 local levels.",
+        "The 20-hostname observation sample is a deterministic lexicographic pilot, not a census of the 2,837 discovered hostnames or the 753 local levels.",
         "Attribution is not proof of administrative ownership: it records the best available source agreement, with the method and evidence URL on every row.",
         "The local-body directory contains duplicate rows and some wrong or generic links; a row is accepted only when its hostname is a plausible .gov.np local-level name and is not already owned by another local level.",
         "Unresolved local levels are evidence of missing data, not evidence that the local level has no website.",
+        "Manual corrections are recorded in attribution_overrides.json so a reviewer can see every deviation from the automatic result.",
         "Non-local government agencies and province portals are not attributed to a local level even when their names collide.",
         "A failed or missing observation is never treated as a secure configuration.",
         "Country-level IP geolocation is approximate and does not establish the physical server location or the hosting contract.",
@@ -431,15 +432,15 @@
         "fingerprints": [
           "build.json"
         ],
-        "generated_at": "2026-11-08T23:04:01.166240+00:00",
-        "commit": "2d296558c529ac476fc5629c735f7d0be5008490"
+        "generated_at": "2026-11-08T23:56:19.133529+00:00",
+        "commit": "e62ae758d1159d40cbf5cecad3e87a0f88fabb38"
       },
       "artifacts": [
         {
           "path": "sites.csv.gz",
           "role": "primary",
           "format": "csv.gz",
-          "bytes": 20169,
+          "bytes": 20618,
           "columns": [
             "hostname",
             "apex_hostname",
@@ -447,8 +448,8 @@
             "in_observed_sample",
             "discovered_via"
           ],
-          "rows": 2782,
-          "sha256": "ad5f3ff492378de9fcba96f80c82b69a3f795b7a51d14caf20bfbafdd3fc24c4",
+          "rows": 2837,
+          "sha256": "4f7945e5820762107cf52dd6951512dbad57385630015aa916ce7fb6fc23cbd5",
           "description": "The discovered .gov.np hostname universe with apex and subdomain decomposition and whether the hostname entered the observation sample."
         },
         {
@@ -473,7 +474,7 @@
           "path": "attribution.csv.gz",
           "role": "canonical",
           "format": "csv.gz",
-          "bytes": 20417,
+          "bytes": 20813,
           "columns": [
             "hostname",
             "local_level_id",
@@ -487,8 +488,8 @@
             "evidence_note",
             "decided_at"
           ],
-          "rows": 800,
-          "sha256": "14e2ab63f60aef74e0d539a98ca79d9c46080fabd23b69383d7616cc8d68ba6f",
+          "rows": 802,
+          "sha256": "3943bec766386f48980474d08dc2783f3df3ce7dc4d6d4cd5daf29058195ffc7",
           "description": "Hostname-to-local-level links with method, confidence and evidence; unresolved local levels carry an empty hostname."
         },
         {
@@ -652,9 +653,17 @@
           "path": "attribution.json",
           "role": "raw",
           "format": "json",
-          "bytes": 454887,
-          "sha256": "d4fd513f371e773a1927e4a1937f6432ac515752e0ee5fcdeb8c1310d3eb25b9",
+          "bytes": 460406,
+          "sha256": "596bb3dbce01039232ae7292b2e4f5dbb0db1c8bb5d5142341d4643e8a640105",
           "description": "Full attribution output: one record per mapped local level and one per unresolved local level, with method, confidence, evidence URL, evidence note and decision date."
+        },
+        {
+          "path": "attribution_overrides.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 2197,
+          "sha256": "62dc1e82dc7fff912c87fbd841d823bff5e81082861c2346ca57457e2c552c84",
+          "description": "Manual reject/accept corrections applied after the automatic sources, each with a reason, evidence and decision date."
         },
         {
           "path": "tls_sample.json",
@@ -748,8 +757,8 @@
           "path": "audit_report.json",
           "role": "report",
           "format": "json",
-          "bytes": 946854,
-          "sha256": "949c3e949b84f5a4b87b0f0820c13e02b2b85e52691b8e492731752204b349a5"
+          "bytes": 946873,
+          "sha256": "a7419380a85207b01b37dc5c79ea6b8fc3ad0dbaeace021d978b9db644fa3c4f"
         }
       ]
     },

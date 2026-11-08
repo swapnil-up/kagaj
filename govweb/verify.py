@@ -242,6 +242,13 @@ def verify() -> dict[str, Any]:
                 source_hosts.add(host)
 
     source_hosts = {_norm_host(host) for host in source_hosts}
+    overrides_document = _load("attribution_overrides.json")
+    accept_entries = (
+        overrides_document.get("accept", []) if isinstance(overrides_document, dict) else []
+    )
+    for entry in accept_entries if isinstance(accept_entries, list) else []:
+        if isinstance(entry, dict) and isinstance(entry.get("hostname"), str):
+            source_hosts.add(_norm_host(entry["hostname"]))
 
     roster_info = roster_report(active_roster)
     checks: list[dict[str, Any]] = []
@@ -330,6 +337,35 @@ def verify() -> dict[str, Any]:
         "attribution_has_no_hostname_outside_discovery_sources",
         not outside,
         f"attributed hostnames absent from every committed source: {outside}",
+        severity="fail",
+    )
+    rejected_still_linked = sorted(
+        str(entry.get("hostname"))
+        for entry in overrides_document.get("reject", [])
+        if isinstance(entry, dict)
+        and _norm_host(str(entry.get("hostname") or ""))
+        in {_norm_host(record.get("hostname") or "") for record in attribution_records}
+    ) if isinstance(overrides_document, dict) else []
+    check(
+        "attribution_rejections_are_not_linked",
+        not rejected_still_linked,
+        f"overridden rejections still attributed: {rejected_still_linked}",
+        severity="fail",
+    )
+    unapplied_accepts = sorted(
+        str(entry.get("local_level_id"))
+        for entry in accept_entries
+        if isinstance(entry, dict)
+        and not any(
+            str(record.get("local_level_id")) == str(entry.get("local_level_id"))
+            and record.get("hostname") == entry.get("hostname")
+            for record in attribution_records
+        )
+    )
+    check(
+        "attribution_acceptances_are_applied",
+        not unapplied_accepts,
+        f"manual acceptances missing from attribution: {unapplied_accepts}",
         severity="fail",
     )
     missing_evidence = sorted(

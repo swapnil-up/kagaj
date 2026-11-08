@@ -202,6 +202,9 @@ def run_ocr(pdf_path: Path) -> str:
     VERBATIMS_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
+        if result.returncode < 0:
+            raise RuntimeError(
+                f"KILLED: OCR subprocess terminated by signal {-result.returncode}")
         err = (result.stderr or "") + (result.stdout or "")
         raise RuntimeError(err[-500:])
 
@@ -386,6 +389,8 @@ def _phase_failure_kind(phase: str, message: str) -> str:
         return "rate_limit"
     if message.startswith("TRUNCATED"):
         return "truncated"
+    if message.startswith("KILLED"):
+        return "killed"
     return phase
 
 

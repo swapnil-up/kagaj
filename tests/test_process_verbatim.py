@@ -120,3 +120,37 @@ def test_truncation_failure_is_distinct_from_ocr(
     assert verbatim["status"] == "failed"
     assert verbatim["failure_kind"] == "truncated"
     assert verbatim["attempts"] == 1
+
+
+def test_phase_failure_kind_maps_killed():
+    assert pv._phase_failure_kind("ocr", "KILLED: signal 9") == "killed"
+
+
+def test_run_ocr_reports_signal_as_killed(monkeypatch, tmp_path):
+    class _Result:
+        returncode = -9
+        stderr = ""
+        stdout = ""
+
+    monkeypatch.setattr(pv.subprocess, "run", lambda *a, **k: _Result())
+    monkeypatch.setattr(pv, "VERBATIMS_OUTPUT_DIR", tmp_path)
+
+    with pytest.raises(RuntimeError, match="^KILLED"):
+        pv.run_ocr(tmp_path / "Verbatim_9005.pdf")
+
+
+def test_killed_ocr_records_killed_failure_kind(monkeypatch, no_manifest):
+    verbatim = _verbatim(id=9005)
+    entries = [verbatim]
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    monkeypatch.setattr(pv, "download_pdf", lambda url, dest: (True, ""))
+
+    def killed(path):
+        raise RuntimeError("KILLED: OCR subprocess terminated by signal 9")
+
+    monkeypatch.setattr(pv, "run_ocr", killed)
+
+    assert pv.process_one(verbatim, 0, entries) is False
+    assert verbatim["status"] == "failed"
+    assert verbatim["failure_kind"] == "killed"
+    assert verbatim["attempts"] == 1

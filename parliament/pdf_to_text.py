@@ -5,33 +5,46 @@ import sys
 from pathlib import Path
 
 import numpy as np
-from pdf2image import convert_from_path
+from pdf2image import convert_from_path, pdfinfo_from_path
 
 from kagaj_core import llm as core_llm
 from kagaj_core import ocr as core_ocr
 from kagaj_core import pdf as core_pdf
 
 GEMINI_MODEL = "gemini-2.5-flash-lite"
+RASTER_BATCH_SIZE = 10
 
 
+def iter_page_images(pdf_path: str, dpi: int = 300, batch_size: int = RASTER_BATCH_SIZE):
+    """Rasterise a PDF in batches, yielding ``(page_index, image)``.
 
-def pdf_to_images(pdf_path: str, dpi: int = 300) -> list:
-    print(f"[pdf] Converting {Path(pdf_path).name} → images ({dpi} dpi)...", file=sys.stderr, flush=True)
-    imgs = convert_from_path(pdf_path, dpi=dpi)
-    print(f"[pdf]  {len(imgs)} page(s) rasterised", file=sys.stderr, flush=True)
-    return imgs
+    ``convert_from_path`` renders every page into memory at once, which needs
+    >12 GB for a 328-page A4 document at 300 dpi and OOM-kills CI runners.
+    Converting ``batch_size`` pages per call keeps peak memory bounded.
+    """
+    total = pdfinfo_from_path(pdf_path)["Pages"]
+    print(f"[pdf] Converting {Path(pdf_path).name} → images ({dpi} dpi, "
+          f"{total} page(s), batch {batch_size})...", file=sys.stderr, flush=True)
+    for start in range(1, total + 1, batch_size):
+        last = min(start + batch_size - 1, total)
+        batch = convert_from_path(pdf_path, dpi=dpi, first_page=start, last_page=last)
+        for offset, img in enumerate(batch):
+            yield start - 1 + offset, img
+        del batch
+    print(f"[pdf]  {total} page(s) rasterised", file=sys.stderr, flush=True)
 
 
 def is_devanagari_line(text: str, min_ratio: float = 0.4) -> bool:
     return core_ocr.is_devanagari(text, min_ratio=min_ratio)
 
 
-def extract_lines(images: list) -> list:
+def extract_lines(pages) -> list:
     engine = core_ocr.create_engine()
-    total = len(images)
     lines = []
-    for page_idx, img in enumerate(images):
-        print(f"[ocr]  Page {page_idx + 1}/{total}...", file=sys.stderr, flush=True)
+    count = 0
+    for page_idx, img in pages:
+        count += 1
+        print(f"[ocr]  Page {page_idx + 1}...", file=sys.stderr, flush=True)
         before = len(lines)
         arr = np.array(img)
         for word in core_ocr.ocr_array(engine, arr):
@@ -46,7 +59,7 @@ def extract_lines(images: list) -> list:
         added = len(lines) - before
         print(f"[ocr]   → {added} lines", file=sys.stderr, flush=True)
     lines.sort(key=lambda r: (r["page"], r["y"], r["x"]))
-    print(f"[ocr]  Total: {len(lines)} lines across {total} pages", file=sys.stderr, flush=True)
+    print(f"[ocr]  Total: {len(lines)} lines across {count} pages", file=sys.stderr, flush=True)
     return lines
 
 
@@ -75,7 +88,8 @@ def decode_text_layer(pdf_path: str, store_path: str = "cidmap/data/cid_mappings
             print(f"[decode]  p{pn + 1}: fallback to OCR ({unk} unmapped of {mapped + unk})",
                   file=sys.stderr, flush=True)
             from cidmap.ocr import render_page
-            out.append("\n".join(r["text"] for r in extract_lines([render_page(doc[pn])])))
+            out.append("\n".join(
+                r["text"] for r in extract_lines([(pn, render_page(doc[pn]))])))
         else:
             out.append(text)
     return out
@@ -142,7 +156,8 @@ def translate_lines(lines: list, api_key: str) -> list:
     return lines
 
 
-def generate_html(lines: list, images: list, out_dir: str, stem: str, night_mode: bool = False) -> str:
+def generate_html(lines: list, out_dir: str, stem: str, pdf_path: str,
+                  dpi: int = 300, night_mode: bool = False) -> str:
     by_page = {}
     for r in lines:
         by_page.setdefault(r["page"], []).append(r)
@@ -156,7 +171,8 @@ def generate_html(lines: list, images: list, out_dir: str, stem: str, night_mode
     num_pages = len(by_page)
     for page_idx in sorted(by_page):
         print(f"[html]  Page {page_idx + 1}/{num_pages}...", file=sys.stderr, flush=True)
-        img = images[page_idx]
+        img = convert_from_path(pdf_path, dpi=dpi,
+                                first_page=page_idx + 1, last_page=page_idx + 1)[0]
         iw, ih = img.size
         img_name = f"{stem}-page-{page_idx + 1}.png"
         img_path = Path(out_dir) / img_name
@@ -268,7 +284,6 @@ def main():
     if args.decode:
         print(f"[stage] 1/3 — Decode text layer (cidmap store)", file=sys.stderr, flush=True)
         pages = decode_text_layer(str(pdf))
-        images = None
         lines = [{"y": i * 100, "x": 0, "w": 500, "h": 40, "text": t, "page": i}
                  for i, t in enumerate(pages)]
         print(f"[stage] 1/3 — Decoded {len(pages)} pages", file=sys.stderr, flush=True)
@@ -291,9 +306,8 @@ def main():
         return 0
 
     print(f"[stage] 1/4 — Rasterise PDF", file=sys.stderr, flush=True)
-    images = pdf_to_images(str(pdf), dpi=args.dpi)
-    print(f"[stage] 2/4 — OCR {len(images)} page(s)", file=sys.stderr, flush=True)
-    lines = extract_lines(images)
+    print(f"[stage] 2/4 — OCR {pdf.name}", file=sys.stderr, flush=True)
+    lines = extract_lines(iter_page_images(str(pdf), dpi=args.dpi))
 
     if args.translate:
         print(f"[stage] 3/4 — Translate to English", file=sys.stderr, flush=True)
@@ -315,7 +329,8 @@ def main():
         if args.output:
             html_path = args.output
 
-        html = generate_html(lines, images, str(out_dir), stem, night_mode=args.night)
+        html = generate_html(lines, str(out_dir), stem, str(pdf),
+                             dpi=args.dpi, night_mode=args.night)
         Path(html_path).write_text(html, encoding="utf-8")
         print(f"Written to {html_path}")
 

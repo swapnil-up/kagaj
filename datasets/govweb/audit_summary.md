@@ -4,7 +4,8 @@
 
 - Canonical local levels in roster: **753**
 - Local levels with an attributed hostname: **712** (94.56%), 41 unresolved
-- Distinct CT hostnames: **2091**
+- Apex hostnames with an entity classification: **778** of 1187 (409 unknown)
+- Distinct CT-derived hostnames: **2091** (the merged universe adds attribution-sourced hostnames on top)
 - CT mapped entries: **0**
 - CT unresolved entries: **765**
 - Observed hostname sample: **20** (not a population census)

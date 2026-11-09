@@ -48,7 +48,7 @@ kagaj/
 | Parliament translations | `datasets/translations/` | 601 files; indexed in `INDEX.md` |
 | KUKL water schedules | `datasets/water/` | `schedule.json` is the website artifact |
 | Crime bulletins | `datasets/crime/` | 58 CID bulletins; violent monthly/FY panels + charts; see `DATASET.md` |
-| `.gov.np` infrastructure | `datasets/govweb/` | 2,091 hostnames; 20-host pilot sample; roster + attribution join; see `DATASET.md` |
+| `.gov.np` infrastructure | `datasets/govweb/` | 2,837 hostnames, 1,187 apex entities; 712/753 local levels attributed; 20-host pilot sample; see `DATASET.md` |
 
 ## Dataset descriptors
 
@@ -267,6 +267,7 @@ python -m govweb.cli roster           # OAG local-level roster -> roster.json
 python -m govweb.cli discover-ct      # crt.sh hostnames -> inventory + coverage
 python -m govweb.cli discover-mofaga  # default only; MoFAGA directory
 python -m govweb.cli attribute        # ranked attribution -> attribution.json
+python -m govweb.cli entities         # apex -> owning public body -> entities.json
 python -m govweb.cli sample           # deterministic observation sample
 python -m govweb.cli collect          # passive collectors -> observations/*.json
 python -m govweb.cli report           # offline analysis -> audit_summary.md

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "report_type": "govweb_reconciliation",
-  "generated_at": "2026-11-08T23:49:35.126901+00:00",
+  "generated_at": "2026-11-09T00:19:13.825376+00:00",
   "roster": {
     "records": 753,
     "official_total": 753,
@@ -47,6 +47,22 @@
         "wikidata_p856": 65
       },
       "mapped_hostname_count": 761
+    }
+  },
+  "entities": {
+    "apex_hostnames": 1187,
+    "classified": 778,
+    "unclassified": 409,
+    "by_type": {
+      "commission": 1,
+      "department_or_office": 2,
+      "local_level": 758,
+      "media_or_culture": 3,
+      "ministry": 5,
+      "other_government": 4,
+      "park_or_heritage": 3,
+      "province": 2,
+      "unknown": 409
     }
   },
   "observations": {
@@ -186,6 +202,31 @@
       "id": "attribution_coverage_matches_its_own_counts",
       "status": "pass",
       "detail": "declared 94.56%, computed 94.56%"
+    },
+    {
+      "id": "entities_cover_every_apex_hostname",
+      "status": "pass",
+      "detail": "1187 classified apexes against 1187 discovered apexes"
+    },
+    {
+      "id": "entity_type_counts_reconcile",
+      "status": "pass",
+      "detail": "1187 type counts against 1187 entity rows"
+    },
+    {
+      "id": "unknown_entities_have_no_guessed_method",
+      "status": "pass",
+      "detail": "unknown-typed rows carrying a classification method: []"
+    },
+    {
+      "id": "classified_entities_carry_owner_and_evidence",
+      "status": "pass",
+      "detail": "0 classified rows lack an owner label, method or evidence URL"
+    },
+    {
+      "id": "local_entity_ids_match_attribution",
+      "status": "pass",
+      "detail": "712 local-level entity ids against 712 attributed ids"
     },
     {
       "id": "sample_within_declared_limit",

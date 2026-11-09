@@ -53,6 +53,16 @@
       "note": "Corroboration only: 749 relations but just 5 carry a website tag, so it never contributes an attribution on its own."
     },
     {
+      "id": "kagaj-owner-seed",
+      "name": "Kagaj curated owner seed",
+      "url": "https://github.com/kagaj",
+      "kind": "taxonomy",
+      "method": "internal curated JSON; each entry cites the source that establishes the owner",
+      "observed_at": "2026-11-09",
+      "artifact": "sources/owner_seed.json",
+      "note": "Manual entity classification for apex hostnames whose owner is citable but absent from Wikidata P856. Kept empty until an entry can cite evidence."
+    },
+    {
       "id": "ipwho-is",
       "name": "ipwho.is IP registration metadata",
       "url": "https://ipwho.is/",

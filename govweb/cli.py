@@ -14,6 +14,7 @@ from . import (
     discover_mofaga,
     dns_mail_audit,
     hosting_audit,
+    entities,
     http_headers,
     paths,
     robots_audit,
@@ -188,6 +189,23 @@ def cmd_attribute(args: argparse.Namespace) -> None:
     )
 
 
+def cmd_entities(_: argparse.Namespace) -> None:
+    document = entities.classify(build.discover_hostnames())
+    path = entities.write_document(document)
+    print(
+        json.dumps(
+            {
+                "path": str(path),
+                "apex_hostnames": document["apex_hostnames"],
+                "classified": document["classified"],
+                "unclassified": document["unclassified"],
+                "by_type": document["by_type"],
+            },
+            indent=2,
+        )
+    )
+
+
 def cmd_build(_: argparse.Namespace) -> None:
     info = build.build()
     print(json.dumps({"generated_at": info["generated_at"], "artifacts": len(info["files"])}, indent=2))
@@ -259,6 +277,11 @@ def main(argv: list[str] | None = None) -> int:
     attribute.add_argument("--offline", action="store_true", help="use only committed sources (default)")
     attribute.add_argument("--timeout", type=int, default=180)
 
+    sub.add_parser(
+        "entities",
+        help="classify every apex hostname into an owning public body (writes entities.json)",
+    )
+
     sample = sub.add_parser("sample", help="create the deterministic observation sample")
     sample.add_argument("--size", type=int, default=20)
 
@@ -284,6 +307,7 @@ def main(argv: list[str] | None = None) -> int:
         "discover-ct": cmd_discover_ct,
         "discover-mofaga": cmd_discover_mofaga,
         "attribute": cmd_attribute,
+        "entities": cmd_entities,
         "sample": cmd_sample,
         "collect": cmd_collect,
         "build": cmd_build,

@@ -205,6 +205,18 @@ def verify() -> dict[str, Any]:
     }
     active_ids = {str(record.get("municipality_id")) for record in active_roster}
 
+    apex_hosts: set[str] = set()
+    sites_path = DATASET_DIR / "sites.csv.gz"
+    if sites_path.is_file():
+        import csv
+        import gzip
+
+        with gzip.open(sites_path, "rt", encoding="utf-8", newline="") as handle:
+            for row in csv.DictReader(handle):
+                apex = _norm_host(row.get("apex_hostname"))
+                if apex:
+                    apex_hosts.add(apex)
+
     source_hosts = {
         str(host).lower().rstrip(".")
         for host in sample_hosts
@@ -395,6 +407,63 @@ def verify() -> dict[str, Any]:
         f"declared {attribution_document.get('coverage_percent')}%, computed {expected_coverage}%",
         severity="fail",
     )
+    entities_document = _load("entities.json")
+    entity_records = (
+        entities_document.get("records", []) if isinstance(entities_document, dict) else []
+    )
+    entity_records = [record for record in entity_records if isinstance(record, dict)]
+    entity_apexes = {
+        str(record.get("apex_hostname")).lower().rstrip(".")
+        for record in entity_records
+        if record.get("apex_hostname")
+    }
+    check(
+        "entities_cover_every_apex_hostname",
+        bool(entity_apexes) and entity_apexes == apex_hosts,
+        f"{len(entity_apexes)} classified apexes against {len(apex_hosts)} discovered apexes",
+        severity="fail",
+    )
+    type_total = sum(entities_document.get("by_type", {}).values()) if isinstance(entities_document, dict) else 0
+    check(
+        "entity_type_counts_reconcile",
+        type_total == len(entity_records),
+        f"{type_total} type counts against {len(entity_records)} entity rows",
+        severity="fail",
+    )
+    untyped = sorted(
+        str(record.get("apex_hostname"))
+        for record in entity_records
+        if record.get("owner_type") == "unknown" and record.get("method") != "unclassified"
+    )
+    check(
+        "unknown_entities_have_no_guessed_method",
+        not untyped,
+        f"unknown-typed rows carrying a classification method: {untyped}",
+        severity="fail",
+    )
+    classified_missing_evidence = sorted(
+        str(record.get("apex_hostname"))
+        for record in entity_records
+        if record.get("owner_type") != "unknown"
+        and not (record.get("owner_label") and record.get("method") and record.get("evidence_url"))
+    )
+    check(
+        "classified_entities_carry_owner_and_evidence",
+        not classified_missing_evidence,
+        f"{len(classified_missing_evidence)} classified rows lack an owner label, method or evidence URL",
+        severity="fail",
+    )
+    local_entity_ids = {
+        str(record.get("local_level_id"))
+        for record in entity_records
+        if record.get("owner_type") == "local_level" and record.get("local_level_id")
+    }
+    check(
+        "local_entity_ids_match_attribution",
+        local_entity_ids == attributed_ids,
+        f"{len(local_entity_ids)} local-level entity ids against {len(attributed_ids)} attributed ids",
+        severity="fail",
+    )
     check(
         "sample_within_declared_limit",
         len(sample_hosts) <= 20,
@@ -440,6 +509,12 @@ def verify() -> dict[str, Any]:
                 "methods": attribution_document.get("methods"),
                 "mapped_hostname_count": len(attributed_hosts),
             },
+        },
+        "entities": {
+            "apex_hostnames": len(apex_hosts),
+            "classified": sum(1 for record in entity_records if record.get("owner_type") != "unknown"),
+            "unclassified": sum(1 for record in entity_records if record.get("owner_type") == "unknown"),
+            "by_type": entities_document.get("by_type") if isinstance(entities_document, dict) else {},
         },
         "observations": observations,
         "checks": checks,

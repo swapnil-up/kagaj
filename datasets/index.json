@@ -377,7 +377,7 @@
       ],
       "verification": {
         "status": "partial",
-        "method": "roster reconciled against the official 753 local levels after adjudicating 12 extra records; every active local level is either attributed or explicitly unresolved; attributed hostnames are unique, end in .gov.np, and appear in a committed discovery source; every mapped row carries method, evidence URL and decision date; observation hostnames are checked against the discovery inventory",
+        "method": "roster reconciled against the official 753 local levels after adjudicating 12 extra records; every active local level is either attributed or explicitly unresolved; attributed hostnames are unique, end in .gov.np, and appear in a committed discovery source; manual rejections stay unlinked and acceptances stay applied; every mapped row carries method, evidence URL and decision date; every discovered apex hostname carries an entity classification, unknown-typed rows carry no guessed method, and local-level entity ids reconcile with the attribution; observation hostnames are checked against the discovery inventory",
         "report": "reconciliation.json"
       },
       "pipeline": {
@@ -386,6 +386,7 @@
           "python -m govweb.cli roster",
           "python -m govweb.cli discover-ct",
           "python -m govweb.cli attribute",
+          "python -m govweb.cli entities",
           "python -m govweb.cli sample",
           "python -m govweb.cli collect",
           "python -m govweb.cli report",
@@ -406,6 +407,7 @@
         "tls",
         "http-headers",
         "attribution",
+        "entity-classification",
         "nepal"
       ],
       "notes": [
@@ -432,8 +434,8 @@
         "fingerprints": [
           "build.json"
         ],
-        "generated_at": "2026-11-08T23:56:19.133529+00:00",
-        "commit": "e62ae758d1159d40cbf5cecad3e87a0f88fabb38"
+        "generated_at": "2026-11-09T00:19:13.673136+00:00",
+        "commit": "2bed065620172c976e4e2fce77ce3880a8865ec8"
       },
       "artifacts": [
         {
@@ -451,6 +453,28 @@
           "rows": 2837,
           "sha256": "4f7945e5820762107cf52dd6951512dbad57385630015aa916ce7fb6fc23cbd5",
           "description": "The discovered .gov.np hostname universe with apex and subdomain decomposition and whether the hostname entered the observation sample."
+        },
+        {
+          "path": "entities.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 22715,
+          "columns": [
+            "apex_hostname",
+            "owner_label",
+            "owner_type",
+            "owner_scope",
+            "local_level_id",
+            "district",
+            "qid",
+            "method",
+            "confidence",
+            "evidence_url",
+            "evidence_note"
+          ],
+          "rows": 1187,
+          "sha256": "0ff9dc1811eb1ea9145d4ea2b993afc806edb20748a0e0109b5e568e9dc712a9",
+          "description": "One row per discovered apex hostname with its classified owning public body, owner type and scope, method and evidence; unknown when no committed source names an owner."
         },
         {
           "path": "roster.csv.gz",
@@ -474,7 +498,7 @@
           "path": "attribution.csv.gz",
           "role": "canonical",
           "format": "csv.gz",
-          "bytes": 20813,
+          "bytes": 20810,
           "columns": [
             "hostname",
             "local_level_id",
@@ -489,7 +513,7 @@
             "decided_at"
           ],
           "rows": 802,
-          "sha256": "3943bec766386f48980474d08dc2783f3df3ce7dc4d6d4cd5daf29058195ffc7",
+          "sha256": "ee33693a9f1a85066de7601bbad638284ebc3a7cc79bb05b59e7286e63deed0a",
           "description": "Hostname-to-local-level links with method, confidence and evidence; unresolved local levels carry an empty hostname."
         },
         {
@@ -654,7 +678,7 @@
           "role": "raw",
           "format": "json",
           "bytes": 460406,
-          "sha256": "596bb3dbce01039232ae7292b2e4f5dbb0db1c8bb5d5142341d4643e8a640105",
+          "sha256": "649c4bdf12fd914d93b16302d2f97b7d2e3b0b5322ef622be6a20894a59a82ba",
           "description": "Full attribution output: one record per mapped local level and one per unresolved local level, with method, confidence, evidence URL, evidence note and decision date."
         },
         {
@@ -664,6 +688,14 @@
           "bytes": 2197,
           "sha256": "62dc1e82dc7fff912c87fbd841d823bff5e81082861c2346ca57457e2c552c84",
           "description": "Manual reject/accept corrections applied after the automatic sources, each with a reason, evidence and decision date."
+        },
+        {
+          "path": "entities.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 565124,
+          "sha256": "5e8738a63ca35c6e25e19e596df11d9c45da62dfd7ad7c816a4e8d3f15fa8958",
+          "description": "Full entity classification output: one record per discovered apex hostname with owner label, type, scope, method, evidence and the unclassified residual."
         },
         {
           "path": "tls_sample.json",
@@ -719,6 +751,14 @@
           "description": "Corroboration source: 749 OSM administrative relations, of which 5 carry a website tag."
         },
         {
+          "path": "sources/owner_seed.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 341,
+          "sha256": "b8f0f0a5d42a8306af463f473ec5d3bccaad59c6491d678c2288e40b81cdfd1c",
+          "description": "Curated apex hostnames whose owner is citable but absent from Wikidata P856; used as the manual, highest-confidence entity classification."
+        },
+        {
           "path": "observations/http_header_observations.json",
           "role": "raw",
           "format": "json",
@@ -757,8 +797,8 @@
           "path": "audit_report.json",
           "role": "report",
           "format": "json",
-          "bytes": 946873,
-          "sha256": "a7419380a85207b01b37dc5c79ea6b8fc3ad0dbaeace021d978b9db644fa3c4f"
+          "bytes": 947262,
+          "sha256": "dcd57f2ba023bd63bf1342974bf0f16c8387ce6fdc5ae70d4bc47d271815fb6b"
         }
       ]
     },

@@ -18,6 +18,7 @@ DEFAULT_INPUTS = {
     "roster": "roster.json",
     "adjudication": "roster_adjudication.json",
     "attribution": "attribution.json",
+    "entities": "entities.json",
     "coverage": "website_coverage_crtsh.json",
     "sample": "tls_sample.json",
     "tls": "observations/tls_observations.json",
@@ -232,6 +233,8 @@ def analyze(root: str | Path = ".") -> dict[str, Any]:
     )
     attribution_doc = documents.get("attribution", {})
     attribution = attribution_doc if isinstance(attribution_doc, dict) else {}
+    entities_doc = documents.get("entities", {})
+    entities = entities_doc if isinstance(entities_doc, dict) else {}
     coverage = documents.get("coverage", {})
     if not isinstance(coverage, dict):
         coverage = {}
@@ -281,6 +284,10 @@ def analyze(root: str | Path = ".") -> dict[str, Any]:
             "attribution_local_levels_unresolved": attribution.get("unresolved_local_levels"),
             "attribution_coverage_percent": attribution.get("coverage_percent"),
             "attribution_methods": attribution.get("methods"),
+            "entity_apex_hostnames": entities.get("apex_hostnames"),
+            "entity_classified": entities.get("classified"),
+            "entity_unclassified": entities.get("unclassified"),
+            "entity_by_type": entities.get("by_type"),
             "ct_unique_hostname_count": coverage.get("unique_hostname_count"),
             "ct_mapped_count": coverage.get("mapped_count"),
             "ct_unresolved_count": coverage.get("unresolved_count"),
@@ -323,7 +330,11 @@ def render_markdown(report: dict[str, Any]) -> str:
         f"- Local levels with an attributed hostname: **{scope.get('attribution_local_levels_mapped', 'unavailable')}**"
         f" ({scope.get('attribution_coverage_percent', 'unavailable')}%), "
         f"{scope.get('attribution_local_levels_unresolved', 'unavailable')} unresolved",
-        f"- Distinct CT hostnames: **{scope.get('ct_unique_hostname_count', 'unavailable')}**",
+        f"- Apex hostnames with an entity classification: **{scope.get('entity_classified', 'unavailable')}**"
+        f" of {scope.get('entity_apex_hostnames', 'unavailable')}"
+        f" ({scope.get('entity_unclassified', 'unavailable')} unknown)",
+        f"- Distinct CT-derived hostnames: **{scope.get('ct_unique_hostname_count', 'unavailable')}**"
+        f" (the merged universe adds attribution-sourced hostnames on top)",
         f"- CT mapped entries: **{scope.get('ct_mapped_count', 'unavailable')}**",
         f"- CT unresolved entries: **{scope.get('ct_unresolved_count', 'unavailable')}**",
         f"- Observed hostname sample: **{scope['sample_count']}** (not a population census)",

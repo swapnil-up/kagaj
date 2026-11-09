@@ -16,7 +16,7 @@ instead of reverse-engineering each pipeline. See
 | Labour-migration panel | [`labour-migration/`](labour-migration/) | 70,089 canonical rows (50,052 `analysis_safe`) | FY2074/75–2082/83 | CSV.GZ + JSON codebook |
 | Parliament translations | [`translations/`](translations/) | 220 structured JSON docs, 601 files (~13 MB) | 7th HoR; NA sessions 19+ | TXT + JSON |
 | KUKL water schedules | [`water/`](water/) | 7 branches, 231 source entries | 2083 Ashoj | JSON |
-| `.gov.np` infrastructure | [`govweb/`](govweb/) | 2,782 hostnames, 753 local levels (659 attributed), 20 observed | 2026-11 snapshot | CSV.GZ + JSON |
+| `.gov.np` infrastructure | [`govweb/`](govweb/) | 2,837 hostnames, 1,187 apex entities (778 classified), 753 local levels (712 attributed), 20 observed | 2026-11 snapshot | CSV.GZ + JSON |
 
 ## Labour-migration panel
 
@@ -68,8 +68,11 @@ Start with [`govweb/DATASET.md`](govweb/DATASET.md) and
 - **Roster:** `roster.csv.gz` — the canonical local-level list. The raw roster
   carries 765 records; `roster_adjudication.json` resolves the 12 extras to the
   official 753.
+- **Entities:** `entities.csv.gz` — one row per discovered apex hostname with its
+  classified owning public body and evidence. 778 of 1,187 apexes are classified;
+  409 are explicitly `unknown`, never guessed from a name.
 - **Attribution:** `attribution.csv.gz` — the evidence-bearing join from a local
-  level to its hostname. 659 of 753 are mapped; 94 are explicitly unresolved.
+  level to its hostname. 712 of 753 are mapped; 41 are explicitly unresolved.
 - **Observations:** `hosting`, `dns_mail`, `http_headers`, `tls`,
   `third_party_scripts`, `robots` — 20-hostname pilot sample only, not a census.
   `tls.csv.gz` is header-only because live TLS collection has not run.

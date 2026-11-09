@@ -46,6 +46,7 @@ RAW_ARTIFACTS = (
     "roster_adjudication.json",
     "attribution.json",
     "attribution_overrides.json",
+    "entities.json",
     "tls_sample.json",
     "website_coverage_crtsh.json",
     "website_mappings_crtsh.json",
@@ -53,6 +54,7 @@ RAW_ARTIFACTS = (
     "sources/wikidata_nepal_websites.json",
     "sources/localbody_directory.json",
     "sources/osm_np_local_levels.json",
+    "sources/owner_seed.json",
     "observations/http_header_observations.json",
     "observations/hosting_observations.json",
     "observations/dns_mail_observations.json",
@@ -171,6 +173,37 @@ def build_roster() -> dict[str, Any]:
     return write_csv_gz(DATASET_DIR / "roster.csv.gz", header, rows)
 
 
+def discover_hostnames() -> list[str]:
+    """The discovered hostname universe, merged from CT, the sample and attribution."""
+    sample = _load("tls_sample.json") or {}
+    sampled = {str(host).lower().rstrip(".") for host in sample.get("hostnames", []) if isinstance(host, str)}
+    attribution = _load("attribution.json") or {}
+    attributed = {
+        str(record.get("hostname")).lower().rstrip(".")
+        for record in attribution.get("records", [])
+        if isinstance(record, dict) and record.get("hostname")
+    }
+    crtsh = _load("sources/crtsh_gov_np.json") or []
+    discovered: Counter = Counter()
+    for record in crtsh:
+        if not isinstance(record, dict):
+            continue
+        for field in ("name_value", "common_name"):
+            value = record.get(field)
+            if not isinstance(value, str):
+                continue
+            for candidate in value.splitlines():
+                candidate = candidate.strip().lower().rstrip(".")
+                if candidate.startswith("*."):
+                    candidate = candidate[2:]
+                if not candidate.endswith(".gov.np") or "/" in candidate:
+                    continue
+                discovered[candidate] += 1
+    for host in sampled:
+        discovered.setdefault(host, 0)
+    return sorted(discovered.keys() | attributed)
+
+
 def build_sites() -> dict[str, Any]:
     sample = _load("tls_sample.json") or {}
     sampled = {str(host).lower().rstrip(".") for host in sample.get("hostnames", []) if isinstance(host, str)}
@@ -200,7 +233,7 @@ def build_sites() -> dict[str, Any]:
         discovered.setdefault(host, 0)
 
     rows = []
-    for hostname in sorted(discovered.keys() | attributed):
+    for hostname in discover_hostnames():
         sources = []
         if discovered.get(hostname):
             sources.append("crtsh")
@@ -219,6 +252,44 @@ def build_sites() -> dict[str, Any]:
         )
     header = ["hostname", "apex_hostname", "subdomain", "in_observed_sample", "discovered_via"]
     return write_csv_gz(DATASET_DIR / "sites.csv.gz", header, rows)
+
+
+def build_entities() -> dict[str, Any]:
+    document = _load("entities.json") or {}
+    records = document.get("records", []) if isinstance(document, dict) else []
+    rows = []
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        rows.append(
+            (
+                record.get("apex_hostname") or "",
+                record.get("owner_label") or "",
+                record.get("owner_type") or "unknown",
+                record.get("owner_scope") or "unknown",
+                record.get("local_level_id") or "",
+                record.get("district") or "",
+                record.get("qid") or "",
+                record.get("method") or "",
+                record.get("confidence") or "",
+                record.get("evidence_url") or "",
+                record.get("evidence_note") or "",
+            )
+        )
+    header = [
+        "apex_hostname",
+        "owner_label",
+        "owner_type",
+        "owner_scope",
+        "local_level_id",
+        "district",
+        "qid",
+        "method",
+        "confidence",
+        "evidence_url",
+        "evidence_note",
+    ]
+    return write_csv_gz(DATASET_DIR / "entities.csv.gz", header, rows)
 
 
 def build_attribution() -> dict[str, Any]:
@@ -523,6 +594,7 @@ def build() -> dict[str, Any]:
     for name, builder in (
         ("sites.csv.gz", build_sites),
         ("roster.csv.gz", build_roster),
+        ("entities.csv.gz", build_entities),
         ("attribution.csv.gz", build_attribution),
         ("hosting.csv.gz", build_hosting),
         ("dns_mail.csv.gz", build_dns_mail),

@@ -36,7 +36,7 @@ offices publish on, using only ordinary public requests.
 | **Parliament translations** | HoR notices + National Assembly verbatims, English + structured JSON | 7th HoR · NA sessions 19+ · 220 structured docs | TXT / JSON | [`datasets/translations/`](datasets/translations/) |
 | **KUKL water schedules** | Branch → reservoir → zone/DMA/day/time/areas | 2083 Ashoj · 7 branches · 231 source entries | JSON | [`datasets/water/schedule.json`](datasets/water/schedule.json) |
 | **Budget (redbook)** | Ministry/program budget rows with a math audit against printed totals | 2082/83 redbook | SQLite / CSV / Excel | [`redbook_parser/`](redbook_parser/) |
-| **Nepal `.gov.np` infrastructure** | Hostname inventory, hosting/DNS/TLS/header observations, local-level roster + attribution join | 2026-11 snapshot · 2,782 hostnames · 659/753 local levels attributed · 20 observed | CSV.GZ + JSON | [`datasets/govweb/`](datasets/govweb/) |
+| **Nepal `.gov.np` infrastructure** | Hostname inventory, apex owner classification, hosting/DNS/TLS/header observations, local-level roster + attribution join | 2026-11 snapshot · 2,837 hostnames · 1,187 apex entities · 712/753 local levels attributed · 20 observed | CSV.GZ + JSON | [`datasets/govweb/`](datasets/govweb/) |
 
 The labour-migration panel is the most mature artifact. Every row carries a
 `source_url`, each source document passes a printed-total audit, overlaps between

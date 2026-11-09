@@ -48,6 +48,12 @@
       "description": "The discovered .gov.np hostname universe with apex and subdomain decomposition and whether the hostname entered the observation sample."
     },
     {
+      "path": "entities.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "One row per discovered apex hostname with its classified owning public body, owner type and scope, method and evidence; unknown when no committed source names an owner."
+    },
+    {
       "path": "roster.csv.gz",
       "role": "canonical",
       "format": "csv.gz",
@@ -124,6 +130,12 @@
       "description": "Manual reject/accept corrections applied after the automatic sources, each with a reason, evidence and decision date."
     },
     {
+      "path": "entities.json",
+      "role": "raw",
+      "format": "json",
+      "description": "Full entity classification output: one record per discovered apex hostname with owner label, type, scope, method, evidence and the unclassified residual."
+    },
+    {
       "path": "tls_sample.json",
       "role": "raw",
       "format": "json"
@@ -161,6 +173,12 @@
       "role": "raw",
       "format": "json",
       "description": "Corroboration source: 749 OSM administrative relations, of which 5 carry a website tag."
+    },
+    {
+      "path": "sources/owner_seed.json",
+      "role": "raw",
+      "format": "json",
+      "description": "Curated apex hostnames whose owner is citable but absent from Wikidata P856; used as the manual, highest-confidence entity classification."
     },
     {
       "path": "observations/http_header_observations.json",
@@ -201,7 +219,7 @@
   },
   "verification": {
     "status": "partial",
-    "method": "roster reconciled against the official 753 local levels after adjudicating 12 extra records; every active local level is either attributed or explicitly unresolved; attributed hostnames are unique, end in .gov.np, and appear in a committed discovery source; every mapped row carries method, evidence URL and decision date; observation hostnames are checked against the discovery inventory",
+    "method": "roster reconciled against the official 753 local levels after adjudicating 12 extra records; every active local level is either attributed or explicitly unresolved; attributed hostnames are unique, end in .gov.np, and appear in a committed discovery source; manual rejections stay unlinked and acceptances stay applied; every mapped row carries method, evidence URL and decision date; every discovered apex hostname carries an entity classification, unknown-typed rows carry no guessed method, and local-level entity ids reconcile with the attribution; observation hostnames are checked against the discovery inventory",
     "report": "reconciliation.json"
   },
   "pipeline": {
@@ -210,6 +228,7 @@
       "python -m govweb.cli roster",
       "python -m govweb.cli discover-ct",
       "python -m govweb.cli attribute",
+      "python -m govweb.cli entities",
       "python -m govweb.cli sample",
       "python -m govweb.cli collect",
       "python -m govweb.cli report",
@@ -236,6 +255,7 @@
     "tls",
     "http-headers",
     "attribution",
+    "entity-classification",
     "nepal"
   ],
   "notes": [

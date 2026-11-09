@@ -1,7 +1,8 @@
 # govweb — passive observation of Nepal's `.gov.np` web infrastructure
 
-Status: **Phase 0 complete. Phase 1 complete** (attribution 87.52% of the 753
-local levels, gate passed). Phase 2 (measurement and analysis) is next.
+Status: **Phase 0 complete. Phase 1 complete** (attribution 94.56% of the 753
+local levels, gate passed). **Phase 3 started** (entity classification of the
+whole apex universe). Phase 2 (measurement and analysis) is next.
 
 This plan supersedes the `dinfra` roadmap that preceded it. `dinfra` was a
 standalone harness project; `govweb` is its Kagaj port, with the scope corrected
@@ -86,9 +87,45 @@ Goal: make the local-level lens usable without inventing links.
    `103.69.127.8` still refused TCP 80 and 443 on 2026-11-09, more than 48 hours
    after the first observation.
 
-Still open from Phase 1: the 94 unresolved local levels and the directory's
-known bad links should each be triaged by hand before a coverage claim is made
-at the level of a district.
+Phase 1 close-out (2026-11-09): the matcher was widened for Nepali
+transliteration variance and same-named rows are split by the district named in
+the hostname. Coverage rose from 659/753 (87.52%) to **712/753 (94.56%)**; the
+remaining 41 unresolved local levels are absent from the directory or point at a
+hostname another local level already owns. Hand-checked corrections live in
+`datasets/govweb/attribution_overrides.json`, and `verify` asserts that
+rejections stay unlinked and acceptances stay applied.
+
+## Phase 3 — widen the lens past local levels (started)
+
+The universe is hostname-first, so the local-level lens leaves most of it
+unclassified. Phase 3 gives every apex hostname an owning-public-body record
+with the same evidence discipline as attribution.
+
+1. **Controlled owner vocabulary.** `owner_type` in
+   `govweb/entities.py`: `local_level`, `province`, `ministry`,
+   `department_or_office`, `court`, `commission`, `security_force`,
+   `university_or_school`, `hospital_or_health`, `corporation_or_authority`,
+   `park_or_heritage`, `media_or_culture`, `other_government`, `unknown`; with
+   `owner_scope` in `{local, provincial, central, unknown}`.
+2. **Ranked, offline classification.** `python -m govweb.cli entities` reads the
+   committed hostname universe and classifies each apex from, in order: the
+   existing local-level attribution; the curated `sources/owner_seed.json`; a
+   Wikidata P856 item whose website is the apex and whose description yields a
+   type. No name-only guess is made: 409 of 1,187 apexes stay `unknown` and are
+   counted.
+3. **Soundness.** Every classified apex carries an owner label, type, scope,
+   method, evidence URL and evidence note; `verify` re-checks that entity types
+   reconcile with the apex count, that `unknown` rows carry no method, and that
+   local-level entity ids equal the attributed ids.
+4. **Next: shrink the residual with real observation.** The 409 `unknown` apexes
+   are the queue for the Phase 2 collectors extended to the full apex universe:
+   root-page title, TLS certificate subject/issuer, and DNS. Each becomes an
+   evidence-bearing classification rather than a name guess, and the residual
+   rate becomes a reported quantity.
+5. **Ceiling: whole-of-government coverage.** With every apex typed, analysis can
+   report hosting/availability/dependency by `owner_scope` and `owner_type`
+   first, then by district only as a secondary cut. The 753 local levels stop
+   being the frame and become one lens among several.
 
 ## Phase 2 — measurement and analysis
 

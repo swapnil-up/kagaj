@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-08T23:56:19.133529+00:00",
-  "git_revision": "e62ae758d1159d40cbf5cecad3e87a0f88fabb38",
+  "generated_at": "2026-11-09T00:19:13.673136+00:00",
+  "git_revision": "2bed065620172c976e4e2fce77ce3880a8865ec8",
   "files": {
     "sites.csv.gz": {
       "rows": 2837,
@@ -12,10 +12,15 @@
       "bytes": 10729,
       "sha256": "206001a29ba13c17d8127e937a5cb619e653e12836c555158c2aece81a326695"
     },
+    "entities.csv.gz": {
+      "rows": 1187,
+      "bytes": 22715,
+      "sha256": "0ff9dc1811eb1ea9145d4ea2b993afc806edb20748a0e0109b5e568e9dc712a9"
+    },
     "attribution.csv.gz": {
       "rows": 802,
-      "bytes": 20813,
-      "sha256": "3943bec766386f48980474d08dc2783f3df3ce7dc4d6d4cd5daf29058195ffc7"
+      "bytes": 20810,
+      "sha256": "ee33693a9f1a85066de7601bbad638284ebc3a7cc79bb05b59e7286e63deed0a"
     },
     "hosting.csv.gz": {
       "rows": 20,
@@ -61,11 +66,15 @@
     },
     "attribution.json": {
       "bytes": 460406,
-      "sha256": "596bb3dbce01039232ae7292b2e4f5dbb0db1c8bb5d5142341d4643e8a640105"
+      "sha256": "649c4bdf12fd914d93b16302d2f97b7d2e3b0b5322ef622be6a20894a59a82ba"
     },
     "attribution_overrides.json": {
       "bytes": 2197,
       "sha256": "62dc1e82dc7fff912c87fbd841d823bff5e81082861c2346ca57457e2c552c84"
+    },
+    "entities.json": {
+      "bytes": 565124,
+      "sha256": "5e8738a63ca35c6e25e19e596df11d9c45da62dfd7ad7c816a4e8d3f15fa8958"
     },
     "tls_sample.json": {
       "bytes": 1025,
@@ -95,6 +104,10 @@
       "bytes": 130439,
       "sha256": "0cf1f5333681f827d4d2995b504ff30fc00a0d4c137c3d351b6fde3684d42c4c"
     },
+    "sources/owner_seed.json": {
+      "bytes": 341,
+      "sha256": "b8f0f0a5d42a8306af463f473ec5d3bccaad59c6491d678c2288e40b81cdfd1c"
+    },
     "observations/http_header_observations.json": {
       "bytes": 19366,
       "sha256": "b03447247d6dbb5cd52ec02afc0aeef40a2395ecb3261405e813f6b9c7584d60"
@@ -116,8 +129,8 @@
       "sha256": "3f7a1928a0d194c0f8135c5b9fd0a7f3b6164b72630ba34af2c5725a0daa85a9"
     },
     "audit_report.json": {
-      "bytes": 946873,
-      "sha256": "a7419380a85207b01b37dc5c79ea6b8fc3ad0dbaeace021d978b9db644fa3c4f"
+      "bytes": 947262,
+      "sha256": "dcd57f2ba023bd63bf1342974bf0f16c8387ce6fdc5ae70d4bc47d271815fb6b"
     }
   }
 }

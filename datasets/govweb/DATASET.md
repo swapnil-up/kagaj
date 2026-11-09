@@ -26,6 +26,7 @@ Read `audit_summary.md` and `reconciliation.json` before using any figure.
 | Table | One row is |
 |---|---|
 | `sites.csv.gz` | a discovered `.gov.np` hostname |
+| `entities.csv.gz` | a discovered apex hostname and its classified owning public body, or `unknown` |
 | `roster.csv.gz` | a local level as declared by the OAG API |
 | `attribution.csv.gz` | a local level with its linked hostname, or an unresolved local level with an empty hostname |
 | `hosting.csv.gz` | one hosting observation of one hostname |
@@ -64,6 +65,25 @@ Attribution methods, by accepted hostname link:
 | `ct_hostname_slug` | 13 |
 | `manual` | 1 |
 
+Entity classification reaches past the local-level roster to every apex in the
+discovered universe (1,187 apexes):
+
+| Owner type | Apexes |
+|---|---:|
+| `local_level` | 758 |
+| `ministry` | 5 |
+| `other_government` | 4 |
+| `media_or_culture` | 3 |
+| `park_or_heritage` | 3 |
+| `department_or_office` | 2 |
+| `province` | 2 |
+| `commission` | 1 |
+| `unknown` | 409 |
+
+`unknown` is the honest residual: no committed source names an owner, so the
+apex is counted rather than guessed. Those 409 apexes are the queue for the
+Phase 2 root-title and certificate-subject collection.
+
 The roster is 12 records larger than the official count. `roster_adjudication.json`
 records each excluded record with a status (`superseded`, `duplicate` or
 `misplaced`), the superseding roster id, and evidence. `reconciliation.json`
@@ -96,15 +116,22 @@ re-checks the arithmetic rather than deleting rows to force a match.
    and `decided_at`. Manual corrections live in `attribution_overrides.json`
    (`reject` or `accept`) with their own reason and evidence, rather than as
    hidden matcher tweaks.
-4. **Sample.** `python -m govweb.cli sample` takes the lexicographically first
+4. **Entities.** `python -m govweb.cli entities` classifies every discovered
+   apex hostname into an owning public body. Rank order: an existing local-level
+   attribution (inherited); the curated `sources/owner_seed.json`; then a
+   Wikidata P856 item whose website is the apex and whose description yields a
+   government owner type. A description like "football club" is left `unknown`;
+   so is any apex with no committed source. Every classified row keeps the owner
+   label, type, scope, method, evidence URL and evidence note.
+5. **Sample.** `python -m govweb.cli sample` takes the lexicographically first
    unique hostnames from the discovered inventory. Hostnames are never
    synthesized. The sample predates attribution and is not municipality-weighted.
-5. **Collection.** `python -m govweb.cli collect` performs one observation per
+6. **Collection.** `python -m govweb.cli collect` performs one observation per
    hostname per collector, with a 7-day per-host cache and atomic incremental
    persistence. Network failures are retained as observations.
-6. **Analysis.** `python -m govweb.cli report` reads only committed artifacts
+7. **Analysis.** `python -m govweb.cli report` reads only committed artifacts
    and performs no network requests.
-7. **Fingerprint.** `python -m govweb.cli build` writes the tidy CSVs and
+8. **Fingerprint.** `python -m govweb.cli build` writes the tidy CSVs and
    `build.json`; `python -m govweb.cli verify` writes `reconciliation.json`.
 
 ## Interpretation rules
@@ -114,6 +141,8 @@ re-checks the arithmetic rather than deleting rows to force a match.
   denominators and excludes unevaluable hosts from scores.
 - An attribution is a source agreement, not proof of ownership. Read
   `method` and `evidence_url` before treating a link as authoritative.
+- An entity type is a source agreement too. `unknown` means no committed source
+  names an owner, never that the site is private or unofficial.
 - Unresolved local levels mean the sources did not supply a usable hostname. They
   are not evidence that the local level has no website.
 - Country-level geolocation is approximate. It does not establish physical server

@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0",
+  "source": "Kagaj curated owner seed",
+  "description": "Hand-curated apex hostnames whose owner is established by a citable source but is absent from Wikidata P856. Used by govweb/entities.py as the manual, highest-confidence classification. Kept empty until an entry can cite its evidence.",
+  "owners": []
+}

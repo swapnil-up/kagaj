@@ -45,7 +45,10 @@ never as a passing result.
 
 The unit of record is a **hostname**. Attribution to a local level is a separate,
 evidence-bearing join (`attribution.csv.gz`), so the grain does not have to
-change when an office outside the 753 local levels is discovered.
+change when an office outside the 753 local levels is discovered. Entity
+classification (`entities.csv.gz`) carries that a step further: every apex
+hostname gets an owning-public-body type and scope, or an explicit `unknown`,
+so the whole `.gov.np` universe is analysable and not only the municipal slice.
 
 Used by: `datasets/govweb/`, plan in `docs/plans/govweb-audit.md`.
 
@@ -119,15 +122,17 @@ datasets/govweb/roster.json            datasets/govweb/sources/crtsh_gov_np.json
    │  Wikidata P856, OSM website tags    │
    └──────────────┬──────────────────────┘
                   ↓ attribute (ranked, evidence-bearing)
-        datasets/govweb/attribution.json (659/753 local levels)
+        datasets/govweb/attribution.json (712/753 local levels)
                   ↓ merge into the hostname universe
-        sites.csv.gz (2,782 hostnames)
+        sites.csv.gz (2,837 hostnames, 1,187 apexes)
+                  ↓ entities (apex → owning public body, evidence-bearing)
+        datasets/govweb/entities.json (778 classified, 409 unknown)
                   ↓ deterministic sample
         tls_sample.json (20 hostnames, not a census)
                   ↓ passive collection (cache in output/govweb/)
         datasets/govweb/observations/*.json
                   ↓ build + analyze + verify
-        nine tidy CSVs + build.json + audit_report.json + reconciliation.json
+        ten tidy CSVs + build.json + audit_report.json + reconciliation.json
 ```
 
 ## Why not a web app?

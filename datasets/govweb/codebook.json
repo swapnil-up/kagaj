@@ -111,6 +111,19 @@
       "final_url": "URL after any same-host redirect.",
       "error": "Collection error, if any.",
       "observed_at": "UTC ISO-8601 observation time."
+    },
+    "entities.csv.gz": {
+      "apex_hostname": "Registrable .gov.np name: the hostname itself when it has three labels, else its last three labels.",
+      "owner_label": "Display name of the owning organization as named by the source, or empty when unknown.",
+      "owner_type": "Controlled owner type: local_level, province, ministry, department_or_office, court, commission, security_force, university_or_school, hospital_or_health, corporation_or_authority, park_or_heritage, media_or_culture, other_government, or unknown.",
+      "owner_scope": "local, provincial, central, or unknown.",
+      "local_level_id": "Canonical roster municipality_id when the owner is a local level; empty otherwise.",
+      "district": "District named by the source, when any.",
+      "qid": "Wikidata item id the classification came from, when any.",
+      "method": "attribution:<method> for an inherited local-level link, wikidata_p856, manual, or unclassified.",
+      "confidence": "high, medium, low, or none, following the strength of the source description.",
+      "evidence_url": "The exact source URL the classification is based on, or empty when unclassified.",
+      "evidence_note": "Human-readable statement of the evidence or the reason the apex is unclassified."
     }
   },
   "enumerations": {
@@ -138,6 +151,28 @@
       "wikidata_p856",
       "ct_hostname_slug",
       "osm_website"
+    ],
+    "owner_type": [
+      "local_level",
+      "province",
+      "ministry",
+      "department_or_office",
+      "court",
+      "commission",
+      "security_force",
+      "university_or_school",
+      "hospital_or_health",
+      "corporation_or_authority",
+      "park_or_heritage",
+      "media_or_culture",
+      "other_government",
+      "unknown"
+    ],
+    "owner_scope": [
+      "local",
+      "provincial",
+      "central",
+      "unknown"
     ]
   }
 }

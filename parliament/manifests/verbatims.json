@@ -487,9 +487,9 @@
     "scraped_at": "2026-08-10",
     "serial": "38.",
     "failure_kind": "translation",
-    "last_error": "Gemini API error: Gemini returned invalid JSON (Expecting ',' delimiter: line 2 column 10315 (char 10316)): {\n  \"full_translation_en\": \"They have not been done yet. Democracy is in crisis, the constitution is being violated, and an unelected government is in place of the people-elected government. Society is still terrified by the threat of anarchy, prohibition, and violence. As national unity weakens, th",
-    "failed_at": "2026-11-08T23:42:27+00:00",
-    "attempts": 1
+    "last_error": "Gemini API error: exhausted retries: HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+    "failed_at": "2026-11-09T13:19:10+00:00",
+    "attempts": 2
   },
   {
     "id": 2918,
@@ -515,8 +515,8 @@
     "serial": "40.",
     "failure_kind": "quota",
     "last_error": "RPD: RPD: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free Tier",
-    "failed_at": "2026-11-08T23:45:23+00:00",
-    "attempts": 1
+    "failed_at": "2026-11-09T13:19:48+00:00",
+    "attempts": 2
   },
   {
     "id": 2916,

@@ -523,13 +523,12 @@
     "title_np": "बिसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_२३ चैत्र २०८२ सोमवार (बैठक सङ्ख्या- ३)",
     "published_at": "2026-04-29",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/i46f01ppxgzhhqmw.pdf",
-    "status": "pending",
+    "status": "done",
     "scraped_at": "2026-08-10",
     "serial": "41.",
-    "failure_kind": "quota",
-    "last_error": "RPD: RPD: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free Tier",
-    "failed_at": "2026-11-10T21:55:38+00:00",
-    "attempts": 2
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2916-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2916.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2916.json"
   },
   {
     "id": 2915,
@@ -537,9 +536,12 @@
     "title_np": "बिसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_२२ चैत्र २०८२ आइतवार (बैठक सङ्ख्या- २)",
     "published_at": "2026-04-29",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/ixuyq6bcc7e9r6v4.pdf",
-    "status": "failed",
+    "status": "done",
     "scraped_at": "2026-08-10",
-    "serial": "42."
+    "serial": "42.",
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2915-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2915.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2915.json"
   },
   {
     "id": 2914,
@@ -547,9 +549,12 @@
     "title_np": "बिसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_१९ चैत्र २०८२ बिहीवार (बैठक सङ्ख्या- १)",
     "published_at": "2026-04-29",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/r4v1kuedldw1dhlc.pdf",
-    "status": "failed",
+    "status": "done",
     "scraped_at": "2026-08-10",
-    "serial": "43."
+    "serial": "43.",
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2914-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2914.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2914.json"
   },
   {
     "id": 2913,
@@ -557,9 +562,13 @@
     "title_np": "उन्नाइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_१ फागुन २०८२ शुक्रवार (बैठक सङ्ख्या- ९)",
     "published_at": "2026-04-29",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/xws67rjsp8rtdz9q.pdf",
-    "status": "failed",
+    "status": "pending",
     "scraped_at": "2026-08-10",
-    "serial": "44."
+    "serial": "44.",
+    "failure_kind": "quota",
+    "last_error": "RPD: RPD: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free Tier",
+    "failed_at": "2026-11-11T12:15:04+00:00",
+    "attempts": 1
   },
   {
     "id": 2907,

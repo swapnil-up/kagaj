@@ -562,13 +562,12 @@
     "title_np": "उन्नाइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_१ फागुन २०८२ शुक्रवार (बैठक सङ्ख्या- ९)",
     "published_at": "2026-04-29",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/xws67rjsp8rtdz9q.pdf",
-    "status": "pending",
+    "status": "done",
     "scraped_at": "2026-08-10",
     "serial": "44.",
-    "failure_kind": "quota",
-    "last_error": "RPD: RPD: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free Tier",
-    "failed_at": "2026-11-11T22:57:29+00:00",
-    "attempts": 2
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2913-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2913.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2913.json"
   },
   {
     "id": 2907,
@@ -578,7 +577,11 @@
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/rpu1odgq1ufd280j.pdf",
     "status": "failed",
     "scraped_at": "2026-08-10",
-    "serial": "45."
+    "serial": "45.",
+    "failure_kind": "translation",
+    "last_error": "Gemini API error: exhausted retries: HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+    "failed_at": "2026-11-12T13:12:35+00:00",
+    "attempts": 1
   },
   {
     "id": 2906,
@@ -588,7 +591,11 @@
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/znl6iwafp6epklnl.pdf",
     "status": "failed",
     "scraped_at": "2026-08-10",
-    "serial": "46."
+    "serial": "46.",
+    "failure_kind": "translation",
+    "last_error": "Gemini API error: exhausted retries: HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n",
+    "failed_at": "2026-11-12T13:17:00+00:00",
+    "attempts": 1
   },
   {
     "id": 2905,
@@ -596,9 +603,13 @@
     "title_np": "उन्नाइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_२३ माघ २०८२ शुक्रवार (बैठक सङ्ख्या- ६)",
     "published_at": "2026-04-29",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/x7k4fteqqnf7bgl9.pdf",
-    "status": "failed",
+    "status": "pending",
     "scraped_at": "2026-08-10",
-    "serial": "47."
+    "serial": "47.",
+    "failure_kind": "quota",
+    "last_error": "RPD: RPD: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free Tier",
+    "failed_at": "2026-11-12T13:22:55+00:00",
+    "attempts": 1
   },
   {
     "id": 2904,

@@ -588,13 +588,12 @@
     "title_np": "उन्नाइसौँ अधिवेशन_कार्यवाहीको सम्पूर्ण विवरण_२६ माघ २०८२ सोमवार (बैठक सङ्ख्या- ७)",
     "published_at": "2026-04-29",
     "attachment_url": "https://na.parliament.gov.np/uploads/attachments/znl6iwafp6epklnl.pdf",
-    "status": "pending",
+    "status": "done",
     "scraped_at": "2026-08-10",
     "serial": "46.",
-    "failure_kind": "quota",
-    "last_error": "RPD: RPD: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free Tier",
-    "failed_at": "2026-11-13T12:34:32+00:00",
-    "attempts": 2
+    "ocr_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2906-ocr.txt",
+    "translated_path": "/home/runner/work/kagaj/kagaj/output/verbatims/Verbatim_2906.txt",
+    "structured_path": "/home/runner/work/kagaj/kagaj/datasets/translations/Verbatim_2906.json"
   },
   {
     "id": 2905,
@@ -607,8 +606,8 @@
     "serial": "47.",
     "failure_kind": "quota",
     "last_error": "RPD: RPD: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash-lite, description: Generate content requests per day limit exceeded on Free Tier",
-    "failed_at": "2026-11-12T13:22:55+00:00",
-    "attempts": 1
+    "failed_at": "2026-11-13T22:07:13+00:00",
+    "attempts": 2
   },
   {
     "id": 2904,

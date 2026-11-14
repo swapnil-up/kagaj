@@ -15,8 +15,11 @@ from . import (
     dns_mail_audit,
     hosting_audit,
     entities,
+    globalping,
     http_headers,
+    ip_registry,
     paths,
+    reachability_audit,
     robots_audit,
     roster_fetch,
     tls_audit,
@@ -206,6 +209,47 @@ def cmd_entities(_: argparse.Namespace) -> None:
     )
 
 
+def cmd_reachability(args: argparse.Namespace) -> None:
+    hostnames = build.discover_hostnames()
+    if args.apex_only:
+        hostnames = sorted({entities.apex_of(host) for host in hostnames})
+    document = reachability_audit.collect(hostnames, timeout=args.timeout)
+    print(
+        json.dumps(
+            {
+                "path": str(reachability_audit.DEFAULT_OUTPUT),
+                "hostnames": document["requested_hostname_count"],
+                "resolved": document["resolved_hostname_count"],
+                "addresses": document["address_count"],
+            },
+            indent=2,
+        )
+    )
+
+
+def cmd_rdap(args: argparse.Namespace) -> None:
+    path = reachability_audit.DEFAULT_OUTPUT
+    cached = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+    addresses = sorted({record.get("address") for record in cached.get("addresses", []) if record.get("address")})
+    if args.addresses:
+        addresses = sorted(set(addresses) | set(args.addresses))
+    if not addresses:
+        raise SystemExit("No addresses found; run `govweb reachability` first")
+    result = ip_registry.collect(addresses, timeout=args.timeout)
+    print(json.dumps({"path": str(ip_registry.DEFAULT_OUTPUT), "observed": result["observed_address_count"]}, indent=2))
+
+
+def cmd_globalping(args: argparse.Namespace) -> None:
+    document = globalping.collect(
+        args.targets,
+        countries=args.locations,
+        kind=args.type,
+        limit=args.limit,
+        delay=args.delay,
+    )
+    print(json.dumps({"path": str(globalping.DEFAULT_OUTPUT), "observations": len(document["observations"])}, indent=2))
+
+
 def cmd_build(_: argparse.Namespace) -> None:
     info = build.build()
     print(json.dumps({"generated_at": info["generated_at"], "artifacts": len(info["files"])}, indent=2))
@@ -282,6 +326,24 @@ def main(argv: list[str] | None = None) -> int:
         help="classify every apex hostname into an owning public body (writes entities.json)",
     )
 
+    reachability = sub.add_parser(
+        "reachability",
+        help="passive DNS + TCP reachability + inverse DNS (writes reachability observations)",
+    )
+    reachability.add_argument("--timeout", type=float, default=reachability_audit.DEFAULT_TIMEOUT)
+    reachability.add_argument("--apex-only", action="store_true", help="probe apex hostnames only")
+
+    rdap = sub.add_parser("rdap", help="RDAP registry attribution for observed addresses")
+    rdap.add_argument("addresses", nargs="*", help="extra addresses to look up")
+    rdap.add_argument("--timeout", type=float, default=ip_registry.DEFAULT_TIMEOUT)
+
+    gp = sub.add_parser("globalping", help="multi-vantage measurements through Globalping")
+    gp.add_argument("targets", nargs="+", help="hostnames or addresses to measure")
+    gp.add_argument("--type", default="http", choices=("http", "ping", "dns", "traceroute", "mtr"))
+    gp.add_argument("--locations", nargs="+", default=list(globalping.DEFAULT_LOCATIONS))
+    gp.add_argument("--limit", type=int, default=1)
+    gp.add_argument("--delay", type=float, default=globalping.DEFAULT_DELAY)
+
     sample = sub.add_parser("sample", help="create the deterministic observation sample")
     sample.add_argument("--size", type=int, default=20)
 
@@ -308,6 +370,9 @@ def main(argv: list[str] | None = None) -> int:
         "discover-mofaga": cmd_discover_mofaga,
         "attribute": cmd_attribute,
         "entities": cmd_entities,
+        "reachability": cmd_reachability,
+        "rdap": cmd_rdap,
+        "globalping": cmd_globalping,
         "sample": cmd_sample,
         "collect": cmd_collect,
         "build": cmd_build,

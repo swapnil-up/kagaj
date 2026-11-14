@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "report_type": "govweb_reconciliation",
-  "generated_at": "2026-11-09T00:19:13.825376+00:00",
+  "generated_at": "2026-11-14T13:44:11.402547+00:00",
   "roster": {
     "records": 753,
     "official_total": 753,
@@ -227,6 +227,21 @@
       "id": "local_entity_ids_match_attribution",
       "status": "pass",
       "detail": "712 local-level entity ids against 712 attributed ids"
+    },
+    {
+      "id": "entity_hosting_covers_every_apex",
+      "status": "pass",
+      "detail": "1187 entity_hosting apexes against 1187 discovered apexes"
+    },
+    {
+      "id": "reachability_states_are_in_enum",
+      "status": "pass",
+      "detail": "unexpected reachability states: []"
+    },
+    {
+      "id": "reachability_covers_every_discovered_hostname",
+      "status": "pass",
+      "detail": "2327 reachability hostnames against 2327 discovered hostnames"
     },
     {
       "id": "sample_within_declared_limit",

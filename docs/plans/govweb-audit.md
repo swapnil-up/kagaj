@@ -126,6 +126,32 @@ with the same evidence discipline as attribution.
    report hosting/availability/dependency by `owner_scope` and `owner_type`
    first, then by district only as a secondary cut. The 753 local levels stop
    being the frame and become one lens among several.
+6. **Reachability and operators (done, 2026-11-09).** `reachability` resolves
+   every discovered hostname and opens one TCP connection per address/port;
+   `rdap` names each address's registry holder. `entity_hosting.csv.gz` joins
+   entity -> addresses -> operator -> reachability. Whole-space result:
+   284 reachable, 783 `timeout`, 98 `no_dns`; local levels 150/577/31.
+7. **Multi-vantage via Globalping (done, 2026-11-09).** `globalping` issues
+   ordinary measurements from named countries through the public probe network.
+   One probe is a second Nepali ISP (Kathmandu, AS45424, Himalayan Online
+   Services). `103.69.124.140` and `103.69.127.8` time out from NP, IN and DE;
+   the failure follows the destination, not the observer. A designed, repeated
+   sample and a second owned vantage remain for Phase 2.
+
+## Phase 3 conclusions (2026-11-09)
+
+- Whole `.gov.np` (1,187 apexes) is now joined: owner type/scope, addresses,
+  RDAP operators, reachability. The municipal slice is one lens.
+- Two addresses on DOIT's block (`103.69.124.140`, `103.69.127.8`) carry the
+  majority of local-level apexes and accept no TCP on 80/443 from three
+  independent vantages.
+- The estate's reachability is also inconsistent by vantage (`103.69.127.59`
+  and `.124.56` reset from some probes), so failure mode, not just reachability,
+  is a datum.
+- Current TLS is Let's Encrypt with no organizational identity; certificate
+  subject cannot classify entities.
+- CT is stale and crt.sh cannot refresh it; certificate-timeline work waits on a
+  Cert Spotter refresh.
 
 ## Phase 2 — measurement and analysis
 

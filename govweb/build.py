@@ -60,6 +60,9 @@ RAW_ARTIFACTS = (
     "observations/dns_mail_observations.json",
     "observations/third_party_scripts.json",
     "observations/robots_observations.json",
+    "observations/reachability_observations.json",
+    "observations/rdap_observations.json",
+    "observations/globalping_observations.json",
 )
 
 
@@ -290,6 +293,241 @@ def build_entities() -> dict[str, Any]:
         "evidence_note",
     ]
     return write_csv_gz(DATASET_DIR / "entities.csv.gz", header, rows)
+
+
+def _tcp_state(states: dict[str, dict], port: int) -> str:
+    entry = states.get(str(port))
+    return entry.get("state", "") if isinstance(entry, dict) else ""
+
+
+def _load_reachability() -> dict[str, Any]:
+    document = _load("observations/reachability_observations.json") or {}
+    return document if isinstance(document, dict) else {}
+
+
+def build_reachability() -> dict[str, Any]:
+    document = _load_reachability()
+    addresses = {
+        record.get("address"): record
+        for record in document.get("addresses", [])
+        if isinstance(record, dict) and record.get("address")
+    }
+    rows = []
+    for record in document.get("hostnames", []):
+        if not isinstance(record, dict):
+            continue
+        hostname = record.get("hostname") or ""
+        if not record.get("addresses"):
+            rows.append(
+                (
+                    hostname,
+                    _apex(hostname),
+                    "",
+                    record.get("dns_status") or "no_answer",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    record.get("observed_at") or "",
+                )
+            )
+            continue
+        for address in record.get("addresses", []) or []:
+            address_record = addresses.get(address, {})
+            tcp = {
+                str(entry.get("port")): entry
+                for entry in address_record.get("tcp", []) or []
+                if isinstance(entry, dict)
+            }
+            rows.append(
+                (
+                    hostname,
+                    _apex(hostname),
+                    address,
+                    record.get("dns_status") or "",
+                    _tcp_state(tcp, 80),
+                    _tcp_state(tcp, 443),
+                    (tcp.get("80") or {}).get("ms", ""),
+                    (tcp.get("443") or {}).get("ms", ""),
+                    address_record.get("ptr") or "",
+                    record.get("observed_at") or "",
+                )
+            )
+    header = [
+        "hostname",
+        "apex_hostname",
+        "address",
+        "dns_status",
+        "tcp_80",
+        "tcp_443",
+        "tcp_80_ms",
+        "tcp_443_ms",
+        "ptr",
+        "observed_at",
+    ]
+    return write_csv_gz(DATASET_DIR / "reachability.csv.gz", header, rows)
+
+
+def build_operators() -> dict[str, Any]:
+    document = _load("observations/rdap_observations.json") or {}
+    ptr_by_address = {
+        record.get("address"): record.get("ptr") or ""
+        for record in _load_reachability().get("addresses", [])
+        if isinstance(record, dict) and record.get("address")
+    }
+    rows = []
+    for record in document.get("observations", []) if isinstance(document, dict) else []:
+        if not isinstance(record, dict):
+            continue
+        rows.append(
+            (
+                record.get("address") or "",
+                ptr_by_address.get(record.get("address"), ""),
+                record.get("name") or "",
+                record.get("handle") or "",
+                record.get("registrant_handle") or "",
+                record.get("country") or "",
+                record.get("type") or "",
+                record.get("cidr") or "",
+                record.get("remarks") or "",
+                record.get("observed_at") or "",
+            )
+        )
+    header = [
+        "address",
+        "ptr",
+        "operator",
+        "handle",
+        "registrant_handle",
+        "country",
+        "allocation_type",
+        "cidr",
+        "remarks",
+        "observed_at",
+    ]
+    return write_csv_gz(DATASET_DIR / "operators.csv.gz", header, rows)
+
+
+def build_entity_hosting() -> dict[str, Any]:
+    entities = _load("entities.json") or {}
+    entity_records = entities.get("records", []) if isinstance(entities, dict) else []
+    reachability = _load_reachability()
+    hostnames = {
+        record.get("hostname"): record
+        for record in reachability.get("hostnames", [])
+        if isinstance(record, dict) and record.get("hostname")
+    }
+    address_records = {
+        record.get("address"): record
+        for record in reachability.get("addresses", [])
+        if isinstance(record, dict) and record.get("address")
+    }
+    rdap = _load("observations/rdap_observations.json") or {}
+    operators = {
+        record.get("address"): record
+        for record in (rdap.get("observations", []) if isinstance(rdap, dict) else [])
+        if isinstance(record, dict) and record.get("address")
+    }
+    rows = []
+    for entity in entity_records:
+        if not isinstance(entity, dict):
+            continue
+        apex = entity.get("apex_hostname") or ""
+        host = hostnames.get(apex, {})
+        addresses = host.get("addresses", []) or []
+        states = set()
+        operator_names = set()
+        for address in addresses:
+            address_record = address_records.get(address, {})
+            for entry in address_record.get("tcp", []) or []:
+                if isinstance(entry, dict) and entry.get("state"):
+                    states.add(entry["state"])
+            operator = operators.get(address, {})
+            if operator.get("name"):
+                operator_names.add(str(operator["name"]))
+        if "open" in states:
+            reachability_state = "reachable"
+        elif "refused" in states:
+            reachability_state = "refused"
+        elif "timeout" in states:
+            reachability_state = "timeout"
+        elif addresses:
+            reachability_state = "unknown"
+        else:
+            reachability_state = "no_dns"
+        rows.append(
+            (
+                apex,
+                entity.get("owner_label") or "",
+                entity.get("owner_type") or "unknown",
+                entity.get("owner_scope") or "unknown",
+                entity.get("local_level_id") or "",
+                ";".join(addresses),
+                ";".join(sorted(operator_names)),
+                reachability_state,
+                entity.get("method") or "",
+                entity.get("evidence_url") or "",
+                host.get("observed_at") or "",
+            )
+        )
+    header = [
+        "apex_hostname",
+        "owner_label",
+        "owner_type",
+        "owner_scope",
+        "local_level_id",
+        "addresses",
+        "operators",
+        "reachability_state",
+        "owner_method",
+        "owner_evidence_url",
+        "observed_at",
+    ]
+    return write_csv_gz(DATASET_DIR / "entity_hosting.csv.gz", header, rows)
+
+
+def build_globalping() -> dict[str, Any]:
+    document = _load("observations/globalping_observations.json") or {}
+    rows = []
+    for record in document.get("observations", []) if isinstance(document, dict) else []:
+        if not isinstance(record, dict):
+            continue
+        rows.append(
+            (
+                record.get("target") or "",
+                record.get("measurement_type") or "",
+                record.get("requested_country") or "",
+                record.get("country") or "",
+                record.get("city") or "",
+                record.get("asn") or "",
+                record.get("network") or "",
+                record.get("status_code") if record.get("status_code") is not None else "",
+                record.get("resolved_address") or "",
+                record.get("tcp_ms") if record.get("tcp_ms") is not None else "",
+                record.get("tls_ms") if record.get("tls_ms") is not None else "",
+                record.get("total_ms") if record.get("total_ms") is not None else "",
+                record.get("raw_output") or "",
+                record.get("observed_at") or "",
+            )
+        )
+    header = [
+        "target",
+        "measurement_type",
+        "requested_country",
+        "country",
+        "city",
+        "asn",
+        "network",
+        "status_code",
+        "resolved_address",
+        "tcp_ms",
+        "tls_ms",
+        "total_ms",
+        "raw_output",
+        "observed_at",
+    ]
+    return write_csv_gz(DATASET_DIR / "globalping.csv.gz", header, rows)
 
 
 def build_attribution() -> dict[str, Any]:
@@ -595,6 +833,10 @@ def build() -> dict[str, Any]:
         ("sites.csv.gz", build_sites),
         ("roster.csv.gz", build_roster),
         ("entities.csv.gz", build_entities),
+        ("entity_hosting.csv.gz", build_entity_hosting),
+        ("reachability.csv.gz", build_reachability),
+        ("operators.csv.gz", build_operators),
+        ("globalping.csv.gz", build_globalping),
         ("attribution.csv.gz", build_attribution),
         ("hosting.csv.gz", build_hosting),
         ("dns_mail.csv.gz", build_dns_mail),

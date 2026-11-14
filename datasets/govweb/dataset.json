@@ -4,7 +4,7 @@
   "title": "Nepal .gov.np web-infrastructure observations",
   "status": "experimental",
   "description": "Passive observations of Nepal's public-sector web infrastructure: the canonical local-level roster, the Certificate Transparency hostname inventory, an evidence-bearing hostname-to-local-level attribution, and per-hostname hosting, DNS, TLS and HTTP behaviour. The unit of record is a hostname, not a local level, because a hostname can belong to an office the roster does not contain; attribution to a local level is a separate join whose method and evidence URL are recorded on every row. Collection uses ordinary public requests only and never scans ports, probes for vulnerabilities, or bypasses robots.txt.",
-  "grain": "one row per hostname per observation (hosting, DNS, TLS, HTTP headers, robots, scripts); the roster table is one row per local level, the attribution table one row per local level with its linked hostname (empty when unresolved), and the sites table one row per discovered hostname",
+  "grain": "one row per hostname per observation (hosting, DNS, TLS, HTTP headers, robots, scripts, reachability); the roster table is one row per local level, the attribution table one row per level-to-hostname link (an unresolved level appears once with an empty hostname; 47 levels carry a second alias hostname), the entities table one row per apex hostname, the entity_hosting table one row per apex joining owner type to addresses, RDAP operators and reachability, and the sites table one row per discovered hostname",
   "coverage": {
     "start": "2026-11-05",
     "end": "2026-11-09",
@@ -52,6 +52,30 @@
       "role": "canonical",
       "format": "csv.gz",
       "description": "One row per discovered apex hostname with its classified owning public body, owner type and scope, method and evidence; unknown when no committed source names an owner."
+    },
+    {
+      "path": "entity_hosting.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "The entity-typed evidence-bearing join: one row per apex with owner type/scope, resolved addresses, RDAP operators and an observed reachability state (reachable, timeout, refused, no_dns, unknown)."
+    },
+    {
+      "path": "reachability.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "One row per hostname-address with DNS status, one TCP state per port 80/443, latency, inverse DNS and the observation time."
+    },
+    {
+      "path": "operators.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "One row per observed address with its RDAP allocation holder, registrant handle, country, allocation range and inverse DNS."
+    },
+    {
+      "path": "globalping.csv.gz",
+      "role": "canonical",
+      "format": "csv.gz",
+      "description": "Multi-vantage reachability measurements executed through the public Globalping probe network, with the probe country, ASN, network and per-request timings."
     },
     {
       "path": "roster.csv.gz",
@@ -206,6 +230,24 @@
       "format": "json"
     },
     {
+      "path": "observations/reachability_observations.json",
+      "role": "raw",
+      "format": "json",
+      "description": "Passive DNS resolution, one TCP connect per address/port and inverse DNS for the discovered hostnames; a live observation committed because it cannot be reproduced byte-for-byte."
+    },
+    {
+      "path": "observations/rdap_observations.json",
+      "role": "raw",
+      "format": "json",
+      "description": "RDAP allocation metadata for every observed address, naming the registry holder rather than inferring an operator."
+    },
+    {
+      "path": "observations/globalping_observations.json",
+      "role": "raw",
+      "format": "json",
+      "description": "Multi-vantage reachability measurements from the public Globalping probe network, including probe location, ASN and network."
+    },
+    {
       "path": "audit_report.json",
       "role": "report",
       "format": "json"
@@ -219,7 +261,7 @@
   },
   "verification": {
     "status": "partial",
-    "method": "roster reconciled against the official 753 local levels after adjudicating 12 extra records; every active local level is either attributed or explicitly unresolved; attributed hostnames are unique, end in .gov.np, and appear in a committed discovery source; manual rejections stay unlinked and acceptances stay applied; every mapped row carries method, evidence URL and decision date; every discovered apex hostname carries an entity classification, unknown-typed rows carry no guessed method, and local-level entity ids reconcile with the attribution; observation hostnames are checked against the discovery inventory",
+    "method": "roster reconciled against the official 753 local levels after adjudicating 12 extra records; every active local level is either attributed or explicitly unresolved; attributed hostnames are unique, end in .gov.np, and appear in a committed discovery source; manual rejections stay unlinked and acceptances stay applied; every mapped row carries method, evidence URL and decision date; every discovered apex hostname carries an entity classification, unknown-typed rows carry no guessed method, and local-level entity ids reconcile with the attribution; every entity_hosting row joins to an entity and a reachability state; observation hostnames are checked against the discovery inventory",
     "report": "reconciliation.json"
   },
   "pipeline": {
@@ -229,6 +271,9 @@
       "python -m govweb.cli discover-ct",
       "python -m govweb.cli attribute",
       "python -m govweb.cli entities",
+      "python -m govweb.cli reachability",
+      "python -m govweb.cli rdap",
+      "python -m govweb.cli globalping kathmandu.gov.np aadarshakotwalmun.gov.np --locations NP IN DE",
       "python -m govweb.cli sample",
       "python -m govweb.cli collect",
       "python -m govweb.cli report",

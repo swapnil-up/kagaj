@@ -27,6 +27,10 @@ Read `audit_summary.md` and `reconciliation.json` before using any figure.
 |---|---|
 | `sites.csv.gz` | a discovered `.gov.np` hostname |
 | `entities.csv.gz` | a discovered apex hostname and its classified owning public body, or `unknown` |
+| `entity_hosting.csv.gz` | an apex with its owner type, addresses, RDAP operators and observed reachability |
+| `reachability.csv.gz` | one row per hostname-address, plus one row per unresolved hostname |
+| `operators.csv.gz` | an observed address with its RDAP allocation holder |
+| `globalping.csv.gz` | one multi-vantage probe result from the public Globalping network |
 | `roster.csv.gz` | a local level as declared by the OAG API |
 | `attribution.csv.gz` | a local level with its linked hostname, or an unresolved local level with an empty hostname |
 | `hosting.csv.gz` | one hosting observation of one hostname |
@@ -84,6 +88,26 @@ discovered universe (1,187 apexes):
 apex is counted rather than guessed. Those 409 apexes are the queue for the
 Phase 2 root-title and certificate-subject collection.
 
+Whole-space reachability (one vantage, 2026-11-09), joined onto the entity layer
+in `entity_hosting.csv.gz`:
+
+| Reachability state | Apexes |
+|---|---:|
+| `reachable` (a port open) | 284 |
+| `timeout` | 783 |
+| `no_dns` | 98 |
+| `unknown` | 21 |
+| `refused` | 1 |
+
+For local levels specifically: 150 reachable, 577 `timeout`, 31 `no_dns`. The
+`localbody_directory` names 761 hostnames; 727 resolve; those resolve into
+**12 IPv4 addresses**, 98.6% inside `103.69.0.0/16`, and the single address
+`103.69.124.140` carries 421 of them. RDAP names the holders: `DOITGON-NP`
+(Department of Information Technology) on `103.69.124.0–103.69.127.255`,
+`NITC-NP` (National Information Technology Center) on `202.45.144.0/22`. A
+timeout is a reachability observation from one vantage, not proof that a site is
+down; see the multi-vantage note below.
+
 The roster is 12 records larger than the official count. `roster_adjudication.json`
 records each excluded record with a status (`superseded`, `duplicate` or
 `misplaced`), the superseding roster id, and evidence. `reconciliation.json`
@@ -123,15 +147,28 @@ re-checks the arithmetic rather than deleting rows to force a match.
    government owner type. A description like "football club" is left `unknown`;
    so is any apex with no committed source. Every classified row keeps the owner
    label, type, scope, method, evidence URL and evidence note.
-5. **Sample.** `python -m govweb.cli sample` takes the lexicographically first
+5. **Reachability.** `python -m govweb.cli reachability` resolves every discovered
+   hostname with the system resolver, opens one TCP connection per distinct
+   address on ports 80 and 443, and records inverse DNS. A timeout is stored as
+   an observation, never as proof of availability.
+6. **Operators.** `python -m govweb.cli rdap` resolves every observed address to
+   its registry allocation holder through public RDAP, so concentration names an
+   organization rather than an IP.
+7. **Multi-vantage.** `python -m govweb.cli globalping` issues ordinary
+   measurements from named countries through the public Globalping probe
+   network, giving a second Nepali ISP and regional/intercontinental controls
+   without owning a probe. To measure from a host you own on a different path,
+   `python -m govweb.multivantage_probe --label nepal-worldlink` prints the same
+   evidence as JSON.
+8. **Sample.** `python -m govweb.cli sample` takes the lexicographically first
    unique hostnames from the discovered inventory. Hostnames are never
    synthesized. The sample predates attribution and is not municipality-weighted.
-6. **Collection.** `python -m govweb.cli collect` performs one observation per
+9. **Collection.** `python -m govweb.cli collect` performs one observation per
    hostname per collector, with a 7-day per-host cache and atomic incremental
    persistence. Network failures are retained as observations.
-7. **Analysis.** `python -m govweb.cli report` reads only committed artifacts
+10. **Analysis.** `python -m govweb.cli report` reads only committed artifacts
    and performs no network requests.
-8. **Fingerprint.** `python -m govweb.cli build` writes the tidy CSVs and
+11. **Fingerprint.** `python -m govweb.cli build` writes the tidy CSVs and
    `build.json`; `python -m govweb.cli verify` writes `reconciliation.json`.
 
 ## Interpretation rules
@@ -143,6 +180,10 @@ re-checks the arithmetic rather than deleting rows to force a match.
   `method` and `evidence_url` before treating a link as authoritative.
 - An entity type is a source agreement too. `unknown` means no committed source
   names an owner, never that the site is private or unofficial.
+- A `timeout` is one vantage's reachability observation at one time. It is not
+  proof that a site is down, and it is never published as a per-municipality
+  failure list. Read `globalping.csv.gz` and `docs/govweb-findings.md` before
+  making any availability claim.
 - Unresolved local levels mean the sources did not supply a usable hostname. They
   are not evidence that the local level has no website.
 - Country-level geolocation is approximate. It does not establish physical server
@@ -159,7 +200,15 @@ re-checks the arithmetic rather than deleting rows to force a match.
   `docs/plans/govweb-audit.md` replaces it with a tiered sample drawn from the
   attributed universe.
 - The live TLS collection has not run, so `tls.csv.gz` is header-only. The
-  analyzer reports TLS as unavailable and assigns it no score.
+  analyzer reports TLS as unavailable and assigns it no score. A separate live
+  TLS pass is recorded in `docs/govweb-findings.md` but not yet committed here.
+- `reachability.csv.gz` is a single-vantage observation. It is complemented by
+  `globalping.csv.gz`, a three-country sample (one of them a second Nepali ISP),
+  but neither is a designed, repeated census; do not read a `timeout` as proof
+  that a named site is down.
+- The committed CT source is a stale 2011–2018 snapshot and crt.sh is no longer
+  returning current data for the full-domain query; certificate-timeline
+  analysis needs a Cert Spotter (or equivalent) refresh.
 - 60% of the pilot sample disallows the crawler in `robots.txt`, so script
   inventory is available for only a permissive minority; this selection bias is
   structural and must be reported with any script finding.

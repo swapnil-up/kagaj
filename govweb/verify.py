@@ -206,6 +206,7 @@ def verify() -> dict[str, Any]:
     active_ids = {str(record.get("municipality_id")) for record in active_roster}
 
     apex_hosts: set[str] = set()
+    site_hosts: set[str] = set()
     sites_path = DATASET_DIR / "sites.csv.gz"
     if sites_path.is_file():
         import csv
@@ -216,6 +217,9 @@ def verify() -> dict[str, Any]:
                 apex = _norm_host(row.get("apex_hostname"))
                 if apex:
                     apex_hosts.add(apex)
+                host = _norm_host(row.get("hostname"))
+                if host:
+                    site_hosts.add(host)
 
     source_hosts = {
         str(host).lower().rstrip(".")
@@ -462,6 +466,49 @@ def verify() -> dict[str, Any]:
         "local_entity_ids_match_attribution",
         local_entity_ids == attributed_ids,
         f"{len(local_entity_ids)} local-level entity ids against {len(attributed_ids)} attributed ids",
+        severity="fail",
+    )
+    hosting_path = DATASET_DIR / "entity_hosting.csv.gz"
+    hosting_apexes: set[str] = set()
+    hosting_states: Counter = Counter()
+    if hosting_path.is_file():
+        import csv
+        import gzip
+
+        with gzip.open(hosting_path, "rt", encoding="utf-8", newline="") as handle:
+            for row in csv.DictReader(handle):
+                apex = _norm_host(row.get("apex_hostname"))
+                if apex:
+                    hosting_apexes.add(apex)
+                    hosting_states[row.get("reachability_state", "")] += 1
+    check(
+        "entity_hosting_covers_every_apex",
+        bool(hosting_apexes) and hosting_apexes == apex_hosts,
+        f"{len(hosting_apexes)} entity_hosting apexes against {len(apex_hosts)} discovered apexes",
+        severity="fail",
+    )
+    invalid_states = sorted(set(hosting_states) - {"reachable", "refused", "timeout", "no_dns", "unknown", ""})
+    check(
+        "reachability_states_are_in_enum",
+        not invalid_states,
+        f"unexpected reachability states: {invalid_states}",
+        severity="fail",
+    )
+    reachability_path = DATASET_DIR / "reachability.csv.gz"
+    reachability_hosts: set[str] = set()
+    if reachability_path.is_file():
+        import csv
+        import gzip
+
+        with gzip.open(reachability_path, "rt", encoding="utf-8", newline="") as handle:
+            for row in csv.DictReader(handle):
+                host = _norm_host(row.get("hostname"))
+                if host:
+                    reachability_hosts.add(host)
+    check(
+        "reachability_covers_every_discovered_hostname",
+        bool(reachability_hosts) and reachability_hosts == site_hosts,
+        f"{len(reachability_hosts)} reachability hostnames against {len(site_hosts)} discovered hostnames",
         severity="fail",
     )
     check(

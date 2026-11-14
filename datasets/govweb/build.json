@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-09T00:19:13.673136+00:00",
-  "git_revision": "2bed065620172c976e4e2fce77ce3880a8865ec8",
+  "generated_at": "2026-11-14T13:38:24.089530+00:00",
+  "git_revision": "ec660982b4e7f1c6c661e7f47402dccebc0f6b42",
   "files": {
     "sites.csv.gz": {
       "rows": 2837,
@@ -16,6 +16,26 @@
       "rows": 1187,
       "bytes": 22715,
       "sha256": "0ff9dc1811eb1ea9145d4ea2b993afc806edb20748a0e0109b5e568e9dc712a9"
+    },
+    "entity_hosting.csv.gz": {
+      "rows": 1187,
+      "bytes": 24008,
+      "sha256": "d5399fd8cf3bd1588c8de0e23a4f437714280e809d326167490cace17a091584"
+    },
+    "reachability.csv.gz": {
+      "rows": 2854,
+      "bytes": 46166,
+      "sha256": "efd9ab04e11949c85bdbbccf87331d065065324579cafd1d2e483d1e50b7f654"
+    },
+    "operators.csv.gz": {
+      "rows": 216,
+      "bytes": 9408,
+      "sha256": "63b77ca5f6bf1bc1329d9f3811bd0d57a157a6a8eebe2ed6dd0caddc90588cd9"
+    },
+    "globalping.csv.gz": {
+      "rows": 12,
+      "bytes": 714,
+      "sha256": "4efdb9a757c1dc8076062e446c48ab9787f5f5db3df9d620ddc3314797f15f7e"
     },
     "attribution.csv.gz": {
       "rows": 802,
@@ -127,6 +147,18 @@
     "observations/robots_observations.json": {
       "bytes": 783185,
       "sha256": "3f7a1928a0d194c0f8135c5b9fd0a7f3b6164b72630ba34af2c5725a0daa85a9"
+    },
+    "observations/reachability_observations.json": {
+      "bytes": 575460,
+      "sha256": "eaffdaa2eee5c787ec5b1a7c0973b2a041f5b2c7b0889a6959b89e4e7a834143"
+    },
+    "observations/rdap_observations.json": {
+      "bytes": 132159,
+      "sha256": "b6ee0db90633bf69460a29e0c137392a295579b1adf122e21ad26fd0102bba64"
+    },
+    "observations/globalping_observations.json": {
+      "bytes": 6541,
+      "sha256": "e82e39f84959fd81080099655b0cb3ff843710804096a6729b3d75b08c1ab0bf"
     },
     "audit_report.json": {
       "bytes": 947262,

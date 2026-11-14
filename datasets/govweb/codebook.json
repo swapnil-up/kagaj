@@ -124,6 +124,59 @@
       "confidence": "high, medium, low, or none, following the strength of the source description.",
       "evidence_url": "The exact source URL the classification is based on, or empty when unclassified.",
       "evidence_note": "Human-readable statement of the evidence or the reason the apex is unclassified."
+    },
+    "entity_hosting.csv.gz": {
+      "apex_hostname": "Registrable .gov.np name shared by the entity and its hostnames.",
+      "owner_label": "Owning organization name from the entity layer, or empty when unknown.",
+      "owner_type": "Entity owner type from entities.csv.gz.",
+      "owner_scope": "local, provincial, central, or unknown.",
+      "local_level_id": "Canonical roster municipality_id when the owner is a local level; empty otherwise.",
+      "addresses": "Semicolon-joined resolved addresses for the apex.",
+      "operators": "Semicolon-joined RDAP allocation holders covering those addresses.",
+      "reachability_state": "Observed state from this vantage: reachable (any port open), refused, timeout, no_dns, or unknown. A state is an observation, not proof of availability.",
+      "owner_method": "How the owner was classified: attribution:<method>, wikidata_p856, manual, or unclassified.",
+      "owner_evidence_url": "The source URL for the owner classification, or empty when unknown.",
+      "observed_at": "UTC ISO-8601 time of the resolution and TCP observation."
+    },
+    "reachability.csv.gz": {
+      "hostname": "Observed hostname.",
+      "apex_hostname": "Registrable .gov.np name of the hostname.",
+      "address": "One resolved address of the hostname, or empty when DNS returned no answer (one such row per unresolved hostname).",
+      "dns_status": "ok or no_answer from the system resolver; every discovered hostname appears at least once.",
+      "tcp_80": "TCP state on port 80: open, refused, timeout, or error.",
+      "tcp_443": "TCP state on port 443: open, refused, timeout, or error.",
+      "tcp_80_ms": "Round-trip milliseconds for the port-80 connect, when open.",
+      "tcp_443_ms": "Round-trip milliseconds for the port-443 connect, when open.",
+      "ptr": "Inverse DNS name of the address, or empty.",
+      "observed_at": "UTC ISO-8601 observation time."
+    },
+    "operators.csv.gz": {
+      "address": "Observed IPv4/IPv6 address.",
+      "ptr": "Inverse DNS name, or empty.",
+      "operator": "RDAP registry allocation holder name.",
+      "handle": "RDAP object handle.",
+      "registrant_handle": "RDAP registrant entity handle, when present.",
+      "country": "Registry country code of the allocation.",
+      "allocation_type": "RDAP allocation type, e.g. ALLOCATED PORTABLE or ASSIGNED PA.",
+      "cidr": "CIDR range(s) summarized from the allocation start and end addresses.",
+      "remarks": "RDAP remarks text, truncated.",
+      "observed_at": "UTC ISO-8601 observation time."
+    },
+    "globalping.csv.gz": {
+      "target": "Measured hostname or address.",
+      "measurement_type": "http, ping, dns, traceroute, or mtr.",
+      "requested_country": "Country requested for the probe.",
+      "country": "Country of the probe that answered.",
+      "city": "City of the probe.",
+      "asn": "Autonomous system number of the probe network.",
+      "network": "Network name of the probe.",
+      "status_code": "HTTP status code, when the measurement returned one.",
+      "resolved_address": "Address the probe resolved and connected to.",
+      "tcp_ms": "Probe-side TCP timing in milliseconds, when available.",
+      "tls_ms": "Probe-side TLS timing in milliseconds, when available.",
+      "total_ms": "Probe-side total timing in milliseconds.",
+      "raw_output": "Probe output, truncated; records the failure mode (for example a TCP timeout or a reset).",
+      "observed_at": "UTC ISO-8601 observation time."
     }
   },
   "enumerations": {
@@ -173,6 +226,19 @@
       "provincial",
       "central",
       "unknown"
+    ],
+    "reachability_state": [
+      "reachable",
+      "refused",
+      "timeout",
+      "no_dns",
+      "unknown"
+    ],
+    "tcp_state": [
+      "open",
+      "refused",
+      "timeout",
+      "error"
     ]
   }
 }

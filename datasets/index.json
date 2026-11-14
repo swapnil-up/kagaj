@@ -339,7 +339,7 @@
       "title": "Nepal .gov.np web-infrastructure observations",
       "status": "experimental",
       "description": "Passive observations of Nepal's public-sector web infrastructure: the canonical local-level roster, the Certificate Transparency hostname inventory, an evidence-bearing hostname-to-local-level attribution, and per-hostname hosting, DNS, TLS and HTTP behaviour. The unit of record is a hostname, not a local level, because a hostname can belong to an office the roster does not contain; attribution to a local level is a separate join whose method and evidence URL are recorded on every row. Collection uses ordinary public requests only and never scans ports, probes for vulnerabilities, or bypasses robots.txt.",
-      "grain": "one row per hostname per observation (hosting, DNS, TLS, HTTP headers, robots, scripts); the roster table is one row per local level, the attribution table one row per local level with its linked hostname (empty when unresolved), and the sites table one row per discovered hostname",
+      "grain": "one row per hostname per observation (hosting, DNS, TLS, HTTP headers, robots, scripts, reachability); the roster table is one row per local level, the attribution table one row per level-to-hostname link (an unresolved level appears once with an empty hostname; 47 levels carry a second alias hostname), the entities table one row per apex hostname, the entity_hosting table one row per apex joining owner type to addresses, RDAP operators and reachability, and the sites table one row per discovered hostname",
       "coverage": {
         "start": "2026-11-05",
         "end": "2026-11-09",
@@ -377,7 +377,7 @@
       ],
       "verification": {
         "status": "partial",
-        "method": "roster reconciled against the official 753 local levels after adjudicating 12 extra records; every active local level is either attributed or explicitly unresolved; attributed hostnames are unique, end in .gov.np, and appear in a committed discovery source; manual rejections stay unlinked and acceptances stay applied; every mapped row carries method, evidence URL and decision date; every discovered apex hostname carries an entity classification, unknown-typed rows carry no guessed method, and local-level entity ids reconcile with the attribution; observation hostnames are checked against the discovery inventory",
+        "method": "roster reconciled against the official 753 local levels after adjudicating 12 extra records; every active local level is either attributed or explicitly unresolved; attributed hostnames are unique, end in .gov.np, and appear in a committed discovery source; manual rejections stay unlinked and acceptances stay applied; every mapped row carries method, evidence URL and decision date; every discovered apex hostname carries an entity classification, unknown-typed rows carry no guessed method, and local-level entity ids reconcile with the attribution; every entity_hosting row joins to an entity and a reachability state; observation hostnames are checked against the discovery inventory",
         "report": "reconciliation.json"
       },
       "pipeline": {
@@ -387,6 +387,9 @@
           "python -m govweb.cli discover-ct",
           "python -m govweb.cli attribute",
           "python -m govweb.cli entities",
+          "python -m govweb.cli reachability",
+          "python -m govweb.cli rdap",
+          "python -m govweb.cli globalping kathmandu.gov.np aadarshakotwalmun.gov.np --locations NP IN DE",
           "python -m govweb.cli sample",
           "python -m govweb.cli collect",
           "python -m govweb.cli report",
@@ -434,8 +437,8 @@
         "fingerprints": [
           "build.json"
         ],
-        "generated_at": "2026-11-09T00:19:13.673136+00:00",
-        "commit": "2bed065620172c976e4e2fce77ce3880a8865ec8"
+        "generated_at": "2026-11-14T13:38:24.089530+00:00",
+        "commit": "ec660982b4e7f1c6c661e7f47402dccebc0f6b42"
       },
       "artifacts": [
         {
@@ -475,6 +478,95 @@
           "rows": 1187,
           "sha256": "0ff9dc1811eb1ea9145d4ea2b993afc806edb20748a0e0109b5e568e9dc712a9",
           "description": "One row per discovered apex hostname with its classified owning public body, owner type and scope, method and evidence; unknown when no committed source names an owner."
+        },
+        {
+          "path": "entity_hosting.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 24008,
+          "columns": [
+            "apex_hostname",
+            "owner_label",
+            "owner_type",
+            "owner_scope",
+            "local_level_id",
+            "addresses",
+            "operators",
+            "reachability_state",
+            "owner_method",
+            "owner_evidence_url",
+            "observed_at"
+          ],
+          "rows": 1187,
+          "sha256": "d5399fd8cf3bd1588c8de0e23a4f437714280e809d326167490cace17a091584",
+          "description": "The entity-typed evidence-bearing join: one row per apex with owner type/scope, resolved addresses, RDAP operators and an observed reachability state (reachable, timeout, refused, no_dns, unknown)."
+        },
+        {
+          "path": "reachability.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 46166,
+          "columns": [
+            "hostname",
+            "apex_hostname",
+            "address",
+            "dns_status",
+            "tcp_80",
+            "tcp_443",
+            "tcp_80_ms",
+            "tcp_443_ms",
+            "ptr",
+            "observed_at"
+          ],
+          "rows": 2854,
+          "sha256": "efd9ab04e11949c85bdbbccf87331d065065324579cafd1d2e483d1e50b7f654",
+          "description": "One row per hostname-address with DNS status, one TCP state per port 80/443, latency, inverse DNS and the observation time."
+        },
+        {
+          "path": "operators.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 9408,
+          "columns": [
+            "address",
+            "ptr",
+            "operator",
+            "handle",
+            "registrant_handle",
+            "country",
+            "allocation_type",
+            "cidr",
+            "remarks",
+            "observed_at"
+          ],
+          "rows": 216,
+          "sha256": "63b77ca5f6bf1bc1329d9f3811bd0d57a157a6a8eebe2ed6dd0caddc90588cd9",
+          "description": "One row per observed address with its RDAP allocation holder, registrant handle, country, allocation range and inverse DNS."
+        },
+        {
+          "path": "globalping.csv.gz",
+          "role": "canonical",
+          "format": "csv.gz",
+          "bytes": 714,
+          "columns": [
+            "target",
+            "measurement_type",
+            "requested_country",
+            "country",
+            "city",
+            "asn",
+            "network",
+            "status_code",
+            "resolved_address",
+            "tcp_ms",
+            "tls_ms",
+            "total_ms",
+            "raw_output",
+            "observed_at"
+          ],
+          "rows": 12,
+          "sha256": "4efdb9a757c1dc8076062e446c48ab9787f5f5db3df9d620ddc3314797f15f7e",
+          "description": "Multi-vantage reachability measurements executed through the public Globalping probe network, with the probe country, ASN, network and per-request timings."
         },
         {
           "path": "roster.csv.gz",
@@ -792,6 +884,30 @@
           "format": "json",
           "bytes": 783185,
           "sha256": "3f7a1928a0d194c0f8135c5b9fd0a7f3b6164b72630ba34af2c5725a0daa85a9"
+        },
+        {
+          "path": "observations/reachability_observations.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 575460,
+          "sha256": "eaffdaa2eee5c787ec5b1a7c0973b2a041f5b2c7b0889a6959b89e4e7a834143",
+          "description": "Passive DNS resolution, one TCP connect per address/port and inverse DNS for the discovered hostnames; a live observation committed because it cannot be reproduced byte-for-byte."
+        },
+        {
+          "path": "observations/rdap_observations.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 132159,
+          "sha256": "b6ee0db90633bf69460a29e0c137392a295579b1adf122e21ad26fd0102bba64",
+          "description": "RDAP allocation metadata for every observed address, naming the registry holder rather than inferring an operator."
+        },
+        {
+          "path": "observations/globalping_observations.json",
+          "role": "raw",
+          "format": "json",
+          "bytes": 6541,
+          "sha256": "e82e39f84959fd81080099655b0cb3ff843710804096a6729b3d75b08c1ab0bf",
+          "description": "Multi-vantage reachability measurements from the public Globalping probe network, including probe location, ASN and network."
         },
         {
           "path": "audit_report.json",
@@ -1170,8 +1286,8 @@
           "role": "primary",
           "format": "json",
           "pattern": "*.json",
-          "file_count": 240,
-          "bytes": 8515432,
+          "file_count": 252,
+          "bytes": 9951211,
           "description": "Structured record per document."
         },
         {
